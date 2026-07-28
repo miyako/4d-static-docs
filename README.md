@@ -15,5 +15,6 @@ wget --mirror \
       --adjust-extension \
       --page-requisites \
       --no-parent \
+      --no-host-directories \
       http://localhost:3000/docs/
 ```
