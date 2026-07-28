@@ -18,3 +18,6 @@ wget --mirror \
       --no-host-directories \
       http://localhost:3000/docs/
 ```
+
+> [!NOTE]
+> Links are converted post fetch. Transitional files have absolute links.
