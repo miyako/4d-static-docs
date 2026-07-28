@@ -6,7 +6,7 @@ Static local copy of developer.4d.com
 - create a new folder "server" (or any name)
 - in a new shell, set current directory
 - `git clone https://github.com/4d/docs.git`
-- switch to branch `gh-pages`
+- `git checkout gh-pages`
 - `npx serve ./`
 - open `http://localhost:3000/docs` in browser to confirm the site is running
 - create a new folder "mirror" (or any name)
