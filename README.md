@@ -1,7 +1,7 @@
 # 4d-static-docs
 Static local copy of developer.4d.com
 
-## Create a static local copy of developer.4d.com
+## How to create a static local copy of developer.4d.com
 
 - create a new folder "server" (or any name)
 - in a new shell, set current directory
