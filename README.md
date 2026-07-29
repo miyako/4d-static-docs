@@ -3,6 +3,7 @@
 - create a new folder "server" (or any name)
 - in a new shell, set current directory
 - `git clone https://github.com/4d/docs.git`
+- `git fetch origin gh-pages`
 - `git checkout gh-pages`
 - `npx serve ./`
 - open `http://localhost:3000/docs` in browser to confirm the site is running
@@ -14,5 +15,9 @@ wget --mirror \
       --adjust-extension \
       --page-requisites \
       --no-parent \
+      --no-host-directories \
       http://localhost:3000/docs/
 ```
+
+> [!NOTE]
+> Links are converted post fetch. Transitional files have absolute links.
