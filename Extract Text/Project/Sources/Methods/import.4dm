@@ -4,14 +4,34 @@
 var $homeFolder : 4D:C1709.Folder
 $homeFolder:=Folder:C1567(fk home folder:K87:24).folder(".GGUF")
 
-var $provider; $model : Text
+var $provider; $model; $prefix : Text
 $provider:="llama.cpp"
-$model:="LFM2.5-Embedding-350M"
 var $modelFile : 4D:C1709.File
-$modelFile:=$homeFolder.file("LiquidAI/LFM2.5-Embedding-350M-Q8_0.gguf")
-/*
-the tokenizer takes time to load so do it once
-*/
+var $tokens_length; $dimensions : Integer
+var $overlap_ratio : Real
+
+Case of 
+	: (True:C214)
+		
+		$model:="bge-m3"
+		$modelFile:=$homeFolder.file("bge-m3/bge-m3-Q8_0.gguf")
+		$tokens_length:=8100
+		$dimensions:=1024
+		$prefix:=""
+		$overlap_ratio:=0.09
+		
+	: (False:C215)
+		
+		$model:="LFM2.5-Embedding-350M"
+		$modelFile:=$homeFolder.file("LiquidAI/LFM2.5-Embedding-350M-Q8_0.gguf")
+		$tokens_length:=30000
+		$dimensions:=1024
+		$prefix:="document: "
+		$overlap_ratio:=0
+		
+End case 
+
+//the tokenizer takes time to load so do it once
 cs:C1710.Global.me.loadTokenizer($modelFile)
 
 var $DRYRUN : Boolean
@@ -20,7 +40,7 @@ $DRYRUN:=False:C215
 var $client : cs:C1710.AIKit.OpenAI
 $client:=cs:C1710.AIKit.OpenAI.new({baseURL: "http://127.0.0.1:8080/v1"})
 var $params : cs:C1710.AIKit.OpenAIEmbeddingsParameters
-$params:=cs:C1710.AIKit.OpenAIEmbeddingsParameters.new({dimensions: 1024})
+$params:=cs:C1710.AIKit.OpenAIEmbeddingsParameters.new({dimensions: $dimensions})
 
 var $docSrc : 4D:C1709.Folder
 $docSrc:=Folder:C1567(Folder:C1567("/PACKAGE/").platformPath; fk platform path:K87:2).parent.folder("mirror/docs")
@@ -79,8 +99,8 @@ For each ($folder; $folders)
 			var $task; $extract : Object
 			$task:={file: $file; \
 				text_as_tokens: False:C215; \
-				tokens_length: 30000; \
-				overlap_ratio: 0; \
+				tokens_length: $tokens_length; \
+				overlap_ratio: $overlap_ratio; \
 				unique_values_only: False:C215; \
 				pooling_mode: Extract Pooling Mode CLS}
 			
@@ -94,15 +114,15 @@ For each ($folder; $folders)
 				For each ($input; $extract.input)
 					Case of 
 						: ($language="en")
-							$anchor:="On this page\n"
+							$anchor:="On this page"
 						: ($language="es")
-							$anchor:="En esta página\n"
+							$anchor:="En esta página"
 						: ($language="pt")
-							$anchor:="Nesta página\n"
+							$anchor:="Nesta página"
 						: ($language="fr")
-							$anchor:="On this page\n"
+							$anchor:="On this page"
 						: ($language="ja")
-							$anchor:="このページ上で\n"
+							$anchor:="このページ上で"
 					End case 
 					If ($first)
 						$first:=False:C215
@@ -112,8 +132,8 @@ For each ($folder; $folders)
 							continue
 						End if 
 					End if 
-					$input:=Substring:C12($input; $pos+Length:C16($anchor))
-					$sources.push({input: "document: "+$input; file: $file; text: $input})
+					$input:=Substring:C12($input; $pos+Length:C16($anchor)+1)
+					$sources.push({input: $prefix+$input; file: $file; text: $input})
 				End for each 
 			Else 
 				TRACE:C157
