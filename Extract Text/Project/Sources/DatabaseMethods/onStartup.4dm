@@ -28,9 +28,16 @@ var $ini : Collection
 $ini:=[]
 $ini.push("version = 1")
 
+/*
 $ini.push("[LFM2.5-Embedding-350M]")
 $ini.push("model = "+$homeFolder.file("LiquidAI/LFM2.5-Embedding-350M-Q8_0.gguf").path)
 $ini.push("pooling = cls")
+$max_position_embeddings:=30000
+*/
+$ini.push("[bge-m3]")
+$ini.push("model = "+$homeFolder.file("bge-m3/bge-m3-Q8_0.gguf").path)
+$ini.push("pooling = cls")
+$max_position_embeddings:=8192
 
 $port:=8080
 $folder:=$homeFolder.folder("llama-"+String:C10($port))
@@ -38,13 +45,6 @@ $folder:=$homeFolder.folder("llama-"+String:C10($port))
 $iniFile:=$folder.file("models.ini")
 $iniFile.setText($ini.join("\n"))
 
-$max_position_embeddings:=30000
-/*
-batches memory
-   2    757 MB
-   4   1.43 GB
-   8   2.83 GB
-*/
 
 $batch_size:=$max_position_embeddings
 $ubatch_size:=$max_position_embeddings
