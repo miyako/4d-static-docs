@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>rag-search :: mcp console</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #131a22;
+    --line: #22303c;
+    --text: #d7dde3;
+    --dim: #6b7c8c;
+    --ok: #4fd1a5;
+    --err: #ef6f6f;
+    --accent: #4fb8ff;
+    --mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 32px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header { margin-bottom: 24px; }
+  .brand { color: var(--dim); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  h1 { font-size: 18px; margin: 4px 0 0; font-weight: 600; color: var(--text); }
+  .status-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 12px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--dim); flex-shrink: 0; }
+  .dot.ok { background: var(--ok); box-shadow: 0 0 6px var(--ok); }
+  .dot.err { background: var(--err); box-shadow: 0 0 6px var(--err); }
+  .dot.pending { background: var(--accent); animation: pulse 1s infinite ease-in-out; }
+  @keyframes pulse { 50% { opacity: 0.3; } }
+  #statusText { color: var(--dim); }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .panel h2 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--dim);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  label { display: block; font-size: 11px; color: var(--dim); margin-bottom: 4px; }
+  .row { display: grid; grid-template-columns: 1fr 100px 120px; gap: 10px; margin-bottom: 12px; }
+  input, select {
+    width: 100%;
+    background: #0a0f14;
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 8px 10px;
+    border-radius: 4px;
+  }
+  input:focus, select:focus { outline: none; border-color: var(--accent); }
+  .checkrow { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
+  .checkrow input { width: auto; }
+  .checkrow label { margin: 0; color: var(--text); font-size: 12px; }
+
+  button {
+    background: var(--accent);
+    color: #06121d;
+    border: none;
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+  button:hover:not(:disabled) { filter: brightness(1.1); }
+
+  pre {
+    background: #0a0f14;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 12px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 12px;
+    margin: 0;
+    max-height: 340px;
+    overflow-y: auto;
+  }
+  .result-item {
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+  }
+  .result-item:last-child { border-bottom: none; }
+  .result-url { color: var(--accent); word-break: break-all; }
+  .result-sim { color: var(--ok); font-size: 11px; margin-top: 2px; }
+  .empty { color: var(--dim); font-style: italic; }
+  .err-box { color: var(--err); }
+  .endpoint-input { margin-bottom: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">mcp / streamable-http</div>
+    <h1>rag-search test console</h1>
+    <div class="status-row">
+      <div class="dot" id="statusDot"></div>
+      <span id="statusText">not connected</span>
+    </div>
+  </header>
+
+  <div class="panel">
+    <h2>Connection</h2>
+    <div class="endpoint-input">
+      <label for="endpoint">Server URL</label>
+      <input id="endpoint" value="http://localhost:8080/mcp">
+    </div>
+    <button id="connectBtn">Connect</button>
+  </div>
+
+  <div class="panel">
+    <h2>search()</h2>
+    <div class="row">
+      <div>
+        <label for="query">query</label>
+        <input id="query" value="how to write text" placeholder="search text">
+      </div>
+      <div>
+        <label for="lang">language</label>
+        <select id="lang">
+          <option>en</option><option>fr</option><option>es</option><option>pt</option><option>ja</option>
+        </select>
+      </div>
+      <div>
+        <label for="k">k</label>
+        <input id="k" type="number" value="5" min="1" max="50">
+      </div>
+    </div>
+    <div class="checkrow">
+      <input type="checkbox" id="fullText">
+      <label for="fullText">full_text</label>
+    </div>
+    <button id="searchBtn" disabled>Run search</button>
+  </div>
+
+  <div class="panel">
+    <h2>Results</h2>
+    <div id="results" class="empty">connect, then run a search to see results here.</div>
+  </div>
+
+  <div class="panel">
+    <h2>Raw log</h2>
+    <pre id="log">—</pre>
+  </div>
+
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let sessionId = null;
+let connected = false;
+
+function setStatus(state, text) {
+  $('statusDot').className = 'dot ' + state;
+  $('statusText').textContent = text;
+}
+
+function log(label, obj) {
+  const el = $('log');
+  const line = `[${new Date().toLocaleTimeString()}] ${label}\n${typeof obj === 'string' ? obj : JSON.stringify(obj, null, 2)}\n\n`;
+  el.textContent = (line + el.textContent).slice(0, 8000);
+}
+
+// streamable-http responses come back as SSE-formatted text: "event: message\ndata: {...}\n\n"
+// this pulls out the JSON payload from that envelope.
+function parseSSE(rawText) {
+  const lines = rawText.split('\n');
+  for (const line of lines) {
+    if (line.startsWith('data:')) {
+      return JSON.parse(line.slice(5).trim());
+    }
+  }
+  // not SSE-wrapped, might be plain JSON
+  return JSON.parse(rawText);
+}
+
+async function rpc(url, method, params, extraHeaders = {}) {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json, text/event-stream',
+    ...extraHeaders,
+  };
+  if (sessionId) headers['mcp-session-id'] = sessionId;
+
+  const body = JSON.stringify({ jsonrpc: '2.0', id: Date.now(), method, params });
+  const res = await fetch(url, { method: 'POST', headers, body });
+
+  const returnedSession = res.headers.get('mcp-session-id');
+  if (returnedSession) sessionId = returnedSession;
+
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}: ${text}`);
+  }
+  if (!text.trim()) return null; // e.g. notifications get empty 202 response
+  return parseSSE(text);
+}
+
+async function connect() {
+  const url = $('endpoint').value.trim();
+  setStatus('pending', 'connecting…');
+  $('connectBtn').disabled = true;
+  sessionId = null;
+
+  try {
+    const initRes = await rpc(url, 'initialize', {
+      protocolVersion: '2024-11-05',
+      capabilities: {},
+      clientInfo: { name: 'mcp-console', version: '1.0' },
+    });
+    log('initialize', initRes);
+
+    // per spec, tell the server initialization is complete
+    await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json, text/event-stream',
+        'mcp-session-id': sessionId,
+      },
+      body: JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' }),
+    });
+
+    const toolsRes = await rpc(url, 'tools/list', {});
+    log('tools/list', toolsRes);
+
+    const toolNames = (toolsRes?.result?.tools || []).map(t => t.name).join(', ') || 'none found';
+    setStatus('ok', `connected · session ${sessionId?.slice(0, 8)}… · tools: ${toolNames}`);
+    connected = true;
+    $('searchBtn').disabled = false;
+  } catch (err) {
+    setStatus('err', 'connection failed — see raw log');
+    log('ERROR', err.message);
+    connected = false;
+  } finally {
+    $('connectBtn').disabled = false;
+  }
+}
+
+async function runSearch() {
+  const url = $('endpoint').value.trim();
+  const query = $('query').value;
+  const language = $('lang').value;
+  const k = parseInt($('k').value, 10) || 5;
+  const full_text = $('fullText').checked;
+
+  $('searchBtn').disabled = true;
+  $('results').innerHTML = '<span class="empty">searching…</span>';
+
+  try {
+    const res = await rpc(url, 'tools/call', { name: 'search', arguments: { query, language, k, full_text } });
+    log('tools/call search', res);
+
+    const content = res?.result?.content || [];
+    if (content.length === 0) {
+      $('results').innerHTML = '<span class="empty">no results.</span>';
+      return;
+    }
+
+    $('results').innerHTML = content.map(item => {
+      let parsed;
+      try { parsed = JSON.parse(item.text); } catch { parsed = { url: item.text }; }
+      const simPct = parsed.similarity != null ? (parsed.similarity * 100).toFixed(1) + '%' : '';
+      const textBlock = parsed.text ? `<div style="margin-top:6px; color:#a9b4bf;">${parsed.text}</div>` : '';
+      return `<div class="result-item">
+        <div class="result-url">${parsed.url ?? ''}</div>
+        <div class="result-sim">similarity: ${simPct}</div>
+        ${textBlock}
+      </div>`;
+    }).join('');
+  } catch (err) {
+    $('results').innerHTML = `<div class="err-box">${err.message}</div>`;
+    log('ERROR', err.message);
+  } finally {
+    $('searchBtn').disabled = false;
+  }
+}
+
+$('connectBtn').addEventListener('click', connect);
+$('searchBtn').addEventListener('click', runSearch);
+</script>
+</body>
+</html>
