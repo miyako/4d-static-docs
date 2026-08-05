@@ -49,9 +49,9 @@ batches memory
 $batch_size:=$max_position_embeddings
 $ubatch_size:=$max_position_embeddings
 
-$batches:=8
-$threads:=8
-$threads_batch:=8
+$batches:=4
+$threads:=4
+$threads_batch:=4
 
 var $logFile : 4D:C1709.File
 $logFile:=$folder.file("llama.log")
