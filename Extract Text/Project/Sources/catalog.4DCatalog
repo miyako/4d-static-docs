@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="Extract Text" uuid="D9E9DA38D08C47FEAF14F2E645E5DFF9" collation_locale="en-gb">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Doc" uuid="F7FF5B177B7C41D68F13845E83132C32" id="1">
+		<field name="ID" uuid="5D3EDBF11DCD47D8A1CA36C2745044DD" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="embeddings" uuid="C86BCDE18C8A4518823D3C47F93FCA76" type="21" blob_switch_size="2147483647" id="2">
+			<field_extra class_id="4D.Vector"/>
+		</field>
+		<field name="URL" uuid="61F7848EEFD64C00AED060C82328B1C3" type="10" id="3"/>
+		<field name="version" uuid="F9AB0735AEC24593A6E6F2F28B0FAA09" type="10" limiting_length="5" id="4"/>
+		<field name="meta" uuid="EFA907878C964CD180C2BEDD73B32EFE" type="21" blob_switch_size="2147483647" id="5"/>
+		<field name="language" uuid="3090C1E9C8A4476F833817AE0232302D" type="10" limiting_length="2" id="6"/>
+		<field name="text" uuid="DFBE659E26A74D7F9B2C93C3B17BE158" type="10" id="7"/>
+		<primary_key field_name="ID" field_uuid="5D3EDBF11DCD47D8A1CA36C2745044DD"/>
+	</table>
+	<index kind="regular" uuid="083A6CC6F0C74E8A98EA525B66630156" type="3">
+		<field_ref uuid="EFA907878C964CD180C2BEDD73B32EFE" name="meta">
+			<table_ref uuid="F7FF5B177B7C41D68F13845E83132C32" name="Doc"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="250D5E9EAFB144A096A306B80E847ACB" type="3">
+		<field_ref uuid="3090C1E9C8A4476F833817AE0232302D" name="language">
+			<table_ref uuid="F7FF5B177B7C41D68F13845E83132C32" name="Doc"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="28EC9A349C8341319DFB1A434CC96228" type="7">
+		<field_ref uuid="5D3EDBF11DCD47D8A1CA36C2745044DD" name="ID">
+			<table_ref uuid="F7FF5B177B7C41D68F13845E83132C32" name="Doc"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="C0933E17E30F4E47B3F211A6854600D7" type="3">
+		<field_ref uuid="F9AB0735AEC24593A6E6F2F28B0FAA09" name="version">
+			<table_ref uuid="F7FF5B177B7C41D68F13845E83132C32" name="Doc"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="E92CD57FEEF54859A7711A439E9D02A0" type="1">
+		<field_ref uuid="61F7848EEFD64C00AED060C82328B1C3" name="URL">
+			<table_ref uuid="F7FF5B177B7C41D68F13845E83132C32" name="Doc"/>
+		</field_ref>
+	</index>
+	<base_extra>
+		<journal_file journal_file_enabled="false"/>
+	</base_extra>
+</base>
