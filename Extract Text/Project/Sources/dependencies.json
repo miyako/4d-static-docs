@@ -1,9 +1,5 @@
 {
 	"dependencies": {
-		"aikit": {
-			"github": "miyako/aikit",
-			"version": "^21.0.0"
-		},
 		"event": {
 			"github": "miyako/event",
 			"version": "^20.0.19"
@@ -19,6 +15,10 @@
 		"llama cpp": {
 			"github": "miyako/llama-cpp",
 			"version": "^20.5.12"
+		},
+		"4D AIKit": {
+			"github": "4d/4D-AIKit",
+			"version": "4d"
 		}
 	}
 }
