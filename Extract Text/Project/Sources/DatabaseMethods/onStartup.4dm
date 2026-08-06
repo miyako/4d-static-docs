@@ -15,6 +15,8 @@ $event.onResponse:=Formula:C1597(LOG EVENT:C667(Into 4D debug message:K38:5; Thi
 $event.onResponse:=Formula:C1597(MESSAGE:C88(This:C1470.file.fullName+":download complete"))
 $event.onTerminate:=Formula:C1597(LOG EVENT:C667(Into 4D debug message:K38:5; (["process"; $1.pid; "terminated!"].join(" "))))
 
+cs:C1710.Global.me.modelName:="LFM2.5-Embedding-350M"
+
 var $folder : 4D:C1709.Folder
 var $path; $mmproj; $cache_type_k; $cache_type_v : Text
 var $n_gpu_layers; $threads; $batches; $ubatch_size; \
@@ -28,23 +30,45 @@ var $ini : Collection
 $ini:=[]
 $ini.push("version = 1")
 
+Case of 
+	: (cs:C1710.Global.me.modelName="LFM2.5-Embedding-350M")
+		Use (cs:C1710.Global.me)
+			cs:C1710.Global.me.modelFile:=$homeFolder.file("LiquidAI/LFM2.5-Embedding-350M-Q8_0.gguf")
+			cs:C1710.Global.me.prefix:=""
+			cs:C1710.Global.me.dimensions:=1024
+			cs:C1710.Global.me.pooling_mode:=Extract Pooling Mode CLS
+			cs:C1710.Global.me.max_position_embeddings:=8192
+		End use 
+		$ini.push("[LFM2.5-Embedding-350M]")
+		$ini.push("model = "+cs:C1710.Global.me.modelFile.path)
+		$ini.push("pooling = cls")
 /*
-$ini.push("[LFM2.5-Embedding-350M]")
-$ini.push("model = "+$homeFolder.file("LiquidAI/LFM2.5-Embedding-350M-Q8_0.gguf").path)
-$ini.push("pooling = cls")
-$max_position_embeddings:=30000
+config.json says "max_position_embeddings": 128000
+https://huggingface.co/LiquidAI/LFM2.5-Encoder-350M/blob/main/config.json
+		
+but blog says 8192
+https://huggingface.co/blog/LiquidAI/lfm2-5-encoders
 */
-$ini.push("[bge-m3]")
-$ini.push("model = "+$homeFolder.file("bge-m3/bge-m3-Q8_0.gguf").path)
-$ini.push("pooling = cls")
-$max_position_embeddings:=8192
+	: (cs:C1710.Global.me.modelName="BGE-M3")
+		Use (cs:C1710.Global.me)
+			cs:C1710.Global.me.modelFile:=$homeFolder.file("bge-m3/bge-m3-Q8_0.gguf")
+			cs:C1710.Global.me.prefix:="document: "
+			cs:C1710.Global.me.dimensions:=1024
+			cs:C1710.Global.me.pooling_mode:=Extract Pooling Mode CLS
+			cs:C1710.Global.me.max_position_embeddings:=8192
+		End use 
+		$ini.push("[bge-m3]")
+		$ini.push("model = "+cs:C1710.Global.me.modelFile.path)
+		$ini.push("pooling = cls")
+End case 
+
+$max_position_embeddings:=cs:C1710.Global.me.max_position_embeddings
 
 $port:=8080
 $folder:=$homeFolder.folder("llama-"+String:C10($port))
 
 $iniFile:=$folder.file("models.ini")
 $iniFile.setText($ini.join("\n"))
-
 
 $batch_size:=$max_position_embeddings
 $ubatch_size:=$max_position_embeddings

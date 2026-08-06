@@ -7,29 +7,18 @@ $homeFolder:=Folder:C1567(fk home folder:K87:24).folder(".GGUF")
 var $provider; $model; $prefix : Text
 $provider:="llama.cpp"
 var $modelFile : 4D:C1709.File
-var $tokens_length; $dimensions : Integer
+var $tokens_length; $dimensions; $pooling_mode : Integer
 var $overlap_ratio : Real
 
-Case of 
-	: (True:C214)
-		
-		$model:="bge-m3"
-		$modelFile:=$homeFolder.file("bge-m3/bge-m3-Q8_0.gguf")
-		$tokens_length:=8100
-		$dimensions:=1024
-		$prefix:=""
-		$overlap_ratio:=0.09
-		
-	: (False:C215)
-		
-		$model:="LFM2.5-Embedding-350M"
-		$modelFile:=$homeFolder.file("LiquidAI/LFM2.5-Embedding-350M-Q8_0.gguf")
-		$tokens_length:=30000
-		$dimensions:=1024
-		$prefix:="document: "
-		$overlap_ratio:=0
-		
-End case 
+$model:=cs:C1710.Global.me.modelName
+$modelFile:=cs:C1710.Global.me.modelFile
+$prefix:=cs:C1710.Global.me.prefix
+$dimensions:=cs:C1710.Global.me.dimensions
+$pooling_mode:=cs:C1710.Global.me.pooling_mode
+
+$overlap_ratio:=0.09
+//BOS, CLS, one extra for safety (especially BGE-M3)
+$tokens_length:=cs:C1710.Global.me.max_position_embeddings-Length:C16($prefix)-3
 
 //the tokenizer takes time to load so do it once
 cs:C1710.Global.me.loadTokenizer($modelFile)
@@ -102,7 +91,7 @@ For each ($folder; $folders)
 				tokens_length: $tokens_length; \
 				overlap_ratio: $overlap_ratio; \
 				unique_values_only: False:C215; \
-				pooling_mode: Extract Pooling Mode CLS}
+				pooling_mode: $pooling_mode}
 			
 			$extract:=Extract(Extract Document HTML; Extract Output Collection; $task)
 			
