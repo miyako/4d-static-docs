@@ -2,8 +2,6 @@
 
 Tools for turning [developer.4d.com](https://developer.4d.com) into a fully offline, browsable copy of the docs, plus a local semantic-search (RAG) backend built from the same content.
 
-Repo: https://github.com/miyako/4d-static-docs
-
 ## Objectives
 
 1. **Static mirror** — generate a static HTML copy of the [4D docs GitHub Pages site](https://github.com/4d/docs) that can be browsed with no web server, i.e. by opening files directly from disk.
