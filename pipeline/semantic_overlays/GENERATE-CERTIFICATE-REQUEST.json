@@ -23,17 +23,17 @@
         },
         {
           "name": "codeArray",
-          "type": { "kind": "concrete", "name": "Integer" },
+          "type": { "kind": "concrete", "name": "Integer array" },
           "direction": "in",
           "optional": false,
-          "description": "Information code list"
+          "description": "Information code list -- confirmed an array (not a scalar Integer) by the doc syntax line 'codeArray : Integer array', synchronized element-for-element with nameArray."
         },
         {
           "name": "nameArray",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": { "kind": "concrete", "name": "Text array" },
           "direction": "in",
           "optional": false,
-          "description": "Name list"
+          "description": "Name list -- confirmed an array (not a scalar Text) by the doc syntax line 'nameArray : Text array', synchronized element-for-element with codeArray."
         }
       ],
       "semanticRole": "Generates, in certifRequest, a PKCS-format certificate request built from privKey and the code/name identity arrays, for submission to a certificate authority."

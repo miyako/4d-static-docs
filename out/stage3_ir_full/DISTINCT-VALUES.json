@@ -19,12 +19,12 @@
         {
           "name": "array",
           "type": {
-            "kind": "pseudo",
-            "name": "any"
+            "kind": "concrete",
+            "name": "Array"
           },
           "direction": "out",
           "optional": false,
-          "description": "Receives the distinct field values, sorted ascending using the field's index; must match aField's type (retyped if necessary, except Picture fields with a keyword index, which require a Text array)"
+          "description": "Receives the distinct field values, sorted ascending using the field's index; must match aField's type (retyped if necessary, except Picture fields with a keyword index, which require a Text array) -- confirmed a real array (not a pseudo/any placeholder) by the doc syntax line 'array : Array'."
         },
         {
           "name": "countArray",

@@ -9,17 +9,17 @@
       "params": [
         {
           "name": "groupNames",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": { "kind": "concrete", "name": "Text array" },
           "direction": "out",
           "optional": false,
-          "description": "Filled with group names as they appear in the Password editor window"
+          "description": "Filled with group names as they appear in the Password editor window -- confirmed an array (not a scalar Text) by the doc syntax line 'groupNames : Text array'."
         },
         {
           "name": "groupNumbers",
-          "type": { "kind": "concrete", "name": "Integer" },
+          "type": { "kind": "concrete", "name": "Integer array" },
           "direction": "out",
           "optional": false,
-          "description": "Filled, in sync with groupNames, with the corresponding unique group ID numbers"
+          "description": "Filled, in sync with groupNames, with the corresponding unique group ID numbers -- confirmed an array (not a scalar Integer) by the doc syntax line 'groupNumbers : Integer array'."
         }
       ],
       "semanticRole": "Fills groupNames and groupNumbers, in sync, with the names and unique IDs of every group in the Password editor."

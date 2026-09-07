@@ -1,0 +1,6 @@
+// overload 0
+Get menu item mark(1;1;1)
+// overload 0 union-sweep menu=Integer
+Get menu item mark(1;1;1)
+// overload 0 union-sweep menu=Text
+Get menu item mark("synthText";1;1)

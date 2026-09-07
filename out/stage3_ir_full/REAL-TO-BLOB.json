@@ -77,7 +77,16 @@
           "description": "If passed, append the Real value at the end of blob instead of writing at the start or at offset."
         }
       ],
-      "semanticRole": "Writes real into blob in the byte format/ordering selected by realFormat, either at the start of the BLOB, at a caller-supplied offset, or appended at the end."
+      "semanticRole": "Writes real into blob in the byte format/ordering selected by realFormat, either at the start of the BLOB, at a caller-supplied offset, or appended at the end.",
+      "jointConstraints": [
+        {
+          "params": [
+            "offset",
+            "*"
+          ],
+          "rule": "offset and '*' are mutually exclusive alternate tails of the call; at most one of them may be passed. If neither is passed, the value is written at the start of blob, overwriting its previous contents."
+        }
+      ]
     }
   ],
   "constraints": [

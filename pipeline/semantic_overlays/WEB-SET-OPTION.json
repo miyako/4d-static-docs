@@ -15,6 +15,18 @@
           "direction": "in",
           "optional": false,
           "description": "Which Web server setting to modify."
+        },
+        {
+          "name": "value",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Boolean" },
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Collection" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "New value for the selected option; accepted shape depends entirely on selector -- see discriminatedBy. Confirmed missing from the original draft by the LSP cross-check (tool4d rejected a selector-only call site with a parameter-count/type mismatch) and against the real doc syntax example \"WEB SET OPTION(Web debug log;wdl enable without body)\", which always passes two arguments."
         }
       ],
       "discriminatedBy": {

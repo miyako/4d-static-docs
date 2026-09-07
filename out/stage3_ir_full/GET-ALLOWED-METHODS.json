@@ -10,11 +10,11 @@
           "name": "methodsArray",
           "type": {
             "kind": "concrete",
-            "name": "Text"
+            "name": "Text array"
           },
           "direction": "out",
           "optional": false,
-          "description": "Filled with the names of methods authorized for use in formulas"
+          "description": "Filled with the names of methods authorized for use in formulas -- confirmed an array (not a scalar Text) by the doc syntax line 'methodsArray : Text array'."
         }
       ],
       "semanticRole": "Returns, in methodsArray, the names (or '@' wildcard groups) of methods currently authorized for use in formulas via SET ALLOWED METHODS."
