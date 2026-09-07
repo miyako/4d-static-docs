@@ -2,7 +2,7 @@
   "id": "LISTBOX-GET-TABLE-SOURCE",
   "displayName": "LISTBOX GET TABLE SOURCE",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -32,7 +32,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -41,7 +41,7 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -50,11 +50,15 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The LISTBOX GET TABLE SOURCE command can be used to find out the current source of the data displayed in the list box that is designated by the * and object parameters."
+      "semanticRole": "Fills tableNum (and optionally name/highlightName) with the current data source (main table, named selection, highlight set) of the list box, addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -73,7 +77,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -82,7 +86,7 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -91,11 +95,15 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The LISTBOX GET TABLE SOURCE command can be used to find out the current source of the data displayed in the list box that is designated by the * and object parameters."
+      "semanticRole": "Fills tableNum (and optionally name/highlightName) with the current data source (main table, named selection, highlight set) of the list box, addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

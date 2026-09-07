@@ -2,7 +2,7 @@
   "id": "KILL-WORKER",
   "displayName": "KILL WORKER",
   "kind": "classic_command",
-  "theme": "Process (Communications)",
+  "theme": "Process-Communications",
   "overloads": [
     {
       "params": [

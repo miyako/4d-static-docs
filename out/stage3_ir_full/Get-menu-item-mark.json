@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu number or menu reference (MenuRef)."
         },
         {
           "name": "menuItem",
@@ -28,7 +29,13 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
         },
         {
           "name": "process",
@@ -37,14 +44,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Process reference number; defaults to the current process if omitted."
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The Get menu item mark command returns the check mark of the menu item whose number or reference is passed in menu and whose item number is passed in menuItem ."
+      "semanticRole": "Get the current check mark character of a menu item."
     }
+  ],
+  "constraints": [
+    "If menu is a MenuRef (menu reference), the process parameter is unnecessary and is ignored if passed.",
+    "Returns an empty string if the menu item has no check mark, or if menuItem designates a hierarchical submenu."
   ]
 }

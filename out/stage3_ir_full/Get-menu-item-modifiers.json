@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
         },
         {
           "name": "menuItem",
@@ -28,7 +29,13 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
         },
         {
           "name": "process",
@@ -37,14 +44,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Process number."
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Integer"
-      },
-      "semanticRole": "The Get menu item modifiers command returns any additional modifier(s) associated with the standard shortcut of the menu item designated by the menu and menuItem parameters."
+      "semanticRole": "Get the additional modifier key(s) (Shift and/or Option/Alt) combined with a menu item's standard shortcut key."
     }
+  ],
+  "constraints": [
+    "If menu is a MenuRef (menu reference), the process parameter is unnecessary and is ignored if passed.",
+    "The additional modifiers (Shift = 512, Option/Alt = 2048, summed if both apply) can only be set/reported when a standard shortcut has already been assigned via SET MENU ITEM SHORTCUT; returns 0 if the item has no associated modifier key."
   ]
 }

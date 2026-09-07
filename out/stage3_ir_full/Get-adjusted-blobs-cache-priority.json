@@ -22,5 +22,9 @@
       },
       "semanticRole": "The Get adjusted blobs cache priority command returns the current adjusted cache priority value applied in cache by the cache manager for the aTable \"blobs\" data."
     }
+  ],
+  "constraints": [
+    "Only works in local mode (4D Server and 4D); cannot be used in 4D remote mode.",
+    "Intended for debugging purposes only."
   ]
 }

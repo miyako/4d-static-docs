@@ -1,0 +1,107 @@
+{
+  "theme": "List-Box",
+  "constraints": [
+    "If no minimum and/or maximum resizing limit has been set for the column (via LISTBOX SET COLUMN WIDTH), the corresponding minWidth/maxWidth parameter returns 0."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "minWidth and maxWidth are documented and arrow-marked ('\u2190') as values filled in by the command (the column's resizing limits), not inputs, even though the draft parser defaulted every parameter to direction:in based on syntax position alone.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "minWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      },
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the current width (in pixels) of the list box column or column header, and optionally fills minWidth/maxWidth with its resizing limits, addressed as an object-name string (via the leading '*' flag)."
+    },
+    {
+      "sourceIndices": [
+        1
+      ],
+      "note": "minWidth and maxWidth are documented and arrow-marked ('\u2190') as values filled in by the command (the column's resizing limits), not inputs, even though the draft parser defaulted every parameter to direction:in based on syntax position alone.",
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "minWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      },
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the current width (in pixels) of the list box column or column header, and optionally fills minWidth/maxWidth with its resizing limits, addressed as a direct Variable reference (no leading '*')."
+    }
+  ]
+}

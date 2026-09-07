@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Object"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "inout",
+          "optional": false,
+          "description": "In: object containing JSON pointers to resolve. Out: object with JSON pointers resolved (only if the result is an object)."
         },
         {
           "name": "options",
@@ -22,14 +23,22 @@
             "name": "Object"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Options for pointer resolution (rootFolder, merge)."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The JSON Resolve pointers command resolves all the JSON pointers found in the object , with regards to options settings (if any)."
+      "semanticRole": "Resolves every JSON pointer found in object (embedding/reusing referenced document fragments), updating object in place when the resolution result is itself an object."
     }
+  ],
+  "constraints": [
+    "If the resolution result is an object, the source object is updated in place with the resolved content; if the result is a scalar value instead, object is left untouched and the scalar is returned only via the function result's \"value\" property.",
+    "To keep an unmodified copy of the original object, copy it beforehand (e.g. with OB Copy).",
+    "options.rootFolder (Text) sets the absolute path used to resolve relative pointers; defaults to the database Resources folder.",
+    "options.merge (Boolean) merges objects with their pointer targets instead of replacing them; defaults to false.",
+    "The function result always contains: value (the resolution result), success (Boolean), and errors (a collection of {code, message, pointerURI, referredPath} objects when unsuccessful)."
   ]
 }

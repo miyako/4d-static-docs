@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "resType must be a 4-character resource type string.",
+    "If resFile is omitted, the resource is searched for across all currently open resource files; if passed, only that file is searched.",
+    "Returns 0 and sets the OK system variable to 0 if the resource does not exist.",
+    "The returned integer is a bit-field value: individual bits carry distinct meaning (see the resource attributes documentation) rather than a single scalar."
+  ]
+}

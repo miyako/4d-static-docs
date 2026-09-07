@@ -1,0 +1,24 @@
+{
+  "constraints": [
+    "Returns False if the table containing the field is in the Trash of the Explorer, even if the field number would otherwise be valid.",
+    "Useful for detecting field deletions, which leave gaps in the sequence of field numbers."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Tests, by table pointer, whether fieldNum designates a field that exists in the pointed-to table.",
+      "discriminatedBy": {
+        "param": "tablePtr",
+        "rule": "First parameter passed as a Pointer to the table."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Tests, by table number, whether fieldNum designates a field that exists in that table.",
+      "discriminatedBy": {
+        "param": "tableNum",
+        "rule": "First parameter passed as an Integer table number."
+      }
+    }
+  ]
+}

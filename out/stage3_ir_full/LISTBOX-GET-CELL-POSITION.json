@@ -2,7 +2,7 @@
   "id": "LISTBOX-GET-CELL-POSITION",
   "displayName": "LISTBOX GET CELL POSITION",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -50,7 +50,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -59,7 +59,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -68,11 +68,15 @@
             "kind": "concrete",
             "name": "Pointer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The LISTBOX GET CELL POSITION command returns the numbers of the column and the row that correspond to the location in the listbox (designated by * and object ) of the last mouse click, last selection made via the keyboa"
+      "semanticRole": "Fills column/row (and optionally colVar) with the cell corresponding to the last mouse click/keyboard selection, or to the X/Y mouse coordinates if passed, in the list box addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -109,7 +113,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -118,7 +122,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -127,11 +131,15 @@
             "kind": "concrete",
             "name": "Pointer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The LISTBOX GET CELL POSITION command returns the numbers of the column and the row that correspond to the location in the listbox (designated by * and object ) of the last mouse click, last selection made via the keyboa"
+      "semanticRole": "Fills column/row (and optionally colVar) with the cell corresponding to the last mouse click/keyboard selection, or to the X/Y mouse coordinates if passed, in the list box addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

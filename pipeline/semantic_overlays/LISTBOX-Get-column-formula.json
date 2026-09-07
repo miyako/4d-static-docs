@@ -1,0 +1,21 @@
+{
+  "theme": "List-Box",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the formula text associated with the list box column (empty string if none), addressed as an object-name string (via the leading '*' flag). Only meaningful for Current Selection/Named Selection/Collection or Entity Selection data sources.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns the formula text associated with the list box column (empty string if none), addressed as a direct Variable reference (no leading '*'). Only meaningful for Current Selection/Named Selection/Collection or Entity Selection data sources.",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      }
+    }
+  ]
+}

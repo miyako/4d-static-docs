@@ -35,7 +35,10 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Get menu title command returns the title of the menu whose number or reference is passed in menu."
+      "semanticRole": "Get the title text of a menu, addressed by menu number or reference, optionally scoped to a specific process's menu bar."
     }
+  ],
+  "constraints": [
+    "If menu is a MenuRef (menu reference), the process parameter is unnecessary and is ignored if passed."
   ]
 }

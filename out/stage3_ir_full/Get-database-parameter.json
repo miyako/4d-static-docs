@@ -30,7 +30,7 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
@@ -40,5 +40,12 @@
       },
       "semanticRole": "The Get database parameter command allows you to get the current value of a 4D database parameter."
     }
+  ],
+  "constraints": [
+    "aTable is optional; if omitted, the parameter is retrieved/set for the default table.",
+    "When the selector's value is a character string, it is returned via stringValue instead of (or in addition to) the numeric function result."
+  ],
+  "_needsReview": [
+    "selector accepts dozens of documented constants (each with its own scope/possible-values semantics, e.g. '4D Server timeout', 'Debug log recording', 'Direct2D status') that are not individually modeled here as an enum_ref -- the full table is very large and selector-specific behavior (e.g. some selectors are get-only) is left as prose in the doc, not encoded per-value."
   ]
 }

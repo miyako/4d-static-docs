@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, list is an object name (string); if omitted, list is a hierarchical list reference number."
         },
         {
           "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of list-type object (if '*' passed) or list reference number (if '*' omitted)."
         },
         {
           "name": "itemRef",
@@ -39,47 +47,24 @@
             }
           ],
           "direction": "in",
-          "optional": false
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The Get list item font command returns the current character font name of the item specified by the itemRef parameter of the list whose reference number or object name is passed in list ."
-    },
-    {
-      "params": [
-        {
-          "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "itemRef",
-          "type": [
+          "optional": false,
+          "sentinelValues": [
             {
-              "kind": "concrete",
-              "name": "Integer"
+              "value": 0,
+              "meaning": "the last item added to the list"
             },
             {
-              "kind": "pseudo",
-              "name": "Operator"
+              "value": "*",
+              "meaning": "the current item of the list"
             }
-          ],
-          "direction": "in",
-          "optional": false
+          ]
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The Get list item font command returns the current character font name of the item specified by the itemRef parameter of the list whose reference number or object name is passed in list ."
+      "semanticRole": "Get the current character font name of a hierarchical list item, addressed either by list reference number or by the form object name of the list's representation."
     }
+  ],
+  "constraints": [
+    "If you only use a single representation of the list in the form (or work with structural items rather than the current item), either syntax works; if several representations of the same list exist and the current item ('*' for itemRef) is used, the object-name syntax is required since each representation has its own current item.",
+    "If the object name matches several lists in the form (via the '@' wildcard), the command applies to the first one found."
   ]
 }

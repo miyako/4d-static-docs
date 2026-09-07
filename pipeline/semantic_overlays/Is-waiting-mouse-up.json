@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Must be called in the context of the current form object; intended for use together with the On Mouse Up form event (available for picture fields/variables).",
+    "Returns False once the parent window has lost focus before the mouse button was released, even if no mouse-up event has actually occurred yet -- use this to detect and recover from an object left indefinitely 'waiting' due to an interrupting external event (e.g. an alert dialog)."
+  ]
+}

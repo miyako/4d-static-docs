@@ -22,5 +22,8 @@
       },
       "semanticRole": "The Get file from pasteboard command returns the absolute pathname of a file included in a drag and drop operation."
     }
+  ],
+  "constraints": [
+    "Returns an empty string if there is no Xth file in the pasteboard."
   ]
 }

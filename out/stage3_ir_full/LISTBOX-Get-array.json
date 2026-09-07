@@ -2,7 +2,7 @@
   "id": "LISTBOX-Get-array",
   "displayName": "LISTBOX Get array",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -40,7 +40,11 @@
         "kind": "concrete",
         "name": "Pointer"
       },
-      "semanticRole": "Note: This command only works with array type list boxes."
+      "semanticRole": "Returns a pointer to the arrType array (style/color/background-color/row-control) associated with the list box or list box column, addressed as an object-name string (via the leading '*' flag). Array-type list boxes only.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -67,7 +71,11 @@
         "kind": "concrete",
         "name": "Pointer"
       },
-      "semanticRole": "Note: This command only works with array type list boxes."
+      "semanticRole": "Returns a pointer to the arrType array (style/color/background-color/row-control) associated with the list box or list box column, addressed as a direct Variable reference (no leading '*'). Array-type list boxes only.",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

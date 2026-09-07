@@ -1,0 +1,9 @@
+{
+  "constraints": [
+    "If folder is omitted, returns the pathname of the active 4D folder of the current application.",
+    "options is only taken into account when folder designates the '4D Client database folder' constant; it is ignored otherwise.",
+    "The optional * parameter only has an effect, when called from a component, for the 'Database folder', 'Database folder Unix syntax', and 'Current resources folder' constants (returning the host database's folder instead of the component's); it is ignored for all other folder values and when called from the host database.",
+    "When called from a remote 4D, the path returned is that of the remote machine, not of 4D Server.",
+    "Executing this command with the 'Current resources folder' or 'Logs folder' constant creates that folder if it does not already exist."
+  ]
+}

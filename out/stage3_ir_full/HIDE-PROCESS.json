@@ -18,5 +18,11 @@
       ],
       "semanticRole": "HIDE PROCESS hides all windows that belong to process ."
     }
+  ],
+  "constraints": [
+    "Hides all windows and the menu bar belonging to process; the process keeps executing while hidden, and is only made visible again by SHOW PROCESS. No-op if the process is already hidden.",
+    "The Debugger window is a special exception: if it needs to display while process is hidden, process is shown and becomes frontmost.",
+    "The Main Process and Cache Manager processes cannot be hidden with this command.",
+    "To keep a process's UI hidden from the moment it's created, call HIDE PROCESS as the first statement of the process method."
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "constraints": [
+    "userID must be a valid user ID number returned by GET USER LIST; otherwise error -9979 is generated (catchable via ON ERR CALL), or check first with Is user deleted.",
+    "password is obsolete and always returns an empty string; use the Validate password function to check a user's password.",
+    "nbLogin, lastLogin, and groupOwner are meaningful for binary databases only; they always return 0 (0 / 00/00/00 for lastLogin) in project databases."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        { "name": "userID", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": false },
+        { "name": "name", "type": { "kind": "concrete", "name": "Text" }, "direction": "out", "optional": false },
+        { "name": "startup", "type": { "kind": "concrete", "name": "Text" }, "direction": "out", "optional": false },
+        { "name": "password", "type": { "kind": "concrete", "name": "Text" }, "direction": "out", "optional": false },
+        { "name": "nbLogin", "type": { "kind": "concrete", "name": "Integer" }, "direction": "out", "optional": false },
+        { "name": "lastLogin", "type": { "kind": "concrete", "name": "Date" }, "direction": "out", "optional": false },
+        { "name": "memberships", "type": { "kind": "concrete", "name": "Integer array" }, "direction": "out", "optional": true },
+        { "name": "groupOwner", "type": { "kind": "concrete", "name": "Integer" }, "direction": "out", "optional": true }
+      ]
+    }
+  ]
+}

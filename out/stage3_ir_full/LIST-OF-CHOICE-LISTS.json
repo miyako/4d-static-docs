@@ -2,7 +2,7 @@
   "id": "LIST-OF-CHOICE-LISTS",
   "displayName": "LIST OF CHOICE LISTS",
   "kind": "classic_command",
-  "theme": "Hierarchical Lists",
+  "theme": "Hierarchical-Lists",
   "overloads": [
     {
       "params": [
@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,11 +21,11 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The LIST OF CHOICE LISTS command returns, in the synchronized numsArr and namesArr arrays, the numbers and names of the choice lists defined by the list editor in Design mode."
+      "semanticRole": "Fills numsArray and namesArray, as two synchronized output arrays, with the reference numbers and names of every choice list defined by the Design-mode list editor."
     }
   ]
 }

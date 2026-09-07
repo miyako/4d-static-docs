@@ -22,5 +22,9 @@
       },
       "semanticRole": "The Get pointer command returns a pointer to the process or interprocess variable whose name you pass in varName ."
     }
+  ],
+  "constraints": [
+    "varName may include array element subscripts (e.g. \"ArrName+\\\"{3}\\\"\" or, for 2D arrays, \"ArrName+\\\"{3}{5}\\\"\"), but variable-subscript expressions such as \"ArrName+\\\"{myVar}\\\"\" are not supported.",
+    "Use Field to get a pointer to a field, and Table to get a pointer to a table, instead of Get pointer."
   ]
 }

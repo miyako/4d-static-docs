@@ -20,7 +20,10 @@
         "kind": "concrete",
         "name": "Real"
       },
-      "semanticRole": "Int returns the integer portion of number ."
+      "semanticRole": "Returns the integer portion of number by truncation (not rounding)."
     }
+  ],
+  "constraints": [
+    "Truncates toward zero rather than flooring: a negative number is truncated away from zero (e.g. Int(-3.7) returns -3, not -4)."
   ]
 }

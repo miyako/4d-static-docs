@@ -1,0 +1,41 @@
+{
+  "constraints": [
+    "If menu is a MenuRef (menu reference), the process parameter is unnecessary and is ignored if passed.",
+    "The additional modifiers (Shift = 512, Option/Alt = 2048, summed if both apply) can only be set/reported when a standard shortcut has already been assigned via SET MENU ITEM SHORTCUT; returns 0 if the item has no associated modifier key."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Added the -1 sentinel value documented for menuItem.",
+      "semanticRole": "Get the additional modifier key(s) (Shift and/or Option/Alt) combined with a menu item's standard shortcut key.",
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
+        },
+        {
+          "name": "menuItem",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": -1, "meaning": "the last item added to menu" }
+          ]
+        },
+        {
+          "name": "process",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Process number."
+        }
+      ]
+    }
+  ]
+}

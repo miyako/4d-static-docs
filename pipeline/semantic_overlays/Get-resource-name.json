@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "resType must be a 4-character resource type string.",
+    "If resFile is omitted, the resource is searched for across all currently open resource files; if passed, only that file is searched.",
+    "Returns an empty string if the resource does not exist."
+  ]
+}

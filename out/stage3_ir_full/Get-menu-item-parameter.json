@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
         },
         {
           "name": "menuItem",
@@ -28,14 +29,19 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The Get menu item parameter command returns the custom character string associated with the menu item designated by the menu and menuItem parameters."
+      "semanticRole": "Get the custom character-string parameter previously attached to a menu item via SET MENU ITEM PARAMETER."
     }
+  ],
+  "constraints": [
+    "The custom parameter must have been set beforehand using the SET MENU ITEM PARAMETER command."
   ]
 }

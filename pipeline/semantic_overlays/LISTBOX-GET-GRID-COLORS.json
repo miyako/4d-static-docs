@@ -1,0 +1,120 @@
+{
+  "theme": "List-Box",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "Output parameters are documented and arrow-marked ('\u2190') as values filled in by the command, not inputs, even though the draft parser defaulted every parameter to direction:in based on syntax position alone; discriminatedBy/semanticRole also added to distinguish this overload from its Variable-addressed sibling.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "hColor",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "vColor",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "out",
+          "optional": false
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      },
+      "semanticRole": "Fills hColor/vColor with the RGB colors of the grid lines (format depends on the Text-vs-Integer type passed in each), in the list box addressed as an object-name string (via the leading '*' flag)."
+    },
+    {
+      "sourceIndices": [
+        1
+      ],
+      "note": "Output parameters are documented and arrow-marked ('\u2190') as values filled in by the command, not inputs, even though the draft parser defaulted every parameter to direction:in based on syntax position alone; discriminatedBy/semanticRole also added to distinguish this overload from its object-name-addressed sibling.",
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "hColor",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "vColor",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "out",
+          "optional": false
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      },
+      "semanticRole": "Fills hColor/vColor with the RGB colors of the grid lines (format depends on the Text-vs-Integer type passed in each), in the list box addressed as a direct Variable reference (no leading '*')."
+    }
+  ]
+}

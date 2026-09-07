@@ -38,7 +38,12 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Get indexed string command returns: Either one of the strings stored in the string list (\u201cSTR#\u201d) resource whose ID is passed in resID ."
+      "semanticRole": "Read a numbered string from a string-list ('STR#') resource by resource ID and string number, or the equivalent translated string from an open XLIFF file's trans-unit."
     }
+  ],
+  "constraints": [
+    "resID may also be the 'id' attribute of a 'group' element in an open XLIFF file, in which case strID must be the 'id' attribute of the corresponding 'trans-unit' element within that group.",
+    "If resFile is omitted, the first matching resource found in the resource files chain (or across all open XLIFF files) is returned; if resFile is passed, only that file is searched.",
+    "If the resource or the string is not found, an empty string is returned and the OK system variable is set to 0."
   ]
 }

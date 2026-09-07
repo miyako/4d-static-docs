@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table whose records to highlight; the table of the current form if omitted."
         },
         {
           "name": "setName",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of the set of records to highlight; the UserSet set if omitted."
         },
         {
           "name": "*",
@@ -33,35 +35,14 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, disables the automatic scroll of the list to reveal highlighted records."
         }
       ],
-      "semanticRole": "The HIGHLIGHT RECORDS command highlights records in a list form."
-    },
-    {
-      "params": [
-        {
-          "name": "setName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ]
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The HIGHLIGHT RECORDS command highlights records in a list form."
+      "semanticRole": "Highlights (visually selects) the records of a set (or the UserSet if setName is omitted) in a list form, without changing the current selection."
     }
+  ],
+  "constraints": [
+    "For an included subform, this command only has an effect if the subform's Selection Mode property is set to Multiple; otherwise use GOTO SELECTED RECORD to highlight a single line."
   ]
 }

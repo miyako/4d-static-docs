@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Prefer this over checking Record number = -3, since Is new record is guaranteed compatible with future 4D versions.",
+    "On 4D Server, within an On Validate form event, behavior differs by mode: in local mode returns False (record already considered created); in remote mode returns True because the record is created server-side but not yet sent to the client."
+  ]
+}

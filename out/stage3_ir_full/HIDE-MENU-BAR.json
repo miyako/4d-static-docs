@@ -8,5 +8,8 @@
       "params": [],
       "semanticRole": "The HIDE MENU BAR command makes the menu bar invisible."
     }
+  ],
+  "constraints": [
+    "No-op if the menu bar is already hidden."
   ]
 }

@@ -2,43 +2,32 @@
   "id": "HTTP-Parse-message",
   "displayName": "HTTP Parse message",
   "kind": "classic_command",
-  "theme": "HTTP",
+  "theme": "HTTP-Client",
   "overloads": [
     {
       "params": [
         {
           "name": "data",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Raw multipart/form-data HTTP message (a request or a response) to parse, as text or as a blob."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The HTTP Parse message command parses a multipart/form-data text or blob (HTTP \"response\" message) and extracts the content to an object."
-    },
-    {
-      "params": [
-        {
-          "name": "data",
-          "type": {
-            "kind": "concrete",
-            "name": "Blob"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Object"
-      },
-      "semanticRole": "The HTTP Parse message command parses a multipart/form-data text or blob (HTTP \"response\" message) and extracts the content to an object."
+      "semanticRole": "Parses a multipart/form-data HTTP message into a structured object, one property per part of the multipart data."
     }
   ]
 }

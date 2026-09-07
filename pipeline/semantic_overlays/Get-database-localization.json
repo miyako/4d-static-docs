@@ -1,0 +1,19 @@
+{
+  "constraints": [
+    "The optional * parameter is only useful when the command is called from a component: if passed, returns the language configuration of the host database; if omitted, returns the component database's own language configuration.",
+    "When called from a method of the host database, always returns the host database's language configuration regardless of *.",
+    "If languageType is omitted, returns the current/default language (Current localization, value 1)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "params": [
+        { "name": "languageType", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": true },
+        { "name": "*", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true }
+      ],
+      "returns": { "kind": "concrete", "name": "Text" },
+      "semanticRole": "Returns the database's default language, the language specified by languageType, or (with the standalone '*' syntax) the host database's language when called from a component.",
+      "note": "Doc lists 'Get database localization ( * )' as a second syntax line, but it is just the same overload called with languageType omitted and * passed; both source lines are one overload with two independent optional params."
+    }
+  ]
+}

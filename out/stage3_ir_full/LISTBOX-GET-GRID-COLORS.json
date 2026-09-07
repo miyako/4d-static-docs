@@ -2,7 +2,7 @@
   "id": "LISTBOX-GET-GRID-COLORS",
   "displayName": "LISTBOX GET GRID COLORS",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -38,7 +38,7 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -53,11 +53,15 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The LISTBOX GET GRID COLORS command returns the color of the horizontal and vertical lines making up the grid of the list box object designated by the object and * parameters."
+      "semanticRole": "Fills hColor/vColor with the RGB colors of the grid lines (format depends on the Text-vs-Integer type passed in each), in the list box addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -82,7 +86,7 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -97,11 +101,15 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The LISTBOX GET GRID COLORS command returns the color of the horizontal and vertical lines making up the grid of the list box object designated by the object and * parameters."
+      "semanticRole": "Fills hColor/vColor with the RGB colors of the grid lines (format depends on the Text-vs-Integer type passed in each), in the list box addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

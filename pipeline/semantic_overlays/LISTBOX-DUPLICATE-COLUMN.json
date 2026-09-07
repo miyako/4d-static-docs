@@ -1,0 +1,21 @@
+{
+  "theme": "List-Box",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Duplicates a list box column by programming (Application mode only, source form unmodified), addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Duplicates a list box column by programming (Application mode only, source form unmodified), addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
+    }
+  ]
+}

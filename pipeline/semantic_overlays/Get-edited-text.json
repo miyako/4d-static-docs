@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Behavior depends on the calling form event: during On Before Keystroke returns the text as it was before the last keystroke; during On After Keystroke or On After Edit returns the text including the last character entered.",
+    "Returns an empty string when used outside of a text-entry form-object context."
+  ]
+}

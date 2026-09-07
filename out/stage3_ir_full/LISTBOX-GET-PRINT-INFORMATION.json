@@ -2,7 +2,7 @@
   "id": "LISTBOX-GET-PRINT-INFORMATION",
   "displayName": "LISTBOX GET PRINT INFORMATION",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -47,11 +47,15 @@
               "name": "Boolean"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The LISTBOX GET PRINT INFORMATION command returns the current information relative to the printing of the list box object designated by the object and * parameters."
+      "semanticRole": "Fills info with the current print-related value selected by selector for the list box (meaningful only during a Print object print job), addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -85,11 +89,15 @@
               "name": "Boolean"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The LISTBOX GET PRINT INFORMATION command returns the current information relative to the printing of the list box object designated by the object and * parameters."
+      "semanticRole": "Fills info with the current print-related value selected by selector for the list box (meaningful only during a Print object print job), addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

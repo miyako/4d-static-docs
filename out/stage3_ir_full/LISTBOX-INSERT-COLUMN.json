@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
         },
         {
           "name": "colPosition",
@@ -33,7 +41,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Position the new column is inserted in front of; if greater than the total number of columns, the column is added last."
         },
         {
           "name": "colName",
@@ -42,7 +51,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the new column object."
         },
         {
           "name": "colVariable",
@@ -65,161 +75,73 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "For an array-type list box, the array (matching name required) to display in the column; for a selection list box, the field or variable evaluated per record; a Nil pointer is allowed in a dynamic context."
         },
         {
-          "name": "headerName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "headerVar",
-          "type": [
-            {
+          "contentParam": {
+            "name": "headerName",
+            "type": {
               "kind": "concrete",
-              "name": "Integer"
+              "name": "Text"
             },
-            {
-              "kind": "concrete",
-              "name": "Pointer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "footerName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
+            "direction": "in",
+            "optional": false,
+            "description": "Name of the column header object."
           },
-          "direction": "in",
-          "optional": true
+          "bindingParam": {
+            "name": "headerVar",
+            "type": [
+              {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              {
+                "kind": "concrete",
+                "name": "Pointer"
+              }
+            ],
+            "direction": "in",
+            "optional": false,
+            "description": "Column header variable (or a Nil pointer ->[] in a dynamic context)."
+          },
+          "description": "Names and binds the inserted column's header object/variable."
         },
         {
-          "name": "footerVar",
-          "type": [
-            {
+          "contentParam": {
+            "name": "footerName",
+            "type": {
               "kind": "concrete",
-              "name": "Variable"
+              "name": "Text"
             },
-            {
-              "kind": "concrete",
-              "name": "Pointer"
-            }
-          ],
-          "direction": "in",
-          "optional": true
+            "direction": "in",
+            "optional": true,
+            "description": "Column footer object name."
+          },
+          "bindingParam": {
+            "name": "footerVar",
+            "type": [
+              {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              {
+                "kind": "concrete",
+                "name": "Pointer"
+              }
+            ],
+            "direction": "in",
+            "optional": true,
+            "description": "Column footer variable."
+          },
+          "description": "Optional: names and binds the inserted column's footer object/variable."
         }
       ],
-      "semanticRole": "The LISTBOX INSERT COLUMN command inserts a column in the list box set by the object and * parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "colPosition",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "colName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "colVariable",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Array"
-            },
-            {
-              "kind": "concrete",
-              "name": "Field"
-            },
-            {
-              "kind": "concrete",
-              "name": "Variable"
-            },
-            {
-              "kind": "concrete",
-              "name": "Pointer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "headerName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "headerVar",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            },
-            {
-              "kind": "concrete",
-              "name": "Pointer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "footerName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "footerVar",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Variable"
-            },
-            {
-              "kind": "concrete",
-              "name": "Pointer"
-            }
-          ],
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The LISTBOX INSERT COLUMN command inserts a column in the list box set by the object and * parameters."
+      "semanticRole": "Inserts a new column, with its header and optional footer, into the designated list box; does nothing on the first column of a hierarchical-mode list box."
     }
+  ],
+  "constraints": [
+    "With a selection list box, colVariable must be a field or variable (not an array), and this content type requires the list box's Data Source to be Current Selection or Named Selection.",
+    "Does nothing if applied to the first column of a list box displayed in hierarchical mode."
   ]
 }

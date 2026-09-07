@@ -1,0 +1,66 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The docs render two syntax lines that differ only in whether the leading '*' is passed (selecting whether 'object' is an object-name string vs. a form variable reference). That's one semantic overload with an optional literal-symbol discriminator, not two independent overloads.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
+        },
+        {
+          "name": "rowPosition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Position at which the new row(s) are inserted."
+        },
+        {
+          "name": "numRows",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "default": "1 if omitted",
+          "description": "Number of rows to insert."
+        }
+      ],
+      "semanticRole": "Inserts one or more new rows at the given position in an array-based list box, extending all of the list box's column arrays."
+    }
+  ],
+  "constraints": [
+    "Only works with array-based list boxes; on a selection/entity-selection or collection list box it does nothing and sets OK to 0."
+  ]
+}

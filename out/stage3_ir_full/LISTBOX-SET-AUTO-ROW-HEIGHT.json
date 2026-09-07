@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
         },
         {
           "name": "selector",
@@ -33,7 +41,18 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Constant (List Box theme) selecting whether value sets the minimum or maximum automatic row height.",
+          "sentinelValues": [
+            {
+              "value": 32,
+              "meaning": "lk row min height"
+            },
+            {
+              "value": 33,
+              "meaning": "lk row max height"
+            }
+          ]
         },
         {
           "name": "value",
@@ -42,7 +61,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Minimum or maximum row height, in the unit given by the unit parameter."
         },
         {
           "name": "unit",
@@ -51,51 +71,24 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "Unit of the height value.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Height expressed as a number of pixels (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "Height expressed as a number of lines; 4D calculates line height from the font."
+            }
+          ]
         }
       ],
-      "semanticRole": "The LISTBOX SET AUTO ROW HEIGHT command allows you to set the minimum or maximum row height value in the list box object designated using the object and * parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "selector",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "value",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "unit",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The LISTBOX SET AUTO ROW HEIGHT command allows you to set the minimum or maximum row height value in the list box object designated using the object and * parameters."
+      "semanticRole": "Sets the minimum or maximum row height used in automatic row-height mode for an array or collection/entity-selection list box."
     }
+  ],
+  "constraints": [
+    "Only takes effect when the list box is in automatic row-height mode (array or collection/entity-selection list boxes); otherwise it has no effect."
   ]
 }

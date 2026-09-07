@@ -2,7 +2,7 @@
   "id": "LISTBOX-DUPLICATE-COLUMN",
   "displayName": "LISTBOX DUPLICATE COLUMN",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -116,7 +116,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "The LISTBOX DUPLICATE COLUMN command duplicates the column designated by the object and * parameters by programming in the context of the form being executed (Application mode)."
+      "semanticRole": "Duplicates a list box column by programming (Application mode only, source form unmodified), addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -219,7 +223,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "The LISTBOX DUPLICATE COLUMN command duplicates the column designated by the object and * parameters by programming in the context of the form being executed (Application mode)."
+      "semanticRole": "Duplicates a list box column by programming (Application mode only, source form unmodified), addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

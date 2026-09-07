@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -30,7 +30,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -39,7 +39,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -48,7 +48,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -57,11 +57,15 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The GET TABLE PROPERTIES command returns the properties for the table passed in tablePtr or tableNum ."
+      "semanticRole": "Returns the properties of the table designated by a pointer.",
+      "discriminatedBy": {
+        "param": "tablePtr",
+        "rule": "Use this overload when you have a pointer to the table rather than its table number."
+      }
     },
     {
       "params": [
@@ -80,7 +84,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -89,7 +93,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -98,7 +102,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -107,7 +111,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -116,11 +120,18 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The GET TABLE PROPERTIES command returns the properties for the table passed in tablePtr or tableNum ."
+      "semanticRole": "Returns the properties of the table designated by its table number.",
+      "discriminatedBy": {
+        "param": "tableNum",
+        "rule": "Use this overload when you have the table number rather than a pointer to the table."
+      }
     }
+  ],
+  "constraints": [
+    "trigLoadRec is obsolete and should not be used."
   ]
 }

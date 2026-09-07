@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Applies to the currently selected menu item; must have been set beforehand via SET MENU ITEM PARAMETER, otherwise returns an empty string.",
+    "Returns an empty string if no menu item is currently selected."
+  ]
+}

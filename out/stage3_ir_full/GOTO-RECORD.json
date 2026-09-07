@@ -27,5 +27,9 @@
       ],
       "semanticRole": "GOTO RECORD selects the specified record of aTable as the current record."
     }
+  ],
+  "constraints": [
+    "If record is less than the smallest or greater than the greatest record number in the database, 4D generates an out-of-range error.",
+    "If record is the number of a deleted record, 4D generates error -10503 and the selection becomes empty."
   ]
 }

@@ -8,5 +8,8 @@
       "params": [],
       "semanticRole": "Get text from pasteboard returns the text present in the pasteboard."
     }
+  ],
+  "constraints": [
+    "The pasteboard is equivalent to the system Clipboard for copy/paste operations; enriched text (e.g. RTF) keeps its attributes only if the destination area is compatible with that format."
   ]
 }

@@ -27,7 +27,7 @@
             "kind": "concrete",
             "name": "Array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -36,11 +36,11 @@
             "kind": "concrete",
             "name": "Array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The LIST TO ARRAY command creates or overrides the array array with the first level items of the list or choice list designated by list ."
+      "semanticRole": "Fills array (and optionally itemRefs) with the first-level items -- and their reference numbers -- of the hierarchical list or choice list designated by list."
     }
   ]
 }

@@ -2,7 +2,7 @@
   "id": "HTTP-AUTHENTICATE",
   "displayName": "HTTP AUTHENTICATE",
   "kind": "classic_command",
-  "theme": "HTTP",
+  "theme": "HTTP-Client",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "User name for authentication."
         },
         {
           "name": "password",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "User password for authentication."
         },
         {
           "name": "authMethod",
@@ -31,7 +33,14 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Authentication method to use: HTTP basic (1) or HTTP digest (2).",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Let 4D negotiate the authentication method automatically; 4D sends an additional request to determine the method the server requires."
+            }
+          ]
         },
         {
           "name": "*",
@@ -42,10 +51,17 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, the credentials are intended for an HTTP proxy rather than the target server; pass this in addition to a non-starred call if both the proxy and the server require authentication."
         }
       ],
-      "semanticRole": "The HTTP AUTHENTICATE command enables HTTP requests to servers requiring authentication of the client application."
+      "semanticRole": "Registers client credentials to be encoded into the next HTTP request sent via HTTP Request or HTTP Get."
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
+  },
+  "constraints": [
+    "Encoded credentials are attached only to the next HTTP Request or HTTP Get call in the current process; if the 'HTTP reset auth settings' option (set via HTTP SET OPTION) is enabled, credentials are discarded after each request and this command must be called again before every subsequent request."
   ]
 }

@@ -42,7 +42,7 @@
               "name": "Blob"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -57,7 +57,7 @@
               "name": "Blob"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
@@ -66,11 +66,16 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The LAUNCH EXTERNAL PROCESS command launches an external process from 4D under macOS and Windows."
+      "semanticRole": "Launches an external executable process (fileName plus arguments), optionally feeding it inputStream as stdin and capturing its stdout/stderr into outputStream/errorStream, and returning its system-level process id in pid."
     }
+  ],
+  "constraints": [
+    "outputStream and errorStream are not returned if the _4D_OPTION_BLOCKING_EXTERNAL_PROCESS environment variable was set to \"false\" (asynchronous execution) via SET ENVIRONMENT VARIABLE before the call.",
+    "pid is not returned if the process launch fails.",
+    "Under macOS, this command can only launch executable applications, not shell built-ins (e.g. echo) or shell indirections."
   ]
 }

@@ -2,11 +2,15 @@
   "id": "Keystroke",
   "displayName": "Keystroke",
   "kind": "classic_command",
-  "theme": "Entry Control",
+  "theme": "Entry-Control",
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Keystroke returns the character entered by the user into a field or an enterable area."
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the single character just entered by the user into the enterable area currently being edited; intended for use inside an On Before Keystroke/On After Keystroke form-event method (does not work in subforms)."
     }
   ]
 }

@@ -1,0 +1,26 @@
+{
+  "constraints": [
+    "If window does not exist, the four out parameters are left unchanged.",
+    "If window is omitted, applies to the frontmost window of the current process."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        { "name": "left", "type": { "kind": "concrete", "name": "Integer" }, "direction": "out", "optional": false },
+        { "name": "top", "type": { "kind": "concrete", "name": "Integer" }, "direction": "out", "optional": false },
+        { "name": "right", "type": { "kind": "concrete", "name": "Integer" }, "direction": "out", "optional": false },
+        { "name": "bottom", "type": { "kind": "concrete", "name": "Integer" }, "direction": "out", "optional": false },
+        {
+          "name": "window",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            { "value": -1, "meaning": "Windows only: returns the coordinates of the MDI application window (contents area) instead of a specific window." }
+          ]
+        }
+      ]
+    }
+  ]
+}

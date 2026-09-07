@@ -1,0 +1,14 @@
+{
+  "theme": "HTTP-Client",
+  "protocolRefs": { "multiCallChain": "HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state." },
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Sets an HTTP client option (e.g. timeout, redirect handling, compression, auth dialog, logging) to be used by the next request issued via HTTP Get or HTTP Request."
+    }
+  ],
+  "constraints": [
+    "Options are local to the current process (or, inside a component, to the executing component).",
+    "If the same option is set more than once before the next request, only the value from the last call is used."
+  ]
+}

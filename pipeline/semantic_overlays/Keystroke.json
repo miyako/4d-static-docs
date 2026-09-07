@@ -1,0 +1,17 @@
+{
+  "theme": "Entry-Control",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "The signature 'Keystroke : Text' has no parameter list at all (Keystroke takes no arguments); the mechanical parser couldn't locate a '(...)' list and left params/returns entirely empty. Supplying params:[] explicitly and returns:Text from the parameter table's 'Function result' row (arrow-marked as output).",
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the single character just entered by the user into the enterable area currently being edited; intended for use inside an On Before Keystroke/On After Keystroke form-event method (does not work in subforms)."
+    }
+  ]
+}

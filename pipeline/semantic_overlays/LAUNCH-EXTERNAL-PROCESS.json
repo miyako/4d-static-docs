@@ -1,0 +1,81 @@
+{
+  "constraints": [
+    "outputStream and errorStream are not returned if the _4D_OPTION_BLOCKING_EXTERNAL_PROCESS environment variable was set to \"false\" (asynchronous execution) via SET ENVIRONMENT VARIABLE before the call.",
+    "pid is not returned if the process launch fails.",
+    "Under macOS, this command can only launch executable applications, not shell built-ins (e.g. echo) or shell indirections."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "outputStream, errorStream, and pid are documented and arrow-marked ('\u2190') as values filled in by the command after execution, not inputs, even though the draft parser defaulted every parameter to direction:in based on syntax position alone.",
+      "params": [
+        {
+          "name": "fileName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "inputStream",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "outputStream",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "errorStream",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "pid",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Launches an external executable process (fileName plus arguments), optionally feeding it inputStream as stdin and capturing its stdout/stderr into outputStream/errorStream, and returning its system-level process id in pid."
+    }
+  ]
+}

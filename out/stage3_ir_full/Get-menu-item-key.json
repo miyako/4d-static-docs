@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu number or menu reference (MenuRef)."
         },
         {
           "name": "menuItem",
@@ -28,7 +29,13 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
         },
         {
           "name": "process",
@@ -37,14 +44,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Process reference number; defaults to the current process if omitted."
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Integer"
-      },
-      "semanticRole": "The Get menu item key command returns the code of the Ctrl (Windows) or Command (Macintosh) shortcut for the menu item whose menu number or reference is passed in menu and whose item number is passed in menuItem ."
+      "semanticRole": "Get the character code of the standard Ctrl (Windows) / Command (macOS) shortcut key assigned to a menu item."
     }
+  ],
+  "constraints": [
+    "If menu is a MenuRef (menu reference), the process parameter is unnecessary and is ignored if passed.",
+    "Returns 0 if the menu item has no associated shortcut, or if menuItem designates a hierarchical submenu."
   ]
 }

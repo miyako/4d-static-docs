@@ -27,7 +27,11 @@
           "optional": false
         }
       ],
-      "semanticRole": "The GOTO OBJECT command is used to select the data entry object object as the active area of the form."
+      "semanticRole": "Selects the form object identified by name (a string) as the active data entry area.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When * is passed, object is interpreted as an object name (Text) rather than a direct field/variable reference."
+      }
     },
     {
       "params": [
@@ -47,7 +51,15 @@
           "optional": false
         }
       ],
-      "semanticRole": "The GOTO OBJECT command is used to select the data entry object object as the active area of the form."
+      "semanticRole": "Selects the given field or variable object directly (by reference) as the active data entry area.",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "When * is omitted, object must be a direct Field or Variable reference rather than a name string."
+      }
     }
+  ],
+  "constraints": [
+    "Passing an empty object name (with * specified) removes focus from any object in the current form.",
+    "When called from a subform, first searches for the object within the subform, then extends the search to the parent form's objects if not found there."
   ]
 }

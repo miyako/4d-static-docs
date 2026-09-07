@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Standard action name (or a Standard Action theme constant), optionally with a parameter pattern such as \"gotoPage?value=2\"."
         },
         {
           "name": "target",
@@ -22,10 +23,25 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Form context in which to execute the action.",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "ak current form (default if omitted): the form where the action was invoked; execution is synchronous, in the current cycle."
+            },
+            {
+              "value": 2,
+              "meaning": "ak main form: the frontmost document/dialog form of the process; execution is asynchronous, in the next cycle after the calling form object method returns."
+            }
+          ]
         }
       ],
-      "semanticRole": "The INVOKE ACTION command triggers the standard action defined by the action parameter, optionally in the target context."
+      "semanticRole": "Triggers a standard 4D action programmatically, in either the current form (synchronously) or the process's main form (asynchronously)."
     }
+  ],
+  "constraints": [
+    "Standard edit actions (Cut, Copy, Paste, Select all, Clear, Undo/Redo) ignore target if passed; they always execute synchronously in the context of the currently focused editable object.",
+    "Does not generate an error if the requested action is unavailable in the current context; use Action info beforehand to validate that the action applies."
   ]
 }

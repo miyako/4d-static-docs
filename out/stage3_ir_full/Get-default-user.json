@@ -8,5 +8,8 @@
       "params": [],
       "semanticRole": "The Get default user command returns the unique user ID of the user set as \u201cDefault user\u201d in the database Settings dialog box: If no default user has been set, the command returns 0."
     }
+  ],
+  "constraints": [
+    "Returns 0 if no default user has been set in the database Settings dialog box."
   ]
 }

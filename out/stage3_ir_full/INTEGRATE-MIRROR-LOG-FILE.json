@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Absolute or relative (to the database folder) path of the log file to integrate; pass an empty string to display an Open File dialog."
         },
         {
           "name": "operationNum",
@@ -21,8 +22,15 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "inout",
+          "optional": false,
+          "description": "In: number of the last operation already integrated (integration resumes at the next operation), or -2 to integrate the whole file. Out: updated to the number of the last operation integrated, for reuse in a subsequent call.",
+          "sentinelValues": [
+            {
+              "value": -2,
+              "meaning": "Integrate all operations in the log file."
+            }
+          ]
         },
         {
           "name": "mode",
@@ -31,7 +39,18 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Integration mode.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Strict mode (default): integration stops at the first error."
+            },
+            {
+              "value": 1,
+              "meaning": "Auto repair mode: non-critical errors are bypassed and auto-repaired; each is logged into errObject if passed."
+            }
+          ]
         },
         {
           "name": "errObject",
@@ -39,11 +58,17 @@
             "kind": "concrete",
             "name": "Object"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Filled with an \"operations\" array describing every record auto-repaired during integration (only meaningful in auto repair mode)."
         }
       ],
-      "semanticRole": "Preliminary note: This command only works with 4D Server."
+      "semanticRole": "Integrates a 4D Server mirror log file into the database starting after a given operation number, continuing to use the current log file afterward rather than replacing it."
     }
+  ],
+  "constraints": [
+    "Can only be executed on 4D Server, via the Execute on server command or from a stored procedure.",
+    "Unlike the legacy _o_INTEGRATE LOG FILE command, this command does not replace the current log file with the integrated one; the database's current log file continues to be used, and any changes made during integration are appended to it.",
+    "Since operationNum became a required parameter (versions after v15 R4), pass -2 explicitly to restore the old default behavior of integrating the whole file."
   ]
 }

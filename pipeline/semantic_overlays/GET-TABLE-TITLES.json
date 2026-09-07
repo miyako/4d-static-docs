@@ -1,0 +1,15 @@
+{
+  "constraints": [
+    "Does not return invisible tables.",
+    "If SET TABLE TITLES was called during the session, returns only the modified names/numbers it set, rather than all database tables defined in the Structure window."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        { "name": "tableTitles", "type": { "kind": "concrete", "name": "Text array" }, "direction": "out", "optional": false },
+        { "name": "tableNums", "type": { "kind": "concrete", "name": "Integer array" }, "direction": "out", "optional": false }
+      ]
+    }
+  ]
+}

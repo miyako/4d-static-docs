@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Get menu bar reference command returns the ID of the current menu bar or the menu bar of a specific process."
+      "semanticRole": "Get the reference ID (MenuRef) of the current menu bar, or of the menu bar of a specified process, for use by other commands of the Menus theme."
     }
+  ],
+  "constraints": [
+    "The returned MenuRef ID may become invalid as soon as another menu bar is installed via SET MENU BAR; to keep a persistent reference to a menu created in the menu bar editor, copy it in memory first with Create menu.",
+    "If process is omitted, the command returns the ID of the menu bar of the current process."
   ]
 }

@@ -22,5 +22,8 @@
       },
       "semanticRole": "The Is window reduced command returns True if the window whose reference number is passed in window is currently reduced in the taskbar (Windows) or in the dock (macOS), and False otherwise."
     }
+  ],
+  "constraints": [
+    "\"Reduced\" means minimized to the taskbar on Windows, or to the Dock on macOS."
   ]
 }

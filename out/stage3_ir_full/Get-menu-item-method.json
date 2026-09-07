@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
         },
         {
           "name": "menuItem",
@@ -28,7 +29,13 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
         },
         {
           "name": "process",
@@ -37,14 +44,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Process number designating another process's menu bar; only meaningful when menu is a menu number."
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The Get menu item method command returns the name of the 4D project method associated with the menu item designated by the menu and menuItem parameters."
+      "semanticRole": "Get the name of the 4D project method attached to a menu item."
     }
+  ],
+  "constraints": [
+    "If menu is a menu reference (MenuRef), the process parameter is unnecessary and is ignored if passed; if menu is a menu number, the command applies to the main menu bar of the process designated by process (or the current process if omitted).",
+    "Returns an empty string if no 4D project method is associated with the menu item."
   ]
 }

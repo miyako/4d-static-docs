@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Does not support 4D.Blob objects, only the legacy Blob type, because this command alters the blob passed as a parameter in place."
+  ]
+}

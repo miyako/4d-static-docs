@@ -2,7 +2,7 @@
   "id": "LISTBOX-GET-OBJECTS",
   "displayName": "LISTBOX GET OBJECTS",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -32,11 +32,15 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The LISTBOX GET OBJECTS command returns an array containing the names of each object making up the list box designated by the object and * parameters."
+      "semanticRole": "Fills arrObjectNames with the object names of every sub-object (columns/headers/footers) making up the list box, addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -55,11 +59,15 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The LISTBOX GET OBJECTS command returns an array containing the names of each object making up the list box designated by the object and * parameters."
+      "semanticRole": "Fills arrObjectNames with the object names of every sub-object (columns/headers/footers) making up the list box, addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

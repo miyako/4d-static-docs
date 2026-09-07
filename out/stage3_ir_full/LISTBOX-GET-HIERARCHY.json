@@ -2,7 +2,7 @@
   "id": "LISTBOX-GET-HIERARCHY",
   "displayName": "LISTBOX GET HIERARCHY",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -32,7 +32,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -41,11 +41,15 @@
             "kind": "concrete",
             "name": "Pointer array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The LISTBOX GET HIERARCHY command lets you find out the hierarchical properties of the list box object designated by the object and * parameters."
+      "semanticRole": "Fills hierarchical (and optionally hierarchy) with whether the list box is in hierarchical mode and its hierarchy pointers, addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -64,7 +68,7 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -73,11 +77,15 @@
             "kind": "concrete",
             "name": "Pointer array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
       ],
-      "semanticRole": "The LISTBOX GET HIERARCHY command lets you find out the hierarchical properties of the list box object designated by the object and * parameters."
+      "semanticRole": "Fills hierarchical (and optionally hierarchy) with whether the list box is in hierarchical mode and its hierarchy pointers, addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

@@ -37,5 +37,12 @@
       },
       "semanticRole": "The JSON Validate command checks the compliance of the vJson JSON contents with the rules defined in the vSchema JSON schema."
     }
+  ],
+  "constraints": [
+    "Validation (checking vJson against the rules in vSchema) is distinct from well-formedness checking, which JSON Parse performs instead.",
+    "4D supports two JSON Schema Validation draft versions: 2020-12 (recommended; all vocabulary supported except contentEncoding/contentMediaType/contentSchema and $dynamicRef/$dynamicAnchor and https:... references) and version 4 (legacy, more limited).",
+    "The schema draft version is selected via the vSchema \"$schema\" key (e.g. \"https://json-schema.org/draft/2020-12/schema\" or \"http://json-schema.org/draft-04/schema#\"); if $schema is omitted, version 4 is used for compatibility. An unrecognized $schema value raises an error.",
+    "If vSchema itself is not a valid JSON schema, 4D returns a Null object and throws an error catchable by an on error call method.",
+    "The returned object always has a success Boolean; when false, it also includes an errors collection of error objects."
   ]
 }

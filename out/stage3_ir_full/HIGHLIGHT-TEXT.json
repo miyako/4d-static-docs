@@ -45,7 +45,12 @@
           "optional": false
         }
       ],
-      "semanticRole": "The HIGHLIGHT TEXT command highlights a section of the text in object ."
+      "semanticRole": "Highlights a section of text in the named form object, identified by its object name (string), because the leading * marker is passed.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when object should be interpreted as an object name (string) identifying a form object, rather than a direct field/variable reference."
+      },
+      "mechanism": "star_operator_dual_signature"
     },
     {
       "params": [
@@ -83,7 +88,16 @@
           "optional": false
         }
       ],
-      "semanticRole": "The HIGHLIGHT TEXT command highlights a section of the text in object ."
+      "semanticRole": "Highlights a section of text in the given form field or variable, passed directly by reference (no leading * marker).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the leading * is omitted and object is passed as a direct field or variable reference instead of an object name."
+      },
+      "mechanism": "star_operator_dual_signature"
     }
+  ],
+  "constraints": [
+    "If startSel equals endSel, no text is highlighted and the insertion point is simply placed before the character at that position.",
+    "If endSel is greater than the number of characters in object, all characters from startSel through the end of the text are highlighted."
   ]
 }

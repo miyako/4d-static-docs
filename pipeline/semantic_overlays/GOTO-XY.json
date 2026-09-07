@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "The character cursor resets to position 0,0 when a window is opened, and after ERASE WINDOW is executed."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Text" },
+      "semanticRole": "Returns a new random UUID using the default version (v4)."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns a new UUID generated using the explicitly specified version.",
+      "params": [
+        {
+          "name": "version",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 4, "meaning": "Default if omitted: fully random UUID." },
+            { "value": 7, "meaning": "Random and timestamp UUID; chronological order matches lexical order." }
+          ]
+        }
+      ]
+    }
+  ]
+}

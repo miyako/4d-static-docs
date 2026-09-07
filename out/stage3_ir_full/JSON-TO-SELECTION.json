@@ -27,5 +27,13 @@
       ],
       "semanticRole": "The JSON TO SELECTION command copies the contents of an array of JSON objects jsonArray to the selection of records of aTable ."
     }
+  ],
+  "constraints": [
+    "jsonArray must be a JSON array of objects, e.g. \"[{\\\"attr1\\\":val1,...},...]\"; each element maps to one record by array/selection order.",
+    "If an existing selection exists for aTable, elements are copied into those records in order; if the JSON array has more elements than the current selection has records, new records are created.",
+    "Every touched record (new or existing) is automatically saved.",
+    "WARNING: this command overwrites existing record data, so it must be used with caution.",
+    "A record locked by another process during execution is left unmodified and added to the LockedSet system set, which can be tested afterward.",
+    "Supports Object type fields: JSON data for those fields is converted automatically."
   ]
 }

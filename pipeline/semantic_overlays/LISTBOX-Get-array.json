@@ -1,0 +1,21 @@
+{
+  "theme": "List-Box",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a pointer to the arrType array (style/color/background-color/row-control) associated with the list box or list box column, addressed as an object-name string (via the leading '*' flag). Array-type list boxes only.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns a pointer to the arrType array (style/color/background-color/row-control) associated with the list box or list box column, addressed as a direct Variable reference (no leading '*'). Array-type list boxes only.",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      }
+    }
+  ]
+}

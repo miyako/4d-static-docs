@@ -8,5 +8,9 @@
       "params": [],
       "semanticRole": "The Get printed height command returns the overall height (in pixels) of the section printed using the Print form command."
     }
+  ],
+  "constraints": [
+    "Returned height is in pixels, between 0 (top edge of the page) and the overall printable-area height returned by GET PRINTABLE AREA; if a new Print form section doesn't fit in the remaining printable area, a new page is generated and 0 is returned.",
+    "Only the top and bottom printable margins (settable via SET PRINTABLE MARGIN) affect the value returned; the left/right margins do not."
   ]
 }

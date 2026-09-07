@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "document may be either an open document's reference number, or the name/pathname of a document that is not open.",
+    "The optional * parameter only affects the result on Macintosh: if omitted, returns the size of the document's data fork; if passed, returns the size of the resource fork."
+  ]
+}

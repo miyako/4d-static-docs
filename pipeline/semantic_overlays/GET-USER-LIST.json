@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    "userNames includes users whose accounts are disabled (shown in green in the Passwords window)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        { "name": "userNames", "type": { "kind": "concrete", "name": "Text array" }, "direction": "out", "optional": false },
+        { "name": "userNumbers", "type": { "kind": "concrete", "name": "Integer array" }, "direction": "out", "optional": false }
+      ]
+    }
+  ]
+}

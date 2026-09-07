@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -30,7 +30,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -39,7 +39,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -49,10 +49,20 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Windows only: returns the coordinates of the MDI application window (contents area) instead of a specific window."
+            }
+          ]
         }
       ],
       "semanticRole": "The GET WINDOW RECT command returns the coordinates of the window whose reference number is passed in window ."
     }
+  ],
+  "constraints": [
+    "If window does not exist, the four out parameters are left unchanged.",
+    "If window is omitted, applies to the frontmost window of the current process."
   ]
 }

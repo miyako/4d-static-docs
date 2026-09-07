@@ -33,5 +33,10 @@
       },
       "semanticRole": "The JSON Stringify array command converts the 4D array array into a serialized JSON array."
     }
+  ],
+  "constraints": [
+    "array may be of the text, real, Boolean, pointer, or object type.",
+    "If a scalar variable or field is passed instead of an array, the command still returns a valid JSON array string wrapping that single value in \"[ ]\".",
+    "The optional * parameter enables pretty formatting, improving readability when the result is displayed (e.g. in a Web page)."
   ]
 }

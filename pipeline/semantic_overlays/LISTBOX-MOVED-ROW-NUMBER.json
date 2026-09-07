@@ -1,0 +1,67 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The docs render two syntax lines that differ only in whether the leading '*' is passed (selecting whether 'object' is an object-name string vs. a form variable reference). That's one semantic overload with an optional literal-symbol discriminator, not two independent overloads. Also fixed oldPosition/newPosition to direction:out per the doc's '<-' arrow column -- the draft parser had defaulted every parameter to direction:in.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
+        },
+        {
+          "name": "oldPosition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the previous position of the moved row."
+        },
+        {
+          "name": "newPosition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the new position of the moved row."
+        }
+      ],
+      "semanticRole": "Reports, via the two output parameters, the previous and new position of the row the user just moved; intended for use inside the On Row Moved form event."
+    }
+  ],
+  "constraints": [
+    "Must be called from the On Row Moved form event.",
+    "Only applies to array-type list boxes (rows can only be moved there).",
+    "Does not take hidden/displayed row states into account."
+  ]
+}

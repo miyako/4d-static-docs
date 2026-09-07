@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Reflects only the SET PRINT PREVIEW setting for the current process, which the user can still override in the print dialog before validating it; use Is in print preview to get the final, actual printing mode."
+  ]
+}

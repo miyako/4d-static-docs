@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "If resFile is omitted, the first matching TEXT resource found in the resource files chain is returned; if passed, only that file is searched.",
+    "Returns empty text and sets the OK system variable to 0 if the resource is not found.",
+    "A TEXT resource is limited to 32,000 characters."
+  ]
+}

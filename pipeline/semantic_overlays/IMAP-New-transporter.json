@@ -1,0 +1,10 @@
+{
+  "constraints": [
+    "The parameter object's .host property is mandatory; all other properties are optional and default as documented (e.g. .port defaults to 993, .connectionTimeOut to 30s, .checkConnectionDelay to 300s).",
+    "The .accessTokenOAuth2 and .password properties are consumed for authentication but are not echoed back on the returned transporter object.",
+    "The defined connection/check timeouts should be kept lower than the mail server's own timeout, otherwise the client-side timeout has no effect."
+  ],
+  "_needsReview": [
+    "The parameter object's nested shape (in particular the .listener sub-object with onMailCreated/onMailDeleted/onFlagsModified callback contracts, each with its own (transporter, event) signature and per-event-type event object properties) is richer than a single Parameter/TypeRef can express without a dedicated callbackContract/Layer-2 substructure; only documented as free-text constraints here rather than modeled structurally."
+  ]
+}

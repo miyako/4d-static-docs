@@ -2,7 +2,7 @@
   "id": "LISTBOX-Get-auto-row-height",
   "displayName": "LISTBOX Get auto row height",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -49,7 +49,11 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The LISTBOX Get auto row height command returns the current minimum or maximum row height value set for the list box object designated using the object and * parameters."
+      "semanticRole": "Returns the current minimum or maximum row height (selector) of the list box, in the unit requested, addressed as an object-name string (via the leading '*' flag). Collection/entity-selection and array list boxes only.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      }
     },
     {
       "params": [
@@ -85,7 +89,11 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The LISTBOX Get auto row height command returns the current minimum or maximum row height value set for the list box object designated using the object and * parameters."
+      "semanticRole": "Returns the current minimum or maximum row height (selector) of the list box, in the unit requested, addressed as a direct Variable reference (no leading '*'). Collection/entity-selection and array list boxes only.",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      }
     }
   ]
 }

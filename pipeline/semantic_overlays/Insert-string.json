@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    "If what is an empty string (\"\"), the function returns source unchanged.",
+    "If where is greater than the length of source, what is appended to the end of source.",
+    "If where is less than one (1), what is inserted before source (i.e. at the start).",
+    "Differs from Change string: Insert string inserts characters without overwriting existing ones."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Inserts the string what before the character at position where in source, returning the resulting string (source itself is not modified)."
+    }
+  ]
+}

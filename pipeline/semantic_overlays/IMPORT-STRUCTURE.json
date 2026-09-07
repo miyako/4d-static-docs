@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "If any imported table name collides with an existing table name in the current structure, an error is generated and the whole import is aborted.",
+    "Fails with an error if the current structure is compiled and/or read-only, and cannot be called from a 4D application running in remote mode."
+  ]
+}

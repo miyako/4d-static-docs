@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -38,5 +38,8 @@
       ],
       "semanticRole": "The GET TEXT KEYWORDS command splits all the text into individual words and creates an item in the arrKeywords text array for each word."
     }
+  ],
+  "constraints": [
+    "If the optional * parameter is passed, each distinct word is stored only once in arrKeywords; otherwise every occurrence is stored, even duplicates."
   ]
 }

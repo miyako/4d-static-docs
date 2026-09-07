@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,11 +21,14 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
       "semanticRole": "GET USER LIST populates the arrays userNames and userNumbers with the names and unique ID numbers of the users as they appear in the Passwords window."
     }
+  ],
+  "constraints": [
+    "userNames includes users whose accounts are disabled (shown in green in the Passwords window)."
   ]
 }

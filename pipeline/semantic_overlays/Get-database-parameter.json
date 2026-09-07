@@ -1,0 +1,19 @@
+{
+  "constraints": [
+    "aTable is optional; if omitted, the parameter is retrieved/set for the default table.",
+    "When the selector's value is a character string, it is returned via stringValue instead of (or in addition to) the numeric function result."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        { "name": "aTable", "type": { "kind": "concrete", "name": "Table" }, "direction": "in", "optional": true },
+        { "name": "selector", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": false },
+        { "name": "stringValue", "type": { "kind": "concrete", "name": "Text" }, "direction": "out", "optional": true }
+      ]
+    }
+  ],
+  "_needsReview": [
+    "selector accepts dozens of documented constants (each with its own scope/possible-values semantics, e.g. '4D Server timeout', 'Debug log recording', 'Direct2D status') that are not individually modeled here as an enum_ref -- the full table is very large and selector-specific behavior (e.g. some selectors are get-only) is left as prose in the doc, not encoded per-value."
+  ]
+}

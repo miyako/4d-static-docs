@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
         },
         {
           "name": "color",
@@ -39,7 +47,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "RGB color value to apply."
         },
         {
           "name": "horizontal",
@@ -48,7 +57,8 @@
             "name": "Boolean"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "True to apply color to horizontal grid lines; False leaves their color unchanged."
         },
         {
           "name": "vertical",
@@ -57,57 +67,11 @@
             "name": "Boolean"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "True to apply color to vertical grid lines; False leaves their color unchanged."
         }
       ],
-      "semanticRole": "The LISTBOX SET GRID COLOR command allows you to modify the color of the grid in the list box object set using the object and * parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "color",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "horizontal",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "vertical",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The LISTBOX SET GRID COLOR command allows you to modify the color of the grid in the list box object set using the object and * parameters."
+      "semanticRole": "Sets the color applied to the horizontal and/or vertical grid lines of the designated list box."
     }
   ]
 }

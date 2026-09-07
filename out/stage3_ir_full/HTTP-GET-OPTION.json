@@ -2,7 +2,7 @@
   "id": "HTTP-GET-OPTION",
   "displayName": "HTTP GET OPTION",
   "kind": "classic_command",
-  "theme": "HTTP",
+  "theme": "HTTP-Client",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Code of the HTTP client option whose current value to retrieve (one of the HTTP Client theme option constants)."
         },
         {
           "name": "value",
@@ -21,11 +22,18 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the current value of option (its default, or the last value set via HTTP SET OPTION)."
         }
       ],
-      "semanticRole": "The HTTP GET OPTION command returns the current value of the HTTP options (options used by client for next request triggered by the HTTP Get or HTTP Request commands)."
+      "semanticRole": "Returns the current value of an HTTP client option that will be used by the next request issued via HTTP Get or HTTP Request."
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
+  },
+  "constraints": [
+    "Options are local to the current process (or, inside a component, to the executing component)."
   ]
 }

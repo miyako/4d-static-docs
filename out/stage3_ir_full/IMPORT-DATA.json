@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Pathname of the file to import; pass an empty string to display the standard Open File dialog box."
         },
         {
           "name": "project",
@@ -27,8 +28,9 @@
               "name": "Blob"
             }
           ],
-          "direction": "in",
-          "optional": true
+          "direction": "inout",
+          "optional": true,
+          "description": "In: XML import project settings (Text/DOM ref) or a legacy BLOB-format project. Out: updated with the new project settings, if * is also passed."
         },
         {
           "name": "*",
@@ -39,10 +41,15 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed together with project, forces display of the import dialog box pre-seeded with project's settings, letting the user adjust them before import."
         }
       ],
-      "semanticRole": "The IMPORT DATA command imports the data located in the fileName file."
+      "semanticRole": "Imports data from fileName using either an interactive dialog (if project is omitted) or a predefined/programmatic import project, optionally letting the user still adjust that project's settings via the dialog."
     }
+  ],
+  "constraints": [
+    "The optional * only has an effect when project is also passed; * without project is meaningless since there is then no predefined project to seed the dialog with.",
+    "The OK system variable is set to 1 on success and 0 if the user cancels the file/import dialog or the import fails."
   ]
 }

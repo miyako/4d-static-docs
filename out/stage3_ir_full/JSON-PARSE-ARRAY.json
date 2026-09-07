@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "JSON string to parse"
         },
         {
           "name": "array",
@@ -21,11 +22,16 @@
             "kind": "concrete",
             "name": "Array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Array containing result from parsing of JSON string"
         }
       ],
-      "semanticRole": "The JSON PARSE ARRAY command parses the contents of a JSON-formatted string and puts the data extracted into the array parameter."
+      "semanticRole": "Deserializes a JSON-formatted string into the elements of a 4D array, whose declared type determines how the values are coerced."
     }
+  ],
+  "constraints": [
+    "jsonString must be well-formed JSON, otherwise a parsing error is generated.",
+    "Starting with 4D 16 R4, this command can usually be replaced by JSON Parse returning a collection, which allows mixed-type data (more flexible than a typed 4D array)."
   ]
 }

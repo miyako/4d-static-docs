@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
         },
         {
           "name": "oldPosition",
@@ -32,8 +40,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the previous position of the moved row."
         },
         {
           "name": "newPosition",
@@ -41,43 +50,17 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the new position of the moved row."
         }
       ],
-      "semanticRole": "The LISTBOX MOVED ROW NUMBER command returns two numbers in oldPosition and newPosition indicating respectively the previous position and the new position of the row moved in the list box, specified by the object and * p"
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "oldPosition",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "newPosition",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The LISTBOX MOVED ROW NUMBER command returns two numbers in oldPosition and newPosition indicating respectively the previous position and the new position of the row moved in the list box, specified by the object and * p"
+      "semanticRole": "Reports, via the two output parameters, the previous and new position of the row the user just moved; intended for use inside the On Row Moved form event."
     }
+  ],
+  "constraints": [
+    "Must be called from the On Row Moved form event.",
+    "Only applies to array-type list boxes (rows can only be moved there).",
+    "Does not take hidden/displayed row states into account."
   ]
 }

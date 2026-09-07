@@ -1,0 +1,72 @@
+{
+  "constraints": [
+    "Must be executed within a connection to an LDAP server already opened with LDAP LOGIN; otherwise error 1003 is returned.",
+    "LDAP servers commonly impose a maximum number of entries returned per search (e.g. Active Directory defaults to 1000); LDAP SEARCH ALL cannot retrieve more than that limit in one call.",
+    "scope must be one of the 'LDAP' theme constants (\"base\" default, \"one\", or \"sub\")."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "arrResult is documented and arrow-marked ('\u2190') as the object array filled with all matching entries, not an input, even though the draft parser defaulted every parameter to direction:in based on syntax position alone.",
+      "params": [
+        {
+          "name": "dnRootEntry",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrResult",
+          "type": {
+            "kind": "concrete",
+            "name": "Object array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "filter",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "scope",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "attributes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "attributesAsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Searches an already-open LDAP server connection for ALL entries under dnRootEntry matching filter/scope, filling arrResult with one object (attribute/value pairs) per matching entry."
+    }
+  ]
+}

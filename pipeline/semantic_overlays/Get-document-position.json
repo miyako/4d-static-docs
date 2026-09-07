@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Operates only on a document that is currently open, referenced by docRef (obtained from a prior open/create document call); the returned position is relative to the beginning of the document and reflects where the next RECEIVE PACKET (read) or SEND PACKET (write) will occur."
+  ]
+}
