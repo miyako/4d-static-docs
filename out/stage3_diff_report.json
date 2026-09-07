@@ -147,7 +147,18 @@
     "id": "QUERY-BY-ATTRIBUTE",
     "status": "validated",
     "overlay_applied": true,
-    "overload_merges": [],
+    "overload_merges": [
+      {
+        "merged_source_indices": [
+          0
+        ],
+        "merged_source_signatures": [
+          "QUERY BY ATTRIBUTE ( {aTable : Table ;}{conjOp : &, |, # ;} objectField : Field ; attributePath : Text ; queryOp : Text, >, <, >=, <=, #, =, |, % ; value : Text, Real, Date, Time {; *} )"
+        ],
+        "into_overload_index": 0,
+        "note": "queryOp's comma-separated symbol alternatives (Text, >, <, >=, <=, #, =, |, %) were mechanically split into one single-symbol TypeRef per token; consolidated into one literal_symbols TypeRef (plus the Text alternative for the alphanumeric-operator form) with documented meanings. Matches the sibling QUERY-SELECTION-BY-ATTRIBUTE treatment."
+      }
+    ],
     "schema_errors": [],
     "review_notes": [],
     "diff_vs_example": {

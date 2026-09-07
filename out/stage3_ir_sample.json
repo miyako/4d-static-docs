@@ -790,7 +790,8 @@
                 "name": "Table"
               },
               "direction": "in",
-              "optional": true
+              "optional": true,
+              "description": "Table for which to return a selection of records, or the default table if omitted"
             },
             {
               "name": "conjOp",
@@ -800,10 +801,16 @@
                   "&",
                   "|",
                   "#"
-                ]
+                ],
+                "meanings": {
+                  "&": "AND",
+                  "|": "OR",
+                  "#": "AND EXCEPT / NOT"
+                }
               },
               "direction": "in",
-              "optional": true
+              "optional": true,
+              "description": "Conjunction operator used to join this call to a preceding call in the same multi-query sequence; omitted on the first/only call, AND (&) assumed by default if omitted mid-sequence"
             },
             {
               "name": "objectField",
@@ -812,7 +819,8 @@
                 "name": "Field"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Object field whose attribute is queried"
             },
             {
               "name": "attributePath",
@@ -821,66 +829,42 @@
                 "name": "Text"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Name or dot path of the object attribute to query"
             },
             {
               "name": "queryOp",
               "type": [
                 {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    ">",
+                    "<",
+                    ">=",
+                    "<=",
+                    "#",
+                    "=",
+                    "|",
+                    "%"
+                  ],
+                  "meanings": {
+                    "=": "Equal to",
+                    "#": "Not equal to",
+                    "<": "Less than",
+                    ">": "Greater than",
+                    "<=": "Less than or equal to",
+                    ">=": "Greater than or equal to",
+                    "%": "Contains keyword"
+                  }
+                },
+                {
                   "kind": "concrete",
                   "name": "Text"
-                },
-                {
-                  "kind": "literal_symbols",
-                  "symbols": [
-                    ">"
-                  ]
-                },
-                {
-                  "kind": "literal_symbols",
-                  "symbols": [
-                    "<"
-                  ]
-                },
-                {
-                  "kind": "literal_symbols",
-                  "symbols": [
-                    ">="
-                  ]
-                },
-                {
-                  "kind": "literal_symbols",
-                  "symbols": [
-                    "<="
-                  ]
-                },
-                {
-                  "kind": "literal_symbols",
-                  "symbols": [
-                    "#"
-                  ]
-                },
-                {
-                  "kind": "literal_symbols",
-                  "symbols": [
-                    "="
-                  ]
-                },
-                {
-                  "kind": "literal_symbols",
-                  "symbols": [
-                    "|"
-                  ]
-                },
-                {
-                  "kind": "literal_symbols",
-                  "symbols": [
-                    "%"
-                  ]
                 }
               ],
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Comparison operator between the attribute and value; can also be passed as an alphanumeric Text expression instead of a symbol (e.g. from a variable) to build configurable queries"
             },
             {
               "name": "value",
@@ -903,7 +887,8 @@
                 }
               ],
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Value the attribute is compared against"
             },
             {
               "name": "*",
@@ -914,14 +899,16 @@
                 ]
               },
               "direction": "in",
-              "optional": true
+              "optional": true,
+              "description": "If passed, more calls follow in this multi-query sequence; omitted on the final call, which executes the accumulated query"
             }
           ],
-          "semanticRole": "QUERY BY ATTRIBUTE looks for records matching the query string defined using the objectField , attributePath , queryOp and value parameters, and returns a selection of records for aTable .changes the current selection of"
+          "semanticRole": "Queries an object/entity attribute (objectField.attributePath) of every record in aTable, restricting the current selection to those matching the comparison, and can be chained across multiple calls joined by conjOp/'*'."
         }
       ],
       "constraints": [
-        "If aTable is omitted, applies to the default table; errors if none is set."
+        "If aTable is omitted, applies to the default table; errors if none is set.",
+        "Scope differs from QUERY SELECTION BY ATTRIBUTE: QUERY BY ATTRIBUTE searches every record in the table, whereas QUERY SELECTION BY ATTRIBUTE only searches within aTable's current selection; otherwise both commands work the same way."
       ],
       "protocolRefs": {
         "multiCallChain": "queryThemeChain"
