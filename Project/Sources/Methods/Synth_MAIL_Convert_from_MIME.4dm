@@ -1,8 +1,11 @@
 // overload 0
 var $v1 : Variant
-MAIL Convert from MIME($v1)
+var $synthResult2 : Variant
+$synthResult2:=MAIL Convert from MIME($v1)
 // overload 0 union-sweep mime=Blob
-var $v2 : Variant
-MAIL Convert from MIME($v2)
+var $v3 : Variant
+var $synthResult4 : Variant
+$synthResult4:=MAIL Convert from MIME($v3)
 // overload 0 union-sweep mime=Text
-MAIL Convert from MIME("synthText")
+var $synthResult5 : Variant
+$synthResult5:=MAIL Convert from MIME("synthText")

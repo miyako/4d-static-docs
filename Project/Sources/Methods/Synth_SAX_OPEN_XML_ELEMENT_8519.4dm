@@ -2,5 +2,3 @@
 ARRAY TEXT($arr1;0)
 ARRAY LONGINT($arr2;0)
 SAX OPEN XML ELEMENT ARRAYS(?00:00:00?;"synthText";$arr1;$arr2)
-// overload 1
-SAX OPEN XML ELEMENT ARRAYS(?00:00:00?;"synthText";"synthText";"synthText")

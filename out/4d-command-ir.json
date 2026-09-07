@@ -19675,22 +19675,13 @@
           "params": [
             {
               "name": "aField",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Blob"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Picture"
-                }
-              ],
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Field whose storage location you want to get. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, or Picture -- the doc's own Type column (\"Text, Blob, Picture\") names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
             }
           ],
           "returns": {
@@ -30028,6 +30019,10 @@
               "description": "Email in MIME; pass a BLOB (recommended when the MIME comes from a file, to avoid charset/line-break issues) or Text."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Object"
+          },
           "semanticRole": "Parses a MIME document (from a BLOB or Text) into a valid email object, following the JMAP specification."
         }
       ],
@@ -32853,7 +32848,16 @@
           "discriminatedBy": {
             "param": "separator",
             "rule": "Chosen when the optional trailing parameter is a Text decimal separator (or omitted entirely); mutually exclusive with the base syntax."
-          }
+          },
+          "jointConstraints": [
+            {
+              "params": [
+                "expression",
+                "separator"
+              ],
+              "rule": "separator is only meaningful (and only legal to pass) when expression is Text -- confirmed via real 4D compiler: Num(True;\"x\") and Num(1;\"x\") are both rejected (\"Incompatible type\"). When expression is Boolean or Integer, call Num(expression) alone, with no second parameter at all."
+            }
+          ]
         },
         {
           "params": [
@@ -32894,7 +32898,16 @@
           "discriminatedBy": {
             "param": "base",
             "rule": "Chosen when the second parameter is a required Integer radix between 2 and 36; mutually exclusive with the separator syntax."
-          }
+          },
+          "jointConstraints": [
+            {
+              "params": [
+                "expression",
+                "base"
+              ],
+              "rule": "This syntax (with a base argument) is only legal when expression is Text -- confirmed via real 4D compiler: Num(True;1) and Num(1;1) are both rejected (\"Incompatible type\"). When expression is Boolean or Integer, there is no base-syntax equivalent; call Num(expression) alone (the separator-syntax overload with no second parameter)."
+            }
+          ]
         }
       ]
     },
@@ -34718,7 +34731,7 @@
               "name": "tablePtr",
               "type": {
                 "kind": "concrete",
-                "name": "Table"
+                "name": "Pointer"
               },
               "direction": "out",
               "optional": false,
@@ -44295,6 +44308,7 @@
         }
       ],
       "constraints": [
+        "At least one parameter must be supplied -- despite every param (aTable, document, methodName, *) being independently optional per the doc's own bracket notation, a fully bare QR REPORT() call is rejected by the real 4D compiler (\"the command requires at least 1 parameter\"), a requirement the doc text never states explicitly. To omit aTable while still supplying a later parameter, use a leading empty placeholder, e.g. QR REPORT(;Char(1)) (Char(1) is document's own documented \"no such document\" sentinel, forcing the Quick Report editor to display).",
         "The Quick Report editor does not appear if the table has been declared \"Invisible\".",
         "Relations between tables keep their manual status when the editor is invoked via QR REPORT; automatic relation propagation is disabled while related tables are shown in a list form (DISPLAY SELECTION / MODIFY SELECTION / subform).",
         "QR ON COMMAND cannot be used in this context (the editor runs in an external window); use the methodName parameter instead to run custom code when an interface command is activated.",
@@ -46587,6 +46601,7 @@
         }
       ],
       "constraints": [
+        "At least one parameter must be supplied -- despite clientName and * both being independently optional per the doc's own bracket notation, a fully bare REGISTER CLIENT() call is rejected by the real 4D compiler (\"this 4D command requires at least one parameter\"), a requirement the doc text never states explicitly.",
         "Has no effect when called from 4D running in local mode; it only does something on a 4D client connected to 4D Server.",
         "More than one client station can be registered under the same clientName; names are not required to be unique.",
         "A client's registered name cannot be changed while it is registered; you must call UNREGISTER CLIENT first, then REGISTER CLIENT again with the new name.",
@@ -46829,26 +46844,13 @@
           "params": [
             {
               "name": "aField",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Blob"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Picture"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Object"
-                }
-              ],
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Field for which to reload the storage location. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, Picture, or Object -- the doc's own Type column names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
             }
           ],
           "semanticRole": "The RELOAD EXTERNAL DATA command reloads the contents in memory of an external storage file associated with a BLOB, Picture, or Text type field."
@@ -48693,68 +48695,7 @@
               "position": "trailing"
             }
           ],
-          "semanticRole": "Adds a new element, optionally passing one or more attribute-name/attribute-value pairs as parallel arrays (attribNamesArray a Text array, attribValuesArray a typed Array of text/date/number/boolean/picture elements).",
-          "discriminatedBy": {
-            "param": "attribValuesArray",
-            "rule": "Trailing repeat-group members are arrays (Text array / typed Array) -- the array-based syntax."
-          },
-          "staticallyDistinguishable": true
-        },
-        {
-          "params": [
-            {
-              "name": "document",
-              "type": {
-                "kind": "concrete",
-                "name": "Time"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "tag",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "group",
-              "members": [
-                {
-                  "name": "attribNamesArray",
-                  "type": {
-                    "kind": "concrete",
-                    "name": "Text"
-                  },
-                  "direction": "in",
-                  "optional": false
-                },
-                {
-                  "name": "attribValuesArray",
-                  "type": {
-                    "kind": "concrete",
-                    "name": "Text"
-                  },
-                  "direction": "in",
-                  "optional": false
-                }
-              ],
-              "cardinality": {
-                "min": 0,
-                "max": null
-              },
-              "position": "trailing"
-            }
-          ],
-          "semanticRole": "Documented as the '*'-suffixed variant of this command: adds a new element passing a single scalar attribName/attribValue Text pair, identical in effect to SAX OPEN XML ELEMENT's own pair syntax rather than to the array-based form.",
-          "discriminatedBy": {
-            "param": "attribValuesArray",
-            "rule": "Trailing repeat-group members are scalar Text values, not arrays -- selects the non-array (single pair) syntax."
-          },
-          "staticallyDistinguishable": true
+          "semanticRole": "Adds a new element, optionally passing one or more attribute-name/attribute-value pairs as parallel arrays (attribNamesArray a Text array, attribValuesArray a typed Array of text/date/number/boolean/picture elements). Identical to SAX OPEN XML ELEMENT except for this array support."
         }
       ],
       "constraints": [
@@ -50363,22 +50304,13 @@
           "params": [
             {
               "name": "aField",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Blob"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Picture"
-                }
-              ],
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Field for which to set the storage location. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, or Picture -- the doc's own Type column names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
             },
             {
               "name": "path",

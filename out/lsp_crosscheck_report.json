@@ -5672,30 +5672,6 @@
     "status": "clean"
   },
   {
-    "id": "Get-external-data-path",
-    "overload_index": 0,
-    "variant": "union:aField=Text",
-    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Get-external-data-path",
-    "overload_index": 0,
-    "variant": "union:aField=Blob",
-    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Get-external-data-path",
-    "overload_index": 0,
-    "variant": "union:aField=Picture",
-    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
     "id": "Get-file-from-pasteboard",
     "overload_index": 0,
     "variant": "default",
@@ -8874,7 +8850,7 @@
   {
     "id": "METHOD-GET-ATTRIBUTES",
     "overload_index": 0,
-    "variant": "union:path=Text",
+    "variant": "linkedgroup:path=Text,attributes=Object",
     "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8882,23 +8858,7 @@
   {
     "id": "METHOD-GET-ATTRIBUTES",
     "overload_index": 0,
-    "variant": "union:path=Text array",
-    "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-ATTRIBUTES",
-    "overload_index": 0,
-    "variant": "union:attributes=Object",
-    "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-ATTRIBUTES",
-    "overload_index": 0,
-    "variant": "union:attributes=Object array",
+    "variant": "linkedgroup:path=Text array,attributes=Object array",
     "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8922,7 +8882,7 @@
   {
     "id": "METHOD-GET-CODE",
     "overload_index": 0,
-    "variant": "union:path=Text",
+    "variant": "linkedgroup:path=Text,code=Text",
     "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8930,23 +8890,7 @@
   {
     "id": "METHOD-GET-CODE",
     "overload_index": 0,
-    "variant": "union:path=Text array",
-    "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-CODE",
-    "overload_index": 0,
-    "variant": "union:code=Text",
-    "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-CODE",
-    "overload_index": 0,
-    "variant": "union:code=Text array",
+    "variant": "linkedgroup:path=Text array,code=Text array",
     "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8970,7 +8914,7 @@
   {
     "id": "METHOD-GET-COMMENTS",
     "overload_index": 0,
-    "variant": "union:path=Text",
+    "variant": "linkedgroup:path=Text,comments=Text",
     "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8978,23 +8922,7 @@
   {
     "id": "METHOD-GET-COMMENTS",
     "overload_index": 0,
-    "variant": "union:path=Text array",
-    "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-COMMENTS",
-    "overload_index": 0,
-    "variant": "union:comments=Text",
-    "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-COMMENTS",
-    "overload_index": 0,
-    "variant": "union:comments=Text array",
+    "variant": "linkedgroup:path=Text array,comments=Text array",
     "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9034,7 +8962,7 @@
   {
     "id": "METHOD-GET-MODIFICATION-DATE",
     "overload_index": 0,
-    "variant": "union:path=Text",
+    "variant": "linkedgroup:path=Text,modDate=Date,modTime=Time",
     "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9042,39 +8970,7 @@
   {
     "id": "METHOD-GET-MODIFICATION-DATE",
     "overload_index": 0,
-    "variant": "union:path=Text array",
-    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-MODIFICATION-DATE",
-    "overload_index": 0,
-    "variant": "union:modDate=Date",
-    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-MODIFICATION-DATE",
-    "overload_index": 0,
-    "variant": "union:modDate=Date array",
-    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-MODIFICATION-DATE",
-    "overload_index": 0,
-    "variant": "union:modTime=Time",
-    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-GET-MODIFICATION-DATE",
-    "overload_index": 0,
-    "variant": "union:modTime=Integer array",
+    "variant": "linkedgroup:path=Text array,modDate=Date array,modTime=Integer array",
     "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9250,7 +9146,7 @@
   {
     "id": "METHOD-SET-ATTRIBUTES",
     "overload_index": 0,
-    "variant": "union:path=Text",
+    "variant": "linkedgroup:path=Text,attributes=Object",
     "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9258,23 +9154,7 @@
   {
     "id": "METHOD-SET-ATTRIBUTES",
     "overload_index": 0,
-    "variant": "union:path=Text array",
-    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-SET-ATTRIBUTES",
-    "overload_index": 0,
-    "variant": "union:attributes=Object",
-    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-SET-ATTRIBUTES",
-    "overload_index": 0,
-    "variant": "union:attributes=Object array",
+    "variant": "linkedgroup:path=Text array,attributes=Object array",
     "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9298,7 +9178,7 @@
   {
     "id": "METHOD-SET-CODE",
     "overload_index": 0,
-    "variant": "union:path=Text",
+    "variant": "linkedgroup:path=Text,code=Text",
     "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9306,23 +9186,7 @@
   {
     "id": "METHOD-SET-CODE",
     "overload_index": 0,
-    "variant": "union:path=Text array",
-    "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-SET-CODE",
-    "overload_index": 0,
-    "variant": "union:code=Text",
-    "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-SET-CODE",
-    "overload_index": 0,
-    "variant": "union:code=Text array",
+    "variant": "linkedgroup:path=Text array,code=Text array",
     "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9346,7 +9210,7 @@
   {
     "id": "METHOD-SET-COMMENTS",
     "overload_index": 0,
-    "variant": "union:path=Text",
+    "variant": "linkedgroup:path=Text,comments=Text",
     "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9354,23 +9218,7 @@
   {
     "id": "METHOD-SET-COMMENTS",
     "overload_index": 0,
-    "variant": "union:path=Text array",
-    "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-SET-COMMENTS",
-    "overload_index": 0,
-    "variant": "union:comments=Text",
-    "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "METHOD-SET-COMMENTS",
-    "overload_index": 0,
-    "variant": "union:comments=Text array",
+    "variant": "linkedgroup:path=Text array,comments=Text array",
     "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9833,22 +9681,6 @@
   },
   {
     "id": "Num",
-    "overload_index": 0,
-    "variant": "union:expression=Boolean",
-    "file": "Sources/Methods/Synth_Num.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Num",
-    "overload_index": 0,
-    "variant": "union:expression=Integer",
-    "file": "Sources/Methods/Synth_Num.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Num",
     "overload_index": 1,
     "variant": "default",
     "file": "Sources/Methods/Synth_Num.4dm",
@@ -9859,22 +9691,6 @@
     "id": "Num",
     "overload_index": 1,
     "variant": "union:expression=Text",
-    "file": "Sources/Methods/Synth_Num.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Num",
-    "overload_index": 1,
-    "variant": "union:expression=Boolean",
-    "file": "Sources/Methods/Synth_Num.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Num",
-    "overload_index": 1,
-    "variant": "union:expression=Integer",
     "file": "Sources/Methods/Synth_Num.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12994,14 +12810,6 @@
   {
     "id": "QR-REPORT",
     "overload_index": 0,
-    "variant": "flag:omit-leading-thru:*",
-    "file": "Sources/Methods/Synth_QR_REPORT.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "QR-REPORT",
-    "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_QR_REPORT.4dm",
     "diagnostics": [],
@@ -13754,14 +13562,6 @@
   {
     "id": "REGISTER-CLIENT",
     "overload_index": 0,
-    "variant": "flag:omit-leading-thru:*",
-    "file": "Sources/Methods/Synth_REGISTER_CLIENT.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "REGISTER-CLIENT",
-    "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_REGISTER_CLIENT.4dm",
     "diagnostics": [],
@@ -13843,38 +13643,6 @@
     "id": "RELOAD-EXTERNAL-DATA",
     "overload_index": 0,
     "variant": "default",
-    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "RELOAD-EXTERNAL-DATA",
-    "overload_index": 0,
-    "variant": "union:aField=Text",
-    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "RELOAD-EXTERNAL-DATA",
-    "overload_index": 0,
-    "variant": "union:aField=Blob",
-    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "RELOAD-EXTERNAL-DATA",
-    "overload_index": 0,
-    "variant": "union:aField=Picture",
-    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "RELOAD-EXTERNAL-DATA",
-    "overload_index": 0,
-    "variant": "union:aField=Object",
     "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -14394,14 +14162,6 @@
   {
     "id": "SAX-OPEN-XML-ELEMENT-ARRAYS",
     "overload_index": 0,
-    "variant": "default",
-    "file": "Sources/Methods/Synth_SAX_OPEN_XML_ELEMENT_8519.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "SAX-OPEN-XML-ELEMENT-ARRAYS",
-    "overload_index": 1,
     "variant": "default",
     "file": "Sources/Methods/Synth_SAX_OPEN_XML_ELEMENT_8519.4dm",
     "diagnostics": [],
@@ -15291,30 +15051,6 @@
     "id": "SET-EXTERNAL-DATA-PATH",
     "overload_index": 0,
     "variant": "default",
-    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "SET-EXTERNAL-DATA-PATH",
-    "overload_index": 0,
-    "variant": "union:aField=Text",
-    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "SET-EXTERNAL-DATA-PATH",
-    "overload_index": 0,
-    "variant": "union:aField=Blob",
-    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "SET-EXTERNAL-DATA-PATH",
-    "overload_index": 0,
-    "variant": "union:aField=Picture",
     "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
     "diagnostics": [],
     "status": "clean"

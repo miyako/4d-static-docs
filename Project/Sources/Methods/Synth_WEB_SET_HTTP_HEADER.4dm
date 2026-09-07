@@ -1,6 +1,7 @@
 // overload 0
-WEB SET HTTP HEADER("synthText")
+var $v1 : Text
+WEB SET HTTP HEADER($v1)
 // overload 1
-ARRAY TEXT($arr1;0)
 ARRAY TEXT($arr2;0)
-WEB SET HTTP HEADER($arr1;$arr2)
+ARRAY TEXT($arr3;0)
+WEB SET HTTP HEADER($arr2;$arr3)

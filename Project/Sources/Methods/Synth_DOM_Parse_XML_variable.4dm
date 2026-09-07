@@ -7,16 +7,18 @@ var $v3 : Variant
 var $synthResult4 : Variant
 $synthResult4:=DOM Parse XML variable($v3;True;"synthText")
 // overload 0 union-sweep variable=Text
-var $synthResult5 : Variant
-$synthResult5:=DOM Parse XML variable("synthText";True;"synthText")
+var $v5 : Text
+var $synthResult6 : Variant
+$synthResult6:=DOM Parse XML variable($v5;True;"synthText")
 // overload 1
-var $v6 : Variant
-var $synthResult7 : Variant
-$synthResult7:=DOM Parse XML variable($v6;True;"synthText")
+var $v7 : Variant
+var $synthResult8 : Variant
+$synthResult8:=DOM Parse XML variable($v7;True;"synthText")
 // overload 1 union-sweep variable=Blob
-var $v8 : Variant
-var $synthResult9 : Variant
-$synthResult9:=DOM Parse XML variable($v8;True;"synthText")
-// overload 1 union-sweep variable=Text
+var $v9 : Variant
 var $synthResult10 : Variant
-$synthResult10:=DOM Parse XML variable("synthText";True;"synthText")
+$synthResult10:=DOM Parse XML variable($v9;True;"synthText")
+// overload 1 union-sweep variable=Text
+var $v11 : Text
+var $synthResult12 : Variant
+$synthResult12:=DOM Parse XML variable($v11;True;"synthText")

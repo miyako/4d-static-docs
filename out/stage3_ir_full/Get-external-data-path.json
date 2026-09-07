@@ -8,22 +8,13 @@
       "params": [
         {
           "name": "aField",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Blob"
-            },
-            {
-              "kind": "concrete",
-              "name": "Picture"
-            }
-          ],
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Field whose storage location you want to get. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, or Picture -- the doc's own Type column (\"Text, Blob, Picture\") names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
         }
       ],
       "returns": {

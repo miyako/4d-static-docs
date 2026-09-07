@@ -12,6 +12,7 @@
     }
   ],
   "constraints": [
+    "At least one parameter must be supplied -- despite clientName and * both being independently optional per the doc's own bracket notation, a fully bare REGISTER CLIENT() call is rejected by the real 4D compiler (\"this 4D command requires at least one parameter\"), a requirement the doc text never states explicitly.",
     "Has no effect when called from 4D running in local mode; it only does something on a 4D client connected to 4D Server.",
     "More than one client station can be registered under the same clientName; names are not required to be unique.",
     "A client's registered name cannot be changed while it is registered; you must call UNREGISTER CLIENT first, then REGISTER CLIENT again with the new name.",

@@ -175,6 +175,34 @@ class SynthContext:
         # in a modeled union eventually gets compiled at least once, not
         # just whichever one the default preference rules happen to pick.
         self.union_override: dict[str, int] = {}
+        # Param names (within THIS command only -- ctx_state is rebuilt
+        # per command) that must always resolve to a declared addressable
+        # variable, never a bare literal, regardless of which pass
+        # (default or union-sweep) reaches them -- see
+        # CONCRETE_REQUIRES_REFERENCE below for why direction/type alone
+        # can't capture this.
+        self.reference_required: set[str] = set()
+        # Param names (within THIS command only) belonging to a "linked
+        # union group" (see LINKED_UNION_GROUPS) -- two or more params
+        # whose union alternatives must move TOGETHER (e.g. METHOD-SET-
+        # COMMENTS' path/comments: both scalar Text, or both Text array;
+        # never one of each). Consulted by build_arg_for_type's union
+        # branch so the DEFAULT pass resolves every member to the same
+        # index (0, the scalar form) instead of each member
+        # independently falling through to the star_present preference
+        # rule below -- which, for these commands, picks a DIFFERENT
+        # alternative per param name (e.g. "Text array" for path but
+        # scalar "Date" for modDate), producing an invalid mixed-kind
+        # call even in the "default" block. The union-sweep dispatch
+        # (synthesize_command) handles the swept variants separately via
+        # a whole-group union_override, so this only needs to cover the
+        # un-swept default case.
+        self.linked_group_members: set[str] = set()
+        # (within THIS command only) param name -> forced array element
+        # type, from ARRAY_ELEMENT_TYPE_OVERRIDE -- see that table's
+        # docstring for why a handful of array params can't use the
+        # generic LONGINT default.
+        self.array_element_override: dict[str, str] = {}
 
     def fresh_name(self, prefix: str) -> str:
         self.counter += 1
@@ -243,6 +271,15 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         for t in type_obj:
             if t.get("kind") == "enum_ref" and t["enum"] in ctx_state.enum_override:
                 return build_arg_for_type(ir, t, ctx, ctx_state, direction)
+        if ctx in ctx_state.linked_group_members:
+            # This param is coupled to sibling param(s) that must all
+            # resolve to the SAME alternative index (see
+            # LINKED_UNION_GROUPS / SynthContext.linked_group_members) --
+            # always the scalar (index 0) form here, since the
+            # union-sweep dispatch (synthesize_command) handles every
+            # swept variant of this group via its own whole-group
+            # union_override, which is already caught by the check above.
+            return build_arg_for_type(ir, type_obj[0], ctx, ctx_state, direction)
         if ctx_state.star_active:
             names = [t.get("name") for t in type_obj if t.get("kind") == "concrete"]
             if "Text" in names:
@@ -296,11 +333,31 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
             # type: explicit "<Element> array" names carry it directly;
             # bare "Array" uses the self-declaring-command override (see
             # SynthContext.self_array_element) when set, else LONGINT.
-            element = ARRAY_TYPE_ELEMENT.get(name) or ctx_state.self_array_element or "LONGINT"
+            element = (
+                ctx_state.array_element_override.get(ctx)
+                or ARRAY_TYPE_ELEMENT.get(name)
+                or ctx_state.self_array_element
+                or "LONGINT"
+            )
             arr = ctx_state.fresh_name("arr")
+            if name == "Array" and ctx_state.self_array_element:
+                # This IS a self-declaring "ARRAY <TYPE>" command's own
+                # arrayName param (e.g. ARRAY TIME's own first argument) --
+                # the call under test already performs the declaration
+                # (ARRAY TIME($arr;size;size2)), so emitting an extra
+                # prelude "ARRAY TIME($arr;0)" line first re-declares the
+                # exact same variable with the exact same command a second
+                # time in the same method. tool4d rejected this ("Can't use
+                # the same variable name for overloads"). Skip the prelude
+                # here; the rendered call line is the only declaration.
+                return arr
             ctx_state.prelude.append(f"ARRAY {element}({arr};0)")
             return arr
-        if direction in ("out", "inout") or name not in CONCRETE_LITERALS:
+        if (
+            direction in ("out", "inout")
+            or name not in CONCRETE_LITERALS
+            or ctx in ctx_state.reference_required
+        ):
             # By-reference params (and any concrete type this pilot has no
             # literal for) need an actual variable -- 4D rejects an
             # expression/literal in an out/inout argument slot.
@@ -334,6 +391,12 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         # a literal_symbols flag.
         if type_obj.get("name") == "Operator":
             return "*"
+        if ctx in ctx_state.reference_required:
+            # See PSEUDO_ANY_REQUIRES_REFERENCE -- this pseudo:"any" param
+            # must be an addressable variable/field, not a bare literal.
+            v = ctx_state.fresh_name("v")
+            ctx_state.prelude.append(f"var {v} : Variant")
+            return v
         return '"synthAny"'
 
     if kind == "pointer_unresolved":
@@ -387,6 +450,34 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
     return f"UNKNOWN_TYPE_KIND_{kind}"
 
 
+# Commands with 2+ params whose union type is a "scalar OR matching array"
+# pair (e.g. path: [Text, Text array]) that must move TOGETHER -- 4D's own
+# METHOD-{GET,SET}-{CODE,COMMENTS,ATTRIBUTES} family documents two mutually
+# exclusive calling syntaxes (act on ONE method by name, or on SEVERAL
+# methods via parallel arrays), never a mix of the two forms in one call.
+# METHOD-SET-ATTRIBUTES/CODE/COMMENTS already carry an explicit IR
+# jointConstraints entry for this ("path and X must be passed as the same
+# kind... the two syntaxes cannot be mixed"); the three GET- siblings need
+# the identical rule but the semantic overlay review never added it for
+# them (a review gap, not a different real rule -- confirmed identical
+# doc syntax pattern). Without this table, build_arg_for_type's per-param
+# preference rules (particularly the star_present heuristic, keyed only
+# on each param's OWN alternatives) can independently pick DIFFERENT
+# alternatives for two linked params -- confirmed via tool4d/real compile
+# feedback for METHOD-SET-COMMENTS' union-sweep variants (sweeping path
+# to scalar Text while comments silently stayed an array): "the type of
+# the 1st and 2nd args must match".
+LINKED_UNION_GROUPS = {
+    "METHOD-GET-ATTRIBUTES": ["path", "attributes"],
+    "METHOD-GET-CODE": ["path", "code"],
+    "METHOD-GET-COMMENTS": ["path", "comments"],
+    "METHOD-GET-MODIFICATION-DATE": ["path", "modDate", "modTime"],
+    "METHOD-SET-ATTRIBUTES": ["path", "attributes"],
+    "METHOD-SET-CODE": ["path", "code"],
+    "METHOD-SET-COMMENTS": ["path", "comments"],
+}
+
+
 CONCRETE_LITERALS = {
     "Text": '"synthText"',
     "String": '"synthText"',
@@ -419,6 +510,138 @@ CONCRETE_LITERALS = {
 # case pending a possible schema addition (see plan.md open questions).
 PSEUDO_REQUIRES_REFERENCE = {
     ("SQL-EXECUTE", "parameter"),
+}
+
+# Same by-reference requirement as CONCRETE_REQUIRES_REFERENCE below, but
+# for a pseudo:"any" param -- JSON-Stringify-array's own overlay already
+# documents this: "If a scalar variable or field is passed instead of an
+# array, the command still returns a valid JSON array string" (a scalar
+# VARIABLE OR FIELD, not a bare constant). tool4d confirmed rejecting the
+# generic pseudo:"any" Text literal fallback ("Invalid constant type:
+# Alphanumeric"). Consulted in build_arg_for_type's pseudo branch,
+# alongside CONCRETE_REQUIRES_REFERENCE's own set (reused via
+# ctx_state.reference_required, same populate-once-per-command mechanism).
+PSEUDO_ANY_REQUIRES_REFERENCE = {
+    ("JSON-Stringify-array", "array"),
+}
+
+# (command_id, param_name) -> forced array element type, for the narrow
+# set of commands whose doc explicitly requires the array's element type
+# to MATCH some other argument's actual data type rather than accepting
+# the generic default (LONGINT). DISTINCT-VALUES's own param description
+# says "array: ... must match aField's type" -- confirmed via a corpus-
+# wide description-text search for "must match"+"type" that this is the
+# only such case among all bare concrete:"Array" params. The fixture
+# table's only field (besides the numeric ID) is [SynthTable]label, a
+# Text field (see CONCRETE_LITERALS["Field"]), so DISTINCT-VALUES's array
+# must be declared ARRAY TEXT to match it -- tool4d rejected the LONGINT
+# default ("array vs. field type mismatch").
+ARRAY_ELEMENT_TYPE_OVERRIDE = {
+    ("DISTINCT-VALUES", "array"): "TEXT",
+    # Same "array element type must match an associated Text field" family
+    # as DISTINCT-VALUES above, confirmed via tool4d for 5 more commands
+    # that convert between an array and a Field/list whose actual content
+    # is Text (this corpus's fixture table's only field, [SynthTable]
+    # label, is Text -- see CONCRETE_LITERALS["Field"]): ARRAY-TO-SELECTION
+    # ("Retyping... array of type Long integer to variable of type Text"),
+    # LIST-TO-ARRAY (a 4D list's items are always Text regardless of
+    # whether the list itself is identified by Text name or Integer ID --
+    # only the "array" out-param needs this, not the sibling "itemRefs"
+    # out-param, which holds numeric item-ref numbers and correctly stays
+    # LONGINT), SELECTION-TO-ARRAY and SELECTION-RANGE-TO-ARRAY (their
+    # embedded group's "array" member pairs with a Field/Table union
+    # "selection"/"data" member that always resolves to the Text field
+    # default in this synthesizer, since no union-sweep is generated for a
+    # union param embedded inside a VariadicGroup -- see
+    # find_union_params_in_params), and ARRAY-TO-LIST (array's elements are
+    # copied into a list's Text items, regardless of the list's own Text-
+    # name/Integer-ID union). Keyed by bare param name (matching
+    # DISTINCT-VALUES's precedent), which applies uniformly whether the
+    # param is top-level or embedded in a group -- build_arg_for_type only
+    # ever sees the member's own `ctx` (its name), not its container.
+    ("ARRAY-TO-SELECTION", "array"): "TEXT",
+    ("LIST-TO-ARRAY", "array"): "TEXT",
+    ("SELECTION-TO-ARRAY", "array"): "TEXT",
+    ("ARRAY-TO-LIST", "array"): "TEXT",
+    ("SELECTION-RANGE-TO-ARRAY", "array"): "TEXT",
+}
+
+# Known CONCRETE-typed "in"-direction params that nonetheless must be an
+# addressable field/variable, never a literal -- the IR's `direction: "in"`
+# only tells the synthesizer the value flows into the command, not whether
+# the command reads it by reference. 4D's own doc convention sometimes
+# signals this via the parameter's description noun ("variable"/"Field",
+# not "value") rather than any direction/type distinction the mechanical
+# extraction can see:
+#   - WEB-SET-HTTP-HEADER's single-Text "header" overload: the doc body
+#     states outright "The command will not accept a literal text type
+#     constant as the header parameter; it must be a 4D variable or
+#     field." (confirmed on developer.4d.com). tool4d's stricter
+#     compiler-level check rejects a bare Text literal there.
+#   - LAUNCH-EXTERNAL-PROCESS's "inputStream" (stdin): documented type is
+#     a Text/Blob union and direction "in", but the real compiler rejects
+#     a literal the same way -- confirmed by the user's real-4D-app
+#     compile ("... is output which must be field or variable that is of
+#     type text"), the same requires-a-real-storage-location family as
+#     the aField-as-Field fix (see Get-external-data-path et al.).
+#   - LISTBOX-INSERT-COLUMN's "headerVar": documented as "Column header
+#     variable" (type Integer, Pointer) -- the Pointer alternative already
+#     forces a declared var (Pointer has no literal), but the union's
+#     first/default alternative is Integer, which DOES have a literal
+#     (build_arg_for_type's default preference happily emits a bare "1"),
+#     and the real compiler rejects that ("headerVar can't be a
+#     constant."). footerVar (Variable, Pointer) needs no entry here: its
+#     first alternative is concrete:Variable, which already has no
+#     CONCRETE_LITERALS entry and so already forces a declared var.
+# Consulted inside build_arg_for_type's concrete branch by param NAME
+# (via ctx_state.reference_required, populated per-command below) so it
+# applies uniformly whether a param's value is reached through the
+# default pass OR an active union-sweep variant (e.g. headerVar's own
+# "union-sweep headerVar=Integer" case) -- unlike a build_call_args-level
+# override, this can't be silently bypassed by the union-sweep dispatch,
+# since build_arg_for_type recurses into the swept alternative with the
+# same `ctx` (param name) either way.
+CONCRETE_REQUIRES_REFERENCE = {
+    ("WEB-SET-HTTP-HEADER", "header"),
+    ("LAUNCH-EXTERNAL-PROCESS", "inputStream"),
+    ("LISTBOX-INSERT-COLUMN", "headerVar"),
+    # Same "headerVar can't be a constant" shape as LISTBOX-INSERT-COLUMN
+    # above (identical Integer|Pointer union, confirmed by a corpus-wide
+    # sweep for this exact shape) -- LISTBOX-DUPLICATE-COLUMN wasn't in the
+    # user's reported error batch but shares the bug (not yet exercised by
+    # any prior cross-check run); LISTBOX-INSERT-COLUMN-FORMULA WAS
+    # reported ("Invalid constant type: Real").
+    ("LISTBOX-DUPLICATE-COLUMN", "headerVar"),
+    ("LISTBOX-INSERT-COLUMN-FORMULA", "headerVar"),
+    # LISTBOX-GET-CELL-POSITION's X/Y are documented plain concrete:Real
+    # out-parameters (row/column pixel position), yet tool4d still
+    # rejected the bare Real literal fallback ("Invalid constant type:
+    # Real") -- same "needs a real variable here, not any literal
+    # constant" rule as headerVar above, just phrased differently by a
+    # newer compiler version, and (unlike headerVar) with no union
+    # alternative to pick a declared-var-forcing sibling from.
+    ("LISTBOX-GET-CELL-POSITION", "X"),
+    ("LISTBOX-GET-CELL-POSITION", "Y"),
+    # Set-user-properties's nbLogin/groupOwner ("Binary databases only;
+    # ignored in project databases") are documented plain concrete:Integer
+    # params but hit the identical "Invalid constant type: Real" rejection
+    # (see LISTBOX-GET-CELL-POSITION above -- 4D's bare numeric literals
+    # are always internally typed Real regardless of the target param's
+    # own declared type).
+    ("Set-user-properties", "nbLogin"),
+    ("Set-user-properties", "groupOwner"),
+    # DOM-Parse-XML-variable's "variable" (Blob|Text union, both
+    # overloads) rejects the union's Text alternative as a bare literal
+    # ("Incompatible type") -- the command requires an addressable
+    # variable holding the XML content, not a Text constant, even though
+    # Text is a documented valid alternative type.
+    ("DOM-Parse-XML-variable", "variable"),
+    # WP-EXPORT-VARIABLE's "destination" (Text|Blob union) rejects the
+    # union's Text alternative as a bare literal ("Invalid constant type:
+    # Alphanumeric") -- same "must be an addressable variable/field, not a
+    # literal" family as WEB-SET-HTTP-HEADER's header above (its own doc
+    # calls this param "the 4D destination variable").
+    ("WP-EXPORT-VARIABLE", "destination"),
 }
 
 # Curated (command_id, param_name) -> literal overrides for params whose
@@ -581,7 +804,55 @@ def render_order_chain(ir, ctx_state: "SynthContext", call_name: str, oi: int, p
 MUTUALLY_EXCLUSIVE_TRAILING_PARAMS = {
     "INTEGER-TO-BLOB": {frozenset({"offset", "*"})},
     "REAL-TO-BLOB": {frozenset({"offset", "*"})},
+    # FORM-SET-SIZE's own jointConstraints rule: "object and * are
+    # mutually exclusive (cannot both be passed)." tool4d confirmed the
+    # default block's "object" + "*" combination ("Incompatible type").
+    "FORM-SET-SIZE": {frozenset({"object", "*"})},
+    # WP-SELECT's own jointConstraints rule: "targetObj and the
+    # startRange/endRange pair are alternative ways to specify the
+    # selection; pass one or the other, not both." A 3-member set works
+    # the same way the 2-member sets above do: once "targetObj" (first in
+    # the set to appear positionally) is included, both trailing
+    # startRange/endRange are skipped. tool4d confirmed the default (and
+    # flag-omission) blocks' "targetObj" + "startRange" + "endRange"
+    # combination ("Incompatible type").
+    "WP-SELECT": {frozenset({"targetObj", "startRange", "endRange"})},
 }
+
+# Commands whose embedded VariadicGroup and a later trailing optional
+# param are documented alternates -- pass at most one. Selection-to-
+# JSON's own overlay: "aField and template are alternative ways to
+# restrict which fields are serialized; pass at most one of them." The
+# generic MUTUALLY_EXCLUSIVE_TRAILING_PARAMS mechanism above only applies
+# to plain top-level params (its exclusion check lives in the `else`
+# branch of build_call_args's per-param loop); here one side of the pair
+# is an embedded VariadicGroup member (aField), always rendered
+# unconditionally by the "members" branch above that loop, so skip the
+# group outright for these commands instead -- template is kept since
+# it's the more general/customizable of the two documented alternatives.
+# tool4d confirmed the default block's "aField" + "template" combination
+# ("This value cannot be passed as a parameter to this method or
+# command.").
+SKIP_GROUP_FOR_TRAILING_PARAM = {"Selection-to-JSON"}
+
+# Commands whose union-typed param can only combine with a following
+# optional/required trailing param when it resolves to a specific
+# alternative (usually Text) -- per the command's own doc text. Num's
+# own description: "When expression is of the string type, you can use a
+# separator parameter or a base parameter" (implying: when expression is
+# Boolean or Integer instead, separator/base cannot be passed at all --
+# the real call is Num(expression) alone, a single argument). tool4d
+# confirmed Num(True;"x")/Num(1;"x")/Num(True;1)/Num(1;1) all real-
+# compiler-reject ("Incompatible type"), while Num(True)/Num(1) alone are
+# legal. Since this corpus's union-sweep always keeps every OTHER param
+# at its own default (see the loop below) rather than omitting it, and
+# overload 1's "base" is a required (non-optional) param with no legal
+# omission at all, there's no single swept call shape that both moves
+# expression off Text AND keeps the call legal here -- so the affected
+# non-Text alternatives are simply excluded from the sweep for these
+# entries (the default block already exercises the Text alternative,
+# which is the only one that combines legally with a trailing param).
+UNION_SWEEP_TEXT_ONLY_WITH_TRAILING = {("Num", "expression")}
 
 
 def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
@@ -593,6 +864,12 @@ def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
     exclusive_pairs = MUTUALLY_EXCLUSIVE_TRAILING_PARAMS.get(command_id, set())
     for p in params:
         if "members" in p:
+            if command_id in SKIP_GROUP_FOR_TRAILING_PARAM:
+                # See SKIP_GROUP_FOR_TRAILING_PARAM -- this group is a
+                # documented mutually-exclusive alternate of a later
+                # trailing param that's always included; drop the group
+                # entirely rather than emit both.
+                continue
             # VariadicGroup: repeat its members `cardinality.min` times
             # (at least once, so the group is actually exercised).
             reps = max(1, p.get("cardinality", {}).get("min", 1) or 1)
@@ -680,6 +957,24 @@ def _is_plain_optional(p) -> bool:
 # call shape real 4D code is documented to support.
 FLAG_SWEEP_SKIP_EMPTY_CALL = {"ADD-RECORD", "MODIFY-RECORD", "PRINT-RECORD"}
 
+# Commands whose doc signature wraps every param in its own optionality
+# braces (implying, per the auto-parser's independent-per-token reading,
+# that a fully bare `Cmd()` call is legal) but where the real 4D compiler
+# actually requires at least one argument to be present -- confirmed via
+# real-compiler feedback (unlike FLAG_SWEEP_SKIP_EMPTY_CALL above, this
+# is NOT a tool4d static-analyzer quirk; QR REPORT() genuinely fails to
+# compile: "the command requires at least 1 parameter"). QR-REPORT's own
+# doc text even hints at this asymmetry: aTable defaults to the current
+# table when omitted, but there's no equivalent "acts on nothing" fallback
+# for omitting every parameter simultaneously -- passing document as
+# Char(1) (a sentinel documented elsewhere in the same page to mean "no
+# such document exists") is the minimal legal call. Treated identically
+# to FLAG_SWEEP_SKIP_EMPTY_CALL for sweep-generation purposes (skip
+# manufacturing the zero-arg variant), but tracked separately since the
+# underlying reason -- a genuine compiler requirement, not a tooling gap
+# in the checker -- is different and shouldn't be conflated with it.
+COMPILER_REQUIRES_NONEMPTY_CALL = {"QR-REPORT", "REGISTER-CLIENT"}
+
 
 def find_flag_omission_variants(params, command_id: str) -> list[tuple[str, list]]:
     """Return (label, truncated_params) pairs, one per optional
@@ -727,11 +1022,11 @@ def find_flag_omission_variants(params, command_id: str) -> list[tuple[str, list
         flag_name = p.get("name") or "".join(t.get("symbols", ["flag"]))
         if i < leading_len:
             truncated = params[i + 1 :]
-            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL:
+            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL | COMPILER_REQUIRES_NONEMPTY_CALL:
                 variants.append((f"omit-leading-thru:{flag_name}", truncated))
         if i >= trailing_start:
             truncated = params[:i]
-            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL:
+            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL | COMPILER_REQUIRES_NONEMPTY_CALL:
                 variants.append((f"omit-trailing-from:{flag_name}", truncated))
     return variants
 
@@ -841,6 +1136,15 @@ def synthesize_command(ir, command) -> list[dict]:
     # `prelude`/`star_active` are still reset per overload since each
     # overload's declarations and star-toggle state are independent.
     ctx_state = SynthContext()
+    ctx_state.reference_required = {
+        pname for (cid, pname) in CONCRETE_REQUIRES_REFERENCE if cid == command["id"]
+    } | {
+        pname for (cid, pname) in PSEUDO_ANY_REQUIRES_REFERENCE if cid == command["id"]
+    }
+    ctx_state.linked_group_members = set(LINKED_UNION_GROUPS.get(command["id"], []))
+    ctx_state.array_element_override = {
+        pname: elem for (cid, pname), elem in ARRAY_ELEMENT_TYPE_OVERRIDE.items() if cid == command["id"]
+    }
     # Self-declaring "ARRAY <TYPE>" commands (ARRAY TEXT, ARRAY BLOB, ...)
     # redeclare their own generic concrete:"Array" param at that exact
     # element type -- detect this from the displayName so the array
@@ -975,14 +1279,57 @@ def synthesize_command(ir, command) -> list[dict]:
             # a modeled union (e.g. SET-LIST-ITEM-PROPERTIES's "icon":
             # [concrete:Picture, concrete:Integer, concrete:Text]) was
             # never actually compiled before this sweep.
+            linked_group = LINKED_UNION_GROUPS.get(command["id"], [])
             for pname, alts in find_union_params_in_params(params):
-                for idx, alt in enumerate(alts):
+                if pname in linked_group:
+                    # Handled below as a whole-group sweep instead --
+                    # sweeping this param alone here would leave its
+                    # linked sibling(s) at their own independent default,
+                    # producing an invalid mixed-kind call (see
+                    # LINKED_UNION_GROUPS).
+                    continue
+                if (command["id"], pname) in UNION_SWEEP_TEXT_ONLY_WITH_TRAILING:
+                    # See UNION_SWEEP_TEXT_ONLY_WITH_TRAILING -- only the
+                    # Text alternative combines legally with this
+                    # overload's trailing param; skip the others. Keep
+                    # original (idx, alt) pairs so union_overrides still
+                    # indexes correctly into the full alternatives list.
+                    swept = [
+                        (idx, a) for idx, a in enumerate(alts)
+                        if a.get("kind") == "concrete" and a.get("name") == "Text"
+                    ]
+                else:
+                    swept = list(enumerate(alts))
+                for idx, alt in swept:
                     blocks.append(
                         render_block(
                             f"union:{pname}={_alt_label(alt)}",
                             f" union-sweep {pname}={_alt_label(alt)}",
                             {},
                             union_overrides={pname: idx},
+                        )
+                    )
+
+            # Linked-union-group sweep: every member of a LINKED_UNION_
+            # GROUPS group must move to the SAME alternative index in the
+            # same call (see the table's docstring) -- so sweep the whole
+            # group together, one block per shared index, instead of the
+            # generic per-param loop above (which would desync the group).
+            if linked_group:
+                param_types = {p["name"]: p["type"] for p in params if "name" in p}
+                alt_count = min(
+                    len(param_types[m]) for m in linked_group if isinstance(param_types.get(m), list)
+                )
+                for idx in range(alt_count):
+                    label = ",".join(
+                        f"{m}={_alt_label(param_types[m][idx])}" for m in linked_group
+                    )
+                    blocks.append(
+                        render_block(
+                            f"linkedgroup:{label}",
+                            f" linked-union-sweep {label}",
+                            {},
+                            union_overrides={m: idx for m in linked_group},
                         )
                     )
     return blocks
