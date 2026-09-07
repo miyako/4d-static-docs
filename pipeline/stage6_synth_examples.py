@@ -821,6 +821,24 @@ def _is_plain_optional(p) -> bool:
 # call shape real 4D code is documented to support.
 FLAG_SWEEP_SKIP_EMPTY_CALL = {"ADD-RECORD", "MODIFY-RECORD", "PRINT-RECORD"}
 
+# Commands whose doc signature wraps every param in its own optionality
+# braces (implying, per the auto-parser's independent-per-token reading,
+# that a fully bare `Cmd()` call is legal) but where the real 4D compiler
+# actually requires at least one argument to be present -- confirmed via
+# real-compiler feedback (unlike FLAG_SWEEP_SKIP_EMPTY_CALL above, this
+# is NOT a tool4d static-analyzer quirk; QR REPORT() genuinely fails to
+# compile: "the command requires at least 1 parameter"). QR-REPORT's own
+# doc text even hints at this asymmetry: aTable defaults to the current
+# table when omitted, but there's no equivalent "acts on nothing" fallback
+# for omitting every parameter simultaneously -- passing document as
+# Char(1) (a sentinel documented elsewhere in the same page to mean "no
+# such document exists") is the minimal legal call. Treated identically
+# to FLAG_SWEEP_SKIP_EMPTY_CALL for sweep-generation purposes (skip
+# manufacturing the zero-arg variant), but tracked separately since the
+# underlying reason -- a genuine compiler requirement, not a tooling gap
+# in the checker -- is different and shouldn't be conflated with it.
+COMPILER_REQUIRES_NONEMPTY_CALL = {"QR-REPORT"}
+
 
 def find_flag_omission_variants(params, command_id: str) -> list[tuple[str, list]]:
     """Return (label, truncated_params) pairs, one per optional
@@ -868,11 +886,11 @@ def find_flag_omission_variants(params, command_id: str) -> list[tuple[str, list
         flag_name = p.get("name") or "".join(t.get("symbols", ["flag"]))
         if i < leading_len:
             truncated = params[i + 1 :]
-            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL:
+            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL | COMPILER_REQUIRES_NONEMPTY_CALL:
                 variants.append((f"omit-leading-thru:{flag_name}", truncated))
         if i >= trailing_start:
             truncated = params[:i]
-            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL:
+            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL | COMPILER_REQUIRES_NONEMPTY_CALL:
                 variants.append((f"omit-trailing-from:{flag_name}", truncated))
     return variants
 

@@ -12842,14 +12842,6 @@
   {
     "id": "QR-REPORT",
     "overload_index": 0,
-    "variant": "flag:omit-leading-thru:*",
-    "file": "Sources/Methods/Synth_QR_REPORT.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "QR-REPORT",
-    "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_QR_REPORT.4dm",
     "diagnostics": [],
