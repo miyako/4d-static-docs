@@ -29,9 +29,7 @@
     }
   ],
   "constraints": [
-    "If the resource is not found, the strings array is left unchanged and the OK system variable is set to 0."
-  ],
-  "_needsReview": [
-    "The parameter table types resFile as 'Time', but its description ('Resource file reference number') reads like an Integer/reference-number type; kept the documented 'Time' type as-is rather than guessing at a documentation error."
+    "If the resource is not found, the strings array is left unchanged and the OK system variable is set to 0.",
+    "resFile's 'Time' type is not a clock time -- it's 4D's legacy opaque handle type for resource-file reference numbers, the same type OPEN RESOURCE FILE returns its result as (see https://developer.4d.com/docs/commands/open-resource-file). Confirmed as the correct, intentional type, not a documentation error."
   ]
 }
