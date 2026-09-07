@@ -101,6 +101,47 @@ def enum_literal(ir, enum_name: str) -> str:
     return values[0]["name"]
 
 
+# Matches a bare 4D identifier fragment: letters/digits/underscore, must
+# start with a letter or underscore. IR param names are camelCase (e.g.
+# "jsonString", "asObjectName") and match this directly when they're sane;
+# this also rules out the shapes that don't -- literal_symbols flag names
+# like "*"/">"", names starting with a digit (e.g. "4Duser"), and anything
+# containing a space or non-ASCII character.
+_PARAM_IDENT_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
+
+# Param names that pass `_PARAM_IDENT_RE` but are known, from empirical
+# tool4d cross-check findings, to cause a real problem when used verbatim
+# as a synthesized local-variable-name prefix (e.g. a name colliding with
+# something tool4d specifically rejects for a local var but not a param
+# name). Empty until a full-corpus re-validation surfaces a concrete case
+# -- extend here (with a comment recording the empirical finding) rather
+# than guessing preemptively; every local this stage declares is always
+# `$`-prefixed, so collision with a bare 4D command/keyword name is not a
+# concern by construction.
+PARAM_NAME_DENYLIST: set[str] = set()
+
+
+def sanitize_param_ident(name: str | None) -> str | None:
+    """Return `name` unchanged if it's a legal/sane 4D identifier fragment
+    suitable as a synthesized local-variable-name prefix (e.g.
+    "jsonString"), or None if callers must fall back to the generic
+    type-shape prefix (`v`, `arr`, ...) instead -- see `_PARAM_IDENT_RE`
+    and `PARAM_NAME_DENYLIST` above for the rejection rules.
+
+    No length cap is applied here: the longest param name across the
+    whole IR is 25 characters, and even with the "$" sigil plus a 1-3
+    digit `fresh_name` counter suffix that stays well under 4D's
+    31-character identifier limit (see `sanitize_method_name` above).
+    """
+    if not name or not isinstance(name, str):
+        return None
+    if not _PARAM_IDENT_RE.match(name):
+        return None
+    if name in PARAM_NAME_DENYLIST:
+        return None
+    return name
+
+
 # 4D `var $x : <Type>` declaration keywords for concrete IR type names that
 # need an addressable variable rather than a bare literal (see `direction`
 # handling in build_arg_for_param below). "Array" is deliberately absent --
@@ -207,6 +248,23 @@ class SynthContext:
     def fresh_name(self, prefix: str) -> str:
         self.counter += 1
         return f"${prefix}{self.counter}"
+
+    def fresh_name_for(self, param_name: str | None, fallback_prefix: str) -> str:
+        """Like `fresh_name()`, but prefers a sanitized form of the
+        command's real, doc-derived param `name` (e.g. "$jsonString1")
+        over the generic type-shape prefix (`v`, `arr`, ...), so
+        INPUT-derived locals are self-documenting -- an example reading
+        `$jsonString1:="synthText"; ...:=JSON Parse($jsonString1;...)` is
+        far more useful to a downstream reader/agent than the equivalent
+        with `$v1`. Falls back to `fresh_name(fallback_prefix)` whenever
+        `param_name` isn't a legal/sane 4D identifier fragment on its own
+        (see `sanitize_param_ident`) -- e.g. literal_symbols flag params
+        named "*"/">"", names starting with a digit, non-ASCII names, or
+        anything else `sanitize_param_ident` rejects. This is purely
+        cosmetic (the variable name only) and never changes which 4D
+        type gets declared or which value gets passed."""
+        ident = sanitize_param_ident(param_name)
+        return self.fresh_name(ident or fallback_prefix)
 
 
 # Concrete IR type names of the form "<Element> array" (as opposed to the
@@ -339,7 +397,7 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
                 or ctx_state.self_array_element
                 or "LONGINT"
             )
-            arr = ctx_state.fresh_name("arr")
+            arr = ctx_state.fresh_name_for(ctx, "arr")
             if name == "Array" and ctx_state.self_array_element:
                 # This IS a self-declaring "ARRAY <TYPE>" command's own
                 # arrayName param (e.g. ARRAY TIME's own first argument) --
@@ -362,7 +420,7 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
             # literal for) need an actual variable -- 4D rejects an
             # expression/literal in an out/inout argument slot.
             var_type = DECLARABLE_VAR_TYPES.get(name, "Variant")
-            v = ctx_state.fresh_name("v")
+            v = ctx_state.fresh_name_for(ctx, "v")
             ctx_state.prelude.append(f"var {v} : {var_type}")
             return v
         return CONCRETE_LITERALS[name]
@@ -375,7 +433,7 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         # it can't be a constant."). Declare an addressable Variant
         # variable instead, same convention as the concrete branch above.
         if direction in ("out", "inout"):
-            v = ctx_state.fresh_name("v")
+            v = ctx_state.fresh_name_for(ctx, "v")
             ctx_state.prelude.append(f"var {v} : Variant")
             return v
         # "any"/"Expression": default to a plain Text literal, which
@@ -394,7 +452,7 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         if ctx in ctx_state.reference_required:
             # See PSEUDO_ANY_REQUIRES_REFERENCE -- this pseudo:"any" param
             # must be an addressable variable/field, not a bare literal.
-            v = ctx_state.fresh_name("v")
+            v = ctx_state.fresh_name_for(ctx, "v")
             ctx_state.prelude.append(f"var {v} : Variant")
             return v
         return '"synthAny"'
@@ -408,7 +466,7 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         # No resolvable target: same "nil pointer" convention as the
         # concrete:Pointer case above -- declare an unassigned Pointer
         # variable rather than emitting the bare (invalid) "Nil" token.
-        v = ctx_state.fresh_name("v")
+        v = ctx_state.fresh_name_for(ctx, "v")
         ctx_state.prelude.append(f"var {v} : Pointer")
         return v
 
@@ -904,7 +962,7 @@ def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
                 continue
             included_names.add(pname)
             if (command_id, pname) in PSEUDO_REQUIRES_REFERENCE:
-                v = ctx_state.fresh_name("v")
+                v = ctx_state.fresh_name_for(pname, "v")
                 ctx_state.prelude.append(f"var {v} : Variant")
                 args.append(v)
                 continue
