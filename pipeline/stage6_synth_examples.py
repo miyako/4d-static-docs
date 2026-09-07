@@ -58,6 +58,15 @@ EXTRA_PILOT_IDS = [
 # fixtures and cover subgrammar_ref (attributePath), literal_symbols, and
 # the queryThemeChain multiCallChain protocol.
 
+# 4D View Pro is a licensed/installable 4D component, not part of the base
+# language; Project/4DCommandIRSynthCheck.4DProject has no way to provision
+# it, so every one of its 122 commands fails tool4d's check for reasons
+# entirely unrelated to the IR (confirmed via check-syntax: all 122 4D-View-
+# Pro-themed commands error, 0 others do). Permanently excluded from
+# generation/validation so the corpus stays signal, not noise. If ViewPro is
+# ever provisioned in this environment, this exclusion can be lifted.
+EXCLUDED_THEMES = {"4D-View-Pro"}
+
 
 def load_json(path: Path):
     with open(path) as f:
@@ -111,6 +120,14 @@ DECLARABLE_VAR_TYPES = {
     "Collection": "Collection",
     "Variant": "Variant",
     "Picture": "Picture",
+    # "Pointer" is deliberately absent from CONCRETE_LITERALS -- there is
+    # no such thing as a Pointer literal in 4D (unlike Nil, which is a
+    # documentation term, not a keyword). A "nil pointer" is a Pointer
+    # variable that has been declared but never assigned via `->`, so
+    # every Pointer-typed argument always goes through the declared-var
+    # path below (see CONCRETE_LITERALS' "Pointer" omission forcing that
+    # branch), never a bare literal.
+    "Pointer": "Pointer",
 }
 
 
@@ -315,7 +332,12 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
             return "->[SynthTable]"
         if "Field" in targets:
             return "->[SynthTable]label"
-        return "Nil"
+        # No resolvable target: same "nil pointer" convention as the
+        # concrete:Pointer case above -- declare an unassigned Pointer
+        # variable rather than emitting the bare (invalid) "Nil" token.
+        v = ctx_state.fresh_name("v")
+        ctx_state.prelude.append(f"var {v} : Pointer")
+        return v
 
     if kind == "literal_symbols":
         symbols = type_obj["symbols"]
@@ -365,7 +387,6 @@ CONCRETE_LITERALS = {
     "Boolean": "True",
     "Date": "!2024-01-01!",
     "Time": "?00:00:00?",
-    "Pointer": "Nil",
     "Object": "New object",
     "Collection": "New collection",
     "Variant": "1",
@@ -374,6 +395,10 @@ CONCRETE_LITERALS = {
     # their Picture parameter as inout, and 4D rejects an expression
     # (New picture(...)) in a by-reference slot, so Picture always goes
     # through the var-declaration path above regardless of direction.
+    # NOTE: "Pointer" is deliberately absent -- see DECLARABLE_VAR_TYPES'
+    # "Pointer" entry above; "Nil" is not a valid 4D literal/keyword, so
+    # every Pointer-typed argument always goes through the var-declaration
+    # path (an unassigned `var $v : Pointer` is a real nil pointer).
 }
 
 # Known SQL/pseudo params that must be an addressable Field/Variant
@@ -810,14 +835,26 @@ def resolve_target_ids(ir, commands_by_id, args, default_ids):
     if chosen > 1:
         raise SystemExit("--all, --ids, and --theme are mutually exclusive")
     if all_ids:
-        return list(commands_by_id.keys()), False
+        return [
+            cid for cid, c in commands_by_id.items() if c.get("theme") not in EXCLUDED_THEMES
+        ], False
     if ids_arg:
         ids = [x.strip() for x in ids_arg.split(",") if x.strip()]
         missing = [cid for cid in ids if cid not in commands_by_id]
         if missing:
             raise SystemExit(f"--ids: not found in assembled IR: {missing}")
+        excluded = [cid for cid in ids if commands_by_id[cid].get("theme") in EXCLUDED_THEMES]
+        if excluded:
+            raise SystemExit(
+                f"--ids: {excluded} belong to a permanently excluded theme "
+                f"({EXCLUDED_THEMES}) -- see EXCLUDED_THEMES for why"
+            )
         return ids, True
     if theme_arg:
+        if theme_arg in EXCLUDED_THEMES:
+            raise SystemExit(
+                f"--theme {theme_arg!r} is permanently excluded -- see EXCLUDED_THEMES for why"
+            )
         ids = [cid for cid, c in commands_by_id.items() if c.get("theme") == theme_arg]
         if not ids:
             raise SystemExit(f"--theme: no commands found with theme {theme_arg!r}")
@@ -881,6 +918,20 @@ def cmd_generate(args):
             "overloads": overload_line_starts,
         }
         print(f"wrote {file_path.relative_to(ROOT)} ({len(command.get('overloads', []))} overload(s))")
+
+    # A wholesale run (--all or the default pilot set) knows the complete
+    # desired file set -- delete any stray Synth_*.4dm left over from a
+    # prior run whose command is no longer targeted (e.g. a newly excluded
+    # theme, or a command removed from the IR), so the corpus doesn't
+    # silently accumulate stale generated files a --ids/--theme batch run
+    # would never touch or know to clean up.
+    if not subset_mode:
+        wanted = set(manifest["files"].keys())
+        for stale in sorted(METHODS_DIR.glob("Synth_*.4dm")):
+            rel = f"Sources/Methods/{stale.name}"
+            if rel not in wanted:
+                stale.unlink()
+                print(f"removed stale {stale.relative_to(ROOT)}")
 
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"\n{len(target_ids)} command(s) -> {MANIFEST_PATH.relative_to(ROOT)}")

@@ -1,14 +1,15 @@
 // overload 0
-var $v1 : Integer
+var $v1 : Pointer
 var $v2 : Integer
 var $v3 : Integer
-var $v4 : Boolean
+var $v4 : Integer
 var $v5 : Boolean
-GET RELATION PROPERTIES(Nil;$v1;$v2;$v3;$v4;$v5)
+var $v6 : Boolean
+GET RELATION PROPERTIES($v1;$v2;$v3;$v4;$v5;$v6)
 // overload 1
-var $v6 : Integer
 var $v7 : Integer
 var $v8 : Integer
-var $v9 : Boolean
+var $v9 : Integer
 var $v10 : Boolean
-GET RELATION PROPERTIES(1;1;$v6;$v7;$v8;$v9;$v10)
+var $v11 : Boolean
+GET RELATION PROPERTIES(1;1;$v7;$v8;$v9;$v10;$v11)

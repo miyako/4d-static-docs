@@ -1,3 +1,4 @@
 // overload 0
-var $synthResult1 : Variant
-$synthResult1:=Is a variable(Nil)
+var $v1 : Pointer
+var $synthResult2 : Variant
+$synthResult2:=Is a variable($v1)

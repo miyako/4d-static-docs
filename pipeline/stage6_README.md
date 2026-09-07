@@ -14,6 +14,9 @@ synthesizes one or more real 4D method bodies that call the command, writes
 them to `Project/Sources/Methods/Synth_<id>.4dm`, and cross-checks them
 against a real 4D compiler (`tool4d`, driven via `tools/tool4d-lsp-stdio`'s
 LSP bridge) inside the throwaway project `Project/4DCommandIRSynthCheck.4DProject`.
+Commands whose theme is in `EXCLUDED_THEMES` (currently just `4D-View-Pro`,
+see "Permanently excluded themes" below) are skipped entirely -- no file is
+generated and no check is run for them.
 
 `validate` runs `tool4d-lsp-stdio check-syntax`, which wraps the custom
 `experimental/checkSyntax` LSP request -- the same request the 4D Analyzer
@@ -21,17 +24,18 @@ VS Code extension's "Check workspace syntax" command uses. This is a real
 project-wide compile-check pass, not per-file pull diagnostics: one request
 returns diagnostics for every method in the project in a single response
 (confirmed empirically: passing a single anchor file still returns entries
-for all 1456 generated files). This replaced an earlier implementation that
+for every generated file). This replaced an earlier implementation that
 called `tool4d-lsp-stdio validate` once per 150-file chunk (per-file pull
 diagnostics) -- `check-syntax` is both stricter (it's the same pass the
 real compiler/editor use to report project-wide syntax errors, versus
 `validate`'s lighter live-typing-oriented per-document check) and roughly
-15-20x faster (~11s for the full 1456-command corpus vs. several minutes
-chunked). Re-validating the full corpus after the switch reproduced the
-exact same 125-error/122-command ViewPro baseline with 0 non-ViewPro
-errors, so the earlier per-file check had not been silently missing
-anything in this corpus -- but `check-syntax` is the correct long-term
-foundation and should be assumed authoritative going forward.
+15-20x faster (~11s for the full corpus vs. several minutes chunked).
+Re-validating the full corpus after the switch reproduced the exact same
+baseline that existed before it (see "Permanently excluded themes" for what
+that baseline was and why it's gone now), so the earlier per-file check had
+not been silently missing anything in this corpus -- but `check-syntax` is
+the correct long-term foundation and should be assumed authoritative going
+forward.
 Where the compiler disagrees with what the IR claims, that's fed back as a
 correction to the relevant `pipeline/semantic_overlays/<id>.json` overlay (or,
 for enum data bugs, to `references/4d-command-ir-enums.json` /
@@ -43,18 +47,38 @@ for enum data bugs, to `references/4d-command-ir-enums.json` /
 Each overload gets a "default" block (all params, using the first/preferred
 alternative for anything ambiguous), plus these sweeps add more blocks:
 
-| Sweep | What it varies | Blocks | Driven by |
-|---|---|---|---|
-| enum-value sweep | every value of an `enum_ref` param, across ALL values | 180 | `find_enum_refs_in_params` + `ctx_state.enum_override` |
-| flag on/off sweep | every optional `literal_symbols` flag (e.g. `*`, `>`), present vs. omitted | 395 | `find_flag_omission_variants` + `call_params` override |
-| union-discriminator sweep | every alternative of a union-typed param, one at a time | 537 | `find_union_params_in_params` + `ctx_state.union_override` |
+| Sweep | What it varies | Driven by |
+|---|---|---|
+| enum-value sweep | every value of an `enum_ref` param, across ALL values | `find_enum_refs_in_params` + `ctx_state.enum_override` |
+| flag on/off sweep | every optional `literal_symbols` flag (e.g. `*`, `>`), present vs. omitted | `find_flag_omission_variants` + `call_params` override |
+| union-discriminator sweep | every alternative of a union-typed param, one at a time | `find_union_params_in_params` + `ctx_state.union_override` |
 
-Total: 2701 overload+variant entries across 1456 commands, 2576 clean, 0
-warnings, 125 errors — **all 125 are ViewPro** (a separate installable
-component, not a built-in command set; deliberately out of scope, see
-below). Any other error is a real finding that must be triaged.
+Total (excluding `EXCLUDED_THEMES`): 2576 overload+variant entries across
+1334 commands, **2576 clean, 0 warnings, 0 errors**. Any error is a real
+finding that must be triaged.
 
-### Deliberate, documented exclusions (do not "fix" these)
+### Permanently excluded themes
+
+`EXCLUDED_THEMES` (currently `{"4D-View-Pro"}`) commands are skipped
+entirely at generation time -- not generated, not validated, not counted.
+4D View Pro is a licensed/installable 4D component, not part of the base
+language, and `Project/4DCommandIRSynthCheck.4DProject` has no way to
+provision it, so every one of its 122 commands failed `check-syntax` for
+reasons entirely unrelated to the IR (confirmed empirically: all 122
+4D-View-Pro-themed commands errored, 0 others did, before this exclusion
+was added -- 125 error diagnostics total across those 122 commands' 1456-
+command, 2701-block corpus). Rather than carry that as a permanent
+"expected baseline" to filter out of every report, the theme is excluded
+from generation/validation altogether so the corpus and its counts are 100%
+signal. `resolve_target_ids` also rejects any explicit `--theme
+4D-View-Pro` or `--ids <VP-...>` request with a clear error pointing back
+here, so the exclusion can't be silently bypassed by accident.
+
+If ViewPro is ever provisioned in this environment, remove the theme from
+`EXCLUDED_THEMES` and re-run the full corpus (`generate --all` then
+`validate --all`) to bring its 122 commands back into coverage.
+
+### Deliberate, documented sweep exclusions (do not "fix" these)
 
 A few sweep combinations are skipped on purpose because they'd produce a
 call that's invalid for reasons unrelated to the IR's correctness. These are
@@ -78,12 +102,6 @@ comment explaining the reasoning — read them before changing:
   selector-dependent, not a free union; forcing an arbitrary alternative
   against the sweep's arbitrary default selector is a real type mismatch,
   not an IR bug.
-- ViewPro (125 commands, `VP-*`/`WP-*` ids under the "View Pro"/"Write Pro"
-  themes) — a licensed/installable 4D component, not part of the base
-  language. Its errors in `out/lsp_crosscheck_report.json` are a permanent
-  baseline, not a to-do list. If ViewPro is ever provisioned in this
-  environment, that baseline should shrink — treat any *reduction* below
-  125 as expected progress, not a regression.
 
 If you find yourself tempted to write a new command-specific exception,
 first ask whether the IR itself is wrong (fix the overlay) before excluding
@@ -121,9 +139,11 @@ python3 pipeline/stage6_synth_examples.py validate --all
 ```
 
 Compare the final line's totals against the last known-good baseline
-(currently: `2701 overload(s) checked, 2576 clean, 0 warning-only, 125
-error`). Any error whose command id is not `VP-*`/ViewPro-themed is a new
-finding — triage it (see the loop below) before committing.
+(currently: `2576 overload(s) checked, 2576 clean, 0 warning-only, 0
+error`). Any error at all is a new finding — triage it (see the loop below)
+before committing. (Errors from `EXCLUDED_THEMES` commands can no longer
+appear here since they're never generated -- see "Permanently excluded
+themes" above.)
 
 ### 2. A bug is found (tool4d disagrees with the IR)
 

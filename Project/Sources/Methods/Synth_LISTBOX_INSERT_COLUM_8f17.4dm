@@ -9,10 +9,12 @@ LISTBOX INSERT COLUMN FORMULA($v2;1;"synthText";"synthText";1;"synthText";1;"syn
 var $v4 : Variant
 LISTBOX INSERT COLUMN FORMULA(*;"synthText";1;"synthText";"synthText";1;"synthText";1;"synthText";$v4)
 // overload 0 union-sweep headerVar=Pointer
-var $v5 : Variant
-LISTBOX INSERT COLUMN FORMULA(*;"synthText";1;"synthText";"synthText";1;"synthText";Nil;"synthText";$v5)
-// overload 0 union-sweep footerVar=Variable
+var $v5 : Pointer
 var $v6 : Variant
-LISTBOX INSERT COLUMN FORMULA(*;"synthText";1;"synthText";"synthText";1;"synthText";1;"synthText";$v6)
+LISTBOX INSERT COLUMN FORMULA(*;"synthText";1;"synthText";"synthText";1;"synthText";$v5;"synthText";$v6)
+// overload 0 union-sweep footerVar=Variable
+var $v7 : Variant
+LISTBOX INSERT COLUMN FORMULA(*;"synthText";1;"synthText";"synthText";1;"synthText";1;"synthText";$v7)
 // overload 0 union-sweep footerVar=Pointer
-LISTBOX INSERT COLUMN FORMULA(*;"synthText";1;"synthText";"synthText";1;"synthText";1;"synthText";Nil)
+var $v8 : Pointer
+LISTBOX INSERT COLUMN FORMULA(*;"synthText";1;"synthText";"synthText";1;"synthText";1;"synthText";$v8)

@@ -14,4 +14,5 @@ SET LIST ITEM ICON(*;"synthText";*;$v4)
 var $v5 : Picture
 SET LIST ITEM ICON(*;"synthText";1;$v5)
 // overload 0 union-sweep icon=Pointer
-SET LIST ITEM ICON(*;"synthText";1;Nil)
+var $v6 : Pointer
+SET LIST ITEM ICON(*;"synthText";1;$v6)

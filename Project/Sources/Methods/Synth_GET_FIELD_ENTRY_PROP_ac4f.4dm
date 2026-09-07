@@ -1,12 +1,13 @@
 // overload 0
-var $v1 : Text
-var $v2 : Boolean
+var $v1 : Pointer
+var $v2 : Text
 var $v3 : Boolean
 var $v4 : Boolean
-GET FIELD ENTRY PROPERTIES(Nil;$v1;$v2;$v3;$v4)
+var $v5 : Boolean
+GET FIELD ENTRY PROPERTIES($v1;$v2;$v3;$v4;$v5)
 // overload 1
-var $v5 : Text
-var $v6 : Boolean
+var $v6 : Text
 var $v7 : Boolean
 var $v8 : Boolean
-GET FIELD ENTRY PROPERTIES(1;1;$v5;$v6;$v7;$v8)
+var $v9 : Boolean
+GET FIELD ENTRY PROPERTIES(1;1;$v6;$v7;$v8;$v9)
