@@ -14168,14 +14168,6 @@
     "status": "clean"
   },
   {
-    "id": "SAX-OPEN-XML-ELEMENT-ARRAYS",
-    "overload_index": 1,
-    "variant": "default",
-    "file": "Sources/Methods/Synth_SAX_OPEN_XML_ELEMENT_8519.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
     "id": "SAX-SET-XML-DECLARATION",
     "overload_index": 0,
     "variant": "default",

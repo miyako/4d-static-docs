@@ -48695,68 +48695,7 @@
               "position": "trailing"
             }
           ],
-          "semanticRole": "Adds a new element, optionally passing one or more attribute-name/attribute-value pairs as parallel arrays (attribNamesArray a Text array, attribValuesArray a typed Array of text/date/number/boolean/picture elements).",
-          "discriminatedBy": {
-            "param": "attribValuesArray",
-            "rule": "Trailing repeat-group members are arrays (Text array / typed Array) -- the array-based syntax."
-          },
-          "staticallyDistinguishable": true
-        },
-        {
-          "params": [
-            {
-              "name": "document",
-              "type": {
-                "kind": "concrete",
-                "name": "Time"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "tag",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "group",
-              "members": [
-                {
-                  "name": "attribNamesArray",
-                  "type": {
-                    "kind": "concrete",
-                    "name": "Text"
-                  },
-                  "direction": "in",
-                  "optional": false
-                },
-                {
-                  "name": "attribValuesArray",
-                  "type": {
-                    "kind": "concrete",
-                    "name": "Text"
-                  },
-                  "direction": "in",
-                  "optional": false
-                }
-              ],
-              "cardinality": {
-                "min": 0,
-                "max": null
-              },
-              "position": "trailing"
-            }
-          ],
-          "semanticRole": "Documented as the '*'-suffixed variant of this command: adds a new element passing a single scalar attribName/attribValue Text pair, identical in effect to SAX OPEN XML ELEMENT's own pair syntax rather than to the array-based form.",
-          "discriminatedBy": {
-            "param": "attribValuesArray",
-            "rule": "Trailing repeat-group members are scalar Text values, not arrays -- selects the non-array (single pair) syntax."
-          },
-          "staticallyDistinguishable": true
+          "semanticRole": "Adds a new element, optionally passing one or more attribute-name/attribute-value pairs as parallel arrays (attribNamesArray a Text array, attribValuesArray a typed Array of text/date/number/boolean/picture elements). Identical to SAX OPEN XML ELEMENT except for this array support."
         }
       ],
       "constraints": [

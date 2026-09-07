@@ -1,23 +1,58 @@
 {
   "theme": "XML-SAX",
-  "overloadPatches": [
+  "overloadMerges": [
     {
-      "index": 0,
-      "semanticRole": "Adds a new element, optionally passing one or more attribute-name/attribute-value pairs as parallel arrays (attribNamesArray a Text array, attribValuesArray a typed Array of text/date/number/boolean/picture elements).",
-      "discriminatedBy": {
-        "param": "attribValuesArray",
-        "rule": "Trailing repeat-group members are arrays (Text array / typed Array) -- the array-based syntax."
-      },
-      "staticallyDistinguishable": true
-    },
-    {
-      "index": 1,
-      "semanticRole": "Documented as the '*'-suffixed variant of this command: adds a new element passing a single scalar attribName/attribValue Text pair, identical in effect to SAX OPEN XML ELEMENT's own pair syntax rather than to the array-based form.",
-      "discriminatedBy": {
-        "param": "attribValuesArray",
-        "rule": "Trailing repeat-group members are scalar Text values, not arrays -- selects the non-array (single pair) syntax."
-      },
-      "staticallyDistinguishable": true
+      "sourceIndices": [0, 1],
+      "note": "Doc bug: the page's own second signature line (\"SAX OPEN XML ELEMENT ARRAYS* (...attribNamesArray: Text; attribValuesArray: Text)\") is not a real second overload of THIS command. Fetched developer.4d.com directly to confirm: the page's Description section states outright \"Except for the support of arrays (see below), this command is identical to SAX OPEN XML ELEMENT. Please refer to the description of this command for more information about its operation.\" The italicized '*'-suffixed line is the ARRAYS page's own doc-site convention for cross-referencing that sibling command's signature inline for comparison -- it is NOT a second calling form of SAX OPEN XML ELEMENT ARRAYS itself, and the sibling command (developer.4d.com/docs/commands/sax-open-xml-element, confirmed separately) has its own real, differently-named params (attribName/attribValue, singular, no 's') already modeled at its own IR id (SAX-OPEN-XML-ELEMENT). The mechanical extraction mistakenly reused THIS command's own attribNamesArray/attribValuesArray param names for that cross-referenced line, producing a spurious second overload with a scalar Text/Text repeat-group that the real 4D compiler rejects (\"Invalid constant type: Alphanumeric\" -- there is no such calling form). Collapsed back to the single genuine array-based overload; user-confirmed as a doc bug (2026-09-07).",
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tag",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribNamesArray",
+              "type": {
+                "kind": "concrete",
+                "name": "Text array"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attribValuesArray",
+              "type": {
+                "kind": "concrete",
+                "name": "Array"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Adds a new element, optionally passing one or more attribute-name/attribute-value pairs as parallel arrays (attribNamesArray a Text array, attribValuesArray a typed Array of text/date/number/boolean/picture elements). Identical to SAX OPEN XML ELEMENT except for this array support."
     }
   ],
   "constraints": [
