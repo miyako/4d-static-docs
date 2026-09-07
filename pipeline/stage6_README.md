@@ -242,10 +242,12 @@ meaningfully faster.
 
 ## Prerequisites / environment dependencies
 
-- `tools/tool4d-lsp-stdio` must be provisioned (see `pipeline/README.md`'s
-  tooling section if this repo has one, or re-provision via whatever
-  mechanism installed it originally — it wraps a real `tool4d` binary from
-  a 4D Analyzer install).
+- `tools/tool4d-lsp-stdio` must be provisioned (it's gitignored, so a fresh
+  clone/session starts without it). Use the `4dtools` skill
+  (`skills/4dtools/SKILL.md`) to provision it — it downloads/builds the
+  binary into `tools/` per its documented recipe, without installing
+  anything globally or touching `PATH`. It wraps a real `tool4d` binary
+  from a 4D Analyzer install.
 - The underlying `tool4d` binary is **version-pinned** to the 4D release
   the docs mirror was extracted from (currently 21R3, resolved via a local
   4D Analyzer install e.g. under
