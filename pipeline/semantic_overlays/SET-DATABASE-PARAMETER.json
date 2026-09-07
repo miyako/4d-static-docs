@@ -7,7 +7,26 @@
     {
       "index": 0,
       "params": [
-        { "name": "selector", "type": { "kind": "enum_ref", "enum": "DatabaseParameterSelector" }, "direction": "in", "optional": false }
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": true,
+          "description": "Table to which the parameter applies. Only meaningful for table-scoped selectors (e.g. Query By Formula On Server); ignored/omittable for global selectors.",
+          "default": "default table if set"
+        },
+        { "name": "selector", "type": { "kind": "enum_ref", "enum": "DatabaseParameterSelector" }, "direction": "in", "optional": false },
+        {
+          "name": "value",
+          "type": [
+            { "kind": "concrete", "name": "Real" },
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "New value for the selected parameter; accepted shape depends entirely on selector -- see discriminatedBy. Confirmed missing from the original draft by the LSP cross-check (tool4d rejected a selector-only call site with a parameter-count/type mismatch) and against the real doc syntax examples (e.g. \"SET DATABASE PARAMETER(4D Server Timeout;-60*3)\", \"SET DATABASE PARAMETER(Dates inside objects;0)\"), which always pass two arguments (three when aTable is also given)."
+        }
       ],
       "discriminatedBy": {
         "param": "selector",
