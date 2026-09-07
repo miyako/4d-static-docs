@@ -18,40 +18,88 @@ When you work with `.4dm` files under `Project/Sources/`, use
 3. If the exit code is 1, read the error messages, fix the code, and
    re-validate until exit code 0.
 
-## Code intelligence (MCP)
-
-When you need more than validation — completions, documentation lookups,
-or navigating to definitions — start the MCP server:
+`validate` requires an explicit file list. When you want a project-wide
+compile-check pass instead -- without listing every file -- use
+`check-syntax`, which is otherwise optional-files and covers the whole
+project in one call:
 
 ```sh
-tools/tool4d-lsp-stdio mcp --workspace Project/
+tools/tool4d-lsp-stdio check-syntax --workspace Project/
 ```
 
-Use the MCP tools in these situations:
+It has not yet been empirically confirmed whether this reliably reports
+diagnostics for files it did not explicitly open, so don't rely on it as
+a replacement for validating specific files you just modified. See
+`skills/4dlsp/SKILL.md` for the full reference.
+
+## Code intelligence (hover, completion, goto-definition)
+
+When you need more than validation — completions, documentation lookups,
+or navigating to definitions — prefer the one-shot subcommands (no
+persistent process needed for a handful of calls):
+
+```sh
+tools/tool4d-lsp-stdio hover --workspace Project/ \
+  Sources/Methods/myMethod.4dm --line 5 --character 10
+```
+
+For many such calls in one task, start a persistent server once and omit
+`--project`/`--workspace` on subsequent calls to reuse it (avoids paying
+the tool4d startup cost per call):
+
+```sh
+tools/tool4d-lsp-stdio mcp --project Project/MyApp.4DProject   # prints pid + socket, returns
+tools/tool4d-lsp-stdio hover Sources/Methods/myMethod.4dm --line 5 --character 10
+# ... more one-shot calls without --project/--workspace ...
+tools/tool4d-lsp-stdio mcp --stop --project Project/MyApp.4DProject   # clean up when the task ends
+```
+
+**Note:** the originally-shipped `tool4d-lsp-stdio` 0.3.0 build had this
+daemonize/reuse pattern broken (see
+https://github.com/miyako/language-4dm-nova/issues/42). That fix has
+been merged upstream and `tools/tool4d-lsp-stdio` in this workspace has
+been rebuilt from it, so the pattern above works reliably here. If your
+provisioned build predates the fix, fall back to calling one-shot
+subcommands directly with `--project`/`--workspace` on every call, or
+use `mcp --foreground`.
+
+If your provisioned `tool4d-lsp-stdio` build predates these one-shot
+subcommands (check `--help`), fall back to the raw MCP protocol per
+`skills/4dlsp/SKILL.md`'s "No MCP client available" section, or prefer
+provisioning a newer build via `skills/4dtools/SKILL.md`.
+
+Use `hover`/`completion`/`goto-definition`/`document-symbols` in these
+situations:
 
 - **Before using a 4D command you are not certain about**, call `hover`
   on a similar command in existing code to check its signature and
   arguments.
 - **When you encounter an unfamiliar 4D command** while reading code,
   call `hover` to read its documentation instead of guessing what it does.
+- **When reviewing existing code for correctness** (e.g. asked "is this
+  code correct?" or "are these commands valid?"), do not rely on
+  `validate` alone -- it can report 0 errors even when a command is
+  obsolete or has been renamed in a later 4D version. Call `hover` on
+  every command you're asked to vouch for; a result of "No hover
+  information available at this position" means the token is not a
+  recognized command, even if `validate` passed.
 - **When you need to understand what a project method does**, call
-  `goto_definition` to find its source code.
+  `goto-definition` to find its source code.
 - **When you need to see what a file contains** before editing it, call
-  `document_symbols` to get a quick overview of its methods and variables.
+  `document-symbols` to get a quick overview of its methods and variables.
 - **When writing new code**, call `completion` at the cursor position to
   discover available 4D commands, methods, and variables.
-- **After modifying code**, call `validate` to check for errors (same as
-  the CLI command, but without restarting tool4d each time).
 
-### MCP vs CLI validation
+### One-shot vs persistent server vs `validate`
 
-Use the **MCP server** when you plan to do multiple interactions with 4D
-code in one session (write → validate → fix → re-validate, or exploring
-code with hover/goto). The server starts tool4d once (~8 seconds) and
-keeps it running.
-
-Use the **CLI `validate` command** for quick one-shot checks when you
-just need to verify a file is correct.
+Use `validate` alone when you don't need command verification. Use the
+one-shot subcommands directly (with `--project`/`--workspace`) for a
+handful of hover/completion/goto-definition checks. Start a persistent
+server (`mcp --project ...`, then omit `--project`/`--workspace` on
+later calls, then `mcp --stop` when done) only when a task needs many
+such checks -- e.g. reviewing every command in a file. If a native MCP
+client for this server is already available in your own tool list, use
+its tools directly instead of shelling out to any of the above.
 
 See `skills/4dlsp/SKILL.md` for the full reference (tool parameters,
 output formats, prerequisites).
