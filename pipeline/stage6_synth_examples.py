@@ -498,6 +498,75 @@ def render_query_chain(call_name: str, oi: int, has_a_table: bool) -> dict:
         lines.append(f"{call_name}({';'.join(args)})")
     return {"overload_index": oi, "variant": "chain", "lines": lines}
 
+
+# QUERY BY ATTRIBUTE / QUERY SELECTION BY ATTRIBUTE already model their
+# conjunction as an explicit "conjOp" param (unlike QUERY/QUERY-SELECTION
+# above), but the default single-call rendering always includes it, which
+# contradicts developer.4d.com's own rule ("The conjOp parameter is not
+# used for the first QUERY BY ATTRIBUTE call of a multiple query, or if
+# the query is a simple query."). Build a real chain instead: an opening
+# call with conjOp omitted entirely, then one continuation call per
+# QUERY_CHAIN_CONJUNCTIONS symbol (conjOp included, trailing '*' except
+# on the last).
+QUERY_ATTR_CHAIN_COMMANDS = {"QUERY-BY-ATTRIBUTE", "QUERY-SELECTION-BY-ATTRIBUTE"}
+
+
+def render_query_attr_chain(ir, ctx_state: "SynthContext", call_name: str, oi: int, params: list, command_id: str) -> dict:
+    has_a_table = bool(params) and params[0].get("name") == "aTable"
+    rest = [p for p in params if p.get("name") not in ("aTable", "conjOp", "*")]
+    ctx_state.prelude = []
+    lines = [f"// overload {oi} multi-query chain"]
+    n = len(QUERY_CHAIN_CONJUNCTIONS) + 1
+    for i in range(n):
+        args = []
+        if has_a_table:
+            args.append("[SynthTable]")
+        if i > 0:
+            args.append(QUERY_CHAIN_CONJUNCTIONS[i - 1])
+        for p in rest:
+            args.append(build_arg_for_type(ir, p["type"], p.get("name", "arg"), ctx_state, p.get("direction", "in")))
+        if i < n - 1:
+            args.append("*")
+        lines.append(f"{call_name}({';'.join(args)})")
+    lines[1:1] = ctx_state.prelude
+    return {"overload_index": oi, "variant": "chain", "lines": lines}
+
+
+# ORDER BY / ORDER BY ATTRIBUTE have no conjunction at all -- multiple
+# sort levels are built by calling the command repeatedly, ONE sort level
+# (one repetition of the VariadicGroup "sortLevel"/"group") per call,
+# re-passing aTable every time, trailing '*' on every call except the
+# last (confirmed against developer.4d.com's ORDER BY / ORDER BY
+# ATTRIBUTE pages: "you can pass only one sort level (field) per...
+# call"). The default single-call rendering (render_block above, which
+# expands the VariadicGroup to cardinality.min=1 rep and always includes
+# the trailing '*') leaves a dangling, never-closed chain -- syntactically
+# fine but never actually demonstrates or closes a real multi-level sort.
+ORDER_CHAIN_COMMANDS = {"ORDER-BY", "ORDER-BY-ATTRIBUTE"}
+ORDER_CHAIN_ORDERS = [">", "<"]
+
+
+def render_order_chain(ir, ctx_state: "SynthContext", call_name: str, oi: int, params: list, command_id: str) -> dict:
+    has_a_table = bool(params) and params[0].get("name") == "aTable"
+    group_param = next(p for p in params if "members" in p)
+    ctx_state.prelude = []
+    lines = [f"// overload {oi} multi-sort chain"]
+    n = len(ORDER_CHAIN_ORDERS)
+    for i in range(n):
+        args = []
+        if has_a_table:
+            args.append("[SynthTable]")
+        for m in group_param["members"]:
+            if m.get("name") == "order":
+                args.append(ORDER_CHAIN_ORDERS[i])
+            else:
+                args.append(build_arg_for_type(ir, m["type"], m.get("name", "arg"), ctx_state, m.get("direction", "in")))
+        if i < n - 1:
+            args.append("*")
+        lines.append(f"{call_name}({';'.join(args)})")
+    lines[1:1] = ctx_state.prelude
+    return {"overload_index": oi, "variant": "chain", "lines": lines}
+
 # Curated (command_id -> {frozenset({paramA, paramB}), ...}) trailing
 # optional-param pairs confirmed (via a live tool4d cross-check) to be
 # mutually exclusive alternates of the same call, not independently
@@ -834,6 +903,18 @@ def synthesize_command(ir, command) -> list[dict]:
             and "*" in param_names
         ):
             blocks.append(render_query_chain(call_name, oi, param_names[0] == "aTable"))
+        elif (
+            command["id"] in QUERY_ATTR_CHAIN_COMMANDS
+            and "conjOp" in param_names
+            and "*" in param_names
+        ):
+            blocks.append(render_query_attr_chain(ir, ctx_state, call_name, oi, params, command["id"]))
+        elif (
+            command["id"] in ORDER_CHAIN_COMMANDS
+            and any("members" in p for p in params)
+            and "*" in param_names
+        ):
+            blocks.append(render_order_chain(ir, ctx_state, call_name, oi, params, command["id"]))
         else:
             blocks.append(render_block("default", "", {}))
 
