@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "By default, if pathname designates a folder, only the folder's own location/level is shown, not its contents.",
+    "If the optional * parameter is passed and pathname designates a folder, the folder is opened and its contents are displayed.",
+    "If pathname designates a file (not a folder), the * parameter is ignored."
+  ]
+}

@@ -13,10 +13,25 @@
             "name": "Collection"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": "empty collection",
+              "meaning": "the 4D user account will no longer belong to any group"
+            },
+            {
+              "value": "omitted",
+              "meaning": "resets the account's group memberships to those stored on disk"
+            }
+          ]
         }
-      ],
-      "semanticRole": "The SET GROUP ACCESS command modifies the memberships of the 4D user account for the current session."
+      ]
     }
+  ],
+  "constraints": [
+    "Can only be called from 4D remote or 4D single-user applications; not allowed on 4D Server.",
+    "Scope is the current session only; a later CHANGE CURRENT USER call resets memberships defined by this command.",
+    "Group names that do not exist are silently ignored.",
+    "A license used via a \"serialized\" group membership stays attached to the user account until the session ends, even if that membership is later canceled by this command."
   ]
 }

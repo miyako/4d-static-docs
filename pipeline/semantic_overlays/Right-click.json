@@ -1,0 +1,15 @@
+{
+  "theme": "Form-Events",
+  "constraints": [
+    "Should only be used within the On Clicked form event; verify in Design mode that this event is enabled on the form and/or the specific object."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Signature 'Right click : Boolean' has no parameter list, so autoparse's regex (which requires a top-level '(...)') never matched and the returns field was left unset entirely; restored it here as Boolean per the parameter table's Function result row.",
+      "params": [],
+      "returns": { "kind": "concrete", "name": "Boolean" },
+      "semanticRole": "Returns True if the right mouse button was clicked (within an On Clicked event), otherwise False."
+    }
+  ]
+}

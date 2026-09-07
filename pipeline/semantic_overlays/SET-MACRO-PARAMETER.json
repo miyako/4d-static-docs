@@ -1,0 +1,29 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Adds sentinel meanings for the documented selector constants (full method text vs. highlighted/selected text).",
+      "params": [
+        {
+          "name": "selector",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 1, "meaning": "replace the full method text" },
+            { "value": 2, "meaning": "replace only the highlighted (selected) method text" }
+          ]
+        },
+        {
+          "name": "textParam",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If no text is currently selected in the method, textParam is simply inserted at the insertion point (selector has no effect)."
+  ]
+}

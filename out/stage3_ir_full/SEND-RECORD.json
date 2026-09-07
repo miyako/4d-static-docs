@@ -18,5 +18,12 @@
       ],
       "semanticRole": "SEND RECORD sends the current record of aTable to the serial port or document opened by the SET CHANNEL command."
     }
+  ],
+  "constraints": [
+    "If aTable is omitted, the default table is used.",
+    "If no current record exists in the table, the command has no effect.",
+    "Requires a serial port or document previously opened via SET CHANNEL; cannot be used with a document opened via Open document, Create document, or Append document.",
+    "The record is sent in a special internal format readable only by RECEIVE RECORD; source and destination table structures must be compatible or 4D converts values per the destination table definitions.",
+    "Beginning with 4D v11, this command no longer supports subtables."
   ]
 }

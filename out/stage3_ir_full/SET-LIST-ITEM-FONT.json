@@ -2,12 +2,12 @@
   "id": "SET-LIST-ITEM-FONT",
   "displayName": "SET LIST ITEM FONT",
   "kind": "classic_command",
-  "theme": "Hierarchical Lists",
+  "theme": "Hierarchical-Lists",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string) referring to a form representation of the list; if omitted, 'list' is a hierarchical list reference number (ListRef)."
         },
         {
           "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "List reference number (if '*' omitted), or name of the list-type form object (if '*' passed)."
         },
         {
           "name": "itemRef",
@@ -39,7 +47,17 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "the last item appended to the list (via APPEND TO LIST)"
+            },
+            {
+              "value": "*",
+              "meaning": "the current item of the list (requires the object-name syntax, since each form representation can have its own current item)"
+            }
+          ]
         },
         {
           "name": "font",
@@ -54,54 +72,24 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "reapply the default font of the hierarchical list"
+            }
+          ]
         }
       ],
-      "semanticRole": "The SET LIST ITEM FONT command modifies the character font of the item specified by the itemRef parameter of the list whose reference number or object name is passed in list ."
-    },
-    {
-      "params": [
+      "interactionNotes": [
         {
-          "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "itemRef",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            },
-            {
-              "kind": "pseudo",
-              "name": "Operator"
-            }
+          "params": [
+            "asObjectName (leading *)",
+            "itemRef (* sentinel)"
           ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "font",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
+          "note": "The literal symbol '*' means two unrelated things depending on position: leading = 'list is a name, not a ref number'; in itemRef's slot = 'operate on the current item'. Using the itemRef '*' sentinel requires the object-name syntax (leading '*' passed)."
         }
-      ],
-      "semanticRole": "The SET LIST ITEM FONT command modifies the character font of the item specified by the itemRef parameter of the list whose reference number or object name is passed in list ."
+      ]
     }
   ]
 }

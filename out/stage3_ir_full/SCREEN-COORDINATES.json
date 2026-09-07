@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -30,7 +30,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -39,7 +39,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -58,10 +58,25 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Screen size -- the coordinates of the entire screen (default)."
+            },
+            {
+              "value": 1,
+              "meaning": "Screen work area -- the usable area, excluding the taskbar/menu bar/Dock."
+            }
+          ]
         }
       ],
-      "semanticRole": "The SCREEN COORDINATES command returns in left , top , right, and bottom the global coordinates of the screen specified by screenID ."
+      "semanticRole": "Returns the global screen coordinates (left, top, right, bottom) of the screen designated by screenID and screenArea."
     }
+  ],
+  "constraints": [
+    "If screenID is omitted, coordinates for the main screen are returned.",
+    "If an invalid screenID or screenArea value is given, zero is returned for all four coordinates.",
+    "If the taskbar/dock is set to auto-hide, the command always returns the entire screen size regardless of screenArea."
   ]
 }

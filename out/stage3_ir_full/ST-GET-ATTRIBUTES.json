@@ -2,12 +2,12 @@
   "id": "ST-GET-ATTRIBUTES",
   "displayName": "ST GET ATTRIBUTES",
   "kind": "classic_command",
-  "theme": "Styled Text",
+  "theme": "Styled-Text",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,89 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "startSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "endSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "attribName",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "attribValue",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "group",
-          "members": [
-            {
-              "name": "attribName",
-              "type": {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "attribValue",
-              "type": {
-                "kind": "concrete",
-                "name": "Variable"
-              },
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 0,
-            "max": null
-          },
-          "position": "trailing"
-        }
-      ],
-      "semanticRole": "The ST GET ATTRIBUTES command is used to recover the current value of a style attribute in a selection of text of the form object(s) designated by object ."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -108,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
         },
         {
           "name": "startSel",
@@ -117,7 +45,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Start of text selection"
         },
         {
           "name": "endSel",
@@ -126,7 +55,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "End of text selection"
         },
         {
           "name": "attribName",
@@ -135,7 +65,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Attribute to get"
         },
         {
           "name": "attribValue",
@@ -143,8 +74,9 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Current value of attribute"
         },
         {
           "name": "group",
@@ -156,7 +88,8 @@
                 "name": "Integer"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Attribute to get"
             },
             {
               "name": "attribValue",
@@ -164,8 +97,9 @@
                 "kind": "concrete",
                 "name": "Variable"
               },
-              "direction": "in",
-              "optional": false
+              "direction": "out",
+              "optional": false,
+              "description": "Current value of attribute"
             }
           ],
           "cardinality": {
@@ -175,7 +109,7 @@
           "position": "trailing"
         }
       ],
-      "semanticRole": "The ST GET ATTRIBUTES command is used to recover the current value of a style attribute in a selection of text of the form object(s) designated by object ."
+      "semanticRole": "Reads one or more current style-attribute values from a text selection in the designated multi-style text object into caller-supplied variables."
     }
   ]
 }

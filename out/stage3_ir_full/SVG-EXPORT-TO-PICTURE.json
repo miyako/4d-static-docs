@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Root XML element reference"
         },
         {
           "name": "pictVar",
@@ -22,7 +23,8 @@
             "name": "Picture"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Picture variable to receive XML tree (SVG picture)"
         },
         {
           "name": "exportType",
@@ -31,10 +33,25 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "How the XML data source is handled by the command",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Do not store data source"
+            },
+            {
+              "value": 1,
+              "meaning": "Copy data source (default)"
+            },
+            {
+              "value": 2,
+              "meaning": "Own data source"
+            }
+          ]
         }
       ],
-      "semanticRole": "The SVG EXPORT TO PICTURE command saves an SVG format picture contained in an XML tree in the picture field or variable indicated by the pictVar parameter.For more information about the SVG format, refer to the Overview"
+      "semanticRole": "Saves an SVG-format picture built from an XML tree into a picture field/variable, to be redrawn by the SVG rendering engine whenever displayed."
     }
   ]
 }

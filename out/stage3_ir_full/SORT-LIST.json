@@ -30,5 +30,10 @@
       ],
       "semanticRole": "The SORT LIST command sorts the list whose reference number is passed in list ."
     }
+  ],
+  "constraints": [
+    "The order symbol is counterintuitive: > sorts ascending, < sorts descending; if omitted, the sort is ascending.",
+    "Sorts all levels of the list: first the top-level items, then the items of each sublist, recursively through all levels.",
+    "Does not change the current list item or the current expanded/collapsed state, but the current item's position may change as a result of the sort."
   ]
 }

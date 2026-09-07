@@ -51,5 +51,11 @@
       ],
       "semanticRole": "The SET MENU ITEM MARK command changes the check mark of the menu item whose menu number or reference is passed in menu and whose item number is passed in menuItem to the first character of the string passed in mark ."
     }
+  ],
+  "constraints": [
+    "Only the first character of mark is used as the check mark; passing an empty string removes any existing mark from the menu item.",
+    "Passing -1 in menuItem designates the last item added to menu.",
+    "If menu is a MenuRef, the process parameter serves no purpose and is ignored.",
+    "On Macintosh, the first character of mark becomes the raw mark glyph (typically Char(18), the check mark character); on Windows, any non-empty mark assigns the standard check mark regardless of which character is passed."
   ]
 }

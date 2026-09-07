@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Only works in local mode (4D Server and 4D single-user); cannot be used in 4D remote mode.",
+    "The new size is applied dynamically when the command executes.",
+    "If minFreeSize is omitted, 4D unloads at least 10% of the cache when space is needed."
+  ]
+}

@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "List of available resource types"
         },
         {
           "name": "resFile",
@@ -22,10 +23,15 @@
             "name": "Time"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Resource file reference number, or all open resource files, if omitted"
         }
       ],
-      "semanticRole": "The RESOURCE TYPE LIST command populates the array resTypes with the resource types of the resources present in the resource files currently open."
+      "semanticRole": "Populates resTypes with the distinct resource types present across the currently open resource files (or one file if resFile is given)."
     }
+  ],
+  "constraints": [
+    "If resFile is a valid resource file reference number, only that file's resource types are listed; if omitted, all currently open resource files are used.",
+    "resTypes may be predeclared as a String/Text array; otherwise the command creates it as a Text array."
   ]
 }

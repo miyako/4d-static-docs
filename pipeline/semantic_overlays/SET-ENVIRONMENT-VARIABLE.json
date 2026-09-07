@@ -1,0 +1,29 @@
+{
+  "constraints": [
+    "Intended for use together with LAUNCH EXTERNAL PROCESS.",
+    "Windows and macOS only."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Adds the sentinel meaning of an empty-string varValue documented in the parameter table.",
+      "params": [
+        {
+          "name": "varName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "varValue",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": "", "meaning": "reset the variable to its default value" }
+          ]
+        }
+      ]
+    }
+  ]
+}

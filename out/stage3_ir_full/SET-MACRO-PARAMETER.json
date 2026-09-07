@@ -13,7 +13,17 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "replace the full method text"
+            },
+            {
+              "value": 2,
+              "meaning": "replace only the highlighted (selected) method text"
+            }
+          ]
         },
         {
           "name": "textParam",
@@ -24,8 +34,10 @@
           "direction": "in",
           "optional": false
         }
-      ],
-      "semanticRole": "The SET MACRO PARAMETER command inserts the paramText text into the method from which it has been called."
+      ]
     }
+  ],
+  "constraints": [
+    "If no text is currently selected in the method, textParam is simply inserted at the insertion point (selector has no effect)."
   ]
 }

@@ -1,0 +1,87 @@
+{
+  "theme": "Styled-Text",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "Two doc syntax lines differ only in the leading '*' discriminator (object name vs. Variable/Field); collapsed into one overload. urlText/urlAddress are correctly 'in' here (unlike ST GET URL's matching out-params), per the doc's arrow column.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
+        },
+        {
+          "name": "urlText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Visible text of URL"
+        },
+        {
+          "name": "urlAddress",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "URL address"
+        },
+        {
+          "name": "startSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Start of selection"
+        },
+        {
+          "name": "endSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "End of selection"
+        }
+      ],
+      "semanticRole": "Inserts a clickable URL link (visible label + target address) into a text selection of the designated multi-style/4D Write Pro object."
+    }
+  ]
+}

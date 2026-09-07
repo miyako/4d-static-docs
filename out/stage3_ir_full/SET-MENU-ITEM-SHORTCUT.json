@@ -58,7 +58,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "The SET MENU ITEM SHORTCUT command assigns a new shortcut to a menu item."
+      "semanticRole": "Assigns a keyboard shortcut to a menu item using a letter/string key (current syntax), optionally combined with extra modifier keys.",
+      "discriminatedBy": {
+        "param": "itemKey",
+        "rule": "itemKey is Text: a shortcut letter/string, or an F-key spec like \"[F4]\"."
+      }
     },
     {
       "params": [
@@ -75,7 +79,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu number or Menu reference"
         },
         {
           "name": "menuItem",
@@ -84,7 +89,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu item number or -1 for last item added"
         },
         {
           "name": "itemKey",
@@ -93,7 +99,14 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Character code of keyboard shortcut (former syntax)",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Removes any existing shortcut from the menu item."
+            }
+          ]
         },
         {
           "name": "process",
@@ -102,10 +115,20 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Process reference number"
         }
       ],
-      "semanticRole": "The SET MENU ITEM SHORTCUT command assigns a new shortcut to a menu item."
+      "semanticRole": "Compatibility (former syntax): assigns a keyboard shortcut to a menu item using a raw character code; the shortcut always uses the default Ctrl/Cmd modifier and this form has no way to add extra modifiers.",
+      "discriminatedBy": {
+        "param": "itemKey",
+        "rule": "itemKey is Integer: a character code (former syntax); this overload has no modifiers parameter."
+      }
     }
+  ],
+  "constraints": [
+    "In the primary (Text itemKey) form, the shortcut automatically includes the Ctrl (Windows)/Cmd (macOS) modifier unless itemKey is an F-key spec such as \"[F4]\", in which case no modifier is added by default; modifiers lets you add extra modifiers (Shift/Option/Command) on top, and 0 means no extra modifiers.",
+    "If menu is a MenuRef (16-character alphanumeric), the process parameter serves no purpose and is ignored.",
+    "Passing -1 in menuItem designates the last item added to menu."
   ]
 }

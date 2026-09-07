@@ -18,5 +18,8 @@
       ],
       "semanticRole": "The SOAP REJECT NEW REQUESTS command specifies whether or not the Web Services server accepts new SOAP requests."
     }
+  ],
+  "constraints": [
+    "This command only has an effect when executed on 4D Server; if the calling method runs locally on a remote client or in 4D single-user, the command does nothing."
   ]
 }

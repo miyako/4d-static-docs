@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "The default epsilon is 10^-6; epsilon must always be positive.",
+    "Two real numbers a and b are considered equal for comparison purposes when Abs(a-b) does not exceed epsilon.",
+    "Only affects real-value equality comparisons in the 4D language; it has no effect on other real computations, on the display of real values, or on queries/sorts performed on fields of the Real type."
+  ]
+}

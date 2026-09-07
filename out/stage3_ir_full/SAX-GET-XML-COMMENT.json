@@ -2,7 +2,7 @@
   "id": "SAX-GET-XML-COMMENT",
   "displayName": "SAX GET XML COMMENT",
   "kind": "classic_command",
-  "theme": "XML SAX",
+  "theme": "XML-SAX",
   "overloads": [
     {
       "params": [
@@ -21,11 +21,17 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The SAX GET XML COMMENT command returns a comment if an XML Comment SAX event is generated in the XML document referenced in the document parameter."
+      "semanticRole": "Retrieves the text of the XML comment currently being parsed, into the comment output parameter."
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "SAX event-driven read loop: call SAX Get XML node repeatedly to advance through the parser events for the document; dispatch on the returned event code to the matching accessor -- SAX GET XML ELEMENT for Start/End Element, SAX GET XML ELEMENT VALUE for XML DATA, SAX GET XML CDATA for XML CDATA, SAX GET XML COMMENT for XML Comment, SAX GET XML ENTITY for XML Entity, SAX GET XML PROCESSING INSTRUCTION for XML Processing Instruction, and SAX GET XML DOCUMENT VALUES for XML Start Document."
+  },
+  "constraints": [
+    "Must be called while handling the XML Comment SAX event returned by SAX Get XML node."
   ]
 }

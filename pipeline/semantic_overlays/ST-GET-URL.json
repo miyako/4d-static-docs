@@ -1,0 +1,87 @@
+{
+  "theme": "Styled-Text",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "Two doc syntax lines differ only in the leading '*' discriminator; collapsed into one overload. Also fixed direction: urlText/urlAddress default to 'in' in the mechanical draft, but the doc's arrow column marks both '<-' (out) since the command returns the found URL's label/address into them.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
+        },
+        {
+          "name": "urlText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Visible text of URL"
+        },
+        {
+          "name": "urlAddress",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "URL address"
+        },
+        {
+          "name": "startSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Start of selection"
+        },
+        {
+          "name": "endSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "End of selection"
+        }
+      ],
+      "semanticRole": "Returns the visible label and address of the first URL found in a text selection of the designated styled-text object; empty strings are returned if no URL is present."
+    }
+  ]
+}

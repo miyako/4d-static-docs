@@ -1,0 +1,46 @@
+{
+  "constraints": [
+    "A menu bar name may contain up to 31 characters and must be unique.",
+    "If menuBar is a MenuRef (menu ID), the process parameter serves no purpose and is ignored.",
+    "If menuBar is a MenuRef, the trailing '*' parameter serves no purpose and is ignored."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Clarifies menuBar's three-way union (Integer / Text name / Text MenuRef) with per-branch descriptions, and documents the trailing '*' as a literal save-state flag rather than a generic Operator value.",
+      "params": [
+        {
+          "name": "menuBar",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the menu bar, or its name (Text), or a 16-character MenuRef menu ID (Text)."
+        },
+        {
+          "name": "process",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Process reference number whose menu bar is to be changed; if omitted, applies to the current process."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, preserves the current enabled/disabled state of menu commands instead of reinitializing the menu bar."
+        }
+      ],
+      "interactionNotes": [
+        {
+          "params": ["menuBar", "process", "*"],
+          "note": "When menuBar is a MenuRef, both process and '*' are ignored."
+        }
+      ]
+    }
+  ]
+}

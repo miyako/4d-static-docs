@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Resource ID number or 'id' attribute of the 'group' element (XLIFF)"
         },
         {
           "name": "strings",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Strings from the STR# resource or Strings from the 'group' element (XLIFF)"
         },
         {
           "name": "resFile",
@@ -31,10 +33,17 @@
             "name": "Time"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Resource file reference number. If omitted: all the XLIFF files or open resources files are searched."
         }
       ],
-      "semanticRole": "The STRING LIST TO ARRAY command populates the array strings with: Either the strings stored in the string list (\"STR#\") resource whose ID is passed in resID ."
+      "semanticRole": "Fills the strings array with every string from a STR# resource (or, for XLIFF-based compatibility, an open XLIFF file's 'group' element) identified by resID."
     }
+  ],
+  "constraints": [
+    "If the resource is not found, the strings array is left unchanged and the OK system variable is set to 0."
+  ],
+  "_needsReview": [
+    "The parameter table types resFile as 'Time', but its description ('Resource file reference number') reads like an Integer/reference-number type; kept the documented 'Time' type as-is rather than guessing at a documentation error."
   ]
 }

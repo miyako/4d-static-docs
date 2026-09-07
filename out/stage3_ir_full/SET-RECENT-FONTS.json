@@ -18,5 +18,8 @@
       ],
       "semanticRole": "The SET RECENT FONTS command modifies the list of fonts displayed in the context menu of the \"recent fonts\"."
     }
+  ],
+  "constraints": [
+    "Replaces the contents of the \"recent fonts\" context menu, used in particular by Programming Notes areas, with the font names supplied in fontsArray."
   ]
 }

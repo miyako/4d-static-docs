@@ -13,10 +13,19 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "use the current printer defined in the system"
+            },
+            {
+              "value": "_4d_pdf_printer",
+              "meaning": "use the generic PDF driver, regardless of platform"
+            }
+          ]
         }
-      ],
-      "semanticRole": "The SET CURRENT PRINTER command designates the printer to be used for printing with the current 4D application."
+      ]
     }
   ]
 }

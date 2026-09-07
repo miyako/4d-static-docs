@@ -13,10 +13,28 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "light",
+              "meaning": "The application uses the Default Light Theme."
+            },
+            {
+              "value": "dark",
+              "meaning": "The application uses the Default Dark Theme."
+            },
+            {
+              "value": "inherited",
+              "meaning": "The application inherits the scheme from the higher-priority level (e.g. Settings)."
+            }
+          ]
         }
       ],
-      "semanticRole": "The SET APPLICATION COLOR SCHEME command defines the color scheme to use at the application level for the current session."
+      "semanticRole": "Defines the color scheme ('light', 'dark', or 'inherited') to use at the application level for the current session."
     }
+  ],
+  "constraints": [
+    "Has no effect on forms that already declare their own color scheme; a form-level scheme takes priority over the application-level scheme.",
+    "Does nothing on Windows with the Classic theme, where only \"light\" is available."
   ]
 }

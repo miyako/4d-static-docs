@@ -36,5 +36,9 @@
       ],
       "semanticRole": "SET BLOB SIZE resizes the BLOB blob according to the value passed in size ."
     }
+  ],
+  "constraints": [
+    "filler accepts a value in the 0..255 range (an ASCII/byte code) used to initialize newly allocated bytes when the BLOB grows.",
+    "Since this command mutates the blob passed as a parameter, it does not support blob objects (4D.Blob type) -- only classic BLOB fields/variables."
   ]
 }

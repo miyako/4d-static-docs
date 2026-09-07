@@ -2,7 +2,7 @@
   "id": "SAVE-LIST",
   "displayName": "SAVE LIST",
   "kind": "classic_command",
-  "theme": "Hierarchical Lists",
+  "theme": "Hierarchical-Lists",
   "overloads": [
     {
       "params": [
@@ -27,5 +27,9 @@
       ],
       "semanticRole": "The SAVE LIST command saves the list whose reference number you pass in list , within the Design environment List Editor, under the name you pass in listName ."
     }
+  ],
+  "constraints": [
+    "If a list with the given listName already exists in the Design environment List Editor, its contents are replaced.",
+    "Cannot be used in a structure loaded read-only, such as a .4dz project (including remote projects) or a component."
   ]
 }

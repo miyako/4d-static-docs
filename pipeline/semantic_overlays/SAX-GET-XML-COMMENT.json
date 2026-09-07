@@ -1,0 +1,20 @@
+{
+  "theme": "XML-SAX",
+  "protocolRefs": {
+    "multiCallChain": "SAX event-driven read loop: call SAX Get XML node repeatedly to advance through the parser events for the document; dispatch on the returned event code to the matching accessor -- SAX GET XML ELEMENT for Start/End Element, SAX GET XML ELEMENT VALUE for XML DATA, SAX GET XML CDATA for XML CDATA, SAX GET XML COMMENT for XML Comment, SAX GET XML ENTITY for XML Entity, SAX GET XML PROCESSING INSTRUCTION for XML Processing Instruction, and SAX GET XML DOCUMENT VALUES for XML Start Document."
+  },
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {"name": "document", "type": {"kind": "concrete", "name": "Time"}, "direction": "in", "optional": false},
+        {"name": "comment", "type": {"kind": "concrete", "name": "Text"}, "direction": "out", "optional": false}
+      ],
+      "semanticRole": "Retrieves the text of the XML comment currently being parsed, into the comment output parameter.",
+      "note": "autoparse defaulted comment's direction to 'in'; the doc arrow column marks it as an out-parameter that the command fills."
+    }
+  ],
+  "constraints": [
+    "Must be called while handling the XML Comment SAX event returned by SAX Get XML node."
+  ]
+}

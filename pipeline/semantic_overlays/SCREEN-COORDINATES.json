@@ -1,0 +1,36 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {"name": "left", "type": {"kind": "concrete", "name": "Integer"}, "direction": "out", "optional": false},
+        {"name": "top", "type": {"kind": "concrete", "name": "Integer"}, "direction": "out", "optional": false},
+        {"name": "right", "type": {"kind": "concrete", "name": "Integer"}, "direction": "out", "optional": false},
+        {"name": "bottom", "type": {"kind": "concrete", "name": "Integer"}, "direction": "out", "optional": false},
+        {
+          "name": "screenID",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "screenArea",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {"value": 0, "meaning": "Screen size -- the coordinates of the entire screen (default)."},
+            {"value": 1, "meaning": "Screen work area -- the usable area, excluding the taskbar/menu bar/Dock."}
+          ]
+        }
+      ],
+      "semanticRole": "Returns the global screen coordinates (left, top, right, bottom) of the screen designated by screenID and screenArea.",
+      "note": "autoparse defaulted left/top/right/bottom's direction to 'in'; the doc arrow column marks them as out-parameters filled by the command. Added sentinelValues for the screenArea selector constants."
+    }
+  ],
+  "constraints": [
+    "If screenID is omitted, coordinates for the main screen are returned.",
+    "If an invalid screenID or screenArea value is given, zero is returned for all four coordinates.",
+    "If the taskbar/dock is set to auto-hide, the command always returns the entire screen size regardless of screenArea."
+  ]
+}

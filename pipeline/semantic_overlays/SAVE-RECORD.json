@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "If there is no current record for aTable, the command is ignored.",
+    "If no field was actually modified in the record, the command does nothing (no trigger call).",
+    "Must not be called during the On Validate event of a form that has already been accepted, or the record will be saved twice.",
+    "Saving a record with edited Object field(s) usually requires explicitly notifying 4D before calling this command (see Saving Object fields)."
+  ]
+}

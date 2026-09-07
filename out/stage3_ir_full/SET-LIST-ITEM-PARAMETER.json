@@ -2,12 +2,12 @@
   "id": "SET-LIST-ITEM-PARAMETER",
   "displayName": "SET LIST ITEM PARAMETER",
   "kind": "classic_command",
-  "theme": "Hierarchical Lists",
+  "theme": "Hierarchical-Lists",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string) referring to a form representation of the list; if omitted, 'list' is a hierarchical list reference number (ListRef)."
         },
         {
           "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "List reference number (if '*' omitted), or name of the list-type form object (if '*' passed)."
         },
         {
           "name": "itemRef",
@@ -39,7 +47,17 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "the last item appended to the list (via APPEND TO LIST)"
+            },
+            {
+              "value": "*",
+              "meaning": "the current item of the list (requires the object-name syntax, since each form representation can have its own current item)"
+            }
+          ]
         },
         {
           "name": "selector",
@@ -48,7 +66,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "One of the documented \"Hierarchical Lists\" theme constants (e.g. Additional text), or a custom property name."
         },
         {
           "name": "value",
@@ -67,67 +86,22 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Value of the parameter; its concrete type depends on which selector is passed."
         }
       ],
-      "semanticRole": "The SET LIST ITEM PARAMETER command modifies the selector parameter for the itemRef item of the hierarchical list whose reference or object name is passed in the list parameter."
-    },
-    {
-      "params": [
+      "interactionNotes": [
         {
-          "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "itemRef",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            },
-            {
-              "kind": "pseudo",
-              "name": "Operator"
-            }
+          "params": [
+            "asObjectName (leading *)",
+            "itemRef (* sentinel)"
           ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "selector",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "value",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Boolean"
-            },
-            {
-              "kind": "concrete",
-              "name": "Real"
-            }
-          ],
-          "direction": "in",
-          "optional": false
+          "note": "The literal symbol '*' means two unrelated things depending on position: leading = 'list is a name, not a ref number'; in itemRef's slot = 'operate on the current item'. Using the itemRef '*' sentinel requires the object-name syntax (leading '*' passed)."
         }
-      ],
-      "semanticRole": "The SET LIST ITEM PARAMETER command modifies the selector parameter for the itemRef item of the hierarchical list whose reference or object name is passed in the list parameter."
+      ]
     }
+  ],
+  "_needsReview": [
+    "value's concrete type (Text/Boolean/Real) is selected by which 'selector' constant is passed, similar to the object_map_equivalent selector-dependency pattern, but the full selector-to-type mapping requires the complete 'Hierarchical Lists' constants table which was truncated in the extracted description; not encoded as an enum_ref here to avoid guessing."
   ]
 }

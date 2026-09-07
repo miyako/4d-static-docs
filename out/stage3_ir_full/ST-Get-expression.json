@@ -2,12 +2,12 @@
   "id": "ST-Get-expression",
   "displayName": "ST Get expression",
   "kind": "classic_command",
-  "theme": "Styled Text",
+  "theme": "Styled-Text",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,47 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "startSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "endSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The ST Get expression command returns the first expression found in the current selection of the styled text field or variable designated by the object parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -66,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
         },
         {
           "name": "startSel",
@@ -75,7 +45,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Start of selection"
         },
         {
           "name": "endSel",
@@ -84,14 +55,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "End of selection"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The ST Get expression command returns the first expression found in the current selection of the styled text field or variable designated by the object parameter."
+      "semanticRole": "Returns the label (as originally inserted, e.g. a method or field/table name) of the first 4D expression found in a text selection of the designated styled-text object, without evaluating it."
     }
   ]
 }

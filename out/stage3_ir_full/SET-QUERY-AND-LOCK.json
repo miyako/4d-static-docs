@@ -18,5 +18,11 @@
       ],
       "semanticRole": "The SET QUERY AND LOCK command can be used to request the automatic locking of records found by all queries that follow the calling of this command in the current transaction."
     }
+  ],
+  "constraints": [
+    "Must be called within a transaction; if called outside of a transaction it is ignored.",
+    "While active (lock=True), a query that encounters an already-locked record stops immediately: OK is set to 0, the current selection is cleared, and the LockedSet system set contains the record that caused the stop.",
+    "Locked records stay locked until the transaction is validated or cancelled (except the current record, which stays locked afterward too); call SET QUERY AND LOCK(False) to disable the mechanism afterward.",
+    "Only affects the query commands (QUERY, QUERY SELECTION, QUERY BY EXAMPLE, QUERY BY FORMULA, QUERY BY SQL, QUERY SELECTION BY FORMULA, QUERY SELECTION WITH ARRAY, QUERY WITH ARRAY, QUERY BY ATTRIBUTE, QUERY SELECTION BY ATTRIBUTE); it does not affect other selection-changing commands such as ALL RECORDS or RELATE MANY."
   ]
 }

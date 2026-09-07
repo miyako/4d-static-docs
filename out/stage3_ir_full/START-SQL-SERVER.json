@@ -8,5 +8,8 @@
       "params": [],
       "semanticRole": "The START SQL SERVER command launches the integrated SQL server in the 4D application where it has been executed."
     }
+  ],
+  "constraints": [
+    "Does not affect the internal 4D SQL kernel, which remains available for internal queries regardless of whether the integrated SQL server is started."
   ]
 }

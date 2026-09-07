@@ -18,5 +18,8 @@
       ],
       "semanticRole": "SAVE RELATED ONE saves the record related to aField ."
     }
+  ],
+  "constraints": [
+    "Will not save a locked record: if the record related to aField is locked, the command is silently ignored (no error returned)."
   ]
 }

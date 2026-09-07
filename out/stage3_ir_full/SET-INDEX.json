@@ -28,7 +28,33 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": true,
+              "meaning": "create an index of the default type for the field"
+            },
+            {
+              "value": false,
+              "meaning": "delete all standard indexes associated with the field"
+            },
+            {
+              "value": -1,
+              "meaning": "create a Keywords index (Text/Alpha fields only)"
+            },
+            {
+              "value": 0,
+              "meaning": "create an index using the 4D-chosen default index type"
+            },
+            {
+              "value": 1,
+              "meaning": "create a Standard B-Tree index"
+            },
+            {
+              "value": 3,
+              "meaning": "create a Cluster B-Tree index"
+            }
+          ]
         },
         {
           "name": "*",
@@ -39,10 +65,15 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, the indexing operation is performed asynchronously."
         }
-      ],
-      "semanticRole": "The SET INDEX accepts two syntaxes: If you pass a Boolean in the index parameter, the command creates or removes the index for the field you pass in aField ."
+      ]
     }
+  ],
+  "constraints": [
+    "index's declared type (Boolean vs Integer) selects the operation: Boolean creates/deletes the field's default-type index; Integer creates an index of the specified type.",
+    "Passing False for index deletes all standard (non-composite, non-keyword) indexes associated with the field.",
+    "If the index already exists (True case) or does not exist (False case), the call has no effect."
   ]
 }

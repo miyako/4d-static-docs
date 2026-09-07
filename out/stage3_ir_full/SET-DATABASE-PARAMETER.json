@@ -42,5 +42,12 @@
       ],
       "semanticRole": "The SET DATABASE PARAMETER command allows you to modify various internal parameters of the 4D database."
     }
+  ],
+  "constraints": [
+    "If aTable is omitted, the command applies to the default table.",
+    "selector must be one of the predefined constants from the \"Database Parameters\" theme; the meaning, scope, and valid values of the value parameter depend entirely on which selector constant is passed (documented per-constant in a large reference table)."
+  ],
+  "_needsReview": [
+    "value's TypeRef is a simple Real/Text union with no per-selector discrimination -- the docs define dozens of distinct selector constants each with its own value semantics (thread-safety, scope, persistence across sessions), which is too large/volatile a mapping to safely encode here without an enums{} entry sourced from the full constants table."
   ]
 }

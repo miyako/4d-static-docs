@@ -2,12 +2,12 @@
   "id": "ST-INSERT-URL",
   "displayName": "ST INSERT URL",
   "kind": "classic_command",
-  "theme": "Styled Text",
+  "theme": "Styled-Text",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,61 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "urlText",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "urlAddress",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "startSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "endSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The ST INSERT URL command inserts a URL link in the styled text field or variable designated by the object parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -80,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
         },
         {
           "name": "urlText",
@@ -89,7 +45,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Visible text of URL"
         },
         {
           "name": "urlAddress",
@@ -98,7 +55,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "URL address"
         },
         {
           "name": "startSel",
@@ -107,7 +65,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Start of selection"
         },
         {
           "name": "endSel",
@@ -116,10 +75,11 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "End of selection"
         }
       ],
-      "semanticRole": "The ST INSERT URL command inserts a URL link in the styled text field or variable designated by the object parameter."
+      "semanticRole": "Inserts a clickable URL link (visible label + target address) into a text selection of the designated multi-style/4D Write Pro object."
     }
   ]
 }

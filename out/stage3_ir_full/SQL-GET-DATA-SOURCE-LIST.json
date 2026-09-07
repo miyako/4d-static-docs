@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -30,11 +30,14 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
-      ],
-      "semanticRole": "The SQL GET DATA SOURCE LIST command returns, in the sourceNamesArr and driversArr arrays, the names and drivers of the sourceType type data sources defined in the ODBC manager of the operating system."
+      ]
     }
+  ],
+  "constraints": [
+    "This command does not take file type data sources into account.",
+    "Requires the 4D ODBC Driver to be installed on the machine when connecting to an external 4D data source via ODBC."
   ]
 }

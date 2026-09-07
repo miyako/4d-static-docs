@@ -27,5 +27,10 @@
       ],
       "semanticRole": "SAVE SET saves set to document , a document on disk."
     }
+  ],
+  "constraints": [
+    "If document is an empty string, a Create File dialog box lets the user name the document.",
+    "Sets the OK system variable to 0 if the user cancels the save dialog or an error occurs, otherwise 1.",
+    "A set is a snapshot of a selection at save time and does not save field values; it can become inaccurate if underlying records are modified/deleted or the defining criteria changes."
   ]
 }

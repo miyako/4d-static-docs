@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Only affects a custom toolbar window previously created via Open form window with the Toolbar form window option, for the current process.",
+    "If the toolbar window was already visible, or no toolbar window has been created for the current process, the command does nothing."
+  ]
+}

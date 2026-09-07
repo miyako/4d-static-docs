@@ -1,0 +1,51 @@
+{
+  "constraints": [
+    "If menu is a MenuRef, the command applies to all instances of the menu in all processes, and process is ignored if passed.",
+    "If menu is a menu number, the command applies only to the menu in the current process's main menu bar unless process names another process.",
+    "For a picture file reference, the recommended \"path:\" syntax (e.g. \"path:/RESOURCES/icon.png\") should be used; the \"file:\" syntax is deprecated.",
+    "Library picture references (name or number) only work with binary databases; the Picture library is deprecated and unsupported in 4D project databases."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Adds sentinelValues for menuItem's -1 constant.",
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu number, or a MenuRef menu ID (Text)."
+        },
+        {
+          "name": "menuItem",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": -1, "meaning": "the last item added to the menu" }
+          ]
+        },
+        {
+          "name": "iconRef",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Picture file reference (Text, \"path:...\" recommended, \"file:...\" deprecated), or a library picture name/number (binary databases only)."
+        },
+        {
+          "name": "process",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

@@ -2,12 +2,12 @@
   "id": "ST-COMPUTE-EXPRESSIONS",
   "displayName": "ST COMPUTE EXPRESSIONS",
   "kind": "classic_command",
-  "theme": "Styled Text",
+  "theme": "Styled-Text",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "startSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "endSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The ST COMPUTE EXPRESSIONS command updates the dynamic 4D expressions found in the multi-style or 4D Write Pro field or variable designated by the object parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
         },
         {
           "name": "startSel",
@@ -71,7 +45,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Start of selection"
         },
         {
           "name": "endSel",
@@ -80,10 +55,11 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "End of selection"
         }
       ],
-      "semanticRole": "The ST COMPUTE EXPRESSIONS command updates the dynamic 4D expressions found in the multi-style or 4D Write Pro field or variable designated by the object parameter."
+      "semanticRole": "Re-evaluates and re-displays the current value of any dynamic 4D expressions found in the designated multi-style/4D Write Pro object, without altering the styled text itself."
     }
   ]
 }

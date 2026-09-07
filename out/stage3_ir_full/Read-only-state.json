@@ -2,7 +2,7 @@
   "id": "Read-only-state",
   "displayName": "Read only state",
   "kind": "classic_command",
-  "theme": "Record Locking",
+  "theme": "Record-Locking",
   "overloads": [
     {
       "params": [

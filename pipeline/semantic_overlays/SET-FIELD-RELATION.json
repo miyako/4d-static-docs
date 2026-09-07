@@ -1,0 +1,25 @@
+{
+  "constraints": [
+    "Sets automatic/manual relation status for the current process only, independent of the relation's design-time status.",
+    "If there is no relation starting from the given field/table, syntax error 16 is generated and OK is set to 0.",
+    "one/many values use the \"Relations\" theme constants: 0 = do not modify, 1 = use the structure configuration, 2 = manual, (and further documented values for automatic)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Sets the automatic/manual status of all Many-to-One/One-to-Many relations starting from every Many field of manyTable.",
+      "discriminatedBy": {
+        "param": "manyTable",
+        "rule": "First overload: first parameter is a Table -- applies to all relations starting from that table's Many fields."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Sets the automatic/manual status of the single Many-to-One/One-to-Many relation starting from the specific manyField.",
+      "discriminatedBy": {
+        "param": "manyField",
+        "rule": "Second overload: first parameter is a Field -- applies only to the relation starting from that specific Many field."
+      }
+    }
+  ]
+}

@@ -45,7 +45,12 @@
           "optional": true
         }
       ],
-      "semanticRole": "The SELECT LIST ITEMS BY POSITION command selects the item(s) whose position is passed in itemPos and, optionally, in positionsArray within the list whose reference number or object name is passed in list ."
+      "semanticRole": "Selects item(s) by position within the hierarchical list identified by its object name (list is a Text form-object name) -- selected via the leading '*' parameter.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Passing the leading literal '*' selects this object-name form: list is a Text list object name rather than a numeric ListRef."
+      },
+      "staticallyDistinguishable": true
     },
     {
       "params": [
@@ -77,7 +82,17 @@
           "optional": true
         }
       ],
-      "semanticRole": "The SELECT LIST ITEMS BY POSITION command selects the item(s) whose position is passed in itemPos and, optionally, in positionsArray within the list whose reference number or object name is passed in list ."
+      "semanticRole": "Selects item(s) by position within the hierarchical list identified by its reference number (list is an Integer ListRef) -- no leading '*' passed.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Omitting the leading '*' selects this reference-number form: list is an Integer hierarchical list reference (ListRef)."
+      },
+      "staticallyDistinguishable": true
     }
+  ],
+  "constraints": [
+    "The object-name form (leading '*') is required rather than optional if the same list has several representations (each with its own expanded/collapsed configuration) in the current form; if the list has only one representation, either syntax works.",
+    "If the @ wildcard is used in the list object name and several matching list objects exist on the form, the command applies only to the first matching object.",
+    "itemPos must be a value between 1 and the value returned by Count list items, expressed using the list's current expanded/collapsed state."
   ]
 }

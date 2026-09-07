@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -30,7 +30,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -48,11 +48,15 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
-      ],
-      "semanticRole": "The SPELL CHECK TEXT command checks the contents of the text parameter beginning from the checkPos character and returns the position of the first unknown word it finds (if any)."
+      ]
     }
+  ],
+  "constraints": [
+    "The check scans forward from checkPos and stops at the first unknown word found (if any).",
+    "The OK system variable is set to 0 if the check completes without an initialization error and an unknown word is found; OK is set to 1 if an initialization error occurs, or if no unknown words are found.",
+    "macOS: when the native spell checker is enabled, this command does not support grammar correction."
   ]
 }

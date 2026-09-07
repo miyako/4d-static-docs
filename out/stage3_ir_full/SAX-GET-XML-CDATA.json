@@ -2,7 +2,7 @@
   "id": "SAX-GET-XML-CDATA",
   "displayName": "SAX GET XML CDATA",
   "kind": "classic_command",
-  "theme": "XML SAX",
+  "theme": "XML-SAX",
   "overloads": [
     {
       "params": [
@@ -27,11 +27,19 @@
               "name": "Blob"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "The SAX GET XML CDATA command gets the CDATA value of an XML element that exists in the XML document referenced in the document parameter."
+      "semanticRole": "Retrieves the CDATA value of the XML element currently being parsed, into the value output parameter."
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "SAX event-driven read loop: call SAX Get XML node repeatedly to advance through the parser events for the document; dispatch on the returned event code to the matching accessor -- SAX GET XML ELEMENT for Start/End Element, SAX GET XML ELEMENT VALUE for XML DATA, SAX GET XML CDATA for XML CDATA, SAX GET XML COMMENT for XML Comment, SAX GET XML ENTITY for XML Entity, SAX GET XML PROCESSING INSTRUCTION for XML Processing Instruction, and SAX GET XML DOCUMENT VALUES for XML Start Document."
+  },
+  "constraints": [
+    "Must be called while handling the XML CDATA SAX event returned by SAX Get XML node.",
+    "Pass a Text-typed value variable (not Blob) to retrieve data larger than 32 KB (requires Unicode mode).",
+    "Since 4D v12, base64-encoded CDATA content is automatically decoded; it is not necessary to call BASE64 DECODE."
   ]
 }

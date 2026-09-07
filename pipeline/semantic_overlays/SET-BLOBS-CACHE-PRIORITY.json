@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Only works in local mode (4D Server and 4D single-user); cannot be used in 4D remote mode.",
+    "Should be called in the On Startup or On Server Startup database method to affect the whole session.",
+    "Applies to BLOB, text, picture, and object data fields of aTable, and only when they are stored in the data file (not externally)."
+  ]
+}

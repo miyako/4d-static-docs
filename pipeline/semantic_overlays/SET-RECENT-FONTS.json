@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Replaces the contents of the \"recent fonts\" context menu, used in particular by Programming Notes areas, with the font names supplied in fontsArray."
+  ]
+}

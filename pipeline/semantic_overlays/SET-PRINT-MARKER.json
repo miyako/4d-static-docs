@@ -1,0 +1,20 @@
+{
+  "constraints": [
+    "Only valid during the On Header form event (in the context of PRINT SELECTION/PRINT RECORD) or the On Printing Detail form event (in the context of Print form); it has no visible effect on screen and the form itself is not modified/saved.",
+    "Only repositions an existing marker; it does not add new markers, and if markNum does not designate a marker that exists in the form, the command does nothing."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "interactionNotes": [
+        {
+          "params": [
+            "position",
+            "*"
+          ],
+          "note": "Without the trailing '*', markNum cannot be moved past the position of the marker immediately preceding or following it. With '*', markNum can be moved beyond the initial position of the markers that follow it, and every marker below markNum (along with any objects in the areas below it) is shifted the same distance and direction as markNum."
+        }
+      ]
+    }
+  ]
+}

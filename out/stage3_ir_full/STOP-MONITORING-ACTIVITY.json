@@ -8,5 +8,9 @@
       "params": [],
       "semanticRole": "The STOP MONITORING ACTIVITY command stops tracking activity started with the START MONITORING ACTIVITY command."
     }
+  ],
+  "constraints": [
+    "Empties any activity record currently held in memory after stopping tracking; call Monitored activity before this command if you still need that data.",
+    "Can be called and executed on 4D remote, 4D Server, and 4D standalone applications."
   ]
 }

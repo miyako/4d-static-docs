@@ -34,10 +34,20 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": ">",
+              "meaning": "Scan from the beginning of the index."
+            },
+            {
+              "value": "<",
+              "meaning": "Scan from the end of the index."
+            }
+          ]
         }
       ],
-      "semanticRole": "SCAN INDEX returns a selection of number records from the table containing the aField field."
+      "semanticRole": "SCAN INDEX returns a selection of number records from the table containing the aField field, scanning the index from the beginning (default, or explicit >) or from the end (<)."
     }
   ]
 }

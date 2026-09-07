@@ -18,5 +18,9 @@
       ],
       "semanticRole": "The SET ALLOWED METHODS command designates the project methods that can be entered via the application."
     }
+  ],
+  "constraints": [
+    "If this command is never called, no method is enterable and using an unauthorized method in an expression causes an error.",
+    "Allowed methods affect the formula editor, the label editor's Apply menu (if shared with the component), ST INSERT EXPRESSION-inserted expressions in styled text/4D Write Pro documents, and (as a fallback only, when VP SET ALLOWED METHODS has never been called in the session) 4D View Pro formulas."
   ]
 }

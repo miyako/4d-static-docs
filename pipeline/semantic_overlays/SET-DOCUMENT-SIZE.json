@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Operates only on a document that is currently open, identified by docRef.",
+    "On macOS, changes the size of the document's data fork."
+  ]
+}

@@ -22,10 +22,19 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "reset the variable to its default value"
+            }
+          ]
         }
-      ],
-      "semanticRole": "The SET ENVIRONMENT VARIABLE command allows you to set the value of an environment variable under macOS and Windows."
+      ]
     }
+  ],
+  "constraints": [
+    "Intended for use together with LAUNCH EXTERNAL PROCESS.",
+    "Windows and macOS only."
   ]
 }

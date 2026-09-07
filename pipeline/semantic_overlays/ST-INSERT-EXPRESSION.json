@@ -1,0 +1,80 @@
+{
+  "theme": "Styled-Text",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "Two doc syntax lines differ only in the leading '*' discriminator (object name vs. Variable/Field); collapsed into one overload.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
+        },
+        {
+          "name": "expression",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Expression and (optional) format to insert"
+        },
+        {
+          "name": "startSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Start of selection"
+        },
+        {
+          "name": "endSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "End of selection"
+        }
+      ],
+      "semanticRole": "Inserts a live reference to a 4D expression into a text selection of the designated multi-style/4D Write Pro object; the expression is re-evaluated on load and whenever ST COMPUTE EXPRESSIONS is called."
+    }
+  ],
+  "constraints": [
+    "expression must be a quoted string containing a valid 4D expression (field, variable, command, project method call, or 4D Write Pro special expression); the string itself is stored, not its evaluated value."
+  ]
+}

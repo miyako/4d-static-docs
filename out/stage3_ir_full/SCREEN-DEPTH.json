@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,8 +21,18 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Is color -- the monitor is set to display in color."
+            },
+            {
+              "value": 0,
+              "meaning": "Is gray scale -- the monitor is set to display in gray scale (Macintosh only)."
+            }
+          ]
         },
         {
           "name": "screen",
@@ -34,7 +44,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "The SCREEN DEPTH command returns in depth and color information about the monitor."
+      "semanticRole": "Returns the color depth (as an exponent of 2, i.e. number of colors = 2^depth) and color/gray-scale status of the monitor designated by screen."
     }
+  ],
+  "constraints": [
+    "If screen is omitted, the command returns information for the main screen.",
+    "The color value's gray-scale distinction (0) is only significant on the Macintosh platform."
   ]
 }

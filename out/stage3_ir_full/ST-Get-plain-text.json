@@ -2,12 +2,12 @@
   "id": "ST-Get-plain-text",
   "displayName": "ST Get plain text",
   "kind": "classic_command",
-  "theme": "Styled Text",
+  "theme": "Styled-Text",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,38 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "refMode",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The ST Get plain text command removes any style tags from the text variable or field designated by the * and object parameters and returns the plain text."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -57,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
         },
         {
           "name": "refMode",
@@ -66,14 +45,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Mode for handling references found in the text"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The ST Get plain text command removes any style tags from the text variable or field designated by the * and object parameters and returns the plain text."
+      "semanticRole": "Strips all style tags from the designated styled-text object and returns the resulting plain text, optionally controlling how embedded expression/URL references are rendered via refMode."
     }
   ]
 }

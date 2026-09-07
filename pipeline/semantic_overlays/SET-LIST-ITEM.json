@@ -1,0 +1,75 @@
+{
+  "theme": "Hierarchical-Lists",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines that differ only in whether a leading '*' is passed (selecting whether 'list' is a name-string vs. a reference-number, and correspondingly Text vs. Integer). That's one semantic overload with an optional literal-symbol discriminator, not two overloads. Also restores itemRef's Operator '*' sentinel meaning and sublist's sentinel values from the parameter table.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string) referring to a form representation of the list; if omitted, 'list' is a hierarchical list reference number (ListRef)."
+        },
+        {
+          "name": "list",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "List reference number (if '*' omitted), or name of the list-type form object (if '*' passed)."
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "pseudo", "name": "Operator" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "the last item appended to the list (via APPEND TO LIST)" },
+            { "value": "*", "meaning": "the current item of the list (requires the object-name syntax, since each form representation can have its own current item)" }
+          ]
+        },
+        {
+          "name": "newItemText",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "newItemRef",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sublist",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            { "value": 0, "meaning": "detach the current sublist, if any (no sublist)" },
+            { "value": -1, "meaning": "no change to the current sublist attachment" }
+          ]
+        },
+        {
+          "name": "expanded",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "interactionNotes": [
+        {
+          "params": ["asObjectName (leading *)", "itemRef (* sentinel)"],
+          "note": "The literal symbol '*' means two unrelated things depending on position: leading = 'list is a name, not a ref number'; in itemRef's slot = 'operate on the current item'. Using the itemRef '*' sentinel requires the object-name syntax (leading '*' passed)."
+        }
+      ]
+    }
+  ]
+}

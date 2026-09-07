@@ -1,0 +1,9 @@
+{
+  "constraints": [
+    "Returns -1 (No current record constant) if there is no current record (e.g. the record pointer is before/after the current selection).",
+    "Returns -3 (New record constant) if the current record is a new record that has not yet been saved.",
+    "Record numbers can change over time; deleted records' numbers are reused.",
+    "4D Server: for the On Validate form event, returns a real record number in local mode but -3 in remote mode, because the record is already created server-side but not yet sent to the client.",
+    "Prefer Is new record to test whether a record is currently being created."
+  ]
+}

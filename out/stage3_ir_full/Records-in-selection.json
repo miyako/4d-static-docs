@@ -22,5 +22,8 @@
       },
       "semanticRole": "Records in selection returns the number of records in the current selection of aTable ."
     }
+  ],
+  "constraints": [
+    "Distinct from Records in table, which returns the total number of records in the table regardless of the current selection."
   ]
 }

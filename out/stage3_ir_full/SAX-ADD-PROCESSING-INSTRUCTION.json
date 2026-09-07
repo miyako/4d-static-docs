@@ -2,7 +2,7 @@
   "id": "SAX-ADD-PROCESSING-INSTRUCTION",
   "displayName": "SAX ADD PROCESSING INSTRUCTION",
   "kind": "classic_command",
-  "theme": "XML SAX",
+  "theme": "XML-SAX",
   "overloads": [
     {
       "params": [
@@ -25,7 +25,10 @@
           "optional": false
         }
       ],
-      "semanticRole": "In the XML document referenced by document , the SAX ADD PROCESSING INSTRUCTION command adds an XML processing statement ."
+      "semanticRole": "Writes a document-level XML processing instruction (e.g. an xml-stylesheet declaration) into the SAX document referenced by document."
     }
-  ]
+  ],
+  "protocolRefs": {
+    "multiCallChain": "SAX XML document-write lifecycle: obtain a document reference (e.g. via Create document/OPEN DOCUMENT) -> optionally SAX SET XML DECLARATION and document-level SAX ADD XML DOCTYPE/PROCESSING INSTRUCTION/COMMENT calls -> SAX OPEN XML ELEMENT / SAX ADD XML ELEMENT VALUE / SAX ADD XML CDATA for element content (nested opens require matching SAX CLOSE XML ELEMENT) -> CLOSE DOCUMENT."
+  }
 }

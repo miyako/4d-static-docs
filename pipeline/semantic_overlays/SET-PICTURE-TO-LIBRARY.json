@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "This command cannot be used in projects because the Picture Library is only available in binary (classic) databases.",
+    "If a Picture Library graphic with reference picRef already exists, its contents are replaced and it is renamed according to picture/picName; otherwise a new picture is added to the Picture Library.",
+    "If picture is empty, or picRef is negative or zero, the command does nothing.",
+    "Cannot be used from within a method executed on the 4D Server machine (stored procedure or trigger); calling it there is silently ignored."
+  ]
+}

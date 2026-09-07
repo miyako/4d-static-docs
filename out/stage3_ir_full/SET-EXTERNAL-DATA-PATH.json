@@ -38,10 +38,23 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "use the structure definition"
+            },
+            {
+              "value": 1,
+              "meaning": "use the default folder"
+            }
+          ]
         }
-      ],
-      "semanticRole": "The SET EXTERNAL DATA PATH command sets or modifies, for the current record, the external storage location for the aField field passed as parameter."
+      ]
     }
+  ],
+  "constraints": [
+    "The setting only takes effect when the current record is saved to disk; if the record is canceled, the command has no effect.",
+    "path can be a custom pathname (relative to the data file, or absolute, in system syntax) or one of the documented numeric constants."
   ]
 }

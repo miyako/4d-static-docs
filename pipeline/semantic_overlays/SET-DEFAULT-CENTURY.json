@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "century is the century value minus one (e.g. pass 20 to switch to the 21st century).",
+    "Default (if never called): century 20 (20th century) with pivotYear 30.",
+    "pivotYear rule: if the two-digit year is >= pivotYear, 4D uses the current default century; if it is < pivotYear, 4D uses the next century."
+  ]
+}

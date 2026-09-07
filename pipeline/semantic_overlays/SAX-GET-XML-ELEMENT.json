@@ -1,0 +1,26 @@
+{
+  "theme": "XML-SAX",
+  "protocolRefs": {
+    "multiCallChain": "SAX event-driven read loop: call SAX Get XML node repeatedly to advance through the parser events for the document; dispatch on the returned event code to the matching accessor -- SAX GET XML ELEMENT for Start/End Element, SAX GET XML ELEMENT VALUE for XML DATA, SAX GET XML CDATA for XML CDATA, SAX GET XML COMMENT for XML Comment, SAX GET XML ENTITY for XML Entity, SAX GET XML PROCESSING INSTRUCTION for XML Processing Instruction, and SAX GET XML DOCUMENT VALUES for XML Start Document."
+  },
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {"name": "document", "type": {"kind": "concrete", "name": "Time"}, "direction": "in", "optional": false},
+        {"name": "name", "type": {"kind": "concrete", "name": "Text"}, "direction": "out", "optional": false},
+        {"name": "prefix", "type": {"kind": "concrete", "name": "Text"}, "direction": "out", "optional": false},
+        {"name": "attrNames", "type": {"kind": "concrete", "name": "Text array"}, "direction": "out", "optional": false},
+        {"name": "attrValues", "type": {"kind": "concrete", "name": "Text array"}, "direction": "out", "optional": false}
+      ],
+      "semanticRole": "Retrieves the name, namespace prefix, and attribute name/value arrays of the element currently being parsed, into the four output parameters.",
+      "note": "autoparse defaulted name/prefix/attrNames/attrValues' direction to 'in'; the doc arrow column marks all four as out-parameters that the command fills."
+    }
+  ],
+  "constraints": [
+    "Must be called while handling the XML Start Element or XML End Element SAX event returned by SAX Get XML node.",
+    "For the XML End Element event, the attrNames/attrValues attribute parameters are not populated.",
+    "prefix is returned as an empty string if no namespace is linked to the element.",
+    "attrNames and attrValues are created and sized automatically by the command as needed."
+  ]
+}

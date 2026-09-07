@@ -27,11 +27,10 @@
               "name": "Text"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
-      ],
-      "semanticRole": "The SQL GET OPTION command returns the current value of the option passed in option ."
+      ]
     }
   ]
 }

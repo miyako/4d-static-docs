@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Positive places rounds to that many decimal places; negative places rounds to the left of the decimal point.",
+    "If the digit following the rounding position is 5-9, Round rounds away from zero (toward +infinity for positive numbers, -infinity for negative numbers); if 0-4, Round rounds toward zero."
+  ]
+}

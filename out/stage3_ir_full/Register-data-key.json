@@ -2,7 +2,7 @@
   "id": "Register-data-key",
   "displayName": "Register data key",
   "kind": "classic_command",
-  "theme": "Data Security",
+  "theme": "Data-Security",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Register data key command adds the data encryption key passed in parameter to the 4D keychain."
+      "semanticRole": "Generates a data encryption key from a passphrase string and adds it to the 4D keychain.",
+      "discriminatedBy": {
+        "param": "curPassPhrase",
+        "rule": "First parameter is Text: a passphrase from which the encryption key is generated."
+      }
     },
     {
       "params": [
@@ -38,7 +42,15 @@
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Register data key command adds the data encryption key passed in parameter to the 4D keychain."
+      "semanticRole": "Adds an already-generated data encryption key (e.g. produced by New data key), passed as an object with an encodedKey property, to the 4D keychain.",
+      "discriminatedBy": {
+        "param": "curDataKey",
+        "rule": "First parameter is Object: a pre-built data key (with an encodedKey property), such as one returned by New data key."
+      }
     }
+  ],
+  "constraints": [
+    "The 4D keychain is a set of one or more data encryption keys loaded in memory; 4D automatically scans it whenever a key is needed to decrypt/encrypt a data file.",
+    "Returns False (not an error) if the same encryption key was already present in the 4D keychain."
   ]
 }

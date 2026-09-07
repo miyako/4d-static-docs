@@ -42,5 +42,9 @@
       ],
       "semanticRole": "The SET MENU ITEM PARAMETER command associates a custom character string with a menu item designated by the menu and menuItem parameters."
     }
+  ],
+  "constraints": [
+    "param is mainly intended to be read back by the Dynamic pop up menu command as a custom string associated with the menu item; it has no other built-in effect.",
+    "Passing -1 in menuItem designates the last item added to menu."
   ]
 }

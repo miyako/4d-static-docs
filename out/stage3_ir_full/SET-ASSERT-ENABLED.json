@@ -29,5 +29,10 @@
       ],
       "semanticRole": "The SET ASSERT ENABLED command can be used to disable or re-enable any assertions inserted into the 4D code of the application."
     }
+  ],
+  "constraints": [
+    "By default, assertions are enabled in both interpreted and compiled mode.",
+    "By default this command affects all processes of the application (existing or created subsequently); pass the optional * parameter to restrict the effect to the current process only.",
+    "When assertions are disabled, expressions passed to ASSERT commands are no longer evaluated at all -- the calling lines have no effect on behavior or performance."
   ]
 }

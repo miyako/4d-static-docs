@@ -18,5 +18,11 @@
       ],
       "semanticRole": "The SET HELP MENU command allows you to replace the default 4D Help menu with the menuCol collection of menu items in the application mode."
     }
+  ],
+  "constraints": [
+    "The \"Help\" label itself is managed by the system and cannot be customized.",
+    "Customized Help menus do not support submenus, checkmarks, styles, or icons.",
+    "Items display in the same order as the collection; a null entry or empty object inserts a separator line.",
+    "menuCol's menu-object properties (title, method, worker, action, shortcutKey, shortcutShift, shortcutAlt) follow the same object shape as other menu-building commands (e.g. SET MENU ITEMS / APPEND MENU ITEM); if 'method' is passed, 'action' is ignored, and vice versa."
   ]
 }

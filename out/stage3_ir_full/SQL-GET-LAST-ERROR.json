@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -30,7 +30,7 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -39,11 +39,14 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
-      ],
-      "semanticRole": "The SQL GET LAST ERROR command returns information related to the last error encountered during the execution of an ODBC command."
+      ]
     }
+  ],
+  "constraints": [
+    "This command must generally be called within an error-handling method installed via ON ERR CALL.",
+    "errODBC and errSQLServer are only filled when the error originates from the ODBC source; otherwise they are returned empty."
   ]
 }

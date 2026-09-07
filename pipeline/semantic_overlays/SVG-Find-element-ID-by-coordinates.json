@@ -1,0 +1,70 @@
+{
+  "theme": "SVG",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "Two doc syntax lines differ only in the leading '*' discriminator (pictureObject as object name vs. Variable/Field); collapsed into one overload sharing the (already-correct) function-result return type.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'pictureObject' below is an object name (pass a string); if omitted, 'pictureObject' is a Variable/Field reference."
+        },
+        {
+          "name": "pictureObject",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Picture"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Field/Variable reference (if '*' omitted)"
+        },
+        {
+          "name": "x",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "X coordinate in pixels"
+        },
+        {
+          "name": "y",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Y coordinate in pixels"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the id (or xml:id) of the topmost SVG XML element located at pixel coordinates (x,y) within the designated SVG picture."
+    }
+  ],
+  "constraints": [
+    "The object-name ('*') syntax requires the picture to actually be displayed in a form; if it is not displayed, you must use the Variable/Field-reference overload instead."
+  ]
+}

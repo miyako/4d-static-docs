@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -30,11 +30,15 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
-      ],
-      "semanticRole": "The SPELL GET DICTIONARY LIST command returns, in the langID , langFiles and langNames arrays, the IDs, file names and language names corresponding to the Hunspell dictionary files installed on the machine."
+      ]
     }
+  ],
+  "constraints": [
+    "langID receives the automatically generated dictionary IDs (unique, based on file names) used with SPELL SET CURRENT DICTIONARY.",
+    "langFiles receives the dictionary file names without extensions.",
+    "langNames receives the language names in the current application language, suffixed with \"- Hunspell\"; unrecognized/custom dictionary files return \"N/A - Hunspell\" (the dictionary can still be used via its returned ID)."
   ]
 }

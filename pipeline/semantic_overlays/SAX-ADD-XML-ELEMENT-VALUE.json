@@ -1,0 +1,12 @@
+{
+  "theme": "XML-SAX",
+  "protocolRefs": {
+    "multiCallChain": "SAX write document lifecycle: SAX OPEN XML ELEMENT (or the ARRAYS variant) opens an element -> SAX ADD XML ELEMENT VALUE adds its content while it remains open -> SAX CLOSE XML ELEMENT closes the most recently opened element (or the document itself is closed, which auto-closes any still-open elements)."
+  },
+  "constraints": [
+    "An element must already be open (via SAX OPEN XML ELEMENT) before this command is called, otherwise an error is generated.",
+    "If data evaluates to undefined, 4D substitutes an empty string.",
+    "By default, special characters (< > \u201d \u2019...) in data are encoded, unless encoding was disabled for the current process via XML SET OPTIONS (XML string encoding = XML raw data); passing the optional * parameter forces encoding of special characters even when that raw-data mode is active.",
+    "To insert pre-encoded binary content, base64-encode it yourself with BASE64 ENCODE and pass the resulting BLOB in data."
+  ]
+}

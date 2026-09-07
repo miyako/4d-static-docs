@@ -1,0 +1,27 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates (or schedules the creation of) a new log file for the database using the given name or full pathname; passing an empty string prompts the user with a Save File dialog.",
+      "discriminatedBy": {
+        "param": "logFile",
+        "rule": "Pass a Text file name/pathname to create a new log file."
+      },
+      "staticallyDistinguishable": true
+    },
+    {
+      "index": 1,
+      "semanticRole": "Closes the current log file for the database when the sentinel '*' parameter is passed instead of a file name.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Passing the literal '*' symbol instead of a file name closes the current log file."
+      },
+      "staticallyDistinguishable": true
+    }
+  ],
+  "constraints": [
+    "If only a name (not a full pathname) is passed, the file is created in the database's 'Logs' folder next to the structure file.",
+    "The new log file is not generated immediately; it takes effect after the next backup (via BACKUP) or a call to New log file, and the pending change persists in the data file even if the database is closed in the meantime.",
+    "The OK system variable is set to 1 on success (file created, or closed when '*' is passed) and to 0 if the user cancels the Save File dialog or the log file could not be created."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "constraints": [
+    "seconds is the total time allowed for the affected serial port command to execute, not the time between characters received; on expiry the serial port command is canceled, error -9990 is generated, and OK is set to 0 (catchable with ON ERR CALL).",
+    "Only affects RECEIVE PACKET, RECEIVE RECORD, and RECEIVE VARIABLE."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "seconds",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Seconds until the timeout",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Cancel a previous timeout setting and stop monitoring serial port communication."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

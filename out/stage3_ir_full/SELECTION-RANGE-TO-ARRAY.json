@@ -48,7 +48,7 @@
                 "kind": "concrete",
                 "name": "Array"
               },
-              "direction": "in",
+              "direction": "out",
               "optional": false
             }
           ],
@@ -59,7 +59,16 @@
           "position": "trailing"
         }
       ],
-      "semanticRole": "SELECTION RANGE TO ARRAY creates one or more arrays and copies data from the fields or record numbers from the current selection into the arrays."
+      "semanticRole": "Copies field values (or record numbers, if a Table is passed instead of a Field) from the selected-record range [start, end] of the current selection into one or more output arrays."
     }
+  ],
+  "constraints": [
+    "Requires 1 <= start <= end <= Records in selection([...]); the command still works if start = end (loads/returns data for that single selected record).",
+    "If end exceeds Records in selection([...]), returns values from the selected record at start through the last selected record.",
+    "If start > end, returns values only from the record at start.",
+    "If both start and end are inconsistent with the size of the selection, returns empty arrays.",
+    "Applies to the current selection of the table specified by the first data/table parameter's table; passing a Table instead of a Field for data loads record numbers into a Long Integer array instead of field values.",
+    "Values can be loaded from related fields via an automatic Many-to-One relation (including through several relation levels), including relations made automatic via SET AUTOMATIC RELATIONS.",
+    "Calling with only start and end (omitting every data/array pair) is a special syntax to launch, on a limited range, a previously deferred SELECTION TO ARRAY sequence."
   ]
 }

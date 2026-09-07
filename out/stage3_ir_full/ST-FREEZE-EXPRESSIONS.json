@@ -2,12 +2,12 @@
   "id": "ST-FREEZE-EXPRESSIONS",
   "displayName": "ST FREEZE EXPRESSIONS",
   "kind": "classic_command",
-  "theme": "Styled Text",
+  "theme": "Styled-Text",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,54 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "startSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "endSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ]
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The ST FREEZE EXPRESSIONS command \"freezes\" the contents of expressions found in the multi-style text or 4D Write Pro field or variable designated by the object parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -73,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
         },
         {
           "name": "startSel",
@@ -82,7 +45,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Start of selection"
         },
         {
           "name": "endSel",
@@ -91,10 +55,11 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "End of selection"
         },
         {
-          "name": "*",
+          "name": "updateBeforeFreezing",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -102,10 +67,11 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, expressions are recomputed (as with ST COMPUTE EXPRESSIONS) immediately before being frozen; if omitted, the expressions' last-computed values are frozen as-is."
         }
       ],
-      "semanticRole": "The ST FREEZE EXPRESSIONS command \"freezes\" the contents of expressions found in the multi-style text or 4D Write Pro field or variable designated by the object parameter."
+      "semanticRole": "Converts dynamic 4D expressions found in the designated multi-style/4D Write Pro object into static text (or images, for 4D Write Pro), permanently removing the live expression references."
     }
   ]
 }

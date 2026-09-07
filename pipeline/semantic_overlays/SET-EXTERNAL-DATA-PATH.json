@@ -1,0 +1,37 @@
+{
+  "constraints": [
+    "The setting only takes effect when the current record is saved to disk; if the record is canceled, the command has no effect.",
+    "path can be a custom pathname (relative to the data file, or absolute, in system syntax) or one of the documented numeric constants."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Adds sentinelValues for path's numeric-constant meanings (0/1), which are otherwise indistinguishable from an arbitrary Integer.",
+      "params": [
+        {
+          "name": "aField",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Blob" },
+            { "kind": "concrete", "name": "Picture" }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "path",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "use the structure definition" },
+            { "value": 1, "meaning": "use the default folder" }
+          ]
+        }
+      ]
+    }
+  ]
+}

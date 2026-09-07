@@ -13,10 +13,18 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "SQL All Records constant: retrieve all records of the table."
+            }
+          ]
         }
-      ],
-      "semanticRole": "The SQL LOAD RECORD command retrieves one or more record(s) in 4D coming from the data source open in the current connection."
+      ]
     }
+  ],
+  "constraints": [
+    "If numRecords is omitted, the command retrieves only the current record from the data source (for use in a loop that receives one record at a time)."
   ]
 }

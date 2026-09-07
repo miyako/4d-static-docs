@@ -2,12 +2,12 @@
   "id": "ST-SET-ATTRIBUTES",
   "displayName": "ST SET ATTRIBUTES",
   "kind": "classic_command",
-  "theme": "Styled Text",
+  "theme": "Styled-Text",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,101 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "startSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "endSel",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "attribName",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "attribValue",
           "type": [
             {
               "kind": "concrete",
               "name": "Text"
             },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "group",
-          "members": [
-            {
-              "name": "attribName",
-              "type": {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "attribValue",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Integer"
-                }
-              ],
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 0,
-            "max": null
-          },
-          "position": "trailing"
-        }
-      ],
-      "semanticRole": "The ST SET ATTRIBUTES command can be used to modify one or more style attributes in the form object(s) designated by object ."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": [
             {
               "kind": "concrete",
               "name": "Variable"
@@ -120,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
         },
         {
           "name": "startSel",
@@ -129,7 +45,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Start of new text selection"
         },
         {
           "name": "endSel",
@@ -138,7 +55,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "End of new text selection"
         },
         {
           "name": "attribName",
@@ -147,7 +65,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Attribute to set"
         },
         {
           "name": "attribValue",
@@ -162,7 +81,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New value of attribute"
         },
         {
           "name": "group",
@@ -174,7 +94,8 @@
                 "name": "Integer"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Attribute to set"
             },
             {
               "name": "attribValue",
@@ -189,7 +110,8 @@
                 }
               ],
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "New value of attribute"
             }
           ],
           "cardinality": {
@@ -199,7 +121,10 @@
           "position": "trailing"
         }
       ],
-      "semanticRole": "The ST SET ATTRIBUTES command can be used to modify one or more style attributes in the form object(s) designated by object ."
+      "semanticRole": "Sets one or more style-attribute values on a text selection of the designated multi-style text object."
     }
+  ],
+  "constraints": [
+    "While the target object has keyboard focus, changes apply only to the object being edited and are transferred to its data source (and any other objects sharing it) only when the object is validated (focus lost or Enter key); while it does not have focus, changes are applied directly to the data source and propagate immediately."
   ]
 }

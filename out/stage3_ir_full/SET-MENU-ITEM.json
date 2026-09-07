@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu number, or a MenuRef menu ID (Text)."
         },
         {
           "name": "menuItem",
@@ -28,7 +29,13 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to the menu"
+            }
+          ]
         },
         {
           "name": "itemText",
@@ -57,10 +64,14 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If omitted, metacharacters in itemText (e.g. '(', ';', '!', '<B') are interpreted as formatting/instruction characters (as in APPEND MENU ITEM). If passed, those characters are treated as standard literal characters."
         }
-      ],
-      "semanticRole": "The SET MENU ITEM command changes the text of the menu item whose menu number or reference is passed in menu and whose item number is passed in menuItem , to the text passed in itemText ."
+      ]
     }
+  ],
+  "constraints": [
+    "If a MenuRef is passed in menu, the process parameter serves no purpose and is ignored.",
+    "If the process parameter is omitted, the command applies to the menu bar of the current process."
   ]
 }

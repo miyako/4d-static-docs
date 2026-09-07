@@ -55,5 +55,11 @@
       ],
       "semanticRole": "The SQL EXECUTE SCRIPT command is used to execute a series of SQL statements placed in the script file designated by scriptPath ."
     }
+  ],
+  "constraints": [
+    "This command can only be executed on a local machine (local 4D or a stored procedure on 4D Server); it cannot be used with an external connection opened directly or via ODBC.",
+    "If scriptPath is an empty string (\"\"), a standard Open document dialog box is displayed so the user can select the script file.",
+    "In the current version, only one attribName/attribValue pair is meaningful: attribName = SQL_Use_Access_Rights (the \"SQL use access rights\" constant), with attribValue = 1 meaning 4D restricts execution to the current 4D user's access rights, and attribValue = 0 (or the pair omitted) meaning Designer rights are used without restriction.",
+    "The OK system variable reflects the outcome: it is set to 1 if the script executes with no error; on error, OK is set to 0 if errorAction is SQL On error abort (1), to 0 or 1 depending on the user's choice if errorAction is SQL On error confirm (2), and per the continue behavior if errorAction is SQL On error continue (3)."
   ]
 }

@@ -18,5 +18,10 @@
       ],
       "semanticRole": "SEND VARIABLE sends variable to the document or serial port previously opened by SET CHANNEL ."
     }
+  ],
+  "constraints": [
+    "Requires a serial port or document previously opened via SET CHANNEL; cannot be used with a document opened via Open document, Create document, or Append document.",
+    "Sends the complete variable, including its type and value, in a special internal format readable only by RECEIVE VARIABLE.",
+    "Does not support array variables; use the BLOB Commands to send/receive arrays over a document or serial port."
   ]
 }

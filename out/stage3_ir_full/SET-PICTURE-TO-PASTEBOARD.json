@@ -18,5 +18,8 @@
       ],
       "semanticRole": "SET PICTURE TO PASTEBOARD clears the pasteboard and puts a copy of the picture passed in picture into it."
     }
+  ],
+  "constraints": [
+    "Clears the pasteboard before placing picture; the picture is stored in its native format (JPEG, TIFF, PNG, etc.) and can be retrieved with GET PICTURE FROM PASTEBOARD or GET PASTEBOARD DATA (e.g. \"com.4d.private.picture.gif\")."
   ]
 }

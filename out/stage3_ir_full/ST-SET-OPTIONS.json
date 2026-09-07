@@ -2,12 +2,12 @@
   "id": "ST-SET-OPTIONS",
   "displayName": "ST SET OPTIONS",
   "kind": "classic_command",
-  "theme": "Styled Text",
+  "theme": "Styled-Text",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,71 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "option",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "value",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "group",
-          "members": [
-            {
-              "name": "option",
-              "type": {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "value",
-              "type": {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 0,
-            "max": null
-          },
-          "position": "trailing"
-        }
-      ],
-      "semanticRole": "The ST SET OPTIONS command modifies one or more operating options for the styled text field or variable designated by the object parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -90,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
         },
         {
           "name": "option",
@@ -99,7 +45,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Option to set"
         },
         {
           "name": "value",
@@ -108,7 +55,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New value of option"
         },
         {
           "name": "group",
@@ -120,7 +68,8 @@
                 "name": "Integer"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Option to set"
             },
             {
               "name": "value",
@@ -129,7 +78,8 @@
                 "name": "Integer"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "New value of option"
             }
           ],
           "cardinality": {
@@ -139,7 +89,7 @@
           "position": "trailing"
         }
       ],
-      "semanticRole": "The ST SET OPTIONS command modifies one or more operating options for the styled text field or variable designated by the object parameter."
+      "semanticRole": "Sets one or more operating-option values for the designated styled-text field/variable."
     }
   ]
 }

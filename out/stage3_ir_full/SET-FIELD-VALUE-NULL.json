@@ -18,5 +18,9 @@
       ],
       "semanticRole": "The SET FIELD VALUE NULL command assigns the NULL value to the field designated by the aField parameter."
     }
+  ],
+  "constraints": [
+    "The Null value can be disallowed for a given field at the Structure editor level, in which case this command cannot be used on it.",
+    "For an object field, this command erases the field's contents."
   ]
 }

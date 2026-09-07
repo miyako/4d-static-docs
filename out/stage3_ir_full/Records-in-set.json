@@ -22,5 +22,8 @@
       },
       "semanticRole": "Records in set returns the number of records in set ."
     }
+  ],
+  "constraints": [
+    "Returns 0 if set does not exist or contains no records."
   ]
 }

@@ -13,7 +13,18 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Publication name of 4D database or IP address of remote database or Name of the data source entry in the ODBC Manager or \"\" to display the selection dialog box",
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "Displays the interactive ODBC/SQL connection dialog box so the user can select a data source and enter credentials manually."
+            },
+            {
+              "value": "SQL_INTERNAL",
+              "meaning": "Redirects subsequent SQL queries to the internal 4D database (equivalent to closing any external connection)."
+            }
+          ]
         },
         {
           "name": "userName",
@@ -22,7 +33,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of the user registered in the data source"
         },
         {
           "name": "password",
@@ -31,7 +43,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Password of the user registered in the data source"
         },
         {
           "name": "*",
@@ -42,10 +55,26 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Applied to Begin SQL/End SQL. If omitted, code inside Begin SQL/End SQL still targets the internal SQL engine regardless of this login; if passed, that code is redirected to the dataEntry source."
         }
       ],
-      "semanticRole": "The SQL LOGIN command allows you to connect to an SQL data source specified in the dataEntry parameter."
+      "semanticRole": "Opens (or re-opens, implicitly closing any existing one) a per-process SQL connection to an external 4D Server, ODBC source, or the internal 4D database, becoming the target of subsequent SQL EXECUTE calls and (if '*' is passed) of code inside Begin SQL/End SQL tags.",
+      "jointConstraints": [
+        {
+          "params": [
+            "userName",
+            "password"
+          ],
+          "rule": "userName and password are grouped as an optional pair in the syntax: pass both together or omit both, not just one."
+        }
+      ]
     }
+  ],
+  "constraints": [
+    "dataEntry also accepts structured prefixed syntaxes documented separately: 'IP:<address>{:<port>}' for a direct 4D Server connection, '4D:<Publication_Name>' for a 4D Server publication name, and 'ODBC:<DSN>' (prefix required in uppercase) for an ODBC data source.",
+    "For a direct (4D Server) connection, passing empty strings for userName/password only succeeds if 4D passwords are not activated on the target database; otherwise the connection is refused.",
+    "Calling SQL LOGIN again without an explicit SQL LOGOUT automatically closes the previous connection first.",
+    "On success the OK system variable is set to 1; on failure it is set to 0, an error is generated, and the internal 4D database automatically becomes the current data source again."
   ]
 }

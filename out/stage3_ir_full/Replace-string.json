@@ -58,7 +58,17 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "Replace string replaces howMany occurrences of oldString in source with newString ."
+      "semanticRole": "Replace string replaces howMany occurrences of oldString in source with newString .",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Presence of the trailing literal '*' switches the comparison mode used to find oldString from linguistic (default) to character-code-based."
+      }
     }
+  ],
+  "constraints": [
+    "If newString is an empty string, each occurrence of oldString in source is deleted.",
+    "If oldString is an empty string, the unchanged source is returned.",
+    "By default (without *), comparisons are linguistic (accent/diacritic-insensitive, e.g. a=A, a=\u00e0, \u00e6=ae) and ignore characters with code < 9.",
+    "Passing * as the last parameter switches to character-code-based comparison (case- and accent-sensitive), needed to match special delimiter characters (e.g. Char(1)) or to force case/accent sensitivity; this mode does not account for variant word spellings."
   ]
 }

@@ -13,10 +13,23 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Alternate user name for 4D user account or \"\" to reset",
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "Remove the alias for the current 4D user (restores the real account name)."
+            }
+          ]
         }
       ],
       "semanticRole": "The SET USER ALIAS command defines an alternate, custom name to use in place of the current 4D user account name for the current session."
     }
+  ],
+  "constraints": [
+    "Can only be called from 4D remote or 4D single-user applications; it is not allowed on 4D Server.",
+    "In client/server environments, must be executed on each remote application so every user is individually identified on the server (e.g. via Current user), even if all remote applications share the same 4D user account.",
+    "The alias is used wherever the current 4D user account name would otherwise be shown or returned, e.g. Current user, Process activity, LOCKED BY, and the Users page of the 4D Server administration window.",
+    "Calling CHANGE CURRENT USER resets the alias for the current user."
   ]
 }

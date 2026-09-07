@@ -36,5 +36,11 @@
       ],
       "semanticRole": "The SELECT LIST ITEMS BY REFERENCE command selects the item(s) whose item reference number is passed in itemRef and, optionally, in refArray , within the list whose reference number is passed in list ."
     }
+  ],
+  "constraints": [
+    "If there is no item with the given itemRef, the command does nothing.",
+    "Passing 0 in itemRef designates the last item added to the list.",
+    "If an item is not currently visible (in a collapsed sublist), the command expands the sublist(s) needed to make it visible.",
+    "When refArray is passed, itemRef additionally sets the new current item of the list among the resulting multi-selection (it may or may not belong to the set of items in refArray)."
   ]
 }

@@ -27,5 +27,10 @@
       ],
       "semanticRole": "The SET CACHE SIZE command sets the database cache size dynamically and, optionally, sets the mininum byte size at which to start to free memory.This command only works in local mode (4D Server and 4D); it cannot be used"
     }
+  ],
+  "constraints": [
+    "Only works in local mode (4D Server and 4D single-user); cannot be used in 4D remote mode.",
+    "The new size is applied dynamically when the command executes.",
+    "If minFreeSize is omitted, 4D unloads at least 10% of the cache when space is needed."
   ]
 }
