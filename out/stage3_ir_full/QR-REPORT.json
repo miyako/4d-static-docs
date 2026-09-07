@@ -49,6 +49,7 @@
     }
   ],
   "constraints": [
+    "At least one parameter must be supplied -- despite every param (aTable, document, methodName, *) being independently optional per the doc's own bracket notation, a fully bare QR REPORT() call is rejected by the real 4D compiler (\"the command requires at least 1 parameter\"), a requirement the doc text never states explicitly. To omit aTable while still supplying a later parameter, use a leading empty placeholder, e.g. QR REPORT(;Char(1)) (Char(1) is document's own documented \"no such document\" sentinel, forcing the Quick Report editor to display).",
     "The Quick Report editor does not appear if the table has been declared \"Invisible\".",
     "Relations between tables keep their manual status when the editor is invoked via QR REPORT; automatic relation propagation is disabled while related tables are shown in a list form (DISPLAY SELECTION / MODIFY SELECTION / subform).",
     "QR ON COMMAND cannot be used in this context (the editor runs in an external window); use the methodName parameter instead to run custom code when an interface command is activated.",
