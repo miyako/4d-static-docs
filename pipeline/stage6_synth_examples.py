@@ -92,16 +92,77 @@ def enum_literal(ir, enum_name: str) -> str:
     return values[0]["name"]
 
 
-def build_arg_for_type(ir, type_obj, ctx: str):
+# 4D `var $x : <Type>` declaration keywords for concrete IR type names that
+# need an addressable variable rather than a bare literal (see `direction`
+# handling in build_arg_for_param below). "Array" is deliberately absent --
+# arrays are declared with the ARRAY <ELEMENT-TYPE> command, not `var`, so
+# it is special-cased separately.
+DECLARABLE_VAR_TYPES = {
+    "Text": "Text",
+    "String": "Text",
+    "Longint": "Longint",
+    "Integer": "Integer",
+    "Real": "Real",
+    "Number": "Real",
+    "Boolean": "Boolean",
+    "Date": "Date",
+    "Time": "Time",
+    "Object": "Object",
+    "Collection": "Collection",
+    "Variant": "Variant",
+    "Picture": "Picture",
+}
+
+
+class SynthContext:
+    """Per-overload mutable state threaded through argument synthesis:
+    `prelude` accumulates variable-declaration statements that must be
+    emitted before the call line, `counter` gives each declared variable a
+    unique name, and `star_active` implements the "star_operator_dual_signature"
+    heuristic (category C, ~167 commands per out/4d-command-ir.json's
+    relationships[]): once a bare `*` literal_symbols argument is emitted,
+    a later sibling parameter whose union type offers both Integer and
+    Text alternatives switches from the default (first-listed, usually
+    "reference number") alternative to Text ("name string"), matching the
+    documented "asObjectName" toggle convention.
+    """
+
+    def __init__(self):
+        self.prelude: list[str] = []
+        self.counter = 0
+        self.star_active = False
+
+    def fresh_name(self, prefix: str) -> str:
+        self.counter += 1
+        return f"${prefix}{self.counter}"
+
+
+def enum_literal(ir, enum_name: str) -> str:
+    values = ir["enums"][enum_name]["values"]
+    return values[0]["name"]
+
+
+def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, direction: str = "in"):
     """Return a 4D expression string for one parameter, given its TypeRef.
 
-    `ctx` is a short human label (e.g. "aTable") used only for comments /
-    fallback var names -- it does not affect compiled semantics.
+    `ctx` is a short human label (e.g. "aTable") used only for fallback var
+    names -- it does not affect compiled semantics. `direction` ("in" |
+    "out" | "inout") controls whether an addressable variable must be
+    declared (out/inout params cannot be passed an expression/literal in
+    4D) rather than a bare literal.
     """
     if isinstance(type_obj, list):
         # Union type: the schema documents this as "value may be any of
-        # these shapes"; the first alternative is picked deterministically.
-        return build_arg_for_type(ir, type_obj[0], ctx)
+        # these shapes". Default: first alternative, EXCEPT the
+        # star_operator_dual_signature toggle (see SynthContext docstring):
+        # once `*` has been passed, prefer a Text alternative if present.
+        if ctx_state.star_active:
+            names = [t.get("name") for t in type_obj if t.get("kind") == "concrete"]
+            if "Text" in names:
+                return build_arg_for_type(
+                    ir, type_obj[names.index("Text")], ctx, ctx_state, direction
+                )
+        return build_arg_for_type(ir, type_obj[0], ctx, ctx_state, direction)
 
     kind = type_obj.get("kind")
 
@@ -111,11 +172,26 @@ def build_arg_for_type(ir, type_obj, ctx: str):
             return "[SynthTable]"
         if name == "Field":
             return "[SynthTable]label"
-        return CONCRETE_LITERALS.get(name, CONCRETE_LITERALS["Text"])
+        if name == "Array":
+            # Arrays are by-reference by construction -- always declare a
+            # real typed array and pass its name, never a literal.
+            arr = ctx_state.fresh_name("arr")
+            ctx_state.prelude.append(f"ARRAY LONGINT({arr};0)")
+            return arr
+        if direction in ("out", "inout") or name not in CONCRETE_LITERALS:
+            # By-reference params (and any concrete type this pilot has no
+            # literal for) need an actual variable -- 4D rejects an
+            # expression/literal in an out/inout argument slot.
+            var_type = DECLARABLE_VAR_TYPES.get(name, "Variant")
+            v = ctx_state.fresh_name("v")
+            ctx_state.prelude.append(f"var {v} : {var_type}")
+            return v
+        return CONCRETE_LITERALS[name]
 
     if kind == "pseudo":
-        # "any"/"expression"/etc: a plain Text literal is a valid value for
-        # almost every pseudo type in a compile-time-only check.
+        # "any"/"expression"/etc: default to a plain Text literal, which
+        # type-checks for almost every pseudo type in a compile-time-only
+        # check -- EXCEPT known by-reference pseudo params (see below).
         return '"synthAny"'
 
     if kind == "pointer_unresolved":
@@ -132,6 +208,8 @@ def build_arg_for_type(ir, type_obj, ctx: str):
         # unquoted at the call site -- confirmed against real doc syntax
         # examples (e.g. "ORDER BY([Products];[Products]Name;>)",
         # "QUERY BY ATTRIBUTE(...;*)").
+        if symbols == ["*"]:
+            ctx_state.star_active = True
         return symbols[0]
 
     if kind == "enum_ref":
@@ -173,12 +251,25 @@ CONCRETE_LITERALS = {
     "Object": "New object",
     "Collection": "New collection",
     "Variant": "1",
-    "Picture": "New picture(\"\";\"\")",
     "4D.IMAPTransporter": "Null",
+    # NOTE: "Picture" is deliberately absent -- GRAPH/GRAPH SETTINGS model
+    # their Picture parameter as inout, and 4D rejects an expression
+    # (New picture(...)) in a by-reference slot, so Picture always goes
+    # through the var-declaration path above regardless of direction.
+}
+
+# Known SQL/pseudo params that must be an addressable Field/Variant
+# reference rather than any literal, even though the IR models them as
+# pseudo:"any" (e.g. SQL EXECUTE's placeholder-substitution `parameter`
+# arg). tool4d confirmed this ("Impossible to cast Text to Field<Variant>")
+# during the Phase 1 pilot; flagged here as a known synthesizer special
+# case pending a possible schema addition (see plan.md open questions).
+PSEUDO_REQUIRES_REFERENCE = {
+    ("SQL-EXECUTE", "parameter"),
 }
 
 
-def build_call_args(ir, params):
+def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
     """Flatten an overload's `params` (Parameter | VariadicGroup elements)
     into a list of argument expressions, honoring each VariadicGroup's
     minimum cardinality."""
@@ -190,30 +281,55 @@ def build_call_args(ir, params):
             reps = max(1, p.get("cardinality", {}).get("min", 1) or 1)
             for _ in range(reps):
                 for m in p["members"]:
-                    args.append(build_arg_for_type(ir, m["type"], m.get("name", "arg")))
+                    args.append(
+                        build_arg_for_type(
+                            ir, m["type"], m.get("name", "arg"), ctx_state, m.get("direction", "in")
+                        )
+                    )
         else:
-            args.append(build_arg_for_type(ir, p["type"], p.get("name", "arg")))
+            pname = p.get("name", "arg")
+            if (command_id, pname) in PSEUDO_REQUIRES_REFERENCE:
+                v = ctx_state.fresh_name("v")
+                ctx_state.prelude.append(f"var {v} : Variant")
+                args.append(v)
+                continue
+            args.append(build_arg_for_type(ir, p["type"], pname, ctx_state, p.get("direction", "in")))
     return args
 
 
-def synthesize_command(ir, command) -> list[str]:
-    """Return the list of source lines for one command's synthetic method,
-    one call-site line per overload, each preceded by a comment recording
-    the overload index (for human debugging; the manifest is authoritative
-    for line->overload attribution)."""
-    lines = []
+def synthesize_command(ir, command) -> list[list[str]]:
+    """Return one list of source lines per overload (any variable-
+    declaration prelude lines its by-reference/Array parameters need,
+    followed by the call-site line), each block starting with a comment
+    recording the overload index (for human debugging; the manifest is
+    authoritative for line->overload attribution). Returning per-overload
+    blocks (rather than one flat list) lets the caller compute exact
+    1-based line ranges even though prelude length now varies per overload."""
+    blocks = []
+    # One SynthContext shared across all overloads of this command so that
+    # `fresh_name()` never reuses a variable name between overloads -- all
+    # overloads land in the same .4dm file/method scope, so per-overload
+    # counters previously collided (e.g. GRAPH's two overloads each
+    # declaring "$v1", which 4D flags as a variable-redefinition warning).
+    # `prelude`/`star_active` are still reset per overload since each
+    # overload's declarations and star-toggle state are independent.
+    ctx_state = SynthContext()
     for oi, overload in enumerate(command.get("overloads", [])):
         params = overload.get("params", [])
-        args = build_call_args(ir, params)
+        ctx_state.prelude = []
+        ctx_state.star_active = False
+        args = build_call_args(ir, params, ctx_state, command["id"])
         call_name = command["displayName"]
         arg_str = ";".join(args)
-        lines.append(f"// overload {oi}")
+        block = [f"// overload {oi}"]
+        block.extend(ctx_state.prelude)
         if overload.get("returns"):
-            lines.append(f"var $synthResult_{oi} : Variant")
-            lines.append(f"$synthResult_{oi}:={call_name}({arg_str})")
+            block.append(f"var $synthResult_{oi} : Variant")
+            block.append(f"$synthResult_{oi}:={call_name}({arg_str})")
         else:
-            lines.append(f"{call_name}({arg_str})")
-    return lines
+            block.append(f"{call_name}({arg_str})")
+        blocks.append(block)
+    return blocks
 
 
 def cmd_generate(args):
@@ -235,17 +351,18 @@ def cmd_generate(args):
         command = commands_by_id[cid]
         method_name = sanitize_method_name(cid)
         file_path = METHODS_DIR / f"{method_name}.4dm"
-        overload_lines = synthesize_command(ir, command)
-        source_lines = list(overload_lines)
+        overload_blocks = synthesize_command(ir, command)
+        source_lines = [line for block in overload_blocks for line in block]
         file_path.write_text("\n".join(source_lines) + "\n")
 
         # Record which source line each overload's call site starts at
-        # (1-based, matching tool4d-lsp-stdio diagnostic line numbers).
+        # (1-based, matching tool4d-lsp-stdio diagnostic line numbers),
+        # using each block's actual length (prelude length varies).
         overload_line_starts = []
         cursor = 1
-        for oi, overload in enumerate(command.get("overloads", [])):
+        for oi, block in enumerate(overload_blocks):
             overload_line_starts.append({"overload_index": oi, "comment_line": cursor})
-            cursor += 3 if overload.get("returns") else 2
+            cursor += len(block)
         manifest["files"][f"Sources/Methods/{method_name}.4dm"] = {
             "command_id": cid,
             "overloads": overload_line_starts,

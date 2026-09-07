@@ -348,16 +348,21 @@
       "overloads": [
         {
           "params": [
-            { "name": "graphPicture", "type": { "kind": "concrete", "name": "Picture" }, "direction": "in", "optional": false },
-            { "name": "xmin", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true },
-            { "name": "xmax", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true },
-            { "name": "ymin", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true },
-            { "name": "ymax", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true }
+            { "name": "graphPicture", "type": { "kind": "concrete", "name": "Picture" }, "direction": "in", "optional": false, "description": "Picture variable" },
+            { "name": "xmin", "type": [ { "kind": "concrete", "name": "Integer" }, { "kind": "concrete", "name": "Date" }, { "kind": "concrete", "name": "Time" } ], "direction": "in", "optional": true, "description": "Minimum x-axis value for proportional graph (line or scatter plot only)" },
+            { "name": "xmax", "type": [ { "kind": "concrete", "name": "Integer" }, { "kind": "concrete", "name": "Date" }, { "kind": "concrete", "name": "Time" } ], "direction": "in", "optional": true, "description": "Maximum x-axis value for proportional graph (line or scatter plot only)" },
+            { "name": "ymin", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": true, "description": "Minimum y-axis value" },
+            { "name": "ymax", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": true, "description": "Maximum y-axis value" },
+            { "name": "xprop", "type": { "kind": "concrete", "name": "Boolean" }, "direction": "in", "optional": true, "description": "TRUE for proportional x-axis; FALSE for normal x-axis (line or scatter plot only)" },
+            { "name": "xgrid", "type": { "kind": "concrete", "name": "Boolean" }, "direction": "in", "optional": true, "description": "TRUE for x-axis grid; FALSE for no x-axis grid (only if xprop is TRUE)" },
+            { "name": "ygrid", "type": { "kind": "concrete", "name": "Boolean" }, "direction": "in", "optional": true, "description": "TRUE for y-axis grid; FALSE for no y-axis grid" },
+            { "name": "title", "members": [ { "name": "title", "type": { "kind": "concrete", "name": "Text" }, "direction": "in", "optional": false, "description": "Title(s) for graph legend(s)" } ], "cardinality": { "min": 0, "max": null }, "position": "trailing" }
           ],
           "returns": null,
           "jointConstraints": [
             { "params": ["xmin", "xmax"], "rule": "If either is null, both fall back to default graph values." },
-            { "params": ["ymin", "ymax"], "rule": "If either is null, both fall back to default graph values." }
+            { "params": ["ymin", "ymax"], "rule": "If either is null, both fall back to default graph values." },
+            { "params": ["xprop"], "rule": "xmin/xmax are only taken into account when xprop is True." }
           ]
         }
       ],

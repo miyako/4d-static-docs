@@ -1,2 +1,3 @@
 // overload 0
-ORDER BY FORMULA([SynthTable];"synthText";>)
+var $v1 : Variant
+ORDER BY FORMULA([SynthTable];$v1;>)

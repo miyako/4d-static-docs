@@ -1,4 +1,7 @@
 // overload 0
-MULTI SORT ARRAY("synthText";>)
+ARRAY LONGINT($arr1;0)
+MULTI SORT ARRAY($arr1;>)
 // overload 1
-MULTI SORT ARRAY("synthText";"synthText")
+ARRAY LONGINT($arr2;0)
+ARRAY LONGINT($arr3;0)
+MULTI SORT ARRAY($arr2;$arr3)

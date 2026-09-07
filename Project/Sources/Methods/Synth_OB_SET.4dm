@@ -1,2 +1,3 @@
 // overload 0
-OB SET(New object;"synthText";"synthAny")
+var $v1 : Object
+OB SET($v1;"synthText";"synthAny")

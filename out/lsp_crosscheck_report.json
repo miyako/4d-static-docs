@@ -45,40 +45,22 @@
     "id": "MULTI-SORT-ARRAY",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_MULTI_SORT_ARRAY.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"MULTI SORT ARRAY\".",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
+    "diagnostics": [],
+    "status": "clean"
   },
   {
     "id": "MULTI-SORT-ARRAY",
     "overload_index": 1,
     "file": "Sources/Methods/Synth_MULTI_SORT_ARRAY.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"MULTI SORT ARRAY\".",
-        "severity": "error",
-        "line": 4
-      }
-    ],
-    "status": "error"
+    "diagnostics": [],
+    "status": "clean"
   },
   {
     "id": "SET-LIST-ITEM-PROPERTIES",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_SET_LIST_ITEM_PROPERTIES.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"SET LIST ITEM PROPERTIES\".",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
+    "diagnostics": [],
+    "status": "clean"
   },
   {
     "id": "SET-LIST-PROPERTIES",
@@ -91,40 +73,22 @@
     "id": "GRAPH",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_GRAPH.4dm",
-    "diagnostics": [
-      {
-        "message": "Syntax error",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
+    "diagnostics": [],
+    "status": "clean"
   },
   {
     "id": "GRAPH",
     "overload_index": 1,
     "file": "Sources/Methods/Synth_GRAPH.4dm",
-    "diagnostics": [
-      {
-        "message": "Syntax error",
-        "severity": "error",
-        "line": 4
-      }
-    ],
-    "status": "error"
+    "diagnostics": [],
+    "status": "clean"
   },
   {
     "id": "GRAPH-SETTINGS",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_GRAPH_SETTINGS.4dm",
-    "diagnostics": [
-      {
-        "message": "Syntax error",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
+    "diagnostics": [],
+    "status": "clean"
   },
   {
     "id": "QUERY-BY-ATTRIBUTE",
@@ -137,14 +101,8 @@
     "id": "SQL-EXECUTE",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_SQL_EXECUTE.4dm",
-    "diagnostics": [
-      {
-        "message": "Impossible to cast Text to Field<Variant>.",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
+    "diagnostics": [],
+    "status": "clean"
   },
   {
     "id": "WA-EXECUTE-JAVASCRIPT-FUNCTION",

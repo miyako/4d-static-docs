@@ -1,2 +1,3 @@
 // overload 0
-WA EXECUTE JAVASCRIPT FUNCTION(*;"synthText";"synthText";"synthText";"synthAny")
+var $v1 : Variant
+WA EXECUTE JAVASCRIPT FUNCTION(*;"synthText";"synthText";$v1;"synthAny")

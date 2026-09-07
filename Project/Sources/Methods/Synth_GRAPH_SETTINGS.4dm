@@ -1,2 +1,3 @@
 // overload 0
-GRAPH SETTINGS(New picture("";"");1;1;1;1)
+var $v1 : Picture
+GRAPH SETTINGS($v1;1;1;1;1;True;True;True;"synthText")
