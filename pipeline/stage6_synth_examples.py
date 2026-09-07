@@ -131,6 +131,11 @@ class SynthContext:
         self.prelude: list[str] = []
         self.counter = 0
         self.star_active = False
+        # Whether the CURRENT overload has a '*' star_operator_dual_signature
+        # flag param at all (set once per overload, unlike star_active
+        # which toggles per render_block variant) -- see the union-type
+        # preference logic in build_arg_for_type for why this is needed.
+        self.star_present = False
         # Set when synthesizing a self-declaring ARRAY <TYPE> command (e.g.
         # ARRAY TEXT, ARRAY BLOB): its own generic concrete:"Array" param
         # must declare that exact element type, not the LONGINT default,
@@ -209,6 +214,26 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
                 return build_arg_for_type(
                     ir, type_obj[names.index("Text")], ctx, ctx_state, direction
                 )
+        elif ctx_state.star_present:
+            # The flag-omission sweep (see find_flag_omission_variants) can
+            # render a "*" omitted" variant for an overload that DOES have
+            # a star_operator_dual_signature flag -- e.g. GET-LIST-ITEM's
+            # "list": [Text, Integer] or LISTBOX-SET-ARRAY's "object":
+            # [Text, Variable], where '*' omitted means the sibling
+            # (non-Text) alternative applies. Text is listed first in the
+            # IR so the generic "prefer first concrete" fallback below
+            # would still pick Text even with the flag genuinely absent
+            # from the call, producing a real type mismatch (a Text
+            # literal in a slot that requires the other alternative's
+            # type) -- tool4d caught this for both shapes. Only takes
+            # effect when this overload actually has a '*' flag
+            # (ctx_state.star_present); overloads with an unrelated
+            # Text/other union and no '*' flag at all (54 in this corpus,
+            # e.g. ARRAY-TO-LIST) keep the existing Text-first default,
+            # already cross-checked clean.
+            for t in type_obj:
+                if t.get("kind") == "concrete" and t.get("name") != "Text":
+                    return build_arg_for_type(ir, t, ctx, ctx_state, direction)
         # Otherwise prefer the first *concrete* alternative over a leading
         # pseudo one (e.g. GET LIST ITEM ICON's itemRef: ["pseudo:Operator",
         # "concrete:Integer"] -- the pseudo alternative there just documents
@@ -420,6 +445,85 @@ def find_enum_refs_in_params(params) -> list[str]:
     return names
 
 
+def _is_plain_optional(p) -> bool:
+    return "members" not in p and "contentParam" not in p and bool(p.get("optional"))
+
+
+# Interactive form commands where BOTH the docs and tool4d agree the
+# fully bare zero-argument call is a documented, valid overload (e.g.
+# "ADD RECORD" with no parens, confirmed via doc.4d.com) -- yet tool4d's
+# static analyzer specifically rejects it with a prototype-mismatch
+# error, yet accepts every *other* arity of the same overload
+# (ADD RECORD(*), ADD RECORD([Table]), ADD RECORD([Table];*) all
+# validate clean). This 3-command family is the only place in the whole
+# corpus this happens -- other same-shape "every param optional, flag
+# last" commands (e.g. HIGHLIGHT-RECORDS, QUERY-BY-EXAMPLE,
+# PRINT-SELECTION) validate their zero-arg variant clean. Root cause
+# looks like tool4d's offline/dataless static analyzer being unable to
+# resolve "current default table" for these 3 specific interactive
+# add/modify/print-record commands without a live form/runtime context
+# -- a tooling limitation, not an IR error (the IR's independent
+# optionality modeling matches the documented syntax). Excluded here so
+# the flag sweep doesn't manufacture a false-positive "IR bug" for a
+# call shape real 4D code is documented to support.
+FLAG_SWEEP_SKIP_EMPTY_CALL = {"ADD-RECORD", "MODIFY-RECORD", "PRINT-RECORD"}
+
+
+def find_flag_omission_variants(params, command_id: str) -> list[tuple[str, list]]:
+    """Return (label, truncated_params) pairs, one per optional
+    literal_symbols "flag" param (e.g. '*', '>') that can be legally
+    omitted per 4D's positional-argument calling convention: an optional
+    param can only be dropped as part of a contiguous all-optional run at
+    the very front or the very back of the argument list -- 4D has no
+    named-argument or skip-a-middle-slot mechanism.
+
+    Two thirds of this corpus's optional flags turn out to be LEADING
+    (e.g. GET-LIST-ITEM's leading '*' toggles asObjectName addressing for
+    every following param -- confirmed against real doc syntax
+    "GET LIST ITEM ({*;}list;...)"), not trailing -- the synthesizer
+    previously only ever exercised the "flag present" branch, never the
+    "flag(s) omitted" branch for either position, which this sweep now
+    covers for both.
+
+    `truncated_params` is the params list to actually build the omitted
+    call from: dropping a LEADING flag at index i means using
+    params[i+1:] (whatever legally-optional params preceded the flag in
+    the same leading run, e.g. QUERY-BY-ATTRIBUTE's aTable before conjOp,
+    are dropped along with it -- still a legal call, just testing a
+    stronger omission than the single flag alone); dropping a TRAILING
+    flag at index i means using params[:i]."""
+    variants = []
+    n = len(params)
+    leading_len = 0
+    for q in params:
+        if _is_plain_optional(q):
+            leading_len += 1
+        else:
+            break
+    trailing_start = n
+    for q in reversed(params):
+        if _is_plain_optional(q):
+            trailing_start -= 1
+        else:
+            break
+    for i, p in enumerate(params):
+        if "members" in p or "contentParam" in p:
+            continue
+        t = p.get("type")
+        if not (isinstance(t, dict) and t.get("kind") == "literal_symbols" and p.get("optional")):
+            continue
+        flag_name = p.get("name") or "".join(t.get("symbols", ["flag"]))
+        if i < leading_len:
+            truncated = params[i + 1 :]
+            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL:
+                variants.append((f"omit-leading-thru:{flag_name}", truncated))
+        if i >= trailing_start:
+            truncated = params[:i]
+            if truncated or command_id not in FLAG_SWEEP_SKIP_EMPTY_CALL:
+                variants.append((f"omit-trailing-from:{flag_name}", truncated))
+    return variants
+
+
 def synthesize_command(ir, command) -> list[dict]:
     """Return one dict per synthesized block: {"overload_index", "variant",
     "lines"} (any variable-declaration prelude lines its by-reference/
@@ -433,7 +537,13 @@ def synthesize_command(ir, command) -> list[dict]:
     "enum:<enum_name>=<value_name>") are emitted, one per remaining enum
     value, so every constant name in a modeled enum -- not just
     values[0] -- eventually gets compiled and cross-checked against
-    tool4d, not only the first."""
+    tool4d, not only the first. For overloads with an omittable optional
+    literal_symbols flag, ADDITIONAL blocks (variant "flag:omit-...")
+    are emitted with that flag (and, if applicable, the rest of its
+    leading/trailing optional run) left out of the call entirely, so the
+    "flag omitted" branch -- never previously exercised, since the
+    synthesizer's default always includes every optional param -- is
+    also compiled and cross-checked."""
     blocks = []
     # One SynthContext shared across all overloads of this command so that
     # `fresh_name()` never reuses a variable name between overloads -- all
@@ -453,8 +563,16 @@ def synthesize_command(ir, command) -> list[dict]:
     for oi, overload in enumerate(command.get("overloads", [])):
         params = overload.get("params", [])
         call_name = command["displayName"]
+        ctx_state.star_present = any(
+            "members" not in p
+            and "contentParam" not in p
+            and isinstance(p.get("type"), dict)
+            and p["type"].get("kind") == "literal_symbols"
+            and p["type"].get("symbols") == ["*"]
+            for p in params
+        )
 
-        def render_block(variant: str, comment_suffix: str, overrides: dict[str, str]):
+        def render_block(variant: str, comment_suffix: str, overrides: dict[str, str], call_params=None):
             ctx_state.prelude = []
             ctx_state.star_active = False
             ctx_state.enum_override = overrides
@@ -472,7 +590,7 @@ def synthesize_command(ir, command) -> list[dict]:
                 block.append("Begin SQL")
                 block.append("End SQL")
                 return {"overload_index": oi, "variant": variant, "lines": block}
-            args = build_call_args(ir, params, ctx_state, command["id"])
+            args = build_call_args(ir, call_params if call_params is not None else params, ctx_state, command["id"])
             arg_str = ";".join(args)
             block.extend(ctx_state.prelude)
             if overload.get("returns"):
@@ -520,6 +638,23 @@ def synthesize_command(ir, command) -> list[dict]:
                             {enum_name: value_name},
                         )
                     )
+
+            # Flag on/off sweep: for every optional literal_symbols flag
+            # param that sits in a leading or trailing all-optional run,
+            # emit one additional block with that flag (and, for a
+            # leading flag, whatever legally-optional params preceded it
+            # in the same run) omitted from the call entirely -- the
+            # "flag omitted" branch, never exercised by the "default"
+            # block above since it always includes every optional param.
+            for label, call_params in find_flag_omission_variants(params, command["id"]):
+                blocks.append(
+                    render_block(
+                        f"flag:{label}",
+                        f" flag-sweep {label}",
+                        {},
+                        call_params=call_params,
+                    )
+                )
     return blocks
 
 

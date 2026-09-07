@@ -1,2 +1,5 @@
 // overload 0
 LISTBOX SELECT ROWS(*;"synthText";New object;1)
+// overload 0 flag-sweep omit-leading-thru:*
+var $v1 : Variant
+LISTBOX SELECT ROWS($v1;New object;1)

@@ -3,3 +3,5 @@ var $v1 : Variant
 EXECUTE METHOD IN SUBFORM("synthText";New object;$v1;"synthAny")
 // overload 1
 EXECUTE METHOD IN SUBFORM("synthText";New object;*;"synthAny")
+// overload 1 flag-sweep omit-trailing-from:*
+EXECUTE METHOD IN SUBFORM("synthText";New object)

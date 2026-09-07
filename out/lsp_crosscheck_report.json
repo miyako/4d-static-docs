@@ -49,8 +49,24 @@
   },
   {
     "id": "ACTIVITY-SNAPSHOT",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_ACTIVITY_SNAPSHOT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ACTIVITY-SNAPSHOT",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ACTIVITY_SNAPSHOT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ACTIVITY-SNAPSHOT",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_ACTIVITY_SNAPSHOT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -59,6 +75,14 @@
     "id": "ADD-RECORD",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ADD_RECORD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ADD-RECORD",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_ADD_RECORD.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -123,6 +147,14 @@
     "id": "APPEND-MENU-ITEM",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_APPEND_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "APPEND-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_APPEND_MENU_ITEM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -264,6 +296,14 @@
     "status": "clean"
   },
   {
+    "id": "ARRAY-TO-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_ARRAY_TO_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ASSERT",
     "overload_index": 0,
     "variant": "default",
@@ -360,6 +400,22 @@
     "status": "clean"
   },
   {
+    "id": "Application-version",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Application_version.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Application-version",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Application_version.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Arctan",
     "overload_index": 0,
     "variant": "default",
@@ -408,9 +464,25 @@
     "status": "clean"
   },
   {
+    "id": "BASE64-DECODE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_BASE64_DECODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "BASE64-ENCODE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_BASE64_ENCODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BASE64-ENCODE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_BASE64_ENCODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -664,6 +736,14 @@
     "status": "clean"
   },
   {
+    "id": "CLEAR-LIST",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_CLEAR_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "CLEAR-NAMED-SELECTION",
     "overload_index": 0,
     "variant": "default",
@@ -824,6 +904,14 @@
     "status": "clean"
   },
   {
+    "id": "COPY-DOCUMENT",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_COPY_DOCUMENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "COPY-NAMED-SELECTION",
     "overload_index": 0,
     "variant": "default",
@@ -872,9 +960,25 @@
     "status": "clean"
   },
   {
+    "id": "CREATE-FOLDER",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_CREATE_FOLDER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "CREATE-INDEX",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_CREATE_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CREATE-INDEX",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_CREATE_INDEX.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1056,9 +1160,25 @@
     "status": "clean"
   },
   {
+    "id": "Convert-path-POSIX-to-system",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Convert_path_POSIX_t_4ba0.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Convert-path-system-to-POSIX",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Convert_path_system__eccf.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Convert-path-system-to-POSIX",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Convert_path_system__eccf.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1107,6 +1227,22 @@
     "id": "Count-list-items",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Count_list_items.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Count-list-items",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Count_list_items.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Count-list-items",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Count_list_items.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1224,6 +1360,22 @@
     "status": "clean"
   },
   {
+    "id": "Current-date",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Current_date.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Current-date",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Current_date.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Current-default-table",
     "overload_index": 0,
     "variant": "default",
@@ -1312,6 +1464,22 @@
     "status": "clean"
   },
   {
+    "id": "Current-time",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Current_time.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Current-time",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Current_time.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Current-user",
     "overload_index": 0,
     "variant": "default",
@@ -1384,6 +1552,22 @@
     "status": "clean"
   },
   {
+    "id": "DELETE-FROM-LIST",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_DELETE_FROM_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-FROM-LIST",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:eraseSublist",
+    "file": "Sources/Methods/Synth_DELETE_FROM_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "DELETE-INDEX",
     "overload_index": 0,
     "variant": "default",
@@ -1393,8 +1577,24 @@
   },
   {
     "id": "DELETE-INDEX",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-INDEX",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-INDEX",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1448,6 +1648,14 @@
     "status": "clean"
   },
   {
+    "id": "DIALOG",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:useCurrentProcess",
+    "file": "Sources/Methods/Synth_DIALOG.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "DIFFERENCE",
     "overload_index": 0,
     "variant": "default",
@@ -1483,6 +1691,38 @@
     "id": "DISPLAY-SELECTION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_DISPLAY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISPLAY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:useOutputFormForOneRecord",
+    "file": "Sources/Methods/Synth_DISPLAY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISPLAY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:useOutputFormForOneRecord",
+    "file": "Sources/Methods/Synth_DISPLAY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISPLAY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:showScrollBars",
+    "file": "Sources/Methods/Synth_DISPLAY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISPLAY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:showScrollBars",
     "file": "Sources/Methods/Synth_DISPLAY_SELECTION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1824,6 +2064,14 @@
     "status": "clean"
   },
   {
+    "id": "DOM-SET-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_DOM_SET_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "DRAG-WINDOW",
     "overload_index": 0,
     "variant": "default",
@@ -2008,6 +2256,14 @@
     "status": "clean"
   },
   {
+    "id": "EDIT-ITEM",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_EDIT_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ENABLE-MENU-ITEM",
     "overload_index": 0,
     "variant": "default",
@@ -2080,6 +2336,14 @@
     "status": "clean"
   },
   {
+    "id": "EXECUTE-METHOD-IN-SUBFORM",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_EXECUTE_METHOD_IN_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "EXECUTE-ON-CLIENT",
     "overload_index": 0,
     "variant": "default",
@@ -2099,6 +2363,14 @@
     "id": "EXPORT-DATA",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_EXPORT_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "EXPORT-DATA",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_EXPORT_DATA.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2216,6 +2488,14 @@
     "status": "clean"
   },
   {
+    "id": "Execute-on-server",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Execute_on_server.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Exp",
     "overload_index": 0,
     "variant": "default",
@@ -2288,6 +2568,14 @@
     "status": "clean"
   },
   {
+    "id": "FONT-LIST",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_FONT_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "FONT-STYLE-LIST",
     "overload_index": 0,
     "variant": "default",
@@ -2344,6 +2632,14 @@
     "status": "clean"
   },
   {
+    "id": "FORM-GET-ENTRY-ORDER",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_FORM_GET_ENTRY_ORDER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "FORM-GET-HORIZONTAL-RESIZING",
     "overload_index": 0,
     "variant": "default",
@@ -2355,6 +2651,14 @@
     "id": "FORM-GET-NAMES",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_FORM_GET_NAMES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FORM-GET-NAMES",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_FORM_GET_NAMES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2392,6 +2696,14 @@
     "status": "clean"
   },
   {
+    "id": "FORM-GOTO-PAGE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_FORM_GOTO_PAGE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "FORM-Get-color-scheme",
     "overload_index": 0,
     "variant": "default",
@@ -2408,6 +2720,22 @@
     "status": "clean"
   },
   {
+    "id": "FORM-Get-current-page",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_FORM_Get_current_page.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FORM-Get-current-page",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_FORM_Get_current_page.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "FORM-LAST-PAGE",
     "overload_index": 0,
     "variant": "default",
@@ -2419,6 +2747,14 @@
     "id": "FORM-LOAD",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_FORM_LOAD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FORM-LOAD",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_FORM_LOAD.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2472,6 +2808,14 @@
     "status": "clean"
   },
   {
+    "id": "FORM-SET-INPUT",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_FORM_SET_INPUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "FORM-SET-OUTPUT",
     "overload_index": 0,
     "variant": "default",
@@ -2483,6 +2827,14 @@
     "id": "FORM-SET-SIZE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_FORM_SET_SIZE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FORM-SET-SIZE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_FORM_SET_SIZE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2561,8 +2913,24 @@
   },
   {
     "id": "File",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_File.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "File",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_File.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "File",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_File.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2587,6 +2955,22 @@
     "id": "Find-in-list",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Find_in_list.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Find-in-list",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_Find_in_list.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Find-in-list",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:asReference",
     "file": "Sources/Methods/Synth_Find_in_list.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2625,8 +3009,24 @@
   },
   {
     "id": "Folder",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Folder.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Folder",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Folder.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Folder",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Folder.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2688,9 +3088,41 @@
     "status": "clean"
   },
   {
+    "id": "Frontmost-process",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Frontmost_process.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Frontmost-process",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Frontmost_process.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Frontmost-window",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Frontmost_window.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Frontmost-window",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Frontmost_window.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Frontmost-window",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Frontmost_window.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2784,6 +3216,14 @@
     "status": "clean"
   },
   {
+    "id": "GET-FIELD-RELATION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_GET_FIELD_RELATION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-FIELD-TITLES",
     "overload_index": 0,
     "variant": "default",
@@ -2816,6 +3256,14 @@
     "status": "clean"
   },
   {
+    "id": "GET-HIGHLIGHT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_GET_HIGHLIGHT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-HIGHLIGHTED-RECORDS",
     "overload_index": 0,
     "variant": "default",
@@ -2832,9 +3280,25 @@
     "status": "clean"
   },
   {
+    "id": "GET-LIST-ITEM",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-LIST-ITEM-ICON",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_GET_LIST_ITEM_ICON.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2848,6 +3312,14 @@
     "status": "clean"
   },
   {
+    "id": "GET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-LIST-ITEM-PARAMETER-ARRAYS",
     "overload_index": 0,
     "variant": "default",
@@ -2856,9 +3328,25 @@
     "status": "clean"
   },
   {
+    "id": "GET-LIST-ITEM-PARAMETER-ARRAYS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PARAME_fb2c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-LIST-ITEM-PROPERTIES",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PROPERTIES",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_GET_LIST_ITEM_PROPERTIES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2963,6 +3451,14 @@
     "id": "GET-PICTURE-KEYWORDS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_GET_PICTURE_KEYWORDS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PICTURE-KEYWORDS",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_GET_PICTURE_KEYWORDS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3216,6 +3712,14 @@
     "status": "clean"
   },
   {
+    "id": "GET-TEXT-KEYWORDS",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_GET_TEXT_KEYWORDS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-USER-LIST",
     "overload_index": 0,
     "variant": "default",
@@ -3328,6 +3832,14 @@
     "status": "clean"
   },
   {
+    "id": "Generate-digest",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Generate_digest.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Generate-password-hash",
     "overload_index": 0,
     "variant": "default",
@@ -3344,6 +3856,14 @@
     "status": "clean"
   },
   {
+    "id": "Get-4D-file",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Get_4D_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-4D-folder",
     "overload_index": 0,
     "variant": "default",
@@ -3352,9 +3872,41 @@
     "status": "clean"
   },
   {
+    "id": "Get-4D-folder",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Get_4D_folder.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-4D-folder",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Get_4D_folder.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-Application-color-scheme",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Get_Application_colo_da32.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-Application-color-scheme",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Get_Application_colo_da32.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-Application-color-scheme",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Get_Application_colo_da32.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3411,6 +3963,22 @@
     "id": "Get-database-localization",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Get_database_localization.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-database-localization",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Get_database_localization.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-database-localization",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Get_database_localization.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4000,6 +4568,14 @@
     "status": "clean"
   },
   {
+    "id": "Get-document-size",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Get_document_size.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-edited-text",
     "overload_index": 0,
     "variant": "default",
@@ -4043,6 +4619,14 @@
     "id": "Get-list-item-font",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Get_list_item_font.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-list-item-font",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_Get_list_item_font.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4280,6 +4864,22 @@
     "status": "clean"
   },
   {
+    "id": "HIGHLIGHT-RECORDS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_HIGHLIGHT_RECORDS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HIGHLIGHT-RECORDS",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_HIGHLIGHT_RECORDS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "HIGHLIGHT-TEXT",
     "overload_index": 0,
     "variant": "default",
@@ -4304,6 +4904,14 @@
     "status": "clean"
   },
   {
+    "id": "HTTP-AUTHENTICATE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_HTTP_AUTHENTICATE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "HTTP-GET-OPTION",
     "overload_index": 0,
     "variant": "default",
@@ -4315,6 +4923,14 @@
     "id": "HTTP-Get",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_HTTP_Get.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Get",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_HTTP_Get.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4339,6 +4955,14 @@
     "id": "HTTP-Request",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_HTTP_Request.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4379,6 +5003,14 @@
     "id": "IMPORT-DATA",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_IMPORT_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "IMPORT-DATA",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_IMPORT_DATA.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4440,6 +5072,14 @@
     "status": "clean"
   },
   {
+    "id": "INSERT-IN-LIST",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_INSERT_IN_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "INSERT-MENU-ITEM",
     "overload_index": 0,
     "variant": "default",
@@ -4448,9 +5088,25 @@
     "status": "clean"
   },
   {
+    "id": "INSERT-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_INSERT_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "INTEGER-TO-BLOB",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_INTEGER_TO_BLOB.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "INTEGER-TO-BLOB",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_INTEGER_TO_BLOB.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4560,6 +5216,22 @@
     "status": "clean"
   },
   {
+    "id": "Is-compiled-mode",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Is_compiled_mode.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Is-compiled-mode",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Is_compiled_mode.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Is-data-file-locked",
     "overload_index": 0,
     "variant": "default",
@@ -4656,6 +5328,14 @@
     "status": "clean"
   },
   {
+    "id": "Is-picture-file",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Is_picture_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Is-record-loaded",
     "overload_index": 0,
     "variant": "default",
@@ -4720,6 +5400,14 @@
     "status": "clean"
   },
   {
+    "id": "JSON-Parse",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_JSON_Parse.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "JSON-Resolve-pointers",
     "overload_index": 0,
     "variant": "default",
@@ -4736,9 +5424,25 @@
     "status": "clean"
   },
   {
+    "id": "JSON-Stringify",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_JSON_Stringify.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "JSON-Stringify-array",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_JSON_Stringify_array.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "JSON-Stringify-array",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_JSON_Stringify_array.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5120,9 +5824,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-Get-footer-calculation",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_footer_c_cf8d.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-Get-footers-height",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_footers__bd04.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-Get-footers-height",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_Get_footers__bd04.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5136,9 +5856,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-Get-headers-height",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_headers__00ba.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-Get-locked-columns",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_locked_c_b93c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-Get-locked-columns",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_Get_locked_c_b93c.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5152,9 +5888,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-Get-number-of-columns",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_number_o_2493.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-Get-number-of-rows",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_number_o_9c37.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-Get-number-of-rows",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_Get_number_o_9c37.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5168,9 +5920,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-Get-property",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_property.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-Get-row-color-as-number",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_row_colo_d7f8.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-Get-row-color-as-number",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_Get_row_colo_d7f8.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5184,9 +5952,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-Get-row-color",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_row_color.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-Get-row-font-style",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_row_font_43ab.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-Get-row-font-style",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_Get_row_font_43ab.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5200,9 +5984,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-Get-row-height",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_row_height.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-Get-rows-height",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_rows_height.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-Get-rows-height",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_Get_rows_height.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5216,9 +6016,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-Get-static-columns",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_Get_static_c_2b4d.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-INSERT-COLUMN",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5232,9 +6048,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-INSERT-COLUMN-FORMULA",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUM_8f17.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-INSERT-ROWS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_ROWS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-ROWS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_INSERT_ROWS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5248,9 +6080,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-MOVED-COLUMN-NUMBER",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_MOVED_COLUMN_f9a8.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-MOVED-ROW-NUMBER",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_MOVED_ROW_NUMBER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-MOVED-ROW-NUMBER",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_MOVED_ROW_NUMBER.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5264,9 +6112,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-MOVE-COLUMN",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_MOVE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SELECT-BREAK",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SELECT_BREAK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SELECT-BREAK",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SELECT_BREAK.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5280,9 +6144,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SELECT-ROW",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SELECT_ROW.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SELECT-ROWS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SELECT_ROWS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SELECT-ROWS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SELECT_ROWS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5296,9 +6176,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-ARRAY",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-AUTO-ROW-HEIGHT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_AUTO_ROW_b136.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-AUTO-ROW-HEIGHT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_AUTO_ROW_b136.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5312,9 +6208,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-COLUMN-FORMULA",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_COLUMN_F_6fb8.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-COLUMN-WIDTH",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_COLUMN_WIDTH.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-COLUMN-WIDTH",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_COLUMN_WIDTH.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5328,9 +6240,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-FOOTERS-HEIGHT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_FOOTERS__0a42.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-FOOTER-CALCULATION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_FOOTER_C_84f3.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-FOOTER-CALCULATION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_FOOTER_C_84f3.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5344,9 +6272,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-GRID",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_GRID.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-GRID-COLOR",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_GRID_COLOR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-GRID-COLOR",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_GRID_COLOR.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5360,9 +6304,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-HEADERS-HEIGHT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_HEADERS__7a06.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-HIERARCHY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_HIERARCHY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-HIERARCHY",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_HIERARCHY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5376,9 +6336,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-LOCKED-COLUMNS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_LOCKED_C_138e.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-PROPERTY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-PROPERTY",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_PROPERTY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5392,9 +6368,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-ROWS-HEIGHT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_ROWS_HEIGHT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-ROW-COLOR",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_ROW_COLOR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-ROW-COLOR",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_ROW_COLOR.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5408,6 +6400,14 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-ROW-FONT-STYLE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_ROW_FONT_653a.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-ROW-HEIGHT",
     "overload_index": 0,
     "variant": "default",
@@ -5416,9 +6416,25 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-SET-ROW-HEIGHT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_ROW_HEIGHT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-SET-STATIC-COLUMNS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_STATIC_C_3cc6.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-STATIC-COLUMNS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_STATIC_C_3cc6.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5433,8 +6449,24 @@
   },
   {
     "id": "LISTBOX-SET-TABLE-SOURCE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_TABLE_SOURCE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-TABLE-SOURCE",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_TABLE_SOURCE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-TABLE-SOURCE",
+    "overload_index": 1,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SET_TABLE_SOURCE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5443,6 +6475,14 @@
     "id": "LISTBOX-SORT-COLUMNS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_SORT_COLUMNS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SORT-COLUMNS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_LISTBOX_SORT_COLUMNS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5475,6 +6515,14 @@
     "id": "LIST-TO-BLOB",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LIST_TO_BLOB.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LIST-TO-BLOB",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_LIST_TO_BLOB.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5547,6 +6595,14 @@
     "id": "LONGINT-TO-BLOB",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LONGINT_TO_BLOB.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LONGINT-TO-BLOB",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_LONGINT_TO_BLOB.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5648,9 +6704,25 @@
     "status": "clean"
   },
   {
+    "id": "List-item-parent",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_List_item_parent.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "List-item-position",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_List_item_position.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "List-item-position",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_List_item_position.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5723,6 +6795,14 @@
     "id": "Lowercase",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Lowercase.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Lowercase",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Lowercase.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5824,9 +6904,25 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-GET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-GET-CODE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-CODE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5840,9 +6936,25 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-GET-COMMENTS",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-GET-FOLDERS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_METHOD_GET_FOLDERS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-FOLDERS",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_METHOD_GET_FOLDERS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5856,9 +6968,25 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-GET-MODIFICATION-DATE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-GET-NAMES",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_METHOD_GET_NAMES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-NAMES",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_METHOD_GET_NAMES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5872,9 +7000,25 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-GET-PATHS",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_GET_PATHS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-GET-PATHS-FORM",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_METHOD_GET_PATHS_FORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-PATHS-FORM",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_METHOD_GET_PATHS_FORM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5888,9 +7032,25 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-Get-attribute",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_Get_attribute.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-Get-path",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_METHOD_Get_path.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-Get-path",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_METHOD_Get_path.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5904,9 +7064,25 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-OPEN-PATH",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_OPEN_PATH.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-RESOLVE-PATH",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_METHOD_RESOLVE_PATH.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-RESOLVE-PATH",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_METHOD_RESOLVE_PATH.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5928,9 +7104,25 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-SET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-SET-ATTRIBUTES",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5944,9 +7136,25 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-SET-CODE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-SET-COMMENTS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-COMMENTS",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5976,6 +7184,14 @@
     "status": "clean"
   },
   {
+    "id": "MODIFY-RECORD",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_MODIFY_RECORD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "MODIFY-SELECTION",
     "overload_index": 0,
     "variant": "default",
@@ -5984,9 +7200,49 @@
     "status": "clean"
   },
   {
+    "id": "MODIFY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:* (first)",
+    "file": "Sources/Methods/Synth_MODIFY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "MODIFY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:* (first)",
+    "file": "Sources/Methods/Synth_MODIFY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "MODIFY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:* (second)",
+    "file": "Sources/Methods/Synth_MODIFY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "MODIFY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:* (second)",
+    "file": "Sources/Methods/Synth_MODIFY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "MOUSE-POSITION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_MOUSE_POSITION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "MOUSE-POSITION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_MOUSE_POSITION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6057,8 +7313,24 @@
   },
   {
     "id": "Match-regex",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Match_regex.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Match-regex",
     "overload_index": 2,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Match_regex.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Match-regex",
+    "overload_index": 2,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Match_regex.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6240,6 +7512,14 @@
     "status": "clean"
   },
   {
+    "id": "New-process",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_New_process.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "New-shared-collection",
     "overload_index": 0,
     "variant": "default",
@@ -6312,9 +7592,33 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-DUPLICATE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_DUPLICATE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-DUPLICATE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:useAbsoluteCoordinates",
+    "file": "Sources/Methods/Synth_OBJECT_DUPLICATE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-BEST-SIZE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_GET_BEST_SIZE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-BEST-SIZE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_GET_BEST_SIZE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6328,9 +7632,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-GET-COORDINATES",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_COORDINATES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-DRAG-AND-DROP-OPTIONS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_GET_DRAG_AND__4025.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-DRAG-AND-DROP-OPTIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_GET_DRAG_AND__4025.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6344,9 +7664,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-GET-EVENTS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_EVENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-MAXIMUM-VALUE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_GET_MAXIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-MAXIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_GET_MAXIMUM_VALUE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6360,9 +7696,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-GET-MINIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_MINIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-PRINT-VARIABLE-FRAME",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_GET_PRINT_VAR_7166.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-PRINT-VARIABLE-FRAME",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_GET_PRINT_VAR_7166.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6376,9 +7728,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-GET-RESIZING-OPTIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RESIZING__d21b.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-RGB-COLORS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6392,9 +7760,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-GET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-SCROLL-POSITION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_GET_SCROLL_PO_3d70.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-SCROLL-POSITION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_GET_SCROLL_PO_3d70.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6408,9 +7792,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-GET-SHORTCUT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_SHORTCUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-SUBFORM",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_GET_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-SUBFORM",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_GET_SUBFORM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6432,9 +7832,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-action",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_action.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-auto-spellcheck",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_auto_spel_3dda.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-auto-spellcheck",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_Get_auto_spel_3dda.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6448,9 +7864,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-border-style",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_border_style.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-context-menu",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_context_menu.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-context-menu",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_Get_context_menu.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6464,9 +7896,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-corner-radius",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_corner_radius.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-data-source-formula",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_data_sour_34f7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-data-source-formula",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_Get_data_sour_34f7.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6480,9 +7928,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-data-source",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_data_source.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-enabled",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_enabled.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-enabled",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_Get_enabled.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6496,9 +7960,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-enterable",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_enterable.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-filter",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_filter.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-filter",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_Get_filter.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6512,9 +7992,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-focus-rectangle-invisible",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_focus_rec_ceb5.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-font",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_font.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-font",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_Get_font.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6528,9 +8024,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-font-size",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_font_size.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-font-style",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_font_style.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-font-style",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_Get_font_style.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6544,9 +8056,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-format",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_format.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-help-tip",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_help_tip.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-help-tip",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_Get_help_tip.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6560,9 +8088,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-horizontal-alignment",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_Get_horizonta_72dd.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-indicator-type",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_indicator_type.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-indicator-type",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_Get_indicator_type.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6576,9 +8120,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-keyboard-layout",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_Get_keyboard__150a.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-list-name",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_list_name.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-list-name",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_Get_list_name.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6592,9 +8152,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-list-reference",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_Get_list_reference.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-multiline",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_multiline.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-multiline",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_Get_multiline.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6616,6 +8192,14 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-placeholder",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_Get_placeholder.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-pointer",
     "overload_index": 0,
     "variant": "default",
@@ -6627,6 +8211,14 @@
     "id": "OBJECT-Get-style-sheet",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_style_sheet.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-style-sheet",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_Get_style_sheet.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6648,9 +8240,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-text-orientation",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_Get_text_orie_dbe9.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-three-states-checkbox",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_three_sta_ecc9.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-three-states-checkbox",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_Get_three_sta_ecc9.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6664,9 +8272,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-title",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_Get_title.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-type",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_type.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-type",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_Get_type.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6688,9 +8312,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-vertical-alignment",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_Get_vertical__199c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-visible",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_visible.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-visible",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_Get_visible.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6704,9 +8344,33 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Is-styled-text",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_Is_styled_text.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-MOVE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_MOVE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-MOVE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_MOVE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-MOVE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:absolute",
     "file": "Sources/Methods/Synth_OBJECT_MOVE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6720,9 +8384,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-ACTION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_SET_ACTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-AUTO-SPELLCHECK",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_AUTO_SPEL_45a3.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-AUTO-SPELLCHECK",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_SET_AUTO_SPEL_45a3.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6736,9 +8416,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-CONTEXT-MENU",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_CONTEXT_MENU.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-CONTEXT-MENU",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_SET_CONTEXT_MENU.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6752,9 +8448,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-COORDINATES",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_SET_COORDINATES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-CORNER-RADIUS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_CORNER_RADIUS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-CORNER-RADIUS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_SET_CORNER_RADIUS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6768,9 +8480,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-DATA-SOURCE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_SET_DATA_SOURCE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-DATA-SOURCE-FORMULA",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_DATA_SOUR_70d5.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-DATA-SOURCE-FORMULA",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_SET_DATA_SOUR_70d5.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6784,9 +8512,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-DRAG-AND-DROP-OPTIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_SET_DRAG_AND__8d50.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-ENABLED",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_ENABLED.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-ENABLED",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_ENABLED.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6800,9 +8544,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-ENTERABLE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_ENTERABLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-EVENTS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_EVENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-EVENTS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_EVENTS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6816,9 +8576,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-FILTER",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_FILTER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-FOCUS-RECTANGLE-INVISIBLE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_FOCUS_REC_9073.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-FOCUS-RECTANGLE-INVISIBLE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_FOCUS_REC_9073.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6832,9 +8608,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-FONT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_FONT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-FONT-SIZE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_FONT_SIZE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-FONT-SIZE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_FONT_SIZE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6848,9 +8640,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-FONT-STYLE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_FONT_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-FORMAT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_FORMAT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-FORMAT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_FORMAT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6864,9 +8672,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-HELP-TIP",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_HELP_TIP.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-HORIZONTAL-ALIGNMENT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_HORIZONTA_96f1.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-HORIZONTAL-ALIGNMENT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_HORIZONTA_96f1.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6880,9 +8704,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-INDICATOR-TYPE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_INDICATOR_TYPE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-KEYBOARD-LAYOUT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_KEYBOARD__4325.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-KEYBOARD-LAYOUT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_KEYBOARD__4325.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6896,9 +8736,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-LIST-BY-NAME",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_LIST_BY_NAME.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-LIST-BY-REFERENCE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_LIST_BY_R_ed2b.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-LIST-BY-REFERENCE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_LIST_BY_R_ed2b.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6912,9 +8768,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-MAXIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MAXIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-MINIMUM-VALUE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MINIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-MINIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_MINIMUM_VALUE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6928,9 +8800,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-MULTILINE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MULTILINE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-PLACEHOLDER",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_PLACEHOLDER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-PLACEHOLDER",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_PLACEHOLDER.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6944,9 +8832,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-PRINT-VARIABLE-FRAME",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_PRINT_VAR_a084.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-RESIZING-OPTIONS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RESIZING__27b7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RESIZING-OPTIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_RESIZING__27b7.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6960,9 +8864,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-SCROLLBAR",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_SCROLLBAR.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6976,9 +8896,33 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-SCROLL-POSITION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SCROLL_PO_ee3a.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SCROLL-POSITION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:scrollToFirstPosition",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SCROLL_PO_ee3a.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-SHORTCUT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SHORTCUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SHORTCUT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_SHORTCUT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6992,9 +8936,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-STYLE-SHEET",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_STYLE_SHEET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-SUBFORM",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SUBFORM",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_OBJECT_SET_SUBFORM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7016,6 +8976,14 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-TEXT-ORIENTATION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_TEXT_ORIE_c79d.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-THREE-STATES-CHECKBOX",
     "overload_index": 0,
     "variant": "default",
@@ -7024,9 +8992,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-THREE-STATES-CHECKBOX",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_THREE_STA_035c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-TITLE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_TITLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-TITLE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_SET_TITLE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7048,9 +9032,25 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-VERTICAL-ALIGNMENT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_OBJECT_SET_VERTICAL__aafa.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-VISIBLE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_VISIBLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-VISIBLE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_OBJECT_SET_VISIBLE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7320,6 +9320,14 @@
     "status": "clean"
   },
   {
+    "id": "OPEN-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_OPEN_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ORDER-BY",
     "overload_index": 0,
     "variant": "default",
@@ -7328,9 +9336,25 @@
     "status": "clean"
   },
   {
+    "id": "ORDER-BY",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_ORDER_BY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ORDER-BY-ATTRIBUTE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ORDER_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ORDER-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_ORDER_BY_ATTRIBUTE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7384,6 +9408,14 @@
     "status": "clean"
   },
   {
+    "id": "Open-form-window",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Open_form_window.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Open-resource-file",
     "overload_index": 0,
     "variant": "default",
@@ -7417,8 +9449,40 @@
   },
   {
     "id": "PAGE-BREAK",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_PAGE_BREAK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PAGE-BREAK",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_PAGE_BREAK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PAGE-BREAK",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_PAGE_BREAK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PAGE-BREAK",
+    "overload_index": 1,
+    "variant": "flag:omit-leading-thru:>",
+    "file": "Sources/Methods/Synth_PAGE_BREAK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PAGE-BREAK",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:>",
     "file": "Sources/Methods/Synth_PAGE_BREAK.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7443,6 +9507,14 @@
     "id": "PICTURE-CODEC-LIST",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_PICTURE_CODEC_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PICTURE-CODEC-LIST",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_PICTURE_CODEC_LIST.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7512,6 +9584,14 @@
     "status": "clean"
   },
   {
+    "id": "POST-CLICK",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_POST_CLICK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "POST-EVENT",
     "overload_index": 0,
     "variant": "default",
@@ -7560,6 +9640,38 @@
     "status": "clean"
   },
   {
+    "id": "PRINT-LABEL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:>",
+    "file": "Sources/Methods/Synth_PRINT_LABEL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-LABEL",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:>",
+    "file": "Sources/Methods/Synth_PRINT_LABEL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-LABEL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_PRINT_LABEL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-LABEL",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_PRINT_LABEL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "PRINT-OPTION-VALUES",
     "overload_index": 0,
     "variant": "default",
@@ -7577,8 +9689,24 @@
   },
   {
     "id": "PRINT-RECORD",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_PRINT_RECORD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-RECORD",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_PRINT_RECORD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-RECORD",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:>",
     "file": "Sources/Methods/Synth_PRINT_RECORD.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7593,8 +9721,40 @@
   },
   {
     "id": "PRINT-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_PRINT_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_PRINT_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-SELECTION",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_PRINT_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-SELECTION",
+    "overload_index": 1,
+    "variant": "flag:omit-leading-thru:>",
+    "file": "Sources/Methods/Synth_PRINT_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-SELECTION",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:>",
     "file": "Sources/Methods/Synth_PRINT_SELECTION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7673,6 +9833,14 @@
   },
   {
     "id": "Position",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Position.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Position",
     "overload_index": 1,
     "variant": "default",
     "file": "Sources/Methods/Synth_Position.4dm",
@@ -7691,6 +9859,14 @@
     "id": "Print-object",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Print_object.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Print-object",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_Print_object.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7769,8 +9945,24 @@
   },
   {
     "id": "Process-number",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Process_number.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Process-number",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Process_number.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Process-number",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Process_number.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8016,6 +10208,22 @@
     "status": "clean"
   },
   {
+    "id": "QR-REPORT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_QR_REPORT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-REPORT",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_QR_REPORT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "QR-REPORT-TO-BLOB",
     "overload_index": 0,
     "variant": "default",
@@ -8169,8 +10377,24 @@
   },
   {
     "id": "QUERY",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_QUERY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_QUERY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_QUERY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8184,6 +10408,14 @@
     "status": "clean"
   },
   {
+    "id": "QUERY",
+    "overload_index": 2,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_QUERY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "QUERY-BY-ATTRIBUTE",
     "overload_index": 0,
     "variant": "default",
@@ -8192,9 +10424,41 @@
     "status": "clean"
   },
   {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:conjOp",
+    "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "QUERY-BY-EXAMPLE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_QUERY_BY_EXAMPLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-EXAMPLE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_QUERY_BY_EXAMPLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-EXAMPLE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_QUERY_BY_EXAMPLE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8225,8 +10489,24 @@
   },
   {
     "id": "QUERY-SELECTION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_QUERY_SELECTION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8240,9 +10520,33 @@
     "status": "clean"
   },
   {
+    "id": "QUERY-SELECTION",
+    "overload_index": 2,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "QUERY-SELECTION-BY-ATTRIBUTE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:conjOp",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8296,9 +10600,33 @@
     "status": "clean"
   },
   {
+    "id": "READ-ONLY",
+    "overload_index": 1,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_READ_ONLY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "READ-ONLY",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_READ_ONLY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "READ-PICTURE-FILE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_READ_PICTURE_FILE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "READ-PICTURE-FILE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_READ_PICTURE_FILE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8320,9 +10648,33 @@
     "status": "clean"
   },
   {
+    "id": "READ-WRITE",
+    "overload_index": 1,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_READ_WRITE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "READ-WRITE",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_READ_WRITE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "REAL-TO-BLOB",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_REAL_TO_BLOB.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "REAL-TO-BLOB",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_REAL_TO_BLOB.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8419,6 +10771,22 @@
     "id": "REGISTER-CLIENT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_REGISTER_CLIENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "REGISTER-CLIENT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_REGISTER_CLIENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "REGISTER-CLIENT",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_REGISTER_CLIENT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8608,6 +10976,14 @@
     "status": "clean"
   },
   {
+    "id": "RESUME-INDEXES",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_RESUME_INDEXES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "RESUME-PROCESS",
     "overload_index": 0,
     "variant": "default",
@@ -8699,6 +11075,14 @@
     "id": "Replace-string",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Replace_string.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Replace-string",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Replace_string.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8803,6 +11187,14 @@
     "id": "SAX-ADD-XML-ELEMENT-VALUE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SAX_ADD_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SAX-ADD-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_SAX_ADD_XML_ELEMENT_VALUE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8920,6 +11312,14 @@
     "status": "clean"
   },
   {
+    "id": "SCAN-INDEX",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:order",
+    "file": "Sources/Methods/Synth_SCAN_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SCREEN-COORDINATES",
     "overload_index": 0,
     "variant": "default",
@@ -8947,6 +11347,14 @@
     "id": "SELECTION-TO-ARRAY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SELECTION_TO_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SELECTION-TO-ARRAY",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_SELECTION_TO_ARRAY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9056,6 +11464,14 @@
     "status": "clean"
   },
   {
+    "id": "SET-ASSERT-ENABLED",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_SET_ASSERT_ENABLED.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-AUTOMATIC-RELATIONS",
     "overload_index": 0,
     "variant": "default",
@@ -9123,6 +11539,14 @@
     "id": "SET-DATABASE-LOCALIZATION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_DATABASE_LOCALIZATION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-DATABASE-LOCALIZATION",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_SET_DATABASE_LOCALIZATION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9768,6 +12192,14 @@
     "status": "clean"
   },
   {
+    "id": "SET-FIELD-TITLES",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_SET_FIELD_TITLES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-FIELD-VALUE-NULL",
     "overload_index": 0,
     "variant": "default",
@@ -9779,6 +12211,14 @@
     "id": "SET-FILE-TO-PASTEBOARD",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_FILE_TO_PASTEBOARD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-FILE-TO-PASTEBOARD",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_SET_FILE_TO_PASTEBOARD.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9808,6 +12248,14 @@
     "status": "clean"
   },
   {
+    "id": "SET-INDEX",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_SET_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-INDEX-CACHE-PRIORITY",
     "overload_index": 0,
     "variant": "default",
@@ -9824,6 +12272,14 @@
     "status": "clean"
   },
   {
+    "id": "SET-LIST-ITEM",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-LIST-ITEM-FONT",
     "overload_index": 0,
     "variant": "default",
@@ -9832,9 +12288,25 @@
     "status": "clean"
   },
   {
+    "id": "SET-LIST-ITEM-FONT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_FONT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-LIST-ITEM-ICON",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_SET_LIST_ITEM_ICON.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9864,9 +12336,25 @@
     "status": "clean"
   },
   {
+    "id": "SET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-LIST-ITEM-PROPERTIES",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PROPERTIES",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_SET_LIST_ITEM_PROPERTIES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9896,9 +12384,25 @@
     "status": "clean"
   },
   {
+    "id": "SET-MENU-BAR",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_SET_MENU_BAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-MENU-ITEM",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_SET_MENU_ITEM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10024,6 +12528,14 @@
     "status": "clean"
   },
   {
+    "id": "SET-PRINT-MARKER",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_SET_PRINT_MARKER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-PRINT-OPTION",
     "overload_index": 0,
     "variant": "default",
@@ -10099,6 +12611,22 @@
     "id": "SET-TABLE-TITLES",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_TABLE_TITLES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-TABLE-TITLES",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_SET_TABLE_TITLES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-TABLE-TITLES",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_SET_TABLE_TITLES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10184,6 +12712,14 @@
     "status": "clean"
   },
   {
+    "id": "SET-WINDOW-RECT",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_SET_WINDOW_RECT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-WINDOW-TITLE",
     "overload_index": 0,
     "variant": "default",
@@ -10203,6 +12739,14 @@
     "id": "SHOW-ON-DISK",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SHOW_ON_DISK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SHOW-ON-DISK",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_SHOW_ON_DISK.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10288,9 +12832,25 @@
     "status": "clean"
   },
   {
+    "id": "SORT-ARRAY",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:order",
+    "file": "Sources/Methods/Synth_SORT_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SORT-LIST",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SORT_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SORT-LIST",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:order",
     "file": "Sources/Methods/Synth_SORT_LIST.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10440,6 +13000,22 @@
     "status": "clean"
   },
   {
+    "id": "SQL-LOGIN",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_SQL_LOGIN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SQL-LOGIN",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_SQL_LOGIN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SQL-LOGOUT",
     "overload_index": 0,
     "variant": "default",
@@ -10520,9 +13096,33 @@
     "status": "clean"
   },
   {
+    "id": "ST-COMPUTE-EXPRESSIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_COMPUTE_EXPRESSIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-FREEZE-EXPRESSIONS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ST_FREEZE_EXPRESSIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-FREEZE-EXPRESSIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_FREEZE_EXPRESSIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-FREEZE-EXPRESSIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:updateBeforeFreezing",
     "file": "Sources/Methods/Synth_ST_FREEZE_EXPRESSIONS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10536,9 +13136,25 @@
     "status": "clean"
   },
   {
+    "id": "ST-GET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_GET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-GET-OPTIONS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ST_GET_OPTIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-GET-OPTIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_ST_GET_OPTIONS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10552,9 +13168,25 @@
     "status": "clean"
   },
   {
+    "id": "ST-GET-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_GET_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-Get-content-type",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ST_Get_content_type.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-Get-content-type",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_ST_Get_content_type.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10568,9 +13200,25 @@
     "status": "clean"
   },
   {
+    "id": "ST-Get-expression",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_Get_expression.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-Get-plain-text",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ST_Get_plain_text.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-Get-plain-text",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_ST_Get_plain_text.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10584,9 +13232,25 @@
     "status": "clean"
   },
   {
+    "id": "ST-Get-text",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_Get_text.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-INSERT-EXPRESSION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ST_INSERT_EXPRESSION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-INSERT-EXPRESSION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_ST_INSERT_EXPRESSION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10600,9 +13264,25 @@
     "status": "clean"
   },
   {
+    "id": "ST-INSERT-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_INSERT_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-SET-ATTRIBUTES",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ST_SET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-SET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_ST_SET_ATTRIBUTES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10616,6 +13296,14 @@
     "status": "clean"
   },
   {
+    "id": "ST-SET-OPTIONS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_SET_OPTIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-SET-PLAIN-TEXT",
     "overload_index": 0,
     "variant": "default",
@@ -10624,9 +13312,25 @@
     "status": "clean"
   },
   {
+    "id": "ST-SET-PLAIN-TEXT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_ST_SET_PLAIN_TEXT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-SET-TEXT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ST_SET_TEXT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-SET-TEXT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_ST_SET_TEXT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10656,9 +13360,25 @@
     "status": "clean"
   },
   {
+    "id": "SVG-Find-element-ID-by-coordinates",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SVG_Find_element_ID__4998.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SVG-Find-element-IDs-by-rect",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SVG_Find_element_IDs_e50c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SVG-Find-element-IDs-by-rect",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
     "file": "Sources/Methods/Synth_SVG_Find_element_IDs_e50c.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10672,9 +13392,33 @@
     "status": "clean"
   },
   {
+    "id": "SVG-GET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SVG_GET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SVG-SET-ATTRIBUTE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SVG_SET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SVG-SET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SVG_SET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SVG-SET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:modifyImageItself",
     "file": "Sources/Methods/Synth_SVG_SET_ATTRIBUTE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10688,6 +13432,14 @@
     "status": "clean"
   },
   {
+    "id": "SVG-SHOW-ELEMENT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SVG_SHOW_ELEMENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Screen-height",
     "overload_index": 0,
     "variant": "default",
@@ -10696,9 +13448,41 @@
     "status": "clean"
   },
   {
+    "id": "Screen-height",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Screen_height.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Screen-height",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Screen_height.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Screen-width",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Screen_width.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Screen-width",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Screen_width.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Screen-width",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_Screen_width.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10745,8 +13529,24 @@
   },
   {
     "id": "Selected-list-items",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:asReference",
+    "file": "Sources/Methods/Synth_Selected_list_items.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Selected-list-items",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Selected_list_items.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Selected-list-items",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:asReference",
     "file": "Sources/Methods/Synth_Selected_list_items.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10912,6 +13712,22 @@
     "status": "clean"
   },
   {
+    "id": "Structure-file",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_Structure_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Structure-file",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Structure_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Substring",
     "overload_index": 0,
     "variant": "default",
@@ -10984,6 +13800,14 @@
     "status": "clean"
   },
   {
+    "id": "TEXT-TO-ARRAY",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_TEXT_TO_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "TEXT-TO-BLOB",
     "overload_index": 0,
     "variant": "default",
@@ -10995,6 +13819,14 @@
     "id": "TEXT-TO-BLOB",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_TEXT_TO_BLOB.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "TEXT-TO-BLOB",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_TEXT_TO_BLOB.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -11320,6 +14152,14 @@
     "status": "clean"
   },
   {
+    "id": "Uppercase",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Uppercase.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "User-in-group",
     "overload_index": 0,
     "variant": "default",
@@ -11347,6 +14187,14 @@
     "id": "VARIABLE-TO-BLOB",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_VARIABLE_TO_BLOB.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "VARIABLE-TO-BLOB",
+    "overload_index": 1,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_VARIABLE_TO_BLOB.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13190,9 +16038,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-Back-URL-available",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_Back_URL_available.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-Create-URL-history-menu",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_Create_URL_histor_38d0.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-Create-URL-history-menu",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_Create_URL_histor_38d0.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13206,9 +16070,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-EXECUTE-JAVASCRIPT-FUNCTION",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_WA_EXECUTE_JAVASCRIP_7b72.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-Evaluate-JavaScript",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_Evaluate_JavaScript.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-Evaluate-JavaScript",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_Evaluate_JavaScript.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13222,9 +16102,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-Forward-URL-available",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_Forward_URL_available.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-GET-EXTERNAL-LINKS-FILTERS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_GET_EXTERNAL_LINK_9e17.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-GET-EXTERNAL-LINKS-FILTERS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_GET_EXTERNAL_LINK_9e17.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13238,9 +16134,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-GET-LAST-URL-ERROR",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_GET_LAST_URL_ERROR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-GET-PREFERENCE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_GET_PREFERENCE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-GET-PREFERENCE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_GET_PREFERENCE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13254,9 +16166,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-GET-URL-FILTERS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_GET_URL_FILTERS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-GET-URL-HISTORY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_GET_URL_HISTORY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-GET-URL-HISTORY",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_GET_URL_HISTORY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13270,9 +16198,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-Get-context",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_Get_context.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-Get-current-URL",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_Get_current_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-Get-current-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_Get_current_URL.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13286,9 +16230,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-Get-last-filtered-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_Get_last_filtered_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-Get-page-content",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_Get_page_content.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-Get-page-content",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_Get_page_content.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13302,9 +16262,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-Get-page-title",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_Get_page_title.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-OPEN-BACK-URL",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_OPEN_BACK_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-OPEN-BACK-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_OPEN_BACK_URL.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13318,9 +16294,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-OPEN-FORWARD-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_OPEN_FORWARD_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-OPEN-URL",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_OPEN_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-OPEN-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_OPEN_URL.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13334,9 +16326,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-OPEN-WEB-INSPECTOR",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_OPEN_WEB_INSPECTOR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-REFRESH-CURRENT-URL",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_REFRESH_CURRENT_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-REFRESH-CURRENT-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_REFRESH_CURRENT_URL.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13358,9 +16366,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-SET-CONTEXT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_SET_CONTEXT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-SET-EXTERNAL-LINKS-FILTERS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_SET_EXTERNAL_LINK_00de.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-SET-EXTERNAL-LINKS-FILTERS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_SET_EXTERNAL_LINK_00de.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13374,9 +16398,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-SET-PAGE-CONTENT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_SET_PAGE_CONTENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-SET-PREFERENCE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_SET_PREFERENCE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-SET-PREFERENCE",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_SET_PREFERENCE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13390,9 +16430,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-SET-URL-FILTERS",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_SET_URL_FILTERS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-STOP-LOADING-URL",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_STOP_LOADING_URL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-STOP-LOADING-URL",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_STOP_LOADING_URL.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13406,9 +16462,25 @@
     "status": "clean"
   },
   {
+    "id": "WA-ZOOM-IN",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WA_ZOOM_IN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WA-ZOOM-OUT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WA_ZOOM_OUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WA-ZOOM-OUT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WA_ZOOM_OUT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13550,9 +16622,25 @@
     "status": "clean"
   },
   {
+    "id": "WEB-SEND-HTTP-REDIRECT",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_WEB_SEND_HTTP_REDIRECT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WEB-SEND-RAW-DATA",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WEB_SEND_RAW_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-SEND-RAW-DATA",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_WEB_SEND_RAW_DATA.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13574,6 +16662,14 @@
     "status": "clean"
   },
   {
+    "id": "WEB-SERVICE-AUTHENTICATE",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_WEB_SERVICE_AUTHENTICATE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WEB-SERVICE-CALL",
     "overload_index": 0,
     "variant": "default",
@@ -13582,9 +16678,25 @@
     "status": "clean"
   },
   {
+    "id": "WEB-SERVICE-CALL",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_WEB_SERVICE_CALL.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WEB-SERVICE-GET-RESULT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WEB_SERVICE_GET_RESULT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-SERVICE-GET-RESULT",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_WEB_SERVICE_GET_RESULT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13921,6 +17033,14 @@
     "id": "WINDOW-LIST",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WINDOW_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WINDOW-LIST",
+    "overload_index": 0,
+    "variant": "flag:omit-trailing-from:*",
     "file": "Sources/Methods/Synth_WINDOW_LIST.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -14310,6 +17430,14 @@
     "status": "clean"
   },
   {
+    "id": "WP-Get-view-properties",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WP_Get_view_properties.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WP-IMPORT-STYLE-SHEETS",
     "overload_index": 0,
     "variant": "default",
@@ -14494,6 +17622,14 @@
     "status": "clean"
   },
   {
+    "id": "WP-SELECT",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WP_SELECT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WP-SET-ATTRIBUTES",
     "overload_index": 0,
     "variant": "default",
@@ -14526,6 +17662,14 @@
     "status": "clean"
   },
   {
+    "id": "WP-SET-FRAME",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WP_SET_FRAME.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WP-SET-LINK",
     "overload_index": 0,
     "variant": "default",
@@ -14550,9 +17694,25 @@
     "status": "clean"
   },
   {
+    "id": "WP-SET-VIEW-PROPERTIES",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_WP_SET_VIEW_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WP-Selection-range",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WP_Selection_range.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Selection-range",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_WP_Selection_range.4dm",
     "diagnostics": [],
     "status": "clean"
