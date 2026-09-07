@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "Does not decompress the archive; it only provides a navigable view of its contents. Use file.copyTo()/folder.copyTo() on the returned structure to actually extract data.",
+    "The archive file is held open only until this command finishes executing and all extracted contents/references are released, after which it is closed automatically.",
+    "If the archive is password-protected and password is omitted (or wrong), an error is generated.",
+    "The returned 4D.ZipArchive object exposes a single 'root' property, a 4D.ZipFolder describing the whole archive contents."
+  ]
+}

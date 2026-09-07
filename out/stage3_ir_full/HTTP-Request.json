@@ -1,0 +1,131 @@
+{
+  "id": "HTTP-Request",
+  "displayName": "HTTP Request",
+  "kind": "classic_command",
+  "theme": "HTTP-Client",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "httpMethod",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "HTTP method of the request (e.g. GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE), one of the HTTP Client theme method constants."
+        },
+        {
+          "name": "url",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "URL to send the request to, e.g. http://[{user}:[{password}]@]host[:{port}][/{path}][?{queryString}]."
+        },
+        {
+          "name": "contents",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Picture"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Collection"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Body of the request; its type selects the default Content-Type sent (text/plain UTF8, application/byte-stream, a picture MIME type, or application/json) when Content-Type isn't explicitly set via headerNames/headerValues."
+        },
+        {
+          "name": "response",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Picture"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Collection"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the body of the server response; the variable's type (Text/Blob/Picture/Object/Collection) selects how the raw response is decoded/parsed."
+        },
+        {
+          "name": "headerNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "In: names of request headers to send. Out: overwritten with the names of headers returned by the server."
+        },
+        {
+          "name": "headerValues",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "In: values of request headers to send. Out: overwritten with the values of headers returned by the server."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, keep the server connection alive after this call instead of closing it automatically."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Sends an arbitrary HTTP request (any method) with an optional body to a URL and returns the server's response body plus response headers; the function result is the HTTP status code (0 if the connection itself failed)."
+    }
+  ],
+  "constraints": [
+    "If the response variable's type doesn't match the actual result, the mismatched-Object case falls back to returning a 4D.Blob object rather than failing to parse.",
+    "A return value of 0 indicates a network-level failure (DNS/unreachable server, not an HTTP error status) and an error is generated, interceptable via ON ERR CALL.",
+    "During HTTPS requests, the server certificate's authority is not checked by this command.",
+    "Reference lifecycle (implied convention, not syntactically enforced): HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
+  ]
+}

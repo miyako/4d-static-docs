@@ -1,0 +1,55 @@
+{
+  "id": "LISTBOX-Get-row-height",
+  "displayName": "LISTBOX Get row height",
+  "kind": "classic_command",
+  "theme": "List Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
+        },
+        {
+          "name": "row",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "List box row whose height is requested."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the current height of the specified row of the designated list box (0 if the row doesn't exist), in the row height unit currently in effect."
+    }
+  ]
+}

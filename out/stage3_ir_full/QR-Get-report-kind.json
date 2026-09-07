@@ -1,0 +1,29 @@
+{
+  "id": "QR-Get-report-kind",
+  "displayName": "QR Get report kind",
+  "kind": "classic_command",
+  "theme": "Quick-Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The QR Get report kind command retrieves the report type for the area whose reference was passed in area ."
+    }
+  ],
+  "constraints": [
+    "Return value maps to the QR Report Types constants: 1 = qr list report (list mode), 2 = qr cross report (cross-table mode)."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "LOAD-RECORD",
+  "displayName": "LOAD RECORD",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "LOAD RECORD loads the current record of aTable ."
+    }
+  ]
+}

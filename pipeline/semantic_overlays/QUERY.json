@@ -1,0 +1,52 @@
+{
+  "protocolRefs": {
+    "multiCallChain": "queryThemeChain"
+  },
+  "overloads": [
+    {
+      "params": [
+        { "name": "aTable", "type": { "kind": "concrete", "name": "Table" }, "direction": "in", "optional": false },
+        { "name": "queryArgument", "type": { "kind": "pseudo", "name": "Expression" }, "direction": "in", "optional": true },
+        { "name": "*", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true }
+      ],
+      "semanticRole": "Runs an interactive or programmatic query against every record of the explicitly given aTable, replacing its current selection.",
+      "discriminatedBy": {
+        "param": "aTable",
+        "rule": "Chosen when the target table is passed explicitly rather than relying on the default table."
+      }
+    },
+    {
+      "params": [
+        { "name": "queryArgument", "type": { "kind": "pseudo", "name": "Expression" }, "direction": "in", "optional": false },
+        { "name": "*", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true }
+      ],
+      "semanticRole": "Runs an interactive or programmatic query against every record of the default table, replacing its current selection.",
+      "discriminatedBy": {
+        "param": "aTable",
+        "rule": "Chosen when aTable is omitted; applies to the default table (error if none is set)."
+      }
+    },
+    {
+      "params": [
+        { "name": "aTable", "type": { "kind": "concrete", "name": "Table" }, "direction": "in", "optional": false },
+        { "name": "field", "type": { "kind": "concrete", "name": "Field" }, "direction": "in", "optional": false, "description": "The field to query; may belong to another table related to aTable via a One-side relation." },
+        { "name": "comparator", "type": { "kind": "concrete", "name": "Text" }, "direction": "in", "optional": false, "description": "The comparison symbol (=, #, <, >, <=, >=, %) passed as its own alphanumeric-expression argument instead of embedded inside a single queryArgument string." },
+        { "name": "value", "type": { "kind": "pseudo", "name": "Expression" }, "direction": "in", "optional": false, "description": "The value field is compared against." },
+        { "name": "*", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true }
+      ],
+      "semanticRole": "Runs a programmatic query using an alphanumeric-comparator calling form -- field, comparator, and value passed as three separate arguments after aTable -- instead of a single queryArgument expression string.",
+      "discriminatedBy": {
+        "param": "comparator",
+        "rule": "Chosen when the comparison operator itself needs to be a runtime value (e.g. a variable holding \"#\" or \"=\"), letting callers build configurable query sequences or custom query UIs (see the command's Example 21). Using this form makes it mandatory to separate every item of the query with semicolons rather than embedding the comparator symbol inside one expression string."
+      }
+    }
+  ],
+  "constraints": [
+    "queryArgument is written as {conjunction ;} field comparator value: conjunction joins this call to a preceding QUERY call in the same multi-query sequence and is one of & (AND), | (OR), # (AND EXCEPT); it is omitted on the first/only call of a sequence and defaults to & (AND) if omitted elsewhere.",
+    "comparator is one of the symbols = # < > <= >= % (% means \"contains keyword\"); it can alternatively be passed as its own alphanumeric-expression argument (the third overload above) instead of embedded in queryArgument, which requires separating every item of the query with semicolons.",
+    "field may belong to another table if that table is related to aTable via a One-side automatic or manual relation.",
+    "To build a multi-criteria query, call QUERY repeatedly, passing the trailing '*' flag on every call except the last; the final call (no '*') actually executes the accumulated query and updates the current selection.",
+    "If queryArgument and '*' are both omitted, QUERY displays the interactive Query editor for aTable instead of running a programmatic query (except when this call is the closing call of a multi-query sequence).",
+    "The OK system variable is set to 1 if the query completes normally, or 0 if the user cancels the interactive editor (or, in 'query and lock' mode, if the query encounters at least one locked record, which also updates the LockedSet system set)."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "LISTBOX-SELECT-ROW",
+  "displayName": "LISTBOX SELECT ROW",
+  "kind": "classic_command",
+  "theme": "List Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
+        },
+        {
+          "name": "rowPosition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the row to select."
+        },
+        {
+          "name": "action",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "default": "lk replace selection if omitted",
+          "description": "Selection action to apply when a row/break selection already exists.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "lk replace selection (default): the new selection replaces the existing selection, like a user click (no On Clicked event fired)."
+            },
+            {
+              "value": 1,
+              "meaning": "lk add to selection: adds to the existing selection."
+            },
+            {
+              "value": 2,
+              "meaning": "lk remove from selection: removes from the existing selection."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Selects the given row of the designated list box, combining it with any existing selection per the action parameter."
+    }
+  ],
+  "constraints": [
+    "If rowPosition < 0, the command does nothing regardless of action.",
+    "If rowPosition is 0 with action omitted or lk replace selection, all rows are selected; with lk remove from selection, all rows are deselected.",
+    "If rowPosition exceeds the row count of an array-type list box, the underlying Boolean array is resized and the action is applied only if that resize actually grows the source array."
+  ]
+}

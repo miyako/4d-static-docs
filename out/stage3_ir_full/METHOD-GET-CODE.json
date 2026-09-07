@@ -1,0 +1,70 @@
+{
+  "id": "METHOD-GET-CODE",
+  "displayName": "METHOD GET CODE",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text array"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Text or Text array containing one or more method path(s)"
+        },
+        {
+          "name": "code",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text array"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Code of designated method(s)"
+        },
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "0 or omitted = simple export (without tokens), 1 = export with tokens"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "path and code must be the same kind (both Text, or both Text array); the two syntaxes cannot be mixed.",
+    "option selects the export mode for tokenized language elements: 0 or omitted exports code as displayed in the Method editor (no tokens); 1 (or the Code with tokens constant) exports each tokenized element (4D commands/constants, table/field names, plug-in commands) followed by its internal token reference, making the code independent of subsequent renaming or language changes."
+  ]
+}

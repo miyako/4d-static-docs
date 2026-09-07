@@ -1,0 +1,15 @@
+{
+  "id": "FORM-UNLOAD",
+  "displayName": "FORM UNLOAD",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Releases from memory the current form previously loaded via FORM LOAD."
+    }
+  ],
+  "constraints": [
+    "Only necessary when FORM LOAD was used outside of a printing context; when printing, the current form is automatically closed again when CLOSE PRINTING JOB is called."
+  ]
+}

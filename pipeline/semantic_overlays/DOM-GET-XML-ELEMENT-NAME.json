@@ -1,0 +1,35 @@
+{
+  "theme": "XML-DOM",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "elementName is a filled/returned variable (docs: '<-' direction); autoparse defaults all params to direction:in. Also documents the silent coercion to Text when the target variable has no declared type.",
+      "params": [
+        {
+          "name": "elementRef",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "elementName",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the name of the XML element",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If elementName's variable type is not defined, Text is used by default."
+          }
+        }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the name of an XML element."
+    }
+  ]
+}

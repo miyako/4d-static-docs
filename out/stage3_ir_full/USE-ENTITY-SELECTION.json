@@ -1,0 +1,27 @@
+{
+  "id": "USE-ENTITY-SELECTION",
+  "displayName": "USE ENTITY SELECTION",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "entitySelection",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.EntitySelection"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The USE ENTITY SELECTION command updates the current selection of the table matching the dataclass of the entitySelection parameter, according to the content of the entity selection."
+    }
+  ],
+  "constraints": [
+    "Cannot be used with a Remote datastore.",
+    "In 4D single-user and 4D Server, entitySelection is directly connected to the resulting current selection for performance; once used, entitySelection must not be reused or altered afterwards.",
+    "After the call, the first record of the updated current selection (if any) becomes the current record but is not loaded into memory; use LOAD RECORD afterwards if field values are needed."
+  ]
+}

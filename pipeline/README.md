@@ -54,9 +54,11 @@ full, logged list — nothing is dropped silently)
   (a real, observed doc inconsistency, e.g. one View Pro page) is still
   included, using the syntax line's name (the rendered source of truth) as
   `id`/`displayName`, with a `_review` marker carrying both names.
-- `C_LONGINT` (a regression-fixture command) has no standalone page in the
-  `21-R3` snapshot — confirmed absent from this version's docs entirely, not
-  a pipeline bug; expected to surface as a known gap in Stage 5's report.
+- Legacy compiler directives (the `C_xxx` family, e.g. `C_LONGINT`) have no
+  standalone page in the `21-R3` snapshot — confirmed absent from this
+  version's docs entirely, not a pipeline bug. An earlier fixture for
+  `C_LONGINT` was removed for this reason: it had no traceable source page,
+  so the pipeline's scope is exactly the commands present in the mirror.
 
 ## Caching / idempotency
 

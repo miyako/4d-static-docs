@@ -1,0 +1,98 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator. Also corrected direction on out-parameters (doc arrow column shows them as command outputs, not inputs) which the mechanical parser had defaulted to 'in'.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "foregroundColor",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "RGB color value for foreground Returned format depends on the variable's declared type: Text yields a CSS \"#rrggbb\" string; Integer (Longint) yields a 4-byte 0x00RRGGBB value or a negative value for a system color."
+        },
+        {
+          "name": "backgroundColor",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "RGB color value for background Returned format depends on the variable's declared type: Text yields a CSS \"#rrggbb\" string; Integer (Longint) yields a 4-byte 0x00RRGGBB value or a negative value for a system color."
+        },
+        {
+          "name": "altBackgrndColor",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "RGB color value for alternating background Returned format depends on the variable's declared type: Text yields a CSS \"#rrggbb\" string; Integer (Longint) yields a 4-byte 0x00RRGGBB value or a negative value for a system color."
+        }
+      ],
+      "semanticRole": "The OBJECT GET RGB COLORS command returns the foreground and background colors of the object or group of objects designated by object ."
+    }
+  ],
+  "constraints": [
+    "altBackgrndColor (alternating row background) is only meaningful when object is a list box; when used, backgroundColor applies to odd-numbered rows only."
+  ]
+}

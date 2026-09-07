@@ -1,0 +1,47 @@
+{
+  "id": "GET-DOCUMENT-ICON",
+  "displayName": "GET DOCUMENT ICON",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "docPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name or path of the document/folder to get the icon of, or an empty string to prompt via the standard Open File dialog"
+        },
+        {
+          "name": "icon",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the document's icon"
+        },
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Size, in pixels, of the returned icon picture"
+        }
+      ],
+      "semanticRole": "Fills icon with the icon of the document or folder designated by docPath (or prompts the user for one when docPath is empty), optionally at a requested pixel size."
+    }
+  ],
+  "constraints": [
+    "If docPath is an empty string, the standard Open File dialog box appears and blocks for user input; the selected path is then available via the Document system variable.",
+    "docPath can name a file of any type (executable, document, alias/shortcut) or a folder; a relative name/pathname is resolved against the database's current working directory."
+  ]
+}

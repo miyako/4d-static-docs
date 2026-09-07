@@ -1,0 +1,12 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Integer" }
+    }
+  ],
+  "constraints": [
+    "Returns 0 if no window has been set for the current form.",
+    "The current form window can be created implicitly by commands such as ADD RECORD, by a user action, or explicitly via Open window / Open form window."
+  ]
+}

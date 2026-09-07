@@ -1,0 +1,48 @@
+{
+  "id": "OPEN-URL",
+  "displayName": "OPEN URL",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "appName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Opens the file or URL passed in path, using the application named in appName if specified (otherwise letting the system/default browser choose), optionally leaving the URL's special characters untranslated when '*' is passed."
+    }
+  ],
+  "constraints": [
+    "If appName is omitted, 4D first tries to interpret path as a file pathname and opens it with the most suitable application; in this case the '*' parameter is ignored.",
+    "If path is a standard URL (mailto:, news:, http:, etc.) and appName is omitted, 4D starts the default web browser to open it.",
+    "If appName is specified but no matching installed application is found, no error is returned and the command runs as if appName had not been specified.",
+    "Does not work when called from a Web process."
+  ]
+}

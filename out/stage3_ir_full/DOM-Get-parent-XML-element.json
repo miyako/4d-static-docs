@@ -1,0 +1,51 @@
+{
+  "id": "DOM-Get-parent-XML-element",
+  "displayName": "DOM Get parent XML element",
+  "kind": "classic_command",
+  "theme": "XML-DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "parentElemName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the name of the parent element"
+        },
+        {
+          "name": "parentElemValue",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the value of the parent element"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns a reference to the parent XML element (or the \"#document\" reference if elementRef is a root element), optionally filling in the parent's name and value."
+    }
+  ],
+  "constraints": [
+    "If elementRef is already the document node, the command returns a null reference (\"0000000000000000\") and sets OK to 0.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "theme": "WritePro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Imports a document stored on disk, given its path (filePath), and returns a new 4D Write Pro object."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Imports a document referenced by a 4D.File object (fileObj), and returns a new 4D Write Pro object."
+    }
+  ],
+  "constraints": [
+    "Supported source formats are former 4D Write documents (.4w7/.4wt), 4D Write Pro (.4wp) documents, and MS Word (.docx) documents.",
+    "An error is returned if filePath/fileObj is invalid, the file is missing, or the file format is unsupported.",
+    "When option is an Integer, it selects the wk import html expressions as text behavior for legacy 4D Write documents (default: HTML expressions not imported); when option is an Object, its properties (anchoredTextAreas, anchoredImages, sections, fields, borderRules, preferredFontScriptType, htmlExpressions, importDisplayMode) configure .docx/.4w7-specific import behavior."
+  ]
+}

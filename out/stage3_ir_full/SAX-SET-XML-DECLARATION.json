@@ -1,0 +1,56 @@
+{
+  "id": "SAX-SET-XML-DECLARATION",
+  "displayName": "SAX SET XML DECLARATION",
+  "kind": "classic_command",
+  "theme": "XML-SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "encoding",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "standalone",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "indentation",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SAX SET XML DECLARATION command initializes the XML document referenced in document using the specified encoding ."
+    }
+  ],
+  "constraints": [
+    "Must be called exactly once per document, before the first XML SET command in the document, otherwise an error is generated.",
+    "encoding defaults to UTF-8 if this command is never called, or falls back to UTF-8 if an unsupported character set is passed.",
+    "standalone defaults to False (document is not standalone) if omitted or if the command is not called.",
+    "indentation is obsolete and should not be used; document indentation is instead configured via the XML SET OPTIONS command.",
+    "Reference lifecycle (implied convention, not syntactically enforced): SAX write document lifecycle: SAX SET XML DECLARATION initializes document-level encoding/standalone settings once, before any other SAX write command -> SAX OPEN XML ELEMENT (or the ARRAYS variant) opens an element -> SAX ADD XML ELEMENT VALUE adds its content while it remains open -> SAX CLOSE XML ELEMENT closes the most recently opened element."
+  ]
+}

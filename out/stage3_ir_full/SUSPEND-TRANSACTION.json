@@ -1,0 +1,15 @@
+{
+  "id": "SUSPEND-TRANSACTION",
+  "displayName": "SUSPEND TRANSACTION",
+  "kind": "classic_command",
+  "theme": "Transactions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SUSPEND TRANSACTION command pauses the current transaction in the current process."
+    }
+  ],
+  "constraints": [
+    "Records updated or added while the transaction is suspended remain locked until the transaction is resumed with RESUME TRANSACTION."
+  ]
+}

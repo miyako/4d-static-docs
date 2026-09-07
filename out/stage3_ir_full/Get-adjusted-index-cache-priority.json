@@ -1,0 +1,30 @@
+{
+  "id": "Get-adjusted-index-cache-priority",
+  "displayName": "Get adjusted index cache priority",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Get adjusted index cache priority command returns the current adjusted cache priority value applied by the cache manager for the aField index(es)."
+    }
+  ],
+  "constraints": [
+    "Only works in local mode (4D Server and 4D); cannot be used in 4D remote mode.",
+    "Intended for debugging purposes only."
+  ]
+}

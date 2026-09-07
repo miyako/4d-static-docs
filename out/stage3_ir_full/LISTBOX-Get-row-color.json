@@ -1,0 +1,69 @@
+{
+  "id": "LISTBOX-Get-row-color",
+  "displayName": "LISTBOX Get row color",
+  "kind": "classic_command",
+  "theme": "List Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
+        },
+        {
+          "name": "row",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Row (or, when object is a column, cell) number whose color is requested."
+        },
+        {
+          "name": "colorType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "default": "font color (lk font color) if omitted",
+          "description": "Constant (lk background color or lk font color, List Box theme) selecting which color to read/write."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the font or background color of a row or cell in an array-type list box, as a CSS color string."
+    }
+  ],
+  "constraints": [
+    "Only works with array-type list boxes; use OBJECT SET RGB COLORS for the 4-byte longint color format instead."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "The offscreen area only exists during the execution of VP Run offscreen area and is automatically destroyed once execution ends.",
+    "parameters.area names the offscreen area; if omitted or null, a generic name is assigned (e.g. \"OffscreenArea1\").",
+    "parameters.onEvent is a callback (class onEvent function or Formula object) invoked by default on On VP Ready, On Load, On Unload, On End URL Loading, On URL Loading Error, On VP Range Changed, or On Timer events, and can access the 4D View Pro form object variable via This.",
+    "parameters.autoQuit (default true) stops formula execution when On End URL Loading or On URL Loading Error occurs; when false, the callback must call ACCEPT or CANCEL to end execution.",
+    "parameters.timeout (default 60 seconds; 0 = no limit) auto-closes the area if no event occurs; when exceeded, the command adds a timeoutReached:true property before the final callback call.",
+    "Any custom properties placed in parameters are made available unchanged in the onEvent callback method.",
+    "The return value is the .result property of the .onEvent object, or Null if no value is returned.",
+    "Only ACCEPT, CANCEL, SET TIMER, WA Evaluate JavaScript, and WA EXECUTE JAVASCRIPT FUNCTION are documented as usable inside the callback method."
+  ]
+}

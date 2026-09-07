@@ -1,0 +1,40 @@
+{
+  "id": "LOAD-SET",
+  "displayName": "LOAD SET",
+  "kind": "classic_command",
+  "theme": "Sets",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "LOAD SET loads a set from document that was saved with the SAVE SET command."
+    }
+  ]
+}

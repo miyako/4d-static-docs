@@ -1,0 +1,37 @@
+{
+  "id": "BOOLEAN-ARRAY-FROM-SET",
+  "displayName": "BOOLEAN ARRAY FROM SET",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "booleanArr",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with one element per record (by absolute record number): True if the record belongs to set, False otherwise"
+        },
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the set to test membership against",
+          "default": "UserSet in the current process, if omitted"
+        }
+      ],
+      "semanticRole": "Fills a Boolean array, one element per record in the table (indexed by absolute record number), indicating whether each record belongs to the given (or default UserSet) set."
+    }
+  ],
+  "constraints": [
+    "The total number of elements filled in booleanArr is not guaranteed to equal the number of records actually present in the table; any extra elements are set to False."
+  ]
+}

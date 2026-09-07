@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "This command opens a modal window; do not call it from another modal window, otherwise it does nothing.",
+    "Has no effect if no groups are defined."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Opens the Toolbox window's Users and User groups pages so the current user can interactively edit the password/access system."
+    }
+  ]
+}

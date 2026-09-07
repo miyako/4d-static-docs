@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates or resizes an in-memory array of Text elements; enlarging an existing array leaves existing elements unchanged and initializes new elements to \"\" (empty string)."
+    }
+  ]
+}

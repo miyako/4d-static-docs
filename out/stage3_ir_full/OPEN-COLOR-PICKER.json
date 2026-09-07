@@ -1,0 +1,37 @@
+{
+  "id": "OPEN-COLOR-PICKER",
+  "displayName": "OPEN COLOR PICKER",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "textOrBackground",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Apply the selected color to the text (also the default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "Apply the selected color to the text background."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Displays the system color picker dialog box and applies the selected color to either the text or the text background of the focused object's current selection, according to textOrBackground."
+    }
+  ],
+  "constraints": [
+    "The picked color is applied to the current text selection in the object with focus only if that object's 'Allow Font/Color Picker' property is checked; otherwise the command has no visible effect.",
+    "This dialog box is modal under Windows but not under macOS.",
+    "If the color was changed, the On After Edit form event is generated for the object."
+  ]
+}

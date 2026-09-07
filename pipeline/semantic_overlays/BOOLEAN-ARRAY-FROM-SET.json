@@ -1,0 +1,37 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "booleanArr's doc arrow is output-only ('<-') -- it is filled by the command, not read -- so direction must be 'out', not the auto-derived 'in'. set is given its documented default (UserSet in the current process).",
+      "params": [
+        {
+          "name": "booleanArr",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with one element per record (by absolute record number): True if the record belongs to set, False otherwise"
+        },
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the set to test membership against",
+          "default": "UserSet in the current process, if omitted"
+        }
+      ],
+      "semanticRole": "Fills a Boolean array, one element per record in the table (indexed by absolute record number), indicating whether each record belongs to the given (or default UserSet) set."
+    }
+  ],
+  "constraints": [
+    "The total number of elements filled in booleanArr is not guaranteed to equal the number of records actually present in the table; any extra elements are set to False."
+  ]
+}

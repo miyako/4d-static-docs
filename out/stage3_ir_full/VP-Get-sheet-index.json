@@ -1,0 +1,39 @@
+{
+  "id": "VP-Get-sheet-index",
+  "displayName": "VP Get sheet index",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the 0-based index of the sheet whose name matches name, or -1 if not found."
+    }
+  ],
+  "constraints": [
+    "Sheet indexing starts at 0.",
+    "Returns -1 if no sheet named name exists in the document."
+  ]
+}

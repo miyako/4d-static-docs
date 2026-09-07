@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Query, selection, and sort commands also reset the current record to the first record; FIRST RECORD is a no-op if the selection is empty or the current record is already first."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Loads the first record of aTable's current selection from disk and makes it the current record."
+    }
+  ]
+}

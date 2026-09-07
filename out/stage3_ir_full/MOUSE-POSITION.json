@@ -1,0 +1,55 @@
+{
+  "id": "MOUSE-POSITION",
+  "displayName": "MOUSE POSITION",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mouseX",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Horizontal coordinate of the mouse."
+        },
+        {
+          "name": "mouseY",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Vertical coordinate of the mouse."
+        },
+        {
+          "name": "mouseButton",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Mouse button state: 0 = up, 1 = down, 2 = right button down, 3 = both buttons down."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, coordinates are relative to the main screen (or application window in Windows MDI mode); if omitted, coordinates are relative to the current form window of the current process."
+        }
+      ],
+      "semanticRole": "The MOUSE POSITION command returns the current state of the mouse."
+    }
+  ]
+}

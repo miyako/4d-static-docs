@@ -1,0 +1,199 @@
+{
+  "id": "LISTBOX-GET-ARRAYS",
+  "displayName": "LISTBOX GET ARRAYS",
+  "kind": "classic_command",
+  "theme": "List-Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrColNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrHeaderNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrColVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrHeaderVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrColsVisible",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrStyles",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrFooterNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "arrFooterVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Fills arrColNames/arrHeaderNames/arrColVars/arrHeaderVars/arrColsVisible/arrStyles (and optionally arrFooterNames/arrFooterVars) with synchronized per-column information for every column (visible or invisible) of the list box, addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrColNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrHeaderNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrColVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrHeaderVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrColsVisible",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrStyles",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "arrFooterNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "arrFooterVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Fills arrColNames/arrHeaderNames/arrColVars/arrHeaderVars/arrColsVisible/arrStyles (and optionally arrFooterNames/arrFooterVars) with synchronized per-column information for every column (visible or invisible) of the list box, addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
+    }
+  ]
+}

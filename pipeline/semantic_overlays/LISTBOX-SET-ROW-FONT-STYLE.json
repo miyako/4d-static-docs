@@ -1,0 +1,53 @@
+{
+  "theme": "List-Box",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines that differ only in whether the leading '*' is passed (selecting whether 'object' is an object-name string vs. a form variable reference). That's one semantic overload with an optional literal-symbol discriminator, not two independent overloads. Added the documented Font Styles theme constants as sentinelValues for style (bitwise-combinable, per the doc's 'one or a combination of' wording).",
+      "params": [
+        {
+          "name": "*",
+          "type": {"kind": "literal_symbols", "symbols": ["*"]},
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {"kind": "concrete", "name": "Text"},
+            {"kind": "concrete", "name": "Variable"}
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating a list box (command applies to the row) or a list box column (command applies to the cell at the column/row intersection)."
+        },
+        {
+          "name": "row",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the row to apply the style to (hidden/shown row state is not taken into account)."
+        },
+        {
+          "name": "style",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": false,
+          "description": "Font style constant, or a bitwise combination of constants, from the Font Styles theme.",
+          "sentinelValues": [
+            {"value": 0, "meaning": "Plain"},
+            {"value": 1, "meaning": "Bold"},
+            {"value": 2, "meaning": "Italic"},
+            {"value": 4, "meaning": "Underline"}
+          ]
+        }
+      ],
+      "semanticRole": "Sets the font style of a row, or of a single cell, in an array-type list box."
+    }
+  ],
+  "constraints": [
+    "This command only works with array-type list boxes.",
+    "Style arrays for columns take priority over style arrays for the list box: applying this command to the whole list box only has an effect if no style array has been assigned to the columns."
+  ]
+}

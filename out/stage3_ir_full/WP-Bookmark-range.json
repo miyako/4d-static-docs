@@ -1,0 +1,38 @@
+{
+  "id": "WP-Bookmark-range",
+  "displayName": "WP Bookmark range",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "bkName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Bookmark range command returns a text range object (rangeObj) containing the range for the bookmark with the specified bkName in wpDoc ."
+    }
+  ],
+  "constraints": [
+    "If bkName does not exist in wpDoc, an empty rangeObj object is returned rather than an error."
+  ]
+}

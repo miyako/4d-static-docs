@@ -1,0 +1,27 @@
+{
+  "id": "CLOSE-RESOURCE-FILE",
+  "displayName": "CLOSE RESOURCE FILE",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Closes the resource file referenced by resFile, previously opened with Open resource file."
+    }
+  ],
+  "constraints": [
+    "Only needs to be called once to close a resource file, even if it was opened multiple times.",
+    "Does nothing if applied to the 4D application/database resource files, or given an invalid reference number.",
+    "4D automatically closes all remaining open resource files when the application quits or another database is opened."
+  ]
+}

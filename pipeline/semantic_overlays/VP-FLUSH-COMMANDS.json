@@ -1,0 +1,15 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Passing a vpAreaName that does not exist raises an error.",
+    "4D View Pro commands are normally accumulated in a command buffer for performance; this command executes the buffered batch immediately and empties the buffer.",
+    "If callback is provided, it only fires once all buffered commands AND any 4D custom functions they triggered have finished executing, so follow-up actions (save/print) can safely run after it fires.",
+    "callback receives the area name and a status object with .success, .errorCode, and .errorMessage properties."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Immediately executes the buffered 4D View Pro command batch for an area and clears the buffer, optionally invoking a callback once execution (including any triggered custom functions) has fully completed."
+    }
+  ]
+}

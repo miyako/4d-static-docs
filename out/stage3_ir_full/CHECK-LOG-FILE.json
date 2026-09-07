@@ -1,0 +1,17 @@
+{
+  "id": "CHECK-LOG-FILE",
+  "displayName": "CHECK LOG FILE",
+  "kind": "classic_command",
+  "theme": "Backup",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Displays the log file viewer dialog box, which includes a Rollback button to cancel operations recorded in the database's data log."
+    }
+  ],
+  "constraints": [
+    "Can only be used in single-user applications, notably to expose the rollback function in 4D Volume Desktop applications (no Design mode).",
+    "In a client/server application it has no effect and returns error 1421.",
+    "Because it exposes a rollback function, access should typically be restricted to database administrators."
+  ]
+}

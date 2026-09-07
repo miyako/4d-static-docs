@@ -1,0 +1,73 @@
+{
+  "id": "OBJECT-SET-FONT-STYLE",
+  "displayName": "OBJECT SET FONT STYLE",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "styles",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Sum of font style constants to apply",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Plain -- no style"
+            },
+            {
+              "value": 1,
+              "meaning": "Bold"
+            },
+            {
+              "value": 2,
+              "meaning": "Italic"
+            },
+            {
+              "value": 4,
+              "meaning": "Underline"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets the font style (a sum of Bold/Italic/Underline bit values, or Plain to clear all) used to display the object(s) designated by object and *, for the current process."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "False",
+  "displayName": "False",
+  "kind": "classic_command",
+  "theme": "Boolean",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns the Boolean literal False (useful in typed expressions/contexts where a literal Boolean function call is required rather than a bare keyword)."
+    }
+  ]
+}

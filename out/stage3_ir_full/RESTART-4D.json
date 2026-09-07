@@ -1,0 +1,37 @@
+{
+  "id": "RESTART-4D",
+  "displayName": "RESTART 4D",
+  "kind": "classic_command",
+  "theme": "4D-Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "time",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The RESTART 4D command restarts the current 4D application."
+    }
+  ],
+  "constraints": [
+    "time and message are only taken into account with server applications; they are ignored if executed in single-user or remote applications.",
+    "If time is omitted, the server waits up to 10 minutes for all client applications to disconnect before automatically disconnecting them.",
+    "Restart is combined with SET UPDATE FOLDER: if update information was specified in the current session, the new version designated by SET UPDATE FOLDER automatically replaces the current version at restart; otherwise, 4D simply restarts with the current structure and data files.",
+    "Sets the OK system variable to 1 if the command executed correctly, or 0 (and the application still restarts) otherwise."
+  ]
+}

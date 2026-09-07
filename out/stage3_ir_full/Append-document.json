@@ -1,0 +1,38 @@
+{
+  "id": "Append-document",
+  "displayName": "Append document",
+  "kind": "classic_command",
+  "theme": "System-Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fileType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Time"
+      },
+      "semanticRole": "Opens (or creates) the document on disk exactly like Open document, but positions the file pointer at the document's end instead of its beginning, returning the same document-reference value (typed Time per the classic API) used by other Document commands."
+    }
+  ],
+  "constraints": [
+    "Identical to Open document except the file position is set to the end of the document instead of the beginning; see Open document for the full parameter/behavior reference."
+  ]
+}

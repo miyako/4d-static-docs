@@ -1,0 +1,46 @@
+{
+  "id": "WEB-GET-OPTION",
+  "displayName": "WEB GET OPTION",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Code of the Web server option to get (a constant from the Web Server theme)."
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Collection"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Current value of the option; concrete type depends on selector."
+        }
+      ],
+      "semanticRole": "The WEB GET OPTION command gets the current value of an option for the 4D Web server operation."
+    }
+  ],
+  "constraints": [
+    "The concrete type and meaning returned in value depend on the selector constant passed (e.g. Integer, Text, or Collection); see the Web Server theme option constants."
+  ]
+}

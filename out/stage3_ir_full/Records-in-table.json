@@ -1,0 +1,30 @@
+{
+  "id": "Records-in-table",
+  "displayName": "Records in table",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Records in table returns the total number of records in aTable."
+    }
+  ],
+  "constraints": [
+    "Distinct from Records in selection, which returns the count of only the current selection.",
+    "If called within a transaction, records created during that transaction are included in the count."
+  ]
+}

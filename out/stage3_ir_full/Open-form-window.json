@@ -1,0 +1,85 @@
+{
+  "id": "Open-form-window",
+  "displayName": "Open form window",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "formName",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "hPos",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "vPos",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Opens a new window sized/positioned per the form formName's resizing properties (formName may be a form name, a POSIX path to a .json form description file, or a form-description object), returning the window reference number."
+    }
+  ],
+  "constraints": [
+    "The window is not displayed automatically: a command that loads a form (e.g. ADD RECORD) must still be called to actually show the form in the window.",
+    "'Form has full screen mode Mac' and 'Form has no menu bar' are modifier constants that must be added to one of the other type constants, not used alone.",
+    "hPos/vPos are only used the first time the window is opened when the '*' parameter is passed (position/size are then remembered across closes/reopens).",
+    "Position parameters are expressed relative to the top-left of the application window's content area (Windows MDI mode) or the main screen (macOS and Windows SDI mode)."
+  ]
+}

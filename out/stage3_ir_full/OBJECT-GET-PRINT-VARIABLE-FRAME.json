@@ -1,0 +1,78 @@
+{
+  "id": "OBJECT-GET-PRINT-VARIABLE-FRAME",
+  "displayName": "OBJECT GET PRINT VARIABLE FRAME",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "variableFrame",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "True = Variable frame printing, False = Fixed frame printing"
+        },
+        {
+          "name": "fixedSubform",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Option for printing subforms in fixed size",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Print Frame fixed with truncation: only records that fit the subform area are printed once; the rest are ignored."
+            },
+            {
+              "value": 2,
+              "meaning": "Print Frame fixed with multiple records: the frame stays the same size but 4D reprints the form as many times as needed to include all records."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "The OBJECT GET PRINT VARIABLE FRAME command gets the current configuration of the variable frame print options for the object(s) designated by the object and * parameters."
+    }
+  ],
+  "constraints": [
+    "fixedSubform is only meaningfully returned when object is a subform and variableFrame comes back False (fixed frame printing); it is not populated for non-subform objects or when variable frame printing is enabled."
+  ]
+}

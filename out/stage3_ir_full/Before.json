@@ -1,0 +1,15 @@
+{
+  "id": "Before",
+  "displayName": "Before",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns True when the current form event corresponds to the Before (On Load) execution cycle."
+    }
+  ],
+  "constraints": [
+    "The 'On Load' event property must be selected for the form and/or object in the Design environment for the Before execution cycle to be generated."
+  ]
+}

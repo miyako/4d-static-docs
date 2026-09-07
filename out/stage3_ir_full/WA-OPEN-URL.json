@@ -1,0 +1,58 @@
+{
+  "id": "WA-OPEN-URL",
+  "displayName": "WA OPEN URL",
+  "kind": "classic_command",
+  "theme": "Web-Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
+        },
+        {
+          "name": "url",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "URL to load in the Web area."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
+    }
+  ]
+}

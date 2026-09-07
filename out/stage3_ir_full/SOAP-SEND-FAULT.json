@@ -1,0 +1,35 @@
+{
+  "id": "SOAP-SEND-FAULT",
+  "displayName": "SOAP SEND FAULT",
+  "kind": "classic_command",
+  "theme": "Web Services (Server)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "faultType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SOAP SEND FAULT command returns an error to a SOAP client indicating the origin of the fault: client or server."
+    }
+  ],
+  "constraints": [
+    "faultType selects the origin of the error reported to the SOAP client: 1 = client fault (e.g. an invalid request), 2 = server fault (e.g. a server-side resource error).",
+    "Using this command lets the Web Service method report an error to the client without returning a normal result."
+  ]
+}

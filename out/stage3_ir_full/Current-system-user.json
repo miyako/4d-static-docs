@@ -1,0 +1,16 @@
+{
+  "id": "Current-system-user",
+  "displayName": "Current system user",
+  "kind": "classic_command",
+  "theme": "System-Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Current system user command returns the owner name of your machine, as set in the current user account on the machine.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ]
+}

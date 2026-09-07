@@ -1,0 +1,34 @@
+{
+  "constraints": [
+    "Methods placed in the trash are not listed."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "arrNames is filled in by the command (parameter table marks it with the '\u2190' return arrow), so its direction should be 'out', not the syntax-position default of 'in'.",
+      "params": [
+        {
+          "name": "arrNames",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Array of project method names"
+        },
+        {
+          "name": "filter",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": true,
+          "description": "Name filter; must use '@' for \"starts with\"/\"ends with\"/\"contains\" type filters."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, applies to the host database's project methods when called from a component (otherwise ignored)."
+        }
+      ]
+    }
+  ]
+}

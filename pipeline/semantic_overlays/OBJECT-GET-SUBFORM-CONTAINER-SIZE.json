@@ -1,0 +1,34 @@
+{
+  "theme": "Objects-Forms",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "The OBJECT GET SUBFORM CONTAINER SIZE command returns the width and height (in pixels) of a \"current\" subform object, displayed in the parent form.",
+      "params": [
+        {
+          "name": "width",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Width (in pixels) of the current subform's container in the parent form."
+        },
+        {
+          "name": "height",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Height (in pixels) of the current subform's container in the parent form."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Must be called from within the subform's own context (e.g. its form method or an object method), since it reports the size of the 'current' subform as displayed in its parent form."
+  ]
+}

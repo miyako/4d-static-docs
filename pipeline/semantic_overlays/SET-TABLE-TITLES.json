@@ -1,0 +1,21 @@
+{
+  "constraints": [
+    "Calling SET TABLE TITLES with no parameters at all resets the whole virtual structure (custom table and field names) for the session.",
+    "Scope is the current worksession; it does not change the actual database structure, only subsequent standard-editor/dynamic-name display in the Application environment, and it does not override a table's Invisible property.",
+    "By default, formulas cannot use the custom names defined here (the real table names must be used); passing the trailing '*' lets formulas/expressions (e.g. formula editor, 4D Write Pro documents) use the custom names instead — but those custom names must not contain characters forbidden by the 4D language interpreter (e.g. -?*%!)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": [
+            "tableTitles",
+            "tableNumbers"
+          ],
+          "rule": "tableTitles and tableNumbers must be passed together or not at all: they are parallel/synchronized arrays (same length; tableNumbers[i] is the actual table number for the display name tableTitles[i]), and a table omitted from tableTitles is hidden from the standard dialogs."
+        }
+      ]
+    }
+  ]
+}

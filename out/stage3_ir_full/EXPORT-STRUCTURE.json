@@ -1,0 +1,48 @@
+{
+  "id": "EXPORT-STRUCTURE",
+  "displayName": "EXPORT STRUCTURE",
+  "kind": "classic_command",
+  "theme": "Structure-Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "exportedStructure",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the exported 4D database structure definition (XML or HTML, per format)"
+        },
+        {
+          "name": "format",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": "xml",
+              "meaning": "export in XML format (default)"
+            },
+            {
+              "value": "html",
+              "meaning": "export in HTML format"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Exports the current database's structure definition (tables, fields, indexes, relations, and their attributes) into a Text variable, as XML or HTML."
+    }
+  ],
+  "constraints": [
+    "Invisible elements are exported (with the corresponding attribute); deleted elements are never exported.",
+    "Generates the same output as the Export > Structure definition to XML/HTML file... menu commands.",
+    "xml format output is validated against the base_core.dtd/common.dtd files shipped in the DTD folder next to the 4D application; it can be re-imported via IMPORT STRUCTURE.",
+    "html format output references an external resources folder (pictures, CSS) that must be reused/created alongside the saved HTML page."
+  ]
+}

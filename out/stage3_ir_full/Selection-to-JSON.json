@@ -1,0 +1,58 @@
+{
+  "id": "Selection-to-JSON",
+  "displayName": "Selection to JSON",
+  "kind": "classic_command",
+  "theme": "JSON",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "aField",
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "embedded"
+        },
+        {
+          "name": "template",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Selection to JSON command returns a string containing a JSON array with as many elements as there are records in the current selection of aTable ."
+    }
+  ],
+  "constraints": [
+    "aField and template are alternative ways to restrict which fields are serialized; pass at most one of them. If neither is passed, all JSON-expressible fields of aTable are included (BLOB and Picture fields are always ignored).",
+    "After the call, the current selection is unchanged but the current record is no longer loaded and may have changed."
+  ]
+}

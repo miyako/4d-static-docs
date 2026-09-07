@@ -1,0 +1,54 @@
+{
+  "id": "LISTBOX-SET-STATIC-COLUMNS",
+  "displayName": "LISTBOX SET STATIC COLUMNS",
+  "kind": "classic_command",
+  "theme": "List-Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box."
+        },
+        {
+          "name": "numColumn",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of columns to set as static, starting from the first column on the left."
+        }
+      ],
+      "semanticRole": "Sets the first numColumn columns of the designated list box as static (they cannot be moved within the list box)."
+    }
+  ],
+  "constraints": [
+    "Static columns and locked columns (LISTBOX SET LOCKED COLUMNS) are two independent features."
+  ]
+}

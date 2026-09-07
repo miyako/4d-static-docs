@@ -1,0 +1,58 @@
+{
+  "id": "LOAD-VARIABLES",
+  "displayName": "LOAD VARIABLES",
+  "kind": "classic_command",
+  "theme": "Variables",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Document (created by SAVE VARIABLES) to load variables from; pass an empty string to show the standard Open File dialog."
+        },
+        {
+          "name": "variable",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Variable to receive a loaded value; created if it doesn't already exist, overwritten if it does."
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "variable",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "out",
+              "optional": false,
+              "description": "Additional variable to receive a loaded value."
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Loads one or more variables (created or overwritten) from a document previously written by SAVE VARIABLES."
+    }
+  ],
+  "constraints": [
+    "The document must have been created using SAVE VARIABLES.",
+    "Does not support array variables.",
+    "In compiled databases, each variable must be of the same type as the one saved to disk."
+  ]
+}

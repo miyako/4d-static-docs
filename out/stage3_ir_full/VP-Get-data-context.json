@@ -1,0 +1,41 @@
+{
+  "id": "VP-Get-data-context",
+  "displayName": "VP Get data context",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Index of the sheet to get the data context from; current sheet if omitted"
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "Returns the current data context (Object or Collection, or Null if none is set) of a worksheet, including any modifications made to its contents."
+    }
+  ],
+  "constraints": [
+    "If there is no data context set for the worksheet (via VP SET DATA CONTEXT), the command returns Null.",
+    "The returned type (Object or Collection) mirrors whatever type was set with VP SET DATA CONTEXT."
+  ]
+}

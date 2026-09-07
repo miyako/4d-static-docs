@@ -1,0 +1,6 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "type selects how the browser interprets blob: an empty string \"\" lets the browser guess from content; a file extension (e.g. \".HTM\", \".GIF\") sets the MIME type by extension, which must be a standard/registered one; a full MIME string (e.g. \"text/html\", or a custom \"application/x-TypeName\") sets the MIME type directly and lets the client browser be configured to launch an associated application for custom types."
+  ]
+}

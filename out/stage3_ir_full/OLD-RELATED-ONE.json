@@ -1,0 +1,27 @@
+{
+  "id": "OLD-RELATED-ONE",
+  "displayName": "OLD RELATED ONE",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Loads the record previously related to the current record, establishing the relation using the pre-modification (old) value of aField instead of its current value."
+    }
+  ],
+  "constraints": [
+    "Operates the same as RELATE ONE, except the relation is established using the old value of aField (the many field, as returned by the Old function/command), not its current value.",
+    "To modify and save the loaded old related record, you must call SAVE RELATED ONE.",
+    "There is no old related record for a newly created record."
+  ]
+}

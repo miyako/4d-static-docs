@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Only works in local mode (4D Server and 4D); cannot be used in 4D remote mode.",
+    "Intended for debugging purposes only.",
+    "Applies to scalar data fields (date/hour, numeric, or string type)."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "WEB-GET-BODY-PART",
+  "displayName": "WEB GET BODY PART",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "part",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the part to be parsed."
+        },
+        {
+          "name": "contents",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Contents of the part (Blob for files, Text for submitted text fields)."
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Name of the HTTP input field (variable name); only present when the part was submitted as <input type=\"file\"> (paired with mimeType). The doc page's own prose elsewhere suggests this might instead hold the original file's name -- see this command's top-level constraints for the full doc-inconsistency note."
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Mime type of the submitted file, if any; only present when the part was submitted as a file (paired with name)."
+        },
+        {
+          "name": "fileName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Name of the submitted file, if any; only present when the part was submitted as a file."
+        }
+      ],
+      "semanticRole": "The WEB GET BODY PART command, when called in the context of a Web process, parses the \"body\" part of a multi-part request.",
+      "jointConstraints": [
+        {
+          "params": [
+            "mimeType",
+            "name"
+          ],
+          "rule": "Optional together: when the part is a submitted file both are received; otherwise both are absent."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Use WEB Get body part count first to learn how many parts are available to parse.",
+    "For file parts, contents must be captured into a Blob; for plain Text form fields submitted in a multi-part request, contents can be captured into Text.",
+    "mimeType and name are optional but must be passed together: both are received only when the part was submitted as <input type=\"file\">; otherwise both are absent.",
+    "The doc page's own text is internally inconsistent about what `name` holds: its lead prose sentence and the parameter table's own gloss both say 'name' is the variable name of the HTTP input field (e.g. \"file1\"/\"file2\" from <input name=\"file1\" type=\"file\">, per this command's own Example), while a later sentence says 'mimeType and name parameters receive the Mime type and the name of the original file' (which would duplicate fileName's own stated purpose instead). Modeled here per the majority/table-sourced reading (input field variable name), since two of the three signals agree and the third reads as a likely copy/paste slip that should have said fileName; this is a documented doc inconsistency 4D has not fixed, not an extraction error in this pipeline."
+  ]
+}

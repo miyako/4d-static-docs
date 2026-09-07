@@ -1,0 +1,17 @@
+{
+  "theme": "WritePro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Removes all columns of every table intersecting targetObj (a range, element, or 4D Write Pro document); does nothing if targetObj does not intersect a table."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Removes numColumns column(s) from tableRef starting at colNumber (default numColumns = 1 if omitted)."
+    }
+  ],
+  "constraints": [
+    "With the targetObj syntax, the numColumns parameter (if it were passed) is ignored; only the targetObj syntax's own tables/columns matter.",
+    "Removing all columns of a table removes the entire table."
+  ]
+}

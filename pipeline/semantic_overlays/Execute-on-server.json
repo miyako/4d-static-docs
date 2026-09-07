@@ -1,0 +1,56 @@
+{
+  "constraints": [
+    "Returns a negative process number when called from a 4D Client, a positive one when called on the Server machine; single-user mode behaves like New process.",
+    "Returns 0 and generates a trappable error (via ON ERR CALL) if the process could not be created.",
+    "If param is passed, the name parameter must also be passed (cannot be omitted).",
+    "Pointer expressions cannot be passed as parameters to the process method.",
+    "Do not prefix name with '$' to make the process local in Client/Server mode -- unlike New process, this generates an error there (it works only in single-user mode).",
+    "If an object or collection is passed as param, a UTF-8 JSON copy is sent (not a reference); any pointers it contains are sent as dereferenced values."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Added sentinelValues on 'stack' (0 = default/recommended stack size) and documented the optional trailing '*' marker's dedup-check semantics.",
+      "params": [
+        {
+          "name": "procedure",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the process method for the new process"
+        },
+        {
+          "name": "stack",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "use the default stack size (recommended)" }
+          ]
+        },
+        {
+          "name": "name",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the new process; required if param is passed"
+        },
+        {
+          "name": "param",
+          "type": { "kind": "pseudo", "name": "Expression" },
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) passed to the process method"
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If a process named 'name' is already running, reuse it (return its process number) instead of starting a new one"
+        }
+      ],
+      "semanticRole": "Starts a new process running 'procedure' on the Server machine (Client/Server) or locally (single-user), optionally reusing an already-running process of the same name."
+    }
+  ]
+}

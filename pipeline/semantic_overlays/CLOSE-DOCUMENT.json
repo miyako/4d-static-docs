@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Is the only way to ensure data written to the file is actually saved to disk.",
+    "Every document opened with Open document, Create document, or Append document must eventually be closed."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Closes the system document referenced by docRef, flushing any written data to disk."
+    }
+  ]
+}

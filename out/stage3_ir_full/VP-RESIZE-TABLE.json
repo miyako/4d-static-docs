@@ -1,0 +1,37 @@
+{
+  "id": "VP-RESIZE-TABLE",
+  "displayName": "VP RESIZE TABLE",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tableName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP RESIZE TABLE command changes the tableName size with regards to the rangeObj ."
+    }
+  ],
+  "constraints": [
+    "Headers must remain in the same row, and the resulting table range must overlap the original table range.",
+    "If the resized table has fewer rows/columns than before, values in the cropped rows/columns are kept unless they were bound to a data context, in which case they are deleted.",
+    "If the table expands onto cells already containing data: adding rows deletes that data, but adding columns keeps that data (displayed in the new columns).",
+    "If tableName does not exist, the command does nothing."
+  ]
+}

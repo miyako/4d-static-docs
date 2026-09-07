@@ -1,0 +1,27 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "numbersArray",
+          "type": { "kind": "concrete", "name": "Integer array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Numbers of plug-ins."
+        },
+        {
+          "name": "namesArray",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Names of plug-ins, synchronized with numbersArray."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Values returned in numbersArray can be compared with the constants of the 'Is License Available' theme.",
+    "Includes all plug-ins usable by the application, both integrated ones (e.g. 4D Chart) and third-party plug-ins."
+  ]
+}

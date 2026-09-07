@@ -1,0 +1,6 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "Sets the OK system variable to 1 on success, 0 on failure (e.g. TCP/IP not properly configured)."
+  ]
+}

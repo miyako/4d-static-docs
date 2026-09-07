@@ -1,0 +1,50 @@
+{
+  "id": "Parse-formula",
+  "displayName": "Parse formula",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Plain text formula to analyze/normalize."
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Instructions for input/output form (real vs virtual vs tokenized names)."
+        },
+        {
+          "name": "errorMessage",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Error message (empty string if no error)."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Parse formula function analyzes the 4D formula , checks its syntax, and returns its normalized form."
+    }
+  ],
+  "constraints": [
+    "Virtual structure names are those defined via SET TABLE TITLES and SET FIELD TITLES."
+  ]
+}

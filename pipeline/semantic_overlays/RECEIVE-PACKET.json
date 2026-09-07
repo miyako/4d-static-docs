@@ -1,0 +1,73 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "receiveVar is the doc's arrow-marked (\u2190) output slot; docRef is an optional leading in-param (document reference, not a Time value despite the mis-typed 'Time' column). The draft parser had defaulted receiveVar to direction:in.",
+      "params": [
+        {
+          "name": "docRef",
+          "type": { "kind": "concrete", "name": "Time" },
+          "direction": "in",
+          "optional": true,
+          "description": "Reference number of a document opened via Open document/Create document/Append document; if omitted, reads from the serial port or document opened via SET CHANNEL instead."
+        },
+        {
+          "name": "receiveVar",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Blob" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Variable receiving the characters read; its type must match the type used by the corresponding SEND PACKET call."
+        },
+        {
+          "name": "stopChar",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "String at which to stop reading; the stop string itself is not included in receiveVar."
+        }
+      ],
+      "semanticRole": "Reads characters from the serial port or document until the stopChar string is encountered (or, if not found, until end of document / until the reception is interrupted or times out on a serial port)."
+    },
+    {
+      "sourceIndices": [1],
+      "note": "Same docRef/receiveVar direction fix as the stopChar overload, applied to the numBytes-terminated form.",
+      "params": [
+        {
+          "name": "docRef",
+          "type": { "kind": "concrete", "name": "Time" },
+          "direction": "in",
+          "optional": true,
+          "description": "Reference number of a document opened via Open document/Create document/Append document; if omitted, reads from the serial port or document opened via SET CHANNEL instead."
+        },
+        {
+          "name": "receiveVar",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Blob" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Variable receiving the characters read; its type must match the type used by the corresponding SEND PACKET call."
+        },
+        {
+          "name": "numBytes",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Exact number of bytes to read into receiveVar."
+        }
+      ],
+      "semanticRole": "Reads exactly numBytes bytes/characters from the serial port or document into receiveVar."
+    }
+  ],
+  "constraints": [
+    "When the received packet is a BLOB, it is returned unmodified regardless of any USE CHARACTER SET setting.",
+    "When the received packet is Text, RECEIVE PACKET detects and strips a leading Byte Order Mark if the current character set is Unicode (UTF-8/16/32), switching to the BOM's encoding instead of the current character set.",
+    "Reading a document with docRef always starts at the beginning on the first call and resumes after the last byte read on subsequent calls; Get document position / SET DOCUMENT POSITION can be used to inspect or change that position.",
+    "Reading past end-of-file returns the data read so far with OK set to 1; the following call then returns an empty string with OK set to 0.",
+    "The read interrupts on Ctrl-Alt-Shift (Windows) / Command-Option-Shift (macOS), raising error -9994, catchable via an ON ERR CALL method (mainly relevant when reading a serial port, since a document read without a stopChar match simply stops at EOF)."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "constraints": [
+    "This command does not take file type data sources into account.",
+    "Requires the 4D ODBC Driver to be installed on the machine when connecting to an external 4D data source via ODBC."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "autoparse defaulted sourceNamesArr and driversArr to direction:\"in\" from the blanket rule; the doc parameter table marks both as \"<-\" (out) -- they are filled and sized by the command. sourceType stays \"->\" (in).",
+      "params": [
+        {
+          "name": "sourceType",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sourceNamesArr",
+          "type": {"kind": "concrete", "name": "Text array"},
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "driversArr",
+          "type": {"kind": "concrete", "name": "Text array"},
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

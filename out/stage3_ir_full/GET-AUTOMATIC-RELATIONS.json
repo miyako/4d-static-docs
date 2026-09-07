@@ -1,0 +1,33 @@
+{
+  "id": "GET-AUTOMATIC-RELATIONS",
+  "displayName": "GET AUTOMATIC RELATIONS",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "one",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "True if a previous SET AUTOMATIC RELATIONS call made all manual many-to-one relations automatic for the current process; False otherwise"
+        },
+        {
+          "name": "many",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "True if a previous SET AUTOMATIC RELATIONS call made all manual one-to-many relations automatic for the current process; False otherwise"
+        }
+      ],
+      "semanticRole": "Reports, via one and many, whether SET AUTOMATIC RELATIONS has switched all manual many-to-one and one-to-many relations to automatic for the current process."
+    }
+  ]
+}

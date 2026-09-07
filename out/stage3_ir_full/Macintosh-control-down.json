@@ -1,0 +1,12 @@
+{
+  "id": "Macintosh-control-down",
+  "displayName": "Macintosh control down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Macintosh control down returns TRUE if the Macintosh Control key is pressed.When called on a Windows platform, Macintosh control down always return FALSE."
+    }
+  ]
+}

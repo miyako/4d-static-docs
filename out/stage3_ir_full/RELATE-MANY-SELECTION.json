@@ -1,0 +1,25 @@
+{
+  "id": "RELATE-MANY-SELECTION",
+  "displayName": "RELATE MANY SELECTION",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The RELATE MANY SELECTION command generates a selection of records in the Many table, based on a selection of records in the One table, and loads the first record of the Many table as the current record.RELATE MANY SELEC"
+    }
+  ],
+  "constraints": [
+    "Also changes the current record of the One table (the table on the other end of aField's relation), not only the Many table's selection."
+  ]
+}

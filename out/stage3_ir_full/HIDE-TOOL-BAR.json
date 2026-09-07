@@ -1,0 +1,15 @@
+{
+  "id": "HIDE-TOOL-BAR",
+  "displayName": "HIDE TOOL BAR",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The HIDE TOOL BAR command handles the display of custom toolbars created by the Open form window command for the current process."
+    }
+  ],
+  "constraints": [
+    "Only affects a toolbar window previously created by Open form window with the Toolbar form window option, for the current process; no-op if the toolbar was already hidden or none has been created."
+  ]
+}

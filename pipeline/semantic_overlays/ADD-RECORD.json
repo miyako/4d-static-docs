@@ -1,0 +1,25 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines only because the leading semicolon disappears when aTable is omitted (\"ADD RECORD ( aTable {; *} )\" vs. \"ADD RECORD ( * )\"). Semantically this is one overload with both aTable and * independently optional: ADD RECORD, ADD RECORD(aTable), ADD RECORD(*), and ADD RECORD(aTable;*) are all valid calls.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": true,
+          "description": "Table to use for data entry, or the default table if omitted."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, the data-entry window is drawn without scroll bars and cannot be reduced."
+        }
+      ],
+      "semanticRole": "Lets the user interactively add a new record to aTable (or the default table), displaying the current input form until the record is accepted or canceled."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Menu-bar-screen",
+  "displayName": "Menu bar screen",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Menu bar screen returns the number of the screen where the menu bar is located."
+    }
+  ]
+}

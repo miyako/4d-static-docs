@@ -1,0 +1,75 @@
+{
+  "id": "OBJECT-GET-BEST-SIZE",
+  "displayName": "OBJECT GET BEST SIZE",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "bestWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Optimum object width"
+        },
+        {
+          "name": "bestHeight",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Optimum object height"
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Maximum object width"
+        }
+      ],
+      "semanticRole": "The OBJECT GET BEST SIZE command returns the bestWidth and bestHeight parameters, the \u201coptimal\u201d width and height of the form object designated by the * and object parameters."
+    }
+  ]
+}

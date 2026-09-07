@@ -1,0 +1,35 @@
+{
+  "id": "WP-Get-breaks",
+  "displayName": "WP Get breaks",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "breakType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The WP Get breaks command returns the collection of all breaks inserted in targetObj ."
+    }
+  ]
+}

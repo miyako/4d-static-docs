@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "On Windows, this command always returns \"light\", regardless of settings.",
+    "The optional * parameter only matters when called from a component: it returns the color scheme of the host database instead of the component's own scheme."
+  ]
+}

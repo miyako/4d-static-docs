@@ -1,0 +1,69 @@
+{
+  "id": "SVG-SHOW-ELEMENT",
+  "displayName": "SVG SHOW ELEMENT",
+  "kind": "classic_command",
+  "theme": "SVG",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, pictureObject below is an object name (pass a string); if omitted, pictureObject is a Variable/Field reference."
+        },
+        {
+          "name": "pictureObject",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * passed) or Variable/field reference (if * omitted)"
+        },
+        {
+          "name": "id",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "ID attribute of element to display"
+        },
+        {
+          "name": "margin",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Margin of visibility in pixels; defaults to 4 pixels if omitted."
+        }
+      ],
+      "semanticRole": "Moves the pictureObject SVG document so the element identified by id becomes visible, expanding its bounding rectangle by margin pixels."
+    }
+  ],
+  "constraints": [
+    "This command only takes effect in \"top left\" display mode (with scrollbars).",
+    "If the command is not executed in the context of a form, or an invalid pictureObject is passed, the OK system variable is set to 0; otherwise it is set to 1."
+  ]
+}

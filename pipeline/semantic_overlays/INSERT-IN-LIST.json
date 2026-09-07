@@ -1,0 +1,24 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Inserts a new item (with its own reference number, text, and optional sublist) into a hierarchical list before a given item, the last-added item, or the currently selected item.",
+      "mechanism": "star_operator_dual_signature",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when list should be interpreted as an object name (string) identifying a form representation of the list; when * is omitted, list is a hierarchical list reference number (ListRef)."
+      },
+      "jointConstraints": [
+        {
+          "params": ["sublist", "expanded"],
+          "rule": "Although both are individually optional, sublist and expanded must be passed together (or both omitted); passing only one is invalid."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Required to use the object-name (starred) form of list, rather than the ListRef form, if the same hierarchical list has several representations and you need to insert relative to that representation's own current item; a starless ListRef call would be ambiguous in that case.",
+    "beforeItemRef may be an actual item reference number, 0 to mean the last item added to the list, or the * literal to mean the currently selected item; if no item matches the given reference number, the command does nothing.",
+    "Since 4D v16 R4, itemText can be the ak standard action title constant to automatically use the localized name of the associated standard action."
+  ]
+}

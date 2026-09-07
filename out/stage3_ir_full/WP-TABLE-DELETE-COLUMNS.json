@@ -1,0 +1,58 @@
+{
+  "id": "WP-TABLE-DELETE-COLUMNS",
+  "displayName": "WP TABLE DELETE COLUMNS",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Removes all columns of every table intersecting targetObj (a range, element, or 4D Write Pro document); does nothing if targetObj does not intersect a table."
+    },
+    {
+      "params": [
+        {
+          "name": "tableRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "colNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "numColumns",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Removes numColumns column(s) from tableRef starting at colNumber (default numColumns = 1 if omitted)."
+    }
+  ],
+  "constraints": [
+    "With the targetObj syntax, the numColumns parameter (if it were passed) is ignored; only the targetObj syntax's own tables/columns matter.",
+    "Removing all columns of a table removes the entire table."
+  ]
+}

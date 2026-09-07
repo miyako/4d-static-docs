@@ -1,0 +1,6 @@
+{
+  "theme": "Objects-Language",
+  "constraints": [
+    "Pointers are kept as-is (not evaluated); dates/times/objects/collections have their own storage-semantics footnotes."
+  ]
+}

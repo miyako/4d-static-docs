@@ -1,0 +1,35 @@
+{
+  "id": "OB-Is-defined",
+  "displayName": "OB Is defined",
+  "kind": "classic_command",
+  "theme": "Objects-Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Check whether object itself is defined (initialized) when property is omitted, or whether the named property is defined on object when property is passed."
+    }
+  ]
+}

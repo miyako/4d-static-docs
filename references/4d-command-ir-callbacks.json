@@ -1,0 +1,27 @@
+{
+  "_source": "Curated CallbackContractDef entries (schema Category N) for commands whose docs specify the calling convention of a registered callback method/4D.Function in prose, not in the registering command's own signature. A final corpus-assembly step is expected to merge these into the root IR document's top-level \"callbackContracts\" map. Note: the schema's CallbackContractDef/callbackContractRef model is one-contract-per-command (a single string key); commands like IMAP New transporter that accept several independently-named callback slots (a '.listener' object with multiple named 4D.Function properties, each with its own event-payload shape) cannot be fully expressed as a single ref -- such commands document each slot's contract here under its own key and cross-reference all of them from the command's own constraints text instead of via callbackContractRef.",
+  "IMAPListenerOnMailCreated": {
+    "description": "IMAP New transporter's parameter.listener.onMailCreated callback: called when a new message is detected/added to the mailbox (requires IMAP IDLE support).",
+    "trigger": "A new message is added to the selected mailbox while the transporter's IMAP IDLE listener is active.",
+    "expectedParams": [
+      { "name": "transporter", "type": { "kind": "concrete", "name": "4D.IMAPTransporter" }, "direction": "in", "optional": false, "description": "The current IMAP transporter." },
+      { "name": "event", "type": { "kind": "concrete", "name": "Object" }, "direction": "in", "optional": false, "description": "Event data: event.type = \"mailCreated\" (Text); event.mailCount = number of messages now in the mailbox (Integer)." }
+    ]
+  },
+  "IMAPListenerOnMailDeleted": {
+    "description": "IMAP New transporter's parameter.listener.onMailDeleted callback: called when a message is permanently deleted.",
+    "trigger": "A message is permanently deleted from the selected mailbox while the transporter's IMAP IDLE listener is active.",
+    "expectedParams": [
+      { "name": "transporter", "type": { "kind": "concrete", "name": "4D.IMAPTransporter" }, "direction": "in", "optional": false, "description": "The current IMAP transporter." },
+      { "name": "event", "type": { "kind": "concrete", "name": "Object" }, "direction": "in", "optional": false, "description": "Event data: event.type = \"mailDeleted\" (Text); event.msgNumber = deleted message's sequence number (Integer)." }
+    ]
+  },
+  "IMAPListenerOnFlagsModified": {
+    "description": "IMAP New transporter's parameter.listener.onFlagsModified callback: called when a message's flags are modified.",
+    "trigger": "A message's flags change in the selected mailbox while the transporter's IMAP IDLE listener is active.",
+    "expectedParams": [
+      { "name": "transporter", "type": { "kind": "concrete", "name": "4D.IMAPTransporter" }, "direction": "in", "optional": false, "description": "The current IMAP transporter." },
+      { "name": "event", "type": { "kind": "concrete", "name": "Object" }, "direction": "in", "optional": false, "description": "Event data: event.type = \"FlagsModified\" (Text); event.msgNumber = affected message's sequence number (Integer); event.flags = updated flags (Collection)." }
+    ]
+  }
+}

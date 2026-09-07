@@ -1,0 +1,46 @@
+{
+  "id": "VP-SET-FORMULA",
+  "displayName": "VP SET FORMULA",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formatPattern",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP SET FORMULA command assigns a specified formula or 4D method to a designated cell range."
+    }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple cells, the same formula is linked in each cell.",
+    "If formula is a string, use the period (.) as numerical separator and the comma (,) as parameter separator.",
+    "If formula references a 4D method, that method must first be allowed with VP SET ALLOWED METHODS.",
+    "Remove a formula from rangeObj by passing an empty string (\"\") for formula."
+  ]
+}

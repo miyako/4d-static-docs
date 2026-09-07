@@ -1,0 +1,21 @@
+{
+  "id": "Focus-object",
+  "displayName": "Focus object",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns a pointer to the form object that currently has the focus, or a nil pointer if no object has the focus.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Pointer"
+      }
+    }
+  ],
+  "constraints": [
+    "Returns Is nil pointer's target when no object currently has the focus.",
+    "Cannot be used with fields in subforms; intended for use only within form/object method contexts where the focus is meaningful.",
+    "When used with a list box, returns a pointer to the list box or to the specific column of the list box, depending on context."
+  ]
+}

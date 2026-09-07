@@ -1,0 +1,67 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator. Also corrected direction on out-parameters (doc arrow column shows them as command outputs, not inputs) which the mechanical parser had defaulted to 'in'.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "minValue",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Date"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Current minimum value for object"
+        }
+      ],
+      "semanticRole": "The OBJECT GET MINIMUM VALUE command returns, in the minValue variable, the current minimum value of the object(s) designated by the object and * parameters."
+    }
+  ]
+}

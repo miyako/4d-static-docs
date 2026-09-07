@@ -1,0 +1,54 @@
+{
+  "theme": "List-Box",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines that differ only in whether the leading '*' is passed (selecting whether 'object' is an object-name string vs. a form variable reference); merged into one overload with a union-typed object param. Also replaced the mechanical one-line-per-doc-line parsing of the repeating '...(colNum;order)' pair with a proper VariadicGroup, since it's a repeatable (colNum,order) tuple for multi-level sorts, not fixed positional params.",
+      "params": [
+        {
+          "name": "*",
+          "type": {"kind": "literal_symbols", "symbols": ["*"]},
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {"kind": "concrete", "name": "Text"},
+            {"kind": "concrete", "name": "Variable"}
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box."
+        },
+        {
+          "name": "sortCriteria",
+          "members": [
+            {
+              "name": "colNum",
+              "type": {"kind": "concrete", "name": "Integer"},
+              "direction": "in",
+              "optional": false,
+              "description": "Column number whose array values are used as a sort criterion. Any array data type is accepted except pictures and pointers."
+            },
+            {
+              "name": "order",
+              "type": {"kind": "literal_symbols", "symbols": [">", "<"]},
+              "direction": "in",
+              "optional": false,
+              "description": "Sort order for this column: '>' for ascending, '<' for descending."
+            }
+          ],
+          "cardinality": {"min": 1, "max": null},
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Applies a standard (possibly multi-level) sort to the rows of the designated list box, using one or more (column, order) pairs as sort criteria; sort level is defined by pair position in the call."
+    }
+  ],
+  "constraints": [
+    "Columns are synchronized: sorting is automatically applied to all columns of the list box, not just the one(s) used as criteria.",
+    "Does not take the list box's Sortable property into account."
+  ]
+}

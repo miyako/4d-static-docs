@@ -1,0 +1,15 @@
+{
+  "constraints": [
+    "Can only be executed on 4D Server; if called locally on a remote client or in 4D single-user, the command does nothing.",
+    "Returned Object has properties: success (boolean, True if the refresh succeeded), status (number, status code), statusText (text, status description), tips (text, suggestions to resolve an error)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Signature 'Refresh license : Object' has no parameter list, so autoparse's regex (which requires a top-level '(...)') never matched and the returns field was left unset entirely; restored it here as Object per the parameter table's Function result row.",
+      "params": [],
+      "returns": { "kind": "concrete", "name": "Object" },
+      "semanticRole": "Connects to the 4D customer database and activates any new or updated licenses for the current 4D Server license, returning a status object."
+    }
+  ]
+}

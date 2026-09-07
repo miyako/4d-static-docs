@@ -1,0 +1,61 @@
+{
+  "id": "Field",
+  "displayName": "Field",
+  "kind": "classic_command",
+  "theme": "Structure-Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fieldNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Pointer"
+      },
+      "semanticRole": "Returns a pointer to the field designated by its table number and field number.",
+      "discriminatedBy": {
+        "param": "first two positional parameters",
+        "rule": "Two Integer parameters (tableNum, fieldNum) -- forward lookup from numeric identifiers to a field pointer."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "fieldPtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the field number of the field designated by a field pointer.",
+      "discriminatedBy": {
+        "param": "first positional parameter",
+        "rule": "A single Pointer parameter (fieldPtr) -- reverse lookup from a field pointer to its numeric field number."
+      }
+    }
+  ]
+}

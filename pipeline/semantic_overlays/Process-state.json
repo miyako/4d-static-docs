@@ -1,0 +1,23 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Documents the 'state' return-code constants as sentinel values on the returned Integer's meaning (attached here as a constraint since Overload.returns carries no sentinelValues slot) and clarifies the out-of-range sentinel.",
+      "params": [
+        {
+          "name": "process",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Process number"
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Returns the current run state of the given process (one of the documented state constants), or -100 (\"Does not exist\") if process is not a valid process number in the range 1 to Count tasks."
+    }
+  ],
+  "constraints": [
+    "Return value is one of: Does not exist (-100), Aborted (-1), Executing (0), Delayed (1), Waiting for user event (2), Waiting for input output (3), Waiting for internal flag (4), Paused (5).",
+    "If process does not exist (i.e. is not in the range 1 to Count tasks), the command returns Does not exist (-100) rather than raising an error."
+  ]
+}

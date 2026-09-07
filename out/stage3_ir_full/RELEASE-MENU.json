@@ -1,0 +1,26 @@
+{
+  "id": "RELEASE-MENU",
+  "displayName": "RELEASE MENU",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The RELEASE MENU command removes the menu whose ID is passed in menu from memory."
+    }
+  ],
+  "constraints": [
+    "Every menu created via Create menu must eventually be matched by a corresponding RELEASE MENU call.",
+    "Removes every instance of the menu from every menu bar and process; if a menu bar using it is currently in use, the menu keeps working (but can no longer be modified) until that menu bar's last use ends, at which point it is actually freed from memory."
+  ]
+}

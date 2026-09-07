@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Returns an empty string if the field's data is not stored externally, if the field has a Null value, or when called from a remote 4D.",
+    "The returned pathname is given even if the target file does not exist or is not accessible."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "constraints": [
+    "This command does not take manual (only automatic) database restores into account."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Draft blanket-tagged info1/info2 direction:in; the arrow column marks them out (\u2190) -- they are filled in by the command based on selector. Also added selector's sentinelValues (the two documented 'Backup and Restore' theme constants) and a jointConstraints entry describing how selector's value determines the concrete type/meaning of info1 and info2.",
+      "params": [
+        {
+          "name": "selector",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "Last Restore Date -- info1 returns the date and info2 the time of the last automatic database restore." },
+            { "value": 2, "meaning": "Last Restore Status -- info1 returns the status number and info2 the status text of the last automatic database restore." }
+          ],
+          "description": "Type of information to get"
+        },
+        {
+          "name": "info1",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Date" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Value 1 of the selector (Date if selector=0, status-number Integer if selector=2)"
+        },
+        {
+          "name": "info2",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Time" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Value 2 of the selector (Time if selector=0, status-text Text if selector=2)"
+        }
+      ],
+      "semanticRole": "Gets information about the last automatic database restore, with the concrete meaning/type of info1 and info2 selected by selector."
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["selector", "info1", "info2"],
+          "rule": "selector=0 (Last Restore Date) yields info1=Date, info2=Time; selector=2 (Last Restore Status) yields info1=Integer status number, info2=Text status description."
+        }
+      ]
+    }
+  ]
+}

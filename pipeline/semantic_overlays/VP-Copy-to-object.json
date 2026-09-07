@@ -1,0 +1,15 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj is a combined range, only the first range is used.",
+    "options.copy defaults to True (keep the copied values/formatting/formulas after execution); False removes them (i.e. behaves like a cut).",
+    "options.copyOptions selects what is copied via vk clipboard options constants (all, formatting, formulas, formulas and formatting, values, or values and formatting); defaults to vk clipboard options all.",
+    "Workbook paste-options settings are taken into account when copying."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Copies the contents, style, and formulas from a range into a plain object, optionally restricted to specific data categories and optionally removing the copied data afterward (cut semantics)."
+    }
+  ]
+}

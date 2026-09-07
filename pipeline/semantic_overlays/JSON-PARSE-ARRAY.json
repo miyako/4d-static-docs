@@ -1,0 +1,29 @@
+{
+  "constraints": [
+    "jsonString must be well-formed JSON, otherwise a parsing error is generated.",
+    "Starting with 4D 16 R4, this command can usually be replaced by JSON Parse returning a collection, which allows mixed-type data (more flexible than a typed 4D array)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Fixed 'array' direction to 'out' (draft defaulted to 'in'); the parameter table marks it with col2 '\u2190' as the receiving output array.",
+      "params": [
+        {
+          "name": "jsonString",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "JSON string to parse"
+        },
+        {
+          "name": "array",
+          "type": { "kind": "concrete", "name": "Array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Array containing result from parsing of JSON string"
+        }
+      ],
+      "semanticRole": "Deserializes a JSON-formatted string into the elements of a 4D array, whose declared type determines how the values are coerced."
+    }
+  ]
+}

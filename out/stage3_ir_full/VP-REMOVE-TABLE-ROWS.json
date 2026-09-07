@@ -1,0 +1,65 @@
+{
+  "id": "VP-REMOVE-TABLE-ROWS",
+  "displayName": "VP REMOVE TABLE ROWS",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tableName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "row",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "count",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP REMOVE TABLE ROWS command removes one or count row(s) from the specified tableName at the specified row index."
+    }
+  ],
+  "constraints": [
+    "count must be greater than 0.",
+    "Rows are removed from the tableName table, not from the sheet; the sheet's total row count is unaffected.",
+    "Data below the table (if any) is automatically shifted up by the number of removed rows.",
+    "If the tableName table is bound to a data context, the command also removes the corresponding element(s) from the bound collection.",
+    "If tableName does not exist, the command does nothing."
+  ]
+}

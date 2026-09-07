@@ -1,0 +1,37 @@
+{
+  "id": "SET-AUTOMATIC-RELATIONS",
+  "displayName": "SET AUTOMATIC RELATIONS",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "one",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "many",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SET AUTOMATIC RELATIONS temporarily changes all the manual relations into automatic relations for the entire database in the current process."
+    }
+  ],
+  "constraints": [
+    "Change is temporary (applies only for the current process) and persists until a subsequent call to SET AUTOMATIC RELATIONS, not permanently to the Design-environment relation settings.",
+    "one controls all manual Many-to-One relations for the entire database; many controls all manual One-to-Many relations, following the same True=automatic / False=revert-to-manual semantics as one.",
+    "Relations already set as automatic in the Design environment are not affected by this command.",
+    "Passing True 'locks' automatic mode for all manual relations during the session: subsequent calls to SET FIELD RELATION during the same session are ignored, regardless of whether they occur before or after this call."
+  ]
+}

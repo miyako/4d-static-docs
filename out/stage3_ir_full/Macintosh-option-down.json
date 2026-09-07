@@ -1,0 +1,12 @@
+{
+  "id": "Macintosh-option-down",
+  "displayName": "Macintosh option down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Macintosh option down returns TRUE if the Macintosh Option key is pressed.When called on a Windows platform, Macintosh option down returns TRUE if the Windows Alt key is pressed."
+    }
+  ]
+}

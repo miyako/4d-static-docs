@@ -1,0 +1,34 @@
+{
+  "id": "VP-REMOVE-SHEET",
+  "displayName": "VP REMOVE SHEET",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "index",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP REMOVE SHEET command removes the sheet with the specified index from the document loaded in vpAreaName ."
+    }
+  ],
+  "constraints": [
+    "If the passed index does not correspond to an existing sheet, the command does nothing (no error)."
+  ]
+}

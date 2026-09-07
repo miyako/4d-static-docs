@@ -1,0 +1,35 @@
+{
+  "constraints": [
+    "These properties may have been set in the Form editor (Design mode) or previously in the current process via FORM SET HORIZONTAL RESIZING."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "resize, minWidth and maxWidth are all filled by the command (parameter table arrow '\u2190'), so their direction should be 'out', not the syntax-position default of 'in'.",
+      "params": [
+        {
+          "name": "resize",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True if the form can be resized horizontally, False otherwise"
+        },
+        {
+          "name": "minWidth",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Smallest form width allowed, in pixels"
+        },
+        {
+          "name": "maxWidth",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Largest form width allowed, in pixels"
+        }
+      ],
+      "semanticRole": "Returns the current form's horizontal resizing properties (whether resizable, and the allowed min/max width in pixels)."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "WA-Forward-URL-available",
+  "displayName": "WA Forward URL available",
+  "kind": "classic_command",
+  "theme": "Web-Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (Text); if omitted, object is a variable or field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or variable/field (if * is omitted) designating the Web area"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Finds out whether there is a following URL available in the sequence of URLs opened in the designated Web area, so a custom navigation button can be enabled/disabled."
+    }
+  ]
+}

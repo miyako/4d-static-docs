@@ -1,0 +1,55 @@
+{
+  "id": "MEMORY-STATISTICS",
+  "displayName": "MEMORY STATISTICS",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "infoType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Type of requested info (always 1)"
+        },
+        {
+          "name": "arrNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Information titles"
+        },
+        {
+          "name": "arrValues",
+          "type": {
+            "kind": "concrete",
+            "name": "Real array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Information values"
+        },
+        {
+          "name": "arrCount",
+          "type": {
+            "kind": "concrete",
+            "name": "Real array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Number of objects concerned (if available)"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Only one infoType value (1) is currently supported."
+  ]
+}

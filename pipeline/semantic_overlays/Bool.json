@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Coerces an arbitrary expression to a Boolean, returning False for Undefined/Null/non-Boolean-non-zero-safe types and the natural Boolean value otherwise (useful when an expression might evaluate to null or undefined but a Boolean is required)."
+    }
+  ]
+}

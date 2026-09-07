@@ -1,0 +1,68 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "tableName must designate a table previously created with VP CREATE TABLE.",
+    "Table names are defined at sheet level."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area name"
+        },
+        {
+          "name": "tableName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the table to remove"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Additional options",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "vk table remove all: remove the table entirely, including style and data (default)."
+            },
+            {
+              "value": 1,
+              "meaning": "vk table remove style: remove the table's style but keep its data."
+            },
+            {
+              "value": 2,
+              "meaning": "vk table remove data: remove the table's data but keep its style."
+            }
+          ]
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted, indexing starts at 0)"
+        }
+      ]
+    }
+  ]
+}

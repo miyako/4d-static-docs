@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "The command's own \"Description\" section text contains a documented 4D doc bug: it says \"the command changes the page of the current subform\" (copy/pasted from FORM GOTO PAGE), even though this command is a read-only getter (Integer function result). The parameter table's own row (\"Returns number of current subform page\") and the command name/return type are authoritative; the semanticRole below follows those, not the erroneous prose sentence.",
+    "The * parameter is only meaningful when called from within a page-type subform containing several pages: it makes the command report the current subform's own page instead of the parent form's page. When * is omitted, the command always reports the parent form's page."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the number of the currently displayed page of the parent form (or, if the trailing * flag is passed, of the current page-type subform), or of the form loaded via FORM LOAD."
+    }
+  ]
+}

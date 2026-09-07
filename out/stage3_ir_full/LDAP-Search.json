@@ -1,0 +1,66 @@
+{
+  "id": "LDAP-Search",
+  "displayName": "LDAP Search",
+  "kind": "classic_command",
+  "theme": "LDAP",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "dnRootEntry",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "filter",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "scope",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "attributes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "attributesAsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The LDAP Search command searches in the target LDAP server for the first occurrence matching the criteria defined."
+    }
+  ],
+  "constraints": [
+    "Must be executed within a connection to an LDAP server already opened with LDAP LOGIN; otherwise error 1003 is returned.",
+    "scope must be one of the 'LDAP' theme constants (\"base\" default, \"one\", or \"sub\")."
+  ]
+}

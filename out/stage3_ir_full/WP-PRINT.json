@@ -1,0 +1,36 @@
+{
+  "id": "WP-PRINT",
+  "displayName": "WP PRINT",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "printOptions",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WP PRINT command launches a print job for the 4D Write Pro document specified in wpDoc , or adds the document to the current print job if it is called between OPEN PRINTING JOB and CLOSE PRINTING JOB ."
+    }
+  ],
+  "constraints": [
+    "If printOptions is omitted, the default 4D Write Pro layout is used and expressions are recomputed before printing (wk 4D Write Pro layout + wk recompute expressions).",
+    "Page margins always come from the 4D Write Pro document's own page settings, regardless of print settings from 4D PRINT SETTINGS/SET PRINT OPTION.",
+    "If called between OPEN PRINTING JOB and CLOSE PRINTING JOB, the document is added to the current print job instead of launching a new one."
+  ]
+}

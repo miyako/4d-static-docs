@@ -1,0 +1,7 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "If the Web server was not running, the command does nothing.",
+    "Stops all current Web connections and terminates all Web processes."
+  ]
+}

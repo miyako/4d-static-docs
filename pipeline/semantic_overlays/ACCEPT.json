@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Cannot be queued: executing ACCEPT twice in a row in response to one event has the same effect as executing it once.",
+    "In headless mode, only allowed inside offscreen areas created by VP Run offscreen area or WA Run offscreen area."
+  ]
+}

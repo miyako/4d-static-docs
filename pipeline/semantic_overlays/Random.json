@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    "To pick a random integer in an arbitrary range [vStart, vEnd], use the formula (Random % (vEnd-vStart+1)) + vStart."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Signature 'Random : Integer' has no parameter list, so autoparse's regex (which requires a top-level '(...)') never matched and the returns field was left unset entirely; restored it here as Integer per the parameter table's Function result row.",
+      "params": [],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Returns a random integer value between 0 and 32,767 (inclusive)."
+    }
+  ]
+}

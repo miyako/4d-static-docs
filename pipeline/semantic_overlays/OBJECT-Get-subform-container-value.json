@@ -1,0 +1,15 @@
+{
+  "theme": "Objects-Forms",
+  "constraints": [
+    "Only valid in the context of a form used as a subform; in any other context it returns Undefined.",
+    "If the subform container's data source is an expression, returns the expression's current value as evaluated since the last form event cycle.",
+    "If the data source is an array, returns the array index (an integer)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "pseudo", "name": "any", "note": "Type mirrors whatever the parent form's subform-container data source resolves to (scalar value, array index, or Undefined)." },
+      "semanticRole": "Returns the current value of the data source bound to the subform container displayed in the parent form."
+    }
+  ]
+}

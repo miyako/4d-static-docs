@@ -1,0 +1,17 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "Raises an error if the requested deletion would remove all sections or if the document contains only one section.",
+    "Deleting a section also removes everything anchored to it (header, footer, part of the body, anchored pictures, text boxes, and the ending section break), and re-indexes the anchorSection attribute of remaining text boxes/pictures."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Deletes a single already-referenced section object directly (e.g. one previously returned by WP Get section)."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Deletes one or more sections of wpDoc starting at indexNumber, removing count sections (default 1) when count is passed."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "constraints": [
+    "In the context of copy/paste operations, the pasteboard corresponds to the clipboard."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: picture is filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

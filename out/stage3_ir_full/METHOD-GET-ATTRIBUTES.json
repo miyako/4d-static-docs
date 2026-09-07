@@ -1,0 +1,59 @@
+{
+  "id": "METHOD-GET-ATTRIBUTES",
+  "displayName": "METHOD GET ATTRIBUTES",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text array"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Method path(s)"
+        },
+        {
+          "name": "attributes",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object array"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Attribute(s) for selected method(s), as object properties (e.g. \"True\"/\"False\" for Boolean attributes)."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "path and attributes must be the same kind (both scalar Text/Object, or both Text array/Object array); the two syntaxes cannot be mixed."
+  ]
+}

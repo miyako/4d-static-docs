@@ -1,0 +1,22 @@
+{
+  "id": "NEXT-RECORD",
+  "displayName": "NEXT RECORD",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "NEXT RECORD moves the current record pointer to the next record in the current selection of aTable for the current process."
+    }
+  ]
+}

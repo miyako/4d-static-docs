@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Server-only: this command only works with 4D Server, and must be executed via Execute on server or from a stored procedure.",
+    "Closes the current log file, renames it, and creates a new log file with the same name/location as the previous one; intended for setting up a backup system based on a logical mirror."
+  ]
+}

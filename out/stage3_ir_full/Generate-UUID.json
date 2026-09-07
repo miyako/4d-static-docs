@@ -1,0 +1,44 @@
+{
+  "id": "Generate-UUID",
+  "displayName": "Generate UUID",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns a new random UUID using the default version (v4).",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "version",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 4,
+              "meaning": "Default if omitted: fully random UUID."
+            },
+            {
+              "value": 7,
+              "meaning": "Random and timestamp UUID; chronological order matches lexical order."
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns a new UUID generated using the explicitly specified version."
+    }
+  ]
+}

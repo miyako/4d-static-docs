@@ -1,0 +1,27 @@
+{
+  "id": "VP-DELETE-COLUMNS",
+  "displayName": "VP DELETE COLUMNS",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Removes the columns designated by a range object, deleting from right to left."
+    }
+  ],
+  "constraints": [
+    "If rangeObj contains both columns and rows, only the columns are removed.",
+    "If rangeObj contains only rows, the command does nothing.",
+    "Columns are deleted from right to left."
+  ]
+}

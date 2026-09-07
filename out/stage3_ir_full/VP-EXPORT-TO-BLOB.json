@@ -1,0 +1,36 @@
+{
+  "id": "VP-EXPORT-TO-BLOB",
+  "displayName": "VP EXPORT TO BLOB",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "paramObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Asynchronously exports the 4D View Pro document attached to an area into a 4D.Blob according to export options, delivering the resulting blob to a mandatory callback method."
+    }
+  ],
+  "constraints": [
+    "paramObj.formula (a 4D.Function callback) is mandatory; it is invoked when the export completes and receives the area name, the exported 4D.Blob, and a reference object.",
+    "Exporting/importing 4D View Pro areas as blobs is fast and memory-efficient compared to file-based export.",
+    "paramObj supports several Boolean include* options (includeAutoMergedCells, includeBindingSource, includeCalcModelCache, includeEmptyRegionCells, includeFormulas, includeStyles, includeUnusedNames) and saveAsView, each with documented defaults."
+  ]
+}

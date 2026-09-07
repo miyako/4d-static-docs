@@ -1,0 +1,44 @@
+{
+  "id": "POST-KEY",
+  "displayName": "POST KEY",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "code",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "modifiers",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The POST KEY command simulates a keystroke."
+    }
+  ],
+  "constraints": [
+    "modifiers takes one or a combination of the Events (Modifiers) theme constants.",
+    "If process is 0 or omitted, the keystroke is posted at the application level and dispatched by the 4D scheduler to the appropriate process."
+  ]
+}

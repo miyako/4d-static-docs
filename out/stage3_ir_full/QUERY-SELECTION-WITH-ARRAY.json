@@ -1,0 +1,34 @@
+{
+  "id": "QUERY-SELECTION-WITH-ARRAY",
+  "displayName": "QUERY SELECTION WITH ARRAY",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Searches only within the current selection of the table containing targetField for records whose value matches at least one element of array, replacing the current selection with the matches."
+    }
+  ],
+  "constraints": [
+    "Functions identically to QUERY WITH ARRAY except for scope: this command only searches the current selection of the table containing targetField, whereas QUERY WITH ARRAY searches every record of that table."
+  ]
+}

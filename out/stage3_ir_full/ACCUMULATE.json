@@ -1,0 +1,42 @@
+{
+  "id": "ACCUMULATE",
+  "displayName": "ACCUMULATE",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "data",
+          "members": [
+            {
+              "name": "data",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Field"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Variable"
+                }
+              ],
+              "direction": "in",
+              "optional": false,
+              "description": "Numeric field or variable on which to accumulate"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Registers one or more numeric fields/variables to be subtotaled by break level during the next PRINT SELECTION report; must be called (together with BREAK LEVEL) before that report."
+    }
+  ],
+  "constraints": [
+    "Must be executed, together with BREAK LEVEL, before every PRINT SELECTION report for which break/subtotal processing is wanted."
+  ]
+}

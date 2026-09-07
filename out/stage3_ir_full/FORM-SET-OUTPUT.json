@@ -1,0 +1,53 @@
+{
+  "id": "FORM-SET-OUTPUT",
+  "displayName": "FORM SET OUTPUT",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "form",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "userForm",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Designates, for the current process, which form (or user form) is used as the output form of aTable for list display, reporting, and export commands."
+    }
+  ],
+  "constraints": [
+    "form must belong to aTable (or the default table, if aTable is omitted); this command is not compatible with project forms.",
+    "Does not display the form; it only designates which form is printed, displayed as a list, or exported in the current process, until changed or the process ends.",
+    "If the specified form does not exist, the table's default output form (defined in the Explorer) is used instead.",
+    "Used by three groups of commands: list display (DISPLAY SELECTION, MODIFY SELECTION), reporting (PRINT LABEL, PRINT SELECTION), and export (EXPORT DIF, EXPORT SYLK, EXPORT TEXT).",
+    "userForm lets a user form (built via _o_CREATE USER FORM) be designated instead of the plain output form, so several custom user forms can coexist and be switched between."
+  ]
+}

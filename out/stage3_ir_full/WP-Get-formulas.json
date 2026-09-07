@@ -1,0 +1,26 @@
+{
+  "id": "WP-Get-formulas",
+  "displayName": "WP Get formulas",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The WP Get formulas command returns a collection of all formulas defined in targetObj ."
+    }
+  ]
+}

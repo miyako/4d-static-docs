@@ -1,0 +1,47 @@
+{
+  "theme": "XML-DOM",
+  "constraints": [
+    "After the last sibling is reached, the system variable OK is set to 0."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "siblingElemName and siblingElemValue are filled/returned params (docs: '<-' direction); autoparse defaults all params to direction:in. Also adds jointConstraint reflecting the doc syntax's nested optional (siblingElemValue can only be passed together with siblingElemName).",
+      "params": [
+        {
+          "name": "elementRef",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "siblingElemName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the name of the next sibling element"
+        },
+        {
+          "name": "siblingElemValue",
+          "type": { "kind": "pseudo", "name": "any" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the value of the next sibling element"
+        }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Navigates to the next sibling of an XML element, returning its reference and optionally its name and value; sets OK to 0 after the last sibling.",
+      "jointConstraints": [
+        {
+          "params": ["siblingElemName", "siblingElemValue"],
+          "rule": "siblingElemValue can only be passed if siblingElemName is also passed (the syntax nests siblingElemValue inside siblingElemName's optional group)."
+        }
+      ]
+    }
+  ]
+}

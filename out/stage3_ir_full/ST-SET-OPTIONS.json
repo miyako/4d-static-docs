@@ -1,0 +1,95 @@
+{
+  "id": "ST-SET-OPTIONS",
+  "displayName": "ST SET OPTIONS",
+  "kind": "classic_command",
+  "theme": "Styled-Text",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
+        },
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Option to set"
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New value of option"
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "option",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false,
+              "description": "Option to set"
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false,
+              "description": "New value of option"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Sets one or more operating-option values for the designated styled-text field/variable."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "Random",
+  "displayName": "Random",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns a random integer value between 0 and 32,767 (inclusive)."
+    }
+  ],
+  "constraints": [
+    "To pick a random integer in an arbitrary range [vStart, vEnd], use the formula (Random % (vEnd-vStart+1)) + vStart."
+  ]
+}

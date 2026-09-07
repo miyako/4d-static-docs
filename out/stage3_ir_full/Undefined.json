@@ -1,0 +1,32 @@
+{
+  "id": "Undefined",
+  "displayName": "Undefined",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "expression",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Undefined returns True if the result of the evaluation of expression is not a defined value, and False otherwise."
+    }
+  ],
+  "constraints": [
+    "A variable is defined if it was created via a compilation directive or has been assigned a value; it is undefined otherwise. If the database is compiled, Undefined always returns False for variables.",
+    "An object property is undefined if it does not exist in the object.",
+    "Always returns False for field references.",
+    "Undefined($exp) is equivalent to (Value type($exp)=Is undefined); expression is evaluated as part of the call."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the absolute (unsigned) value of number, i.e. number unchanged if positive, or its negation if negative."
+    }
+  ]
+}

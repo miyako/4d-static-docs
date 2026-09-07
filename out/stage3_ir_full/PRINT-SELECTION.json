@@ -1,0 +1,51 @@
+{
+  "id": "PRINT-SELECTION",
+  "displayName": "PRINT SELECTION",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Table for which to print the selection, or the default table if omitted."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Suppress the printing dialog box, using the current print parameters."
+        },
+        {
+          "name": ">",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              ">"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Do not reinitialize the current print parameters (useful across successive calls, e.g. inside a loop)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Does nothing if the current selection of aTable is empty.",
+    "Performs the same action as the Print menu command in the Design environment.",
+    "If the user cancels the Print job dialog box (when not suppressed), the command is canceled and the report is not printed."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Indexing of sheet starts at 0; if sheet is omitted, the current sheet is renamed.",
+    "The new name cannot contain any of the characters: * : [ ] ? \\ /",
+    "The command does nothing if: the new name contains forbidden characters, the new name is blank, the new name already exists, or the passed sheet index does not exist."
+  ]
+}

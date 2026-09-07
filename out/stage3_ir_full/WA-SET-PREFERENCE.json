@@ -1,0 +1,72 @@
+{
+  "id": "WA-SET-PREFERENCE",
+  "displayName": "WA SET PREFERENCE",
+  "kind": "classic_command",
+  "theme": "Web-Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
+        },
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Preference to be modified (a WA... constant from the Web Area theme)."
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Value of the preference (True = allowed, False = not allowed)."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
+    }
+  ],
+  "constraints": [
+    "selector must be one of the WA... preference constants defined in the Web Area theme; value is always a Boolean (True = activate, False = deactivate).",
+    "Passing True for the 'WA enable URL drop' selector is ignored when the Fluent UI rendering theme is used on Windows."
+  ]
+}

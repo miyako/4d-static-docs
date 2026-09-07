@@ -1,0 +1,21 @@
+{
+  "theme": "List-Box",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the current minimum or maximum row height (selector) of the list box, in the unit requested, addressed as an object-name string (via the leading '*' flag). Collection/entity-selection and array list boxes only.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns the current minimum or maximum row height (selector) of the list box, in the unit requested, addressed as a direct Variable reference (no leading '*'). Collection/entity-selection and array list boxes only.",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      }
+    }
+  ]
+}

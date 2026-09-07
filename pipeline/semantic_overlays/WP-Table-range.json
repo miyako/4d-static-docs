@@ -1,0 +1,7 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "Always returns a range of the wk type table, even if targetObj does not itself contain a table.",
+    "targetObj may be a range, an element (body/header/footer/paragraph/section/subsection), or a 4D Write Pro document."
+  ]
+}

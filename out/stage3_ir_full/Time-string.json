@@ -1,0 +1,35 @@
+{
+  "id": "Time-string",
+  "displayName": "Time string",
+  "kind": "classic_command",
+  "theme": "Date and Time",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "seconds",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Time string command returns the string form of the time expression you pass in seconds ."
+    }
+  ],
+  "constraints": [
+    "Returned string is in HH:MM:SS 24-hour format; if seconds exceeds a day's worth (86,400), the hours component keeps incrementing beyond 23 (e.g. Time string(86401) returns '24:00:01') rather than wrapping."
+  ]
+}

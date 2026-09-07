@@ -1,0 +1,23 @@
+{
+  "theme": "WritePro",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {"kind": "concrete", "name": "Object"},
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrBKNames",
+          "type": {"kind": "concrete", "name": "Array"},
+          "direction": "out",
+          "optional": false
+        }
+      ],
+      "note": "autoparse defaulted arrBKNames to direction:in; the parameter table marks it '\u2190' (out) -- it is filled by the command with bookmark names, sorted by position then alphabetically."
+    }
+  ]
+}

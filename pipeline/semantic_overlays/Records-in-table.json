@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Distinct from Records in selection, which returns the count of only the current selection.",
+    "If called within a transaction, records created during that transaction are included in the count."
+  ]
+}

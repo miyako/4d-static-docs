@@ -1,0 +1,16 @@
+{
+  "id": "Last-table-number",
+  "displayName": "Last table number",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the highest table number among the tables in the database (tables are numbered in creation order)."
+    }
+  ]
+}

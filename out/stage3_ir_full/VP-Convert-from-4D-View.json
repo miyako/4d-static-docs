@@ -1,0 +1,29 @@
+{
+  "id": "VP-Convert-from-4D-View",
+  "displayName": "VP Convert from 4D View",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "4DViewDocument",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Converts a legacy 4D View document (BLOB) into a 4D View Pro object, migrating all information to 4D View Pro attributes."
+    }
+  ],
+  "constraints": [
+    "Does not require the legacy 4D View plug-in to be installed."
+  ]
+}

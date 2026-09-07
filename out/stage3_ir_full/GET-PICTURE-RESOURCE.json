@@ -1,0 +1,51 @@
+{
+  "id": "GET-PICTURE-RESOURCE",
+  "displayName": "GET PICTURE RESOURCE",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resData",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "inout",
+          "optional": false,
+          "description": "Picture field or variable to receive the picture; filled with the contents of the 'PICT' resource."
+        },
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Resource file reference number to restrict the search to; if omitted, all open resource files are searched."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If the resource is not found, resData is left unchanged and the OK system variable is set to 0.",
+    "If resFile is omitted, the first matching resource found across the chain of open resource files is returned; otherwise only that file is searched."
+  ]
+}

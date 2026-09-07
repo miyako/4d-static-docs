@@ -1,0 +1,59 @@
+{
+  "id": "GET-FIELD-RELATION",
+  "displayName": "GET FIELD RELATION",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "manyField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Starting (many-side) field of the relation"
+        },
+        {
+          "name": "one",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Automatic/manual status of the Many-to-One relation"
+        },
+        {
+          "name": "many",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Automatic/manual status of the One-to-Many relation"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, forces reading the current status of the relation, restricting one/many to values 2 or 3 only; if omitted, one/many may also return 1 (unmodified structure-configured status)"
+        }
+      ],
+      "semanticRole": "Reports, in one and many, the automatic/manual status of the many-to-one and one-to-many relations originating from manyField for the current process."
+    }
+  ],
+  "constraints": [
+    "If no relation originates from manyField, both one and many return 0, a syntax error (No. 16) is generated, and the OK system variable is set to 0.",
+    "Compare the returned one/many values against the Relations theme constants: No relation=0, Structure configuration=1, Manual=2, Automatic=3."
+  ]
+}

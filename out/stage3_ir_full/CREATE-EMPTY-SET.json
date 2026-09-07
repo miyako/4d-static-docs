@@ -1,0 +1,36 @@
+{
+  "id": "CREATE-EMPTY-SET",
+  "displayName": "CREATE EMPTY SET",
+  "kind": "classic_command",
+  "theme": "Sets",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Creates (or clears, if it already exists) a new empty set for a table, ready to be populated via ADD TO SET."
+    }
+  ],
+  "constraints": [
+    "The default table for the process is used when aTable is omitted.",
+    "If a set with the same name already exists, it is cleared/replaced by the new empty set.",
+    "CREATE SET already implicitly creates the set it targets, so calling CREATE EMPTY SET first is unnecessary before CREATE SET."
+  ]
+}

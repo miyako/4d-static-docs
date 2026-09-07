@@ -1,0 +1,42 @@
+{
+  "id": "USE-CHARACTER-SET",
+  "displayName": "USE CHARACTER SET",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "map",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "mapInOut",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "USE CHARACTER SET modifies the character set used by 4D during data transfer between the database and a document or a serial port for the current process."
+    }
+  ],
+  "constraints": [
+    "map must be the IANA name of the character set (or a recognized alias), e.g. \"iso-8859-1\"/\"latin1\" or \"utf-8\"; passing the literal * resets the map to the default character set (UTF-8) instead.",
+    "mapInOut selects which transfer direction the map applies to: 0 (or omitted) = export/output map, 1 = import/input map.",
+    "Only affects text/DIF/SYLK import-export and text-type SEND PACKET/RECEIVE PACKET/RECEIVE BUFFER transfers; has no effect on SEND RECORD, SEND VARIABLE, RECEIVE RECORD, RECEIVE VARIABLE, or BLOB-type packet transfers."
+  ]
+}

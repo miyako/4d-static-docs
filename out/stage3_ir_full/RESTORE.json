@@ -1,0 +1,46 @@
+{
+  "id": "RESTORE",
+  "displayName": "RESTORE",
+  "kind": "classic_command",
+  "theme": "Backup",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "archivePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "destFolderPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The RESTORE command can be used to restore the file(s) included in a 4D archive.",
+      "jointConstraints": [
+        {
+          "params": [
+            "archivePath",
+            "destFolderPath"
+          ],
+          "rule": "destFolderPath is only meaningful when archivePath is also passed; passing destFolderPath suppresses the destination-folder chooser step of the restore dialog."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If archivePath is omitted, an open-file dialog box lets the user select the archive to restore.",
+    "archivePath/destFolderPath must be expressed with system syntax (absolute, or relative to the database structure file).",
+    "If destFolderPath is omitted (but archivePath given), the standard restore dialog appears with the archive pre-selected so the user can choose the destination folder; if destFolderPath is also passed, a preconfigured dialog appears where the user can only launch or cancel.",
+    "Sets the OK and Document system variables: OK=1 and Document set to the restore folder pathname on success; OK=0 otherwise."
+  ]
+}

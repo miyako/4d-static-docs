@@ -1,0 +1,29 @@
+{
+  "id": "Int",
+  "displayName": "Int",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "number",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Returns the integer portion of number by truncation (not rounding)."
+    }
+  ],
+  "constraints": [
+    "Truncates toward zero rather than flooring: a negative number is truncated away from zero (e.g. Int(-3.7) returns -3, not -4)."
+  ]
+}

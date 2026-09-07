@@ -1,0 +1,41 @@
+{
+  "id": "VP-Copy-to-object",
+  "displayName": "VP Copy to object",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Copies the contents, style, and formulas from a range into a plain object, optionally restricted to specific data categories and optionally removing the copied data afterward (cut semantics)."
+    }
+  ],
+  "constraints": [
+    "If rangeObj is a combined range, only the first range is used.",
+    "options.copy defaults to True (keep the copied values/formatting/formulas after execution); False removes them (i.e. behaves like a cut).",
+    "options.copyOptions selects what is copied via vk clipboard options constants (all, formatting, formulas, formulas and formatting, values, or values and formatting); defaults to vk clipboard options all.",
+    "Workbook paste-options settings are taken into account when copying."
+  ]
+}

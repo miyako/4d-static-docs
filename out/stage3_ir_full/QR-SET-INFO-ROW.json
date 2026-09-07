@@ -1,0 +1,57 @@
+{
+  "id": "QR-SET-INFO-ROW",
+  "displayName": "QR SET INFO ROW",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "row",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Row designator: a positive subtotal (break) level, or a negative constant designating a special report area",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "qr title -- title area of the report"
+            },
+            {
+              "value": -2,
+              "meaning": "qr detail -- detail area of the report"
+            },
+            {
+              "value": -3,
+              "meaning": "qr grand total -- grand total area"
+            }
+          ]
+        },
+        {
+          "name": "hide",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "0 = row shown, 1 = row hidden"
+        }
+      ],
+      "semanticRole": "Shows or hides the given row (or special report area) of the report."
+    }
+  ]
+}

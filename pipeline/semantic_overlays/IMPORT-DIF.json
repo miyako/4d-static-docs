@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "By default this command decodes the document using UTF-8; since DIF documents generally use the IBM437 character set, USE CHARACTER SET may need to be called first to set the correct charset.",
+    "Field/variable assignment is positional by front-to-back layering order of objects on the current input form, not by name; the input form must contain no buttons, and subform objects are ignored.",
+    "Default field/record delimiters (tab / carriage return) come from the FldDelimit/RecDelimit system variables and can be reassigned before the call."
+  ]
+}

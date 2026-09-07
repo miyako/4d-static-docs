@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Only meaningful with these form object types: input (enterable or non-enterable listbox), and combo box; with any other object type it always returns False.",
+    "Cannot be used with 4D Write Pro or 4D View Pro areas.",
+    "Intended for use inside code triggered by the On Before Keystroke form event, to distinguish actual text entry from shortcut-key handling (e.g. listbox scrolling)."
+  ]
+}

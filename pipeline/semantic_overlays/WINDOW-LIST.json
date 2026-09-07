@@ -1,0 +1,28 @@
+{
+  "constraints": [
+    "Only visible (non-hidden) windows across all running processes (kernel or user) are returned."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Autoparse defaulted windows to direction 'in', but the parameterTable arrow (\u2190) shows it is filled in by the command (out), not supplied by the caller.",
+      "params": [
+        {
+          "name": "windows",
+          "type": { "kind": "concrete", "name": "Array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the window reference numbers of the currently open, visible windows"
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, floating windows are included in windows; if omitted, floating windows are ignored"
+        }
+      ],
+      "semanticRole": "Fills windows with the reference numbers of all currently open, visible windows across all running processes, optionally including floating windows."
+    }
+  ]
+}

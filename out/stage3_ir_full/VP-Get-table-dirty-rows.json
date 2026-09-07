@@ -1,0 +1,66 @@
+{
+  "id": "VP-Get-table-dirty-rows",
+  "displayName": "VP Get table dirty rows",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tableName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "reset",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Same as omitting the parameter: applies to the current sheet."
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Returns a collection of dirty-row objects describing rows of tableName modified since the last reset, and by default clears that dirty status."
+    }
+  ],
+  "constraints": [
+    "Only modified columns bound to a data context are taken into account.",
+    "reset defaults to True: calling the command clears the dirty status of tableName unless False is passed.",
+    "sheet is 0-based; if omitted or -1 is passed, the command applies to the current sheet.",
+    "Returns an empty collection if tableName is not found or has no modified column.",
+    "Each returned dirty-row object has item (modified object), originalItem (object before modification), and row (0-based modified row index)."
+  ]
+}

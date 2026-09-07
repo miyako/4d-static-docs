@@ -1,0 +1,49 @@
+{
+  "id": "OBJECT-Get-data-source-formula",
+  "displayName": "OBJECT Get data source formula",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is specified) orField or variable (if * is omitted)"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Formula"
+      },
+      "semanticRole": "The OBJECT Get data source formula command returns the formula (if any) associated object(s) designated by the object and * parameters."
+    }
+  ]
+}

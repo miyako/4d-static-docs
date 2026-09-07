@@ -1,0 +1,12 @@
+{
+  "id": "In-break",
+  "displayName": "In break",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "In break returns True for the In break execution cycle."
+    }
+  ]
+}

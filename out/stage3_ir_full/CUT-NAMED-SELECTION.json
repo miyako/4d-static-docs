@@ -1,0 +1,37 @@
+{
+  "id": "CUT-NAMED-SELECTION",
+  "displayName": "CUT NAMED SELECTION",
+  "kind": "classic_command",
+  "theme": "Named Selections",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Moves (rather than copies) a table's current selection into a new named selection, leaving the table's current selection empty afterward."
+    }
+  ],
+  "constraints": [
+    "The default table for the process is used when aTable is omitted.",
+    "Unlike COPY NAMED SELECTION, this moves the current selection reference rather than duplicating it: after the call, the table's current selection in the current process becomes empty.",
+    "Should not be used while a record is being modified (since the current selection is emptied out from under it).",
+    "More memory-efficient than COPY NAMED SELECTION, since only the reference to the list is moved rather than 4 bytes per record being duplicated."
+  ]
+}

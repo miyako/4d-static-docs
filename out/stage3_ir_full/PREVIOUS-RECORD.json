@@ -1,0 +1,26 @@
+{
+  "id": "PREVIOUS-RECORD",
+  "displayName": "PREVIOUS RECORD",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "PREVIOUS RECORD moves the current record pointer to the previous record in the current selection of aTable for the current process."
+    }
+  ],
+  "constraints": [
+    "No effect if the current selection is empty, or if the record pointer is already before/at end of selection (Before selection or End selection is True).",
+    "If moving before the current selection, End selection returns True and there is no current record; use FIRST RECORD, LAST RECORD or GOTO SELECTED RECORD to move back into the selection."
+  ]
+}

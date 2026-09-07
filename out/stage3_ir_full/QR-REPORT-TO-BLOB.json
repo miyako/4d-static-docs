@@ -1,0 +1,33 @@
+{
+  "id": "QR-REPORT-TO-BLOB",
+  "displayName": "QR REPORT TO BLOB",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the report generated from the area (in the area's current QR SET DESTINATION output type)."
+        }
+      ],
+      "semanticRole": "Renders the report of the designated Quick Report area and places it into a BLOB (variable or field) instead of printing/writing it to a document."
+    }
+  ]
+}

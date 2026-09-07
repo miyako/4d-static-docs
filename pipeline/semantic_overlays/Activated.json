@@ -1,0 +1,14 @@
+{
+  "theme": "Form-Events",
+  "deprecated": true,
+  "constraints": [
+    "Equivalent to testing whether Form event code returns On Activate.",
+    "Do not place TRACE or ALERT in the Activated phase of a form -- this causes an endless loop."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns True in a form method when the window containing the form becomes the frontmost window of the frontmost process (the On Activate form event); obsolete, superseded by Form event code."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "theme": "System-Documents",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Populates an array with the names (or paths) of documents present at a given folder/volume location, with options controlling path format and recursion."
+    }
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "documents is a filled/returned array (docs: 'Names of the documents present at this location'); autoparse defaults all params to direction:in.",
+      "params": [
+        {
+          "name": "pathname",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Absolute pathname to volume, directory, or folder"
+        },
+        {
+          "name": "documents",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the names (or paths, depending on options) of documents found; empty array if none found"
+        },
+        {
+          "name": "options",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Bit-combinable constants from the System Documents theme: Recursive parsing=1, Absolute path=2, Posix path=4, Ignore invisible=8; defaults to plain document names only when omitted"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "In relative mode with Recursive parsing (option 1 only), subfolder document paths begin with ':' (macOS) or '\\' (Windows).",
+    "In relative mode with Posix path (option 4 only), paths do not start with '/'; in absolute mode with Posix path (option 4 + 2), paths always begin with '/'.",
+    "An invalid pathname generates a file manager error, interceptable via ON ERR CALL."
+  ]
+}

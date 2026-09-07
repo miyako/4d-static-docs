@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "variable may only refer to a process variable or a 4D method argument ($0 to $n); local and interprocess variables cannot be used.",
+    "This command does not support blob objects (4D.Blob type) as the declared variable's value.",
+    "In input_output, pass 1 (SOAP input) for a value received by the method, or 2 (SOAP output) for a value returned by the method.",
+    "If alias is omitted, 4D uses the variable's name (or FourD_argN for method arguments $0-$n) as the published name by default.",
+    "alias must be unique across all input and output parameters declared for the same RPC call; if it is not, only the last declaration with that alias is taken into account.",
+    "alias must not begin with a number or contain spaces, and extended/accented characters are discouraged.",
+    "This command must be called from within the method published as the Web Service itself; it cannot be called from another method.",
+    "Incoming SOAP arguments referred to via 4D variables (rather than method arguments) must first be declared in the COMPILER_WEB project method."
+  ]
+}

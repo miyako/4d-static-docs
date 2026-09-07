@@ -1,0 +1,30 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Documented default of howMany (1 element) captured as a sentinel/description rather than left implicit, and array marked inout since it is mutated (shrunk) in place.",
+      "params": [
+        {
+          "name": "array",
+          "type": { "kind": "concrete", "name": "Array" },
+          "direction": "inout",
+          "optional": false,
+          "description": "Array to shrink; mutated in place."
+        },
+        {
+          "name": "where",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "howMany",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of consecutive elements to delete starting at where; the array shrinks by this amount. If omitted, exactly 1 element is deleted."
+        }
+      ]
+    }
+  ]
+}

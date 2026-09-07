@@ -1,0 +1,29 @@
+{
+  "theme": "XML-SAX",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Adds a new element, optionally passing one or more attribute-name/attribute-value pairs as parallel arrays (attribNamesArray a Text array, attribValuesArray a typed Array of text/date/number/boolean/picture elements).",
+      "discriminatedBy": {
+        "param": "attribValuesArray",
+        "rule": "Trailing repeat-group members are arrays (Text array / typed Array) -- the array-based syntax."
+      },
+      "staticallyDistinguishable": true
+    },
+    {
+      "index": 1,
+      "semanticRole": "Documented as the '*'-suffixed variant of this command: adds a new element passing a single scalar attribName/attribValue Text pair, identical in effect to SAX OPEN XML ELEMENT's own pair syntax rather than to the array-based form.",
+      "discriminatedBy": {
+        "param": "attribValuesArray",
+        "rule": "Trailing repeat-group members are scalar Text values, not arrays -- selects the non-array (single pair) syntax."
+      },
+      "staticallyDistinguishable": true
+    }
+  ],
+  "constraints": [
+    "Identical to SAX OPEN XML ELEMENT except for array support; see that command for tag naming rules and element-closing behavior.",
+    "attribValuesArray accepts arrays of text, date, number, Boolean, or picture type; 4D performs the necessary conversions automatically, configurable via XML SET OPTIONS.",
+    "The attribNamesArray/attribValuesArray arrays must be created beforehand and operate as attribute/attribute-value pairs; as many pairs of arrays (and items per pair) as desired may be passed.",
+    "Reference lifecycle (implied convention, not syntactically enforced): SAX write document lifecycle: SAX OPEN XML ELEMENT (or the ARRAYS variant) opens an element -> SAX ADD XML ELEMENT VALUE adds its content while it remains open -> SAX CLOSE XML ELEMENT closes the most recently opened element (or the document itself is closed, which auto-closes any still-open elements)."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "QR-New-offscreen-area",
+  "displayName": "QR New offscreen area",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The QR New offscreen area command creates a new Quick Report offscreen area and returns its reference."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "constraints": [
+    "References to lists are exported by name instead of a JSON pointer into lists.json; references to named filters/display formats (the '|' prefix) are exported by value instead of a pointer into filters.json.",
+    "Pictures from the picture library are not exported: converted objects keep referencing the library via a special \"pictlib:xx\" icon URL; static pictures are converted as picture-type object properties.",
+    "Deprecated objects and unsupported object/properties are ignored during conversion.",
+    "For a table form, pass the form's table in aTable and the form name in formName; for a project form, omit aTable and pass the form name directly.",
+    "The resulting object is intended to be passed directly to the DIALOG command to run the form."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Converts a classic (binary, structure-file-stored) form into a dynamic form object, applying documented reference/export rules so the result can be run directly via DIALOG."
+    }
+  ]
+}

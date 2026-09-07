@@ -1,0 +1,54 @@
+{
+  "id": "VP-Get-table-theme",
+  "displayName": "VP Get table theme",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tableName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Same as omitting the parameter: applies to the current sheet."
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "cs.ViewPro.TableTheme"
+      },
+      "semanticRole": "Returns the current theme property values of tableName as a cs.ViewPro.TableTheme object."
+    }
+  ],
+  "constraints": [
+    "sheet is 0-based; if omitted or -1 is passed, the command applies to the current sheet.",
+    "A table theme can be set via VP CREATE TABLE, VP SET TABLE THEME, or the interface."
+  ]
+}

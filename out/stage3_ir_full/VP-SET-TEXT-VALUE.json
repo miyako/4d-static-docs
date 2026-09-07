@@ -1,0 +1,43 @@
+{
+  "id": "VP-SET-TEXT-VALUE",
+  "displayName": "VP SET TEXT VALUE",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "textValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formatPattern",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP SET TEXT VALUE command assigns a specified text value to a designated cell range."
+    }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple cells, textValue is repeated in every cell."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "RELATE-ONE-SELECTION",
+  "displayName": "RELATE ONE SELECTION",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "manyTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "oneTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The RELATE ONE SELECTION command creates a new selection of records for the table oneTable , based on the selection of records in the table manyTable and loads the first record of the new selection as the current record."
+    }
+  ],
+  "constraints": [
+    "Requires an existing relation path from manyTable to oneTable; the path can span several intermediate related tables and can be manual or automatic (automatic relations are preferred whenever both exist)."
+  ]
+}

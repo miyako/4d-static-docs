@@ -1,0 +1,20 @@
+{
+  "id": "Storage",
+  "displayName": "Storage",
+  "kind": "classic_command",
+  "theme": "Objects (Language)",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns the catalog of shared objects and shared collections registered in the Storage object of the current machine or component."
+    }
+  ],
+  "constraints": [
+    "There is one Storage catalog per machine and per component; the returned object is itself a shared object and can only contain shared objects and shared collections.",
+    "Adding a property to the returned object must be surrounded by Use...End use; reading an attribute outside of Use...End use is possible, but writing without it raises an error."
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "GET-LIST-PROPERTIES",
+  "displayName": "GET LIST PROPERTIES",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "appearance",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Hierarchical list a la Macintosh"
+            },
+            {
+              "value": 2,
+              "meaning": "Hierarchical list a la Windows"
+            }
+          ]
+        },
+        {
+          "name": "icon",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Deprecated; always returns 0."
+        },
+        {
+          "name": "lineHeight",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Minimal line height, expressed in pixels."
+        },
+        {
+          "name": "doubleClick",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "double-click expands/collapses a parent item's sublist (default)"
+            },
+            {
+              "value": 1,
+              "meaning": "double-click does not expand/collapse a parent item's sublist"
+            }
+          ]
+        },
+        {
+          "name": "multiSelections",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "multiple item selection is not allowed"
+            },
+            {
+              "value": 1,
+              "meaning": "multiple item selection is allowed"
+            }
+          ]
+        },
+        {
+          "name": "editable",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "the list is not editable as a choice list in a record"
+            },
+            {
+              "value": 1,
+              "meaning": "the list is editable as a choice list in a record"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

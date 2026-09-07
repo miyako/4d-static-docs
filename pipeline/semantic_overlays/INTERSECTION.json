@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "set1 and set2 must belong to the same table; resultSet is created on that same table.",
+    "resultSet replaces any existing set of the same name, including the case where resultSet has the same name as set1 or set2.",
+    "resultSet retains a current record only if the same record was the current record in both set1 and set2; otherwise it has no current record.",
+    "In Client/Server, all three sets must be visible on the same machine (visibility depends on set type -- interprocess/process/local -- and where each was created)."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "Current-time",
+  "displayName": "Current time",
+  "kind": "classic_command",
+  "theme": "Date-and-Time",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed on a 4D Client machine (4D Server context), returns the current time from the server instead of the local machine's clock."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Time"
+      },
+      "semanticRole": "The Current time command returns the current time from the system clock."
+    }
+  ],
+  "constraints": [
+    "The returned time is always between 00:00:00 and 23:59:59.",
+    "Use String or Time string to obtain the string form of the returned time expression."
+  ]
+}

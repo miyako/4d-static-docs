@@ -1,0 +1,36 @@
+{
+  "id": "SET-DEFAULT-CENTURY",
+  "displayName": "SET DEFAULT CENTURY",
+  "kind": "classic_command",
+  "theme": "Date and Time",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "century",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pivotYear",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET DEFAULT CENTURY command specifies the default century and the pivot year used by 4D when you enter a date with only two digits for the year."
+    }
+  ],
+  "constraints": [
+    "century is the century value minus one (e.g. pass 20 to switch to the 21st century).",
+    "Default (if never called): century 20 (20th century) with pivotYear 30.",
+    "pivotYear rule: if the two-digit year is >= pivotYear, 4D uses the current default century; if it is < pivotYear, 4D uses the next century."
+  ]
+}

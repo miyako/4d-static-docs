@@ -1,0 +1,29 @@
+{
+  "constraints": [
+    "In compiled mode the destination array must already be of the same type as the source array (behavior is only guaranteed to match interpreted mode when types match).",
+    "Copying object/collection arrays duplicates only references, not the underlying objects/collections; use OB Copy to duplicate the objects themselves."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "destination is overwritten by the command (documented as 'creates or overwrites'); corrected direction from 'in' to 'out'.",
+      "params": [
+        {
+          "name": "source",
+          "type": { "kind": "concrete", "name": "Array" },
+          "direction": "in",
+          "optional": false,
+          "description": "Array from which to copy"
+        },
+        {
+          "name": "destination",
+          "type": { "kind": "concrete", "name": "Array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Array to which to copy (created or overwritten with source's contents, size, and type)"
+        }
+      ],
+      "semanticRole": "Creates or overwrites the destination array with an exact copy of the source array's contents, size, and type."
+    }
+  ]
+}

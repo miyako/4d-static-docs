@@ -1,0 +1,15 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ],
+  "constraints": [
+    "Meaningful only when called from within a trigger; the return value denotes the database event that invoked the trigger: 0 outside any trigger execution cycle, 1 On Saving New Record Event, 2 On Saving Existing Record Event, 3 On Deleting Record Event.",
+    "Same event-code numbering as the dbEvent output parameter of TRIGGER PROPERTIES."
+  ]
+}

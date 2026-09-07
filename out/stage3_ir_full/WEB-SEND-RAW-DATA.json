@@ -1,0 +1,38 @@
+{
+  "id": "WEB-SEND-RAW-DATA",
+  "displayName": "WEB SEND RAW DATA",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WEB SEND RAW DATA command lets the 4D Web server send \u201craw\u201d HTTP data, which can be chunked."
+    }
+  ],
+  "constraints": [
+    "Passing the optional '*' parameter marks the response as chunked (adds 'transfer-encoding: chunked' to the header if necessary); all subsequent WEB SEND RAW DATA calls in the same method become additional chunks of that same response until the method finishes executing.",
+    "data must contain both the HTTP header and body parts of the response; 4D performs a basic validity check and will complete/fix an incomplete header or request before sending.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Chunked raw response: WEB SEND RAW DATA (data; *) starts a chunked response with a header -> subsequent WEB SEND RAW DATA calls in the same method (with or without '*') are treated as additional body chunks of that response -> the server ends the chunked send when the method terminates."
+  ]
+}

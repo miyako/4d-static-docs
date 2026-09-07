@@ -1,0 +1,21 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Throws an error immediately, identified by a numeric error code and an optional description text.",
+      "discriminatedBy": {"param": "errorCode", "note": "first arg is a numeric Integer error code"}
+    },
+    {
+      "index": 1,
+      "semanticRole": "Given an errorObj, throws a fully-described (optionally deferred) error built from its properties; called with no argument at all, instead throws (in deferred mode) every error currently queued for the calling method/Try block.",
+      "discriminatedBy": {"param": "errorObj", "note": "single optional Object arg; omitting it entirely switches to the zero-arg 'flush the deferred error stack' behavior rather than throwing a new error"}
+    }
+  ],
+  "constraints": [
+    "If description is omitted in the errorCode form, it defaults to 'Error code errorCode: (host)' in the host application, or 'Error code errorCode: (C00x)' in a component.",
+    "errorObj properties: componentSignature (Text, 4-letter source signature; defaults to 'host' for the host database or 'C001', 'C002', ... for components), errCode (Number; defaults to -1), message (Text; may contain {propertyName} placeholders substituted from custom properties on errorObj; if omitted/empty, 4D looks up a description in the database's xliff files under resname 'ERR_{componentSignature}_{errCode}'), deferred (Boolean, default false; when true, the error is deferred until the current method/Try block ends), plus any custom properties referenced by message placeholders.",
+    "Errors thrown via throw are handled like any normal 4D error: the standard error dialog appears unless an interception method is installed via ON ERR CALL.",
+    "throw can be called multiple times in the same method to queue several errors, typically combined with deferred:true, then flushed together via the zero-argument call.",
+    "The zero-argument call is typically made from within an ON ERR CALL callback; queued errors are exposed via the Last errors command, and in a component the error stack can be relayed to the host application's ON ERR CALL."
+  ]
+}

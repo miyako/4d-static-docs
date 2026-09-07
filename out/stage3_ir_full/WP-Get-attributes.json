@@ -1,0 +1,81 @@
+{
+  "id": "WP-Get-attributes",
+  "displayName": "WP Get attributes",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attribValue",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "out",
+              "optional": true
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Gets one attribute's value by name; optionally also fills the caller-supplied attribValue variable with that value in the same call."
+    },
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribColl",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Gets the values of multiple named attributes at once by passing a collection of attribute names in attribColl, returned as an object keyed by attribute name."
+    }
+  ]
+}

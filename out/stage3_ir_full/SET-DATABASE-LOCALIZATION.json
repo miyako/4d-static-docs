@@ -1,0 +1,37 @@
+{
+  "id": "SET-DATABASE-LOCALIZATION",
+  "displayName": "SET DATABASE LOCALIZATION",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "languageCode",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "By default (omitted), the command applies to all open databases and components, for all processes. If passed, the command applies only to the database that called it (useful to set the language of a component separately from the host database)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "languageCode uses the standard specified by RFC 3066, ISO 639, and ISO 3166 (e.g. \"fr\", \"es\", \"en-us\").",
+    "Does not affect forms already loaded; only elements displayed after the call take the new language into account."
+  ]
+}

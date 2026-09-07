@@ -1,0 +1,26 @@
+{
+  "constraints": [
+    "The JPEG, PNG, TIFF, GIF, BMP, SVG, PDF, and EMF codecs (handled internally by 4D) are always returned as extensions; 4-character QuickTime codes may appear only when the deprecated QuickTime support compatibility option is enabled."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: codecIDs is filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "codecIDs",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "IDs of all formats/codecs embedded in the picture, returned as file extensions (e.g. \".gif\"), MIME types (e.g. \"image/jpeg\"), or 4-character QuickTime codes."
+        }
+      ]
+    }
+  ]
+}

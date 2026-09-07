@@ -1,0 +1,89 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "variableFrame",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "True = Variable frame printing, False = Fixed frame printing"
+        },
+        {
+          "name": "fixedSubform",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Options for printing subforms in fixed size",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Print Frame fixed with truncation -- only records that fit in the subform's area are printed once; overflow records are ignored"
+            },
+            {
+              "value": 2,
+              "meaning": "Print Frame fixed with multiple records -- the frame stays the same size but the form is printed multiple times to include all records"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets the Print Variable Frame property (and, only for subforms in fixed-frame mode, the fixed-frame printing option) of the object(s) designated by object and *.",
+      "jointConstraints": [
+        {
+          "params": [
+            "fixedSubform",
+            "variableFrame"
+          ],
+          "rule": "fixedSubform is only used when variableFrame is False and object is a subform; it is ignored in every other case."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Has no effect if applied to an object that does not support the Print Variable Frame property (Text/Picture fields and variables, 4D Write Pro areas, and subforms)."
+  ]
+}

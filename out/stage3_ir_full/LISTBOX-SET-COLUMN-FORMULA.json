@@ -1,0 +1,65 @@
+{
+  "id": "LISTBOX-SET-COLUMN-FORMULA",
+  "displayName": "LISTBOX SET COLUMN FORMULA",
+  "kind": "classic_command",
+  "theme": "List Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
+        },
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D formula (instruction, Formula-editor formula, command call, or project method call) to associate with the column."
+        },
+        {
+          "name": "dataType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Type of the value produced by evaluating formula."
+        }
+      ],
+      "semanticRole": "Changes the formula associated with the designated list box column."
+    }
+  ],
+  "constraints": [
+    "Formula-driven columns require the list box's Data Source to be Current Selection, Named Selection, or Collection or Entity Selection.",
+    "object must designate a list box column."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "Has no effect if the current selection of aTable is empty; after deletion the current selection becomes empty.",
+    "Permanent and cannot be undone.",
+    "Records deleted during a transaction are locked to other users/processes until the transaction is validated or canceled.",
+    "Unchecking 'Records definitively deleted' for the table (in the Inspector) speeds up deletions performed by this command."
+  ]
+}

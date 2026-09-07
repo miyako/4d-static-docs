@@ -1,0 +1,22 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["what", "message"],
+          "rule": "If what designates a mouse-related event (Mouse down/Mouse up), message must be 0 (zero); if what designates a keyboard-related event (Key down/Key up/Auto key), message must hold the code of the simulated character."
+        },
+        {
+          "params": ["what", "mouseX", "mouseY"],
+          "rule": "mouseX/mouseY only carry meaningful click coordinates when what is a mouse-related event."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "when is normally the value returned by Tickcount.",
+    "modifiers takes one or a combination of the Events (Modifiers) theme constants.",
+    "If process is 0 or omitted, the event is posted at the application level and dispatched by the 4D scheduler to the appropriate process."
+  ]
+}

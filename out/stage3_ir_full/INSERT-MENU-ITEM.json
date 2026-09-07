@@ -1,0 +1,90 @@
+{
+  "id": "INSERT-MENU-ITEM",
+  "displayName": "INSERT MENU ITEM",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "afterItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "subMenu",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The INSERT MENU ITEM command inserts new menu items into the menu whose number or reference is passed in menu after the existing menu item whose number is passed in afterItem .",
+      "jointConstraints": [
+        {
+          "params": [
+            "menu",
+            "process"
+          ],
+          "rule": "If menu is passed as a MenuRef (Text), process is ignored (the menu reference already identifies which menu bar/process the item belongs to); process only matters when menu is a plain Integer menu number."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Without the trailing *, several menu items can be inserted in a single call the same way APPEND MENU ITEM does; see that command's description of itemText and the * parameter for the shared item-definition syntax.",
+    "If subMenu is passed and the call inserts more than one menu item, the submenu is attached only to the first inserted item.",
+    "Newly inserted items have no associated method or action; SET MENU ITEM PROPERTY / SET MENU ITEM METHOD (or handling Menu selected in a form method) must be used afterward to make them do anything.",
+    "Since 4D v16 R3, itemText can be the ak standard action title constant to automatically use the localized name of the associated standard action."
+  ]
+}

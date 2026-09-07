@@ -1,0 +1,56 @@
+{
+  "id": "SAVE-VARIABLES",
+  "displayName": "SAVE VARIABLES",
+  "kind": "classic_command",
+  "theme": "Variables",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "variable",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "variable",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The SAVE VARIABLES command saves one or more variables in the document whose name you pass in document ."
+    }
+  ],
+  "constraints": [
+    "Each variable must be of type String, Text, Real, Integer, Long Integer, Date, Time, Boolean, or Picture; array variables are not supported (use the BLOB commands instead).",
+    "If document is an empty string, a Save File dialog box lets the user choose the document; the Document system variable is set to the created document's name.",
+    "Sets the OK system variable to 1 on success, 0 otherwise.",
+    "Uses an internal data format: saved documents can only be reloaded with LOAD VARIABLES, not RECEIVE PACKET or RECEIVE VARIABLE."
+  ]
+}

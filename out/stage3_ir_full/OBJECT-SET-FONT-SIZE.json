@@ -1,0 +1,60 @@
+{
+  "id": "OBJECT-SET-FONT-SIZE",
+  "displayName": "OBJECT SET FONT SIZE",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Font size in points"
+        }
+      ],
+      "semanticRole": "Sets the font size (in points) used to display the object(s) designated by object and *, for the current process."
+    }
+  ],
+  "constraints": [
+    "size must be between 1 and 255; if the exact size is unavailable, characters are scaled.",
+    "The object's on-form area must be large enough for the new size, otherwise the text may be truncated or not displayed at all.",
+    "Applying this command to an object that was using a style sheet automatically removes the style-sheet reference from the object, even if the assigned size matches the style sheet's."
+  ]
+}

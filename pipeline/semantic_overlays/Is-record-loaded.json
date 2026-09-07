@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Reflects whether aTable's current record is loaded in the CURRENT PROCESS: returns False in remote (4D Server client) mode even when the record is loaded server-side, but returns True in local mode."
+  ]
+}

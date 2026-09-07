@@ -1,0 +1,65 @@
+{
+  "theme": "Hierarchical-Lists",
+  "constraints": [
+    "If only a single representation of the list is used, or item reference numbers are worked with (the second * omitted), either syntax may be used; if several representations of the same list exist and item positions are used, the object-name syntax (leading *) is required since positions vary per representation.",
+    "Matching is exact ('is exactly'); use the '@' wildcard in value for begins-with/ends-with/contains searches."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The two doc syntax lines differ only in whether the leading '*' marker is passed, which selects whether 'list' is an object-name string or a list reference number -- that's one semantic overload with an optional leading literal-symbol discriminator, not two overloads.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, list below is an object name (string) representing the list in the form; if omitted, list is a hierarchical list reference number (ListRef)."
+        },
+        {
+          "name": "list",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "List reference number (if leading * omitted) or name of the list-type form object (if leading * passed)."
+        },
+        {
+          "name": "value",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Character string to search for (supports '@' wildcard)."
+        },
+        {
+          "name": "scope",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "limit the search to the first (main) level of the list" },
+            { "value": 1, "meaning": "extend the search to all sublists" }
+          ]
+        },
+        {
+          "name": "itemsArray",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Filled by the command with the positions (if trailing * omitted) or reference numbers (if trailing * passed) of every matching item; created/resized automatically."
+        },
+        {
+          "name": "asReference",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, work with absolute reference numbers of items; if omitted, work with current item positions."
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Returns the position or reference number of the first list item matching value (0 if none found), optionally filling itemsArray with every match."
+    }
+  ]
+}

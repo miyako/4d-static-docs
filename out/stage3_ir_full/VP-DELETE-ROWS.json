@@ -1,0 +1,27 @@
+{
+  "id": "VP-DELETE-ROWS",
+  "displayName": "VP DELETE ROWS",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Removes the rows designated by a range object, deleting from bottom to top."
+    }
+  ],
+  "constraints": [
+    "If rangeObj contains both columns and rows, only the rows are removed.",
+    "If rangeObj contains only columns, the command does nothing.",
+    "Rows are deleted from bottom to top."
+  ]
+}

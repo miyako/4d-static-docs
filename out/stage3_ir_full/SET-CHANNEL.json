@@ -1,0 +1,72 @@
+{
+  "id": "SET-CHANNEL",
+  "displayName": "SET CHANNEL",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "port",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Opens a serial port for communication, optionally passing port settings.",
+      "discriminatedBy": {
+        "param": "port",
+        "rule": "First overload: port is a serial port number, opening/configuring that port."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "operation",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 11,
+              "meaning": "closes the currently opened serial port or document"
+            }
+          ]
+        },
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Performs a document-oriented channel operation (e.g. open/close) on the named document.",
+      "discriminatedBy": {
+        "param": "operation",
+        "rule": "Second overload: operation is a document-operation code (e.g. 11 closes the current channel), with document naming the target document."
+      }
+    }
+  ],
+  "constraints": [
+    "Only one serial port or one document can be open at a time via this command.",
+    "To close a previously opened channel, call SET CHANNEL(11)."
+  ]
+}

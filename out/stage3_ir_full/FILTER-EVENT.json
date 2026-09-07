@@ -1,0 +1,17 @@
+{
+  "id": "FILTER-EVENT",
+  "displayName": "FILTER EVENT",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Consumes the current event so it is not passed on to 4D's default handling, when called from an ON EVENT CALL event-handling method."
+    }
+  ],
+  "constraints": [
+    "Must be called from within an event-handling project method installed via ON EVENT CALL.",
+    "WARNING: an event-handling method that only calls FILTER EVENT causes 4D to ignore all events for that process (use Ctrl+Shift+Backspace / Cmd-Opt-Shift-Ctrl-Backspace to convert it back to a normal, non-event-receiving process).",
+    "Can also be used inside a standard output form method (displayed via DISPLAY SELECTION/MODIFY SELECTION) specifically to filter double-clicks on records, guarded by checking Form event code = On Double Clicked."
+  ]
+}

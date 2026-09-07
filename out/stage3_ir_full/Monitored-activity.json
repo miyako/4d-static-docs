@@ -1,0 +1,12 @@
+{
+  "id": "Monitored-activity",
+  "displayName": "Monitored activity",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Monitored activity command returns a collection of objects describing operations recorded according to the specifications set by the START MONITORING ACTIVITY command."
+    }
+  ]
+}

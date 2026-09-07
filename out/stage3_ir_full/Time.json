@@ -1,0 +1,36 @@
+{
+  "id": "Time",
+  "displayName": "Time",
+  "kind": "classic_command",
+  "theme": "Date and Time",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "timeValue",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Time"
+      },
+      "semanticRole": "The Time command returns a time expression equivalent to the time specified in the timeValue parameter."
+    }
+  ],
+  "constraints": [
+    "timeValue may be a Text string in one of the 4D standard time formats for the current system language, or a Longint representing the number of seconds elapsed since 00:00:00.",
+    "If timeValue evaluates to undefined, Time returns an empty time (00:00:00) rather than an error."
+  ]
+}

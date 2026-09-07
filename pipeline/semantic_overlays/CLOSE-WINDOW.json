@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "Passing an explicit window reference number has no effect for windows opened via Open window/Open form window: CLOSE WINDOW always closes the last window created by one of those two commands regardless of the number passed.",
+    "An explicit window reference number is only meaningful to target an external window (opened outside of Open window/Open form window).",
+    "Has no effect if no custom window is open, if called while a form is active in the window, or targeting a system window."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Closes the active custom window previously opened by Open window or Open form window in the current process (or a specified external window)."
+    }
+  ]
+}

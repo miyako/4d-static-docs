@@ -1,0 +1,61 @@
+{
+  "id": "SET-QUERY-DESTINATION",
+  "displayName": "SET QUERY DESTINATION",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "destinationType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationObject",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "destinationPtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SET QUERY DESTINATION enables you to tell 4D where to put the result of any subsequent query for the current process.",
+      "jointConstraints": [
+        {
+          "params": [
+            "destinationType",
+            "destinationObject",
+            "destinationPtr"
+          ],
+          "rule": "destinationObject and destinationPtr are interpreted according to destinationType: if destinationType=0 (current selection), destinationObject/destinationPtr must be omitted; if destinationType=1 (set) or 2 (named selection), destinationObject is the name of the set/named selection and destinationPtr is unused; if destinationType=3 (variable), destinationObject is either the name of an existing numeric variable, or an empty string paired with destinationPtr as a pointer to the local variable to receive the result."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Affects all subsequent queries in the current process until counterbalanced by a call to SET QUERY DESTINATION(0); only the query commands are affected (QUERY, QUERY SELECTION, QUERY BY EXAMPLE, QUERY BY FORMULA, QUERY BY SQL, QUERY SELECTION BY FORMULA, QUERY SELECTION WITH ARRAY, QUERY WITH ARRAY, QUERY BY ATTRIBUTE, QUERY SELECTION BY ATTRIBUTE), not other selection-changing commands like ALL RECORDS or RELATE MANY.",
+    "When destinationType is 1 (set) or 2 (named selection), the current selection and current record for the queried table are left unchanged; a named selection that doesn't already exist is created automatically at the end of the query, and \u2014 like CUT NAMED SELECTION \u2014 only a reference is kept, so the named selection no longer exists once consumed.",
+    "When destinationType is 3 (variable) and destinationObject is a numeric variable name, that variable must already be defined or an error is returned; passing an empty string in destinationObject instead defers to destinationPtr (a pointer to the local variable to receive the count), which facilitates joint use with GET QUERY DESTINATION."
+  ]
+}

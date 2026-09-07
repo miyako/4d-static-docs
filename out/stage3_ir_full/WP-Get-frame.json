@@ -1,0 +1,90 @@
+{
+  "id": "WP-Get-frame",
+  "displayName": "WP Get frame",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "wpArea",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "textBoxID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Gets the cursor frame when wpArea is passed as a form object name (string), signalled by the leading * flag.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Presence of the leading * literal indicates wpArea is a form object name; its absence (see sibling overload) indicates wpArea is a field/variable."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "wpArea",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "textBoxID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Gets the cursor frame when wpArea is passed directly as a 4D Write Pro object field or variable (no leading * flag).",
+      "discriminatedBy": {
+        "param": "wpArea",
+        "rule": "No leading * literal; wpArea is a Variable or Field reference rather than a form object name string."
+      }
+    }
+  ],
+  "constraints": [
+    "Can only be used if wpArea is associated with a form object (i.e. displayed in the current form/page)."
+  ]
+}

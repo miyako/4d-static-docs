@@ -1,0 +1,65 @@
+{
+  "id": "OBJECT-GET-EVENTS",
+  "displayName": "OBJECT GET EVENTS",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name or \"\" to designate the form (if * is specified), orVariable or field (if * is omitted)",
+          "sentinelValues": [
+            {
+              "value": "\"\"",
+              "meaning": "Together with asObjectName ('*') present, designates the current form itself (retrieve form-level events) rather than a specific object."
+            }
+          ]
+        },
+        {
+          "name": "arrEvents",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Array of enabled events"
+        }
+      ],
+      "semanticRole": "The OBJECT GET EVENTS command gets the current configuration of the form events for the object(s) designated by the object and * parameters."
+    }
+  ],
+  "constraints": [
+    "To get events for a subform related to a table, only the object-name ('*') syntax may be used, not the Variable/Field syntax.",
+    "arrEvents is returned empty if no object method is associated with the object (or no form method, when object designates the form)."
+  ]
+}

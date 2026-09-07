@@ -1,0 +1,40 @@
+{
+  "id": "WEB-Validate-digest",
+  "displayName": "WEB Validate digest",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "userName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "password",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The WEB Validate digest command checks the validity of the identifying information (name and password) provided by a user connecting to the Web server."
+    }
+  ],
+  "constraints": [
+    "Must be called from the On Web Authentication database method, in the context of Web authentication in Digest mode.",
+    "Digest validation cannot be used jointly with 4D passwords.",
+    "If the browser does not support Digest authentication, an authentication error is raised instead of this command returning False."
+  ]
+}

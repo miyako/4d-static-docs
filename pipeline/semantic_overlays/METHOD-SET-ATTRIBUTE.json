@@ -1,0 +1,17 @@
+{
+  "constraints": [
+    "Cannot be executed in compiled mode; doing so generates error -9762.",
+    "When called from a component you must pass the trailing '*' parameter, because component code is normally read-only; if you omit '*' in that context, error -9763 is generated."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["attribType", "attribValue"],
+          "rule": "attribValue must be a Text (a folder name) only when attribType is the 'Attribute folder name' constant (1024); for every other attribType constant, attribValue must be a Boolean (True to select the option, False to deselect it). The same rule applies to each repeated attribType/attribValue pair."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "MAIL-Convert-from-MIME",
+  "displayName": "MAIL Convert from MIME",
+  "kind": "classic_command",
+  "theme": "Mail",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mime",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Email in MIME; pass a BLOB (recommended when the MIME comes from a file, to avoid charset/line-break issues) or Text."
+        }
+      ],
+      "semanticRole": "Parses a MIME document (from a BLOB or Text) into a valid email object, following the JMAP specification."
+    }
+  ],
+  "constraints": [
+    "Reference lifecycle (implied convention, not syntactically enforced): Mail message building: MAIL New attachment creates attachment objects to add into an Email object's attachments collection -> MAIL Convert to MIME serializes the completed email object to MIME text (used internally by SMTP_transporter.send()) -> MAIL Convert from MIME parses an inbound MIME document back into an email object."
+  ]
+}

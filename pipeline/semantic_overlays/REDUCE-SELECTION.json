@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Passing 0 for number empties the selection entirely, leaving aTable with no selection and no current record.",
+    "The new selection's first record becomes the current record for aTable in the current process."
+  ]
+}

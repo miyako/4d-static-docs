@@ -1,0 +1,35 @@
+{
+  "id": "SEND-MESSAGE-TO-REMOTE-USER",
+  "displayName": "SEND MESSAGE TO REMOTE USER",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "userSession",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SEND MESSAGE TO REMOTE USER command sends a message to all remote users or to a specific remote user."
+    }
+  ],
+  "constraints": [
+    "If userSession is omitted, the message is sent to all remote users.",
+    "Can only be executed on 4D Server; if the calling method runs locally on a remote client or 4D single-user, this command does nothing."
+  ]
+}

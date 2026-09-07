@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "title is truncated to a maximum of 80 characters.",
+    "If the window reference number does not correspond to an existing window, SET WINDOW TITLE does nothing.",
+    "In the Design environment, 4D manages window titles automatically and is likely to override a title set by this command; in the Application (compiled/runtime) environment, 4D never changes window titles itself."
+  ]
+}

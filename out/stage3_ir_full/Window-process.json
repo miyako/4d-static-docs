@@ -1,0 +1,30 @@
+{
+  "id": "Window-process",
+  "displayName": "Window process",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Window process command returns the process number that runs the window whose reference number is passed in window ."
+    }
+  ],
+  "constraints": [
+    "If window does not correspond to an existing window, returns 0.",
+    "If window is omitted, returns the process of the current frontmost window."
+  ]
+}

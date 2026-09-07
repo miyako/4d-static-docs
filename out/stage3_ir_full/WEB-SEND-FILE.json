@@ -1,0 +1,27 @@
+{
+  "id": "WEB-SEND-FILE",
+  "displayName": "WEB SEND FILE",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "htmlFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB SEND FILE command sends, to the Web browser, the HTML page or the Web file stored in the document whose pathname you pass in htmlFile ."
+    }
+  ],
+  "constraints": [
+    "Only has an effect when called from a Web process; called from any other process type, it does nothing and returns no error.",
+    "Sets the OK system variable to 1 if the file exists and the send did not time out, otherwise 0.",
+    "4D looks for htmlFile relative to the Web root folder defined in the Database Settings, unless an absolute pathname is given; both POSIX and system pathname syntax are accepted."
+  ]
+}

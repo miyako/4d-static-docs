@@ -1,0 +1,107 @@
+{
+  "id": "WP-EXPORT-DOCUMENT",
+  "displayName": "WP EXPORT DOCUMENT",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "filePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "format",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "option",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Exports wpDoc to a document on disk designated by a text file path."
+    },
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fileObj",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "format",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "option",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Exports wpDoc to a document on disk designated by a 4D.File object."
+    }
+  ],
+  "constraints": [
+    "Pass exactly one of filePath or fileObj to designate the destination, not both.",
+    "If filePath contains only a document name (no path), the file is saved at the same level as the 4D structure file.",
+    "If format is omitted, it is inferred from the file extension given in filePath/fileObj."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "WP-DELETE-TEXT-BOX",
+  "displayName": "WP DELETE TEXT BOX",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "textBox",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP DELETE TEXT BOX command deletes the text box defined by the textBox parameter."
+    }
+  ]
+}

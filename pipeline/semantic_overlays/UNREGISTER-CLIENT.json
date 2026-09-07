@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "A 4D client is automatically unregistered when the user quits the application.",
+    "If the client workstation was not previously registered (via REGISTER CLIENT), or if executed on 4D in local mode, the command has no effect."
+  ]
+}

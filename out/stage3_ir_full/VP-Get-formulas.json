@@ -1,0 +1,31 @@
+{
+  "id": "VP-Get-formulas",
+  "displayName": "VP Get formulas",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Returns a two-dimensional collection (rows of subcollections of cell formula text) of the formulas within rangeObj."
+    }
+  ],
+  "constraints": [
+    "If rangeObj designates multiple ranges, only the formulas of the first range are returned.",
+    "If rangeObj contains no formulas, an empty string is returned instead of a collection (per docs) despite the declared Collection return type.",
+    "The returned collection is two-dimensional: one subcollection per row, each subcollection holding the row's per-cell formula text."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "GET-SYSTEM-FORMAT",
+  "displayName": "GET SYSTEM FORMAT",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "format",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "format must be one of the System Format theme constants (e.g. Currency symbol, Decimal separator, Date/Time separators, short/medium/long date and time patterns, day/month/year position in short dates, AM/PM labels, Thousand separator); the returned value is always a string, formatted according to the operating system's regional settings."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "WEB-GET-STATISTICS",
+  "displayName": "WEB GET STATISTICS",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "pages",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the most consulted pages."
+        },
+        {
+          "name": "hits",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Number of hits for each page, synchronized index-for-index with pages."
+        },
+        {
+          "name": "usage",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Percentage of the Web cache used."
+        }
+      ],
+      "semanticRole": "The WEB GET STATISTICS command lets you get information about the most consulted pages loaded in the Web server\u2019s cache."
+    }
+  ],
+  "constraints": [
+    "Statistics only cover static pages, GIF/JPEG images under 100KB, and style sheets (.css) served from the Web server's cache."
+  ]
+}

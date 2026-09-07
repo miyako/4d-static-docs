@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "option identifies which SQL-theme setting to change (e.g. SQL asynchronous, SQL charset, SQL connection timeout); the expected type and valid range of value depend on which option constant is passed, per the SQL theme constants documentation.",
+    "SQL connection timeout must be set before opening the connection (i.e. before SQL LOGIN) in order to take effect."
+  ]
+}

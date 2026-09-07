@@ -1,0 +1,63 @@
+{
+  "id": "LOCKED-BY",
+  "displayName": "LOCKED BY",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Table to check for a locked record; the default table is used if omitted."
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Reference number of the process that locked the record; 0 if the record isn't locked, -1 if the record was deleted, -2 if locked by a $lock REST request."
+        },
+        {
+          "name": "4Duser",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "4D user name (or user alias) of the locker; empty string if not locked, deleted, or locked via REST."
+        },
+        {
+          "name": "sessionUser",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Name of the user who opened the work session that locked the record; empty string if not locked, deleted, or locked via REST."
+        },
+        {
+          "name": "processName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Name of the locking process; empty string if not locked or deleted; the locker's IP address if locked via a $lock REST request."
+        }
+      ],
+      "semanticRole": "Fills in information (locking process, 4D user, session user, process name) about the user/process that currently has the record of aTable locked."
+    }
+  ]
+}

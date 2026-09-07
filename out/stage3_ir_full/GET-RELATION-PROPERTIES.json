@@ -1,0 +1,178 @@
+{
+  "id": "GET-RELATION-PROPERTIES",
+  "displayName": "GET RELATION PROPERTIES",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fieldPtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "oneTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "no relation is defined from the source field"
+            }
+          ]
+        },
+        {
+          "name": "oneField",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "no relation is defined from the source field"
+            }
+          ]
+        },
+        {
+          "name": "choiceField",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "no choice field is set for this relation"
+            }
+          ]
+        },
+        {
+          "name": "autoOne",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "TRUE if 'Auto Relate One' is checked for this relation (non-significant if no relation starts from the field)."
+        },
+        {
+          "name": "autoMany",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "TRUE if 'Auto One to Many' is checked for this relation (non-significant if no relation starts from the field)."
+        }
+      ],
+      "semanticRole": "Returns the properties of the relation (if any) starting from the field designated by a field pointer."
+    },
+    {
+      "params": [
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fieldNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "oneTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "no relation is defined from the source field"
+            }
+          ]
+        },
+        {
+          "name": "oneField",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "no relation is defined from the source field"
+            }
+          ]
+        },
+        {
+          "name": "choiceField",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "no choice field is set for this relation"
+            }
+          ]
+        },
+        {
+          "name": "autoOne",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "TRUE if 'Auto Relate One' is checked for this relation (non-significant if no relation starts from the field)."
+        },
+        {
+          "name": "autoMany",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "TRUE if 'Auto One to Many' is checked for this relation (non-significant if no relation starts from the field)."
+        }
+      ],
+      "semanticRole": "Returns the properties of the relation (if any) starting from the field designated by a table number and field number."
+    }
+  ],
+  "constraints": [
+    "autoOne and autoMany still return TRUE even when no relation starts from the source field (their values are non-significant in that case); only oneTable/oneField == 0 reliably indicates 'no relation'."
+  ]
+}

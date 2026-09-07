@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "For a new (not-yet-saved) record, Old returns the default empty value for the field's type (e.g. empty string for Alpha, zero for numeric).",
+    "For Picture and BLOB type fields, the value returned by Old cannot be used directly as a parameter to another command for technical reasons; it must first be assigned to an intermediate variable.",
+    "To restore a field's original (on-disk) value, assign it the value returned by Old."
+  ]
+}

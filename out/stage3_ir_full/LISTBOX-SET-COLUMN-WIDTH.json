@@ -1,0 +1,75 @@
+{
+  "id": "LISTBOX-SET-COLUMN-WIDTH",
+  "displayName": "LISTBOX SET COLUMN WIDTH",
+  "kind": "classic_command",
+  "theme": "List Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
+        },
+        {
+          "name": "width",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New width of the object, in pixels."
+        },
+        {
+          "name": "minWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Minimum width the user can manually resize the column to, in pixels."
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Maximum width the user can manually resize the column to, in pixels."
+        }
+      ],
+      "semanticRole": "Sets the width of a list box, or of one column/header, and optionally its manual-resize limits."
+    }
+  ],
+  "constraints": [
+    "If object designates the whole list box, all columns are resized; if it designates a column or column header, only that column is resized.",
+    "Passing the same value in width, minWidth, and maxWidth prevents the user from manually resizing the column."
+  ]
+}

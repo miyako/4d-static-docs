@@ -1,0 +1,67 @@
+{
+  "id": "WP-Insert-table",
+  "displayName": "WP Insert table",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "mode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "rangeUpdate",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "nbCols",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "nbRows",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Insert table command inserts a new table in the targetObj according to the specified insertion mode and returns the corresponding new table object."
+    }
+  ],
+  "constraints": [
+    "rangeUpdate is only honored when targetObj is a range; it is ignored if targetObj is an element or document.",
+    "If nbCols and nbRows are omitted, a new table with 0 columns and 0 rows is created; rows/columns can then be added with WP Table append row.",
+    "If targetObj is itself a table, the newly inserted table replaces it or is inserted before/after it depending on mode; inserting a table inside another table is not possible."
+  ]
+}

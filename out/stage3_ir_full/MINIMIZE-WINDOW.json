@@ -1,0 +1,22 @@
+{
+  "id": "MINIMIZE-WINDOW",
+  "displayName": "MINIMIZE WINDOW",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The MINIMIZE WINDOW command sets the size of the window whose number is passed as window to the size it was before being maximized."
+    }
+  ]
+}

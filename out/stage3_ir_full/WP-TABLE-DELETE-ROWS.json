@@ -1,0 +1,58 @@
+{
+  "id": "WP-TABLE-DELETE-ROWS",
+  "displayName": "WP TABLE DELETE ROWS",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Removes all rows of every table intersecting targetObj (a range, element, or 4D Write Pro document); does nothing if targetObj does not intersect a table."
+    },
+    {
+      "params": [
+        {
+          "name": "tableRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "rowNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "numRows",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Removes numRows row(s) from tableRef starting at rowNumber (default numRows = 1 if omitted)."
+    }
+  ],
+  "constraints": [
+    "With the targetObj syntax, the numRows parameter (if it were passed) is ignored; only the targetObj syntax's own tables/rows matter.",
+    "Removing all rows of a table removes the entire table."
+  ]
+}

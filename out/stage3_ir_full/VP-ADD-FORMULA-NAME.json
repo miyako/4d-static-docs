@@ -1,0 +1,54 @@
+{
+  "id": "VP-ADD-FORMULA-NAME",
+  "displayName": "VP ADD FORMULA NAME",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "vpFormula",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP ADD FORMULA NAME command creates or modifies a named formula in the open document."
+    }
+  ],
+  "constraints": [
+    "Errors if vpAreaName does not designate an existing 4D View Pro area.",
+    "If name is already used within the same scope, the new named formula replaces the existing one; the same name can be reused across different scopes.",
+    "options.scope selects the sheet index (0-based) the name is local to, or the vk workbook constant to make it global to the whole document; vk current sheet scopes it to whichever sheet is current."
+  ]
+}

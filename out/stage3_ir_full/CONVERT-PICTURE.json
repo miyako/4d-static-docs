@@ -1,0 +1,49 @@
+{
+  "id": "CONVERT-PICTURE",
+  "displayName": "CONVERT PICTURE",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "Picture to be converted (in); converted picture (out)"
+        },
+        {
+          "name": "codec",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Picture Codec ID: a file extension (e.g. \".gif\") or a Mime type (e.g. \"image/jpeg\")"
+        },
+        {
+          "name": "compression",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": true,
+          "default": "1 (best quality, low compression) if omitted",
+          "description": "Compression quality between 0 (most mediocre quality, high compression) and 1 (best quality, low compression)"
+        }
+      ],
+      "semanticRole": "Converts a picture to a new codec/type in place, optionally applying a compression quality when the target codec supports it."
+    }
+  ],
+  "constraints": [
+    "If codec matches the picture's current type, no conversion occurs and the picture is returned as-is, unless compression is also passed.",
+    "compression is only honored when the target codec supports a compression quality setting (e.g. JPEG, HDPhoto) via the WIC/ImageIO APIs.",
+    "Codecs not supported in 4D 64-bit versions (e.g. PICT) require running the conversion on a 4D 32-bit version."
+  ]
+}

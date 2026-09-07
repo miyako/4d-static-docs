@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Reflects the limit set by SET QUERY LIMIT for the current process; defaults to 0 (unlimited) if no limit has been set."
+  ]
+}

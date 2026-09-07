@@ -1,0 +1,40 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "After deselecting all cells, a default active cell (A1) remains defined for 4D View Pro commands.",
+    "An error is returned if vpAreaName does not designate an existing 4D View Pro area."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Explicitly target the current spreadsheet."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

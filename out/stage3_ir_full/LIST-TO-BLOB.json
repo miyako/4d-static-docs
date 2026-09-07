@@ -1,0 +1,42 @@
+{
+  "id": "LIST-TO-BLOB",
+  "displayName": "LIST TO BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The LIST TO BLOB command stores the hierarchical list list in the BLOB blob ."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "Sum",
+  "displayName": "Sum",
+  "kind": "classic_command",
+  "theme": "On a Series",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "series",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "The Sum command returns the sum (total of all values) for series ."
+    }
+  ]
+}

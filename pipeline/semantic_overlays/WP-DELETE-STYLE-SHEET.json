@@ -1,0 +1,13 @@
+{
+  "theme": "WritePro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Deletes an already-referenced style sheet object directly (e.g. one created with WP New style sheet or returned by WP Get style sheet)."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Deletes the named style sheet (optionally at a given list level) from wpDoc by name rather than by object reference."
+    }
+  ]
+}

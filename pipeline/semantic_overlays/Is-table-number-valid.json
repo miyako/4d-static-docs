@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Returns False if the table is in the Trash of the Explorer, even though its number may still exist.",
+    "Useful for detecting table deletions, which leave gaps in the sequence of table numbers."
+  ]
+}

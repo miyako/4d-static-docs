@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "The return value is only meaningful if the \"Map NULL values to blank values\" option is NOT checked in the field's definition in the Structure editor; if it is checked, this command always returns False.",
+    "Cannot be used with object fields or object properties; use the Null command instead for those."
+  ]
+}

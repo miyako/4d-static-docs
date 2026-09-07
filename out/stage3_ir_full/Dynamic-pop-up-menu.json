@@ -1,0 +1,67 @@
+{
+  "id": "Dynamic-pop-up-menu",
+  "displayName": "Dynamic pop up menu",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "default",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "xCoord",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "yCoord",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Displays the hierarchical pop-up menu referenced by menu (created via Create menu) at the mouse location or at (xCoord, yCoord) if given, optionally pre-selecting the item associated with the default parameter, and returns the parameter string of the item chosen."
+    }
+  ],
+  "jointConstraints": [
+    {
+      "params": [
+        "xCoord",
+        "yCoord"
+      ],
+      "rule": "xCoord and yCoord must be passed together; if only one is passed it is effectively ignored and the menu is shown at the mouse location."
+    }
+  ],
+  "constraints": [
+    "menu must be a reference returned by Create menu, not a plain text menu (use Pop up menu for text-based pop-up menus).",
+    "default identifies an item by the custom string previously assigned via SET MENU ITEM PARAMETER; only a top-level item can be selected by default. If omitted, the first item is selected by default.",
+    "Should generally be called in response to a right mouse click or a mouse-down-and-hold, per standard context-menu interface conventions."
+  ]
+}

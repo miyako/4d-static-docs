@@ -1,0 +1,43 @@
+{
+  "id": "SQL-GET-DATA-SOURCE-LIST",
+  "displayName": "SQL GET DATA SOURCE LIST",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "sourceType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sourceNamesArr",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "driversArr",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "This command does not take file type data sources into account.",
+    "Requires the 4D ODBC Driver to be installed on the machine when connecting to an external 4D data source via ODBC."
+  ]
+}

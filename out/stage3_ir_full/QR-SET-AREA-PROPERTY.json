@@ -1,0 +1,43 @@
+{
+  "id": "QR-SET-AREA-PROPERTY",
+  "displayName": "QR SET AREA PROPERTY",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR SET AREA PROPERTY command shows or hides the interface element whose reference is passed in property ."
+    }
+  ],
+  "constraints": [
+    "Can only be used with a Quick Report area embedded in a form."
+  ]
+}

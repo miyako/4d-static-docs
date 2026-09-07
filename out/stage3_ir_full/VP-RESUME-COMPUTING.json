@@ -1,0 +1,26 @@
+{
+  "id": "VP-RESUME-COMPUTING",
+  "displayName": "VP RESUME COMPUTING",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP RESUME COMPUTING command restarts the calculation of formulas in vpAreaName ."
+    }
+  ],
+  "constraints": [
+    "The 4D View Pro calculation service maintains a counter of suspend/resume actions, so every VP RESUME COMPUTING call must balance a corresponding VP SUSPEND COMPUTING call.",
+    "An error is returned if vpAreaName does not designate an existing 4D View Pro area."
+  ]
+}

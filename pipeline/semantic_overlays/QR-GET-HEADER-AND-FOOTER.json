@@ -1,0 +1,77 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "leftTitle, centerTitle, rightTitle, height, picture and pictAlignment are all documented with the '\u2190' arrow (values returned/filled by the command), not '\u2192'; auto-parse defaulted all of them to direction 'in'. Also records the documented selector and pictAlignment constants as sentinelValues.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "selector",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Which of the header/footer to retrieve",
+          "sentinelValues": [
+            { "value": 1, "meaning": "Header information is retrieved" },
+            { "value": 2, "meaning": "Footer information is retrieved" }
+          ]
+        },
+        {
+          "name": "leftTitle",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Text displayed on the left side"
+        },
+        {
+          "name": "centerTitle",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Text displayed in the middle"
+        },
+        {
+          "name": "rightTitle",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Text displayed on the right side"
+        },
+        {
+          "name": "height",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Header or footer height, expressed in the report's selected unit"
+        },
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "out",
+          "optional": true,
+          "description": "Picture displayed in the header or footer"
+        },
+        {
+          "name": "pictAlignment",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Alignment attribute for the picture",
+          "sentinelValues": [
+            { "value": 1, "meaning": "Picture aligned to the left" },
+            { "value": 2, "meaning": "Picture centered" },
+            { "value": 3, "meaning": "Picture aligned to the right" }
+          ]
+        }
+      ],
+      "semanticRole": "Retrieves the contents (left/center/right title text, height, and optional picture with alignment) of either the report header or footer of area, as selected by selector."
+    }
+  ]
+}

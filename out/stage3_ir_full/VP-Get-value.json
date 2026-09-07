@@ -1,0 +1,26 @@
+{
+  "id": "VP-Get-value",
+  "displayName": "VP Get value",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Retrieves the value of a single cell from the range designated by rangeObj, returned as an object."
+    }
+  ]
+}

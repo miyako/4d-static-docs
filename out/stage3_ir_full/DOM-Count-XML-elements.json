@@ -1,0 +1,38 @@
+{
+  "id": "DOM-Count-XML-elements",
+  "displayName": "DOM Count XML elements",
+  "kind": "classic_command",
+  "theme": "XML-DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "elementName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the number of direct child elements of elementRef that are named elementName."
+    }
+  ],
+  "constraints": [
+    "elementName matching is case-sensitive by default (XML compliance); case sensitivity can be changed via the 'XML DOM case sensitivity' selector of XML SET OPTIONS."
+  ]
+}

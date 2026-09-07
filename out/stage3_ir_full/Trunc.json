@@ -1,0 +1,38 @@
+{
+  "id": "Trunc",
+  "displayName": "Trunc",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "number",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "places",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Returns number with its decimal part truncated to the number of decimal places specified by places, always truncating toward negative infinity (not toward zero)."
+    }
+  ],
+  "constraints": [
+    "If places is positive, number is truncated to that many decimal places; if places is negative, number is truncated to the left of the decimal point."
+  ]
+}

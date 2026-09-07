@@ -1,0 +1,39 @@
+{
+  "id": "Round",
+  "displayName": "Round",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "round",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "places",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Round returns number rounded to the number of decimal places specified by places ."
+    }
+  ],
+  "constraints": [
+    "Positive places rounds to that many decimal places; negative places rounds to the left of the decimal point.",
+    "If the digit following the rounding position is 5-9, Round rounds away from zero (toward +infinity for positive numbers, -infinity for negative numbers); if 0-4, Round rounds toward zero."
+  ]
+}

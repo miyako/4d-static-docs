@@ -1,0 +1,15 @@
+{
+  "id": "Process-aborted",
+  "displayName": "Process aborted",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Process aborted command returns True if the process in which it is called is about to be interrupted unexpectedly, which means that the execution of the command was unable to reach its \u201cnormal\u201d completion."
+    }
+  ],
+  "constraints": [
+    "This condition (the process being unexpectedly interrupted before its 'normal' completion) happens very rarely; processes are usually stopped before code can even observe the 'process aborted' status, so this can only realistically occur in compiled loops that are not executing any 4D command."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "BLOB-TO-DOCUMENT",
+  "displayName": "BLOB TO DOCUMENT",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Overwrites the entire contents of document on disk with the data stored in blob."
+    }
+  ],
+  "constraints": [
+    "If document already exists, it must not currently be open, otherwise an error is generated; if it does not exist, the command creates it.",
+    "To let the user pick the target document interactively, use Open document or Create document instead and pass their resulting process document reference."
+  ]
+}

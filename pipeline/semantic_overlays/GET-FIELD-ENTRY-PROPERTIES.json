@@ -1,0 +1,99 @@
+{
+  "constraints": [
+    "Reports the properties defined at the structure (Design) level, not any overriding properties set at the form level.",
+    "The choice list applies only to fields of type String, Text, Real, Integer, Long Integer, Date, Time, or Boolean; list returns an empty string if there is no associated list or the field type doesn't support one."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "list/mandatory/nonEnterable/nonModifiable are all filled in by the command (out), not in parameters.",
+      "params": [
+        {
+          "name": "fieldPtr",
+          "type": { "kind": "concrete", "name": "Pointer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Field pointer"
+        },
+        {
+          "name": "list",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Associated choice list name, or empty string if none"
+        },
+        {
+          "name": "mandatory",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True = mandatory, False = optional"
+        },
+        {
+          "name": "nonEnterable",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True = non-enterable, False = enterable"
+        },
+        {
+          "name": "nonModifiable",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True = non-modifiable, False = modifiable"
+        }
+      ],
+      "semanticRole": "Returns the data-entry properties (choice list, mandatory, non-enterable, non-modifiable) of the field pointed to by fieldPtr."
+    },
+    {
+      "sourceIndices": [1],
+      "note": "Same out-parameter correction as the fieldPtr-based overload.",
+      "params": [
+        {
+          "name": "tableNum",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Table number"
+        },
+        {
+          "name": "fieldNum",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Field number"
+        },
+        {
+          "name": "list",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Associated choice list name, or empty string if none"
+        },
+        {
+          "name": "mandatory",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True = mandatory, False = optional"
+        },
+        {
+          "name": "nonEnterable",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True = non-enterable, False = enterable"
+        },
+        {
+          "name": "nonModifiable",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True = non-modifiable, False = modifiable"
+        }
+      ],
+      "semanticRole": "Returns the data-entry properties (choice list, mandatory, non-enterable, non-modifiable) of the field identified by tableNum and fieldNum."
+    }
+  ]
+}

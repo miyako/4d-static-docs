@@ -1,0 +1,12 @@
+{
+  "theme": "4D-Environment",
+  "constraints": [
+    "The returned Integer is one of the predefined Application type constants: 4D Local mode=0, 4D Volume desktop=1, 4D Desktop=3, 4D Remote mode=4, 4D Server=5, tool4d=6 (values 2 and 7+ unused/reserved as of this doc snapshot)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a numeric constant identifying which kind of 4D environment (desktop, remote, server, volume desktop, tool4d) the calling process is running under."
+    }
+  ]
+}

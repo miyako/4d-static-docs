@@ -1,0 +1,46 @@
+{
+  "constraints": [
+    "Cannot be used in project-mode databases; the Picture Library is only available in binary databases.",
+    "If no picture matches the given picRef/picName, picture is left unchanged."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: picture is filled in by the command ('\u2190' in the docs), not passed in; gave a distinct semanticRole from the picName overload.",
+      "semanticRole": "Retrieves a Picture Library graphic identified by its reference number.",
+      "params": [
+        {
+          "name": "picRef",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "sourceIndices": [1],
+      "note": "Corrected direction: picture is filled in by the command ('\u2190' in the docs), not passed in; gave a distinct semanticRole from the picRef overload.",
+      "semanticRole": "Retrieves a Picture Library graphic identified by its name.",
+      "params": [
+        {
+          "name": "picName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

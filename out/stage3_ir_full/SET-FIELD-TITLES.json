@@ -1,0 +1,57 @@
+{
+  "id": "SET-FIELD-TITLES",
+  "displayName": "SET FIELD TITLES",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fieldTitles",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fieldNumbers",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SET FIELD TITLES lets you mask, rename, and reorder the fields of the table passed in aTable when they appear in standard 4D dialog boxes, such as the Query editor, within the Application environment (i.e."
+    }
+  ],
+  "constraints": [
+    "fieldTitles and fieldNumbers arrays must be synchronized element-by-element (same index = same field).",
+    "Fields whose name/title is omitted from fieldTitles are not shown in standard dialog boxes.",
+    "Fields appear in the order given by fieldTitles/fieldNumbers.",
+    "The trailing '*' makes the custom names apply in the formula editor as well."
+  ]
+}

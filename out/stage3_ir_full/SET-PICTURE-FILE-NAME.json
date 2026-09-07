@@ -1,0 +1,34 @@
+{
+  "id": "SET-PICTURE-FILE-NAME",
+  "displayName": "SET PICTURE FILE NAME",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fileName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET PICTURE FILE NAME command sets or changes the default file name for the picture passed as parameter."
+    }
+  ],
+  "constraints": [
+    "The default file name set here is used when the picture is subsequently exported to a disk file; the name is copied along with the picture's contents if the field/variable's value is copied elsewhere."
+  ]
+}

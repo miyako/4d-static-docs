@@ -1,0 +1,6 @@
+{
+  "theme": "Objects-Language",
+  "constraints": [
+    "Only first-level property names are returned (sub-object property names are not included); the returned collection is ordered by property definition order, not alphabetically."
+  ]
+}

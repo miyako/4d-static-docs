@@ -1,0 +1,81 @@
+{
+  "id": "OBJECT-GET-SUBFORM",
+  "displayName": "OBJECT GET SUBFORM",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "tablePtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Pointer to table of form",
+          "sentinelValues": [
+            {
+              "value": "Is nil pointer",
+              "meaning": "The subform uses a project form (not bound to a table)."
+            }
+          ]
+        },
+        {
+          "name": "detailSubform",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Name of the detail form: the form's name if created in the 4D form editor, its 'name' attribute if created from a .json file or 4D object (falling back to the .json file's name, or \"untitled\" for an object, if that attribute is undefined)."
+        },
+        {
+          "name": "listSubform",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Name of the list form (table form), following the same naming fallback rules as detailSubform; returned as an empty string if there is no list form."
+        }
+      ],
+      "semanticRole": "The OBJECT GET SUBFORM command gets the name(s) of the form(s) associated with the subform object designated by the object and * parameters."
+    }
+  ]
+}

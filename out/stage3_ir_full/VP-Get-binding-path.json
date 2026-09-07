@@ -1,0 +1,30 @@
+{
+  "id": "VP-Get-binding-path",
+  "displayName": "VP Get binding path",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the name of the data-context attribute bound to a cell (the first cell of rangeObj)."
+    }
+  ],
+  "constraints": [
+    "If rangeObj contains several cells, the attribute name linked to the first cell in the range is returned.",
+    "If rangeObj contains several ranges of cells, the attribute name linked to the first cell of the first range is returned."
+  ]
+}

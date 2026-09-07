@@ -1,0 +1,83 @@
+{
+  "id": "WA-GET-LAST-URL-ERROR",
+  "displayName": "WA GET LAST URL ERROR",
+  "kind": "classic_command",
+  "theme": "Web-Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
+        },
+        {
+          "name": "url",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "URL causing the error."
+        },
+        {
+          "name": "description",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Description of the error (macOS only; always empty on Windows)."
+        },
+        {
+          "name": "errorCode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Error code."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
+    }
+  ],
+  "constraints": [
+    "description is only ever populated on macOS; on Windows it is always returned empty.",
+    "errorCode >= 400 indicates an HTTP-protocol error (see RFC 2616 section 10); otherwise it is a WebKit (macOS) or ActiveX (Windows) error code.",
+    "Intended to be called from within the On URL Loading Error form event to diagnose the error that just occurred."
+  ]
+}

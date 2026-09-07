@@ -1,0 +1,38 @@
+{
+  "id": "RESUME-INDEXES",
+  "displayName": "RESUME INDEXES",
+  "kind": "classic_command",
+  "theme": "Structure-Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The RESUME INDEXES command reactivates all the indexes of aTable when they have been paused previously using the PAUSE INDEXES command."
+    }
+  ],
+  "constraints": [
+    "Can only be called from 4D Server or a local 4D application; if executed from a remote 4D machine, error -10513 is generated (interceptable via ON ERR CALL).",
+    "If the indexes of aTable were not previously paused (via PAUSE INDEXES), this command does nothing.",
+    "Without the * parameter, index rebuilding blocks execution of the calling method until complete; with * passed, rebuilding runs asynchronously and the method continues immediately."
+  ]
+}

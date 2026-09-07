@@ -1,0 +1,36 @@
+{
+  "id": "GET-GROUP-LIST",
+  "displayName": "GET GROUP LIST",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "groupNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with group names as they appear in the Password editor window"
+        },
+        {
+          "name": "groupNumbers",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled, in sync with groupNames, with the corresponding unique group ID numbers"
+        }
+      ],
+      "semanticRole": "Fills groupNames and groupNumbers, in sync, with the names and unique IDs of every group in the Password editor."
+    }
+  ],
+  "constraints": [
+    "In project databases, group ID numbers start at 15001 and are dynamically allocated at startup, maintained for the session; in binary databases, numbers are stored and fall in a range depending on the group creator."
+  ]
+}

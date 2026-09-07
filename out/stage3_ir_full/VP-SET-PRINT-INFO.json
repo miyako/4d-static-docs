@@ -1,0 +1,52 @@
+{
+  "id": "VP-SET-PRINT-INFO",
+  "displayName": "VP SET PRINT INFO",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area name"
+        },
+        {
+          "name": "printInfo",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object containing printing attributes; see 4D View Pro print attributes"
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index to print (current sheet if omitted)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Explicitly designates the current spreadsheet (same as omitting sheet)."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "The VP SET PRINT INFO command defines the attributes to use when printing the vpAreaName ."
+    }
+  ],
+  "constraints": [
+    "If vpAreaName does not exist, an error is returned."
+  ]
+}

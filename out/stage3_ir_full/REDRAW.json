@@ -1,0 +1,42 @@
+{
+  "id": "REDRAW",
+  "displayName": "REDRAW",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Forces a graphical refresh of the subform displaying aTable after its data was changed programmatically."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Forces a graphical refresh of the given Field/Variable form object; for a list box in selection mode, refreshes the data displayed by that list box."
+    }
+  ]
+}

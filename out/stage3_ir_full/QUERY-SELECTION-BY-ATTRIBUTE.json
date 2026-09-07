@@ -1,0 +1,139 @@
+{
+  "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+  "displayName": "QUERY SELECTION BY ATTRIBUTE",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Table for which to return a selection of records, or the default table if omitted"
+        },
+        {
+          "name": "conjOp",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "&",
+              "|",
+              "#"
+            ],
+            "meanings": {
+              "&": "AND",
+              "|": "OR",
+              "#": "AND EXCEPT / NOT"
+            }
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Conjunction operator used to join this call to a preceding call in the same multi-query sequence; omitted on the first/only call"
+        },
+        {
+          "name": "objectField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object field whose attribute is queried"
+        },
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name or dot path of the object attribute to query"
+        },
+        {
+          "name": "queryOp",
+          "type": [
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                ">",
+                "<",
+                ">=",
+                "<=",
+                "#",
+                "=",
+                "|",
+                "%"
+              ],
+              "meanings": {
+                "=": "Equal to",
+                "#": "Not equal to",
+                "<": "Less than",
+                ">": "Greater than",
+                "<=": "Less than or equal to",
+                ">=": "Greater than or equal to",
+                "%": "Contains keyword"
+              }
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Comparison operator between the attribute and value; can also be passed as an alphanumeric Text expression instead of a symbol (e.g. from a variable) to build configurable queries"
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            },
+            {
+              "kind": "concrete",
+              "name": "Date"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Value the attribute is compared against"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, more calls follow in this multi-query sequence; omitted on the final call, which executes the accumulated query"
+        }
+      ],
+      "semanticRole": "Queries an object/entity attribute (objectField.attributePath) of the records currently selected in aTable, restricting the current selection to those matching the comparison, and can be chained across multiple calls joined by conjOp/'*'."
+    }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "queryThemeChain"
+  },
+  "constraints": [
+    "Scope differs from QUERY BY ATTRIBUTE: QUERY SELECTION BY ATTRIBUTE only searches within aTable's current selection, whereas QUERY BY ATTRIBUTE searches every record in the table; otherwise both commands work the same way.",
+    "Most useful when a query needs to run against a current selection that did not itself come from a previous QUERY BY ATTRIBUTE/QUERY call (e.g. one produced by USE SET)."
+  ]
+}

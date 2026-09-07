@@ -1,0 +1,35 @@
+{
+  "id": "WP-Get-element-by-ID",
+  "displayName": "WP Get element by ID",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "ID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Get element by ID command returns an object containing the element of wpDoc passed in the ID parameter."
+    }
+  ]
+}

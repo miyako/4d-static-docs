@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Must not be called from a form/object method handling the On Activate or On Deactivate form events (causes an endless loop).",
+    "Sets the OK system variable to 1 if the user validates (OK/Enter) or 0 if the user cancels."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Displays a modal confirmation dialog (note icon, message, OK and Cancel buttons, with optional custom button titles) and sets the OK system variable according to the user's choice."
+    }
+  ]
+}

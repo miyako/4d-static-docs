@@ -1,0 +1,51 @@
+{
+  "id": "WA-Get-context",
+  "displayName": "WA Get context",
+  "kind": "classic_command",
+  "theme": "Web-Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable passed directly when * is omitted."
+      }
+    }
+  ],
+  "constraints": [
+    "Returns the context object previously set with WA SET CONTEXT for this Web area, or null if none was defined."
+  ]
+}

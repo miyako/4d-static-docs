@@ -1,0 +1,13 @@
+{
+  "theme": "XML-DOM",
+  "constraints": [
+    "The document's id attribute values must each be unique and a valid XML name (XML validity constraint); if this is violated, the command's result is unpredictable (it returns the reference to the first matching element found).",
+    "The search always covers the whole document, regardless of which element elementRef designates."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Searches the whole XML document (regardless of elementRef's position) for the element whose id attribute equals a given value."
+    }
+  ]
+}

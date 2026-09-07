@@ -1,0 +1,12 @@
+{
+  "theme": "XML-DOM",
+  "constraints": [
+    "Only usable together with DOM Append XML child node and DOM GET XML CHILD NODES; at this document-node level you can only append/replace Doctype, processing-instruction, or comment nodes (not CDATA or Text nodes)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the reference of the DOM tree's document node (the parent of the root element), given the reference of any element in the tree."
+    }
+  ]
+}

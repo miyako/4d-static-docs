@@ -1,0 +1,22 @@
+{
+  "id": "WP-DELETE-PICTURE",
+  "displayName": "WP DELETE PICTURE",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "imgObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP DELETE PICTURE command deletes the image defined by the imgObj parameter."
+    }
+  ]
+}

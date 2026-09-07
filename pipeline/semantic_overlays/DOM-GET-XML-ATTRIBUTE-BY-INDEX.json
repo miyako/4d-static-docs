@@ -1,0 +1,53 @@
+{
+  "theme": "XML-DOM",
+  "constraints": [
+    "The attribute index order is not the file's textual order: in XML, attribute index reflects alphabetical order of attribute names.",
+    "An attribIndex greater than the element's attribute count generates an error."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "attribName and attribValue are filled/returned variables (docs: '<-' direction); autoparse defaults all params to direction:in. Also documents the silent coercion to Text when the target variable has no declared type.",
+      "params": [
+        {
+          "name": "elementRef",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "attribIndex",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Index of the attribute (alphabetical position among the element's attributes), 1-based"
+        },
+        {
+          "name": "attribName",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the attribute's name"
+        },
+        {
+          "name": "attribValue",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the attribute's value, converted to the variable's declared type",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If attribValue's variable type is not defined, the value is returned as Text by default."
+          }
+        }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Gets the name and value of an XML element's attribute selected by its (alphabetical) index position."
+    }
+  ]
+}

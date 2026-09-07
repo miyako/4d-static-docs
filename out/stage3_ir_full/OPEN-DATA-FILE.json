@@ -1,0 +1,29 @@
+{
+  "id": "OPEN-DATA-FILE",
+  "displayName": "OPEN DATA FILE",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "accessPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OPEN DATA FILE command allows changing the data file opened by the 4D application on-the-fly."
+    }
+  ],
+  "constraints": [
+    "If accessPath is only a file name (not a full path), the file must be located next to the current database's structure file.",
+    "Passing an empty string re-opens the database without changing the data file.",
+    "The command executes asynchronously: after the call, 4D continues executing the rest of the method, then the application quits (as if Quit had been selected) and re-opens with the specified data file; open processes get 10 seconds to finish before being terminated.",
+    "Should be used with caution in the On Exit database method (or a method it calls), since it causes the application to quit before re-opening -- risk of an infinite loop.",
+    "With 4D Server (v13+), this command makes an internal call to QUIT 4D on the server before opening the designated file."
+  ]
+}

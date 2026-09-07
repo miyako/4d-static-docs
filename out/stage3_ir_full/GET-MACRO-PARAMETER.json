@@ -1,0 +1,41 @@
+{
+  "id": "GET-MACRO-PARAMETER",
+  "displayName": "GET MACRO PARAMETER",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Full method text"
+            },
+            {
+              "value": 2,
+              "meaning": "Highlighted method text"
+            }
+          ]
+        },
+        {
+          "name": "textParam",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "All (or, if Highlighted method text was passed, only the selected portion of) the text of the calling method."
+        }
+      ]
+    }
+  ]
+}

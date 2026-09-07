@@ -1,0 +1,27 @@
+{
+  "id": "SET-REAL-COMPARISON-LEVEL",
+  "displayName": "SET REAL COMPARISON LEVEL",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "epsilon",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET REAL COMPARISON LEVEL command sets the epsilon value used by 4D to compare real values and expressions for equality."
+    }
+  ],
+  "constraints": [
+    "The default epsilon is 10^-6; epsilon must always be positive.",
+    "Two real numbers a and b are considered equal for comparison purposes when Abs(a-b) does not exceed epsilon.",
+    "Only affects real-value equality comparisons in the 4D language; it has no effect on other real computations, on the display of real values, or on queries/sorts performed on fields of the Real type."
+  ]
+}

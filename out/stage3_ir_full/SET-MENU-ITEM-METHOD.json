@@ -1,0 +1,60 @@
+{
+  "id": "SET-MENU-ITEM-METHOD",
+  "displayName": "SET MENU ITEM METHOD",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET MENU ITEM METHOD command modifies the 4D project method associated with the menu item designated by the menu and menuItem parameters."
+    }
+  ],
+  "constraints": [
+    "Passing -1 in menuItem designates the last item added to menu.",
+    "If menu is a MenuRef, the command applies to all instances of the menu across all processes and the process parameter is ignored; if menu is a menu number, it applies to the main menu bar of the current process (or of process, if given).",
+    "If the menu item is the title of a hierarchical sub-menu, methodName is not called when the item is selected."
+  ]
+}

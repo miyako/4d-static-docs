@@ -1,0 +1,49 @@
+{
+  "id": "WRITE-PICTURE-FILE",
+  "displayName": "WRITE PICTURE FILE",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fileName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "codec",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WRITE PICTURE FILE command saves the picture passed in the picture parameter in the defined codec to disk."
+    }
+  ],
+  "constraints": [
+    "If fileName is an empty string (\"\"), the standard Save file dialog box is displayed for the user to choose name/location/format; a default name from SET PICTURE FILE NAME, if any, is pre-filled.",
+    "If fileName is just a file name (no path), the file is created next to the database structure file; the file extension must be included.",
+    "codec may be a file-extension-style string (e.g. \".gif\") or a MIME type (e.g. \"image/jpeg\"); available codecs can be listed via PICTURE CODEC LIST.",
+    "If codec is omitted, the codec is inferred from fileName's extension; if there is no usable extension or codec, the picture defaults to PICT format.",
+    "If the extension does not correspond to any available codec, the file is not saved and the OK system variable is set to 0.",
+    "If the target write format matches the picture's current format and no transformation has been applied, the picture is written as-is without re-encoding.",
+    "On success, the Document system variable holds the full pathname of the created file and OK is set to 1; otherwise OK is set to 0."
+  ]
+}

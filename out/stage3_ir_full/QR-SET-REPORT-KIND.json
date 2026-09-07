@@ -1,0 +1,46 @@
+{
+  "id": "QR-SET-REPORT-KIND",
+  "displayName": "QR SET REPORT KIND",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Report type to assign",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "qr list report -- list-mode report"
+            },
+            {
+              "value": 2,
+              "meaning": "qr cross report -- cross-table report"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets (or changes) the report type of an area; changing the type on an existing report discards its previous settings and creates a new empty report."
+    }
+  ],
+  "constraints": [
+    "Setting a new type on an area that already has a report removes the previous settings and creates a new, empty report."
+  ]
+}

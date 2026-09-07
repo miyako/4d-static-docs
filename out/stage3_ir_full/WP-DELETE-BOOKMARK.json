@@ -1,0 +1,34 @@
+{
+  "id": "WP-DELETE-BOOKMARK",
+  "displayName": "WP DELETE BOOKMARK",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "bkName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP DELETE BOOKMARK command removes the bookmark named bkName from wpDoc ."
+    }
+  ],
+  "constraints": [
+    "If bkName does not exist in wpDoc, the command does nothing (no error)."
+  ]
+}

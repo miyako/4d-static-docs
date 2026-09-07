@@ -1,0 +1,58 @@
+{
+  "theme": "WritePro",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "params": [
+        {
+          "name": "targetObj",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": false,
+          "description": "Range, element (header/footer/body/table/paragraph/anchored or inline picture/section/subsection/style sheet), 4D Write Pro document, or a section/subsection object."
+        },
+        {
+          "name": "attribName",
+          "members": [
+            { "name": "attribName", "type": { "kind": "concrete", "name": "Text" }, "direction": "in", "optional": false }
+          ],
+          "cardinality": { "min": 0, "max": null },
+          "position": "trailing"
+        }
+      ],
+      "returns": null,
+      "mechanism": "static_variadic",
+      "semanticRole": "Resets one or more named attributes on targetObj using variadic attribName arguments; if targetObj is a section or subsection, all attribName arguments may be omitted to reset every attribute at once.",
+      "note": "Doc syntax lines 1 (targetObj; ...attribName, cardinality min 1) and 2 (sectionOrSubsection {; ...attribName}, cardinality min 0) are one semantic overload: the same variadic-attribName mechanism, differing only in whether the target's specific type (section/subsection) permits omitting all names. Cardinality set to min 0 (the permissive case); the required-when-generic-target nuance is captured in constraints/jointConstraints, not enforced structurally."
+    },
+    {
+      "sourceIndices": [2, 3],
+      "params": [
+        {
+          "name": "targetObj",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": false,
+          "description": "Range, element (header/footer/body/table/paragraph/anchored or inline picture/section/subsection/style sheet), 4D Write Pro document, or a section/subsection object."
+        },
+        {
+          "name": "attribColl",
+          "type": { "kind": "concrete", "name": "Collection" },
+          "direction": "in",
+          "optional": true,
+          "description": "Collection of attribute names to reset."
+        }
+      ],
+      "returns": null,
+      "mechanism": "collection_form",
+      "semanticRole": "Resets multiple named attributes on targetObj at once using a Collection of attribute names (attribColl); if targetObj is a section or subsection, attribColl may be omitted to reset every attribute at once.",
+      "note": "Doc syntax lines 3 (targetObj; attribColl, required) and 4 (sectionOrSubsection {; attribColl}, optional) are one semantic overload: the same Collection-based mechanism, differing only in whether the target's specific type (section/subsection) permits omitting attribColl entirely. Set optional:true (the permissive case); see constraints for the required-when-generic-target nuance."
+    }
+  ],
+  "constraints": [
+    "When targetObj is not a section nor a subsection, at least one attribName (or a non-empty attribColl) must be provided; omitting all of them raises an error in that case.",
+    "When targetObj is a section or a subsection, all attribName/attribColl arguments may be omitted, which resets every attribute at once.",
+    "If the attribute being reset was not defined on the target element, the command does nothing.",
+    "Resetting a style sheet object's attributes removes them from the style sheet, unless it is the default ('Normal') style sheet, in which case the default value is applied instead."
+  ]
+}

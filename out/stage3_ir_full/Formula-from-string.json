@@ -1,0 +1,69 @@
+{
+  "id": "Formula-from-string",
+  "displayName": "Formula from string",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "formulaString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Text formula to be returned as object"
+        },
+        {
+          "name": "context",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "sk execute in current database",
+              "meaning": "the formula executes in the context it was created (default behavior when context is omitted)"
+            },
+            {
+              "value": "sk execute in host database",
+              "meaning": "the formula executes in the context of the host database -- useful when the formula is created inside a component"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Function"
+      },
+      "semanticRole": "Creates a 4D.Function object from a text-based formula, executed by default in the context (database/component) where it was created."
+    },
+    {
+      "params": [
+        {
+          "name": "formulaString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Function"
+      },
+      "semanticRole": "The Formula from string command creates a 4D.Function object based upon the formulaString and, optionnally, a context ."
+    }
+  ],
+  "constraints": [
+    "Prefer the Formula command over this one unless the original formula is stored as text (e.g. in an external JSON file) or a formula must be created in a host database while calling from a component.",
+    "Local variable contents cannot be accessed by name in compiled mode, so they cannot be used inside formulaString -- attempting to reference a local variable raises error -10737.",
+    "Using tokens in formulaString syntax is strongly advised."
+  ]
+}

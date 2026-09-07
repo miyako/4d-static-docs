@@ -1,0 +1,52 @@
+{
+  "id": "ARRAY-TO-LIST",
+  "displayName": "ARRAY TO LIST",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRefs",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Creates or replaces the first-level items of a hierarchical list or choice list from the elements of array, optionally assigning explicit per-item reference numbers via itemRefs."
+    }
+  ],
+  "constraints": [
+    "Only sets first-level items of the target list; nested/sub-items are not addressable via this command.",
+    "If list is a numeric ListRef (hierarchical list), that list must already have been created previously (e.g. via New list) -- this command cannot create a new hierarchical list from scratch.",
+    "If list is a Text choice-list name, this command modifies the structure file, so any local edits are lost on next structure-file update in production, and it cannot be used against a read-only structure (a .4dz project, including remote projects, or a component).",
+    "If itemRefs is omitted, 4D automatically assigns list item reference numbers 1, 2, ... N."
+  ]
+}

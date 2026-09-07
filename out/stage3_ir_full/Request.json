@@ -1,0 +1,61 @@
+{
+  "id": "Request",
+  "displayName": "Request",
+  "kind": "classic_command",
+  "theme": "Messages",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "defaultResponse",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "OKButtonTitle",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "CancelButtonTitle",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Request command displays a request dialog box composed of a message, a text input area, an OK button, and a Cancel Button."
+    }
+  ],
+  "constraints": [
+    "If message does not fit the display area (roughly 50 characters, varies by system/font), it may appear truncated.",
+    "Default button titles are \"OK\" and \"Cancel\" unless overridden by OKButtonTitle/CancelButtonTitle; buttons are resized to fit custom titles.",
+    "Sets the OK system variable to 1 if the user clicks OK (or presses Enter), or 0 if the user clicks Cancel.",
+    "Returns the entered text on OK, or an empty string on Cancel; convert with Num or Date if a numeric/date value is expected.",
+    "Must not be called from a form/object method's On Activate or On Deactivate event handler, since that causes an endless loop.",
+    "For gathering multiple pieces of information, prefer a custom form presented with DIALOG rather than chaining several Request dialogs."
+  ]
+}

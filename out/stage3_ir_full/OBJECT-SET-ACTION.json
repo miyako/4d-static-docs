@@ -1,0 +1,60 @@
+{
+  "id": "OBJECT-SET-ACTION",
+  "displayName": "OBJECT SET ACTION",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "action",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the standard action (or a Standard Action theme constant), optionally with parameters."
+        }
+      ],
+      "semanticRole": "Associates or replaces the standard action bound to the designated form object.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
+    }
+  ],
+  "constraints": [
+    "Legacy standard-action constants prefixed '_o_' in the \"Standard Action\" theme are deprecated since 4D v16 R3 but still supported for compatibility."
+  ]
+}

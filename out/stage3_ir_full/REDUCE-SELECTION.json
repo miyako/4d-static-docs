@@ -1,0 +1,35 @@
+{
+  "id": "REDUCE-SELECTION",
+  "displayName": "REDUCE SELECTION",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "number",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "REDUCE SELECTION creates a new selection of records for aTable ."
+    }
+  ],
+  "constraints": [
+    "Passing 0 for number empties the selection entirely, leaving aTable with no selection and no current record.",
+    "The new selection's first record becomes the current record for aTable in the current process."
+  ]
+}

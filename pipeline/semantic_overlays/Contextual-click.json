@@ -1,0 +1,12 @@
+{
+  "theme": "Form-Events",
+  "constraints": [
+    "Should only be used in the context of the On Clicked form event."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns True if the current mouse event was a contextual (right-button, or Control+click on Mac OS) click."
+    }
+  ]
+}

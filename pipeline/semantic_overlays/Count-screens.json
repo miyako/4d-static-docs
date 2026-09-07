@@ -1,0 +1,9 @@
+{
+  "theme": "System-Environment",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the number of screen monitors connected to the machine."
+    }
+  ]
+}

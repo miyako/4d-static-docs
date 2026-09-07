@@ -1,0 +1,7 @@
+{
+  "theme": "Objects-Language",
+  "constraints": [
+    "Adding or editing a property on the shared object must be wrapped in Use...End use, otherwise an error is generated; reading a property, however, is possible without Use...End use.",
+    "Passed values: numbers are always stored as reals; a pointer is kept as-is; dates are stored as \"yyyy-mm-dd\" or ISO datetime strings per the 'dates inside objects' database setting; times are stored as a number of milliseconds (Real)."
+  ]
+}

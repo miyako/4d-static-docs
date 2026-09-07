@@ -1,0 +1,34 @@
+{
+  "id": "VP-SET-CURRENT-SHEET",
+  "displayName": "VP SET CURRENT SHEET",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET CURRENT SHEET command sets the current sheet in vpAreaName ."
+    }
+  ],
+  "constraints": [
+    "If the passed sheet index is less than 0 or exceeds the number of sheets, the command does nothing."
+  ]
+}

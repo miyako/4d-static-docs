@@ -1,0 +1,37 @@
+{
+  "id": "RESOURCE-TYPE-LIST",
+  "displayName": "RESOURCE TYPE LIST",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resTypes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "List of available resource types"
+        },
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Resource file reference number, or all open resource files, if omitted"
+        }
+      ],
+      "semanticRole": "Populates resTypes with the distinct resource types present across the currently open resource files (or one file if resFile is given)."
+    }
+  ],
+  "constraints": [
+    "If resFile is a valid resource file reference number, only that file's resource types are listed; if omitted, all currently open resource files are used.",
+    "resTypes may be predeclared as a String/Text array; otherwise the command creates it as a Text array."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "RELATE-MANY",
+  "displayName": "RELATE MANY",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "oneTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Establishes every One-to-Many relation for oneTable at once, regenerating the current selection of each related Many table based on the current value of each related field in the One table."
+    },
+    {
+      "params": [
+        {
+          "name": "oneField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Establishes the single One-to-Many relation for oneField, regenerating the current selection of the related Many table."
+    }
+  ],
+  "constraints": [
+    "Each call regenerates the current selections of the affected Many tables from scratch, and loads the first record of each new selection as the current record."
+  ]
+}

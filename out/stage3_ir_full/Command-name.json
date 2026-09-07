@@ -1,0 +1,51 @@
+{
+  "id": "Command-name",
+  "displayName": "Command name",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "command",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Command number to look up."
+        },
+        {
+          "name": "info",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Filled in with a bit field describing the command: bit 0 = thread-safe, bit 1 = deprecated."
+        },
+        {
+          "name": "theme",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Filled in with the name of the 4D language theme the command belongs to."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the (localized) name of the command numbered command, and optionally fills in info (thread-safe/deprecated bit field) and theme (language theme name) by reference."
+    }
+  ],
+  "constraints": [
+    "Sets the OK variable to 1 if command is a valid, existing command number, and to 0 otherwise.",
+    "Some disabled-but-still-numbered commands return an empty string for the name even though OK is set to 1."
+  ]
+}

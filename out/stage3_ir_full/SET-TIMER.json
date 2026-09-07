@@ -1,0 +1,33 @@
+{
+  "id": "SET-TIMER",
+  "displayName": "SET TIMER",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tickCount",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Tickcount or -1=Trigger as soon as possible",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Activate the On Timer form event as soon as possible, i.e. as soon as the 4D application hands control back to the event manager (useful to ensure a form is fully displayed before further processing)."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "The SET TIMER command activates the On Timer form event and sets, for the current form and process, the number of ticks elapsed between each On Timer form event."
+    }
+  ],
+  "constraints": [
+    "Applies to the current form and process; if called in a context where no form is displayed, it has no effect.",
+    "When called from a subform's form method, the On Timer event is generated in the subform, not the parent form."
+  ]
+}

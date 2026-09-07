@@ -1,0 +1,39 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "If the picture-source parameter is omitted entirely, a valid picture reference is still returned and an empty image is added; this lets you subsequently call WP SET ATTRIBUTES with the wk image expression selector to fill it with a computed 4D expression.",
+    "The returned reference object can be passed to WP SET ATTRIBUTES to reposition/resize/restyle the picture anywhere in wpDoc (page, section, header, footer, layer, etc.)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1, 2],
+      "note": "Draft parser produced three separate overloads (one per doc syntax line), each hard-typing the second parameter as Picture, Text, or 4D.File under three different names (picture/picturePath/pictureFileObj). Docs describe this as a single command whose optional second parameter accepts one of these three mutually-exclusive forms of a picture source, so merged into one overload with a union type and a discriminatedBy rule on the argument's runtime type.",
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": false,
+          "description": "4D Write Pro document"
+        },
+        {
+          "name": "pictureSource",
+          "type": [
+            { "kind": "concrete", "name": "Picture" },
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "4D.File" }
+          ],
+          "direction": "in",
+          "optional": true,
+          "description": "The picture to add: a 4D picture (Picture), a pathname to a picture file on disk in system syntax (Text), or a 4D.File object representing a picture file (4D.File). Omit entirely to add an empty image placeholder."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "pictureSource",
+        "rule": "The runtime type of the second argument selects its meaning: a Picture value is used directly as the image; a Text value is treated as a pathname (full, structure-file-relative, or a bare filename located next to the structure file, with extension required); a 4D.File value is treated as a picture-file reference. Passing nothing at all adds an empty image awaiting a wk image expression via WP SET ATTRIBUTES."
+      },
+      "returns": { "kind": "concrete", "name": "Object" },
+      "semanticRole": "Anchors the given picture (or an empty placeholder image if omitted) at a fixed location in wpDoc and returns its reference object."
+    }
+  ]
+}

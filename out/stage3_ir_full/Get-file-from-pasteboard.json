@@ -1,0 +1,29 @@
+{
+  "id": "Get-file-from-pasteboard",
+  "displayName": "Get file from pasteboard",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "xIndex",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get file from pasteboard command returns the absolute pathname of a file included in a drag and drop operation."
+    }
+  ],
+  "constraints": [
+    "Returns an empty string if there is no Xth file in the pasteboard."
+  ]
+}

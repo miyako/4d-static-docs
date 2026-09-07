@@ -1,0 +1,63 @@
+{
+  "id": "SET-PRINT-OPTION",
+  "displayName": "SET PRINT OPTION",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value1",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value2",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET PRINT OPTION command is used to modify, by programming, the value of a print option."
+    }
+  ],
+  "constraints": [
+    "The number and meaning of value1/value2 depend on option: Paper option (1) \u2014 value1 alone is the paper name, or value1/value2 together are the paper width/height in points; Orientation option (2) \u2014 value1 only, 1=Portrait/2=Landscape, and can be changed mid print-job; Scale option (3) \u2014 value1 only, a percentage (an invalid value is reset to 100% at print time); Number of copies option (4) \u2014 value1 only; Paper source option (5, Windows only) \u2014 value1 only, a tray index from PRINT OPTION VALUES; Destination option (9) \u2014 value1 is 1=Printer/2=File(PS on Mac)/3=PDF file/5=Screen(macOS), and value2 is the destination pathname when value1 isn't 1 or 5; Double sided option (11) \u2014 value1 is 0=Single-sided/1=Double-sided, and value2 (if value1=1) is 0=Left binding/1=Top binding; Spooler document name option (12) \u2014 value1 only, a document name (empty string restores the standard name); Page range option (15) \u2014 value1=first page (default 1), value2=last page (default -1=end of document); Legacy printing layer option (16, Windows only) \u2014 value1 only, 1=GDI legacy layer/0=D2D layer; Print preview option (18, Windows only) \u2014 value1 sets the preview format, value2 is read-only via GET PRINT OPTION.",
+    "Each option set via this command applies to the current 4D printing settings until another command that modifies print parameters (e.g. PRINT SETTINGS, or PRINT SELECTION/PRINT RECORD/PAGE BREAK without the '>' parameter) is called.",
+    "If a print job has been opened (e.g. with OPEN PRINTING JOB), an option set for that job cannot be modified until the job terminates, except for the Orientation option which remains modifiable mid-job."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "OBJECT-SET-SUBFORM-CONTAINER-VALUE",
+  "displayName": "OBJECT SET SUBFORM CONTAINER VALUE",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Sets the current value of the data source bound to the subform container of the form in which this command is called, when that form is being used as a subform; does nothing otherwise."
+    }
+  ],
+  "constraints": [
+    "Only has an effect when called from within a form that is currently used as a subform; in any other context it does nothing.",
+    "value must be the same type as the data source bound to the subform container.",
+    "Does nothing if the bound data source is not an assignable expression."
+  ]
+}

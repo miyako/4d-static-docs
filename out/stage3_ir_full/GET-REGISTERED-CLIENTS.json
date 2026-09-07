@@ -1,0 +1,32 @@
+{
+  "id": "GET-REGISTERED-CLIENTS",
+  "displayName": "GET REGISTERED CLIENTS",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "clientList",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the 4D Clients registered via REGISTER CLIENT."
+        },
+        {
+          "name": "methods",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Per-client workload: the number of methods each client still has to execute via EXECUTE ON CLIENT."
+        }
+      ]
+    }
+  ]
+}

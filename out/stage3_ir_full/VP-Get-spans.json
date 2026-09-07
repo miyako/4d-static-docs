@@ -1,0 +1,29 @@
+{
+  "id": "VP-Get-spans",
+  "displayName": "VP Get spans",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Retrieves the cell spans defined within rangeObj as an object describing them."
+    }
+  ],
+  "constraints": [
+    "If rangeObj does not contain any cell span, an empty range object is returned."
+  ]
+}

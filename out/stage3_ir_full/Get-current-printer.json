@@ -1,0 +1,15 @@
+{
+  "id": "Get-current-printer",
+  "displayName": "Get current printer",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Get current printer command returns the name of the current printer defined in the 4D application."
+    }
+  ],
+  "constraints": [
+    "Returns \"_4d_pdf_printer\" (or the actual PDF driver name) when the Generic PDF driver constant was set via SET CURRENT PRINTER."
+  ]
+}

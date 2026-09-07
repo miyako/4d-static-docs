@@ -1,0 +1,78 @@
+{
+  "id": "OBJECT-SET-VERTICAL-ALIGNMENT",
+  "displayName": "OBJECT SET VERTICAL ALIGNMENT",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "alignment",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Alignment code, a constant from the Form Objects (Properties) theme.",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Align default"
+            },
+            {
+              "value": 2,
+              "meaning": "Align top"
+            },
+            {
+              "value": 3,
+              "meaning": "Align center"
+            },
+            {
+              "value": 4,
+              "meaning": "Align bottom"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Modifies the vertical alignment of the form object(s) designated by object to the alignment constant passed in alignment.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
+    }
+  ],
+  "constraints": [
+    "Vertical alignment can be applied to the following form objects: list boxes, list box columns, list box headers and footers."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "LISTBOX-Get-array",
+  "displayName": "LISTBOX Get array",
+  "kind": "classic_command",
+  "theme": "List-Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Pointer"
+      },
+      "semanticRole": "Returns a pointer to the arrType array (style/color/background-color/row-control) associated with the list box or list box column, addressed as an object-name string (via the leading '*' flag). Array-type list boxes only.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Pointer"
+      },
+      "semanticRole": "Returns a pointer to the arrType array (style/color/background-color/row-control) associated with the list box or list box column, addressed as a direct Variable reference (no leading '*'). Array-type list boxes only.",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "Formula",
+  "displayName": "Formula",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "formulaExp",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Function"
+      },
+      "semanticRole": "The Formula command creates a 4D Function object based upon the formulaExp expression."
+    }
+  ],
+  "constraints": [
+    "Allows a formula to be passed as a parameter (e.g. as a calculated attribute) or executed from other components without declaring it as shared by components and host database; the resulting object is evaluated in the context of the database/component that created it, and is called via .call() or .apply()."
+  ]
+}

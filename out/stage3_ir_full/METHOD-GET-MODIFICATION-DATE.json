@@ -1,0 +1,76 @@
+{
+  "id": "METHOD-GET-MODIFICATION-DATE",
+  "displayName": "METHOD GET MODIFICATION DATE",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text array"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Text or Text array containing one or more method path(s)"
+        },
+        {
+          "name": "modDate",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Date"
+            },
+            {
+              "kind": "concrete",
+              "name": "Date array"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Method modification date(s)"
+        },
+        {
+          "name": "modTime",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Time"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer array"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Method modification time(s)"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "path, modDate, and modTime must all be the same kind (either all scalar Text/Date/Time, or all arrays: Text array/Date array/Integer array); the two syntaxes cannot be mixed.",
+    "In the array-based syntax, modTime is an Integer array (not a Time array), per the documented example (ARRAY LONGINT for arrTimes)."
+  ]
+}

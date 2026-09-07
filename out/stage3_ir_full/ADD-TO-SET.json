@@ -1,0 +1,35 @@
+{
+  "id": "ADD-TO-SET",
+  "displayName": "ADD TO SET",
+  "kind": "classic_command",
+  "theme": "Sets",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "ADD TO SET adds the current record of aTable to set ."
+    }
+  ],
+  "constraints": [
+    "The set named in 'set' must already exist (e.g. created with CREATE SET / CREATE EMPTY SET), otherwise an error occurs -- ADD TO SET does not implicitly create it.",
+    "If aTable has no current record, ADD TO SET silently has no effect."
+  ]
+}

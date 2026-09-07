@@ -1,0 +1,62 @@
+{
+  "id": "PRINT-OPTION-VALUES",
+  "displayName": "PRINT OPTION VALUES",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Option number: one of the 'Print Options' theme constants (e.g. Paper option, Paper source option)."
+        },
+        {
+          "name": "namesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the values available for the specified option."
+        },
+        {
+          "name": "info1Array",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Additional info (1) for each name, meaning depends on option (e.g. paper format heights)."
+        },
+        {
+          "name": "info2Array",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Additional info (2) for each name, meaning depends on option (e.g. paper format widths)."
+        }
+      ],
+      "semanticRole": "The PRINT OPTION VALUES command returns in namesArray a list of names available for the print option defined.",
+      "discriminatedBy": {
+        "param": "option",
+        "rule": "The meaning of info1Array/info2Array depends on option: for Paper option (1), info1Array holds paper format heights and info2Array holds paper format widths; for Paper source option (5, Windows only), the arrays carry different option-specific info. To apply a value with SET PRINT OPTION, pass either the corresponding namesArray entry or its info1Array/info2Array counterparts."
+      }
+    }
+  ],
+  "constraints": [
+    "Only operates with PostScript printers.",
+    "Obtaining paper format information requires the print driver to have access to a valid PPD file for the printer.",
+    "Paper source option can only be used under Windows."
+  ]
+}

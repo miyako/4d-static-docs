@@ -1,0 +1,36 @@
+{
+  "id": "CREATE-ALIAS",
+  "displayName": "CREATE ALIAS",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "aliasPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Creates an alias/shortcut file pointing at the given target file or folder."
+    }
+  ],
+  "constraints": [
+    "If targetPath is an empty string, the command does nothing.",
+    "Under Windows, if aliasPath does not end with the (invisible) \".LNK\" extension, it is automatically appended.",
+    "If aliasPath is just a name (no path), the alias is created in the current working folder (usually the folder containing the structure file)."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WP-COMPUTE-FORMULAS",
+  "displayName": "WP COMPUTE FORMULAS",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP COMPUTE FORMULAS command evaluates the formulas in targetObj ."
+    }
+  ],
+  "constraints": [
+    "targetObj can be a range, an element (table/row/cell(s)/paragraph/body/header/footer/section/subsection/inline or anchored picture/text box), or a whole 4D Write Pro document.",
+    "When targetObj is a section, only image formulas or formulas in text boxes anchored to that section (or to all sections) are computed; formulas anchored to a page or to the embedded view are not computed unless targetObj is the whole document."
+  ]
+}

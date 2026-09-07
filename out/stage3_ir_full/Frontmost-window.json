@@ -1,0 +1,32 @@
+{
+  "id": "Frontmost-window",
+  "displayName": "Frontmost window",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the reference number of the frontmost window, ignoring floating windows unless the optional * parameter is passed, in which case floating windows are taken into account.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "presence of the literal '*' includes floating windows in the frontmost-window determination"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "VP-IMPORT-FROM-BLOB",
+  "displayName": "VP IMPORT FROM BLOB",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "vpBlob",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "paramObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Imports the 4D View Pro document contained in vpBlob into the 4D View Pro area vpAreaName, replacing its contents."
+    }
+  ],
+  "constraints": [
+    "vpBlob must contain a 4D View Pro document previously saved as a Blob via VP EXPORT TO BLOB or the 4D View Pro interface.",
+    "The import replaces any data already present in vpAreaName.",
+    "paramObj is an options object; documented defaults include calcOnDemand=false, dynamicReferences=true, fullRecalc=false, includeFormulas=true, includeStyles=true, includeUnusedStyles=true, and an optional formula callback invoked when the import completes."
+  ]
+}

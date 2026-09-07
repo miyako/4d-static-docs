@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Local mode only (4D Server and 4D); must not be used from 4D in remote mode."
+  ]
+}

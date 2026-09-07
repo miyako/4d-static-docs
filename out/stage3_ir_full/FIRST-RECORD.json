@@ -1,0 +1,25 @@
+{
+  "id": "FIRST-RECORD",
+  "displayName": "FIRST RECORD",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Loads the first record of aTable's current selection from disk and makes it the current record."
+    }
+  ],
+  "constraints": [
+    "Query, selection, and sort commands also reset the current record to the first record; FIRST RECORD is a no-op if the selection is empty or the current record is already first."
+  ]
+}

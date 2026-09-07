@@ -1,0 +1,79 @@
+{
+  "id": "Generate-digest",
+  "displayName": "Generate digest",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "param",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "algorithm",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "MD5 digest (128 bits, 32 hex characters)."
+            },
+            {
+              "value": 1,
+              "meaning": "SHA1 digest (160 bits, 40 hex characters)."
+            },
+            {
+              "value": 2,
+              "meaning": "Obsolete: 4D REST digest constant."
+            },
+            {
+              "value": 3,
+              "meaning": "SHA-256 digest (256 bits, 64 hex characters)."
+            },
+            {
+              "value": 4,
+              "meaning": "SHA-512 digest (512 bits, 128 hex characters)."
+            }
+          ]
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Generate digest command returns the digest key of a BLOB or text after application of an encryption algorithm."
+    }
+  ],
+  "constraints": [
+    "Not recommended for handling passwords; use Generate password hash / Verify password hash instead of MD5/SHA algorithms for that purpose.",
+    "Calling the command on an empty text/BLOB does not return an empty string; it returns the algorithm's actual digest of an empty input (e.g. \"d41d8cd98f00b204e9800998ecf8427e\" for MD5).",
+    "The returned digest value is identical across platforms (macOS/Windows) since the calculation is based on the UTF-8 representation of the input."
+  ]
+}

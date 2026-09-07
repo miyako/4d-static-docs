@@ -1,0 +1,75 @@
+{
+  "id": "GET-PROCESS-VARIABLE",
+  "displayName": "GET PROCESS VARIABLE",
+  "kind": "classic_command",
+  "theme": "Process (Communications)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Source process number; a negative value addresses the server's interprocess variables from a 4D Client."
+        },
+        {
+          "name": "srcVar",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dstVar",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "srcVar",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "dstVar",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "out",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "srcVar must be a process or interprocess variable of the source process (local variables are not accepted); the source process must be a user process, not a kernel process.",
+    "Does not accept pointers, arrays of pointers, or two-dimensional arrays as source variables.",
+    "Each srcVar/dstVar pair must be of compatible types, or the retrieved value is meaningless.",
+    "From 4D Client, pass a negative process number to read a stored procedure's interprocess variables on the server without needing to know its process ID; this cross-machine read is only supported client-to-server.",
+    "If the source process does not exist, the command has no effect."
+  ]
+}

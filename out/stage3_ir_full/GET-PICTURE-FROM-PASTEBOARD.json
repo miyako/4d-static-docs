@@ -1,0 +1,24 @@
+{
+  "id": "GET-PICTURE-FROM-PASTEBOARD",
+  "displayName": "GET PICTURE FROM PASTEBOARD",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "In the context of copy/paste operations, the pasteboard corresponds to the clipboard."
+  ]
+}

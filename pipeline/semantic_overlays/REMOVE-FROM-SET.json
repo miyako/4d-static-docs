@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "set must already exist; if it does not, an error occurs.",
+    "If aTable (or the default table) has no current record, the command silently does nothing."
+  ]
+}

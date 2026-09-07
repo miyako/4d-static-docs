@@ -1,0 +1,41 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "type and specifics are documented with the '\u2190' arrow (values returned by the command), not '\u2192'; auto-parse defaulted both to direction 'in'. Also records the documented QR Output Destination constants for 'type' as sentinelValues.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "type",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Output type of the report",
+          "sentinelValues": [
+            { "value": 1, "meaning": "qr printer -- specifics returns \"*\" if the print dialog boxes are suppressed" },
+            { "value": 2, "meaning": "qr text file -- specifics returns the pathname to the file" },
+            { "value": 5, "meaning": "qr HTML file -- specifics returns the pathname to the file" }
+          ]
+        },
+        {
+          "name": "specifics",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Variable" }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "Value linked to the returned output type (see sentinelValues on type)"
+        }
+      ],
+      "semanticRole": "Retrieves the current output destination type of the report for area, plus any type-specific detail (e.g. output file pathname) in specifics."
+    }
+  ]
+}

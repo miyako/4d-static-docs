@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Only usable with 4D projects running in interpreted mode.",
+    "Execution is asynchronous.",
+    "4D normally reloads a project automatically when it detects a source file was added/modified/deleted (e.g. edited from the 4D Developer IDE, or when the app window returns to the foreground); this command is only necessary when that automatic detection doesn't apply."
+  ]
+}

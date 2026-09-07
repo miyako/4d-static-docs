@@ -1,0 +1,64 @@
+{
+  "id": "LISTBOX-SET-PROPERTY",
+  "displayName": "LISTBOX SET PROPERTY",
+  "kind": "classic_command",
+  "theme": "List-Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box or column. Some properties (marked with * in the doc) only apply to columns; if a whole list box is passed for one of those, the property is applied to each of its columns."
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Constant (List Box theme, e.g. lk allow wordwrap, lk column max width, lk display header...) designating the property to set."
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New value of property; its expected type/range depends on which property constant was passed (e.g. Boolean-like lk no/lk yes constants, a numeric size, or an expression reference)."
+        }
+      ],
+      "semanticRole": "Sets the value of the given property of the designated list box or column."
+    }
+  ],
+  "constraints": [
+    "If the designated list box or column does not exist, or the property does not exist or isn't available for that object (e.g. a column-only property passed to an array-type list box), the command does nothing and no error is triggered."
+  ]
+}

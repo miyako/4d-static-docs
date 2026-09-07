@@ -1,0 +1,29 @@
+{
+  "id": "Test-semaphore",
+  "displayName": "Test semaphore",
+  "kind": "classic_command",
+  "theme": "Process (Communications)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "semaphore",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Test semaphore command tests for the existence of a semaphore."
+    }
+  ],
+  "constraints": [
+    "Unlike Semaphore, Test semaphore does not create the semaphore if it doesn't already exist; it only reports whether it currently exists."
+  ]
+}

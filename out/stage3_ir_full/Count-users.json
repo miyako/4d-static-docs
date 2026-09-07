@@ -1,0 +1,15 @@
+{
+  "id": "Count-users",
+  "displayName": "Count users",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns the number of users currently connected to the 4D Server."
+    }
+  ],
+  "constraints": [
+    "On a 4D single-user application, always returns 1."
+  ]
+}

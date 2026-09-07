@@ -1,0 +1,43 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the non-repeated (unique) values found at a given nested attribute path of an Object field, for the current selection."
+    }
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "valuesArray is a filled/returned array (docs: 'Array to receive list of distinct attribute values'); autoparse defaults all params to direction:in.",
+      "params": [
+        {
+          "name": "objectField",
+          "type": { "kind": "concrete", "name": "Field" },
+          "direction": "in",
+          "optional": false,
+          "description": "Object field to get distinct attribute values from; must be of the Object type"
+        },
+        {
+          "name": "path",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Dot-notation path of the attribute whose distinct values to get (case-sensitive)"
+        },
+        {
+          "name": "valuesArray",
+          "type": { "kind": "pseudo", "name": "any" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the non-repeated values; must be the same scalar array type (Text, number, Boolean, Date, or Time) as the values stored at path"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "objectField must be of the Object type, otherwise an error is returned.",
+    "All values at path across the selection must be of the same scalar type (Text, number, Boolean, Date, or Time); mixed types (e.g. text in one record, number in another) generate an error. Pointers, objects, BLOBs, and images are not supported.",
+    "Can be used with indexed or non-indexed fields, but is slower on unindexed fields and loses the current record in that case.",
+    "Does not change the current selection or the current record."
+  ]
+}

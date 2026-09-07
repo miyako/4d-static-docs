@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Do not call ALERT from the On Activate or On Deactivate form-event handling code of a form/object method; doing so causes an endless loop."
+  ]
+}

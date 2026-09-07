@@ -1,0 +1,20 @@
+{
+  "id": "Web-Event",
+  "displayName": "Web Event",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns an object describing the most recently triggered event linked to a web page component handled by the 4D web server (caller, eventType, and event-specific data)."
+    }
+  ],
+  "constraints": [
+    "Must be called in the context of a web page handled by the 4D web server.",
+    "Result properties: caller (string, server-side reference of the component that triggered the event), eventType (string; one of onblur/onfocus/onclick/onauxclick/onmouseenter/onmouseleave/onkeyup/onkeydown/onchange/unload/onload), and data (object, additional component-specific information, e.g. index for a Tabs/Data Table component, name for a Data Table column)."
+  ]
+}

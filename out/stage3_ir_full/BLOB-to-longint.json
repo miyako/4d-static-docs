@@ -1,0 +1,66 @@
+{
+  "id": "BLOB-to-longint",
+  "displayName": "BLOB to longint",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB from which to get the Long Integer value"
+        },
+        {
+          "name": "byteOrder",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Byte ordering of the 4-byte value to read",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Native byte ordering"
+            },
+            {
+              "value": 1,
+              "meaning": "Macintosh byte ordering"
+            },
+            {
+              "value": 2,
+              "meaning": "PC byte ordering"
+            }
+          ]
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "Offset within the BLOB (expressed in bytes); on return, incremented by the number of bytes read so it can be reused for the next read",
+          "default": "0 (start of the BLOB) if omitted"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Reads and returns a 4-byte Long Integer value from a BLOB at a given (or default) byte offset, honoring an explicit byte ordering, and advances the offset variable by the bytes consumed."
+    }
+  ],
+  "constraints": [
+    "offset must be between 0 and (BLOB size - 4); otherwise error -111 is generated.",
+    "Byte-swapping across Macintosh/PC platforms is the caller's responsibility; this command does not perform it automatically beyond the byteOrder parameter."
+  ]
+}

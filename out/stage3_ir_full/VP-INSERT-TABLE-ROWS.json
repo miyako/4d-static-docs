@@ -1,0 +1,83 @@
+{
+  "id": "VP-INSERT-TABLE-ROWS",
+  "displayName": "VP INSERT TABLE ROWS",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tableName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "row",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "count",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "insertAfter",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "vk table insert before: insert row(s) before row (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "vk table insert after: insert row(s) after row."
+            }
+          ]
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Inserts one or count empty row(s) into tableName at the specified row index, before or after it per insertAfter."
+    }
+  ],
+  "constraints": [
+    "count must be greater than 0; if omitted, a single row is inserted.",
+    "Inserts rows inside tableName only, not the sheet: the sheet's total row count is unaffected, and data below the table is automatically shifted down.",
+    "If tableName is bound to a data context, the command inserts new empty element(s) into the bound collection.",
+    "If tableName does not exist, or there is not enough room in the sheet, the command does nothing."
+  ]
+}

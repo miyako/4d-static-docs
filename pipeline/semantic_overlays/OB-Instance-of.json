@@ -1,0 +1,6 @@
+{
+  "theme": "Objects-Language",
+  "constraints": [
+    "If class is not a valid Class object, error -10745 is generated."
+  ]
+}

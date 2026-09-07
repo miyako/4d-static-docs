@@ -1,0 +1,39 @@
+{
+  "id": "Font-file",
+  "displayName": "Font file",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fontFamily",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fontStyle",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Font file command returns an object describing the font file in your OS corresponding to the fontFamily and, optionally, fontStyle you passed in parameter."
+    }
+  ],
+  "constraints": [
+    "fontStyle accepts one constant or a bitwise combination of the Font Styles theme constants (Bold=1, Italic=2, Plain=0); any other value is ignored.",
+    "Returns a Null object if the designated font family is not installed in the OS."
+  ]
+}

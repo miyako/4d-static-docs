@@ -1,0 +1,26 @@
+{
+  "id": "Length",
+  "displayName": "Length",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "string",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Length is used to find the length of aString .returns the number of characters that are in aString ."
+    }
+  ]
+}

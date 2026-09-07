@@ -1,0 +1,36 @@
+{
+  "id": "VP-SET-CELL-STYLE",
+  "displayName": "VP SET CELL STYLE",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "styleObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET CELL STYLE command applies the style(s) defined in the styleObj to the cells defined in the rangeObj ."
+    }
+  ],
+  "constraints": [
+    "If rangeObj contains multiple cells, the style is applied to each cell individually (unlike VP SET BORDER, which applies borders to the range as a whole).",
+    "If styleObj combines an existing style sheet with additional style settings, the style sheet is applied first, then the additional settings.",
+    "Passing NULL as styleObj removes all style settings from rangeObj; giving an individual attribute a NULL value removes just that attribute."
+  ]
+}

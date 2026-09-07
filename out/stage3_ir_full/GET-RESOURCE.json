@@ -1,0 +1,56 @@
+{
+  "id": "GET-RESOURCE",
+  "displayName": "GET RESOURCE",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4-character resource type."
+        },
+        {
+          "name": "resID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resData",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB field or variable to receive the data; filled with the contents of the resource."
+        },
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Resource file reference number to restrict the search to; if omitted, all open resource files are searched."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "resType must be a 4-character string.",
+    "If the resource is not found, resData is left unchanged and the OK system variable is set to 0.",
+    "If resFile is omitted, the first matching resource found across the chain of open resource files is returned; otherwise only that file is searched."
+  ]
+}

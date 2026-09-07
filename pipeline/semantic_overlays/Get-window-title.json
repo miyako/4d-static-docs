@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "If window is omitted, returns the title of the frontmost window of the current process.",
+    "Returns an empty string if the designated window does not exist."
+  ]
+}

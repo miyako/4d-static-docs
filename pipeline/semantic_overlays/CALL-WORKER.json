@@ -1,0 +1,14 @@
+{
+  "theme": "Process-Communications",
+  "constraints": [
+    "If process names a nonexistent process not created by CALL WORKER or 4D itself, the command does nothing; if it names a nonexistent worker by name, a new worker process is created.",
+    "The main process (always process number 1) is a worker process callable via CALL WORKER, but should be addressed by number since its name varies by language.",
+    "Arrays cannot be passed as parameters to formula."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates (if needed) and posts a formula (with optional parameters) to the message box of the named/numbered worker process, requesting it execute the formula in its own context."
+    }
+  ]
+}

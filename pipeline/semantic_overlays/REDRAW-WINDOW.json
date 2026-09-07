@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "4D already handles graphical updates automatically on window move/resize/front-bringing and on form/value changes, so this command is rarely needed directly."
+  ]
+}

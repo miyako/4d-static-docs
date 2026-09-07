@@ -1,0 +1,46 @@
+{
+  "id": "VP-Get-default-style",
+  "displayName": "VP Get default style",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area from object name"
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (0-based); current sheet if omitted",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "constraints": [
+    "Passing a vpAreaName that does not exist raises an error.",
+    "The returned object includes basic document-rendering properties plus any default style previously set via VP SET DEFAULT STYLE."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "theme": "HTTP-Client",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Sets the active client certificates folder (used to locate the client certificate files required by Web servers) for all processes of the current session."
+    }
+  ],
+  "constraints": [
+    "certificatesFolder may be relative to the application structure file or absolute, expressed using system (platform-native) path syntax; if the folder doesn't exist or the pathname is invalid, an error is generated (interceptable via ON ERR CALL).",
+    "Takes effect immediately for subsequent HTTP Request/HTTP Get calls in every process of the database, without restarting the application.",
+    "Reference lifecycle (implied convention, not syntactically enforced): HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
+  ]
+}

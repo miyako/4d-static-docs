@@ -1,0 +1,82 @@
+{
+  "id": "SET-MENU-ITEM-PROPERTY",
+  "displayName": "SET MENU ITEM PROPERTY",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            },
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET MENU ITEM PROPERTY command sets the value of the property for the menu item designated by the menu and menuItem parameters."
+    }
+  ],
+  "constraints": [
+    "property accepts either a standard property name (a constant from the 'Menu Item Properties' theme, e.g. 4D_access_group, 4D_standard_action, 4D_execute_without_validating, 4D_start_new_process) or any custom string that does not begin with '4D_'; the accepted type/shape of value depends on which property is passed.",
+    "For the 'Associated standard action' standard property, value is a standard action name (Text) chosen from the Standard Action theme/Standard actions list; pre-4D v16 R3 code passing the deprecated Value for Associated Standard Action constants (Longint) is still supported for compatibility.",
+    "A custom property's value (Text, Longint, or Boolean) is stored with the menu item and can be retrieved with GET MENU ITEM PROPERTY.",
+    "If menu is a MenuRef, the command applies to all instances of the menu across all processes and process is ignored; if menu is a menu number, it applies to the main menu bar of the current process (or of process, if given).",
+    "Passing -1 in menuItem designates the last item added to menu.",
+    "If the menu item is the title of a hierarchical sub-menu, an associated standard action is not called when the item is selected."
+  ]
+}

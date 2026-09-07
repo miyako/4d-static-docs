@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "aField and template are alternative ways to restrict which fields are serialized; pass at most one of them. If neither is passed, all JSON-expressible fields of aTable are included (BLOB and Picture fields are always ignored).",
+    "After the call, the current selection is unchanged but the current record is no longer loaded and may have changed."
+  ]
+}

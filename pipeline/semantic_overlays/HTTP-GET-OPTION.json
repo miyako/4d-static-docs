@@ -1,0 +1,38 @@
+{
+  "theme": "HTTP-Client",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "The parameter table marks value with the '<-' return arrow (it is filled by the command), so its direction should be 'out', not the mechanical parser's blanket 'in'.",
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Code of the HTTP client option whose current value to retrieve (one of the HTTP Client theme option constants)."
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the current value of option (its default, or the last value set via HTTP SET OPTION)."
+        }
+      ],
+      "semanticRole": "Returns the current value of an HTTP client option that will be used by the next request issued via HTTP Get or HTTP Request."
+    }
+  ],
+  "constraints": [
+    "Options are local to the current process (or, inside a component, to the executing component).",
+    "Reference lifecycle (implied convention, not syntactically enforced): HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
+  ]
+}

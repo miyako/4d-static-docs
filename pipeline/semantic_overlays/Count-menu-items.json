@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "If menu is a MenuRef (reference), the process parameter is ignored."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the number of items in the given menu (by number or MenuRef), in the specified process's menu bar (or the current process if process is omitted)."
+    }
+  ]
+}

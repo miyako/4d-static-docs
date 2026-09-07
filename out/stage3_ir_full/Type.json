@@ -1,0 +1,36 @@
+{
+  "id": "Type",
+  "displayName": "Type",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fieldVar",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Type command returns a numeric value that indicates the type of field or variable you have passed in the fieldVar parameter."
+    }
+  ],
+  "constraints": [
+    "Cannot be applied to scalar expressions such as object properties (emp.name) or collection elements (myColl[5]); use Value type for those.",
+    "In compiled mode, calling Type on a method parameter declared as variant returns the actual data type (same as Value type), not the Is variant constant."
+  ]
+}

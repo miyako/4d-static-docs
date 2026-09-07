@@ -1,0 +1,12 @@
+{
+  "id": "MOBILE-APP-REFRESH-SESSIONS",
+  "displayName": "MOBILE APP REFRESH SESSIONS",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The MOBILE APP REFRESH SESSIONS command checks all mobile application session files located in the MobileApps folder of the server, and updates existing session contents in memory for any edited files."
+    }
+  ]
+}

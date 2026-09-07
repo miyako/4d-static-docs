@@ -1,0 +1,108 @@
+{
+  "id": "GET-LIST-ITEM-PROPERTIES",
+  "displayName": "GET LIST ITEM PROPERTIES",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string); if omitted, 'list' is a hierarchical list reference number."
+        },
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "the last item added to the list"
+            },
+            {
+              "value": "*",
+              "meaning": "the current item of the list"
+            }
+          ]
+        },
+        {
+          "name": "enterable",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "styles",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "Picture assigned to the item: a 'path:' pathname if set via a picture file, or (depending on the variable's type) the number or 'pictlib:' name if set via a library picture; blank if no icon is associated."
+        },
+        {
+          "name": "color",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "RGB color of the item's text."
+        }
+      ]
+    }
+  ]
+}

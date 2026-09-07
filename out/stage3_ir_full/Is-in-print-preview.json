@@ -1,0 +1,16 @@
+{
+  "id": "Is-in-print-preview",
+  "displayName": "Is in print preview",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Is in print preview command returns True if the Preview on Screen option is checked in the printing dialog box and False otherwise."
+    }
+  ],
+  "constraints": [
+    "The Preview on Screen setting is local to the current process.",
+    "Unlike Get print preview, this command reflects the final value of the option after the user has validated the printing dialog box, so it reliably indicates whether printing will actually occur in preview mode."
+  ]
+}

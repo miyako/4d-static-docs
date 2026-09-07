@@ -1,0 +1,28 @@
+{
+  "id": "SPELL-ADD-TO-USER-DICTIONARY",
+  "displayName": "SPELL ADD TO USER DICTIONARY",
+  "kind": "classic_command",
+  "theme": "Spell Checker",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "words",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SPELL ADD TO USER DICTIONARY command adds one or more words to the current user dictionary."
+    }
+  ]
+}

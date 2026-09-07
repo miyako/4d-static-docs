@@ -1,0 +1,9 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "Only the body's children elements of wpDoc are inserted; headers, footers, text boxes, and anchored pictures are not inserted.",
+    "The mode parameter can combine one insertion-position constant (wk append/wk prepend/wk replace) with option flags (wk freeze expressions, wk keep paragraph styles) via bitwise combination.",
+    "rangeUpdate is only honored when targetObj is a range; it is ignored if targetObj is an element or document.",
+    "wpDoc is copied on insertion, so the same wpDoc object can be reused across multiple insertions."
+  ]
+}

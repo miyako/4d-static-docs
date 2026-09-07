@@ -1,0 +1,9 @@
+{
+  "theme": "Date-and-Time",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a new date obtained by adding years, months, and days to date, correctly handling per-month day counts and leap years (unlike manually adding a day count with the + date operator)."
+    }
+  ]
+}

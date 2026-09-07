@@ -1,0 +1,130 @@
+{
+  "id": "QR-Get-text-property",
+  "displayName": "QR Get text property",
+  "kind": "classic_command",
+  "theme": "Quick-Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "colNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Column number of the cell; still required even when rowNum is qr header (-4) or qr footer (-5), even though it is unused in that case"
+        },
+        {
+          "name": "rowNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Row designator: a positive subtotal (break) level, or one of the documented constants (in cross-table mode, row values are always positive)",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "qr title - title of report"
+            },
+            {
+              "value": -2,
+              "meaning": "qr detail - detail area of report"
+            },
+            {
+              "value": -3,
+              "meaning": "qr grand total - grand total area"
+            },
+            {
+              "value": -4,
+              "meaning": "qr header - page header"
+            },
+            {
+              "value": -5,
+              "meaning": "qr footer - page footer"
+            }
+          ]
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Text attribute to retrieve",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "_o_qr font - obsolete since 4D v14 R3 (use qr font name)"
+            },
+            {
+              "value": 2,
+              "meaning": "qr font size - font size in points (9 to 255)"
+            },
+            {
+              "value": 3,
+              "meaning": "qr bold - bold style attribute (0 or 1)"
+            },
+            {
+              "value": 4,
+              "meaning": "qr italic - italic style attribute (0 or 1)"
+            },
+            {
+              "value": 5,
+              "meaning": "qr underline - underline style attribute (0 or 1)"
+            },
+            {
+              "value": 6,
+              "meaning": "qr text color - color number attribute (Longint)"
+            },
+            {
+              "value": 7,
+              "meaning": "qr justification - 0=default, 1=left, 2=center, 3=right"
+            },
+            {
+              "value": 8,
+              "meaning": "qr background color - background color number"
+            },
+            {
+              "value": 9,
+              "meaning": "qr alternate background color - alternate background color number"
+            },
+            {
+              "value": 10,
+              "meaning": "qr font name - font name, as returned e.g. by FONT LIST"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "Retrieves the value of one text-formatting attribute (property) for the cell at (colNum, rowNum) in a Quick Report area; returns an Integer or Text depending on which property was requested."
+    }
+  ],
+  "jointConstraints": [
+    {
+      "params": [
+        "rowNum",
+        "colNum"
+      ],
+      "rule": "When rowNum is qr header (-4) or qr footer (-5), colNum must still be passed even though its value is not used."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "WEB-SEND-HTTP-REDIRECT",
+  "displayName": "WEB SEND HTTP REDIRECT",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "url",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WEB SEND HTTP REDIRECT command allows you to transform a URL into another one."
+    }
+  ],
+  "constraints": [
+    "By default 4D URL-encodes special characters in url; passing the optional '*' parameter tells 4D not to translate them.",
+    "This command takes precedence over any data-sending command (WEB SEND FILE, WEB SEND BLOB, etc.) called in the same method -- the redirect wins.",
+    "Sends HTTP status 302 (Moved Temporarily); to send a 301 (Moved Permanently), set a 'HTTP X-STATUS: 301' field in the header of the reply instead."
+  ]
+}

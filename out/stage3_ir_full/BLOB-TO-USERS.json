@@ -1,0 +1,27 @@
+{
+  "id": "BLOB-TO-USERS",
+  "displayName": "BLOB TO USERS",
+  "kind": "classic_command",
+  "theme": "Users-and-Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "users",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Replaces the current database's user accounts and groups with the contents of the encrypted users BLOB previously produced by USERS TO BLOB."
+    }
+  ],
+  "constraints": [
+    "users must be a BLOB previously created by USERS TO BLOB; it is encrypted.",
+    "Only the database Administrator or Designer may execute this command; any other caller gets a no-op plus privilege error -9949.",
+    "In a project database, this only migrates users/groups into directory.json (all existing entries there are replaced except \"Designer\"/\"Administrator\"); in a binary database, all negative-reference-number (Administrator-created) users/groups are removed and replaced by the BLOB's contents."
+  ]
+}

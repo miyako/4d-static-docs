@@ -1,0 +1,29 @@
+{
+  "id": "WP-New-footer",
+  "displayName": "WP New footer",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpSection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP New footer command creates and returns the footer associated to the section or subsection defined by the wpSection parameter."
+    }
+  ],
+  "constraints": [
+    "If a footer element is already defined for the section or subsection, an undefined object is returned and an error is generated."
+  ]
+}

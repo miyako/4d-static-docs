@@ -1,0 +1,71 @@
+{
+  "id": "List-item-parent",
+  "displayName": "List item parent",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, list is an object name (string) representing the list in the form; if omitted, list is a hierarchical list reference number."
+        },
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "List reference number (if * omitted), or object name of the list-type form object (if * passed)."
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Item reference number whose parent is sought.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "The last item added to the list."
+            },
+            {
+              "value": "*",
+              "meaning": "The current item of the list (the last one selected, if several were selected manually); requires the object-name syntax (first '*' passed) if multiple representations of the same list exist."
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the item reference number of the parent of the designated item, or 0 if the item doesn't exist, has no selected current item, or has no parent."
+    }
+  ]
+}

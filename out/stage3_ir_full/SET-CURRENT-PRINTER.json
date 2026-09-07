@@ -1,0 +1,31 @@
+{
+  "id": "SET-CURRENT-PRINTER",
+  "displayName": "SET CURRENT PRINTER",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "printerName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "use the current printer defined in the system"
+            },
+            {
+              "value": "_4d_pdf_printer",
+              "meaning": "use the generic PDF driver, regardless of platform"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

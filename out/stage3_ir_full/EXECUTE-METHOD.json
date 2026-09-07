@@ -1,0 +1,99 @@
+{
+  "id": "EXECUTE-METHOD",
+  "displayName": "EXECUTE METHOD",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of project method to be executed"
+        }
+      ],
+      "semanticRole": "Executes methodName with no parameters, discarding any result (equivalent to passing '*' with no param list)."
+    },
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of project method to be executed"
+        },
+        {
+          "name": "result",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Variable receiving the method's returned result"
+        },
+        {
+          "name": "param",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) of the method"
+        }
+      ],
+      "semanticRole": "Executes methodName with the given parameters and captures its return value into result."
+    },
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of project method to be executed"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Indicates the method does not return a result"
+        },
+        {
+          "name": "param",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) of the method"
+        }
+      ],
+      "semanticRole": "Executes methodName with the given parameters, explicitly discarding any return value."
+    }
+  ],
+  "constraints": [
+    "The execution context is preserved in the called method: the current form and current form event remain defined.",
+    "If methodName belongs to a component being called from the host database (or vice versa), the method must be marked 'Shared by components and host database'."
+  ]
+}

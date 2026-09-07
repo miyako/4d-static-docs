@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "set1 and set2 must be sets on the same table; resultSet belongs to that same table.",
+    "resultSet replaces any existing set with the same name, including if that name is set1 or set2 itself.",
+    "In Client/Server mode, all three sets must be visible on the same machine (visibility depends on set type -- interprocess/process/local -- and where each set was created, server or client)."
+  ]
+}

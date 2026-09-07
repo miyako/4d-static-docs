@@ -1,0 +1,26 @@
+{
+  "id": "SET-TEXT-TO-PASTEBOARD",
+  "displayName": "SET TEXT TO PASTEBOARD",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "text",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SET TEXT TO PASTEBOARD clears the pasteboard and then puts a copy of the text you passed in text into the pasteboard."
+    }
+  ],
+  "constraints": [
+    "Clears the pasteboard before placing text; the text can be retrieved with Get text from pasteboard or GET PASTEBOARD DATA (e.g. \"com.4d.private.text.native\"); 4D text expressions can hold up to 2GB.",
+    "The pasteboard is read-only during the On Drag Over form event; this command cannot be used in that context."
+  ]
+}

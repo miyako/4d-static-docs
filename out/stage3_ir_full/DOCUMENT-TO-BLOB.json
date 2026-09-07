@@ -1,0 +1,37 @@
+{
+  "id": "DOCUMENT-TO-BLOB",
+  "displayName": "DOCUMENT TO BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of an existing document that is not already open"
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB field or variable that receives the document contents"
+        }
+      ],
+      "semanticRole": "Loads the entire contents of an existing, unopened document into a BLOB."
+    }
+  ],
+  "constraints": [
+    "document must name an existing document that is not already open, otherwise an error is generated.",
+    "To let the user choose the document interactively, use Open document with its process variable Document instead of a literal name."
+  ]
+}

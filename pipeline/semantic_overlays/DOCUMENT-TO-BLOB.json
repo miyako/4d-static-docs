@@ -1,0 +1,34 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Loads the entire contents of an existing, unopened document into a BLOB."
+    }
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "blob is filled with the document contents in place (docs: 'BLOB field or variable to receive the document' / 'Document contents'), so direction is inout rather than the draft's default in.",
+      "params": [
+        {
+          "name": "document",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of an existing document that is not already open"
+        },
+        {
+          "name": "blob",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB field or variable that receives the document contents"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "document must name an existing document that is not already open, otherwise an error is generated.",
+    "To let the user choose the document interactively, use Open document with its process variable Document instead of a literal name."
+  ]
+}

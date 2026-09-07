@@ -1,0 +1,57 @@
+{
+  "id": "SVG-EXPORT-TO-PICTURE",
+  "displayName": "SVG EXPORT TO PICTURE",
+  "kind": "classic_command",
+  "theme": "SVG",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Root XML element reference"
+        },
+        {
+          "name": "pictVar",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Picture variable to receive XML tree (SVG picture)"
+        },
+        {
+          "name": "exportType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "How the XML data source is handled by the command",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Do not store data source"
+            },
+            {
+              "value": 1,
+              "meaning": "Copy data source (default)"
+            },
+            {
+              "value": 2,
+              "meaning": "Own data source"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Saves an SVG-format picture built from an XML tree into a picture field/variable, to be redrawn by the SVG rendering engine whenever displayed."
+    }
+  ]
+}

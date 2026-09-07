@@ -1,0 +1,30 @@
+{
+  "id": "Data-file",
+  "displayName": "Data file",
+  "kind": "classic_command",
+  "theme": "4D-Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "segment",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the full pathname of the current database's data file."
+    }
+  ],
+  "constraints": [
+    "segment is obsolete (ignored) since 4D v11, when data segments were removed; it must no longer be used.",
+    "When called from 4D in remote mode, only the file name is returned, not the full pathname."
+  ]
+}

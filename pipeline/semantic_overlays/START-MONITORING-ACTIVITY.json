@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Only available on 4D remote, 4D Server, and 4D standalone applications when source is not network activity; must be paired with a later STOP MONITORING ACTIVITY call to stop tracking."
+  ]
+}

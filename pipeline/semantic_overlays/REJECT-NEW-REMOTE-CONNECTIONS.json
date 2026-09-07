@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Only takes effect on 4D Server; if the calling method executes locally on a remote client or in 4D single-user mode, the command does nothing."
+  ]
+}

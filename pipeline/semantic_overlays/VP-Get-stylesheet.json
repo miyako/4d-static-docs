@@ -1,0 +1,51 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the style sheet object named styleName, containing the property values that have been defined for it.",
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "styleName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet (default when sheet is omitted)."
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Apply to the whole workbook rather than a single sheet."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

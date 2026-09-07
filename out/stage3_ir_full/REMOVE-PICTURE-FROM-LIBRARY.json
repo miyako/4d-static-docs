@@ -1,0 +1,40 @@
+{
+  "id": "REMOVE-PICTURE-FROM-LIBRARY",
+  "displayName": "REMOVE PICTURE FROM LIBRARY",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Removes the Picture Library graphic identified by picRef; does nothing if no picture has that reference number."
+    },
+    {
+      "params": [
+        {
+          "name": "picName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Removes the Picture Library graphic identified by picName; does nothing if no picture has that name."
+    }
+  ],
+  "constraints": [
+    "Cannot be used in projects; the Picture Library only exists in binary (.4DB) databases.",
+    "Has no effect when called from a method executed on the 4D Server machine (stored procedure or trigger); the call is silently ignored there."
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": "QR-SET-TOTALS-DATA",
+  "displayName": "QR SET TOTALS DATA",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "colNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "breakNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "operator",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Sets the break/subtotal cell at colNum/breakNum to display the result of one or more accumulated operators (sum, average, count, min, max, standard deviation) instead of literal text.",
+      "discriminatedBy": {
+        "param": "operator",
+        "rule": "Chosen when the cell should display a computed aggregate rather than literal/templated text."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "colNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "breakNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Sets the break/subtotal cell at colNum/breakNum to a literal text template, which may embed placeholders (#, ##S, ##A, ##C, ##X, ##N, ##D, ##<colNum>) that are substituted with the break value or computed aggregates.",
+      "discriminatedBy": {
+        "param": "value",
+        "rule": "Chosen when the cell should display literal/templated text rather than a raw computed aggregate."
+      }
+    }
+  ],
+  "constraints": [
+    "operator and value are mutually exclusive: a single call sets either an operator (aggregate) or a text template for the cell, never both.",
+    "operator is an additive combination of the QR Operators theme constants (qr sum=1, qr average=2, qr count=16, qr max=8, qr min=4, qr standard deviation=32); 0 means no operator.",
+    "For the grand total, breakNum is -3 (qr grand total); for a subtotal, breakNum is the sort/break number.",
+    "This command cannot create a new subtotal, only set the details of an existing break."
+  ]
+}

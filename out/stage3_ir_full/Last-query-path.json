@@ -1,0 +1,35 @@
+{
+  "id": "Last-query-path",
+  "displayName": "Last query path",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "descFormat",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Output format for the returned description.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Description in text format."
+            },
+            {
+              "value": 1,
+              "meaning": "Description in XML format."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Returns a significant value only if DESCRIBE QUERY EXECUTION has been executed during the current session."
+  ]
+}

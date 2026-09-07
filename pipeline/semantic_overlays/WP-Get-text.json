@@ -1,0 +1,7 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "If expressions is omitted, 4D expression references within targetObj are evaluated and returned in their evaluated form (equivalent to wk expressions as value, the default).",
+    "Only the wk expressions as space option keeps returned plain-text indexes consistent with the text range indexes used by WP/ST commands."
+  ]
+}

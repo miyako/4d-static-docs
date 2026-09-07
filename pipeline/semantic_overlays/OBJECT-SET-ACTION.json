@@ -1,0 +1,62 @@
+{
+  "theme": "Objects-Forms",
+  "constraints": [
+    "Legacy standard-action constants prefixed '_o_' in the \"Standard Action\" theme are deprecated since 4D v16 R3 but still supported for compatibility."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "action",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the standard action (or a Standard Action theme constant), optionally with parameters."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      },
+      "semanticRole": "Associates or replaces the standard action bound to the designated form object.",
+      "note": "Merged the leading-'*' dual signature into one overload with object as a Text/Variable,Field union discriminated by '*'."
+    }
+  ]
+}

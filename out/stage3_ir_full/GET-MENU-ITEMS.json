@@ -1,0 +1,47 @@
+{
+  "id": "GET-MENU-ITEMS",
+  "displayName": "GET MENU ITEMS",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu reference (MenuRef), menu bar number, or menu bar reference (obtained via Get menu bar reference)."
+        },
+        {
+          "name": "menuTitlesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "menuRefsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "IDs of each item; an empty string if an item has no associated menu reference."
+        }
+      ]
+    }
+  ]
+}

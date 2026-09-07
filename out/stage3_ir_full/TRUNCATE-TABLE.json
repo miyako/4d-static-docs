@@ -1,0 +1,31 @@
+{
+  "id": "TRUNCATE-TABLE",
+  "displayName": "TRUNCATE TABLE",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The TRUNCATE TABLE command quickly deletes all the records of aTable ."
+    }
+  ],
+  "constraints": [
+    "Similar in effect to an ALL RECORDS / DELETE SELECTION sequence, but no trigger is called and referential integrity is not checked.",
+    "Fails (does nothing, sets OK to 0) if a transaction is underway in the calling process, or if one or more records of aTable are locked by another process; in the locked-record case an error is also generated and no LockedSet system set is created.",
+    "Does nothing and sets OK to 1 if aTable is already empty.",
+    "Does nothing and sets OK to 0 if aTable is in read-only.",
+    "After a successful call, there is no longer any current selection or current record for aTable.",
+    "The operation is recorded in the log file, if one exists.",
+    "Conceptually similar to the SQL TRUNCATE TABLE command."
+  ]
+}

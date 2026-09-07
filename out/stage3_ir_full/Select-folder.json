@@ -1,0 +1,62 @@
+{
+  "id": "Select-folder",
+  "displayName": "Select folder",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Displays a dialog box (with no custom title or default location) that allows the user to manually select a folder, and returns the complete access path to that folder."
+    },
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "defaultPath",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Displays a dialog box, with the given message and default location/options, that allows the user to manually select a folder, and returns the complete access path to that folder."
+    }
+  ],
+  "constraints": [
+    "This command does not modify 4D's current folder.",
+    "defaultPath as a memorized-path number (1-32,000) lets 4D remember, per number, the last folder the user browsed to and reuse it as the default on subsequent calls."
+  ]
+}

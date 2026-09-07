@@ -1,0 +1,26 @@
+{
+  "id": "Get-picture-file-name",
+  "displayName": "Get picture file name",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get picture file name command returns the current default name of the picture passed as parameter."
+    }
+  ]
+}

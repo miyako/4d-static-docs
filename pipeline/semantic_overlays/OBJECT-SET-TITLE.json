@@ -1,0 +1,64 @@
+{
+  "theme": "Objects-Forms",
+  "constraints": [
+    "Can be applied to any simple object that displays a title: buttons and 3D buttons, check boxes and 3D check boxes, radio buttons and 3D radio buttons, list box headers, static text areas, group boxes.",
+    "Do not use carriage returns in title; use the '\\' character as a line return instead (permitted for 3D buttons, 3D check boxes, 3D radio buttons and list box headers).",
+    "If the object's title area is too small to hold the text, the text is truncated."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "title",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New title for the object."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target(s) by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      },
+      "semanticRole": "Changes the title of the form object(s) designated by object to the value passed in title.",
+      "note": "Merged the leading-'*' dual signature into one overload with object as a Text/Variable,Field union discriminated by '*'."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "If userSession is omitted, the message is sent to all remote users.",
+    "Can only be executed on 4D Server; if the calling method runs locally on a remote client or 4D single-user, this command does nothing."
+  ]
+}

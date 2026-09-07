@@ -1,0 +1,69 @@
+{
+  "id": "ST-Get-text",
+  "displayName": "ST Get text",
+  "kind": "classic_command",
+  "theme": "Styled-Text",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
+        },
+        {
+          "name": "startSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Start of selection"
+        },
+        {
+          "name": "endSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "End of selection"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the styled text (including style tags) found in a text selection of the designated multi-style/4D Write Pro object."
+    }
+  ]
+}

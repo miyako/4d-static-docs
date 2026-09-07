@@ -1,0 +1,22 @@
+{
+  "id": "VP-ROW-AUTOFIT",
+  "displayName": "VP ROW AUTOFIT",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP ROW AUTOFIT command automatically sizes the row(s) in rangeObj according to their contents."
+    }
+  ]
+}

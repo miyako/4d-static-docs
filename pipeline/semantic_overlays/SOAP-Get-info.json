@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "infoNum selects which piece of SOAP request metadata to retrieve, e.g. 1 = name of the Web Service method about to execute, 2 = name of the Web Service the method belongs to.",
+    "Intended to be called from within the On Web Authentication Database Method to inspect an incoming SOAP request (e.g. for security checks) before it is otherwise available."
+  ]
+}

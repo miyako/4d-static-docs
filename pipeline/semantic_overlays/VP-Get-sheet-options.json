@@ -1,0 +1,39 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error.",
+    "sheet is 0-based; if omitted or vk current sheet is passed, the current spreadsheet is used."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns an object containing the current sheet options of the designated (or current) sheet.",
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet (also the default when sheet is omitted)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

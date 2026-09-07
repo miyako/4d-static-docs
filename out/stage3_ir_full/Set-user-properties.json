@@ -1,0 +1,123 @@
+{
+  "id": "Set-user-properties",
+  "displayName": "Set user properties",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "userID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "in: unique ID number of the user account to modify, or -1/-2 to add a new user; out: unique ID number of the added/modified user.",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Add a new user, affiliated with the Designer (binary databases)."
+            },
+            {
+              "value": -2,
+              "meaning": "Add a new user, affiliated with the Administrator (binary databases only)."
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "startup",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "password",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "New unencrypted password (4D encrypts it before saving), or the * symbol to leave the existing password unchanged.",
+          "sentinelValues": [
+            {
+              "value": "*",
+              "meaning": "Leave the account's existing password unchanged."
+            }
+          ]
+        },
+        {
+          "name": "nbLogin",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Binary databases only; ignored in project databases."
+        },
+        {
+          "name": "lastLogin",
+          "type": {
+            "kind": "concrete",
+            "name": "Date"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Binary databases only; ignored in project databases."
+        },
+        {
+          "name": "memberships",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "groupOwner",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Binary databases only; ID number of the default owner group for objects created by this user."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Set user properties lets you change and update the properties of an existing user account whose unique user ID number you pass in userID , or add a new user."
+    }
+  ],
+  "constraints": [
+    "The mechanical draft left userID with direction 'in', but the doc's arrow column marks it '<->' (inout): it is both an input (user ID to modify, or -1/-2 to add) and an output (receives the new/modified user's ID number).",
+    "If userID is not -1, -2, or a valid existing user ID, the command does nothing.",
+    "If the user account does not exist or has been deleted, error -9979 is generated (catchable with ON ERR CALL); check first with Is user deleted.",
+    "If name is not unique, the command does nothing and error -9979 is generated.",
+    "If memberships is omitted, the user's current memberships are left unchanged (or the new user belongs to no group, when adding); passing an empty memberships array revokes all memberships."
+  ]
+}

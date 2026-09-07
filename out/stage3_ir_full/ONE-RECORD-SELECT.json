@@ -1,0 +1,25 @@
+{
+  "id": "ONE-RECORD-SELECT",
+  "displayName": "ONE RECORD SELECT",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "ONE RECORD SELECT reduces the current selection of aTable to the current record."
+    }
+  ],
+  "constraints": [
+    "If there is no current record for aTable, or the current record is not loaded into memory, the command has no effect."
+  ]
+}

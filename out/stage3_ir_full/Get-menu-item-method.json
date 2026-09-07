@@ -1,0 +1,58 @@
+{
+  "id": "Get-menu-item-method",
+  "displayName": "Get menu item method",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Process number designating another process's menu bar; only meaningful when menu is a menu number."
+        }
+      ],
+      "semanticRole": "Get the name of the 4D project method attached to a menu item."
+    }
+  ],
+  "constraints": [
+    "If menu is a menu reference (MenuRef), the process parameter is unnecessary and is ignored if passed; if menu is a menu number, the command applies to the main menu bar of the process designated by process (or the current process if omitted).",
+    "Returns an empty string if no 4D project method is associated with the menu item."
+  ]
+}

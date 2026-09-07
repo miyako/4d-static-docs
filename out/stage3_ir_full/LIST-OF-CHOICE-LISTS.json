@@ -1,0 +1,31 @@
+{
+  "id": "LIST-OF-CHOICE-LISTS",
+  "displayName": "LIST OF CHOICE LISTS",
+  "kind": "classic_command",
+  "theme": "Hierarchical-Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "numsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "namesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Fills numsArray and namesArray, as two synchronized output arrays, with the reference numbers and names of every choice list defined by the Design-mode list editor."
+    }
+  ]
+}

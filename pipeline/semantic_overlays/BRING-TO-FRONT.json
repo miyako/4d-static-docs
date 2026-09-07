@@ -1,0 +1,12 @@
+{
+  "theme": "Process-User-Interface",
+  "constraints": [
+    "If the process is hidden, SHOW PROCESS must be used first; otherwise BRING TO FRONT has no effect."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Brings all windows belonging to the given process to the front (no-op if it is already frontmost)."
+    }
+  ]
+}

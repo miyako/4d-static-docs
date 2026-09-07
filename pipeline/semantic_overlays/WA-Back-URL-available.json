@@ -1,0 +1,51 @@
+{
+  "theme": "Web-Area",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The docs render two syntax lines only because the leading semicolon disappears when the leading '*' is omitted (object becomes Variable/Field instead of Text). Semantically this is one overload with '*' an optional literal-symbol discriminator, matching the WA-EXECUTE-JAVASCRIPT-FUNCTION fixture's treatment of the same pattern.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (Text); if omitted, object is a variable or field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or variable/field (if * is omitted) designating the Web area"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Finds out whether there is a previous URL available in the sequence of URLs opened in the designated Web area, so a custom navigation button can be enabled/disabled."
+    }
+  ]
+}

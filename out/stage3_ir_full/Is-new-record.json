@@ -1,0 +1,30 @@
+{
+  "id": "Is-new-record",
+  "displayName": "Is new record",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is new record command returns True when aTable \u2019s current record is being created and has not yet been saved in the current process.You can obtain the same information by using the existing Record number command, and"
+    }
+  ],
+  "constraints": [
+    "Prefer this over checking Record number = -3, since Is new record is guaranteed compatible with future 4D versions.",
+    "On 4D Server, within an On Validate form event, behavior differs by mode: in local mode returns False (record already considered created); in remote mode returns True because the record is created server-side but not yet sent to the client."
+  ]
+}

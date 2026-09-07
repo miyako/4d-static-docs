@@ -1,0 +1,26 @@
+{
+  "id": "CLOSE-DOCUMENT",
+  "displayName": "CLOSE DOCUMENT",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "docRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Closes the system document referenced by docRef, flushing any written data to disk."
+    }
+  ],
+  "constraints": [
+    "Is the only way to ensure data written to the file is actually saved to disk.",
+    "Every document opened with Open document, Create document, or Append document must eventually be closed."
+  ]
+}

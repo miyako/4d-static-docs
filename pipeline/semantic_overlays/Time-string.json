@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Returned string is in HH:MM:SS 24-hour format; if seconds exceeds a day's worth (86,400), the hours component keeps incrementing beyond 23 (e.g. Time string(86401) returns '24:00:01') rather than wrapping."
+  ]
+}

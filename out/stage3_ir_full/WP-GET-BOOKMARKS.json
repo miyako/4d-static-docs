@@ -1,0 +1,30 @@
+{
+  "id": "WP-GET-BOOKMARKS",
+  "displayName": "WP GET BOOKMARKS",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrBKNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

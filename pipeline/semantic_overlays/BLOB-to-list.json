@@ -1,0 +1,30 @@
+{
+  "constraints": [
+    "If offset is omitted, reading starts at the beginning of the BLOB (byte 0).",
+    "The BLOB's data must have previously been produced by LIST TO BLOB for the created list to be well-formed."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "offset is typed Variable and documented/arrow-marked as inout ('<->': input starting byte position, output updated to the position just after the value read), matching the convention used by all sibling BLOB-to-* commands (BLOB-to-integer, BLOB-to-longint, BLOB-to-real, BLOB-to-text); the draft parser had defaulted it to plain Integer/direction:in.",
+      "params": [
+        {
+          "name": "blob",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "offset",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "inout",
+          "optional": true,
+          "default": "0 (start of the BLOB)",
+          "description": "Byte offset to read the hierarchical-list data from; on return, updated to the offset immediately following the data read."
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Creates a new hierarchical list from data stored in blob at the given (or default) byte offset, advancing offset past the data read, and returns the new list's reference number."
+    }
+  ]
+}

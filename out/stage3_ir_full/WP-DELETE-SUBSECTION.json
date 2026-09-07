@@ -1,0 +1,48 @@
+{
+  "id": "WP-DELETE-SUBSECTION",
+  "displayName": "WP DELETE SUBSECTION",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpSection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "subSectionType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Removes the subsection elements of the given subSectionType (wk first page / wk left page / wk right page) from wpSection."
+    },
+    {
+      "params": [
+        {
+          "name": "subSection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Removes an already-referenced subsection object directly (e.g. one obtained via a prior lookup)."
+    }
+  ],
+  "constraints": [
+    "The body of the document is left untouched; only header/footer/column/anchored-picture subsection elements are removed."
+  ]
+}

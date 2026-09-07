@@ -1,0 +1,27 @@
+{
+  "id": "QUIT-4D",
+  "displayName": "QUIT 4D",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "time",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The QUIT 4D command exits the current 4D application and returns to the Desktop."
+    }
+  ],
+  "constraints": [
+    "In 4D local mode or remote mode, the time parameter is ignored/cannot be used; it is only honored when QUIT 4D is called on 4D Server (in a stored procedure).",
+    "With 4D local/remote mode: if an On Exit database method exists, 4D runs it in a newly created local process before quitting (it can delay but not cancel the quit); if no On Exit method exists, 4D aborts every running process immediately, discarding any unsaved data entry.",
+    "With 4D Server: QUIT 4D is asynchronous (the calling method is not interrupted), time sets a timeout in seconds before the server actually quits (waits for all clients to disconnect if omitted), and it triggers a client-side dialog plus, after the delay, the On Server Shutdown database method."
+  ]
+}

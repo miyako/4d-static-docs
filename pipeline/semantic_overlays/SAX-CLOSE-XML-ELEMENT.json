@@ -1,0 +1,8 @@
+{
+  "theme": "XML-SAX",
+  "constraints": [
+    "Closes only the most recently opened (innermost) unclosed element, i.e. matches SAX OPEN XML ELEMENT calls in stack (LIFO) order.",
+    "Use of this command is optional: 4D automatically adds the necessary end tags for any still-open elements when the XML document itself is closed.",
+    "Reference lifecycle (implied convention, not syntactically enforced): SAX write document lifecycle: SAX OPEN XML ELEMENT (or the ARRAYS variant) opens an element -> SAX ADD XML ELEMENT VALUE adds its content while it remains open -> SAX CLOSE XML ELEMENT closes the most recently opened element (or the document itself is closed, which auto-closes any still-open elements)."
+  ]
+}

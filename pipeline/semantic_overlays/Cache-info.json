@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Only works in local mode (4D and 4D Server); must not be called from a 4D application running in remote mode.",
+    "dbFilter is an object carrying a \"dbFilter\" attribute: pass the value \"All\" to get cache information for every running database (including components), or \"\" (or omit the parameter) to restrict to the current database only."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns an object describing the current cache contents (used memory, and the tables/indexes/BLOBs etc. currently loaded), optionally scoped to all running databases instead of just the current one."
+    }
+  ]
+}

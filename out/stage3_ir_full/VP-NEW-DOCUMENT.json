@@ -1,0 +1,26 @@
+{
+  "id": "VP-NEW-DOCUMENT",
+  "displayName": "VP NEW DOCUMENT",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Loads and displays a new, default (empty) document in the 4D View Pro area vpAreaName."
+    }
+  ],
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error.",
+    "The new empty document replaces any data already present in the area."
+  ]
+}

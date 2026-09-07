@@ -1,0 +1,62 @@
+{
+  "id": "QR-EXECUTE-COMMAND",
+  "displayName": "QR EXECUTE COMMAND",
+  "kind": "classic_command",
+  "theme": "Quick-Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "command",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Menu command to be executed",
+          "sentinelValues": [
+            {
+              "value": 2008,
+              "meaning": "qr cmd generate - use of command QR RUN recommended instead"
+            },
+            {
+              "value": 2001,
+              "meaning": "qr cmd open"
+            },
+            {
+              "value": 2006,
+              "meaning": "qr cmd page setup"
+            },
+            {
+              "value": 2007,
+              "meaning": "qr cmd print preview"
+            },
+            {
+              "value": 2002,
+              "meaning": "qr cmd save"
+            },
+            {
+              "value": 2003,
+              "meaning": "qr cmd save as"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Executes the toolbar button command identified by command (one of the qr cmd... constants), typically to programmatically trigger a command originally selected by the user and intercepted via QR ON COMMAND."
+    }
+  ],
+  "constraints": [
+    "For generating a report, using the QR RUN command directly is recommended over passing qr cmd generate (2008) to this command."
+  ]
+}

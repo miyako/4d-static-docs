@@ -1,0 +1,35 @@
+{
+  "id": "GET-PRINTABLE-AREA",
+  "displayName": "GET PRINTABLE AREA",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "height",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Height of the printable area, in pixels."
+        },
+        {
+          "name": "width",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Width of the printable area, in pixels."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Sizes are constant across pages within the same print job (they do not change after a page break)."
+  ]
+}

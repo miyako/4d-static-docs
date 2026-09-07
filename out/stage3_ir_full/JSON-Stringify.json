@@ -1,0 +1,50 @@
+{
+  "id": "JSON-Stringify",
+  "displayName": "JSON Stringify",
+  "kind": "classic_command",
+  "theme": "JSON",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "pseudo",
+              "name": "any"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The JSON Stringify command converts the value parameter into a JSON string."
+    }
+  ],
+  "constraints": [
+    "Dates are serialized as \"yyyy-mm-dd\" or \"YYYY-MM-DDTHH:mm:ssZ\" text depending on the current database date setting.",
+    "Numbers must fall within \u00b110.421e\u00b110; Booleans serialize as the literal strings \"true\"/\"false\"; times serialize as a Real number of seconds by default.",
+    "Picture attributes are converted to the literal string \"[object Picture]\" (not real picture data).",
+    "Pointers to a field, variable, or array are evaluated (dereferenced) before being stringified.",
+    "The optional * parameter enables pretty-printing (adds formatting whitespace) in the resulting string."
+  ]
+}

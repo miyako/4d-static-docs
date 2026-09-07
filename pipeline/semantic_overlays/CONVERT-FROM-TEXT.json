@@ -1,0 +1,39 @@
+{
+  "constraints": [
+    "charSet accepts either a standard character-set name string (e.g. \"ISO-8859-1\", \"UTF-8\") or its numeric MIBEnum identifier; several names can map to the same MIBEnum (aliases).",
+    "The produced BLOB can subsequently be read back with the Convert to text command."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "convertedBLOB receives the conversion result (documented as returned in this BLOB); corrected direction from 'in' to 'out'.",
+      "params": [
+        {
+          "name": "4Dtext",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Text expressed in the current character set of 4D"
+        },
+        {
+          "name": "charSet",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Name (string) or MIBEnum number (integer) of the character set to convert to"
+        },
+        {
+          "name": "convertedBLOB",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "out",
+          "optional": false,
+          "description": "BLOB containing the converted text"
+        }
+      ],
+      "semanticRole": "Converts a 4D Unicode text into another character set and returns the converted bytes as a BLOB."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "theme": "System-Environment",
+  "constraints": [
+    "Can only be used in the context of an SSO implementation on Windows with 4D Server.",
+    "Returns an empty string for the login (and for domain/protocol) if authentication failed.",
+    "The security level implied by the result depends on which of domain/protocol come back filled: both filled with Kerberos is the strongest guarantee, filled/empty with NTLM implies a purely local ID, all empty means no authentication info was obtainable."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Docs describe domain and protocol as optional values the command 'can return' (filled in by reference), not inputs the caller supplies; the parameter table's '<-' arrows confirm this. Draft autoparse had marked both required 'in' parameters.",
+      "params": [
+        {
+          "name": "domain",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": true,
+          "description": "Filled in with the name of the domain to which the client belongs."
+        },
+        {
+          "name": "protocol",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": true,
+          "description": "Filled in with the protocol Windows used to authenticate the user: \"Kerberos\", \"NTLM\", or empty string if authentication failed.",
+          "sentinelValues": [
+            { "value": "\"\"", "meaning": "authentication failed / no protocol determined" }
+          ]
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Text" },
+      "semanticRole": "Asks the Windows Active Directory server to authenticate the current client via SSO and returns the Windows session login name (empty string on failure), optionally filling in the domain and protocol used."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "Unlike SQL EXPORT DATABASE, this command only works with the main (internal) database, not an external SQL database, and it does not support Object type fields.",
+    "Exports only the current selection of aTable, not the entire database; if the current selection is empty, the command does nothing and the destination folder is not emptied.",
+    "The OK system variable is set to 1 if the export completes correctly, otherwise 0.",
+    "If folderPath is an empty string, a standard folder-selection dialog box is displayed, as for SQL EXPORT DATABASE."
+  ]
+}

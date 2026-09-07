@@ -1,0 +1,61 @@
+{
+  "id": "SET-MENU-ITEM-STYLE",
+  "displayName": "SET MENU ITEM STYLE",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemStyle",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET MENU ITEM STYLE command changes the font style of the menu item whose menu number or reference is passed in menu and whose item number is passed in menuItem according to the font style passed in itemStyle ."
+    }
+  ],
+  "constraints": [
+    "itemStyle is a sum/combination of Font Styles constants: Plain=0, Bold=1, Italic=2, Underline=4.",
+    "The Underline style is not supported on Windows when the Fluent UI theme is enabled; it is silently ignored in that rendering context.",
+    "If menu is a MenuRef, the process parameter serves no purpose and is ignored.",
+    "Passing -1 in menuItem designates the last item added to menu."
+  ]
+}

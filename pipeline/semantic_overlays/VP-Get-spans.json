@@ -1,0 +1,12 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj does not contain any cell span, an empty range object is returned."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Retrieves the cell spans defined within rangeObj as an object describing them."
+    }
+  ]
+}

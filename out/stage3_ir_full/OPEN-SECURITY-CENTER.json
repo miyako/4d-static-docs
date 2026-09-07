@@ -1,0 +1,17 @@
+{
+  "id": "OPEN-SECURITY-CENTER",
+  "displayName": "OPEN SECURITY CENTER",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The OPEN SECURITY CENTER command displays the Maintenance and Security Center (MSC) window."
+    }
+  ],
+  "constraints": [
+    "Cannot be executed on a remote 4D application.",
+    "Behaves like a call to DIALOG with the * parameter: the Maintenance and Security Center window is displayed and the command immediately returns control to the calling code.",
+    "If the current process finishes, the window is automatically closed by simulating a Cancel."
+  ]
+}

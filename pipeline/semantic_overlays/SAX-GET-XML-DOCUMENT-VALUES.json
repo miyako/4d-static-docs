@@ -1,0 +1,54 @@
+{
+  "theme": "XML-SAX",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "encoding",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "version",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "standalone",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Retrieves the character-set encoding, XML version, and standalone flag declared in the document's XML header, into the three output parameters.",
+      "note": "autoparse defaulted encoding/version/standalone's direction to 'in'; the doc arrow column marks all three as out-parameters that the command fills."
+    }
+  ],
+  "constraints": [
+    "Must be called while handling the XML Start Document SAX event returned by SAX Get XML node.",
+    "Reference lifecycle (implied convention, not syntactically enforced): SAX event-driven read loop: call SAX Get XML node repeatedly to advance through the parser events for the document; dispatch on the returned event code to the matching accessor -- SAX GET XML ELEMENT for Start/End Element, SAX GET XML ELEMENT VALUE for XML DATA, SAX GET XML CDATA for XML CDATA, SAX GET XML COMMENT for XML Comment, SAX GET XML ENTITY for XML Entity, SAX GET XML PROCESSING INSTRUCTION for XML Processing Instruction, and SAX GET XML DOCUMENT VALUES for XML Start Document."
+  ]
+}

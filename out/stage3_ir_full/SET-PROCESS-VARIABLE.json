@@ -1,0 +1,76 @@
+{
+  "id": "SET-PROCESS-VARIABLE",
+  "displayName": "SET PROCESS VARIABLE",
+  "kind": "classic_command",
+  "theme": "Process (Communications)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dstVar",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "expr",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "dstVar",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "expr",
+              "type": {
+                "kind": "pseudo",
+                "name": "Expression"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The SET PROCESS VARIABLE command writes the dstVar process variables ( dstVar2 , etc.) of the destination process whose number is passed in process using the values passed in expr1 ( expr2 , etc.)."
+    }
+  ],
+  "constraints": [
+    "dstVar cannot be a local variable; it must be a process/interprocess variable of the destination process, or an element of such an array (arrays as a whole and pointers are not accepted as destination variables \u2014 use VARIABLE TO VARIABLE to write a whole array, or SET PROCESS VARIABLE only for a single element).",
+    "Writing the element of an array of pointers or of a two-dimensional array is not supported.",
+    "Each expr must be of a type compatible with its paired dstVar, otherwise the destination variable may end up with a meaningless value.",
+    "In interpreted mode, if a destination variable does not already exist it is created and assigned the expression's value; the destination process is never notified that its variable was written.",
+    "The destination process must be a user process, not a kernel process; if it does not exist, an error is generated (catchable with ON ERR CALL).",
+    "From a 4D Client, pass a negative value in process to write interprocess variables of the 4D Server machine (prefixing the process ID with a minus sign targets that stored procedure specifically); this communication direction only works from client to server."
+  ]
+}

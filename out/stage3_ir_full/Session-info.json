@@ -1,0 +1,30 @@
+{
+  "id": "Session-info",
+  "displayName": "Session info",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "sessionId",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Session info command returns an object describing the session whose ID you pass in the sessionID parameter.."
+    }
+  ],
+  "constraints": [
+    "Returns a null object if sessionId does not identify a valid session.",
+    "This command returns the .info property of the sessionId session; to get information about the current session, call Session.info directly instead."
+  ]
+}

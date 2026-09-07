@@ -1,0 +1,38 @@
+{
+  "id": "WP-New-text-box",
+  "displayName": "WP New text box",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pageNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP New text box command creates and returns a new text box object in the page pageNum of wpDoc ."
+    }
+  ],
+  "constraints": [
+    "If pageNum < 0, page number 1 is used and no error is generated."
+  ]
+}

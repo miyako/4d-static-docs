@@ -1,0 +1,26 @@
+{
+  "id": "VP-Font-to-object",
+  "displayName": "VP Font to object",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "font",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Parses a font shorthand string (e.g. \"12 pt Arial\") into an object of font attribute properties, usable with VP Object to font for the round trip."
+    }
+  ]
+}

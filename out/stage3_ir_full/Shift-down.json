@@ -1,0 +1,16 @@
+{
+  "id": "Shift-down",
+  "displayName": "Shift down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns TRUE if the Shift key is currently pressed."
+    }
+  ]
+}

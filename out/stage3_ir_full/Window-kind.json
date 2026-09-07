@@ -1,0 +1,31 @@
+{
+  "id": "Window-kind",
+  "displayName": "Window kind",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Window kind command returns the 4D type of the window whose reference number is passed in window ."
+    }
+  ],
+  "constraints": [
+    "If window does not correspond to an existing window, returns 0.",
+    "Non-zero return values are the predefined Windows-theme constants: External window = 5, Floating window = 14, Modal dialog = 9, Regular window = 8.",
+    "If window is omitted, returns the type of the frontmost window of the current process."
+  ]
+}

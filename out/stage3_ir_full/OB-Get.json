@@ -1,0 +1,47 @@
+{
+  "id": "OB-Get",
+  "displayName": "OB Get",
+  "kind": "classic_command",
+  "theme": "Objects-Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "The OB Get command returns the current value of the property of the object , optionally converted into the type specified.can be an object varialble or a 4D object field."
+    }
+  ],
+  "constraints": [
+    "property is case-sensitive."
+  ]
+}

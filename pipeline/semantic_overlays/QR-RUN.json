@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "When area designates an offscreen area, the table to use must first be set with QR SET REPORT TABLE.",
+    "On 4D Server (e.g. in a stored procedure), call QR SET DESTINATION with the \"*\" specifics parameter first so no dialog box appears on the server machine.",
+    "Printer problems (out of paper, disconnected, etc.) do not generate an error message."
+  ]
+}

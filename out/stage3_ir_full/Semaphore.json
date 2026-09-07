@@ -1,0 +1,40 @@
+{
+  "id": "Semaphore",
+  "displayName": "Semaphore",
+  "kind": "classic_command",
+  "theme": "Process (Communications)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "semaphore",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tickCount",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "A semaphore is a flag shared among workstations or among processes on the same workstation."
+    }
+  ],
+  "constraints": [
+    "A semaphore name is limited to 255 characters (including the '$' prefix); longer strings are silently truncated before testing.",
+    "Semaphore names are case-sensitive.",
+    "Returns FALSE and creates the semaphore if it did not already exist (the semaphore is now set for the calling process); returns TRUE and does nothing if it already existed."
+  ]
+}

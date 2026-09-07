@@ -1,0 +1,8 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "listLevelCount is only meaningful when styleSheetType is wk type paragraph; if specified (value >= 1) the command creates a hierarchical list style sheet with the specified number of levels (a root-level style sheet plus sub-level style sheets).",
+    "If listLevelCount is omitted or 0, a standard (non-list) paragraph style sheet is created.",
+    "styleSheetName must start with a letter, may then contain alphanumeric/space/'-'/unicode (>=128) characters, must be unique in the document across both style sheet types, and must not start with 'section' (reserved)."
+  ]
+}

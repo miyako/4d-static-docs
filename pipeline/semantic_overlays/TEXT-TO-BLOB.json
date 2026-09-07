@@ -1,0 +1,70 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "offset is documented '<->' in the parameter table (input: starting offset to write at; output: incremented by the number of bytes written, so it can be reused for a subsequent write); autoparse defaulted it to direction:in.",
+      "params": [
+        { "name": "text", "type": { "kind": "concrete", "name": "Text" }, "direction": "in", "optional": false, "description": "Text to write into the BLOB" },
+        { "name": "blob", "type": { "kind": "concrete", "name": "Blob" }, "direction": "in", "optional": false, "description": "BLOB to receive the text" },
+        {
+          "name": "textFormat",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Format and character set of text; defaults to Mac C string if omitted",
+          "sentinelValues": [
+            { "value": 0, "meaning": "Mac C string (default if omitted)" },
+            { "value": 1, "meaning": "Mac Pascal string" },
+            { "value": 2, "meaning": "Mac text with length" },
+            { "value": 3, "meaning": "Mac text without length" },
+            { "value": 4, "meaning": "UTF8 C string" },
+            { "value": 5, "meaning": "UTF8 text with length" },
+            { "value": 6, "meaning": "UTF8 text without length" }
+          ]
+        },
+        { "name": "offset", "type": { "kind": "concrete", "name": "Variable" }, "direction": "inout", "optional": true, "description": "In: offset within the BLOB (in bytes) at which to write, overwriting existing content there. Out: updated to the offset just past the written text, for reuse in a subsequent write. If omitted (and * also omitted), the text is written at the start of the BLOB, overwriting prior contents." }
+      ]
+    },
+    {
+      "sourceIndices": [1],
+      "note": "textFormat sentinelValues added to match overload 0.",
+      "params": [
+        { "name": "text", "type": { "kind": "concrete", "name": "Text" }, "direction": "in", "optional": false, "description": "Text to write into the BLOB" },
+        { "name": "blob", "type": { "kind": "concrete", "name": "Blob" }, "direction": "in", "optional": false, "description": "BLOB to receive the text" },
+        {
+          "name": "textFormat",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Format and character set of text; defaults to Mac C string if omitted",
+          "sentinelValues": [
+            { "value": 0, "meaning": "Mac C string (default if omitted)" },
+            { "value": 1, "meaning": "Mac Pascal string" },
+            { "value": 2, "meaning": "Mac text with length" },
+            { "value": 3, "meaning": "Mac text without length" },
+            { "value": 4, "meaning": "UTF8 C string" },
+            { "value": 5, "meaning": "UTF8 text with length" },
+            { "value": 6, "meaning": "UTF8 text without length" }
+          ]
+        },
+        { "name": "*", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true, "description": "If passed, the text is appended to the end of the BLOB, extending its size accordingly, instead of overwriting at an offset." }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Writes text into the BLOB at a given (or default zero) offset, overwriting existing content there, and returns the post-write offset via the offset variable for chained writes.",
+      "discriminatedBy": { "param": "offset", "rule": "Used when the caller needs to track/reuse the write position (offset variable form); mutually exclusive with the trailing '*' append-flag overload." }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Appends text to the end of the BLOB when '*' is passed, or overwrites from the start of the BLOB when both trailing optional parameters are omitted.",
+      "discriminatedBy": { "param": "*", "rule": "Used when the caller wants simple append-or-overwrite-at-start behavior via the '*' flag, without tracking an offset." }
+    }
+  ],
+  "constraints": [
+    "Since this command alters the BLOB passed as a parameter, it does not support blob objects (4D.Blob type); only legacy BLOB variables/fields.",
+    "New bytes allocated in the BLOB beyond what is written (e.g. when writing past the current end) are initialized to zero."
+  ]
+}

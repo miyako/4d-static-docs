@@ -1,0 +1,69 @@
+{
+  "id": "OBJECT-SET-INDICATOR-TYPE",
+  "displayName": "OBJECT SET INDICATOR TYPE",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "indicator",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Indicator type",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Progress bar -- standard progress bar"
+            },
+            {
+              "value": 2,
+              "meaning": "Barber shop -- bar displaying continuous animation"
+            },
+            {
+              "value": 3,
+              "meaning": "Asynchronous progress bar -- circular indicator displaying continuous animation"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets, for the current process, the progress-indicator display variant of the thermometer(s) designated by object and *."
+    }
+  ]
+}

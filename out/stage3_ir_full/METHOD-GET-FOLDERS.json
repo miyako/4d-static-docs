@@ -1,0 +1,44 @@
+{
+  "id": "METHOD-GET-FOLDERS",
+  "displayName": "METHOD GET FOLDERS",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "arrNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Array of Home page folder names"
+        },
+        {
+          "name": "filter",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name filter; supports '@' for \"starts with\"/\"ends with\"/\"contains\"; an empty string is ignored."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, applies to the host database's folders when called from a component (otherwise ignored)."
+        }
+      ]
+    }
+  ]
+}

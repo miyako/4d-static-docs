@@ -1,0 +1,31 @@
+{
+  "id": "OBJECT-Get-value",
+  "displayName": "OBJECT Get value",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "Returns the current value of the data source of the form object(s) named by objectName."
+    }
+  ],
+  "constraints": [
+    "Not available on list box column objects.",
+    "If objectName uses the wildcard character ('@') to match multiple objects, only the value of the first matched object's data source is returned.",
+    "If the data source is an array, returns the array index (an integer); if it is an expression, returns the value evaluated since the last execution cycle."
+  ]
+}

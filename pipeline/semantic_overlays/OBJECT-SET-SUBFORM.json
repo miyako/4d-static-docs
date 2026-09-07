@@ -1,0 +1,95 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Table of the forms to use; may be omitted when detailSubform is a project form"
+        },
+        {
+          "name": "detailSubform",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the detail form, a POSIX path to a .json file describing it, or an object describing it"
+        },
+        {
+          "name": "listSubform",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            }
+          ],
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the list form, a POSIX path to a .json file describing it, or an object describing it; only valid when modifying a list-type subform"
+        }
+      ],
+      "semanticRole": "Dynamically replaces the detail form (and, only for list-type subforms, the list form) used by the subform object designated by object and *."
+    }
+  ],
+  "constraints": [
+    "Cannot change the type (list vs. page) of the subform itself -- that can only be set in Design mode.",
+    "listSubform can only be passed when modifying a list-type subform.",
+    "Unlike other dynamic-form commands, .json paths passed here are relative to the subform's parent form, not the subform itself.",
+    "Modifying a page subform can be done at any time without disturbing current selections; modifying a list subform is only allowed while it is displaying the list -- calling it while the detail form is open (after a double-click) raises an error."
+  ]
+}

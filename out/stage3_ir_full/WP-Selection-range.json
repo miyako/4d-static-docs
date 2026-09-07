@@ -1,0 +1,52 @@
+{
+  "id": "WP-Selection-range",
+  "displayName": "WP Selection range",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, wpArea is a form object name (Text); if omitted, wpArea is a 4D Write Pro object variable or field."
+        },
+        {
+          "name": "wpArea",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns a new range object (or a picture reference object, if an anchored image is selected) based upon the currently selected content in wpArea."
+    }
+  ],
+  "constraints": [
+    "If no 4D Write Pro area is resolved from wpArea, an empty object is returned.",
+    "The command can only be used if wpArea is associated with a form object currently displayed in the current form/page."
+  ]
+}

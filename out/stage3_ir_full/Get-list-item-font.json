@@ -1,0 +1,70 @@
+{
+  "id": "Get-list-item-font",
+  "displayName": "Get list item font",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, list is an object name (string); if omitted, list is a hierarchical list reference number."
+        },
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Name of list-type object (if '*' passed) or list reference number (if '*' omitted)."
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "the last item added to the list"
+            },
+            {
+              "value": "*",
+              "meaning": "the current item of the list"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Get the current character font name of a hierarchical list item, addressed either by list reference number or by the form object name of the list's representation."
+    }
+  ],
+  "constraints": [
+    "If you only use a single representation of the list in the form (or work with structural items rather than the current item), either syntax works; if several representations of the same list exist and the current item ('*' for itemRef) is used, the object-name syntax is required since each representation has its own current item.",
+    "If the object name matches several lists in the form (via the '@' wildcard), the command applies to the first one found."
+  ]
+}

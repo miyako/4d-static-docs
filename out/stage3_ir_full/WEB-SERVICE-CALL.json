@@ -1,0 +1,107 @@
+{
+  "id": "WEB-SERVICE-CALL",
+  "displayName": "WEB SERVICE CALL",
+  "kind": "classic_command",
+  "theme": "Web-Services-Client",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "accessURL",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Complete access URL of the Web Service (not the WSDL file's URL)"
+        },
+        {
+          "name": "soapAction",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Contents of the SOAPAction field of the request, typically \"ServiceName#MethodName\""
+        },
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the remote method of the Web Service to execute"
+        },
+        {
+          "name": "nameSpace",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "XML namespace used for the SOAP request"
+        },
+        {
+          "name": "complexType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Configuration of the Web Service's input/output parameter complexity (publication mode RPC/DOC x simple/complex parameters)",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Web Service dynamic: RPC mode, simple input and output (default if omitted)"
+            },
+            {
+              "value": 1,
+              "meaning": "Web Service manual in: RPC mode, complex input (manual XML BLOB via WEB SERVICE SET PARAMETER), simple output"
+            },
+            {
+              "value": 2,
+              "meaning": "Web Service manual out: RPC mode, simple input, complex output (manual XML BLOB retrieved via WEB SERVICE GET RESULT)"
+            },
+            {
+              "value": 3,
+              "meaning": "Web Service manual: RPC mode with complex input and output, or DOC mode -- both input and output are manual XML BLOBs"
+            }
+          ]
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, keeps the underlying connection open for reuse by the next WEB SERVICE CALL instead of closing it at the end of execution"
+        }
+      ],
+      "semanticRole": "Sends a SOAP HTTP request built from the parameters previously registered via WEB SERVICE SET PARAMETER to the Web Service designated by accessURL/soapAction/methodName/nameSpace, replacing any previous result.",
+      "jointConstraints": [
+        {
+          "params": [
+            "complexType",
+            "*"
+          ],
+          "rule": "The trailing '*' occupies the parameter slot after complexType in the signature, so complexType must be passed (even if its default value) for '*' to be reachable."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Passing https:// in accessURL enables secure (SSL/TLS) mode automatically; an invalid server certificate sets OK to 0 and raises error 901, interceptable via ON ERR CALL.",
+    "Calling WEB SERVICE CALL erases any result from a previously called Web Service and replaces it with the new result(s); each new WEB SERVICE SET PARAMETER call after this one starts building a fresh request.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
+  ]
+}

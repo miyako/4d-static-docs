@@ -1,0 +1,44 @@
+{
+  "theme": "XML-DOM",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "childElemName and childElemValue are filled/returned params (docs: '<-' direction); autoparse defaults all params to direction:in. Also adds jointConstraint reflecting the doc syntax's nested optional (childElemValue can only be passed together with childElemName).",
+      "params": [
+        {
+          "name": "elementRef",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "childElemName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the name of the last child element"
+        },
+        {
+          "name": "childElemValue",
+          "type": { "kind": "pseudo", "name": "any" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the value of the last child element"
+        }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a reference to the last child of an XML element, usable for further DOM navigation, and optionally its name and value.",
+      "jointConstraints": [
+        {
+          "params": ["childElemName", "childElemValue"],
+          "rule": "childElemValue can only be passed if childElemName is also passed (the syntax nests childElemValue inside childElemName's optional group)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "If printOptions is omitted, the default 4D Write Pro layout is used and expressions are recomputed before printing (wk 4D Write Pro layout + wk recompute expressions).",
+    "Page margins always come from the 4D Write Pro document's own page settings, regardless of print settings from 4D PRINT SETTINGS/SET PRINT OPTION.",
+    "If called between OPEN PRINTING JOB and CLOSE PRINTING JOB, the document is added to the current print job instead of launching a new one."
+  ]
+}

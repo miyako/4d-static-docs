@@ -1,0 +1,38 @@
+{
+  "constraints": [
+    "This command must generally be called within an error-handling method installed via ON ERR CALL.",
+    "errODBC and errSQLServer are only filled when the error originates from the ODBC source; otherwise they are returned empty."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "autoparse defaulted all four params to direction:\"in\" from the blanket rule; the doc parameter table marks errCode, errText, errODBC and errSQLServer all as \"<-\" (out) -- there are no input params for this command.",
+      "params": [
+        {
+          "name": "errCode",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "errText",
+          "type": {"kind": "concrete", "name": "Text"},
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "errODBC",
+          "type": {"kind": "concrete", "name": "Text"},
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "errSQLServer",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

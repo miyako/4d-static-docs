@@ -1,0 +1,57 @@
+{
+  "theme": "WritePro",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "params": [
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, wpArea is a form object name (Text); if omitted, wpArea is a 4D Write Pro object variable or field."
+        },
+        {
+          "name": "wpArea",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Field" }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "frameSelector",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "textBoxID",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": null,
+      "semanticRole": "Sets the cursor into the frame designated by frameSelector (and, for a text box frame, textBoxID) in the 4D Write Pro wpArea area.",
+      "note": "star_operator_dual_signature (category C): both doc syntax lines are one overload where the leading '*' only toggles whether wpArea is a form-object name string or a variable/field reference; merged per the same convention as WA EXECUTE JAVASCRIPT FUNCTION / SET LIST ITEM PROPERTIES."
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["frameSelector", "textBoxID"],
+          "rule": "textBoxID must be passed when frameSelector is wk text box; if it is omitted, or no text box with that id exists (or no page corresponds to its anchor conditions), the command does nothing. textBoxID is ignored when frameSelector is not wk text box."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "The command can only be used if wpArea is associated with a form object currently displayed in the current form/page.",
+    "If frameSelector requests a header/footer frame that does not exist for the selected section (or its sub-section type distinction), the command does nothing (no error is generated)."
+  ]
+}

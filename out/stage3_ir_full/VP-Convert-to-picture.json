@@ -1,0 +1,41 @@
+{
+  "id": "VP-Convert-to-picture",
+  "displayName": "VP Convert to picture",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpObject",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Picture"
+      },
+      "semanticRole": "Converts a 4D View Pro object (or a specific range within it) to an SVG picture, e.g. for embedding in another document or for printing without loading the area."
+    }
+  ],
+  "constraints": [
+    "vpObject must have been previously produced by VP Export to object or VP EXPORT DOCUMENT.",
+    "SVG conversion requires expressions and formats in the area to have been evaluated at least once beforehand, otherwise they may render unexpectedly.",
+    "If rangeObj is omitted, the whole document contents are converted.",
+    "Gridline visibility in the exported picture depends on the document's print-info attribute set via VP SET PRINT INFO."
+  ]
+}

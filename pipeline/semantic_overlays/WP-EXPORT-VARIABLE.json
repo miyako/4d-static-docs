@@ -1,0 +1,6 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "destination's resolved type depends on format: Blob for the native .4wp/.docx formats, Text for HTML/SVG formats."
+  ]
+}

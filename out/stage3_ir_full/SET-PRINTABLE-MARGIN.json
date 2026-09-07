@@ -1,0 +1,96 @@
+{
+  "id": "SET-PRINTABLE-MARGIN",
+  "displayName": "SET PRINTABLE MARGIN",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "left",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Left margin",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Use the paper margins."
+            },
+            {
+              "value": -1,
+              "meaning": "Use the printer margins."
+            }
+          ]
+        },
+        {
+          "name": "top",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Top margin",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Use the paper margins."
+            },
+            {
+              "value": -1,
+              "meaning": "Use the printer margins."
+            }
+          ]
+        },
+        {
+          "name": "right",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Right margin, relative to the right edge of the paper",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Use the paper margins."
+            },
+            {
+              "value": -1,
+              "meaning": "Use the printer margins."
+            }
+          ]
+        },
+        {
+          "name": "bottom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Bottom margin, relative to the bottom edge of the paper",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Use the paper margins."
+            },
+            {
+              "value": -1,
+              "meaning": "Use the printer margins."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "The SET PRINTABLE MARGIN command sets the values of various printing margins by using the Print form , PRINT SELECTION and PRINT RECORD commands."
+    }
+  ],
+  "constraints": [
+    "By default 4D bases printouts on the printer margins; once set, the values are retained for the entire session in the calling process."
+  ]
+}

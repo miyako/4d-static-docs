@@ -1,0 +1,116 @@
+{
+  "id": "ZIP-Create-archive",
+  "displayName": "ZIP Create archive",
+  "kind": "classic_command",
+  "theme": "File and Folder",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fileToZip",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Creates a ZIP archive from a single 4D.File.",
+      "discriminatedBy": {
+        "param": "fileToZip",
+        "note": "first arg is a 4D.File"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "folderToZip",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Folder"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Creates a ZIP archive from a single 4D.Folder, optionally excluding the enclosing folder itself from the archive contents.",
+      "discriminatedBy": {
+        "param": "folderToZip",
+        "note": "first arg is a 4D.Folder; only this overload accepts the options parameter"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "zipStructure",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Creates a ZIP archive from a full zip-structure description object, allowing per-entry destination paths, compression/encryption settings, a password, and a progress callback.",
+      "discriminatedBy": {
+        "param": "zipStructure",
+        "note": "first arg is a plain Object describing compression/encryption/files rather than a single File/Folder"
+      }
+    }
+  ],
+  "constraints": [
+    "zipStructure object properties: compression (Integer constant: ZIP Compression standard [default]/LZMA/XZ/none), level (Integer 1-10 compression level; default depends on compression: 6 for standard, 4 for LZMA/XZ), encryption (Integer constant: ZIP Encryption AES128/AES192/AES256 [default if password set]/none [default if no password]), password (Text, used when encryption requires one), and files (a Collection of 4D.File/4D.Folder objects, or of objects with source: 4D.File-or-Folder, destination: Text relative path (optional), option: Integer such as ZIP Ignore invisible files or 0 (optional), and callback: 4D.Function receiving compression progress 0-100 in $1).",
+    "destinationFile should preferably use a '.zip' extension so the archive is recognized automatically by other software.",
+    "The returned status object has statusText (Text error message, e.g. 'Cannot open ZIP archive', 'Cannot create ZIP archive', 'Password is required for encryption'), status (Integer status code), and success (Boolean).",
+    "In the folderToZip overload, passing the ZIP Without enclosing folder constant in options compresses only the folder's contents (without it, decompressing recreates the enclosing folder, which is the default)."
+  ]
+}

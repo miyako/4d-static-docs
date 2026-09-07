@@ -1,0 +1,20 @@
+{
+  "id": "Refresh-license",
+  "displayName": "Refresh license",
+  "kind": "classic_command",
+  "theme": "Licenses",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Connects to the 4D customer database and activates any new or updated licenses for the current 4D Server license, returning a status object."
+    }
+  ],
+  "constraints": [
+    "Can only be executed on 4D Server; if called locally on a remote client or in 4D single-user, the command does nothing.",
+    "Returned Object has properties: success (boolean, True if the refresh succeeded), status (number, status code), statusText (text, status description), tips (text, suggestions to resolve an error)."
+  ]
+}

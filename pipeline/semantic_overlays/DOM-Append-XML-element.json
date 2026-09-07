@@ -1,0 +1,12 @@
+{
+  "theme": "XML-DOM",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Appends an existing XML element as the last child of another XML element's children."
+    }
+  ],
+  "constraints": [
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

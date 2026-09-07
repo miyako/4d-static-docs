@@ -1,0 +1,31 @@
+{
+  "constraints": [
+    "By default, method/command access is restricted to the Designer and Administrator; if formula calls a method not authorized via SET ALLOWED METHODS, a syntax error is generated and the dialog cannot be validated.",
+    "The formula editor has no default menu bar; install a standard Edit menu in the calling process to enable cut/copy/paste shortcuts.",
+    "The virtual structure defined by SET TABLE TITLES/SET FIELD TITLES is only used inside the Formula editor dialog; it must not be used in the formula variable outside the dialog.",
+    "Validating the dialog only stores the edited formula text into the formula variable; it does not execute it -- use EXECUTE FORMULA to run it."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The draft marked 'formula' as direction 'in' from the signature parse, but the parameter table shows it is bidirectional (col2 '\u2194'): the caller passes the initial formula text (or \"\" for an empty editor) and, after the user validates, the same variable receives the edited formula.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": false,
+          "description": "Table to display by default in the Formula editor"
+        },
+        {
+          "name": "formula",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "inout",
+          "optional": false,
+          "description": "in: variable containing the formula to display, or \"\" to display the editor with no formula; out: the formula validated by the user (left untouched if the user cancels)"
+        }
+      ],
+      "semanticRole": "Displays the interactive Formula editor dialog, seeded with aTable's fields and an initial formula, and returns the user-edited formula text."
+    }
+  ]
+}

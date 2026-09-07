@@ -1,0 +1,30 @@
+{
+  "id": "VP-Get-cell-style",
+  "displayName": "VP Get cell style",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns the style object of the first cell in rangeObj."
+    }
+  ],
+  "constraints": [
+    "If rangeObj is not itself a cell range, the style of the first cell in the range is returned.",
+    "If rangeObj contains several ranges, only the style of the first cell of the first range is returned."
+  ]
+}

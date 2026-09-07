@@ -1,0 +1,12 @@
+{
+  "id": "FORM-LAST-PAGE",
+  "displayName": "FORM LAST PAGE",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Displays the last page of the current form; does nothing if no form is being displayed/loaded (via FORM LOAD), or if the last page is already showing."
+    }
+  ]
+}

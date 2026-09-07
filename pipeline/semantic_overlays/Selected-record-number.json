@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Returns 0 if the current selection of aTable is empty or there is no current record."
+  ]
+}

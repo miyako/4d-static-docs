@@ -1,0 +1,64 @@
+{
+  "theme": "Objects-Forms",
+  "constraints": [
+    "Only supported for rectangles, and (4D projects only) inputs and text areas.",
+    "For input and text-area objects, the corner radius only has a visible effect with \"none\", \"solid\", or \"dotted\" border line styles.",
+    "The new radius is set only for the current process and is not saved in the form itself."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "radius",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New corner radius, in pixels."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      },
+      "semanticRole": "Modifies (for the current process only) the corner radius of the designated form object.",
+      "note": "Merged the leading-'*' dual signature into one overload with object as a Text/Variable,Field union discriminated by '*'."
+    }
+  ]
+}

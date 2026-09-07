@@ -1,0 +1,55 @@
+{
+  "id": "SQL-EXPORT-DATABASE",
+  "displayName": "SQL EXPORT DATABASE",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "folderPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "numFiles",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "fileLimitSize",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "fieldLimitSize",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SQL EXPORT DATABASE command exports in SQL format all the records of all the tables in the database."
+    }
+  ],
+  "constraints": [
+    "This command cannot be used with an external connection opened directly or via ODBC.",
+    "The export files are placed in a folder named \"SQLExport\" created inside folderPath; if an \"SQLExport\" folder already exists there, it is replaced without any warning.",
+    "If folderPath is an empty string, a standard folder-selection dialog box is displayed (defaulting to the current user's Documents folder).",
+    "The generated Export.sql file(s) can be fed directly into SQL EXECUTE SCRIPT to import the data into another 4D database."
+  ]
+}

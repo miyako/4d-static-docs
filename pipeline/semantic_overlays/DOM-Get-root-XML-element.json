@@ -1,0 +1,12 @@
+{
+  "theme": "XML-DOM",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a reference to the root element of the document that the XML element passed in elementRef belongs to (or \"\" on error)."
+    }
+  ],
+  "constraints": [
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

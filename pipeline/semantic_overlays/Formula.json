@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Allows a formula to be passed as a parameter (e.g. as a calculated attribute) or executed from other components without declaring it as shared by components and host database; the resulting object is evaluated in the context of the database/component that created it, and is called via .call() or .apply()."
+  ]
+}

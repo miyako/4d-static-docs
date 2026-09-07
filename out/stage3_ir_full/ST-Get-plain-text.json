@@ -1,0 +1,59 @@
+{
+  "id": "ST-Get-plain-text",
+  "displayName": "ST Get plain text",
+  "kind": "classic_command",
+  "theme": "Styled-Text",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
+        },
+        {
+          "name": "refMode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Mode for handling references found in the text"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Strips all style tags from the designated styled-text object and returns the resulting plain text, optionally controlling how embedded expression/URL references are rendered via refMode."
+    }
+  ]
+}

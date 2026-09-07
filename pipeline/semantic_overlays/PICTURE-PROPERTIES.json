@@ -1,0 +1,54 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "in",
+          "optional": false,
+          "description": "Picture for which to get information."
+        },
+        {
+          "name": "width",
+          "type": { "kind": "concrete", "name": "Real" },
+          "direction": "out",
+          "optional": false,
+          "description": "Width of the picture expressed in pixels."
+        },
+        {
+          "name": "height",
+          "type": { "kind": "concrete", "name": "Real" },
+          "direction": "out",
+          "optional": false,
+          "description": "Height of the picture expressed in pixels."
+        },
+        {
+          "name": "hOffset",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Horizontal offset when displayed on background."
+        },
+        {
+          "name": "vOffset",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Vertical offset when displayed on background."
+        },
+        {
+          "name": "mode",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Transfer mode when displayed on background."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "hOffset, vOffset and mode only have meaning for a picture displayed 'On Background' in a form; they are otherwise not meaningful."
+  ]
+}

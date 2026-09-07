@@ -1,0 +1,65 @@
+{
+  "theme": "WritePro",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "params": [
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, wpArea is a form object name (Text); if omitted, wpArea is a 4D Write Pro object variable or field."
+        },
+        {
+          "name": "wpArea",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Field" }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "targetObj",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": true,
+          "description": "Range, element (table/row/paragraph/anchored or inline picture/text box/body/header/footer/section/subsection), or a 4D Write Pro document (only its body element is used)."
+        },
+        {
+          "name": "startRange",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "endRange",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": null,
+      "semanticRole": "Creates a new selection in the 4D Write Pro wpArea area, based upon targetObj or upon a startRange/endRange pair.",
+      "note": "star_operator_dual_signature (category C): both doc syntax lines are one overload where the leading '*' only toggles whether wpArea is a form-object name string or a variable/field reference; merged per the same convention as WA EXECUTE JAVASCRIPT FUNCTION / SET LIST ITEM PROPERTIES. targetObj and startRange/endRange remain the two alternative ways to define the selection (see jointConstraints)."
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["targetObj", "startRange", "endRange"],
+          "rule": "targetObj and the startRange/endRange pair are alternative ways to specify the selection; pass one or the other, not both. startRange/endRange are only valid when the addressed element (targetObj, or the implicit area) is body/header/footer/section/subsection."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If no 4D Write Pro area is resolved from wpArea, the command does nothing.",
+    "wk start text may be passed in startRange and wk end text in endRange to mean the beginning/end of the area.",
+    "The command can only be used if wpArea is associated with a form object currently displayed in the form/page."
+  ]
+}

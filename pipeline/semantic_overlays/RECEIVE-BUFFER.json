@@ -1,0 +1,23 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "receiveVar is the doc's arrow-marked (\u2190) output slot filled with whatever was in the serial buffer; the draft parser had defaulted it to direction:in.",
+      "params": [
+        {
+          "name": "receiveVar",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Variable receiving whatever characters are currently in the serial buffer; empty if the buffer is empty."
+        }
+      ],
+      "semanticRole": "Immediately drains and clears whatever characters are currently sitting in the serial port buffer (opened via SET CHANNEL) into receiveVar, without waiting for a stop character or byte count."
+    }
+  ],
+  "constraints": [
+    "Differs from RECEIVE PACKET: RECEIVE BUFFER takes whatever is currently in the buffer and returns immediately, while RECEIVE PACKET waits until a stop character is found or a requested number of bytes has accumulated.",
+    "On Windows the serial buffer is capped at 10 KB; on both Windows and macOS, once full, new incoming characters overwrite the oldest buffered characters, so the buffer must be drained promptly to avoid data loss.",
+    "The read interrupts on Ctrl-Alt-Shift (Windows) / Command-Option-Shift (macOS), raising error -9994, catchable via an ON ERR CALL method."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "theme": "XML-DOM",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Sets (adding if not present) one or more attribute name/value pairs on the XML element elementRef, converting non-Text attrValue values to text."
+    }
+  ],
+  "constraints": [
+    "attrValue may be Text or another scalar type (Boolean, Integer, Real, Date, Time); non-Text values are converted to text (e.g. Boolean -> \"true\"/\"false\", Date -> RFC 3339 string, Time -> number of seconds as text).",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

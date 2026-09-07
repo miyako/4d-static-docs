@@ -1,0 +1,49 @@
+{
+  "id": "DOM-Insert-XML-element",
+  "displayName": "DOM Insert XML element",
+  "kind": "classic_command",
+  "theme": "XML-DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetElementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sourceElementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "childIndex",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Inserts an existing XML element (sourceElementRef, from the same DOM tree) as a child of targetElementRef, before the child at position childIndex, and returns a reference to the inserted element."
+    }
+  ],
+  "constraints": [
+    "sourceElementRef must already be the reference of an existing XML element in a DOM tree, not newly-authored text.",
+    "If childIndex does not designate a valid existing child of targetElementRef, the new element is inserted before the first child.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

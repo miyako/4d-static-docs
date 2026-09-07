@@ -1,0 +1,65 @@
+{
+  "id": "WP-Get-footer",
+  "displayName": "WP Get footer",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns the footer of the first page in the range or the section/sub-section passed as targetObj (returns the visible footer if a sub-section is active)."
+    },
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sectionIndex",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sectionSubType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns the footer of the section identified by sectionIndex (>=1) in wpDoc, or of a specific sub-section type of that section when sectionSubType is passed."
+    }
+  ],
+  "constraints": [
+    "Returns Null if no footer is found for the given parameter(s)."
+  ]
+}

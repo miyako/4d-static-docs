@@ -1,0 +1,25 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {
+          "name": "value",
+          "members": [
+            {
+              "name": "value",
+              "type": {"kind": "pseudo", "name": "any"},
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {"min": 0, "max": null},
+          "position": "trailing"
+        }
+      ],
+      "returns": {"kind": "concrete", "name": "Collection"},
+      "semanticRole": "Create a new collection, optionally prefilled with one or more values passed as parameters; omitting all parameters creates an empty collection.",
+      "note": "Mechanical parser could not locate a top-level '(...)' list because the whole parameter list is itself optional ('{( ...value : any )}'), so the draft had zero params. Replaced with a single-member variadic group (0..n) for 'value', matching the doc's '...value' repeat notation."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "Current-process",
+  "displayName": "Current process",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Current process returns the process reference number of the process within which this command is called.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ]
+}

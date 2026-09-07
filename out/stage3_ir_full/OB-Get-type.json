@@ -1,0 +1,38 @@
+{
+  "id": "OB-Get-type",
+  "displayName": "OB Get type",
+  "kind": "classic_command",
+  "theme": "Objects-Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The OB Get type command returns the type of value associated with the property of the language object .can be an object varialble or a 4D object field.."
+    }
+  ],
+  "constraints": [
+    "property is case-sensitive."
+  ]
+}

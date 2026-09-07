@@ -1,0 +1,60 @@
+{
+  "id": "CREATE-SELECTION-FROM-ARRAY",
+  "displayName": "CREATE SELECTION FROM ARRAY",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Table from which to create the selection"
+        },
+        {
+          "name": "recordArray",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer array"
+            },
+            {
+              "kind": "concrete",
+              "name": "Boolean array"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "elementTypeSelectsMode": {
+            "Integer array": "each element is an absolute record number to include in the selection",
+            "Boolean array": "the Xth element (True/False) indicates whether record number X belongs to the selection"
+          },
+          "description": "Array of record numbers, or array of booleans indicating per-record membership"
+        },
+        {
+          "name": "selectionName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "default": "applies to the current selection if omitted or an empty string",
+          "description": "Name of the named selection to create"
+        }
+      ],
+      "semanticRole": "Builds a named selection (or updates the current selection) for a table from either an array of record numbers or a parallel array of per-record booleans."
+    }
+  ],
+  "constraints": [
+    "If selectionName is omitted or an empty string is passed, the command updates the current selection instead of creating a named selection.",
+    "With a Longint/Integer array, all values must be distinct valid record numbers; a duplicate or invalid (not-created) record number generates error -10503.",
+    "With a Boolean array, elements are read from index 0 to N-1 and the array length should equal the table's record count; if shorter, only the records covered by the array can be part of the selection.",
+    "Record numbers can be reused after a record is deleted and a new one created, so a stale Integer array of record numbers can silently select the wrong records."
+  ]
+}

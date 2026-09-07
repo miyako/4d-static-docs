@@ -1,0 +1,42 @@
+{
+  "id": "Export-structure-file",
+  "displayName": "Export structure file",
+  "kind": "classic_command",
+  "theme": "4D-Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "folderPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Breaks down the current database structure into text/picture files under folderPath (for source control), optionally filtered by category via options, and returns a status/messages report."
+    }
+  ],
+  "constraints": [
+    "Only usable from 4D in local mode or 4D Server (errors if called from 4D in remote mode) and only against an interpreted database (does nothing if called from a compiled .4DC database).",
+    "When called from a component, always exports the host database's structure, not the component's.",
+    "options.filter, if present, switches to an explicit opt-in model: every export category (projectMethods, forms, catalog, etc.) defaults to false and must be individually set to true to be included.",
+    "The 'trash' filter only has an effect if 'projectMethods' or 'forms' is also selected.",
+    "The returned object's 'success' is false only if any message in 'messages' has severity 'error'."
+  ]
+}

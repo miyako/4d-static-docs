@@ -1,0 +1,38 @@
+{
+  "id": "User-in-group",
+  "displayName": "User in group",
+  "kind": "classic_command",
+  "theme": "Users-and-Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "user",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "User in group returns TRUE if user is in group ."
+    }
+  ],
+  "constraints": [
+    "user must be an actual user account name; user aliases are not supported. If user aliases are defined, pass the value returned by Current user (rather than the alias) to guarantee an account name."
+  ]
+}

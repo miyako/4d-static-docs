@@ -1,0 +1,65 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "line and color are documented with the '\u2190' arrow (values returned by the command), not '\u2192'; auto-parse defaulted both to direction 'in'. Also records the documented QR Borders bit-flag constants for 'border' as sentinelValues.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "column",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Column number"
+        },
+        {
+          "name": "row",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Row number (positive break level, or one of the QR Rows for Properties constants: qr title=-1, qr detail=-2, qr grand total=-3)"
+        },
+        {
+          "name": "border",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Which cell border is queried",
+          "sentinelValues": [
+            { "value": 1, "meaning": "qr left border" },
+            { "value": 4, "meaning": "qr right border" },
+            { "value": 2, "meaning": "qr top border" },
+            { "value": 8, "meaning": "qr bottom border" },
+            { "value": 16, "meaning": "qr inside vertical border" },
+            { "value": 32, "meaning": "qr inside horizontal border" }
+          ]
+        },
+        {
+          "name": "line",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Line thickness: 0=no line, 1=1/4 point, 2=1/2 point, 3=1 point, 4=2 points"
+        },
+        {
+          "name": "color",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Color applied to the line segment"
+        }
+      ],
+      "semanticRole": "Retrieves the border style (line thickness and color) for one border (border) of a given report cell (column/row), unlike QR SET BORDERS this command does not accept a cumulative border value -- each border must be tested separately."
+    }
+  ],
+  "constraints": [
+    "Unlike QR SET BORDERS, this command does not accept a cumulative border value; each border constant must be queried separately to build an overall view of a cell's borders."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "OB-SET-NULL",
+  "displayName": "OB SET NULL",
+  "kind": "classic_command",
+  "theme": "Objects-Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OB SET NULL command stores the null value in the language object designated by the object parameter.can be an object varialble or a 4D object field."
+    }
+  ],
+  "constraints": [
+    "property is case-sensitive.",
+    "If property already exists in object its value is updated (overwritten with null); otherwise it is created."
+  ]
+}

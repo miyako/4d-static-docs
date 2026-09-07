@@ -1,0 +1,59 @@
+{
+  "constraints": [
+    "If scope is omitted, the local execution context (the current process) is used.",
+    "If a local (ek local) error handler is also defined for a process, the global (ek global) handler is not called for that process.",
+    "If ON ERR CALL is called from a process running in preemptive mode (compiled), errorMethod must be thread-safe or the compiler raises an error.",
+    "ON ERR CALL cannot be called from within the error-handling method itself.",
+    "Error-handling methods are installed per project: components and host projects each have their own, and only the method of the project where the error occurred is called."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "params": [
+        {
+          "name": "errorMethod",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "Stops trapping errors for the given scope instead of installing a handler."
+            }
+          ]
+        },
+        {
+          "name": "scope",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Execution context for which errorMethod traps errors; a constant from the '4D Environment' theme.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "ek local: errors in the local execution context (current process); this is the default if scope is omitted."
+            },
+            {
+              "value": 1,
+              "meaning": "ek global: errors in the global execution context of the project."
+            },
+            {
+              "value": 2,
+              "meaning": "ek errors from components: errors generated from installed components."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Installs errorMethod as the error-catching method for the execution context designated by scope (local process, global, or components), or stops trapping errors for that scope if errorMethod is an empty string.",
+      "note": "Documented the errorMethod empty-string sentinel (stop trapping) and the scope constant sentinel values (ek local/ek global/ek errors from components), which autoparse left as bare Integer/Text."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines only because the trailing second '*' cannot appear unless the first '*' is also present as a placeholder (\"...{;*}\" vs \"...; * {;*}\"). Semantically this is one overload where aTable, selectMode, enterList and the first '*' are each independently optional, and the second '*' is optional but only meaningful when the first '*' is also passed.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": true,
+          "description": "Table to display and modify, or the default table if omitted."
+        },
+        {
+          "name": "selectMode",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Selection mode."
+        },
+        {
+          "name": "enterList",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "in",
+          "optional": true,
+          "description": "Authorize Enter in list option."
+        },
+        {
+          "name": "* (first)",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "Use the output form for a one-record selection and hide scroll bars in the input form."
+        },
+        {
+          "name": "* (second)",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "Show scroll bars in the input form, overriding the scroll-bar-hiding effect of the first '*'."
+        }
+      ],
+      "semanticRole": "Displays the current selection of aTable (or the default table) in list mode or, on double-click, in an input form where the record can be edited in Read-Write mode (unlike DISPLAY SELECTION, which is read-only).",
+      "interactionNotes": [
+        {
+          "params": ["* (first)", "* (second)"],
+          "note": "The second '*' can only be passed if the first '*' is also passed (in the doc syntax it appears as a mandatory placeholder once the second '*' is used). The second '*' overrides only the scroll-bar-hiding part of the first '*''s effect, re-enabling scroll bars in the input form; the one-record-selection output-form behavior of the first '*' still applies."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Places all records of the selection in Read-Write mode (locked for writing in other processes) while displayed; records are freed when the command finishes."
+  ]
+}

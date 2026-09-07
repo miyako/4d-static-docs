@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "modifiers takes one or a combination of the Events (Modifiers) theme constants.",
+    "If process is 0 or omitted, the keystroke is posted at the application level and dispatched by the 4D scheduler to the appropriate process."
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "theme": "Web-Area",
+  "constraints": [
+    "As of 4D 19 R5, for Web areas using the Windows system rendering engine, this command fills the menu with only the current URL.",
+    "Call RELEASE MENU to delete a URL history menu when it is no longer needed."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The docs render two syntax lines only because the leading semicolon disappears when the leading '*' is omitted (object becomes Variable/Field instead of Text). Semantically this is one overload with '*' an optional literal-symbol discriminator, matching the WA-EXECUTE-JAVASCRIPT-FUNCTION fixture's treatment of the same pattern.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (Text); if omitted, object is a variable or field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or variable/field (if * is omitted) designating the Web area"
+        },
+        {
+          "name": "direction",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Which URL list to build the menu from",
+          "sentinelValues": [
+            {
+              "value": "WA previous URLs",
+              "meaning": "0 (default if omitted): list of previous URLs."
+            },
+            {
+              "value": "WA next URLs",
+              "meaning": "1: list of next URLs."
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Creates and fills a menu (returning its reference) usable for direct navigation among the URLs visited during the session in the designated Web area."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "theme": "Data-Security",
+  "constraints": [
+    "Cannot be used on the currently-open data file.",
+    "Can only be executed from 4D in local mode or from 4D Server (as a stored procedure); not available in remote mode.",
+    "The dataPath data file must correspond to the structurePath structure file; only tables set as 'encryptable' are affected.",
+    "This is a lengthy operation that displays a (user-interruptible) progress indicator and includes a compacting step.",
+    "The original files are never modified in place; they are moved into a timestamped backup folder ('Replaced files (Encrypting|Decrypting) YYYY-MM-DD HH-MM-SS'), inside archiveFolder if provided, or next to the structure file otherwise; the command's return value is the path to that backup folder.",
+    "A new*/current* passphrase or data key not supplied to the command can instead be supplied via the 4D keychain; the newPassPhrase/newDataKey used is itself never added to the keychain.",
+    "methodName, if valid, is called as a progress/status callback taking up to 5 parameters ($messageType, $objectType, $messageText, $table, $reserved) for message/finished/error/end-of-execution/warning events."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Encrypts, re-encrypts, or decrypts the data file using passphrase-derived keys (SHA-256) for both the new and, if re-encrypting, current credential.",
+      "jointConstraints": [
+        {
+          "params": ["newPassPhrase", "curPassPhrase"],
+          "rule": "For first-time encryption, pass only newPassPhrase and omit curPassPhrase. For re-encrypting an already-encrypted database, pass both (curPassPhrase may instead come from the 4D keychain). To remove encryption entirely, pass an empty string as newPassPhrase while still supplying curPassPhrase."
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "semanticRole": "Encrypts, re-encrypts, or decrypts the data file using explicit encryption-key objects (from New data key) for both the new and, if re-encrypting, current credential.",
+      "jointConstraints": [
+        {
+          "params": ["newDataKey", "curDataKey"],
+          "rule": "For first-time encryption, pass only newDataKey and omit curDataKey. For re-encrypting an already-encrypted database, pass both (curDataKey may instead come from the 4D keychain). To remove encryption entirely, pass a null data key as newDataKey while still supplying curDataKey."
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "semanticRole": "Re-encrypts a database that is currently keyed by an explicit data-key object, switching it to a new passphrase-derived key.",
+      "jointConstraints": [
+        {
+          "params": ["newPassPhrase", "curDataKey"],
+          "rule": "This mixed form re-encrypts a database whose current key is an explicit data-key object (curDataKey), replacing it with a passphrase-derived key (newPassPhrase); both must be supplied together (curDataKey may instead come from the 4D keychain)."
+        }
+      ]
+    }
+  ]
+}

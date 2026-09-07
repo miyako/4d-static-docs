@@ -1,0 +1,88 @@
+{
+  "id": "TEXT-TO-ARRAY",
+  "displayName": "TEXT TO ARRAY",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "varText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Original text to be divided"
+        },
+        {
+          "name": "arrText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Array filled with the text divided into words or lines"
+        },
+        {
+          "name": "width",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Maximum width of string (in pixels); mandatory for raw (non-multistyle) text"
+        },
+        {
+          "name": "fontName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of font; mandatory for raw (non-multistyle) text"
+        },
+        {
+          "name": "fontSize",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Size of font; mandatory for raw (non-multistyle) text"
+        },
+        {
+          "name": "fontStyle",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Style of font"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, interpret varText as multistyle text; width/fontName/fontSize/fontStyle are then ignored, since the original per-run styles are used and preserved in arrText's elements instead."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Each arrText element must contain at least one word; if width is too small for a word to fit, the array is filled as close as possible to the requested width and the OK system variable is set to 0.",
+    "For raw (non-multistyle) text, width, fontName, and fontSize are mandatory so the command can measure line lengths."
+  ]
+}

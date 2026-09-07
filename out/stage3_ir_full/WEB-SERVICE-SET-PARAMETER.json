@@ -1,0 +1,130 @@
+{
+  "id": "WEB-SERVICE-SET-PARAMETER",
+  "displayName": "WEB SERVICE SET PARAMETER",
+  "kind": "classic_command",
+  "theme": "Web-Services-Client",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the parameter as it must appear in the SOAP request"
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D variable containing the value of the parameter"
+        },
+        {
+          "name": "soapType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Forces the SOAP type of the parameter, overriding 4D's automatic type inference from value's content",
+          "sentinelValues": [
+            {
+              "value": "string",
+              "meaning": "Text"
+            },
+            {
+              "value": "int",
+              "meaning": "Integer"
+            },
+            {
+              "value": "boolean",
+              "meaning": "Boolean"
+            },
+            {
+              "value": "float",
+              "meaning": "32-bit real"
+            },
+            {
+              "value": "decimal",
+              "meaning": "Real with decimal"
+            },
+            {
+              "value": "double",
+              "meaning": "64-bit real"
+            },
+            {
+              "value": "duration",
+              "meaning": "Duration in years/months/days/hours/minutes/seconds, e.g. P1Y2M3DT10H30M"
+            },
+            {
+              "value": "datetime",
+              "meaning": "Date and time in ISO8601 format, e.g. 2003-05-31T13:20:00"
+            },
+            {
+              "value": "time",
+              "meaning": "Time, e.g. 13:20:00"
+            },
+            {
+              "value": "date",
+              "meaning": "Date, e.g. 2003-05-31"
+            },
+            {
+              "value": "gyearmonth",
+              "meaning": "Gregorian year and month, e.g. 2003-05"
+            },
+            {
+              "value": "gyear",
+              "meaning": "Gregorian year, e.g. 2003"
+            },
+            {
+              "value": "gmonthday",
+              "meaning": "Gregorian month and day, e.g. --05-31"
+            },
+            {
+              "value": "gday",
+              "meaning": "Gregorian day, e.g. ---31"
+            },
+            {
+              "value": "gmonth",
+              "meaning": "Gregorian month, e.g. --10--"
+            },
+            {
+              "value": "hexbinary",
+              "meaning": "Value expressed in hexadecimal"
+            },
+            {
+              "value": "base64binary",
+              "meaning": "BLOB"
+            },
+            {
+              "value": "anyuri",
+              "meaning": "Uniform Resource Identifier (URI), e.g. http://www.company.com/page"
+            },
+            {
+              "value": "qname",
+              "meaning": "Qualified XML name (namespace and local part)"
+            },
+            {
+              "value": "notation",
+              "meaning": "Notation attribute"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Registers a named parameter (name/value, optionally forced to soapType) to include in the SOAP request built for the next WEB SERVICE CALL."
+    }
+  ],
+  "constraints": [
+    "Call once per parameter to be included in the SOAP request; value is generally $param1/$param2/... (the proxy method's own parameters) but any declared 4D variable/array can be used.",
+    "Does not support 4D.Blob class objects as value (only classic Blob and other primitive/variable types).",
+    "Reference lifecycle (implied convention, not syntactically enforced): Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "SET-PICTURE-METADATA",
+  "displayName": "SET PICTURE METADATA",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "metaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "metaContents",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Expression"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "metaName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "metaContents",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Variable"
+                },
+                {
+                  "kind": "pseudo",
+                  "name": "Expression"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The SET PICTURE METADATA command lets you set or modify the contents of the metadata (or meta-tags) found in the picture (4D picture field or variable), when they are modifiable."
+    }
+  ],
+  "constraints": [
+    "metaName selects how metaContents is interpreted: a tag-path constant from the Picture Metadata Names theme (metaContents is then the value to set, of the Text/Longint/Real/Date/Time type matching that tag, an array if the tag holds multiple values, or an XML/XMP-formatted string), a block name (\"TIFF\", \"EXIF\", \"GPS\" or \"IPTC\"), or an empty string (metaContents is then the XML DOM reference of the element containing the metadata to set; an empty metaName modifies all metadata). If metaName is undefined, an empty string is used.",
+    "Passing an empty string (\"\") in metaContents for a tag-path metaName erases the existing metadata designated by that tag.",
+    "Only certain picture formats (notably JPEG and TIFF) support metadata; formats such as GIF or BMP do not, and converting a picture with metadata to a non-supporting format loses that metadata.",
+    "Some metadata are read-only and cannot be modified by this command, e.g. TIFF XResolution/YResolution, EXIF Color Space, EXIF Pixel X/Y Dimension.",
+    "On Windows, a failed metadata write sets the OK system variable to 0; on macOS, metadata write errors are not detected and OK is not modified.",
+    "Repeated (metaName;metaContents) pairs set several metadata items in one call."
+  ]
+}

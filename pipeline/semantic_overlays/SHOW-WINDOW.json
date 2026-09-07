@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "The target window must have previously been hidden using HIDE WINDOW; if the window is already displayed, the command does nothing."
+  ]
+}

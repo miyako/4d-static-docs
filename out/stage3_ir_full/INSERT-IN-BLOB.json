@@ -1,0 +1,52 @@
+{
+  "id": "INSERT-IN-BLOB",
+  "displayName": "INSERT IN BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "len",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "filler",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The INSERT IN BLOB command inserts the number of bytes specified by len into the BLOB blob at the position specified by offset ."
+    }
+  ],
+  "constraints": [
+    "Does not support 4D.Blob objects, only the legacy Blob type, because this command alters the blob passed as a parameter in place."
+  ]
+}

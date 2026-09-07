@@ -1,0 +1,37 @@
+{
+  "id": "RESOLVE-ALIAS",
+  "displayName": "RESOLVE ALIAS",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aliasPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name or access path of the alias/shortcut to resolve."
+        },
+        {
+          "name": "targetPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the full path to the alias/shortcut's target file or folder."
+        }
+      ],
+      "semanticRole": "Resolves aliasPath to the full path of the file or folder it points to, writing the result into targetPath."
+    }
+  ],
+  "constraints": [
+    "Sets the OK system variable to 1 when aliasPath was a genuine alias/shortcut successfully resolved.",
+    "If aliasPath is actually a plain file (not an alias/shortcut), targetPath returns that file's own path and OK is set to 0."
+  ]
+}

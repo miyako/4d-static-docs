@@ -1,0 +1,92 @@
+{
+  "id": "INTEGER-TO-BLOB",
+  "displayName": "INTEGER TO BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "integer",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "2-byte Integer value to write into the BLOB."
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB to receive the Integer value; the legacy Blob type only, not a 4D.Blob object, since this command alters the blob in place."
+        },
+        {
+          "name": "byteOrder",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Byte ordering to use when writing the value.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Native byte ordering (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "Macintosh byte ordering."
+            },
+            {
+              "value": 2,
+              "meaning": "PC byte ordering."
+            }
+          ]
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "In: byte offset (from the start of the BLOB) at which to write the value. Out: updated to the offset just past the bytes written, so it can be reused for a subsequent BLOB-writing call."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, the value is appended after the BLOB's current end instead of written at a fixed position, growing the BLOB accordingly."
+        }
+      ],
+      "semanticRole": "Writes a 2-byte Integer value into a BLOB, either overwriting its start (if neither offset nor * is passed), at a given byte offset (advancing that offset for reuse), or appended to its end.",
+      "jointConstraints": [
+        {
+          "params": [
+            "offset",
+            "*"
+          ],
+          "rule": "offset and * are mutually exclusive: pass at most one of them. Passing neither writes the value at the beginning of the BLOB, overriding its previous contents."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Newly allocated bytes other than the ones being written (e.g. a gap before an offset beyond the current BLOB size) are initialized to zero.",
+    "It is up to the caller to manage byte-order swapping when exchanging BLOBs written this way between Macintosh and PC platforms."
+  ]
+}

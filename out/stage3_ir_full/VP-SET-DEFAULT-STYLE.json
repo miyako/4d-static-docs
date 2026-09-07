@@ -1,0 +1,52 @@
+{
+  "id": "VP-SET-DEFAULT-STYLE",
+  "displayName": "VP SET DEFAULT STYLE",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "styleObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Style object; can reference an existing style sheet or define a new style"
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (default = current sheet)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Explicitly target the current spreadsheet."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "The VP SET DEFAULT STYLE command defines the style in the styleObj as the default style for a sheet ."
+    }
+  ],
+  "constraints": [
+    "An error is returned if vpAreaName does not designate an existing 4D View Pro area."
+  ]
+}

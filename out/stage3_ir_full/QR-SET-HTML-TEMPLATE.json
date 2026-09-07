@@ -1,0 +1,34 @@
+{
+  "id": "QR-SET-HTML-TEMPLATE",
+  "displayName": "QR SET HTML TEMPLATE",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "template",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR SET HTML TEMPLATE command sets the HTML template currently used for the Quick Report area ."
+    }
+  ],
+  "constraints": [
+    "QR SET DESTINATION must first be called to set the area's output type to HTML file for the template to be used."
+  ]
+}

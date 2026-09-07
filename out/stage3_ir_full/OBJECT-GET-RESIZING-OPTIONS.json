@@ -1,0 +1,93 @@
+{
+  "id": "OBJECT-GET-RESIZING-OPTIONS",
+  "displayName": "OBJECT GET RESIZING OPTIONS",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "horizontal",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Horizontal resizing option",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Resize horizontal none: neither width nor position changes when the window widens."
+            },
+            {
+              "value": 1,
+              "meaning": "Resize horizontal grow: the object's width grows proportionally with the window."
+            },
+            {
+              "value": 2,
+              "meaning": "Resize horizontal move: the object is moved (not resized) proportionally with the window's width growth."
+            }
+          ]
+        },
+        {
+          "name": "vertical",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Vertical resizing option",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Resize vertical none: neither height nor position changes when the window heightens."
+            },
+            {
+              "value": 1,
+              "meaning": "Resize vertical grow: the object's height grows proportionally with the window."
+            },
+            {
+              "value": 2,
+              "meaning": "Resize vertical move: the object is moved (not resized) proportionally with the window's height growth."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "The OBJECT GET RESIZING OPTIONS command returns the current resizing options for the object(s) designated by the object and * parameters for the current process."
+    }
+  ]
+}

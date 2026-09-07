@@ -1,0 +1,16 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Applies a Boolean formula to every record of aTable (the whole table, not just its current selection), building a new selection from the records where the formula evaluates to True."
+    }
+  ],
+  "constraints": [
+    "Scope differs from QUERY SELECTION BY FORMULA: QUERY BY FORMULA queries every record in the table, while QUERY SELECTION BY FORMULA queries only the records in aTable's current selection; otherwise the two commands work identically.",
+    "queryFormula must evaluate to a Boolean (True/False); it can be a simple field/value comparison or an arbitrarily complex expression/method, including evaluating a related table.",
+    "Parameters ($1...$n) are not supported inside queryFormula.",
+    "If queryFormula is omitted, 4D displays the interactive query dialog box instead.",
+    "Wildcards (@) and the \"contains\" keyword operator (%) can be used in queryFormula the same way as in QUERY.",
+    "When queryFormula reduces to a simple comparison equivalent to a QUERY call (e.g. [table]field=value), 4D executes it the same optimized, index-capable way as that QUERY call; more complex formulas can still have their optimizable parts executed first and combined with the rest."
+  ]
+}

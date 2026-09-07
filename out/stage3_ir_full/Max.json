@@ -1,0 +1,46 @@
+{
+  "id": "Max",
+  "displayName": "Max",
+  "kind": "classic_command",
+  "theme": "On a Series",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "series",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "Max returns the maximum value in series ."
+    }
+  ],
+  "constraints": [
+    "attributePath is only meaningful when series is an object field; it defines a dot-notation path (e.g. \"company.address.number\") to a nested attribute whose values are aggregated across the selection. Attribute names are case-sensitive.",
+    "Non-numeric values found at the attribute path are ignored; only numeric attribute values are computed.",
+    "Returns 0 if the series selection is empty."
+  ]
+}

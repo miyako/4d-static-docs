@@ -1,0 +1,25 @@
+{
+  "id": "BRING-TO-FRONT",
+  "displayName": "BRING TO FRONT",
+  "kind": "classic_command",
+  "theme": "Process-User-Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Brings all windows belonging to the given process to the front (no-op if it is already frontmost)."
+    }
+  ],
+  "constraints": [
+    "If the process is hidden, SHOW PROCESS must be used first; otherwise BRING TO FRONT has no effect."
+  ]
+}

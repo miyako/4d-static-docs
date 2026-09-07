@@ -1,0 +1,43 @@
+{
+  "id": "LONGINT-ARRAY-FROM-SELECTION",
+  "displayName": "LONGINT ARRAY FROM SELECTION",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Table of the current selection."
+        },
+        {
+          "name": "recordArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled in with the (absolute) record numbers in selection; element 0 is always initialized to -1."
+        },
+        {
+          "name": "selection",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the named selection to use; the current selection of aTable is used if omitted."
+        }
+      ],
+      "semanticRole": "Fills an array with the absolute record numbers of a named selection, or the current selection of aTable if none is given."
+    }
+  ]
+}

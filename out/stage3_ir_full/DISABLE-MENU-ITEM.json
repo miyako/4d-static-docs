@@ -1,0 +1,61 @@
+{
+  "id": "DISABLE-MENU-ITEM",
+  "displayName": "DISABLE MENU ITEM",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu number, or a MenuRef (reference) created with Create menu."
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to the menu"
+            },
+            {
+              "value": 0,
+              "meaning": "all items of the menu at once (enable/disable in bulk)"
+            }
+          ]
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If omitted, applies to the menu bar of the current process. Ignored if menu is a MenuRef."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If menuItem designates a hierarchical submenu, all items of that submenu (and any of its own submenus) are disabled too.",
+    "Also works with a menu bar created with Create menu and installed with SET MENU BAR."
+  ]
+}

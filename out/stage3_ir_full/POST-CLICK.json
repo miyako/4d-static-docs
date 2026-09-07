@@ -1,0 +1,55 @@
+{
+  "id": "POST-CLICK",
+  "displayName": "POST CLICK",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mouseX",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "mouseY",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The POST CLICK command simulates a mouse click."
+    }
+  ],
+  "constraints": [
+    "If process is 0 or omitted, the click is posted at the application level and dispatched by the 4D scheduler to the appropriate process.",
+    "The '*' flag selects the coordinate system: if passed, mouseX/mouseY are expressed relative to the screen (global); if omitted, they are relative to the frontmost window of the destination process (local)."
+  ]
+}

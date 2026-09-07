@@ -1,0 +1,41 @@
+{
+  "constraints": [
+    "Only one infoType value (1) is currently supported."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "arrNames, arrValues, and arrCount are filled in by the command (parameter table marks them with the '\u2190' return arrow), so their direction should be 'out', not the syntax-position default of 'in'.",
+      "params": [
+        {
+          "name": "infoType",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Type of requested info (always 1)"
+        },
+        {
+          "name": "arrNames",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Information titles"
+        },
+        {
+          "name": "arrValues",
+          "type": { "kind": "concrete", "name": "Real array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Information values"
+        },
+        {
+          "name": "arrCount",
+          "type": { "kind": "concrete", "name": "Real array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Number of objects concerned (if available)"
+        }
+      ]
+    }
+  ]
+}

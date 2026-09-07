@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "document must not be an empty string -- an empty string does not open a file-picker dialog, it generates an error.",
+    "If the document is open when deleted: Windows generates an error; macOS deletes it without error.",
+    "Deletion is permanent and cannot be undone; DELETE DOCUMENT can delete any file on disk, including files belonging to other applications."
+  ]
+}

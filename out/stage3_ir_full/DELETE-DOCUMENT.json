@@ -1,0 +1,27 @@
+{
+  "id": "DELETE-DOCUMENT",
+  "displayName": "DELETE DOCUMENT",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DELETE DOCUMENT command deletes the document whose name you pass in document ."
+    }
+  ],
+  "constraints": [
+    "document must not be an empty string -- an empty string does not open a file-picker dialog, it generates an error.",
+    "If the document is open when deleted: Windows generates an error; macOS deletes it without error.",
+    "Deletion is permanent and cannot be undone; DELETE DOCUMENT can delete any file on disk, including files belonging to other applications."
+  ]
+}

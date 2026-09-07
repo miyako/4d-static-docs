@@ -1,0 +1,9 @@
+{
+  "theme": "Date-and-Time",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the day-of-month number (1-31) of date."
+    }
+  ]
+}

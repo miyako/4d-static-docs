@@ -1,0 +1,50 @@
+{
+  "id": "DOM-Get-previous-sibling-XML-element",
+  "displayName": "DOM Get previous sibling XML element",
+  "kind": "classic_command",
+  "theme": "XML-DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "siblingElemName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the name of the previous sibling element"
+        },
+        {
+          "name": "siblingElemValue",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the value of the previous sibling element"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns a reference to the previous sibling of elementRef among its parent's children, for use navigating the children of an XML element; sets OK to 0 before the first sibling."
+    }
+  ],
+  "constraints": [
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

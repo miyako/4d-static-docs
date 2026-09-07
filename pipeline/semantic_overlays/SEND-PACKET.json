@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "If docRef is omitted, the packet is written to the serial port or document previously opened by SET CHANNEL; a serial port or document must have been opened via SET CHANNEL (or a document opened via one of the document commands) before calling this command.",
+    "Passing a BLOB in packet bypasses character-encoding conversion for text mode and ignores any character set defined by USE CHARACTER SET -- the BLOB is sent unmodified.",
+    "When writing to a document, the first call begins writing at the start of the document (unless it was opened with USE CHARACTER SET); each subsequent call appends to previously sent packets until the document is closed."
+  ]
+}

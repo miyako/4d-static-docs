@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Cannot be executed on a remote 4D application.",
+    "Behaves like a call to DIALOG with the * parameter: the Maintenance and Security Center window is displayed and the command immediately returns control to the calling code.",
+    "If the current process finishes, the window is automatically closed by simulating a Cancel."
+  ]
+}

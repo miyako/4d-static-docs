@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "The optional * parameter is only meaningful in a components architecture: when called from a component method, passing * returns the running mode of the HOST database instead of the component; omitting it returns the component's own running mode.",
+    "When called from a method of the host database itself, always returns the host database's running mode regardless of *."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Tests whether the calling database/component context (or, if * is passed from a component, the host database) is running in compiled (True) or interpreted (False) mode."
+    }
+  ]
+}

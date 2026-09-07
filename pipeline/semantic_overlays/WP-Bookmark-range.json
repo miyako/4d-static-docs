@@ -1,0 +1,6 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "If bkName does not exist in wpDoc, an empty rangeObj object is returned rather than an error."
+  ]
+}

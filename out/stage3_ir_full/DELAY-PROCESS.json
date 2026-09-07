@@ -1,0 +1,41 @@
+{
+  "id": "DELAY-PROCESS",
+  "displayName": "DELAY PROCESS",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "duration",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Delay expressed in ticks (1 tick = 1/60th second); replaces (does not add to) any remaining delay if the process is already delayed.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "cancel any remaining delay on the process"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If the process does not exist, the command does nothing.",
+    "Cannot be used to delay a stored procedure on the server machine from a client machine (process < 0)."
+  ]
+}

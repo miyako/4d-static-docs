@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Must be called once before appending new data with APPEND DATA TO PASTEBOARD, since that command does not clear the pasteboard itself.",
+    "SET TEXT TO PASTEBOARD and SET PICTURE TO PASTEBOARD already clear the pasteboard automatically before appending, so this command is not needed before them."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Empties the pasteboard of all its contents (including every format of any duplicated data)."
+    }
+  ]
+}

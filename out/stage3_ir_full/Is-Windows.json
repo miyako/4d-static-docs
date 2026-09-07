@@ -1,0 +1,12 @@
+{
+  "id": "Is-Windows",
+  "displayName": "Is Windows",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Is Windows command returns True if the current operating system is Windows."
+    }
+  ]
+}

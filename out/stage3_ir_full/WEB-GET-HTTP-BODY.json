@@ -1,0 +1,29 @@
+{
+  "id": "WEB-GET-HTTP-BODY",
+  "displayName": "WEB GET HTTP BODY",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "body",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Body of the HTTP request, returned as-is with no processing/parsing (Text is generally sufficient; up to 2GB)."
+        }
+      ],
+      "semanticRole": "The WEB GET HTTP BODY command returns the body of the HTTP request being processed."
+    }
+  ]
+}

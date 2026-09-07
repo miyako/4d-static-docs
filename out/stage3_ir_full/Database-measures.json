@@ -1,0 +1,26 @@
+{
+  "id": "Database-measures",
+  "displayName": "Database measures",
+  "kind": "classic_command",
+  "theme": "4D-Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns an object with detailed 4D database engine measures (disk/cache read-write access, index/query/sort usage), optionally scoped or filtered by the options object."
+    }
+  ]
+}

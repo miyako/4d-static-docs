@@ -1,0 +1,140 @@
+{
+  "id": "LONGINT-TO-BLOB",
+  "displayName": "LONGINT TO BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "longint",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Long Integer value to write into blob."
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB to receive the value; modified in place, and its size is extended if needed (new bytes are zero-initialized)."
+        },
+        {
+          "name": "byteOrder",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Byte ordering of the written value.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Native byte ordering (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "Macintosh byte ordering."
+            },
+            {
+              "value": 2,
+              "meaning": "PC byte ordering."
+            }
+          ]
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "Byte offset (from zero) within blob at which to write; if omitted, the value is written at the start of blob, overwriting its previous contents. After the call, updated to the offset advanced past the bytes just written, so it can be reused for a subsequent BLOB-writing command."
+        }
+      ],
+      "semanticRole": "Writes a 4-byte Long Integer value into blob at a given byte offset (or at the start if offset is omitted), returning the offset advanced past the written bytes; blob is modified in place.",
+      "discriminatedBy": {
+        "param": "offset",
+        "rule": "Chosen when the caller wants explicit control of (or feedback on) the write position via an offset variable, rather than appending."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "longint",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Long Integer value to append to blob."
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB to receive the value; modified in place, its size extended by the appended bytes."
+        },
+        {
+          "name": "byteOrder",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Byte ordering of the written value.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Native byte ordering (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "Macintosh byte ordering."
+            },
+            {
+              "value": 2,
+              "meaning": "PC byte ordering."
+            }
+          ]
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Appends the value to the BLOB instead of writing at the start or at an explicit offset."
+        }
+      ],
+      "semanticRole": "Appends a 4-byte Long Integer value to the end of blob, extending its size accordingly; blob is modified in place.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller wants to sequentially append values to the BLOB rather than write at/track an explicit offset."
+      }
+    }
+  ],
+  "constraints": [
+    "If exchanging BLOBs between Macintosh and PC platforms, the caller is responsible for byte-swapping issues.",
+    "Since this command alters the blob passed as a parameter, it does not support blob objects (4D.Blob type)."
+  ]
+}

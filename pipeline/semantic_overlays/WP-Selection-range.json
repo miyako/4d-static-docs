@@ -1,0 +1,34 @@
+{
+  "theme": "WritePro",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "params": [
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, wpArea is a form object name (Text); if omitted, wpArea is a 4D Write Pro object variable or field."
+        },
+        {
+          "name": "wpArea",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Field" }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Object" },
+      "semanticRole": "Returns a new range object (or a picture reference object, if an anchored image is selected) based upon the currently selected content in wpArea.",
+      "note": "Two fixes: (1) star_operator_dual_signature merge of both doc syntax lines into one overload, same convention as WA EXECUTE JAVASCRIPT FUNCTION / SET LIST ITEM PROPERTIES; (2) the first doc syntax line was wrapped in stray '<' '>' characters in the source ('<WP Selection range ( * ; wpArea : Text ) : Object>'), which made autoparse mis-derive the return type as the literal string 'Object>' -- restored to the correct concrete 'Object' return type here."
+    }
+  ],
+  "constraints": [
+    "If no 4D Write Pro area is resolved from wpArea, an empty object is returned.",
+    "The command can only be used if wpArea is associated with a form object currently displayed in the current form/page."
+  ]
+}

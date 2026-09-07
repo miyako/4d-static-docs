@@ -1,0 +1,71 @@
+{
+  "id": "LISTBOX-SET-ROWS-HEIGHT",
+  "displayName": "LISTBOX SET ROWS HEIGHT",
+  "kind": "classic_command",
+  "theme": "List-Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box."
+        },
+        {
+          "name": "height",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New row height for all rows, in the unit given by unit."
+        },
+        {
+          "name": "unit",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Unit of the height value.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Height expressed as a number of pixels (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "Height expressed as a number of lines; 4D calculates line height from the font."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets the (uniform) row height for the designated list box."
+    }
+  ]
+}

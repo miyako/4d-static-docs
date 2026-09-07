@@ -1,0 +1,30 @@
+{
+  "id": "WP-Table-range",
+  "displayName": "WP Table range",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Table range command returns a range object that addresses only the tables that intersect with the targetObj you passed as parameter."
+    }
+  ],
+  "constraints": [
+    "Always returns a range of the wk type table, even if targetObj does not itself contain a table.",
+    "targetObj may be a range, an element (body/header/footer/paragraph/section/subsection), or a 4D Write Pro document."
+  ]
+}

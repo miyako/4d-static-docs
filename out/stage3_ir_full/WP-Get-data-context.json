@@ -1,0 +1,26 @@
+{
+  "id": "WP-Get-data-context",
+  "displayName": "WP Get data context",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Get data context command returns the data context of the wpDoc document."
+    }
+  ]
+}

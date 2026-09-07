@@ -1,0 +1,41 @@
+{
+  "id": "Create-document",
+  "displayName": "Create document",
+  "kind": "classic_command",
+  "theme": "System-Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fileType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Time"
+      },
+      "semanticRole": "Creates (or overwrites) and opens a new document on disk -- or, if document is an empty string, prompts the user via a Save As dialog -- and returns its document reference number."
+    }
+  ],
+  "constraints": [
+    "If document already exists on disk, it is silently overwritten; if it is locked or already open, an error is generated instead.",
+    "Passing an empty string for document displays the standard Save As dialog; if the user cancels, a null DocRef is returned and OK is set to 0.",
+    "fileType may list several types separated by ';'; pass \"*\" or \".*\" to not filter/screen file types in the save dialog.",
+    "The system variable Document is updated with the created document's full pathname, and OK is set to 1 on success / 0 on failure or cancellation."
+  ]
+}

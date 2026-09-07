@@ -1,0 +1,42 @@
+{
+  "id": "Get-4D-file",
+  "displayName": "Get 4D file",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "file",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get 4D file command returns the pathname to the 4D environment file specified by the file parameter."
+    }
+  ],
+  "constraints": [
+    "If the target file does not exist, an empty path is returned; no error is raised.",
+    "When called from a component, pass * to get the host database's file path instead of the component's; for User settings file and User settings file for data, omitting * from a component context always returns an empty string.",
+    "For User settings file / User settings file for data, a path is only returned if 'Enable User Settings in External File' is checked in the Database Settings dialog box."
+  ]
+}

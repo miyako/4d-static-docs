@@ -1,0 +1,31 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line types the repeat group's element as the pseudo-type 'any', but the parameter table specifies the real accepted types as 'Field, Variable' (numeric fields or variables to accumulate) -- replacing the mechanical any-type guess with the documented concrete types.",
+      "params": [
+        {
+          "name": "data",
+          "members": [
+            {
+              "name": "data",
+              "type": [
+                { "kind": "concrete", "name": "Field" },
+                { "kind": "concrete", "name": "Variable" }
+              ],
+              "direction": "in",
+              "optional": false,
+              "description": "Numeric field or variable on which to accumulate"
+            }
+          ],
+          "cardinality": { "min": 0, "max": null },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Registers one or more numeric fields/variables to be subtotaled by break level during the next PRINT SELECTION report; must be called (together with BREAK LEVEL) before that report."
+    }
+  ],
+  "constraints": [
+    "Must be executed, together with BREAK LEVEL, before every PRINT SELECTION report for which break/subtotal processing is wanted."
+  ]
+}

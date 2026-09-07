@@ -1,0 +1,13 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Pointer" }
+    }
+  ],
+  "constraints": [
+    "Returns a nil (non-significant) pointer if there is no form being displayed/printed in the current process, or if the current form is a project form (project forms are not attached to a table).",
+    "If several windows are open for the current process, the command applies to the form displayed in the active (last-opened) window.",
+    "If the current form is the Detail form of a double-clicked subform area, the command returns the pointer to the table shown in the subform area, or a non-significant pointer if the subform area displays a subtable instead of a table."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "COPY-DOCUMENT",
+  "displayName": "COPY DOCUMENT",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "sourceName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "newName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Copies a file or folder from sourceName to destinationName, optionally renaming a copied file, optionally overwriting an existing destination document when '*' is passed."
+    }
+  ],
+  "constraints": [
+    "Without the trailing '*' parameter, an error is generated if a document already exists at destinationName; with '*', the existing document is silently deleted and overwritten.",
+    "To designate a folder rather than a file, both sourceName and destinationName must end with the platform folder separator; all intermediate folders in destinationName must already exist (they are not created).",
+    "newName only applies when copying a single file, to rename it at the destination; it is not used when copying a folder."
+  ]
+}

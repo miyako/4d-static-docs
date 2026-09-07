@@ -1,0 +1,63 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "helpTip",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Contents of help message"
+        }
+      ],
+      "semanticRole": "Sets or dynamically modifies, for the current process, the help tip shown when the cursor hovers over the object(s) designated by object and *."
+    }
+  ],
+  "constraints": [
+    "Passing an empty string \"\" removes the current help tip.",
+    "If a help tip is already displayed when this command is called, it is closed and a new tip is opened at the mouse location, restarting the Tips duration counter.",
+    "Can be used with a list box object to give a different help tip per row/cell (e.g. combined with LISTBOX GET CELL POSITION to determine the cursor's row).",
+    "Tips delay/duration are controlled globally via SET DATABASE PARAMETER, which can also disable help tips entirely."
+  ]
+}

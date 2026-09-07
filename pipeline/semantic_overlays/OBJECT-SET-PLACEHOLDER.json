@@ -1,0 +1,62 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "placeholderText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Placeholder text associated with object"
+        }
+      ],
+      "semanticRole": "Associates (or, for the current process, replaces) the placeholder text shown when the object(s) designated by object and * are empty."
+    }
+  ],
+  "constraints": [
+    "Replaces, for the current process, any placeholder text already set via the Property List.",
+    "Only applies to variable, field, or combo-box form objects; supports Alpha/Text data, and Date/Time data only if the object has the 'Blank if null' property.",
+    "Does not support inserting xliff references (unlike placeholder text set via the Property List)."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "FORM-SET-ENTRY-ORDER",
+  "displayName": "FORM SET ENTRY ORDER",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pageNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets, for the current process, the tab/entry order of the current (or specified) form page to the order of valid focusable objects listed in objectNames."
+    }
+  ],
+  "constraints": [
+    "Only objects with the focusable property are considered valid entry-order candidates (the Tabbable object property is ignored by this command); invalid objects in objectNames are simply skipped at runtime.",
+    "A form page includes page 0 objects and inherited form objects.",
+    "This command does not set the first focused object at runtime; use GOTO OBJECT in the form's On Load event for that.",
+    "For a subform, the entry order must be set by calling this command from within the subform's own context, not from the parent form."
+  ]
+}

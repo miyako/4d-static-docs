@@ -1,0 +1,74 @@
+{
+  "theme": "Web-Area",
+  "constraints": [
+    "selector must be one of the WA... preference constants defined in the Web Area theme; value is always returned as a Boolean (True = active, False = not active).",
+    "The 'WA enable URL drop' selector always reads back False when the Fluent UI rendering theme is used on Windows (drag & drop unsupported there)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines are the same call with a leading '*' literal-symbol discriminator selecting whether object is an object name (Text) or a direct Variable/Field reference, not two distinct overloads. value is filled by the command (marked with the '\u2190' return arrow in the parameter table and confirmed 'always a Boolean' in the description), so its direction is 'out' and its type is the concrete Boolean, not the generic autoparsed 'Variable'.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
+        },
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Preference to get (a WA... constant from the Web Area theme)."
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Current value of the preference."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
+    }
+  ]
+}

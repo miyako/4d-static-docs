@@ -1,0 +1,64 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "Draft parser produced two separate overloads (one per doc syntax line): one requiring a leading '*' with object hard-typed as Text, the other with object hard-typed as Variable/Field and no '*'. Docs describe this as a single command whose object parameter is a Text/Variable/Field union selected by the optional leading '*' flag (same mechanism as OBJECT Get help tip and the ~167-command star_operator_dual_signature family), so merged into one overload with that union type and a discriminatedBy rule on '*'.",
+      "params": [
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (Text)."
+        },
+        {
+          "name": "object",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Field" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' is specified) or a Variable/Field reference (if '*' is omitted)."
+        },
+        {
+          "name": "posX",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Horizontal location of object."
+        },
+        {
+          "name": "posY",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Vertical location of object."
+        },
+        {
+          "name": "width",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Width of object in pixels."
+        },
+        {
+          "name": "height",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Height of object in pixels."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      },
+      "returns": { "kind": "concrete", "name": "Boolean" }
+    }
+  ],
+  "constraints": [
+    "Returns True if the object was printed entirely, False otherwise (e.g. not enough room left on the page)."
+  ]
+}

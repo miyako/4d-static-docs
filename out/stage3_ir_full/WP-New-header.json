@@ -1,0 +1,29 @@
+{
+  "id": "WP-New-header",
+  "displayName": "WP New header",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpSection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP New header command creates and returns the header associated to the section or subsection defined by the wpSection parameter."
+    }
+  ],
+  "constraints": [
+    "If a header element is already defined for the section or subsection, an undefined object is returned and an error is generated."
+  ]
+}

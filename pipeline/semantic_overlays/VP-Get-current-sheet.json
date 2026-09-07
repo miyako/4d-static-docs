@@ -1,0 +1,12 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Sheet indexing starts at 0."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the 0-based index of the currently selected (frontmost) sheet in vpAreaName."
+    }
+  ]
+}

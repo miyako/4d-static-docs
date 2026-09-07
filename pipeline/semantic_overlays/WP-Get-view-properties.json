@@ -1,0 +1,33 @@
+{
+  "theme": "WritePro",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "params": [
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, wpArea is a form object name (Text); if omitted, wpArea is a 4D Write Pro object variable or field."
+        },
+        {
+          "name": "wpArea",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Field" }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Object" },
+      "semanticRole": "Returns the current view properties for the 4D Write Pro area designated by wpArea.",
+      "note": "star_operator_dual_signature (category C): both doc syntax lines are one overload where the leading '*' only toggles whether wpArea is a form-object name string or a variable/field reference; merged per the same convention as WA EXECUTE JAVASCRIPT FUNCTION / SET LIST ITEM PROPERTIES in the schema examples."
+    }
+  ],
+  "constraints": [
+    "The command requires wpArea to be associated with a form object currently displayed in the form; if the document is displayed in several form objects, the '*' syntax is required to disambiguate which view to address."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "constraints": [
+    "Affects all subsequent queries in the current process until counterbalanced by a call to SET QUERY LIMIT(0); only the query commands are affected (QUERY, QUERY SELECTION, QUERY BY EXAMPLE, QUERY BY FORMULA, QUERY BY SQL, QUERY SELECTION BY FORMULA, QUERY SELECTION WITH ARRAY, QUERY WITH ARRAY, QUERY BY ATTRIBUTE, QUERY SELECTION BY ATTRIBUTE), not other selection-changing commands like ALL RECORDS or RELATE MANY."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "limit",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of records, or 0 for no limit",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Restore queries with no limit (default state)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

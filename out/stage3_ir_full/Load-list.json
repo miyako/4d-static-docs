@@ -1,0 +1,26 @@
+{
+  "id": "Load-list",
+  "displayName": "Load list",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "listName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Load list creates a new hierarchical list whose contents are copied from the list and whose name you pass in listName ."
+    }
+  ]
+}

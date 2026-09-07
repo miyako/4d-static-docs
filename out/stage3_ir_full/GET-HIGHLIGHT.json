@@ -1,0 +1,69 @@
+{
+  "id": "GET-HIGHLIGHT",
+  "displayName": "GET HIGHLIGHT",
+  "kind": "classic_command",
+  "theme": "Entry Control",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a field or variable reference"
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "pseudo",
+              "name": "any"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * passed) or field/variable reference (if * omitted)"
+        },
+        {
+          "name": "startSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Position of the first highlighted character"
+        },
+        {
+          "name": "endSel",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Position of the last highlighted character"
+        }
+      ],
+      "semanticRole": "Returns, in startSel and endSel, the currently highlighted text range within object."
+    }
+  ],
+  "constraints": [
+    "Cannot be used with fields in the List form of a subform.",
+    "Text can be highlighted either by the user or by the HIGHLIGHT TEXT command."
+  ]
+}

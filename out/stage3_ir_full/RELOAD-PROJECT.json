@@ -1,0 +1,17 @@
+{
+  "id": "RELOAD-PROJECT",
+  "displayName": "RELOAD PROJECT",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The RELOAD PROJECT command reloads the source file definitions (methods, forms, etc.) from the disk for the running project in the current 4D environment."
+    }
+  ],
+  "constraints": [
+    "Only usable with 4D projects running in interpreted mode.",
+    "Execution is asynchronous.",
+    "4D normally reloads a project automatically when it detects a source file was added/modified/deleted (e.g. edited from the 4D Developer IDE, or when the app window returns to the foreground); this command is only necessary when that automatic detection doesn't apply."
+  ]
+}

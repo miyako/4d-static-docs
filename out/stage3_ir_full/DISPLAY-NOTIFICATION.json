@@ -1,0 +1,46 @@
+{
+  "id": "DISPLAY-NOTIFICATION",
+  "displayName": "DISPLAY NOTIFICATION",
+  "kind": "classic_command",
+  "theme": "Messages",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "title",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "text",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "duration",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The DISPLAY NOTIFICATION command displays a notification message to the user."
+    }
+  ],
+  "constraints": [
+    "title and text are each limited to 255 characters.",
+    "Under macOS (10.8+), the notification is only shown while the application is not in the foreground, though it still appears in Notification Center regardless.",
+    "Under Windows, the notification remains displayed until machine activity is detected or the user clicks its close box; duration overrides this default display behavior.",
+    "Actual display of notifications also depends on the OS/system notification configuration."
+  ]
+}

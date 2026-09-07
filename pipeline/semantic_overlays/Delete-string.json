@@ -1,0 +1,13 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Removes numChars characters from source starting at position where, and returns the resulting string."
+    }
+  ],
+  "constraints": [
+    "If where is less than 1, deletion starts from the beginning of source.",
+    "If where + numChars is >= the length of source, characters are deleted through the end of source.",
+    "Returns source unchanged if source is empty, where exceeds the length of source, or numChars is 0."
+  ]
+}

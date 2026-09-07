@@ -1,0 +1,44 @@
+{
+  "id": "VP-SET-FIELD",
+  "displayName": "VP SET FIELD",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "field",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formatPattern",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP SET FIELD command assigns a 4D database virtual field to a designated cell range."
+    }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple cells, field is linked in each cell.",
+    "If any of the cells in rangeObj already have content, it is replaced by field."
+  ]
+}

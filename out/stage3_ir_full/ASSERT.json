@@ -1,0 +1,35 @@
+{
+  "id": "ASSERT",
+  "displayName": "ASSERT",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "boolExpression",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "messageText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Evaluates boolExpression and, if it is false, halts code execution and raises error -10518 showing messageText (or the assertion text itself if messageText is omitted); does nothing if boolExpression is true."
+    }
+  ],
+  "constraints": [
+    "Assertions can be globally enabled/disabled application-wide via SET ASSERT ENABLED; when disabled, ASSERT is a no-op regardless of boolExpression.",
+    "On failure (boolExpression false) triggers error -10518 with the assertion text (or messageText if supplied) prefixed by \"Assert failed:\"; interceptable via an ON ERR CALL method."
+  ]
+}

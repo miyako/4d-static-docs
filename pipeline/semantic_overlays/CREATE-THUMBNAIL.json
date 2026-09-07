@@ -1,0 +1,65 @@
+{
+  "constraints": [
+    "depth is obsolete and must be omitted: the command always uses the current screen color depth regardless of any value passed.",
+    "Only the three listed 'Picture Display Formats' constants (2, 5, 6) are valid for mode; other constants from that theme do not apply to this command."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "dest receives the generated thumbnail (documented as the field/variable that 'should host the resulting thumbnail'); corrected direction from 'in' to 'out'. Added documented defaults for width/height/mode and sentinelValues for the mode constants.",
+      "params": [
+        {
+          "name": "source",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "in",
+          "optional": false,
+          "description": "4D picture field or variable to convert as a thumbnail"
+        },
+        {
+          "name": "dest",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "out",
+          "optional": false,
+          "description": "Resulting thumbnail"
+        },
+        {
+          "name": "width",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "default": 48,
+          "description": "Thumbnail width in pixels"
+        },
+        {
+          "name": "height",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "default": 48,
+          "description": "Thumbnail height in pixels"
+        },
+        {
+          "name": "mode",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "default": 6,
+          "sentinelValues": [
+            { "value": 2, "meaning": "Scaled to fit" },
+            { "value": 5, "meaning": "Scaled to fit proportional" },
+            { "value": 6, "meaning": "Scaled to fit prop centered (default)" }
+          ],
+          "description": "Thumbnail creation/resizing mode"
+        },
+        {
+          "name": "depth",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Obsolete, ignored; do not use - the command always uses the current screen depth"
+        }
+      ],
+      "semanticRole": "Generates a resized thumbnail preview of a source picture into a destination picture field/variable, using a default or explicit size and scaling mode."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Clears the contents of the specified (or frontmost) window and moves the cursor to its upper-left corner, without removing the window itself from the screen."
+    }
+  ],
+  "constraints": [
+    "Distinct from CLOSE WINDOW, which removes the window from the screen; ERASE WINDOW only clears its content."
+  ]
+}

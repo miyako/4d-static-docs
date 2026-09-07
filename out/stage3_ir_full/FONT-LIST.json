@@ -1,0 +1,79 @@
+{
+  "id": "FONT-LIST",
+  "displayName": "FONT LIST",
+  "kind": "classic_command",
+  "theme": "System-Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fonts",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the names of scalable font families matching listType"
+        },
+        {
+          "name": "listType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "default": "System fonts (0) if omitted",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "System fonts -- all system fonts (default when omitted)"
+            },
+            {
+              "value": 1,
+              "meaning": "Favorite fonts -- may be empty if the user has not added any"
+            },
+            {
+              "value": 2,
+              "meaning": "Recent fonts -- fonts used during the current 4D session"
+            }
+          ],
+          "description": "Type of font list to return, from the 'Font Type List' theme constants"
+        }
+      ],
+      "semanticRole": "Populates fonts with font family names filtered by the requested listType category (system, favorite, or recent)."
+    },
+    {
+      "params": [
+        {
+          "name": "fonts",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the names of all system fonts (font families under Windows, or individual font names under macOS if * is passed)"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "macOS only: return individual scalable font names (e.g. \"Arial bold\") instead of font family names; has no effect under Windows, which still returns font families."
+        }
+      ],
+      "semanticRole": "Populates fonts with the complete list of system fonts, and on macOS lets the caller request individual font names instead of font family names via the * flag."
+    }
+  ],
+  "constraints": [
+    "Only scalable fonts are returned; non-scalable/bitmap fonts are never listed.",
+    "Under macOS, if the result of this command is used with ST SET ATTRIBUTES on a multi-style text area, the * parameter must not have been passed (only font family names are supported there); 4D Write Pro areas accept either font or font family names."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "SET-TABLE-CACHE-PRIORITY",
+  "displayName": "SET TABLE CACHE PRIORITY",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "priority",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET TABLE CACHE PRIORITY command sets a specific priority to the data related to aTable in cache for all processes in the current session."
+    }
+  ],
+  "constraints": [
+    "Should be called from the On Startup or On Server Startup database method; the priority is set in cache for all processes in the current session.",
+    "Only works in local mode (4D Server and single-user 4D); it cannot be used in 4D remote mode.",
+    "Applies to scalar-typed fields only (date, number, string); priority for binary-type fields (BLOBs, texts, pictures, objects) is handled by SET BLOBS CACHE PRIORITY instead."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Must be called before a series of Print form commands or the OPEN PRINTING JOB command.",
+    "If dialType is omitted, the Print dialog box (2) is displayed by default.",
+    "Call SET PRINT PREVIEW before this command to preset/reset the Print dialog box's 'Preview on Screen' checkbox."
+  ]
+}

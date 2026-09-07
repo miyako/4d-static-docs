@@ -1,0 +1,16 @@
+{
+  "id": "True",
+  "displayName": "True",
+  "kind": "classic_command",
+  "theme": "Boolean",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "True returns the Boolean value True.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ]
+}

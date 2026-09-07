@@ -1,0 +1,25 @@
+{
+  "id": "SOAP-REJECT-NEW-REQUESTS",
+  "displayName": "SOAP REJECT NEW REQUESTS",
+  "kind": "classic_command",
+  "theme": "Web Services (Server)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rejectStatus",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SOAP REJECT NEW REQUESTS command specifies whether or not the Web Services server accepts new SOAP requests."
+    }
+  ],
+  "constraints": [
+    "This command only has an effect when executed on 4D Server; if the calling method runs locally on a remote client or in 4D single-user, the command does nothing."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "theme": "Data-Security",
+  "constraints": [
+    "Uses the same algorithm 4D uses to encrypt data (AES-256).",
+    "The resulting encryptedBLOB length is always a multiple of 16 bytes; if blobToEncrypt is not itself a multiple of 16 bytes, null bytes are appended automatically, so callers working with non-text files must track the original size themselves to correctly decrypt with Decrypt data BLOB.",
+    "Returns False and an empty encryptedBLOB on error."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Fixed 'encryptedBLOB' direction to 'out' (draft defaulted to 'in'); the parameter table marks it with col2 '\u2190' as the BLOB variable receiving the encrypted result.",
+      "params": [
+        {
+          "name": "blobToEncrypt",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB to encrypt"
+        },
+        {
+          "name": "keyObject",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": false,
+          "description": "JSON object containing the encryption key, with the same structure as the object returned by New data key"
+        },
+        {
+          "name": "salt",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Additional salt to make the encryption more robust"
+        },
+        {
+          "name": "encryptedBLOB",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the encrypted data"
+        }
+      ],
+      "semanticRole": "Encrypts a BLOB using an explicit encryption-key object (e.g. from New data key)."
+    },
+    {
+      "sourceIndices": [1],
+      "note": "Fixed 'encryptedBLOB' direction to 'out' (draft defaulted to 'in'); same as overload 1.",
+      "params": [
+        {
+          "name": "blobToEncrypt",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB to encrypt"
+        },
+        {
+          "name": "passPhrase",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Passphrase used to generate the encryption key directly"
+        },
+        {
+          "name": "salt",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Additional salt to make the encryption more robust"
+        },
+        {
+          "name": "encryptedBLOB",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the encrypted data"
+        }
+      ],
+      "semanticRole": "Encrypts a BLOB using an encryption key derived directly from a passphrase string."
+    }
+  ]
+}

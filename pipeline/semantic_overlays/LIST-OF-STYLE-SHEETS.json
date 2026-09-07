@@ -1,0 +1,23 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "arrStyleSheets is documented and arrow-marked ('\u2190') as the array filled by the command with style sheet names, not an input, even though the draft parser defaulted it to direction:in based on syntax position alone.",
+      "params": [
+        {
+          "name": "arrStyleSheets",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Fills arrStyleSheets with the names of all application style sheets defined in the current database."
+    }
+  ]
+}

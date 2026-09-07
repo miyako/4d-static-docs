@@ -1,0 +1,7 @@
+{
+  "theme": "Objects-Language",
+  "constraints": [
+    "property is case-sensitive.",
+    "If property already exists in object its value is updated (overwritten with null); otherwise it is created."
+  ]
+}

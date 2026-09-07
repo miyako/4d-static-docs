@@ -1,0 +1,29 @@
+{
+  "id": "OB-Keys",
+  "displayName": "OB Keys",
+  "kind": "classic_command",
+  "theme": "Objects-Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The OB Keys command returns a collection of strings containing all of the enumerable property names of the object ."
+    }
+  ],
+  "constraints": [
+    "Only first-level property names are returned (sub-object property names are not included); the returned collection is ordered by property definition order, not alphabetically."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "SQL-LOAD-RECORD",
+  "displayName": "SQL LOAD RECORD",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "numRecords",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "SQL All Records constant: retrieve all records of the table."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If numRecords is omitted, the command retrieves only the current record from the data source (for use in a loop that receives one record at a time)."
+  ]
+}

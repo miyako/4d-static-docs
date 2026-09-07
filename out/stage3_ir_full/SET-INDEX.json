@@ -1,0 +1,79 @@
+{
+  "id": "SET-INDEX",
+  "displayName": "SET INDEX",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "index",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": true,
+              "meaning": "create an index of the default type for the field"
+            },
+            {
+              "value": false,
+              "meaning": "delete all standard indexes associated with the field"
+            },
+            {
+              "value": -1,
+              "meaning": "create a Keywords index (Text/Alpha fields only)"
+            },
+            {
+              "value": 0,
+              "meaning": "create an index using the 4D-chosen default index type"
+            },
+            {
+              "value": 1,
+              "meaning": "create a Standard B-Tree index"
+            },
+            {
+              "value": 3,
+              "meaning": "create a Cluster B-Tree index"
+            }
+          ]
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, the indexing operation is performed asynchronously."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "index's declared type (Boolean vs Integer) selects the operation: Boolean creates/deletes the field's default-type index; Integer creates an index of the specified type.",
+    "Passing False for index deletes all standard (non-composite, non-keyword) indexes associated with the field.",
+    "If the index already exists (True case) or does not exist (False case), the call has no effect."
+  ]
+}

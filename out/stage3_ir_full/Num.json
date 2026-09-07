@@ -1,0 +1,90 @@
+{
+  "id": "Num",
+  "displayName": "Num",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "expression",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "separator",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Return the numeric form of expression, using separator (if passed) as the decimal separator when expression is a Text; Boolean/Integer expressions convert directly (True/False to 1/0, or pass through).",
+      "discriminatedBy": {
+        "param": "separator",
+        "rule": "Chosen when the optional trailing parameter is a Text decimal separator (or omitted entirely); mutually exclusive with the base syntax."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "expression",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "base",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Return the numeric form of a Text expression parsed in the given base/radix (2-36), e.g. for hexadecimal or binary string conversion.",
+      "discriminatedBy": {
+        "param": "base",
+        "rule": "Chosen when the second parameter is a required Integer radix between 2 and 36; mutually exclusive with the separator syntax."
+      }
+    }
+  ]
+}

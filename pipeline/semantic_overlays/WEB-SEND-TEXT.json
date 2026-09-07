@@ -1,0 +1,7 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "If type is omitted, 4D sends htmlText as MIME type \"text/html\" (equivalent to WEB SEND BLOB with a TEXT TO BLOB conversion and \"text/html\" type).",
+    "4D does not validate htmlText's HTML encoding; references to 4D variables and 4DSCRIPT tags in the text are always parsed."
+  ]
+}

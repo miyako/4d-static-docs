@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    "The default table for the process is used when aTable is omitted.",
+    "The current selection is copied into set and the current record pointer is saved with it; USE SET restores both the selection and current record later.",
+    "Sets have no sort order of their own; when a set is used, the default (creation) record order applies.",
+    "If a set with the same name already exists, it is cleared/replaced by the new set."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates a set from a table's current selection, saving both the selection and current record so USE SET can restore them later."
+    }
+  ]
+}

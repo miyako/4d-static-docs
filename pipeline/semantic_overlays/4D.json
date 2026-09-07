@@ -1,0 +1,9 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Object" },
+      "semanticRole": "Returns the 4D.ClassStore object for 4D's built-in classes. Per the Classes concept page, two class stores exist: `cs` for user/component classes, `4D` for built-in classes."
+    }
+  ]
+}

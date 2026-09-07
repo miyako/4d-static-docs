@@ -1,0 +1,30 @@
+{
+  "id": "Is-table-number-valid",
+  "displayName": "Is table number valid",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is table number valid command returns True if the table whose number is passed in the tableNum parameter exists in the database and False otherwise."
+    }
+  ],
+  "constraints": [
+    "Returns False if the table is in the Trash of the Explorer, even though its number may still exist.",
+    "Useful for detecting table deletions, which leave gaps in the sequence of table numbers."
+  ]
+}

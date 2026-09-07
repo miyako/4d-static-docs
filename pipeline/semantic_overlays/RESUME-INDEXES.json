@@ -1,0 +1,8 @@
+{
+  "theme": "Structure-Access",
+  "constraints": [
+    "Can only be called from 4D Server or a local 4D application; if executed from a remote 4D machine, error -10513 is generated (interceptable via ON ERR CALL).",
+    "If the indexes of aTable were not previously paused (via PAUSE INDEXES), this command does nothing.",
+    "Without the * parameter, index rebuilding blocks execution of the calling method until complete; with * passed, rebuilding runs asynchronously and the method continues immediately."
+  ]
+}

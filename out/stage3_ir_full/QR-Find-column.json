@@ -1,0 +1,44 @@
+{
+  "id": "QR-Find-column",
+  "displayName": "QR Find column",
+  "kind": "classic_command",
+  "theme": "Quick-Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "expression",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Pointer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The QR Find column command returns the number of the first column whose contents match the expression passed in parameter."
+    }
+  ],
+  "constraints": [
+    "Returns \u20131 if no column matches expression."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "Last-errors",
+  "displayName": "Last errors",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Returns the current stack of error objects (including any thrown via 'throw') for the 4D application, or null if no error occurred."
+    }
+  ],
+  "constraints": [
+    "Must be called from within an on error call method installed by ON ERR CALL, or within a Try/Try-Catch context."
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "FORM-GET-PROPERTIES",
+  "displayName": "FORM GET PROPERTIES",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Table form only: table of the form, or default table if omitted"
+        },
+        {
+          "name": "formName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the form"
+        },
+        {
+          "name": "width",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Width of the form, in pixels"
+        },
+        {
+          "name": "height",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Height of the form, in pixels"
+        },
+        {
+          "name": "numPages",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Number of pages in the form, excluding page 0"
+        },
+        {
+          "name": "fixedWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "True if the form's width is fixed (set), False if resizable/variable"
+        },
+        {
+          "name": "fixedHeight",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "True if the form's height is fixed (set), False if resizable/variable"
+        },
+        {
+          "name": "title",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Title of the form's window as defined in the Form editor's Property List; empty string if none defined"
+        }
+      ],
+      "semanticRole": "Returns the size, page count, resizability, and window title properties of the named form."
+    }
+  ],
+  "constraints": [
+    "width/height are derived from the form's Default window size property: automatic (sized to fit all objects plus margins), set (manually entered), or based on an object (sized relative to that object's position).",
+    "numPages excludes page 0.",
+    "title returns an empty string if no window title was defined in the Form editor's Property List."
+  ]
+}

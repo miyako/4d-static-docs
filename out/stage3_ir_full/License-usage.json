@@ -1,0 +1,19 @@
+{
+  "id": "License-usage",
+  "displayName": "License usage",
+  "kind": "classic_command",
+  "theme": "Licenses",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Returns a collection of objects describing the licenses currently retained (per product: usage counts, remaining balance, timestamp, reason, and session details)."
+    }
+  ],
+  "constraints": [
+    "Can only be executed on 4D Server; returns null when called from another context."
+  ]
+}

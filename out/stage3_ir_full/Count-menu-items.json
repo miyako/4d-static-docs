@@ -1,0 +1,44 @@
+{
+  "id": "Count-menu-items",
+  "displayName": "Count menu items",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the number of items in the given menu (by number or MenuRef), in the specified process's menu bar (or the current process if process is omitted)."
+    }
+  ],
+  "constraints": [
+    "If menu is a MenuRef (reference), the process parameter is ignored."
+  ]
+}

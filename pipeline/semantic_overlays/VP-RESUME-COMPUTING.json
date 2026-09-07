@@ -1,0 +1,7 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "The 4D View Pro calculation service maintains a counter of suspend/resume actions, so every VP RESUME COMPUTING call must balance a corresponding VP SUSPEND COMPUTING call.",
+    "An error is returned if vpAreaName does not designate an existing 4D View Pro area."
+  ]
+}

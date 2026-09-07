@@ -1,0 +1,9 @@
+{
+  "theme": "Date-and-Time",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the weekday number (1-7, Sunday=1) of aDate; returns 2 for null dates."
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "GET-LIST-ITEM-PARAMETER-ARRAYS",
+  "displayName": "GET LIST ITEM PARAMETER ARRAYS",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string); if omitted, 'list' is a hierarchical list reference number."
+        },
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "the last item added to the list (via APPEND TO LIST)"
+            },
+            {
+              "value": "*",
+              "meaning": "the current item of the list"
+            }
+          ]
+        },
+        {
+          "name": "arrSelection",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the parameters set for the item."
+        },
+        {
+          "name": "arrValues",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Values associated with each parameter in arrSelection; non-Text values (number/Boolean) are converted to strings (True=\"1\", False=\"0\")."
+        }
+      ]
+    }
+  ]
+}

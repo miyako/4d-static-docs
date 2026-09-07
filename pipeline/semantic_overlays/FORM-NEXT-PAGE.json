@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Displays the next page of the current form; does nothing if no form is being displayed/loaded (via FORM LOAD), or if the last page is already showing."
+    }
+  ]
+}

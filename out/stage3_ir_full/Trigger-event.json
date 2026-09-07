@@ -1,0 +1,20 @@
+{
+  "id": "Trigger-event",
+  "displayName": "Trigger event",
+  "kind": "classic_command",
+  "theme": "Triggers",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Called from within a trigger, the Trigger event command returns a numeric value that denotes the type of the database event, in other words, the reason why the trigger has been invoked.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ],
+  "constraints": [
+    "Meaningful only when called from within a trigger; the return value denotes the database event that invoked the trigger: 0 outside any trigger execution cycle, 1 On Saving New Record Event, 2 On Saving Existing Record Event, 3 On Deleting Record Event.",
+    "Same event-code numbering as the dbEvent output parameter of TRIGGER PROPERTIES."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "SET-DRAG-ICON",
+  "displayName": "SET DRAG ICON",
+  "kind": "classic_command",
+  "theme": "Drag and Drop",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "icon",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "horOffset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "vertOffset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET DRAG ICON command associates the icon picture with the cursor during drag and drop operations that are managed by programming."
+    }
+  ],
+  "constraints": [
+    "Must be called in the context of the On Begin Drag Over form event.",
+    "icon's maximum size is 256x256 pixels; larger pictures are automatically resized.",
+    "If horOffset/vertOffset are omitted, the cursor is placed at the center of the icon.",
+    "horOffset: positive = offset towards the left, negative = offset towards the right.",
+    "vertOffset: positive = offset upwards, negative = offset downwards."
+  ]
+}

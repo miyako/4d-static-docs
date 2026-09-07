@@ -1,0 +1,12 @@
+{
+  "theme": "XML-DOM",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Renames the XML element elementRef to elementName, updating its open and close tags."
+    }
+  ],
+  "constraints": [
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "theme": "Quick-Report",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns where a column-header drag-and-drop was performed: a negative value indicates a column number the drop landed on (e.g. -3 = column 3), a positive value indicates the drop landed on the separator preceding that column number (e.g. 3 = after column 2); the drop is not required to occur before an existing column."
+    }
+  ]
+}

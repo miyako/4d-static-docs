@@ -1,0 +1,30 @@
+{
+  "id": "VP-Find-table",
+  "displayName": "VP Find table",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the name of the table that a cell (the first cell of rangeObj) belongs to, or an empty string if it belongs to no table."
+    }
+  ],
+  "constraints": [
+    "If the designated cells do not belong to a table, an empty string is returned.",
+    "If rangeObj is not a cell range or contains multiple ranges, the first cell of the first range is used."
+  ]
+}

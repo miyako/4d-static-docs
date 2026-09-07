@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    { "index": 0, "returns": { "kind": "concrete", "name": "Integer" } }
+  ],
+  "constraints": [
+    "Returns 0 if the tool bar is currently hidden."
+  ]
+}

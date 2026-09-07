@@ -1,0 +1,17 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["xCoord", "yCoord"],
+          "rule": "xCoord and yCoord must be passed together (both or neither); they are nested as a pair after default in the doc syntax, not independently optional."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Should usually be called in response to a mouse click while the mouse button is still down, to follow standard UI conventions.",
+    "contents syntax: items separated by ';'; '(' prefix disables an item; '-' or '(-' inserts a separator line; a leading '<' plus a style letter (B/I/U/O/S) sets font style for the item; a leading '!' plus a character adds a check mark; a leading '^' plus an icon reference adds an icon."
+  ]
+}

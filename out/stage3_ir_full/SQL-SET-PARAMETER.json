@@ -1,0 +1,35 @@
+{
+  "id": "SQL-SET-PARAMETER",
+  "displayName": "SQL SET PARAMETER",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "paramType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SQL SET PARAMETER command allows the use of a 4D variable, array or field value in SQL requests."
+    }
+  ],
+  "constraints": [
+    "paramType must be one of the SQL-theme 'SQL param ...' constants (e.g. SQL param in, SQL param in out); 'in out' is usable only in the context of an SQL stored procedure.",
+    "As an alternative to this command, a 4D object's name can be inserted directly between << and >> characters in the SQL request text."
+  ]
+}

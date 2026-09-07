@@ -1,0 +1,29 @@
+{
+  "id": "Character-code",
+  "displayName": "Character code",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "character",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the Unicode UTF-16 code (1-65535) of the first character of the character string; the inverse of Char."
+    }
+  ],
+  "constraints": [
+    "If character contains more than one character, only the code of the first character is returned."
+  ]
+}

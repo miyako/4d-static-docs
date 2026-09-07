@@ -1,0 +1,16 @@
+{
+  "id": "OPEN-ADMINISTRATION-WINDOW",
+  "displayName": "OPEN ADMINISTRATION WINDOW",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The OPEN ADMINISTRATION WINDOW command displays the server administration window on the machine that executes it."
+    }
+  ],
+  "constraints": [
+    "Must be called in the context of a connected 4D application or 4D Server; does nothing if called in a local (non-connected) 4D application.",
+    "Does nothing (and generates error -9991) if executed by a user other than the Designer or the Administrator."
+  ]
+}

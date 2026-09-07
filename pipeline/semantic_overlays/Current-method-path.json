@@ -1,0 +1,12 @@
+{
+  "theme": "Design-Object-Access",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Text" }
+    }
+  ],
+  "constraints": [
+    "In 4D macro-commands, the <method_path> tag is replaced by this command's return value (the full pathname of the method being executed)."
+  ]
+}

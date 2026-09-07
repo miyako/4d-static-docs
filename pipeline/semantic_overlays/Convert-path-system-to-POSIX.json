@@ -1,0 +1,14 @@
+{
+  "theme": "System-Documents",
+  "constraints": [
+    "systemPath may be relative to the database folder or absolute; a relative path is completed against the database folder in the returned value. The command always returns an absolute POSIX pathname.",
+    "The command does not verify that the path exists on disk.",
+    "The '*' literal-symbol parameter requests percent-encoding of special characters in the returned POSIX path (e.g. \"My folder\" -> \"My%20folder\"); by default (omitted), the output is not encoded."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Converts a system-syntax pathname (Windows or Mac OS, relative or absolute) to an absolute POSIX-syntax pathname."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "constraints": [
+    "Binary databases cannot be compiled with this command.",
+    "Cannot be called while another compilation is already running (e.g. one launched from the Compiler window).",
+    "Components referenced via options.components must already be compiled (binary components are supported).",
+    "Passing an empty collection in options.targets performs a syntax check only, without compiling.",
+    "options.plugins is only honored with the projectFile syntax (not the host-project syntax)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Compiles the current host project (using Structure Settings compiler options, optionally overridden by options).",
+      "discriminatedBy": {
+        "param": "projectFile",
+        "rule": "Omitted -- compiles the currently opened host project."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Compiles the specified .4DProject file instead of the current host project (using Structure Settings compiler options, optionally overridden by options).",
+      "discriminatedBy": {
+        "param": "projectFile",
+        "rule": "Passed as a 4D.File -- compiles that project file instead of the current host project."
+      }
+    }
+  ]
+}

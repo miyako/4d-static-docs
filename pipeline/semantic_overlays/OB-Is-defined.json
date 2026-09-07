@@ -1,0 +1,9 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Check whether object itself is defined (initialized) when property is omitted, or whether the named property is defined on object when property is passed."
+    }
+  ],
+  "theme": "Objects-Language"
+}

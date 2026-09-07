@@ -1,0 +1,48 @@
+{
+  "id": "BLOB-TO-VARIABLE",
+  "displayName": "BLOB TO VARIABLE",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB containing 4D variable data."
+        },
+        {
+          "name": "variable",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Overwritten with the data read from blob."
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "inout",
+          "optional": true,
+          "default": "0 (start of the BLOB)",
+          "description": "Byte position within blob to read variable from; on return, updated to the position of the next variable within the BLOB."
+        }
+      ],
+      "semanticRole": "Reads variable's data out of blob at the given (or default) byte offset, advancing offset past the value read."
+    }
+  ],
+  "constraints": [
+    "The BLOB's data must already be laid out to match the destination variable's type/size (typically written earlier via VARIABLE TO BLOB); mismatched data produces undefined results.",
+    "If offset is omitted, variable data is read starting at the beginning of the BLOB (offset 0)."
+  ]
+}

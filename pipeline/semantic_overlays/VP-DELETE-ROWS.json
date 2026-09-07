@@ -1,0 +1,14 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj contains both columns and rows, only the rows are removed.",
+    "If rangeObj contains only columns, the command does nothing.",
+    "Rows are deleted from bottom to top."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Removes the rows designated by a range object, deleting from bottom to top."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "constraints": [
+    "List box parts are never included; use LISTBOX GET OBJECTS or LISTBOX GET ARRAYS to parse list box contents.",
+    "If a passed array was not previously declared, the command creates it and sets its size automatically, but explicit declaration is recommended for compiled applications.",
+    "Passing the deprecated * flag is equivalent to formPageOption = Form current page + Form inherited (3); prefer formPageOption instead."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "objectsArray, variablesArray and pagesArray are all filled by the command (parameter table arrow '\u2190'), so their direction should be 'out'. Enumerated the documented 'Form Objects (Access)' bitmask constants as sentinelValues on formPageOption.",
+      "params": [
+        {
+          "name": "objectsArray",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the (unique) names of form objects found; order is not significant"
+        },
+        {
+          "name": "variablesArray",
+          "type": { "kind": "concrete", "name": "Pointer array" },
+          "direction": "out",
+          "optional": true,
+          "description": "Synchronized with objectsArray: filled with pointers to each object's associated variable/field (Is nil pointer if none; a pointer to the subform's table for subform objects)"
+        },
+        {
+          "name": "pagesArray",
+          "type": { "kind": "concrete", "name": "Integer array" },
+          "direction": "out",
+          "optional": true,
+          "description": "Synchronized with objectsArray: filled with the form page number of each object"
+        },
+        {
+          "name": "formPageOption",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "default": "all pages including inherited objects, if omitted",
+          "sentinelValues": [
+            { "value": 1, "meaning": "Form current page -- objects of the current page, including page 0, excluding inherited objects" },
+            { "value": 2, "meaning": "Form all pages -- objects of all pages, excluding inherited objects" },
+            { "value": 4, "meaning": "Form inherited -- inherited objects only" },
+            { "value": "combination (e.g. 1+4)", "meaning": "constants can be combined/summed to select multiple scopes at once" }
+          ],
+          "description": "Bitmask selecting which form part(s) to scan for objects"
+        }
+      ],
+      "semanticRole": "Returns the names (and optionally associated variable/field pointers and page numbers) of all non-list-box objects present in the current form, optionally restricted to a scope via formPageOption."
+    }
+  ]
+}

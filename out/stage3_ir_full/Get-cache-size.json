@@ -1,0 +1,15 @@
+{
+  "id": "Get-cache-size",
+  "displayName": "Get cache size",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Get cache size command returns the current database cache size in bytes.This command only works in local mode (4D Server and 4D); it must not be used from 4D in remote mode."
+    }
+  ],
+  "constraints": [
+    "Local mode only (4D Server and 4D); must not be used from 4D in remote mode."
+  ]
+}

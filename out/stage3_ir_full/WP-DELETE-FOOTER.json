@@ -1,0 +1,22 @@
+{
+  "id": "WP-DELETE-FOOTER",
+  "displayName": "WP DELETE FOOTER",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpSection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP DELETE FOOTER command deletes the footer element associated to the section or subsection defined by the wpSection parameter."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "OBJECT-SET-VALUE",
+  "displayName": "OBJECT SET VALUE",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Sets the value of the current data source for the form object(s) designated by objectName (which may include the '@' wildcard) to value."
+    }
+  ],
+  "constraints": [
+    "objectName can contain the wildcard character '@' to set the value of multiple form objects at once.",
+    "If the form object's data source is a non-assignable expression, OBJECT SET VALUE does nothing."
+  ]
+}

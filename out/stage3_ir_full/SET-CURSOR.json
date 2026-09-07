@@ -1,0 +1,26 @@
+{
+  "id": "SET-CURSOR",
+  "displayName": "SET CURSOR",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "cursor",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET CURSOR command changes the mouse cursor to the system cursor whose ID number you pass in cursor ."
+    }
+  ],
+  "constraints": [
+    "Must be called in the context of the On Mouse Move form event.",
+    "Calling with no argument (cursor omitted) restores the standard mouse cursor."
+  ]
+}

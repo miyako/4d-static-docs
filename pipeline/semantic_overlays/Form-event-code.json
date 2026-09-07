@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Intended to be called from within a form or object method; some event codes are generic (any object type) while others are specific to a particular object type -- compare the result against the Form Events theme constants."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Integer" }
+    }
+  ]
+}

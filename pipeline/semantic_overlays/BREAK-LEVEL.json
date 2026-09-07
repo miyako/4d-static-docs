@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Must be called, together with ACCUMULATE, before every report (via PRINT SELECTION) for which break processing is wanted -- these two commands activate break processing.",
+    "The form must have at least as many Break areas as the number passed in level; extra Break areas are ignored."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Sets the number of break levels (and optionally which level triggers a page break) to activate break processing for the next report printed with PRINT SELECTION."
+    }
+  ]
+}

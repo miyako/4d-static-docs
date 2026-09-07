@@ -1,0 +1,12 @@
+{
+  "id": "Application-file",
+  "displayName": "Application file",
+  "kind": "classic_command",
+  "theme": "4D-Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns the full path of the 4D executable file/application currently running."
+    }
+  ]
+}

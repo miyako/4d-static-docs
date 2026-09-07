@@ -1,0 +1,70 @@
+{
+  "theme": "Web-Services-Client",
+  "constraints": [
+    "Options apply only to the next SOAP request sent via WEB SERVICE CALL; call this command once per option to set, in any order. If the same option is set multiple times before the call, only the last value is used.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "Restored sentinelValues on option from the 6 documented 'Web Service ...' option constants; autoparse leaves option as a plain Integer and value as an untyped Integer/Text union with no per-option mapping.",
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Code of the option to set",
+          "sentinelValues": [
+            {
+              "value": 4,
+              "meaning": "Web Service display auth dialog: value is 0 (never display, default) or 1 (display the authentication dialog box, only shown if the service requires authentication)"
+            },
+            {
+              "value": 6,
+              "meaning": "Web Service HTTP compression: value is the Web Service Compression constant; enables gzip/deflate compression of the next SOAP request (client and server 4D v11.3+ only)"
+            },
+            {
+              "value": 1,
+              "meaning": "Web Service HTTP timeout: value is the client-side wait timeout in seconds (180 by default)"
+            },
+            {
+              "value": 5,
+              "meaning": "Web Service reset auth settings: value is 0 (keep authentication info for the session) or 1 (erase it after each WEB SERVICE CALL, the default)"
+            },
+            {
+              "value": 2,
+              "meaning": "Web Service SOAP header: value is an XML root element reference to insert as a header in the SOAP request"
+            },
+            {
+              "value": 3,
+              "meaning": "Web Service SOAP version: value is the Web Service SOAP_1_1 or Web Service SOAP_1_2 constant"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "New value of the option; its meaning and type depend on which option is passed (see option's sentinelValues)"
+        }
+      ],
+      "semanticRole": "Sets, for the next SOAP request triggered by WEB SERVICE CALL, the option identified by option to value."
+    }
+  ]
+}

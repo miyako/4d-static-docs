@@ -1,0 +1,70 @@
+{
+  "id": "Set-group-properties",
+  "displayName": "Set group properties",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "groupID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "in: unique ID number of the group to modify, or -1/-2 to add a new group; out: unique ID number of the added group, if one was added.",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Add a new group, affiliated with the Designer (binary databases)."
+            },
+            {
+              "value": -2,
+              "meaning": "Add a new group, affiliated with the Administrator (binary databases only)."
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "owner",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Binary databases only; ignored in project databases."
+        },
+        {
+          "name": "members",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Set group properties enables you to change and update the properties of an existing group whose unique group ID number you pass in groupID , or to add a new group."
+    }
+  ],
+  "constraints": [
+    "The mechanical draft left groupID with direction 'in', but the doc's arrow column marks it '<->' (inout): it is both an input (group ID to modify, or -1/-2 to add) and an output (receives the new group's ID number when adding).",
+    "If groupID is not -1, -2, or a valid existing group ID, the command does nothing.",
+    "If members is omitted, the group's current member list is left unchanged (or the new group has no members, when adding); passing an empty members array removes all members."
+  ]
+}

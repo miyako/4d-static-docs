@@ -1,0 +1,14 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the name of the table designated by its table number, tableNum.",
+      "discriminatedBy": { "param": "tableNum", "rule": "Used when identifying the table by its numeric table number." }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns the name of the table designated by a pointer to it, tablePtr.",
+      "discriminatedBy": { "param": "tablePtr", "rule": "Used when identifying the table by a pointer to it (e.g. obtained via Table)." }
+    }
+  ]
+}

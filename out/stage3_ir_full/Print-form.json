@@ -1,0 +1,86 @@
+{
+  "id": "Print-form",
+  "displayName": "Print form",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "form",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formData",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "areaStart",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "areaEnd",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Print form command simply prints form with the current values of fields and variables of aTable .",
+      "jointConstraints": [
+        {
+          "params": [
+            "areaStart",
+            "areaEnd"
+          ],
+          "rule": "If both aTable and form are passed alone (areaStart/areaEnd omitted), only the Detail area of the form is printed. If only areaStart is passed, it is treated as a Form Area theme marker constant (e.g. Form header, Form detail, Form footer) selecting a named section to print. If both areaStart and areaEnd are passed, they are pixel offsets delimiting an arbitrary section of the form to print, overriding the single-marker interpretation of areaStart."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Does not perform record processing, break processing, or page breaks; the caller is responsible for those.",
+    "Does not issue a page break after printing, so multiple forms/tables can be combined onto the same page; use PAGE BREAK to force one.",
+    "Builds each page in memory; you must call PAGE BREAK to flush/print the final page, except when running inside an OPEN PRINTING JOB, where PAGE BREAK must NOT be called for the last page (CLOSE PRINTING JOB prints it automatically; calling PAGE BREAK anyway prints a blank page).",
+    "Printer dialog boxes never appear; print settings must be set beforehand via PRINT SETTINGS (interactive) or SET PRINT OPTION/GET PRINT OPTION (programmatic).",
+    "Only the On Printing Detail form event is generated; subforms are not printed (use PRINT RECORD for subforms).",
+    "The returned height is the printed area's height, and is what Get printed height reports.",
+    "formData properties become available in the form context via the Form command during the On Printing Detail event."
+  ]
+}

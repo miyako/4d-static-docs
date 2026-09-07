@@ -1,0 +1,40 @@
+{
+  "constraints": [
+    "Coordinates are relative to the top-left corner of the application window's contents area on Windows, or to the main screen on macOS.",
+    "Starting with 4D v14, the constants of the Find Window theme are obsolete."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "windowPart is a returned/filled-in parameter (3 if touched, 0 otherwise), not an in parameter.",
+      "params": [
+        {
+          "name": "left",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Global left coordinate"
+        },
+        {
+          "name": "top",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Global top coordinate"
+        },
+        {
+          "name": "windowPart",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "sentinelValues": [
+            { "value": 3, "meaning": "the window is touched at that point" },
+            { "value": 0, "meaning": "the window is not touched at that point" }
+          ]
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Returns the reference number of the first window touched by the point (left, top), if any."
+    }
+  ]
+}

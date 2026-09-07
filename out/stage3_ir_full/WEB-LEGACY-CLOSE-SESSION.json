@@ -1,0 +1,27 @@
+{
+  "id": "WEB-LEGACY-CLOSE-SESSION",
+  "displayName": "WEB LEGACY CLOSE SESSION",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "sessionID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB LEGACY CLOSE SESSION command invalidates an existing session designated by the sessionID parameter."
+    }
+  ],
+  "constraints": [
+    "Only applies to legacy Web sessions (databases converted from versions prior to 4D v18 R6); it is ignored when scalable web sessions mode is enabled.",
+    "If the session designated by sessionID does not exist, the command does nothing.",
+    "In a 4D Mobile session context, closes the whole 4D Mobile session (all Web processes tied to that session ID), since a single mobile session can span several processes."
+  ]
+}

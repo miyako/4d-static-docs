@@ -1,0 +1,12 @@
+{
+  "theme": "Form-Events",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns True in a form/object method when the frontmost window containing the form has just moved to the background (equivalent to detecting the On Deactivate form event)."
+    }
+  ],
+  "constraints": [
+    "Requires the On Deactivate form/object event property to be enabled in the Design environment for the execution cycle to fire."
+  ]
+}

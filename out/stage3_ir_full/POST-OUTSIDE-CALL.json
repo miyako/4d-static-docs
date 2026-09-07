@@ -1,0 +1,28 @@
+{
+  "id": "POST-OUTSIDE-CALL",
+  "displayName": "POST OUTSIDE CALL",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "POST OUTSIDE CALL calls the form displayed in the frontmost window of process ."
+    }
+  ],
+  "constraints": [
+    "Only works between processes running on the same machine.",
+    "Does nothing if the target process does not exist or is not currently displaying a form.",
+    "Requires the On Outside Call form event to be enabled (in Form Properties) and handled in the target form's method, otherwise nothing happens.",
+    "Has an immediate, non-blocking effect: the caller process does not wait for a reply; a reply must be implemented manually (e.g. via interprocess/process variables read/written with GET PROCESS VARIABLE and SET PROCESS VARIABLE)."
+  ]
+}

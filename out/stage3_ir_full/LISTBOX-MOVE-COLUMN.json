@@ -1,0 +1,55 @@
+{
+  "id": "LISTBOX-MOVE-COLUMN",
+  "displayName": "LISTBOX MOVE COLUMN",
+  "kind": "classic_command",
+  "theme": "List Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or variable reference (if * is omitted) of the column to move."
+        },
+        {
+          "name": "colPosition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Position the column is moved to just in front of; if greater than the total number of columns, the column is moved to just after the last column."
+        }
+      ],
+      "semanticRole": "Moves the designated column to a new position within the currently executing form (Application mode only; the Design-mode form is unaffected)."
+    }
+  ],
+  "constraints": [
+    "Takes static/locked column properties into account (e.g. a static column cannot be moved out of the static range).",
+    "Does nothing when applied to the first column of a list box displayed in hierarchical mode."
+  ]
+}

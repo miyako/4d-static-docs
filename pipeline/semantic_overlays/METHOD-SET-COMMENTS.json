@@ -1,0 +1,17 @@
+{
+  "constraints": [
+    "Forms and form methods share the same documentation.",
+    "If called from a component you must pass the trailing '*' parameter, because access to the component code is read-only; omitting it in that context generates error -9763."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["path", "comments"],
+          "rule": "path and comments must be passed as the same kind (both scalar Text variables, or both Text arrays of matching length); the two syntaxes cannot be mixed."
+        }
+      ]
+    }
+  ]
+}

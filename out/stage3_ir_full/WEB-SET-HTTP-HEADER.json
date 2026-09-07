@@ -1,0 +1,58 @@
+{
+  "id": "WEB-SET-HTTP-HEADER",
+  "displayName": "WEB SET HTTP HEADER",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "header",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Sets the entire HTTP reply header from a single pre-formatted Text field/variable (header), allowing arbitrary header lines such as status lines and Set-Cookie."
+    },
+    {
+      "params": [
+        {
+          "name": "fieldArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "valueArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Sets the HTTP reply header field-by-field from two parallel arrays: fieldArray holds the header field names and valueArray holds their corresponding values, at matching positions.",
+      "jointConstraints": [
+        {
+          "params": [
+            "fieldArray",
+            "valueArray"
+          ],
+          "rule": "fieldArray and valueArray must have the same size; each fieldArray[i] is paired with valueArray[i] as one header field/value."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Only has an effect within a Web process.",
+    "header must be a 4D variable or field (a literal Text constant is rejected); header fields must be separated by CR or CR+LF."
+  ]
+}

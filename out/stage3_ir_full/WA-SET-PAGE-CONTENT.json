@@ -1,0 +1,72 @@
+{
+  "id": "WA-SET-PAGE-CONTENT",
+  "displayName": "WA SET PAGE CONTENT",
+  "kind": "classic_command",
+  "theme": "Web-Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
+        },
+        {
+          "name": "content",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "HTML source code."
+        },
+        {
+          "name": "baseURL",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "URL for relative references (macOS only)."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
+    }
+  ],
+  "constraints": [
+    "baseURL only has an effect on macOS (used to resolve relative links in content); on Windows it is ignored and relative references cannot be used.",
+    "On Windows this command can only be called after a page has already been loaded into the Web area at least once; pass \"about:blank\" as a prior URL if no real page is needed."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "variable is the doc's arrow-marked (\u2190) output slot filled with the value sent by SEND VARIABLE; the draft parser had defaulted it to direction:in.",
+      "params": [
+        {
+          "name": "variable",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": false,
+          "description": "Variable that receives the value; in interpreted mode it is created/typed on the fly if it doesn't already exist, in compiled mode it must already match the received type."
+        }
+      ],
+      "semanticRole": "Receives a scalar variable previously sent by SEND VARIABLE from the document or serial port opened via SET CHANNEL, replacing variable's contents with the received value."
+    }
+  ],
+  "constraints": [
+    "Only works with a channel opened by SET CHANNEL; documents opened via Open document/Create document/Append document are not supported.",
+    "Does not support array variables; use the BLOB commands to send/receive arrays instead.",
+    "In interpreted mode, an undeclared variable is created and typed based on what is received; in compiled mode, variable must already be of the same type as what is received.",
+    "The read interrupts on Ctrl-Alt-Shift (Windows) / Command-Option-Shift (macOS), raising error -9994, catchable via an ON ERR CALL method."
+  ]
+}

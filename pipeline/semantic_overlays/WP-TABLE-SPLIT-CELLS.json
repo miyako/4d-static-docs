@@ -1,0 +1,20 @@
+{
+  "theme": "WritePro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Splits any previously-merged cells intersecting a range, element, or 4D Write Pro document back into their original cells.",
+      "discriminatedBy": {"param": "targetObj", "note": "single Object arg resolved as a range/element/document rather than a raw table reference"}
+    },
+    {
+      "index": 1,
+      "semanticRole": "Splits a rectangular block of previously-merged cells in a table, addressed by table reference and explicit start column/row (with optional column/row counts, default 1x1).",
+      "discriminatedBy": {"param": "tableRef", "note": "3-5 arg form addressing a table by reference plus explicit coordinates"}
+    }
+  ],
+  "constraints": [
+    "A cell is only affected if it was previously merged (horizontally, vertically, or both); unmerged cells are left unmodified.",
+    "columnCount and rowCount each default to 1 when omitted; if both are omitted, only the single intersected cell is targeted.",
+    "If startColumn+columnCount or startRow+rowCount exceed the table's dimensions, the split is clamped to the maximum possible columns/rows."
+  ]
+}

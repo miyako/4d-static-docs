@@ -1,0 +1,20 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "Returns an empty string \"\" if called outside the context of a Web session."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "Autoparse could not find a top-level '(...)' parameter list in the no-parentheses signature 'WEB Get current session ID : Text', so it silently dropped the return type. Restored from the parameterTable's Function result row.",
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the UUID of the session currently open for the Web request, or an empty string if there is no active Web session."
+    }
+  ]
+}

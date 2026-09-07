@@ -1,0 +1,68 @@
+{
+  "id": "METHOD-GET-PATHS",
+  "displayName": "METHOD GET PATHS",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "folderName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of Home page folder to restrict results to"
+        },
+        {
+          "name": "methodType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Selector (or combination of selectors) of method type(s) to get, e.g. Path all objects (-1), Path project method (1), Path database method (2), Path project form (4), Path trigger (8), Path table form (16), Path class (32)."
+        },
+        {
+          "name": "arrPaths",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Array of method paths and names"
+        },
+        {
+          "name": "stamp",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "In: minimum modification-counter stamp value to filter on. Out: the new current (highest) stamp value, for use in a subsequent call to get only newer/modified methods."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "The '@' character cannot be used in folderName.",
+    "If the command detects a duplicated method name, error -9802 (\"Object path not unique\") is generated."
+  ]
+}

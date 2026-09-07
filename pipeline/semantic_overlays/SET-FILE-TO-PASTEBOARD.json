@@ -1,0 +1,28 @@
+{
+  "constraints": [
+    "If file is a simple name (no pathname), the file must be located next to the database structure file.",
+    "The pasteboard cannot be modified (read-only) during the On Drag Over form event.",
+    "If non-pathname data was already in the pasteboard, it is erased regardless of whether '*' is passed."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Clarifies the trailing '*' as a literal add-vs-replace mode discriminator.",
+      "params": [
+        {
+          "name": "file",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If omitted, the pasteboard's contents are replaced by file's pathname. If passed, file's pathname is added to the pasteboard's existing stack of pathnames."
+        }
+      ]
+    }
+  ]
+}

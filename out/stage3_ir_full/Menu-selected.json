@@ -1,0 +1,27 @@
+{
+  "id": "Menu-selected",
+  "displayName": "Menu selected",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "subMenu",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Reference (MenuRef type, 16-character string) of the hierarchical submenu containing the selected item; receives an empty string if the selected menu command has no hierarchical submenu."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Menu selected is used only when forms are displayed."
+    }
+  ]
+}

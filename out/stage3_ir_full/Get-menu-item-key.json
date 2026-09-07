@@ -1,0 +1,58 @@
+{
+  "id": "Get-menu-item-key",
+  "displayName": "Get menu item key",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu number or menu reference (MenuRef)."
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Process reference number; defaults to the current process if omitted."
+        }
+      ],
+      "semanticRole": "Get the character code of the standard Ctrl (Windows) / Command (macOS) shortcut key assigned to a menu item."
+    }
+  ],
+  "constraints": [
+    "If menu is a MenuRef (menu reference), the process parameter is unnecessary and is ignored if passed.",
+    "Returns 0 if the menu item has no associated shortcut, or if menuItem designates a hierarchical submenu."
+  ]
+}

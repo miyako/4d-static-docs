@@ -1,0 +1,62 @@
+{
+  "id": "GET-PRINT-OPTION",
+  "displayName": "GET PRINT OPTION",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": [
+            {
+              "kind": "enum_ref",
+              "enum": "PrintOptionSelector"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value1",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "value2",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "out",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "option selects a standard printing option (one of the PrintOptionSelector enum's Integer constants) or a PDF option code (a Text string of the form \"OptionType:OptionName\"); which of value1/value2 are meaningful, and their expected types, depends entirely on which option was passed (see the PrintOptionSelector enum's per-entry description, e.g. Paper option returns width in value1 and height in value2; Orientation option uses value1 only; Destination option returns a PrintDestinationTarget code in value1 and a pathname in value2; Print preview option returns a PrintPreviewMode code in value1). See the SET PRINT OPTION command description for the full per-option value contract.",
+    "If the current value for the given option is not in the predefined list, value1 returns -1 and OK is set to 1; if an error occurs, value1 and OK are both set to 0.",
+    "Mainly supports PostScript printers; some options may be unavailable on other printer types (PCL, Ink, etc.)."
+  ]
+}

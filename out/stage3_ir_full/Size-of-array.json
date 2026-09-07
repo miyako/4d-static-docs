@@ -1,0 +1,26 @@
+{
+  "id": "Size-of-array",
+  "displayName": "Size of array",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Size of array command returns the number of elements in array ."
+    }
+  ]
+}

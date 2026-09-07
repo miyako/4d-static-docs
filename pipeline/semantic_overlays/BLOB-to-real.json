@@ -1,0 +1,69 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "offset's doc arrow is bidirectional (read as input offset, written back as new offset after the read) so direction must be 'inout', not the auto-derived 'in'; realFormat's 4 recognized constants are given explicit sentinelValues.",
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB from which to get the Real value"
+        },
+        {
+          "name": "realFormat",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Internal format and byte ordering of the Real value to read",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Native real format"
+            },
+            {
+              "value": 1,
+              "meaning": "Extended real format"
+            },
+            {
+              "value": 2,
+              "meaning": "Macintosh Double real format"
+            },
+            {
+              "value": 3,
+              "meaning": "PC (Windows) Double real format"
+            }
+          ]
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "Offset within the BLOB (expressed in bytes); on return, incremented by the number of bytes read (8 or 10) so it can be reused for the next read",
+          "default": "0 (start of the BLOB) if omitted"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Reads and returns a Real value from a BLOB at a given (or default) byte offset, honoring an explicit internal format/byte ordering, and advances the offset variable by the bytes consumed (8 or 10)."
+    }
+  ],
+  "constraints": [
+    "offset must be between 0 and (BLOB size - 8 or - 10, depending on realFormat); otherwise error -111 is generated."
+  ]
+}

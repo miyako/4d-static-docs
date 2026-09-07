@@ -1,0 +1,91 @@
+{
+  "id": "LISTBOX-GET-HIERARCHY",
+  "displayName": "LISTBOX GET HIERARCHY",
+  "kind": "classic_command",
+  "theme": "List-Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "hierarchical",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "hierarchy",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Fills hierarchical (and optionally hierarchy) with whether the list box is in hierarchical mode and its hierarchy pointers, addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "hierarchical",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "hierarchy",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Fills hierarchical (and optionally hierarchy) with whether the list box is in hierarchical mode and its hierarchy pointers, addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box via a direct Variable reference (no leading '*')."
+      }
+    }
+  ]
+}

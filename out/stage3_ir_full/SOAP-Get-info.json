@@ -1,0 +1,30 @@
+{
+  "id": "SOAP-Get-info",
+  "displayName": "SOAP Get info",
+  "kind": "classic_command",
+  "theme": "Web Services (Server)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "infoNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The SOAP Get info command retrieves, in the form of a character string, the different types of information concerning a SOAP request."
+    }
+  ],
+  "constraints": [
+    "infoNum selects which piece of SOAP request metadata to retrieve, e.g. 1 = name of the Web Service method about to execute, 2 = name of the Web Service the method belongs to.",
+    "Intended to be called from within the On Web Authentication Database Method to inspect an incoming SOAP request (e.g. for security checks) before it is otherwise available."
+  ]
+}

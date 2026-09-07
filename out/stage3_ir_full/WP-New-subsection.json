@@ -1,0 +1,38 @@
+{
+  "id": "WP-New-subsection",
+  "displayName": "WP New subsection",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpSection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "subSectionType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP New subsection command creates and returns a new subsection of the subSectionType type in the wpSection 4D Write Pro section."
+    }
+  ],
+  "constraints": [
+    "Creating a left-page or right-page subsection automatically creates the opposite subsection as well."
+  ]
+}

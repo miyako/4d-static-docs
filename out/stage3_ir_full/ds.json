@@ -1,0 +1,33 @@
+{
+  "id": "ds",
+  "displayName": "ds",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "localID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "cs.DataStore"
+      },
+      "semanticRole": "The ds command returns a reference to the datastore matching the current 4D database or the database designated by localID ."
+    }
+  ],
+  "constraints": [
+    "If localID is omitted (or an empty string is passed), returns a reference to the datastore matching the local 4D database (or, when opening a remote database on 4D Server, the 4D Server database).",
+    "localID must reference a remote datastore previously opened by the current database (host or component) via Open datastore; the local id's scope is the database where it was opened.",
+    "The datastore is opened automatically and is available directly through ds; no separate open step is required for the default (no-localID) case.",
+    "Returns Null if no datastore matching localID is found.",
+    "Objects exposed on the returned cs.DataStore are mapped from the target database following the general ORDA rules."
+  ]
+}

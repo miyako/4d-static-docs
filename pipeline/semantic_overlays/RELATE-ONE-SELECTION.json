@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Requires an existing relation path from manyTable to oneTable; the path can span several intermediate related tables and can be manual or automatic (automatic relations are preferred whenever both exist)."
+  ]
+}

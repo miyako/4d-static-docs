@@ -1,0 +1,61 @@
+{
+  "theme": "Styled-Text",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "Two doc syntax lines differ only in the leading '*' discriminator (object name vs. Variable/Field); collapsed into one overload sharing the (already-correct) function-result return type.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Variable/Field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
+        },
+        {
+          "name": "refMode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Mode for handling references found in the text"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Strips all style tags from the designated styled-text object and returns the resulting plain text, optionally controlling how embedded expression/URL references are rendered via refMode."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "Euro-converter",
+  "displayName": "Euro converter",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fromCurrency",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "toCurrency",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Converts a numeric value between two 'Euroland' currencies (or the Euro itself), routing through the Euro when converting between two non-Euro national currencies."
+    }
+  ],
+  "constraints": [
+    "Converting between two non-Euro national currencies is calculated via an intermediate conversion through the Euro, per European regulation.",
+    "Currency codes must be one of the predefined constants in the 'Euro Currencies' theme (e.g. \"EUR\", \"FRF\", \"DEM\", etc.)."
+  ]
+}

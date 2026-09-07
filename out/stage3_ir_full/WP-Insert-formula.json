@@ -1,0 +1,58 @@
+{
+  "id": "WP-Insert-formula",
+  "displayName": "WP Insert formula",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "mode",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "rangeUpdate",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Insert formula command inserts a formula in targetObj according to the specified insertion mode and returns the resulting text range."
+    }
+  ],
+  "constraints": [
+    "formula may be either a formula object created by Formula/Formula from string, or a plain object with a required 'formula' property (the formula object) and an optional 'name' property (Text) used as the displayed label instead of the formula reference.",
+    "rangeUpdate is only honored when targetObj is a range; it is ignored if targetObj is an element or document.",
+    "The formula object is evaluated within the execution context (database/component) that created it, not necessarily the context in which it is later displayed."
+  ]
+}

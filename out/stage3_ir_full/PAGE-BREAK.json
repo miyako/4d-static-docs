@@ -1,0 +1,46 @@
+{
+  "id": "PAGE-BREAK",
+  "displayName": "PAGE BREAK",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Cancels the print job started with Print form, immediately stopping the print job in progress (most effective when the printer's 'Start printing after last page is spooled' property is set)."
+    },
+    {
+      "params": [
+        {
+          "name": ">",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              ">"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Continue-and-prioritize flag: holds the print job open (until PAGE BREAK is called again with no parameter) and gives it priority over other printing, guaranteeing the job spools to a single file."
+        }
+      ],
+      "semanticRole": "Holds the current print job open and gives it exclusive priority (no other printing can occur) until PAGE BREAK is called again without a parameter, so the whole job spools to one file."
+    }
+  ],
+  "constraints": [
+    "Used with Print form (in the On Printing Detail form event) to force page breaks and print the last page built in memory; do not use with PRINT SELECTION (use Subtotal or BREAK LEVEL's optional parameter instead).",
+    "The '*' and '>' forms are mutually exclusive alternatives, not combinable in a single call.",
+    "When the user clicks Cancel in the screen print preview dialog box, PAGE BREAK sets the system variable OK to 0."
+  ]
+}

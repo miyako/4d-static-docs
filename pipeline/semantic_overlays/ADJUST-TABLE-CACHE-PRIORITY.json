@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "priority must be one of the named 'Cache Management' theme constants (Cache priority low / Cache priority very low / Cache priority normal / Cache priority high / Cache priority very high), not an arbitrary Integer.",
+    "Only works in local mode (4D Server or 4D single-user); cannot be used in 4D remote mode.",
+    "Handles priority for scalar-type fields only (date, number, string); binary-type fields (BLOB, text, picture, object) priority is handled by ADJUST BLOBS CACHE PRIORITY instead.",
+    "A new call replaces any priority previously set by this command in the same process."
+  ]
+}

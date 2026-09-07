@@ -1,0 +1,31 @@
+{
+  "id": "VP-Get-values",
+  "displayName": "VP Get values",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Retrieves the cell values from the designated rangeObj as a two-dimensional (rows of cells) collection."
+    }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple combined ranges, only the first one is used.",
+    "Returns a two-dimensional collection: each first-level element is a subcollection of the row's cell values (Integer, Real, Boolean, Text, Object, or Null).",
+    "Date/time cell values are returned as an object with a value property (date, time portion completed to midnight) and a time property (seconds, date portion completed to Dec 30, 1899)."
+  ]
+}

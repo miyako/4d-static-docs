@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "The Quick Report editor does not appear if the table has been declared \"Invisible\".",
+    "Relations between tables keep their manual status when the editor is invoked via QR REPORT; automatic relation propagation is disabled while related tables are shown in a list form (DISPLAY SELECTION / MODIFY SELECTION / subform).",
+    "QR ON COMMAND cannot be used in this context (the editor runs in an external window); use the methodName parameter instead to run custom code when an interface command is activated.",
+    "document must be a report document previously created and saved on disk with the Quick Report editor."
+  ]
+}

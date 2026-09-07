@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Passing -1 in menuItem designates the last item added to menu.",
+    "If menu is a MenuRef, the command applies to all instances of the menu across all processes and the process parameter is ignored; if menu is a menu number, it applies to the main menu bar of the current process (or of process, if given).",
+    "If the menu item is the title of a hierarchical sub-menu, methodName is not called when the item is selected."
+  ]
+}

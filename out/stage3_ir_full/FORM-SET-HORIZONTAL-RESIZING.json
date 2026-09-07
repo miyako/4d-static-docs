@@ -1,0 +1,54 @@
+{
+  "id": "FORM-SET-HORIZONTAL-RESIZING",
+  "displayName": "FORM SET HORIZONTAL RESIZING",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resize",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "minWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets, for the current process, whether the current form can be resized horizontally and, if so, its minimum/maximum allowed widths in pixels.",
+      "jointConstraints": [
+        {
+          "params": [
+            "resize",
+            "minWidth",
+            "maxWidth"
+          ],
+          "rule": "minWidth and maxWidth are only meaningful when resize is True; if resize is False there is no need to pass them (the form's width becomes fixed regardless of any values given)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "New properties apply only to the current process and are not saved with the form; they override (for this process) whatever was set in the Design environment's Form editor.",
+    "If minWidth/maxWidth are omitted while resize is True, the values set in the Design environment (if any) are used instead."
+  ]
+}

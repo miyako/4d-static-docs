@@ -1,0 +1,25 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "autoparse defaulted value to direction:\"in\" from the blanket rule; the doc parameter table marks option as \"->\" (in) but value as \"<-\" (out) -- value is filled with the option's current value, it is not passed in.",
+      "params": [
+        {
+          "name": "option",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": [
+            {"kind": "concrete", "name": "Integer"},
+            {"kind": "concrete", "name": "Text"}
+          ],
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

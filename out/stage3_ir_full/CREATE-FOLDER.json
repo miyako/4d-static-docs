@@ -1,0 +1,37 @@
+{
+  "id": "CREATE-FOLDER",
+  "displayName": "CREATE FOLDER",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "folderPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Creates a folder at the given pathname, optionally creating any missing intermediate folders recursively when '*' is passed."
+    }
+  ],
+  "constraints": [
+    "Without the trailing '*' parameter, an error is generated (and no folder created) if any intermediate folder in folderPath does not already exist.",
+    "With '*', missing intermediate folders are created recursively and no error is generated; in this mode folderPath may even include a trailing document name, which is ignored while the folder hierarchy above it is still created."
+  ]
+}

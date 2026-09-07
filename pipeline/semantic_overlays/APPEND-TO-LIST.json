@@ -1,0 +1,13 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["sublist", "expanded"],
+          "rule": "Although both are individually optional, sublist and expanded must be passed together (or both omitted); passing only one is invalid. Omit both, or pass sublist as 0, to attach no child list."
+        }
+      ]
+    }
+  ]
+}

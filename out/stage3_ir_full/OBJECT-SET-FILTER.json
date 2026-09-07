@@ -1,0 +1,60 @@
+{
+  "id": "OBJECT-SET-FILTER",
+  "displayName": "OBJECT SET FILTER",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "entryFilter",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New data entry filter for the enterable area"
+        }
+      ],
+      "semanticRole": "Sets (or, if entryFilter is empty, removes) the current-process data-entry filter for the enterable field/variable designated by object and *."
+    }
+  ],
+  "constraints": [
+    "Passing an empty string in entryFilter removes the current entry filter for the object(s).",
+    "Cannot be used with fields located in a subform's list form.",
+    "To reference a predefined entry filter created via the Tool Box, prefix its name with a vertical bar '|' in entryFilter."
+  ]
+}

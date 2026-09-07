@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "Returns False if filePath is an empty string (\"\"), or if the file is not found, or is not of the picture type.",
+    "Without the * parameter, the file is tested only by its extension against the list of available codecs (fast, but cannot test extensionless files).",
+    "With the * parameter, the file header is additionally loaded/inspected and the codecs are queried for a thorough validation; this is slower but works on files without extensions.",
+    "Returns True for PDF files under Windows and for EMF files under macOS."
+  ]
+}

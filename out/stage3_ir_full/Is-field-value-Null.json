@@ -1,0 +1,30 @@
+{
+  "id": "Is-field-value-Null",
+  "displayName": "Is field value Null",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is field value Null command returns True if the field designated by the aField parameter contains the NULL value, and False otherwise."
+    }
+  ],
+  "constraints": [
+    "The return value is only meaningful if the \"Map NULL values to blank values\" option is NOT checked in the field's definition in the Structure editor; if it is checked, this command always returns False.",
+    "Cannot be used with object fields or object properties; use the Null command instead for those."
+  ]
+}

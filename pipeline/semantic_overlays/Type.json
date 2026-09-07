@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Cannot be applied to scalar expressions such as object properties (emp.name) or collection elements (myColl[5]); use Value type for those.",
+    "In compiled mode, calling Type on a method parameter declared as variant returns the actual data type (same as Value type), not the Is variant constant."
+  ]
+}

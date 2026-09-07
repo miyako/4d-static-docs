@@ -1,0 +1,36 @@
+{
+  "id": "SET-BLOBS-CACHE-PRIORITY",
+  "displayName": "SET BLOBS CACHE PRIORITY",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "priority",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET BLOBS CACHE PRIORITY command sets a specific priority to the \"blobs\" data related to aTable in cache for all processes in the current session."
+    }
+  ],
+  "constraints": [
+    "Only works in local mode (4D Server and 4D single-user); cannot be used in 4D remote mode.",
+    "Should be called in the On Startup or On Server Startup database method to affect the whole session.",
+    "Applies to BLOB, text, picture, and object data fields of aTable, and only when they are stored in the data file (not externally)."
+  ]
+}

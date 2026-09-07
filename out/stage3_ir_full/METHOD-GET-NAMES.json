@@ -1,0 +1,47 @@
+{
+  "id": "METHOD-GET-NAMES",
+  "displayName": "METHOD GET NAMES",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "arrNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Array of project method names"
+        },
+        {
+          "name": "filter",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name filter; must use '@' for \"starts with\"/\"ends with\"/\"contains\" type filters."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, applies to the host database's project methods when called from a component (otherwise ignored)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Methods placed in the trash are not listed."
+  ]
+}

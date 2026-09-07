@@ -1,0 +1,32 @@
+{
+  "theme": "Hierarchical-Lists",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "numsArray and namesArray are both documented and arrow-marked ('\u2190') as arrays filled by the command with the choice lists' numbers/names, not inputs, even though the draft parser defaulted every parameter to direction:in based on syntax position alone.",
+      "params": [
+        {
+          "name": "numsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "namesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Fills numsArray and namesArray, as two synchronized output arrays, with the reference numbers and names of every choice list defined by the Design-mode list editor."
+    }
+  ]
+}

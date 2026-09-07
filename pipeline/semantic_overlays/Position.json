@@ -1,0 +1,102 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Autoparse's return-type regex only recognizes ': Type' at the end of a signature; this doc uses the legacy '-> Integer' arrow form, so the top-level '(...)' match failed and the draft overload has zero params/no returns. Reconstructed the full param list from the parameter table and prose for this syntax (optional start/lengthFound pair plus optional trailing '*').",
+      "params": [
+        {
+          "name": "find",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "String to find."
+        },
+        {
+          "name": "aString",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "String in which to search."
+        },
+        {
+          "name": "start",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Position in string where the search will start; defaults to the first character."
+        },
+        {
+          "name": "lengthFound",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Length of the string actually found by the search."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, evaluation is based on character codes (letters written with one or more characters, e.g. \u00e6/ae, are not treated as equivalent)."
+        }
+      ],
+      "semanticRole": "Returns the position of the first occurrence of find in aString using 4D's default global/linguistic comparison, optionally restricted to a strict character-code comparison via '*'.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "This is the general-purpose overload (default global comparison, optional strict '*' mode); the other overload replaces '*' with a mandatory options parameter for finer-grained search condition control and requires start/lengthFound to be passed explicitly."
+      },
+      "returns": { "kind": "concrete", "name": "Integer" }
+    },
+    {
+      "sourceIndices": [1],
+      "note": "Same regex failure as overload 0 (this doc line also ends in '-> Integer'); reconstructed the full mandatory param list from the parameter table and prose for the options-based syntax.",
+      "params": [
+        {
+          "name": "find",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "String to find."
+        },
+        {
+          "name": "aString",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "String in which to search."
+        },
+        {
+          "name": "start",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Position in string where the search will start."
+        },
+        {
+          "name": "lengthFound",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Length of the string actually found by the search."
+        },
+        {
+          "name": "options",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Search condition(s), combinable constants replacing the simpler '*' toggle of the other overload."
+        }
+      ],
+      "semanticRole": "Returns the position of the first occurrence of find in aString using an explicit, combinable set of search-condition constants (options) instead of the simple '*' character-code toggle.",
+      "discriminatedBy": {
+        "param": "options",
+        "rule": "Selected when finer control over comparison rules is needed than the plain overload's '*' flag provides; start and lengthFound are mandatory in this form."
+      },
+      "returns": { "kind": "concrete", "name": "Integer" }
+    }
+  ],
+  "constraints": [
+    "Returns 0 if aString does not contain find, including when both are empty strings.",
+    "By default, comparisons are global/linguistic (e.g. \u00e6 = ae) but not diacritical (a \u2260 \u00e0)."
+  ]
+}

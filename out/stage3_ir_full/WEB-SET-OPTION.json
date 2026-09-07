@@ -1,0 +1,32 @@
+{
+  "id": "WEB-SET-OPTION",
+  "displayName": "WEB SET OPTION",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "WebServerOptionSelector"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Which Web server setting to modify."
+        }
+      ],
+      "semanticRole": "The WEB SET OPTION command modifies the current value of various options concerning the functioning of the 4D Web server.",
+      "discriminatedBy": {
+        "param": "selector",
+        "rule": "value's accepted type/range is selected by which WebServerOptionSelector constant is passed in selector; see each enum entry's description for its expected value shape. When selector is 'Web debug log', value is one of the WebDebugLogLevel enum constants."
+      }
+    }
+  ],
+  "constraints": [
+    "selector selects which Web server setting is modified (see the WebServerOptionSelector enum), and the accepted shape/range of value depends entirely on which selector is passed: most are Integer or Boolean-as-Integer, Web IP address to listen/Web Client IP address to listen/Web session cookie name/domain/path are Text, Web CORS settings is a Collection of CORS objects, and Web debug log's value is drawn from the WebDebugLogLevel sub-enum.",
+    "Changes made via this command persist across Web server stop/restart but are lost when the 4D application itself is restarted.",
+    "Several selectors (e.g. Web scalable session, Web HSTS enabled) require a Web server restart to take effect; others apply immediately."
+  ]
+}

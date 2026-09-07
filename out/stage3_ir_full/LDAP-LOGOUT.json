@@ -1,0 +1,12 @@
+{
+  "id": "LDAP-LOGOUT",
+  "displayName": "LDAP LOGOUT",
+  "kind": "classic_command",
+  "theme": "LDAP",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The LDAP LOGOUT command closes the connection with an LDAP server in the current process (if applicable)."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "OB-Class",
+  "displayName": "OB Class",
+  "kind": "classic_command",
+  "theme": "Objects-Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The OB Class command returns the class of the object passed in parameter."
+    }
+  ],
+  "constraints": [
+    "Returns null (rather than raising an error) if object is not an existing/valid object."
+  ]
+}

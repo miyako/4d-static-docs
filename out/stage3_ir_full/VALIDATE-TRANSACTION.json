@@ -1,0 +1,16 @@
+{
+  "id": "VALIDATE-TRANSACTION",
+  "displayName": "VALIDATE TRANSACTION",
+  "kind": "classic_command",
+  "theme": "Transactions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "VALIDATE TRANSACTION accepts the transaction that was started with START TRANSACTION of the corresponding level in the current process."
+    }
+  ],
+  "constraints": [
+    "Transactions can be nested (sub-transactions); if the main (outer) transaction is later cancelled, all sub-transactions are cancelled even if individually validated with this command.",
+    "Validates the transaction started by START TRANSACTION at the corresponding nesting level in the current process."
+  ]
+}

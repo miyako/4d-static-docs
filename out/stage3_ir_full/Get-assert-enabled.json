@@ -1,0 +1,12 @@
+{
+  "id": "Get-assert-enabled",
+  "displayName": "Get assert enabled",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Get assert enabled command returns True or False according to whether or not assertions are enabled in the current process."
+    }
+  ]
+}

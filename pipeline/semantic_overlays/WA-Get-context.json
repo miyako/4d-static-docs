@@ -1,0 +1,53 @@
+{
+  "theme": "Web-Area",
+  "constraints": [
+    "Returns the context object previously set with WA SET CONTEXT for this Web area, or null if none was defined."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "Both doc syntax lines use a non-standard '-> Object' return arrow (instead of ': Object'), which the autoparse regex for the trailing return type never matches; this silently drops BOTH the params AND the return type for every overload of this command, not just the return type. Restoring params (with the '*'/object toggle collapsed into one overload per the usual pattern) and the Object return.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable passed directly when * is omitted."
+      },
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "IDLE",
+  "displayName": "IDLE",
+  "kind": "classic_command",
+  "theme": "Compiler",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The IDLE command is designed only for use with the compiler."
+    }
+  ],
+  "constraints": [
+    "Only meaningful in compiled databases: it should be inserted inside long-running loops (e.g. a For loop) that contain no other 4D command calls, so the compiler still yields control back to the 4D engine periodically during that loop."
+  ]
+}

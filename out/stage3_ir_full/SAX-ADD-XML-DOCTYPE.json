@@ -1,0 +1,34 @@
+{
+  "id": "SAX-ADD-XML-DOCTYPE",
+  "displayName": "SAX ADD XML DOCTYPE",
+  "kind": "classic_command",
+  "theme": "XML-SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "docType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Writes a DocType statement (identifying the DTD used) into the SAX document referenced by document."
+    }
+  ],
+  "constraints": [
+    "Reference lifecycle (implied convention, not syntactically enforced): SAX XML document-write lifecycle: obtain a document reference (e.g. via Create document/OPEN DOCUMENT) -> optionally SAX SET XML DECLARATION and document-level SAX ADD XML DOCTYPE/PROCESSING INSTRUCTION/COMMENT calls -> SAX OPEN XML ELEMENT / SAX ADD XML ELEMENT VALUE / SAX ADD XML CDATA for element content (nested opens require matching SAX CLOSE XML ELEMENT) -> CLOSE DOCUMENT."
+  ]
+}

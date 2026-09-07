@@ -1,0 +1,43 @@
+{
+  "id": "Application-version",
+  "displayName": "Application version",
+  "kind": "classic_command",
+  "theme": "4D-Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "buildNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Filled with the internal build/compilation number of the running 4D application."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, return the long (8-character) version string instead of the short (4-character) one."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns an encoded version-number string for the running 4D environment (short 4-char form by default, or long 8-char form with the * flag), optionally also filling buildNum with the internal build number."
+    }
+  ],
+  "constraints": [
+    "Without the * parameter, returns a 4-character string (version, 'R' number, revision); with * present, returns an 8-character string additionally prefixed with a final/beta flag and internal compilation number.",
+    "For applications compiled and merged with 4D Volume Desktop, the returned buildNum is not significant -- version info is managed by the developer in that context."
+  ]
+}

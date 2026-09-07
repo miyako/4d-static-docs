@@ -1,0 +1,33 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "property's only documented constant (from the QR Area Properties theme) is recorded as a sentinelValue.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "property",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Interface element designated",
+          "sentinelValues": [
+            { "value": 7, "meaning": "qr view contextual menus - display status of the contextual menu" }
+          ]
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Returns 1 if the interface element passed in property is displayed, or 0 if it is hidden."
+    }
+  ],
+  "constraints": [
+    "Can only be used with a Quick Report area embedded in a form."
+  ]
+}

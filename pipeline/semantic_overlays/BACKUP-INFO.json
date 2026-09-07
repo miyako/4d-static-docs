@@ -1,0 +1,45 @@
+{
+  "constraints": [
+    "selector must be one of the predefined constants from the \"Backup and Restore\" theme; the concrete type and meaning of info1 and info2 both depend on which selector constant is passed (e.g. one selector returns a Date in info1, another returns Integer)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "info1 and info2 are documented and arrow-marked in the parameter table as outputs ('<-', the command fills them according to selector), not inputs, even though the draft parser defaulted every parameter to direction:in.",
+      "params": [
+        {
+          "name": "selector",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Which piece of last-backup information to retrieve; selects the type/meaning of info1 and info2."
+        },
+        {
+          "name": "info1",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Date" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "First value associated with selector; concrete type/meaning depends on which selector constant was passed."
+        },
+        {
+          "name": "info2",
+          "type": [
+            { "kind": "concrete", "name": "Time" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Second value associated with selector; concrete type/meaning depends on which selector constant was passed."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "selector",
+        "rule": "The concrete type and semantic meaning returned in info1/info2 vary per selector constant (e.g. last backup date vs. duration vs. destination); see the 'Backup and Restore' theme constants."
+      },
+      "semanticRole": "Fills info1 and info2 with the piece of information about the last database backup selected by selector."
+    }
+  ]
+}

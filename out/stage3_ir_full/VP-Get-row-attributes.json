@@ -1,0 +1,29 @@
+{
+  "id": "VP-Get-row-attributes",
+  "displayName": "VP Get row attributes",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Returns a collection of property objects, one per row spanned by rangeObj."
+    }
+  ],
+  "constraints": [
+    "The returned collection includes row properties whether or not they were previously set via VP SET ROW ATTRIBUTES."
+  ]
+}

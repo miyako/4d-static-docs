@@ -1,0 +1,143 @@
+{
+  "id": "LISTBOX-INSERT-COLUMN-FORMULA",
+  "displayName": "LISTBOX INSERT COLUMN FORMULA",
+  "kind": "classic_command",
+  "theme": "List Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box, column, header, or footer."
+        },
+        {
+          "name": "colPosition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Position the new column is inserted in front of; if greater than the total number of columns, the column is added last."
+        },
+        {
+          "name": "colName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the new column object."
+        },
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D formula (instruction, Formula-editor formula, command call, or project method call) evaluated for the column's contents."
+        },
+        {
+          "name": "dataType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Type of the value produced by evaluating formula."
+        },
+        {
+          "contentParam": {
+            "name": "headerName",
+            "type": {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            "direction": "in",
+            "optional": false,
+            "description": "Name of the column header object."
+          },
+          "bindingParam": {
+            "name": "headerVar",
+            "type": [
+              {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              {
+                "kind": "concrete",
+                "name": "Pointer"
+              }
+            ],
+            "direction": "in",
+            "optional": false,
+            "description": "Column header variable (or a Nil pointer ->[] in a dynamic context)."
+          },
+          "description": "Names and binds the inserted column's header object/variable."
+        },
+        {
+          "contentParam": {
+            "name": "footerName",
+            "type": {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            "direction": "in",
+            "optional": true,
+            "description": "Column footer object name."
+          },
+          "bindingParam": {
+            "name": "footerVar",
+            "type": [
+              {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              {
+                "kind": "concrete",
+                "name": "Pointer"
+              }
+            ],
+            "direction": "in",
+            "optional": true,
+            "description": "Column footer variable."
+          },
+          "description": "Optional: names and binds the inserted column's footer object/variable."
+        }
+      ],
+      "semanticRole": "Inserts a new formula-driven column, with its header and optional footer, into the designated list box."
+    }
+  ],
+  "constraints": [
+    "Formula-driven columns require the list box's Data Source to be Current Selection, Named Selection, Collection, or Entity Selection.",
+    "Does nothing if applied to the first column of a list box displayed in hierarchical mode."
+  ]
+}

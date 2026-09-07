@@ -1,0 +1,41 @@
+{
+  "id": "READ-ONLY",
+  "displayName": "READ ONLY",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets aTable (or the default table if omitted) to read-only state for the calling process; subsequently loaded records of that table cannot be modified."
+    },
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets every table to read-only state for the calling process, using the '*' form instead of naming a single table."
+    }
+  ],
+  "constraints": [
+    "Not retroactive: a record's read-only/read-write status is fixed at the moment it is loaded, based on the table's state at that time. To load a record from a read/write table in read-only mode, change the table's state before loading it."
+  ]
+}

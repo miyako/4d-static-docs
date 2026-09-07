@@ -1,0 +1,113 @@
+{
+  "id": "ACTIVITY-SNAPSHOT",
+  "displayName": "ACTIVITY SNAPSHOT",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "arrActivities",
+          "type": {
+            "kind": "concrete",
+            "name": "Object array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with one object per in-progress operation, describing message, timing, and context/details."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, get the server's activity snapshot instead of the local one (remote mode only)."
+        }
+      ],
+      "semanticRole": "Returns a snapshot of in-progress 4D operations as a single array of structured Objects, one per operation (including nested subOperations).",
+      "discriminatedBy": {
+        "param": "arrActivities",
+        "rule": "Chosen when the caller wants all operation info returned as a single structured Object array, one element per operation."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "arrUUID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "UUID identifier for each operation."
+        },
+        {
+          "name": "arrStart",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Start time of each operation, \"yyyy:mm:dd hh:mm:ss:mls\" format."
+        },
+        {
+          "name": "arrDuration",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Duration of each operation, in milliseconds."
+        },
+        {
+          "name": "arrInfo",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Label describing each operation."
+        },
+        {
+          "name": "arrDetails",
+          "type": {
+            "kind": "concrete",
+            "name": "Object array"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Per-operation object with dbContextInfo/dbOperationDetails/subOperations, if requested."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, get the server's activity snapshot instead of the local one (remote mode only)."
+        }
+      ],
+      "semanticRole": "Returns a snapshot of in-progress 4D operations as several synchronized flat arrays (one element per operation per array) instead of one Object array.",
+      "discriminatedBy": {
+        "param": "arrUUID",
+        "rule": "Chosen when the caller wants operation info spread across several parallel/synchronized flat arrays instead of one Object array."
+      }
+    }
+  ],
+  "constraints": [
+    "The trailing '*' parameter is only meaningful when 4D runs in remote mode: passing it retrieves a snapshot of the operations on the server instead of local operations; it is ignored when the command runs on 4D Server or 4D single-user."
+  ]
+}

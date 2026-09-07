@@ -1,0 +1,23 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the string form of expression (Real, Integer, Date, Time, Text, or Boolean) using the default format, or the format/addTime you specify.",
+      "discriminatedBy": {
+        "param": "format",
+        "rule": "Applies when at most a display format and (for dates) an addTime are passed, as opposed to the numeric-base overload."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns the string form of a numeric expression converted to the given base (radix), between 2 and 36.",
+      "discriminatedBy": {
+        "param": "base",
+        "rule": "Applies when a second Integer parameter is passed as a radix (2-36) instead of a display format; only valid for numeric expression."
+      }
+    }
+  ],
+  "constraints": [
+    "The String function is not compatible with \"Integer 64 bits\" type fields in compiled mode."
+  ]
+}

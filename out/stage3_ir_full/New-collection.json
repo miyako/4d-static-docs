@@ -1,0 +1,36 @@
+{
+  "id": "New-collection",
+  "displayName": "New collection",
+  "kind": "classic_command",
+  "theme": "Collections",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "members": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Create a new collection, optionally prefilled with one or more values passed as parameters; omitting all parameters creates an empty collection."
+    }
+  ]
+}

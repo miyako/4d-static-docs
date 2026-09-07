@@ -1,0 +1,9 @@
+{
+  "theme": "4D-Environment",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns an object with detailed 4D database engine measures (disk/cache read-write access, index/query/sort usage), optionally scoped or filtered by the options object."
+    }
+  ]
+}

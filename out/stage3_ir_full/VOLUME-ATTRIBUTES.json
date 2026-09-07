@@ -1,0 +1,55 @@
+{
+  "id": "VOLUME-ATTRIBUTES",
+  "displayName": "VOLUME ATTRIBUTES",
+  "kind": "classic_command",
+  "theme": "System-Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "volume",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Volume name"
+        },
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Volume size expressed in bytes"
+        },
+        {
+          "name": "used",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Used space expressed in bytes"
+        },
+        {
+          "name": "free",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Free space expressed in bytes"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If volume designates a non-mounted remote volume, the system variable OK is set to 0 and size/used/free are each returned as -1."
+  ]
+}

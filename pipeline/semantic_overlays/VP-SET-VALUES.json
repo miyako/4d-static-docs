@@ -1,0 +1,8 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "rangeObj determines only the starting cell: if it is not a cell range, or if it includes multiple ranges, only the first cell of the first range is used as the starting point.",
+    "valuesCol is two-dimensional: the first-level collection holds one subcollection per row; pass an empty subcollection to skip (leave untouched) a row.",
+    "Each row subcollection's elements can be Integer, Real, Boolean, Text, Date, Null, or Object; an Object element may carry 'value' and/or 'time' (Real, seconds) properties."
+  ]
+}

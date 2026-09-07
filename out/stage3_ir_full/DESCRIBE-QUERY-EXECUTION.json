@@ -1,0 +1,36 @@
+{
+  "id": "DESCRIBE-QUERY-EXECUTION",
+  "displayName": "DESCRIBE QUERY EXECUTION",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "status",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": true,
+              "meaning": "enable internal query analysis mode for the current process (records the query plan and query path for each subsequent 4D-language query)"
+            },
+            {
+              "value": false,
+              "meaning": "disable internal query analysis mode"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Only affects queries made through 4D language query commands such as QUERY.",
+    "Recorded query plan/path can be read via the Last query plan and Last query path commands; they usually match but can differ when 4D dynamically re-optimizes a query (e.g. converting an indexed query to sequential).",
+    "Enabling query analysis mode can slow down the application."
+  ]
+}

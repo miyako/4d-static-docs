@@ -1,0 +1,40 @@
+{
+  "id": "GOTO-SELECTED-RECORD",
+  "displayName": "GOTO SELECTED RECORD",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "record",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Deselects the current record: no record becomes current in aTable (useful for single-selection mode/subforms)."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "GOTO SELECTED RECORD moves to the specified record in the current selection of aTable and makes that record the current record."
+    }
+  ],
+  "constraints": [
+    "Does nothing if the current selection is empty, if record is not in the current selection, or if record is already the current record."
+  ]
+}

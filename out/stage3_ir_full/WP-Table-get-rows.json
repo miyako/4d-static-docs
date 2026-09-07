@@ -1,0 +1,110 @@
+{
+  "id": "WP-Table-get-rows",
+  "displayName": "WP Table get rows",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Table reference"
+        },
+        {
+          "name": "headers",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Pass the wk header rows constant to get the table's repeated header row(s)",
+          "sentinelValues": [
+            {
+              "value": "wk header rows",
+              "meaning": "Return the repeated header rows of the table instead of body rows"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Gets the repeated header row(s) of a table by passing the wk header rows constant instead of a start row index."
+    },
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Gets a row range from the table intersecting a range, element, or 4D Write Pro document; returns Null if no such intersection exists.",
+      "discriminatedBy": {
+        "param": "targetObj",
+        "note": "single Object arg resolved as a range/element/document rather than a raw table reference"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "tableRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "startRow",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "numRows",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Gets a row range from a table, addressed by table reference and explicit start row (with optional row count, defaulting to a single row).",
+      "discriminatedBy": {
+        "param": "tableRef",
+        "note": "2-3 arg form addressing a table by reference plus explicit row index"
+      }
+    }
+  ],
+  "constraints": [
+    "If numRows is omitted, only the single startRow row is returned.",
+    "If startRow+numRows exceeds the number of rows in tableRef, or startRow is greater than the number of rows, the returned range is clamped to the maximum possible rows.",
+    "In the headers form, any numRows parameter is ignored; the command returns Null if the table has no defined header rows."
+  ]
+}

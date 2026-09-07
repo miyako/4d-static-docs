@@ -1,0 +1,34 @@
+{
+  "id": "GOTO-XY",
+  "displayName": "GOTO XY",
+  "kind": "classic_command",
+  "theme": "Messages",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "x",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "y",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GOTO XY command is used in conjunction with the MESSAGE command when you display messages in a window opened using Open window ."
+    }
+  ],
+  "constraints": [
+    "The character cursor resets to position 0,0 when a window is opened, and after ERASE WINDOW is executed."
+  ]
+}

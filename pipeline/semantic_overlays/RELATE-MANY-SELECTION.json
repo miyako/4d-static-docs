@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Also changes the current record of the One table (the table on the other end of aField's relation), not only the Many table's selection."
+  ]
+}

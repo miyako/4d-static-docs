@@ -1,0 +1,26 @@
+{
+  "theme": "Web-Server",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "body",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Body of the HTTP request, returned as-is with no processing/parsing (Text is generally sufficient; up to 2GB)."
+        }
+      ]
+    }
+  ]
+}

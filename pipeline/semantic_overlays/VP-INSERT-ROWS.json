@@ -1,0 +1,13 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "rangeObj carries both the starting row position and the number of rows to insert; if the count is omitted, a single row is inserted.",
+    "New rows are inserted directly before the first row of rangeObj."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Inserts one or more rows into the sheet at the position designated by rangeObj, shifting existing rows down."
+    }
+  ]
+}

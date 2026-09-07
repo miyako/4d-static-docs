@@ -1,0 +1,30 @@
+{
+  "id": "Session-storage",
+  "displayName": "Session storage",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "id",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Session storage command returns the storage object of the session whose unique identifier you passed in the id parameter."
+    }
+  ],
+  "constraints": [
+    "Returns Null if no session exists with the given id.",
+    "The returned object is the .storage property of the session (a shared object usable from any preemptive or standard process)."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "styleSheetName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of style sheet",
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "No style sheet applied to the object for the current process"
+            },
+            {
+              "value": "__automatic__",
+              "meaning": "Automatic style sheet, used by default for all objects"
+            },
+            {
+              "value": "__automatic_additional_text__",
+              "meaning": "Automatic style sheet for additional text in dialog boxes (static text, fields, and variables only)"
+            },
+            {
+              "value": "__automatic_main_text__",
+              "meaning": "Automatic style sheet for main text in dialog boxes (static text, fields, and variables only)"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets, for the current process, the style sheet (a named style sheet, an automatic style sheet, or none) applied to the object(s) designated by object and *."
+    }
+  ],
+  "constraints": [
+    "If styleSheetName names a style sheet that does not exist, an error is returned (interceptable via ON ERR CALL).",
+    "If a style sheet was already associated with the object in Design mode, this command replaces it for the current process.",
+    "Subsequently changing the object's font or size via ST SET ATTRIBUTES, ST SET TEXT, OBJECT SET FONT, or OBJECT SET FONT SIZE automatically clears the style-sheet reference, even if the new attributes match the style sheet's; changing only the style (bold/italic/etc.) does not clear it in the same way."
+  ]
+}

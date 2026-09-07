@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "This command cannot be used with an external connection opened directly or via ODBC.",
+    "The export files are placed in a folder named \"SQLExport\" created inside folderPath; if an \"SQLExport\" folder already exists there, it is replaced without any warning.",
+    "If folderPath is an empty string, a standard folder-selection dialog box is displayed (defaulting to the current user's Documents folder).",
+    "The generated Export.sql file(s) can be fed directly into SQL EXECUTE SCRIPT to import the data into another 4D database."
+  ]
+}

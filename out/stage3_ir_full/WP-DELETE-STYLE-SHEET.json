@@ -1,0 +1,54 @@
+{
+  "id": "WP-DELETE-STYLE-SHEET",
+  "displayName": "WP DELETE STYLE SHEET",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "styleSheetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Deletes an already-referenced style sheet object directly (e.g. one created with WP New style sheet or returned by WP Get style sheet)."
+    },
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "styleSheetName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "listLevelIndex",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Deletes the named style sheet (optionally at a given list level) from wpDoc by name rather than by object reference."
+    }
+  ]
+}

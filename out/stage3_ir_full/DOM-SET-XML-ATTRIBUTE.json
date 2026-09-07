@@ -1,0 +1,72 @@
+{
+  "id": "DOM-SET-XML-ATTRIBUTE",
+  "displayName": "DOM SET XML ATTRIBUTE",
+  "kind": "classic_command",
+  "theme": "XML-DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attrValue",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attrValue",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Sets (adding if not present) one or more attribute name/value pairs on the XML element elementRef, converting non-Text attrValue values to text."
+    }
+  ],
+  "constraints": [
+    "attrValue may be Text or another scalar type (Boolean, Integer, Real, Date, Time); non-Text values are converted to text (e.g. Boolean -> \"true\"/\"false\", Date -> RFC 3339 string, Time -> number of seconds as text).",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "theme": "4D-Environment",
+  "constraints": [
+    "Information reflects where the command is executed: called from a remote 4D it describes only that workstation; called in code running on the server it describes the server.",
+    "On Windows, the cpuUsage/networkInputThroughput/networkOutputThroughput counters require having been previously initialized by an earlier call to Application info (e.g. from the On Startup database method) before they report real values."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns an object describing the current application instance's activity and network configuration (CPU/network usage, server listening state, ports, UI mode flags, uptime, etc.), scoped to wherever the call executes."
+    }
+  ]
+}

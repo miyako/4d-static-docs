@@ -1,0 +1,78 @@
+{
+  "id": "Open-document",
+  "displayName": "Open document",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "Presents the standard Open File dialog box for interactive selection instead of opening a named document."
+            }
+          ]
+        },
+        {
+          "name": "fileType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Semicolon-separated list of file type(s)/UTIs/extensions to filter the Open dialog by.",
+          "sentinelValues": [
+            {
+              "value": "*",
+              "meaning": "Do not restrict the displayed files to any type (\".*\" is also accepted)."
+            }
+          ]
+        },
+        {
+          "name": "mode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Constant from the 'System Documents' theme selecting the open mode.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Read and Write (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "Write Mode."
+            },
+            {
+              "value": 2,
+              "meaning": "Read Mode."
+            },
+            {
+              "value": 3,
+              "meaning": "Get Pathname."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Opens the document named by document (or presents the Open File dialog if document is an empty string), filtered by fileType, in the mode specified by mode, and returns its document reference number."
+    }
+  ],
+  "constraints": [
+    "If the document is already open in Read mode and mode is omitted, it is reopened in Read/Write mode by default.",
+    "If the document is already open in Read/Write mode, attempting to open it in Write mode generates error -43; opening it Read-only instead succeeds.",
+    "Under Windows, if the user forces display of all file types (*.*) in the Open dialog and selects an unauthorized type, the command returns an error.",
+    "Sets OK to 0 (and returns a null DocRef) if the user cancels the Open File dialog; sets OK to 1 on success."
+  ]
+}

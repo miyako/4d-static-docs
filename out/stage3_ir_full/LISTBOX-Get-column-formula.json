@@ -1,0 +1,63 @@
+{
+  "id": "LISTBOX-Get-column-formula",
+  "displayName": "LISTBOX Get column formula",
+  "kind": "classic_command",
+  "theme": "List-Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the formula text associated with the list box column (empty string if none), addressed as an object-name string (via the leading '*' flag). Only meaningful for Current Selection/Named Selection/Collection or Entity Selection data sources.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the formula text associated with the list box column (empty string if none), addressed as a direct Variable reference (no leading '*'). Only meaningful for Current Selection/Named Selection/Collection or Entity Selection data sources.",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      }
+    }
+  ]
+}

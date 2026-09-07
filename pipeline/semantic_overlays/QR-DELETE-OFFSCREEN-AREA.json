@@ -1,0 +1,7 @@
+{
+  "theme": "Quick-Report",
+  "constraints": [
+    "area must reference an offscreen area previously created by QR New offscreen area; it is released from memory by this command and can no longer be used afterward.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Quick Report offscreen area lifecycle: QR New offscreen area creates an in-memory area -> QR-SET-*/QR-GET-*/QR-Get-* commands configure and inspect its columns, sorts, totals, formatting and destination -> QR RUN or QR REPORT generates the output -> QR DELETE OFFSCREEN AREA releases the area from memory."
+  ]
+}

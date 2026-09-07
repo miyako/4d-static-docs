@@ -1,0 +1,83 @@
+{
+  "id": "SET-WINDOW-RECT",
+  "displayName": "SET WINDOW RECT",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "left",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "top",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "right",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "bottom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET WINDOW RECT command changes the global coordinates of the window whose reference number is passed in window .",
+      "interactionNotes": [
+        {
+          "params": [
+            "window",
+            "*"
+          ],
+          "note": "By default, executing this command moves the designated window to the foreground. Passing '*' as the last parameter disables that: the window's original level (z-order) is left unchanged."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If window does not designate an existing window, the command does nothing.",
+    "Coordinates are relative to the top-left corner of the application window's contents area (Windows MDI mode) or to the main screen (macOS and Windows SDI mode), and describe the window's contents area (excluding title bar/borders); using Screen width/Screen height to double-check values is recommended since the command lets you move a window beyond the main window's or screen's limits.",
+    "Does not move or resize the form objects contained in the window regardless of their resizing properties; use RESIZE FORM WINDOW to also account for object resizing properties."
+  ]
+}

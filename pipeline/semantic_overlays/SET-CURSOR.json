@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Must be called in the context of the On Mouse Move form event.",
+    "Calling with no argument (cursor omitted) restores the standard mouse cursor."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "charSet may be given as a standard character-set name or alias (e.g. \"ISO-8859-1\", \"UTF-8\") or as a numeric identifier (longint); see CONVERT FROM TEXT for the supported set.",
+    "If charSet designates a Unicode encoding (UTF-8, UTF-16, or UTF-32) and the BLOB begins with a Byte Order Mark, the BOM is detected and honored during conversion."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Converts the raw bytes of a BLOB, interpreted as text in the given character set, into a 4D Text value (UTF-16)."
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "Select-document",
+  "displayName": "Select document",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "directory",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Directory access path to display by default, or empty string for the default user folder, or a number (1-32000) of a memorized access path."
+        },
+        {
+          "name": "fileTypes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "title",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "selected",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Array filled with the access paths and names of all selected files, in case of multiple selection."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Select document command displays a standard open document dialog box which allows the user to set one or more files and returns the name and/or full access path of the selected file(s)."
+    }
+  ],
+  "constraints": [
+    "The mechanical draft left 'selected' with direction 'in', but the doc's arrow column marks it '<-' (out): the command writes the list of selected files into it.",
+    "directory as a memorized-path number (1-32000) lets 4D remember, per number, the last folder the user browsed to and reuse it as the default on subsequent calls; under Windows this is kept for the session only, under macOS it persists across sessions."
+  ]
+}

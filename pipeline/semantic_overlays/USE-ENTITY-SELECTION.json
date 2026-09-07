@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Cannot be used with a Remote datastore.",
+    "In 4D single-user and 4D Server, entitySelection is directly connected to the resulting current selection for performance; once used, entitySelection must not be reused or altered afterwards.",
+    "After the call, the first record of the updated current selection (if any) becomes the current record but is not loaded into memory; use LOAD RECORD afterwards if field values are needed."
+  ]
+}

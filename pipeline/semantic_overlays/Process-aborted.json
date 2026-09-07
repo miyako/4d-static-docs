@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "This condition (the process being unexpectedly interrupted before its 'normal' completion) happens very rarely; processes are usually stopped before code can even observe the 'process aborted' status, so this can only realistically occur in compiled loops that are not executing any 4D command."
+  ]
+}

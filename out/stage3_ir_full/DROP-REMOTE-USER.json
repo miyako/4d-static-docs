@@ -1,0 +1,26 @@
+{
+  "id": "DROP-REMOTE-USER",
+  "displayName": "DROP REMOTE USER",
+  "kind": "classic_command",
+  "theme": "4D-Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "userSession",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Disconnects the remote user identified by the userSession session ID from 4D Server."
+    }
+  ],
+  "constraints": [
+    "Runs asynchronously and only has effect when executed on 4D Server; does nothing when called locally on a remote client or in 4D single-user.",
+    "The userSession ID can be retrieved with the Process activity command."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "WP-EXPORT-VARIABLE",
+  "displayName": "WP EXPORT VARIABLE",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destination",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "format",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "option",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WP EXPORT VARIABLE command exports the wpDoc 4D Write Pro object to the 4D destination variable in the specified format ."
+    }
+  ],
+  "constraints": [
+    "destination's resolved type depends on format: Blob for the native .4wp/.docx formats, Text for HTML/SVG formats."
+  ]
+}

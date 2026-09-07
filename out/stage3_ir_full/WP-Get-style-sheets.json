@@ -1,0 +1,35 @@
+{
+  "id": "WP-Get-style-sheets",
+  "displayName": "WP Get style sheets",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The WP Get style sheets command returns a collection of all the style sheet objects of the defined type in wpDoc ."
+    }
+  ]
+}

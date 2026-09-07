@@ -1,0 +1,26 @@
+{
+  "id": "Trim-start",
+  "displayName": "Trim start",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Trim start command removes whitespace from the beginning of the aString parameter and returns a new string, without modifying the original one."
+    }
+  ]
+}

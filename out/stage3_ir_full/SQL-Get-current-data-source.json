@@ -1,0 +1,12 @@
+{
+  "id": "SQL-Get-current-data-source",
+  "displayName": "SQL Get current data source",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SQL Get current data source command returns the name of the current data source of the application."
+    }
+  ]
+}

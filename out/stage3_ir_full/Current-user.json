@@ -1,0 +1,39 @@
+{
+  "id": "Current-user",
+  "displayName": "Current user",
+  "kind": "classic_command",
+  "theme": "Users-and-Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "user",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "4D user account: always return the 4D user account name (constant '4D user account')"
+            },
+            {
+              "value": 2,
+              "meaning": "4D user alias: return the alias defined with SET USER ALIAS, or an empty string if none is defined (constant '4D user alias')"
+            },
+            {
+              "value": 0,
+              "meaning": "4D user alias or account (default if omitted): return the alias if one is defined with SET USER ALIAS, otherwise the regular account name (constant '4D user alias or account')"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ]
+}

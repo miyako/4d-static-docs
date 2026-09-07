@@ -1,0 +1,85 @@
+{
+  "id": "WP-TABLE-MERGE-CELLS",
+  "displayName": "WP TABLE MERGE CELLS",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Merges the selection of cells intersecting a range, element, or 4D Write Pro document into a single cell.",
+      "discriminatedBy": {
+        "param": "targetObj",
+        "note": "single Object arg resolved as a range/element/document rather than a raw table reference"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "tableRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "startColumn",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "startRow",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "columnCount",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "rowCount",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Merges a rectangular block of cells in a table, addressed by table reference and explicit start column/row (with optional column/row counts, default 1x1 growing to bottom-right).",
+      "discriminatedBy": {
+        "param": "tableRef",
+        "note": "3-5 arg form addressing a table by reference plus explicit coordinates"
+      }
+    }
+  ],
+  "constraints": [
+    "If targetObj does not intersect a table or a selectable cell range, or intersects only a single cell, the command does nothing.",
+    "columnCount and rowCount each default to 1 when omitted; if both are omitted, the selection is a single cell and the command does nothing.",
+    "If startColumn+columnCount or startRow+rowCount exceed the table's dimensions, the merge is clamped to the maximum possible columns/rows (up to merging the whole table into one cell)."
+  ]
+}

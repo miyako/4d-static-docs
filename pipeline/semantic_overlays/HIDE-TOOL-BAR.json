@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Only affects a toolbar window previously created by Open form window with the Toolbar form window option, for the current process; no-op if the toolbar was already hidden or none has been created."
+  ]
+}

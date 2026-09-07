@@ -1,0 +1,16 @@
+{
+  "id": "Last-update-log-path",
+  "displayName": "Last update log path",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the complete pathname of the most recent update log file found on the machine where it is called."
+    }
+  ]
+}

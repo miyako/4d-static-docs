@@ -1,0 +1,52 @@
+{
+  "constraints": [
+    "Also usable purely to validate that a string is well-formed JSON (a parsing error is thrown otherwise).",
+    "If pointers were serialized, JSON Stringify must have been used to produce jsonString before calling JSON Parse.",
+    "Real values must fall within \u00b110.421e\u00b110; text values must have all special characters (including quotes) escaped.",
+    "By default (type omitted), 4D infers the type from the target field/variable if one is defined, else infers it from the JSON value itself.",
+    "Date strings in \"YYYY-MM-DD\" format are returned as date values automatically when the database's date setting is Date type (the default); the 'Dates inside objects' setting of SET DATABASE PARAMETER controls whether JSON date strings are treated as local time or GMT.",
+    "Time values are parsed from numbers, interpreted by default as a number of seconds.",
+    "The * parameter is honored only when the returned value is of the object type; if passed, the result gains an extra __symbols property giving each property/sub-property's path, line number, and line offset -- useful for debugging, ignored for non-object results."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Added sentinelValues to the 'type' param documenting the named 'Field and Variable Types' theme constants used to force a specific interpretation of the parsed value.",
+      "params": [
+        {
+          "name": "jsonString",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "JSON string to parse"
+        },
+        {
+          "name": "type",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Forces the type to convert the parsed value into (Field and Variable Types theme constant).",
+          "sentinelValues": [
+            { "value": 6, "meaning": "Is Boolean" },
+            { "value": 42, "meaning": "Is collection" },
+            { "value": 4, "meaning": "Is date" },
+            { "value": 9, "meaning": "Is longint" },
+            { "value": 38, "meaning": "Is object" },
+            { "value": 1, "meaning": "Is real" },
+            { "value": 2, "meaning": "Is text" },
+            { "value": 11, "meaning": "Is time" }
+          ]
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If the parsed value is an object, adds a __symbols property with line position and offset of each property; ignored otherwise."
+        }
+      ],
+      "returns": { "kind": "pseudo", "name": "any" },
+      "semanticRole": "Deserializes a JSON-formatted string into a 4D value (object, collection, or scalar), optionally forcing the result's type and optionally attaching source-position debug metadata."
+    }
+  ]
+}

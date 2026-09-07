@@ -1,0 +1,43 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If there is no data context set for the worksheet (via VP SET DATA CONTEXT), the command returns Null.",
+    "The returned type (Object or Collection) mirrors whatever type was set with VP SET DATA CONTEXT."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Index of the sheet to get the data context from; current sheet if omitted"
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "Returns the current data context (Object or Collection, or Null if none is set) of a worksheet, including any modifications made to its contents.",
+      "note": "Stage 1 doc scrape produced two byte-for-byte identical signature lines for this command (a scrape artifact, not a real overload); collapsed into a single overload."
+    }
+  ]
+}

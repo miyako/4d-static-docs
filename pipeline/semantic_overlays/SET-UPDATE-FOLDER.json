@@ -1,0 +1,41 @@
+{
+  "constraints": [
+    "Only works with 4D Server or a single-user application merged with 4D Volume Desktop.",
+    "The update is placed 'on hold' in the session until RESTART 4D is called; calling this command several times before that only the last valid call is used, and the setting is not kept if the application is exited manually instead.",
+    "When silentErrors is False or omitted, errors are recorded in the update journal and shown in a warning dialog; when True, errors are only recorded in the journal — except if the journal file itself cannot be created, in which case a warning dialog is always shown regardless of silentErrors.",
+    "Sets OK to 1 if the command executes correctly, 0 otherwise; errors can be caught with ON ERR CALL."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "folderPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Pathname of folder (package under macOS) containing updated application",
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "Reset the update information held for the current session."
+            }
+          ]
+        },
+        {
+          "name": "silentErrors",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "False (default) = report errors visibly, True = do not report them"
+        }
+      ]
+    }
+  ]
+}

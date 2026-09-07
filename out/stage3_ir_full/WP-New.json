@@ -1,0 +1,52 @@
+{
+  "id": "WP-New",
+  "displayName": "WP New",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "source",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP New command creates and returns a 4D Write Pro object."
+    }
+  ],
+  "constraints": [
+    "If source is omitted, an empty 4D Write Pro object is returned.",
+    "If source is Text, it must be a 4D HTML source string (as exported by WP EXPORT VARIABLE with wk web page html 4D).",
+    "If source is Blob, it must contain either a 4D Write Pro (.4wp) document or a legacy 4D Write document (.4w7/.4wt); option only applies in this legacy-blob case, to control whether HTML expressions are imported as raw text (wk import html expressions as text) or ignored (default).",
+    "If source is Object, it must be a range, a body-descendant element (table/row/paragraph/body/header/footer/inline picture/text box/section/subsection/style sheet), or a 4D Write Pro document; passing a range that is not the full document range exports only the first section and does not export bookmarks; passing a document returns a copy of it.",
+    "option is only meaningful when source is a Blob containing a legacy 4D Write document; it is ignored otherwise."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "SHOW-WINDOW",
+  "displayName": "SHOW WINDOW",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SHOW WINDOW command displays the window whose number was passed in window ."
+    }
+  ],
+  "constraints": [
+    "The target window must have previously been hidden using HIDE WINDOW; if the window is already displayed, the command does nothing."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "SQL-GET-LAST-ERROR",
+  "displayName": "SQL GET LAST ERROR",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "errCode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "errText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "errODBC",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "errSQLServer",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "This command must generally be called within an error-handling method installed via ON ERR CALL.",
+    "errODBC and errSQLServer are only filled when the error originates from the ODBC source; otherwise they are returned empty."
+  ]
+}

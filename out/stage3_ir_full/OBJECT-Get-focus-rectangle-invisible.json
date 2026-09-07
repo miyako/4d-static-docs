@@ -1,0 +1,66 @@
+{
+  "id": "OBJECT-Get-focus-rectangle-invisible",
+  "displayName": "OBJECT Get focus rectangle invisible",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The OBJECT Get focus rectangle invisible command returns the status of the visibility option for the focus rectangle of the object(s) designated by the object and * parameters for the current process .",
+      "platformConstraints": [
+        {
+          "platform": "macOS",
+          "valid": true,
+          "note": "Hide focus rectangle option is supported."
+        },
+        {
+          "platform": "Windows (Fluent UI)",
+          "valid": true,
+          "note": "Supported when Fluent UI is enabled."
+        },
+        {
+          "platform": "Windows (classic UI)",
+          "valid": false,
+          "note": "The option has no effect in classic Windows UI."
+        }
+      ]
+    }
+  ]
+}

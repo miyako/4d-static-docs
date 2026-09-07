@@ -1,0 +1,47 @@
+{
+  "id": "Data-file-encryption-status",
+  "displayName": "Data file encryption status",
+  "kind": "classic_command",
+  "theme": "Data-Security",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "structurePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "dataPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns an object describing the encryption status (overall and per-table) of the data file designated by structurePath/dataPath."
+    }
+  ],
+  "jointConstraints": [
+    {
+      "params": [
+        "structurePath",
+        "dataPath"
+      ],
+      "rule": "Both parameters are wrapped together as one optional group in the doc syntax, implying they must be supplied as a pair (a specific, non-open structure/data file combination) rather than independently."
+    }
+  ],
+  "constraints": [
+    "dataPath must correspond to the structure file given by structurePath, and must not be the currently-open data file."
+  ]
+}

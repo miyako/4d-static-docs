@@ -1,0 +1,12 @@
+{
+  "id": "FORM-PREVIOUS-PAGE",
+  "displayName": "FORM PREVIOUS PAGE",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Displays the previous page of the current form; does nothing if no form is being displayed/loaded (via FORM LOAD), or if the first page is already showing."
+    }
+  ]
+}

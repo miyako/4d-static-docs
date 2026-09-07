@@ -1,0 +1,26 @@
+{
+  "id": "Is-a-list",
+  "displayName": "Is a list",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is a list command returns TRUE if the value you pass in list is a valid reference to a hierarchical list."
+    }
+  ]
+}

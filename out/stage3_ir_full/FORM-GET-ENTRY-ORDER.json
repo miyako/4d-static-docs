@@ -1,0 +1,64 @@
+{
+  "id": "FORM-GET-ENTRY-ORDER",
+  "displayName": "FORM GET ENTRY ORDER",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the object names sorted by declared entry order; empty if FORM SET ENTRY ORDER was never called for the current form"
+        },
+        {
+          "name": "pageNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Page for which to get the declared entry order; current page if omitted"
+        }
+      ],
+      "semanticRole": "Returns the entry order previously declared for the current or given page via FORM SET ENTRY ORDER (empty if never declared)."
+    },
+    {
+      "params": [
+        {
+          "name": "objectNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with only the valid object names making up the actual, in-effect entry order of the current page"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, return the actual entry order currently in effect (default layering order, Form editor order, or a prior FORM SET ENTRY ORDER call) instead of only what was explicitly declared"
+        }
+      ],
+      "semanticRole": "Returns the actual, currently effective entry order of the current page, regardless of whether FORM SET ENTRY ORDER was ever called."
+    }
+  ],
+  "constraints": [
+    "The entry order within a subform is not returned when this command is applied to the parent form.",
+    "The actual entry order (the * variant) always includes objects from page 0 and inherited form(s)."
+  ]
+}

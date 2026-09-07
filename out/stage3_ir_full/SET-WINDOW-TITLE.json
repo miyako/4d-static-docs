@@ -1,0 +1,36 @@
+{
+  "id": "SET-WINDOW-TITLE",
+  "displayName": "SET WINDOW TITLE",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "title",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET WINDOW TITLE command changes the title of the window whose reference number is passed in window to the text passed in title (max."
+    }
+  ],
+  "constraints": [
+    "title is truncated to a maximum of 80 characters.",
+    "If the window reference number does not correspond to an existing window, SET WINDOW TITLE does nothing.",
+    "In the Design environment, 4D manages window titles automatically and is likely to override a title set by this command; in the Application (compiled/runtime) environment, 4D never changes window titles itself."
+  ]
+}

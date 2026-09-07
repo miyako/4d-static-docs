@@ -1,0 +1,13 @@
+{
+  "theme": "Process-Communications",
+  "constraints": [
+    "A process can only clear a semaphore it created; calling it on a semaphore created by another process does nothing.",
+    "Semaphores not cleared remain in memory until the creating process ends."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Erases a semaphore previously created by the Semaphore function, if the calling process created it."
+    }
+  ]
+}

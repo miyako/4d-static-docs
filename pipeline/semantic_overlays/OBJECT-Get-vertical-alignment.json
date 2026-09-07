@@ -1,0 +1,53 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      },
+      "semanticRole": "Returns a constant code for the vertical text alignment applied to the designated form object (or the last object, if several are designated).",
+      "note": "Draft parser produced two separate overloads (one per doc syntax line) each hard-typing object as plain Text or as Variable,Field; docs describe this as a single command whose object parameter is a Text/Variable/Field union selected by the optional leading '*' flag, so merged into one overload with that union type and a discriminatedBy rule on '*'.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ]
+}

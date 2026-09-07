@@ -1,0 +1,16 @@
+{
+  "id": "FORM-theme",
+  "displayName": "FORM theme",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns the OS interface rendering theme actually used by the current form (\"Classic\"/\"FluentUI\" on Windows, \"Classic\"/\"LiquidGlass\" on macOS), or an empty string if there is no current form."
+    }
+  ],
+  "constraints": [
+    "On Windows, the rendering theme can be set at application and/or form level (inherited or explicit) and also depends on the availability of specific Microsoft libraries at runtime.",
+    "On macOS 26 Tahoe and later (as of 4D/4D Server 21 R3), the Liquid Glass interface is used automatically and cannot be disabled, except transitionally in engine-based applications via Apple's UIDesignRequiresCompatibility Info.plist key."
+  ]
+}

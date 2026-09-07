@@ -1,0 +1,32 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "searchCondition.all defaults to False (only the first matching cell is returned); True returns all matching cells.",
+    "searchCondition.afterColumn/afterRow default to -1 (search starts at the beginning of rangeObj); if rangeObj is a combined range, these must refer to the first range.",
+    "searchCondition.flags combines vk find flag constants (vk find flag exact match, vk find flag ignore case, vk find flag use wild cards, or vk find flag none as default) to control matching.",
+    "Passing replaceValue additionally replaces matched cell(s) with that value."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Searches rangeObj for the first cell matching searchValue using default search options, and returns the matching range.",
+      "discriminatedBy": {
+        "searchCondition": "omitted -> default search options (first match, case-sensitive, no wildcards)"
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Searches rangeObj for cell(s) matching searchValue under explicit search options (match scope, start position, all-matches flag, comparison flags), and returns the matching range.",
+      "discriminatedBy": {
+        "searchCondition": "provided -> customizes match scope/flags/start position/all-vs-first"
+      }
+    },
+    {
+      "index": 2,
+      "semanticRole": "Searches rangeObj for cell(s) matching searchValue under explicit search options and replaces each match with replaceValue, returning the affected range.",
+      "discriminatedBy": {
+        "replaceValue": "provided -> performs find-and-replace instead of find-only"
+      }
+    }
+  ]
+}

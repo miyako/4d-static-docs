@@ -1,0 +1,16 @@
+{
+  "id": "WEB-Server-list",
+  "displayName": "WEB Server list",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Returns a collection of all available 4D.WebServer objects (the database's own Web server plus any host/component Web servers)."
+    }
+  ]
+}

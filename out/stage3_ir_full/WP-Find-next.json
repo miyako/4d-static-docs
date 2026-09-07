@@ -1,0 +1,66 @@
+{
+  "id": "WP-Find-next",
+  "displayName": "WP Find next",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "searchAfter",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "searchValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "searchCondition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "replaceValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Find next command searches the targetObj , after the searchAfter range, for the searchValue based on the searchCondition ."
+    }
+  ],
+  "constraints": [
+    "Does not search or replace text inside formulas; use WP Get formulas for that case.",
+    "Pass NULL in searchAfter to begin the search from the first value of targetObj."
+  ]
+}

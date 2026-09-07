@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "Does nothing if there is no current record.",
+    "The record is displayed only until an event redraws the window (e.g. ADD RECORD, returning to an input form, or returning to the menu bar).",
+    "Must not be called from within a Web connection process: it would execute on the 4D Web server machine, not the Web browser client machine."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Displays the current record of aTable in its current input form, e.g. for custom progress messages or a free-running slide show."
+    }
+  ]
+}

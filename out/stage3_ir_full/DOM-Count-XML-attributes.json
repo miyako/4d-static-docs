@@ -1,0 +1,26 @@
+{
+  "id": "DOM-Count-XML-attributes",
+  "displayName": "DOM Count XML attributes",
+  "kind": "classic_command",
+  "theme": "XML-DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the number of XML attributes present on a given XML element."
+    }
+  ]
+}

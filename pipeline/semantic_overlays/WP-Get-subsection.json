@@ -1,0 +1,16 @@
+{
+  "theme": "WritePro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the first subsection intersected by a range or element passed in targetObj; returns a null object if no subsection intersects it."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns the subsection of the specified subSectionType (wk first page, wk left page, or wk right page) within wpSection."
+    }
+  ],
+  "constraints": [
+    "If targetObj is or belongs to a header, footer, or text box, the command returns the subsection to which it is attached (or a null object if it is not attached to any subsection)."
+  ]
+}

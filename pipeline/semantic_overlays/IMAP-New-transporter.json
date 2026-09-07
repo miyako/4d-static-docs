@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "The parameter object's .host property is mandatory; all other properties are optional and default as documented (e.g. .port defaults to 993, .connectionTimeOut to 30s, .checkConnectionDelay to 300s).",
+    "The .accessTokenOAuth2 and .password properties are consumed for authentication but are not echoed back on the returned transporter object.",
+    "The defined connection/check timeouts should be kept lower than the mail server's own timeout, otherwise the client-side timeout has no effect.",
+    "The optional .listener property is an Object with up to three named 4D.Function callback slots, each with its own (transporter:Object, event:Object) signature and event-payload shape -- documented as the IMAPListenerOnMailCreated, IMAPListenerOnMailDeleted, and IMAPListenerOnFlagsModified entries in references/4d-command-ir-callbacks.json (event.type is \"mailCreated\"/\"mailDeleted\"/\"FlagsModified\" respectively; onMailCreated also carries event.mailCount, onMailDeleted/onFlagsModified carry event.msgNumber, and onFlagsModified additionally carries event.flags). Not referenced via the schema's single-string callbackContractRef because that field supports only one contract per command, not a multi-slot listener object; cross-referenced here in prose instead."
+  ]
+}

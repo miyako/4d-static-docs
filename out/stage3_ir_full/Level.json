@@ -1,0 +1,19 @@
+{
+  "id": "Level",
+  "displayName": "Level",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the current header or break level, valid during the On Header and On Printing Break form events."
+    }
+  ],
+  "constraints": [
+    "Level 0 is the last level printed, used for a grand total; Level returns 1 on a break on the first sorted field, 2 on the second, and so on."
+  ]
+}

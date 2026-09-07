@@ -1,0 +1,6 @@
+{
+  "theme": "Quick-Report",
+  "constraints": [
+    "Return value maps to the QR Report Types constants: 1 = qr list report (list mode), 2 = qr cross report (cross-table mode)."
+  ]
+}

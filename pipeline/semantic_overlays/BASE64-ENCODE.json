@@ -1,0 +1,42 @@
+{
+  "constraints": [
+    "If encoded is omitted, the command overwrites toEncode in place with the encoded value instead of writing to a separate parameter.",
+    "Base64URL (selected via the trailing *) is an alternate encoding with URL/filename-safe substitutions per RFC 4648, distinct from standard Base64."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "toEncode is documented/arrow-marked as inout ('<->': input raw value, and also the output slot when encoded is omitted); encoded is a pure output. The draft parser had defaulted every parameter to direction:in.",
+      "params": [
+        {
+          "name": "toEncode",
+          "type": [
+            { "kind": "concrete", "name": "Blob" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "inout",
+          "optional": false,
+          "description": "Raw value to encode; overwritten in place with the encoded value if encoded is omitted."
+        },
+        {
+          "name": "encoded",
+          "type": [
+            { "kind": "concrete", "name": "Blob" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the encoded value, if supplied."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, encode using the Base64URL variant instead of standard Base64."
+        }
+      ],
+      "semanticRole": "Encodes toEncode as Base64/Base64URL, either into encoded or back into toEncode itself if encoded is omitted."
+    }
+  ]
+}

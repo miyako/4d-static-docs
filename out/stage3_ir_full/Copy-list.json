@@ -1,0 +1,29 @@
+{
+  "id": "Copy-list",
+  "displayName": "Copy list",
+  "kind": "classic_command",
+  "theme": "Hierarchical-Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Duplicates the hierarchical list referenced by list and returns the reference number of the new, independent copy."
+    }
+  ],
+  "constraints": [
+    "Call CLEAR LIST on the duplicate once it is no longer needed."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "OBJECT-SET-ENTERABLE",
+  "displayName": "OBJECT SET ENTERABLE",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, Object is an Object Name (String); if omitted, Object is a Field, Variable, or Table."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Table"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object Name (if * is specified), or Variable or Field or Table (if * is omitted)"
+        },
+        {
+          "name": "enterable",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Boolean: True=enterable, False=non-enterable. Longint: 0=not enterable, 1=enterable, 2=not enterable and not focusable.",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "obk enterable -- object is enterable and focusable"
+            },
+            {
+              "value": 0,
+              "meaning": "obk not enterable -- object is not enterable, but an input/4D Write Pro area remains focusable"
+            },
+            {
+              "value": 2,
+              "meaning": "obk not enterable not focusable -- object is not enterable and an input/4D Write Pro area is not focusable"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Makes the form object(s) designated by object and * enterable or non-enterable, and (via a Longint value) can additionally control whether a non-enterable input or 4D Write Pro area remains focusable."
+    }
+  ],
+  "constraints": [
+    "Boolean False behaves differently by database kind: in binary databases the focusable attribute then follows the object's Focusable property; in projects the object remains focusable regardless.",
+    "Can enable 'Enter in List' mode for subforms/list forms used with MODIFY SELECTION/DISPLAY SELECTION: for subforms pass the subform table name or subform object name (from the subform's own form method); for list forms pass the list form's table.",
+    "Making an object non-enterable does not prevent changing its value programmatically.",
+    "To make a single list box cell non-enterable, pass -1 to $0 in the On Before Data Entry event instead of using this command."
+  ]
+}

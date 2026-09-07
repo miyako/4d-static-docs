@@ -1,0 +1,58 @@
+{
+  "id": "OBJECT-SET-FONT",
+  "displayName": "OBJECT SET FONT",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "font",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Font name"
+        }
+      ],
+      "semanticRole": "Sets the font used to display the object(s) designated by object and * to the named font, for the current process."
+    }
+  ],
+  "constraints": [
+    "Applying this command to an object that was using a style sheet automatically removes the style-sheet reference from the object, even if the assigned font matches the style sheet's."
+  ]
+}

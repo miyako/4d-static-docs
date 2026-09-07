@@ -1,0 +1,40 @@
+{
+  "id": "ARRAY-OBJECT",
+  "displayName": "ARRAY OBJECT",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "arrayName",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "size2",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The ARRAY OBJECT command creates and/or resizes an array of language Object type elements in memory."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Passing a vpAreaName that does not exist raises an error.",
+    "options.includeFormatInfo defaults to True (useful e.g. for SVG export); setting it False reduces export time.",
+    "options.includeBindingSource defaults to True and controls whether current data-context values are exported as cell values (data contexts themselves are never exported); cell binding itself is always exported."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the 4D View Pro object attached to an area (e.g. for storage in a database object field), with optional control over formatting-info and data-context-value inclusion."
+    }
+  ]
+}

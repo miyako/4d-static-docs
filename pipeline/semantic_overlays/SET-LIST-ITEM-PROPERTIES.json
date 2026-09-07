@@ -1,0 +1,76 @@
+{
+  "theme": "Hierarchical-Lists",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines that differ only in whether a leading '*' is passed (selecting whether 'list' is a name-string vs. a reference-number, and correspondingly Text vs. Integer). That's one semantic overload with an optional literal-symbol discriminator, not two overloads.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is a name string; if omitted, 'list' is a reference number."
+        },
+        {
+          "name": "list",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "the last item appended to the list" },
+            { "value": "*", "meaning": "the current list item" }
+          ]
+        },
+        {
+          "name": "enterable",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "styles",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "icon",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            { "value": "\"\" or 0", "meaning": "no icon" }
+          ]
+        },
+        {
+          "name": "color",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            { "value": -1, "meaning": "reset to original color" }
+          ]
+        }
+      ],
+      "interactionNotes": [
+        {
+          "params": ["asObjectName (leading *)", "itemRef (* sentinel)"],
+          "note": "The literal symbol '*' means two unrelated things depending on position: leading = 'list is a name, not a ref number'; in itemRef's slot = 'operate on the current item'."
+        }
+      ]
+    }
+  ]
+}

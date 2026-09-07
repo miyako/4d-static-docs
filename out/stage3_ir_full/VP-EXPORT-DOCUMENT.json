@@ -1,0 +1,47 @@
+{
+  "id": "VP-EXPORT-DOCUMENT",
+  "displayName": "VP EXPORT DOCUMENT",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "filePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "paramObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Exports the 4D View Pro object attached to an area to a document on disk, in a format selected by the file extension or explicit export options, optionally invoking a callback on completion."
+    }
+  ],
+  "constraints": [
+    "Passing a vpAreaName that does not exist raises an error.",
+    "If filePath has no path, the document is saved next to the Project folder.",
+    "Supported export formats (selected by filePath extension or paramObj.format): .4vp (4D View Pro, default), .xlsx (Excel), .pdf, .txt/.csv (CSV), .sjs (SpreadJS).",
+    "If paramObj.format doesn't match filePath's extension, 4D adds/corrects the extension automatically (except CSV, which never gets an appended extension).",
+    "paramObj can also specify a callback method invoked when the export completes."
+  ]
+}

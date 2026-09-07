@@ -1,0 +1,46 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The two doc syntax lines differ only in whether a leading '*' is passed (list as object-name string vs. list reference number). Merged into one semantic overload with that param optional. Also corrected direction: icon is filled in by the command ('\u2190' in the docs), not passed in; added the 0/'*' sentinel values documented for itemRef.",
+      "params": [
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string); if omitted, 'list' is a hierarchical list reference number."
+        },
+        {
+          "name": "list",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            { "kind": "pseudo", "name": "Operator" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "the last item added to the list (via APPEND TO LIST)" },
+            { "value": "*", "meaning": "the current item of the list" }
+          ]
+        },
+        {
+          "name": "icon",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "out",
+          "optional": false,
+          "description": "Icon associated with the item, regardless of its source (static picture, resource, or picture expression); returned empty if the item has no icon."
+        }
+      ]
+    }
+  ]
+}

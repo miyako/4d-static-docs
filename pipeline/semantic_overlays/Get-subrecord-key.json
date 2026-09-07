@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "idField must be a field of the special 'Subtable Relation' type (or a converted 'Longint' field) created when 4D migrated a pre-v11 subtable into an automatic relation between two standard tables; intended only to support migrating that legacy code to standard relation-based code, not for new automatic relations."
+  ]
+}

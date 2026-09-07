@@ -1,0 +1,21 @@
+{
+  "id": "Version-type",
+  "displayName": "Version type",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Version type command returns a numeric value that denotes the type of 4D or 4D Server version that you are running.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ],
+  "constraints": [
+    "The returned value is a bit field (see the VersionTypeBitFlag enum); use bitwise operators to interpret it (a version can be e.g. both a 64-bit version and a merged application). Not modeled as a plain enum_ref because return values are an OR-combination of these flags, not a single selected constant.",
+    "Predefined constants (4D Environment theme, VersionTypeBitFlag enum): 64 bit version = 1, Demo version = 0 (not available in current 4D versions), Merged application = 2 (version is an application merged with 4D Volume Desktop).",
+    "Autoparse dropped the return type entirely for this no-parentheses signature ('Version type : Integer'), a known autoparse bug for bare (no-parens) signature lines; restored via overloadPatches below. TypeRef's 'concrete' kind disallows additionalProperties (no sentinelValues on a bare return type), which is why the bit-field constant values are documented in prose above instead of structurally on the return type."
+  ]
+}

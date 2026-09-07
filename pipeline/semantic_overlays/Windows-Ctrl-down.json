@@ -1,0 +1,14 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line has no parenthesized parameter list ('Windows Ctrl down : Boolean'), so the mechanical parser produced an empty overload with no return type at all; added the documented Boolean return type.",
+      "params": [],
+      "returns": {"kind": "concrete", "name": "Boolean"},
+      "semanticRole": "Returns True if the Windows Ctrl key (Command key on Macintosh) is currently pressed."
+    }
+  ],
+  "constraints": [
+    "On Macintosh, tests the Command key rather than a literal Ctrl key."
+  ]
+}

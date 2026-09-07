@@ -1,0 +1,45 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "The system print dialog it opens configures printer/paper properties only, not the 4D View Pro area's own printing properties, which are set separately with VP SET PRINT INFO; the two should be kept consistent or the printed document may not match expectations.",
+    "4D View Pro areas can only be printed with VP PRINT; commands from the 4D Printing language theme are not supported.",
+    "Intended for interactive end-user printing; for automated/unattended print jobs, export the area as PDF with VP EXPORT DOCUMENT instead."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Explicitly print only the current spreadsheet."
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Print the entire workbook (all sheets)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

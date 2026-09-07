@@ -1,0 +1,28 @@
+{
+  "id": "WEB-SET-ROOT-FOLDER",
+  "displayName": "WEB SET ROOT FOLDER",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rootFolder",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB SET ROOT FOLDER command is used to modify the default root folder where 4D looks for the HTML files requested of the Web server."
+    }
+  ],
+  "constraints": [
+    "The Web server must be restarted for a new root folder to take effect.",
+    "rootFolder can be given in HTML/URL syntax (slash-separated, platform-independent) or system syntax (absolute platform-specific pathname).",
+    "An invalid pathname raises an OS file-manager error, interceptable via ON ERR CALL; if the handler displays an alert/message, it appears on the browser side.",
+    "This setting overrides (is independent of) any default root folder configured in the Database Settings."
+  ]
+}

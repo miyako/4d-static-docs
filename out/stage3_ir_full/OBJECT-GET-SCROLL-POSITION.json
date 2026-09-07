@@ -1,0 +1,68 @@
+{
+  "id": "OBJECT-GET-SCROLL-POSITION",
+  "displayName": "OBJECT GET SCROLL POSITION",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "vPosition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "For list-type objects (subform, list form, hierarchical list, scrollable area, list box), the number of the first line displayed; for a picture (variable or field), the vertical scroll movement in pixels relative to the picture's origin. 0 for other object types."
+        },
+        {
+          "name": "hPosition",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "List box only: the number of the first fully-visible column; for a picture, the horizontal scroll movement in pixels relative to the picture's origin. 0 for other object types."
+        }
+      ],
+      "semanticRole": "The OBJECT GET SCROLL POSITION returns, in the vPosition and hPosition parameters, information related to the position of the scroll bars of the form object designated by the * and object parameters."
+    }
+  ],
+  "constraints": [
+    "For subform-type objects, only the '*' (object-name) syntax is supported; the Variable/Field syntax cannot be used to designate a subform."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "WP-SET-VIEW-PROPERTIES",
+  "displayName": "WP SET VIEW PROPERTIES",
+  "kind": "classic_command",
+  "theme": "WritePro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, wpArea is a form object name (Text); if omitted, wpArea is a 4D Write Pro document (object variable or field)."
+        },
+        {
+          "name": "wpArea",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "wpViewProps",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object whose properties are the view properties to modify; properties not included keep their previous values."
+        }
+      ],
+      "returns": null,
+      "semanticRole": "Dynamically sets one or more view properties of the 4D Write Pro wpArea area, leaving unspecified properties unchanged."
+    }
+  ],
+  "constraints": [
+    "The command can only be used if wpArea is associated with a form object currently displayed in the form; if the document is displayed in several form objects, the '*' syntax is required to identify which view to set.",
+    "Property modifications made by this command are not saved with the document or the form and persist only while the form area is in use and not overridden by a later call."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "QUERY-WITH-ARRAY",
+  "displayName": "QUERY WITH ARRAY",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Searches all records of the table containing targetField for those whose value matches at least one element of array, replacing the current selection with the matches."
+    }
+  ],
+  "constraints": [
+    "Cannot be used with fields of the Picture or BLOB type.",
+    "targetField and array must be of the same data type, except that a Longint array may be compared against a field of the Time type.",
+    "Scope differs from QUERY SELECTION WITH ARRAY, which restricts the search to the current selection instead of the whole table."
+  ]
+}

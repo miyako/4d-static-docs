@@ -1,0 +1,19 @@
+{
+  "id": "Windows-Alt-down",
+  "displayName": "Windows Alt down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns True if the Windows Alt key (Option key on Macintosh) is currently pressed."
+    }
+  ],
+  "constraints": [
+    "On Macintosh, tests the Option key rather than a literal Alt key."
+  ]
+}

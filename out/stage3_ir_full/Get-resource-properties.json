@@ -1,0 +1,50 @@
+{
+  "id": "Get-resource-properties",
+  "displayName": "Get resource properties",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Get resource properties command returns the attributes of the resource whose type is passed in resType and whose ID number is passed in resID ."
+    }
+  ],
+  "constraints": [
+    "resType must be a 4-character resource type string.",
+    "If resFile is omitted, the resource is searched for across all currently open resource files; if passed, only that file is searched.",
+    "Returns 0 and sets the OK system variable to 0 if the resource does not exist.",
+    "The returned integer is a bit-field value: individual bits carry distinct meaning (see the resource attributes documentation) rather than a single scalar."
+  ]
+}

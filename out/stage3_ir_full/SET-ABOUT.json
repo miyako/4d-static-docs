@@ -1,0 +1,36 @@
+{
+  "id": "SET-ABOUT",
+  "displayName": "SET ABOUT",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "itemText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "method",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET ABOUT command changes the About 4D menu command in the Help menu (Windows) or in the Application menu (macOS) menu to itemText ."
+    }
+  ],
+  "constraints": [
+    "method is called when the user selects the About 4D menu command after this call, in both Design and Application mode.",
+    "On Windows, this command modifies the \"About 4D\" line in the Help menu created by SET HELP MENU.",
+    "A new process is created when this command is run on a server machine."
+  ]
+}

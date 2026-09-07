@@ -1,0 +1,14 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "vpBlob must contain a 4D View Pro document previously saved as a Blob via VP EXPORT TO BLOB or the 4D View Pro interface.",
+    "The import replaces any data already present in vpAreaName.",
+    "paramObj is an options object; documented defaults include calcOnDemand=false, dynamicReferences=true, fullRecalc=false, includeFormulas=true, includeStyles=true, includeUnusedStyles=true, and an optional formula callback invoked when the import completes."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Imports the 4D View Pro document contained in vpBlob into the 4D View Pro area vpAreaName, replacing its contents."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "The parameter object's .host property is mandatory; all other properties are optional and default as documented (e.g. .port defaults to 995, .connectionTimeOut to 30s, .acceptUnsecureConnection to False).",
+    "If .accessTokenOAuth2 is passed but .authenticationMode is omitted, the OAuth2 protocol is used (if allowed by the server); .authenticationMode otherwise defaults to the most secure mode supported by the server.",
+    ".accessTokenOAuth2 and .password are consumed for authentication but are not echoed back on the returned POP3Transporter object."
+  ]
+}

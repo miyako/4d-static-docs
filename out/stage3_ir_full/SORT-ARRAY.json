@@ -1,0 +1,59 @@
+{
+  "id": "SORT-ARRAY",
+  "displayName": "SORT ARRAY",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "array",
+              "type": {
+                "kind": "concrete",
+                "name": "Array"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "embedded"
+        },
+        {
+          "name": "order",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              ">",
+              "<"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SORT ARRAY command sorts one or more arrays into ascending or descending order."
+    }
+  ],
+  "constraints": [
+    "The order symbol is counterintuitive: > sorts ascending, < sorts descending; if omitted, the sort is ascending.",
+    "Pointer and Picture arrays cannot be sorted.",
+    "For a two-dimensional array, only an element (e.g. a2DArray{i}) can be sorted, not the two-dimensional array itself.",
+    "When multiple arrays are passed, they are all reordered together following the sort order computed from the first array only; this is a single-level sort, not a multi-level sort (use MULTI SORT ARRAY for synchronized multi-level sorting)."
+  ]
+}

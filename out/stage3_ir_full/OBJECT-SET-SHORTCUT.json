@@ -1,0 +1,87 @@
+{
+  "id": "OBJECT-SET-SHORTCUT",
+  "displayName": "OBJECT SET SHORTCUT",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "key",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Key to associate with object: a standard key name (e.g. \"B\") or a bracketed special-key constant (e.g. \"[F1]\", \"[return]\", \"[esc]\") from the Shortcut and Associated Keys theme"
+        },
+        {
+          "name": "modifiers",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Modifier key mask or sum of masks",
+          "sentinelValues": [
+            {
+              "value": 256,
+              "meaning": "Command key mask -- Ctrl under Windows, Command under macOS"
+            },
+            {
+              "value": 4096,
+              "meaning": "Control key mask -- Ctrl under macOS, or right-click under Windows and macOS"
+            },
+            {
+              "value": 2048,
+              "meaning": "Option key mask -- Alt (Option under macOS)"
+            },
+            {
+              "value": 512,
+              "meaning": "Shift key mask -- Windows and macOS"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets or dynamically modifies, for the current process, the keyboard shortcut (key plus optional modifier mask) associated with the object(s) designated by object and *."
+    }
+  ],
+  "constraints": [
+    "If modifiers is omitted, the shortcut fires as soon as the plain key is pressed with no modifier -- reserve this for specialized interfaces.",
+    "modifiers is a sum of one or more of Command key mask (256), Control key mask (4096), Option key mask (2048), Shift key mask (512)."
+  ]
+}

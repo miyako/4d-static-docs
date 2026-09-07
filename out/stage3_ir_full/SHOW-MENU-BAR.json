@@ -1,0 +1,12 @@
+{
+  "id": "SHOW-MENU-BAR",
+  "displayName": "SHOW MENU BAR",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SHOW MENU BAR command makes the menu bar visible."
+    }
+  ]
+}

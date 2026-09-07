@@ -1,0 +1,12 @@
+{
+  "id": "RESUME-TRANSACTION",
+  "displayName": "RESUME TRANSACTION",
+  "kind": "classic_command",
+  "theme": "Transactions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The RESUME TRANSACTION command resumes the transaction that was paused using SUSPEND TRANSACTION at the corresponding level in the current process."
+    }
+  ]
+}

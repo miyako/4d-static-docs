@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "If targetPath is an empty string, the command does nothing.",
+    "Under Windows, if aliasPath does not end with the (invisible) \".LNK\" extension, it is automatically appended.",
+    "If aliasPath is just a name (no path), the alias is created in the current working folder (usually the folder containing the structure file)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates an alias/shortcut file pointing at the given target file or folder."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "OB-REMOVE",
+  "displayName": "OB REMOVE",
+  "kind": "classic_command",
+  "theme": "Objects-Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OB REMOVE command removes the property of the language object designated by the object parameter."
+    }
+  ],
+  "constraints": [
+    "property is case-sensitive."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "theme": "Entry-Control",
+  "constraints": [
+    "Must be called from within a form/object method handling the On Before Keystroke form event.",
+    "Only the first character of filteredChar is used to replace the entered character; to insert more than one character, shadow the entry into a variable and reassign the enterable area yourself (FILTER KEYSTROKE alone cannot do multi-character replacement).",
+    "Passing an empty string cancels/ignores the keystroke entirely.",
+    "If Keystroke is called after FILTER KEYSTROKE, it returns the character passed to FILTER KEYSTROKE instead of the actual character typed."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Replaces (or, with an empty string, cancels) the character the user just typed into the currently-edited field/enterable area."
+    }
+  ]
+}

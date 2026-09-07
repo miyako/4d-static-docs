@@ -1,0 +1,64 @@
+{
+  "id": "VP-SET-DATE-VALUE",
+  "displayName": "VP SET DATE VALUE",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Range of the cell(s) whose value to set"
+        },
+        {
+          "name": "dateValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Date"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Date value to assign to rangeObj"
+        },
+        {
+          "name": "formatPattern",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Format pattern for dateValue (default US pattern if omitted); custom pattern text or one of the named constants",
+          "sentinelValues": [
+            {
+              "value": "vk pattern long date",
+              "meaning": "ISO 8601 full date, \"dddd, dd MMMM yyyy\"."
+            },
+            {
+              "value": "vk pattern month day",
+              "meaning": "ISO 8601 month and day, \"MMMM dd\"."
+            },
+            {
+              "value": "vk pattern short date",
+              "meaning": "Abbreviated ISO 8601 date, \"MM/dd/yyyy\"."
+            },
+            {
+              "value": "vk pattern year month",
+              "meaning": "ISO 8601 month and year, \"yyyy MMMM\"."
+            }
+          ]
+        }
+      ],
+      "semanticRole": "The VP SET DATE VALUE command assigns a specified date value to a designated cell range."
+    }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple cells, the same dateValue is repeated in every cell."
+  ]
+}

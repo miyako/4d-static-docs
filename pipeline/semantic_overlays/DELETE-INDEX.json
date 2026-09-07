@@ -1,0 +1,22 @@
+{
+  "theme": "Structure-Access",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Deletes every index (keyword or standard) built on the field referenced by fieldPtr, but leaves any composite index containing that field untouched.",
+      "staticallyDistinguishable": false,
+      "discriminatedBy": { "param": "fieldPtr", "rule": "Same declared type (Pointer, Text) as overload 2's indexName; which one applies depends on whether the value/pointer designates a field or an index name, not on its static type." }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Deletes only the single, specifically named index (keyword, standard, or composite) referenced by indexName.",
+      "staticallyDistinguishable": false,
+      "discriminatedBy": { "param": "indexName", "rule": "Same declared type (Pointer, Text) as overload 1's fieldPtr; which one applies depends on whether the value/pointer designates a field or an index name, not on its static type." }
+    }
+  ],
+  "constraints": [
+    "Overloads 1 and 2 declare the identical parameter type (Pointer, Text). Which one applies depends on what the pointer/name actually references at runtime -- not checkable from the call site alone.",
+    "If there is no index corresponding to fieldPtr or indexName, the command does nothing.",
+    "The trailing optional '*' performs the deindexing asynchronously: the calling method continues execution immediately regardless of whether the index deletion has finished."
+  ]
+}

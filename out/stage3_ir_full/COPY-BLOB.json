@@ -1,0 +1,66 @@
+{
+  "id": "COPY-BLOB",
+  "displayName": "COPY BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "srcBlob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Source BLOB"
+        },
+        {
+          "name": "dstBlob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "Destination BLOB (may be resized)"
+        },
+        {
+          "name": "srcOffset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Source position for the copy (relative to the beginning of srcBlob)"
+        },
+        {
+          "name": "dstOffset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Destination position for the copy (relative to the beginning of dstBlob)"
+        },
+        {
+          "name": "len",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of bytes to be copied"
+        }
+      ],
+      "semanticRole": "Copies a specified number of bytes from one offset of a source BLOB to a specified offset of a destination BLOB, resizing the destination if needed."
+    }
+  ],
+  "constraints": [
+    "The destination BLOB can be resized if necessary to accommodate the copied bytes."
+  ]
+}

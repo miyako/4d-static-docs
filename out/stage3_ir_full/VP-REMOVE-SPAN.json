@@ -1,0 +1,22 @@
+{
+  "id": "VP-REMOVE-SPAN",
+  "displayName": "VP REMOVE SPAN",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP REMOVE SPAN command removes the span from the cells in rangeObj ."
+    }
+  ]
+}

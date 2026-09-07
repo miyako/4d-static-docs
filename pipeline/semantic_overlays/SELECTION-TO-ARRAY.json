@@ -1,0 +1,48 @@
+{
+  "constraints": [
+    "Each array is typed according to the source field's type; loading record numbers (via the [table];array syntax) produces a Longint array.",
+    "Values can be loaded through several levels of a Many-to-One relation (automatic, or manual made automatic via SET AUTOMATIC RELATIONS), reading the related field's values.",
+    "If an array was already explicitly typed (e.g. via ARRAY LONGINT) before the call, SELECTION TO ARRAY does not retype it even when loading from a Time field; it keeps loading data coerced into the array's existing type.",
+    "Passing the trailing * defers execution: 4D stores the statement in memory instead of running it immediately, letting several SELECTION TO ARRAY lines (like QUERY) stack up and execute together as one final call without *; the command can therefore also be called with no parameters at all to run the stacked lines."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Fixed array's direction: the parameter table's column arrow shows array as an output ('<-', data copied INTO the array from the current selection), not an input, even though the draft parser defaulted every parameter to direction:in. Propagated the same fix onto the repeated (selection;array) group member, since each repetition is the same pair.",
+      "params": [
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "selection",
+              "type": [
+                { "kind": "concrete", "name": "Field" },
+                { "kind": "concrete", "name": "Table" }
+              ],
+              "direction": "in",
+              "optional": false,
+              "description": "Field to use for retrieving data, or Table to use for retrieving record numbers"
+            },
+            {
+              "name": "array",
+              "type": { "kind": "concrete", "name": "Array" },
+              "direction": "out",
+              "optional": false,
+              "description": "Array to receive field data or record numbers"
+            }
+          ],
+          "cardinality": { "min": 0, "max": null },
+          "position": "embedded"
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, defer execution of this statement and stack it with other SELECTION TO ARRAY(...; *) lines until a final call without *."
+        }
+      ],
+      "semanticRole": "Copies field values or record numbers from the current selection into one or more parallel arrays (in selection order); the optional trailing * defers execution so several such statements can be stacked and run together."
+    }
+  ]
+}

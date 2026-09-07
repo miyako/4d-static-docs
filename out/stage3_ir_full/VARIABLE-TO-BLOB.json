@@ -1,0 +1,86 @@
+{
+  "id": "VARIABLE-TO-BLOB",
+  "displayName": "VARIABLE TO BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "variable",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Variable to store in the BLOB"
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB to receive the variable"
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "In: byte offset within the BLOB at which to write (0 if omitted, i.e. overwrite from the start). Out: returned incremented by the number of bytes written, for reuse in a subsequent BLOB-writing call."
+        }
+      ],
+      "semanticRole": "Writes variable into blob at the given offset (or at the start, overwriting existing contents, if offset is omitted), returning the updated offset (advanced past the written bytes) for chaining further writes."
+    },
+    {
+      "params": [
+        {
+          "name": "variable",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Variable to store in the BLOB"
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB to receive the variable"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, append the value to the end of the BLOB instead of overwriting it from the start"
+        }
+      ],
+      "semanticRole": "Appends variable to the end of blob, extending the BLOB's size accordingly, so multiple variables/lists can be stored sequentially in the same BLOB."
+    }
+  ],
+  "constraints": [
+    "Accepts any variable type, including other BLOBs and streamable objects; a Long Integer holding a hierarchical list reference (ListRef) is stored as a Long Integer, not the list itself -- use LIST TO BLOB/BLOB to list for lists.",
+    "Objects and collections are stored as a copy, not a reference; any pointers inside them are stored as their dereferenced values.",
+    "Content must be read back with BLOB TO VARIABLE, since 4D uses an internal format that is also platform-independent (no byte-swapping needed between Windows and Macintosh).",
+    "Does not support blob objects (4D.Blob type) since it alters the blob passed as a parameter; only classic BLOB values are supported."
+  ]
+}

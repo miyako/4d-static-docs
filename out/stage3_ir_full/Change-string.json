@@ -1,0 +1,49 @@
+{
+  "id": "Change-string",
+  "displayName": "Change string",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "source",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "newChars",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "where",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Overwrites a run of characters in source starting at a given position with newChars, returning the result at source's original length."
+    }
+  ],
+  "constraints": [
+    "If newChars is an empty string, source is returned unchanged.",
+    "If where is less than 1 or greater than the length of source, source is returned unchanged.",
+    "Always returns a string of the same length as source (overlays characters starting at where rather than inserting them, unlike Insert string)."
+  ]
+}

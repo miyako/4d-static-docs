@@ -1,0 +1,26 @@
+{
+  "id": "BUILD-APPLICATION",
+  "displayName": "BUILD APPLICATION",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "buildAppSettings",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Launches the application build/generation process using the given (or an interactively chosen) build application settings file."
+    }
+  ],
+  "constraints": [
+    "Only works with 4D Developer (single-user); cannot be called from 4D Server, 4D in remote mode, or a merged application.",
+    "If the compiled code is outdated, this command first launches the compiler; MESSAGES OFF can hide its progress bar."
+  ]
+}

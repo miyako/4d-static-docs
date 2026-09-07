@@ -1,0 +1,88 @@
+{
+  "id": "SVG-GET-ATTRIBUTE",
+  "displayName": "SVG GET ATTRIBUTE",
+  "kind": "classic_command",
+  "theme": "SVG",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'pictureObject' below is an object name (pass a string); if omitted, 'pictureObject' is a Variable/Field reference."
+        },
+        {
+          "name": "pictureObject",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if '*' passed) or Variable/field reference (if '*' omitted)"
+        },
+        {
+          "name": "element_ID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "ID of element whose attribute value you want to get"
+        },
+        {
+          "name": "attribName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attribute whose value you want to get"
+        },
+        {
+          "name": "attribValue",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Current value of attribute"
+        }
+      ],
+      "semanticRole": "Reads the current value of a named attribute of an SVG XML element (or, for the * form, of the rendered image attached to a form object) into attribValue."
+    }
+  ],
+  "constraints": [
+    "When object is passed via '*', the value returned reflects the rendered image attached to that form object (which may have been modified at runtime by SVG SET ATTRIBUTE); when passed as a Variable/Field, the value returned reflects the initial rendered image corresponding to that data source."
+  ]
+}

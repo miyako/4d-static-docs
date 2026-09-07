@@ -1,0 +1,26 @@
+{
+  "id": "Day-of",
+  "displayName": "Day of",
+  "kind": "classic_command",
+  "theme": "Date-and-Time",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "date",
+          "type": {
+            "kind": "concrete",
+            "name": "Date"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the day-of-month number (1-31) of date."
+    }
+  ]
+}

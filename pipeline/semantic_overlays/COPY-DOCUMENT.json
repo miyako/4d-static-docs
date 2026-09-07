@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "Without the trailing '*' parameter, an error is generated if a document already exists at destinationName; with '*', the existing document is silently deleted and overwritten.",
+    "To designate a folder rather than a file, both sourceName and destinationName must end with the platform folder separator; all intermediate folders in destinationName must already exist (they are not created).",
+    "newName only applies when copying a single file, to rename it at the destination; it is not used when copying a folder."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Copies a file or folder from sourceName to destinationName, optionally renaming a copied file, optionally overwriting an existing destination document when '*' is passed."
+    }
+  ]
+}

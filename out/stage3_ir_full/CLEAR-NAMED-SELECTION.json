@@ -1,0 +1,25 @@
+{
+  "id": "CLEAR-NAMED-SELECTION",
+  "displayName": "CLEAR NAMED SELECTION",
+  "kind": "classic_command",
+  "theme": "Named Selections",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Frees the memory used by a named selection without affecting the underlying table, selection, or records."
+    }
+  ],
+  "constraints": [
+    "Not needed if the named selection was created with CUT NAMED SELECTION and then consumed by USE NAMED SELECTION, since it no longer exists in memory afterward."
+  ]
+}

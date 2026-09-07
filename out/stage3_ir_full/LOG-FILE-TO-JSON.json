@@ -1,0 +1,73 @@
+{
+  "id": "LOG-FILE-TO-JSON",
+  "displayName": "LOG FILE TO JSON",
+  "kind": "classic_command",
+  "theme": "Backup",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "destFolderPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Path of the folder to store the exported JSON file(s) (named JournalExport.json)."
+        },
+        {
+          "name": "maxSize",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Maximum size, in bytes, of each exported JSON file (10 MB default); when reached, the file is closed and a new one started.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Reset to the default maximum size (10 MB)."
+            }
+          ]
+        },
+        {
+          "name": "logPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Path of a specific log file (.journal extension) to export; the current log file is used if omitted. Pass an empty string to display the standard Open File dialog. The archived (.4bl) format must be converted with RESTORE first."
+        },
+        {
+          "name": "fieldAtt",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "How fields are identified in the exported JSON 'fields' objects.",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Field attribute with number (default if omitted); fields identified by number, e.g. {\"5\":\"Jones\"}."
+            },
+            {
+              "value": 2,
+              "meaning": "Field attribute with name; fields identified by name, e.g. {\"LastName\":\"Jones\"}."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "A negative maxSize removes any file-size limit.",
+    "When exporting an external (non-current) log file, fields are always identified by number regardless of fieldAtt.",
+    "The path of the selected log file (when logPath is an empty string) is returned in the Document system variable."
+  ]
+}

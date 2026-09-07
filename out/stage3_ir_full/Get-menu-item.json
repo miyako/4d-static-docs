@@ -1,0 +1,57 @@
+{
+  "id": "Get-menu-item",
+  "displayName": "Get menu item",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu number or menu reference (MenuRef)."
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Process reference number; defaults to the current process if omitted."
+        }
+      ],
+      "semanticRole": "Get the display text of a menu item, addressed by menu (number or MenuRef) and item number, optionally scoped to a specific process's menu bar."
+    }
+  ],
+  "constraints": [
+    "If menu is a MenuRef (menu reference), the process parameter is unnecessary and is ignored if passed."
+  ]
+}

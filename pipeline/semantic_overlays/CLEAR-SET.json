@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Use SAVE SET first if the set's contents need to be preserved before clearing."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Frees the memory used by a named set without affecting the underlying table, selections, or records."
+    }
+  ]
+}

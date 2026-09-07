@@ -1,0 +1,30 @@
+{
+  "id": "QR-Get-HTML-template",
+  "displayName": "QR Get HTML template",
+  "kind": "classic_command",
+  "theme": "Quick-Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The QR Get HTML template command returns the HTML template currently used for the Quick Report area ."
+    }
+  ],
+  "constraints": [
+    "Returns the default HTML template if none was explicitly set for the area.",
+    "Returns nothing (no template) if the area's output destination was not set to HTML file, either manually or programmatically."
+  ]
+}

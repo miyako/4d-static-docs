@@ -1,0 +1,105 @@
+{
+  "id": "VP-SET-DATA-CONTEXT",
+  "displayName": "VP SET DATA CONTEXT",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dataObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets the data context of a sheet from a single Object, bound to worksheet cells via autogeneration or VP SET BINDING PATH.",
+      "discriminatedBy": {
+        "param": "dataObj",
+        "rule": "Chosen when the caller supplies the context data as a single Object (attribute-per-cell binding rather than row/column generation)."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dataColl",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets the data context of a sheet from a Collection, optionally autogenerating row/column layout from its contents.",
+      "discriminatedBy": {
+        "param": "dataColl",
+        "rule": "Chosen when the caller supplies the context data as a Collection, enabling the autoGenerateColumns row/column-generation behavior."
+      }
+    }
+  ],
+  "constraints": [
+    "Images placed in the data are converted to data URI schemes.",
+    "To pass a time value in dataObj/dataColl, encapsulate it in an object with a 'value' property (the base value) and a 'time' property (Real, time in seconds).",
+    "options.reset (default False) resets the sheet's contents before loading the new context.",
+    "options.autoGenerateColumns (default True) only applies when the data is a collection: if dataColl is a collection of objects, attribute names become column titles; if dataColl contains subcollections of scalar values, each subcollection defines one row's values and the first subcollection's length determines the number of columns created.",
+    "If no sheet index is passed, the context is applied to the current sheet."
+  ]
+}

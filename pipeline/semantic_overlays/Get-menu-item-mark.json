@@ -1,0 +1,41 @@
+{
+  "constraints": [
+    "If menu is a MenuRef (menu reference), the process parameter is unnecessary and is ignored if passed.",
+    "Returns an empty string if the menu item has no check mark, or if menuItem designates a hierarchical submenu."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Added the -1 sentinel value documented for menuItem.",
+      "semanticRole": "Get the current check mark character of a menu item.",
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu number or menu reference (MenuRef)."
+        },
+        {
+          "name": "menuItem",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": -1, "meaning": "the last item added to menu" }
+          ]
+        },
+        {
+          "name": "process",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Process reference number; defaults to the current process if omitted."
+        }
+      ]
+    }
+  ]
+}

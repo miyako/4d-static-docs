@@ -1,0 +1,8 @@
+{
+  "theme": "Queries",
+  "constraints": [
+    "aTable must be explicitly specified; the default table cannot be used.",
+    "Parameters ($1...$n) are not supported inside formula.",
+    "If used with PRINT SELECTION and BREAK LEVEL and a local variable, all three must execute from the same method or an error occurs at reevaluation time."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "OBJECT-SET-TEXT-ORIENTATION",
+  "displayName": "OBJECT SET TEXT ORIENTATION",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "orientation",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Value of object orientation",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Orientation 0\u00b0 -- no rotation (default value)"
+            },
+            {
+              "value": 90,
+              "meaning": "Orientation 90\u00b0 right -- text rotated 90\u00b0 clockwise"
+            },
+            {
+              "value": 180,
+              "meaning": "Orientation 180\u00b0 -- text rotated 180\u00b0 clockwise"
+            },
+            {
+              "value": 270,
+              "meaning": "Orientation 90\u00b0 left -- text rotated 90\u00b0 counter-clockwise"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets, for the current process, the rotation angle applied to the text content (not the object frame itself) of the object(s) designated by object and *."
+    }
+  ],
+  "constraints": [
+    "Only static text and non-enterable variables/fields can be rotated; applying it to an unsupported object does nothing.",
+    "Only the four listed angle values are recognized; any other value passed is ignored."
+  ]
+}

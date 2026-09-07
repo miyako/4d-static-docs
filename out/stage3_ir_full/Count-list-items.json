@@ -1,0 +1,66 @@
+{
+  "id": "Count-list-items",
+  "displayName": "Count list items",
+  "kind": "classic_command",
+  "theme": "Hierarchical-Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the number of items in a hierarchical list, either just the currently visible/expanded ones or the total including collapsed sublists.",
+      "interactionNotes": [
+        {
+          "params": [
+            "* (leading)",
+            "* (trailing)"
+          ],
+          "note": "The leading '*' selects how 'list' is interpreted: passed = list is an object name (Text) identifying a form representation of the list; omitted = list is a ListRef (Integer). The trailing '*' selects what is counted: passed = total item count regardless of expand/collapse state; omitted = only currently visible items, which requires the object-name form if multiple representations of the same list exist in the form."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If several form objects reference the same list by name and the '@' wildcard is used in an object name match, the command applies only to the first matching object."
+  ]
+}

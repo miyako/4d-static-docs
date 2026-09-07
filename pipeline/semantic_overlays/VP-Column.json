@@ -1,0 +1,68 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "column uses 0-based indexing.",
+    "columnCount must be greater than 0; if omitted, defaults to 1 (a single-column range).",
+    "Passing a vpAreaName that does not exist raises an error."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "column",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Column index of the first column of the range (0-based)"
+        },
+        {
+          "name": "columnCount",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of columns; must be > 0"
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (0-based); current sheet if omitted",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "note": "restores sentinelValues for sheet's 'vk current sheet' constant and marks columnCount optional (doc says it defaults to 1 if omitted) -- autoparse already had it marked optional via braces, confirmed correct; sentinel added."
+    }
+  ]
+}

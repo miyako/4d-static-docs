@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Does not affect the internal 4D SQL kernel, which remains available for internal queries regardless of whether the integrated SQL server is started."
+  ]
+}

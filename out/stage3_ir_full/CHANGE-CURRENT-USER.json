@@ -1,0 +1,43 @@
+{
+  "id": "CHANGE-CURRENT-USER",
+  "displayName": "CHANGE CURRENT USER",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "user",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "password",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Switches the identity of the current database user, either interactively (dialog box, if called without parameters) or programmatically by name/ID and password, discarding the previous user's access privileges."
+    }
+  ],
+  "constraints": [
+    "Has no effect in project databases opened in single-user mode.",
+    "Resets any alias set for the current user via SET USER ALIAS.",
+    "If called with no parameters, displays the database connection dialog box instead of switching programmatically.",
+    "If the given user account does not exist or was deleted, error -9979 is returned (interceptible via ON ERR CALL)."
+  ]
+}

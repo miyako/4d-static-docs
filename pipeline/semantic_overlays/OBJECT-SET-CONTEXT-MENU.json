@@ -1,0 +1,62 @@
+{
+  "theme": "Objects-Forms",
+  "constraints": [
+    "Only available for text entry areas, Web areas, and pictures."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "contextMenu",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "True to enable the default context menu for the object, False to disable it."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      },
+      "semanticRole": "Enables or disables the default context menu association for the designated form object, for the current process.",
+      "note": "Merged the leading-'*' dual signature into one overload with object as a Text/Variable,Field union discriminated by '*'."
+    }
+  ]
+}

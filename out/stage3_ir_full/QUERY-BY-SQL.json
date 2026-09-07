@@ -1,0 +1,30 @@
+{
+  "id": "QUERY-BY-SQL",
+  "displayName": "QUERY BY SQL",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "sqlFormula",
+          "type": {
+            "kind": "foreign_grammar_ref",
+            "grammar": "SQLWhereClauseWithExpressionSubstitution"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Applies a SQL-syntax WHERE-clause formula (evaluated via 4D's built-in SQL engine) to every record of aTable, building a new selection from the records where it evaluates True."
+    }
+  ],
+  "constraints": [
+    "sqlFormula is only the WHERE-clause fragment of an implicit \"SELECT * FROM table WHERE ...\" query; aTable supplies the FROM table.",
+    "Cannot be used in the context of an external SQL connection; it always connects directly to 4D's integrated SQL engine.",
+    "sqlFormula must be a valid SQL-2-compliant boolean search condition (True/False/NULL per the SQL standard); all rows where it evaluates True are included in the new current selection.",
+    "sqlFormula can embed references to 4D expressions/variables using the same <> or :MyVar syntax used in the integrated SQL commands or inside Begin SQL/End SQL blocks.",
+    "Compatible with the SET QUERY LIMIT and SET QUERY DESTINATION commands, like QUERY BY FORMULA.",
+    "Behaves like QUERY BY FORMULA otherwise: it changes aTable's current selection and makes the new selection's first record current."
+  ]
+}

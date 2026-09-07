@@ -1,0 +1,26 @@
+{
+  "id": "VP-INSERT-COLUMNS",
+  "displayName": "VP INSERT COLUMNS",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Inserts one or more columns into the sheet at the position designated by rangeObj, shifting existing columns right."
+    }
+  ],
+  "constraints": [
+    "rangeObj carries both the starting column position and the number of columns to insert; if the count is omitted, a single column is inserted.",
+    "New columns are inserted on the left, directly before the starting column of rangeObj."
+  ]
+}

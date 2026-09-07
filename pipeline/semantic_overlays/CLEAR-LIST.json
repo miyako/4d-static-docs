@@ -1,0 +1,11 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Deletes the hierarchical list identified by list from memory, optionally (with the '*' flag) also deleting all of its attached sublists."
+    }
+  ],
+  "constraints": [
+    "Lists attached to a form object via the Property List window are loaded/cleared automatically by 4D and do not need CLEAR LIST; only lists loaded/copied/extracted/created programmatically need it."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "Records-in-set",
+  "displayName": "Records in set",
+  "kind": "classic_command",
+  "theme": "Sets",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Records in set returns the number of records in set ."
+    }
+  ],
+  "constraints": [
+    "Returns 0 if set does not exist or contains no records."
+  ]
+}

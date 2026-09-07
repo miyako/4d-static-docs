@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Records updated or added while the transaction is suspended remain locked until the transaction is resumed with RESUME TRANSACTION."
+  ]
+}

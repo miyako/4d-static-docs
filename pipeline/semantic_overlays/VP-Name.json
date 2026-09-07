@@ -1,0 +1,52 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error.",
+    "rangeName must be an existing named cell range."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a new range object referencing the existing named range rangeName within the designated (or current) sheet/workbook scope.",
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "rangeName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sheet",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet (default when sheet is omitted)."
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Apply to the whole workbook rather than a single sheet."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

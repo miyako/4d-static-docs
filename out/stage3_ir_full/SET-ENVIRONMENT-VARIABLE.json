@@ -1,0 +1,40 @@
+{
+  "id": "SET-ENVIRONMENT-VARIABLE",
+  "displayName": "SET ENVIRONMENT VARIABLE",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "varName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "varValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "reset the variable to its default value"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Intended for use together with LAUNCH EXTERNAL PROCESS.",
+    "Windows and macOS only."
+  ]
+}

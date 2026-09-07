@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "attribType accepts one of the documented \"Design Object Access\" theme constants: Attribute invisible (1), Attribute published Web (2), Attribute published SOAP (3), Attribute published WSDL (4), Attribute shared (5), Attribute published SQL (7), Attribute executed on server (8)."
+  ]
+}

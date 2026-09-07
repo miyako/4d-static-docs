@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Only one group at a time can be authorized to use a given plug-in license; assigning a new group revokes access from whichever group previously held it.",
+    "Plug-in licenses already checked out by members of group remain attached to those 4D user accounts for the rest of the session even if their group membership or the group's plug-in access changes."
+  ]
+}

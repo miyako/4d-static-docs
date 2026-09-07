@@ -1,0 +1,164 @@
+{
+  "constraints": [
+    "If only file is passed, the window shows the icon matching the file's type and the file's path in the window's menu; if only image is passed, the passed image is used as the icon and no path is shown; if both are passed, the file's path is shown in the window's menu while the passed image is used as the icon.",
+    "If only winRef is passed, or image is empty, the icon is removed on macOS and the default (application) icon is shown on Windows."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Removes the window's custom icon, restoring the platform default (no icon on macOS, the application icon on Windows).",
+      "discriminatedBy": {
+        "param": "winRef",
+        "rule": "Called with winRef only (no image, no file)."
+      },
+      "params": [
+        {
+          "name": "winRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Window reference number",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "In an MDI application on Windows, targets the main window; ignored (does nothing) on macOS or in an SDI application on Windows."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "semanticRole": "Sets the window's icon to a custom image; the window's menu does not show a file path.",
+      "discriminatedBy": {
+        "param": "image",
+        "rule": "Called with winRef and image only (no file)."
+      },
+      "params": [
+        {
+          "name": "winRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Window reference number",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "In an MDI application on Windows, targets the main window; ignored (does nothing) on macOS or in an SDI application on Windows."
+            }
+          ]
+        },
+        {
+          "name": "image",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Custom icon"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "semanticRole": "Sets the window's icon from a file/folder's type, and shows that file's path in the window's menu.",
+      "discriminatedBy": {
+        "param": "file",
+        "rule": "Called with winRef and file only (no image)."
+      },
+      "params": [
+        {
+          "name": "winRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Window reference number",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "In an MDI application on Windows, targets the main window; ignored (does nothing) on macOS or in an SDI application on Windows."
+            }
+          ]
+        },
+        {
+          "name": "file",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "4D.File"
+            },
+            {
+              "kind": "concrete",
+              "name": "4D.Folder"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "File path or folder path"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "semanticRole": "Sets the window's icon to a custom image while showing the given file's path in the window's menu.",
+      "discriminatedBy": {
+        "param": "image, file",
+        "rule": "Called with winRef, image, and file together."
+      },
+      "params": [
+        {
+          "name": "winRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Window reference number",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "In an MDI application on Windows, targets the main window; ignored (does nothing) on macOS or in an SDI application on Windows."
+            }
+          ]
+        },
+        {
+          "name": "image",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Custom icon"
+        },
+        {
+          "name": "file",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "4D.File"
+            },
+            {
+              "kind": "concrete",
+              "name": "4D.Folder"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "File path or folder path"
+        }
+      ]
+    }
+  ]
+}

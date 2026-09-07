@@ -1,0 +1,28 @@
+{
+  "id": "USERS-TO-BLOB",
+  "displayName": "USERS TO BLOB",
+  "kind": "classic_command",
+  "theme": "Users-and-Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "users",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the encrypted list of all user accounts and database groups"
+        }
+      ],
+      "semanticRole": "Stores in the BLOB users the encrypted list of all user accounts and database groups created by the Administrator, readable only via BLOB TO USERS."
+    }
+  ],
+  "constraints": [
+    "Only works in binary databases; in 4D projects it always returns an empty BLOB.",
+    "Only the database Administrator or Designer can execute this command; otherwise it does nothing and generates privilege error -9949.",
+    "The generated BLOB is encrypted and can only be read back with BLOB TO USERS."
+  ]
+}

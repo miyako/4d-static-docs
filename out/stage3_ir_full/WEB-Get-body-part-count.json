@@ -1,0 +1,15 @@
+{
+  "id": "WEB-Get-body-part-count",
+  "displayName": "WEB Get body part count",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ]
+}

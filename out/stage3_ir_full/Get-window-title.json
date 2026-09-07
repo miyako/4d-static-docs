@@ -1,0 +1,30 @@
+{
+  "id": "Get-window-title",
+  "displayName": "Get window title",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get window title command returns the title of the window whose reference number is passed in window ."
+    }
+  ],
+  "constraints": [
+    "If window is omitted, returns the title of the frontmost window of the current process.",
+    "Returns an empty string if the designated window does not exist."
+  ]
+}

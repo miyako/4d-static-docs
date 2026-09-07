@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Meaningful only inside a project method/function that was itself called by another method/function; returns 0 if the calling method is invoked directly from a menu."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the number of parameters actually passed to the current project method/function call."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Transactions can be nested (sub-transactions); each transaction/sub-transaction must eventually be individually cancelled or validated.",
+    "If the main (outermost) transaction is cancelled, all of its sub-transactions are cancelled too, regardless of whether those sub-transactions were themselves already validated."
+  ]
+}

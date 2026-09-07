@@ -1,0 +1,46 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "array and itemRefs are documented and arrow-marked ('\u2190') as arrays filled by the command with the list's items/reference numbers, not inputs, even though the draft parser defaulted every parameter to direction:in based on syntax position alone.",
+      "params": [
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "itemRefs",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Fills array (and optionally itemRefs) with the first-level items -- and their reference numbers -- of the hierarchical list or choice list designated by list."
+    }
+  ]
+}

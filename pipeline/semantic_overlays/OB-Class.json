@@ -1,0 +1,6 @@
+{
+  "theme": "Objects-Language",
+  "constraints": [
+    "Returns null (rather than raising an error) if object is not an existing/valid object."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "theme": "XML-DOM",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Modifies the value of the element designated by elementRef (or by an XPath expression relative to it, if xPath is passed), optionally writing the value as CDATA when the trailing '*' is passed."
+    }
+  ],
+  "constraints": [
+    "If elementValue is undefined, an empty string is used.",
+    "If elementRef designates a BLOB, the value is automatically base64-encoded (and DOM GET XML ELEMENT VALUE automatically decodes it back).",
+    "All CR and CRLF end-of-line characters in elementValue are replaced by LF to comply with XML processing rules.",
+    "Arrays, pictures, and pointers cannot be passed as elementValue.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

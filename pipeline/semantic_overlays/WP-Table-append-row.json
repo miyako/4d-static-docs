@@ -1,0 +1,21 @@
+{
+  "theme": "WritePro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Appends a row to a 4D Write Pro table, filling each cell from an individual variadic value argument.",
+      "discriminatedBy": {"param": "value", "note": "one or more discrete scalar/object values passed positionally, one per cell"}
+    },
+    {
+      "index": 1,
+      "semanticRole": "Appends a row to a 4D Write Pro table, filling each cell from the corresponding element of a values collection.",
+      "discriminatedBy": {"param": "valueColl", "note": "single Collection argument, one element per cell"}
+    }
+  ],
+  "constraints": [
+    "Supported value types (both syntaxes): Text, Number, Time, Date, Picture, and Object (formula or named formula returning a row element).",
+    "Default cell alignment depends on value type: Text is left-aligned, Picture is centered, and Number/Date/Time are right-aligned.",
+    "Array-type values are not supported.",
+    "The number of values or collection size should match the number of cells in the table row to avoid unexpected results."
+  ]
+}

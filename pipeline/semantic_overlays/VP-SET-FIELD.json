@@ -1,0 +1,7 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj includes multiple cells, field is linked in each cell.",
+    "If any of the cells in rangeObj already have content, it is replaced by field."
+  ]
+}

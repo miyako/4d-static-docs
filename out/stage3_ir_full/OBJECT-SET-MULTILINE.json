@@ -1,0 +1,72 @@
+{
+  "id": "OBJECT-SET-MULTILINE",
+  "displayName": "OBJECT SET MULTILINE",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "multiline",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Status of multiline property",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Multiline Auto -- single-line areas truncate end-of-line words with no line returns; multiline areas get automatic line returns"
+            },
+            {
+              "value": 1,
+              "meaning": "Multiline Yes -- single-line areas display up to the first carriage return/last full word and can be scrolled; multiline areas get automatic line returns"
+            },
+            {
+              "value": 2,
+              "meaning": "Multiline No -- text is always shown on a single row; text after the first carriage return is removed once the area is modified"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Sets, for the current process, the Multiline property (word-wrap / hard line-return handling) of the object(s) designated by object and *."
+    }
+  ],
+  "constraints": [
+    "Has no effect if applied to an object that does not support the Multiline property."
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "id": "SET-LIST-ITEM-PARAMETER",
+  "displayName": "SET LIST ITEM PARAMETER",
+  "kind": "classic_command",
+  "theme": "Hierarchical-Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string) referring to a form representation of the list; if omitted, 'list' is a hierarchical list reference number (ListRef)."
+        },
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "List reference number (if '*' omitted), or name of the list-type form object (if '*' passed)."
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "the last item appended to the list (via APPEND TO LIST)"
+            },
+            {
+              "value": "*",
+              "meaning": "the current item of the list (requires the object-name syntax, since each form representation can have its own current item)"
+            }
+          ]
+        },
+        {
+          "name": "selector",
+          "type": [
+            {
+              "kind": "enum_ref",
+              "enum": "HierarchicalListItemSelector"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "One of the documented \"Hierarchical Lists\" theme constants (e.g. Additional text), or a custom property name."
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Value of the parameter; its concrete type depends on which selector is passed."
+        }
+      ],
+      "interactionNotes": [
+        {
+          "params": [
+            "asObjectName (leading *)",
+            "itemRef (* sentinel)"
+          ],
+          "note": "The literal symbol '*' means two unrelated things depending on position: leading = 'list is a name, not a ref number'; in itemRef's slot = 'operate on the current item'. Using the itemRef '*' sentinel requires the object-name syntax (leading '*' passed)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "value's concrete type (Text/Boolean/Real) may still depend on selector when a custom (non-enum) property name is passed; for the two documented HierarchicalListItemSelector constants (Additional text, Associated standard action name), value is Text."
+  ]
+}

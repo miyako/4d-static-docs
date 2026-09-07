@@ -1,0 +1,22 @@
+{
+  "id": "VP-SET-SELECTION",
+  "displayName": "VP SET SELECTION",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET SELECTION command defines the specified cells as the selection and the first cell as the active cell."
+    }
+  ]
+}

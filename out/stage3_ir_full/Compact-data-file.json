@@ -1,0 +1,68 @@
+{
+  "id": "Compact-data-file",
+  "displayName": "Compact data file",
+  "kind": "classic_command",
+  "theme": "4D-Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "structurePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dataPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "archiveFolder",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "method",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Compacts the data file (and its index file, if any) associated with a structure file, replacing the original data file in place and returning the pathname of the folder holding the preserved originals."
+    }
+  ],
+  "constraints": [
+    "Can only be executed from 4D in local (single-user) mode or from 4D Server as a stored procedure.",
+    "The dataPath file must not already be open when the command is executed, otherwise an error is generated.",
+    "The option parameter is a combination of bit-flag constants from the 'Data File Maintenance' theme (e.g. Compact address table, Create process, Do not create log file, Timestamp log file name, Update records); passing 'Compact address table' alone implicitly also enables 'Update records'.",
+    "The method callback parameter is only ever invoked when the 'Create process' option bit is passed (asynchronous compacting); otherwise it is ignored."
+  ]
+}

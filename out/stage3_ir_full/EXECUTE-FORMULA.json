@@ -1,0 +1,28 @@
+{
+  "id": "EXECUTE-FORMULA",
+  "displayName": "EXECUTE FORMULA",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "statement",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Evaluates and executes a single line of 4D code built or supplied at runtime (e.g. a user-entered expression), such as a command call, method call, or assignment."
+    }
+  ],
+  "constraints": [
+    "statement must be a single line of code; control-flow statements (If, While, Return, Break, etc.) are not allowed and are silently ignored if present.",
+    "Does nothing if statement is an empty string.",
+    "In a compiled database, the statement is executed uninterpreted by the compiler (not compiled), so it is not checked at compile time.",
+    "For calling a project method with parameters, prefer EXECUTE METHOD instead."
+  ]
+}

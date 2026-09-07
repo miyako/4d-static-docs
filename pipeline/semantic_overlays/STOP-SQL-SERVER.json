@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Does nothing if the SQL server was not launched; does not affect the internal 4D SQL kernel, which remains available for internal queries."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "ZIP-Read-archive",
+  "displayName": "ZIP Read archive",
+  "kind": "classic_command",
+  "theme": "File and Folder",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "zipFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "password",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.ZipArchive"
+      },
+      "semanticRole": "The ZIP Read archive command retrieves the contents of zipFile and returns it as a 4D.ZipArchive object."
+    }
+  ],
+  "constraints": [
+    "Does not decompress the archive; it only provides a navigable view of its contents. Use file.copyTo()/folder.copyTo() on the returned structure to actually extract data.",
+    "The archive file is held open only until this command finishes executing and all extracted contents/references are released, after which it is closed automatically.",
+    "If the archive is password-protected and password is omitted (or wrong), an error is generated.",
+    "The returned 4D.ZipArchive object exposes a single 'root' property, a 4D.ZipFolder describing the whole archive contents."
+  ]
+}

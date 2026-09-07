@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "paramType must be one of the SQL-theme 'SQL param ...' constants (e.g. SQL param in, SQL param in out); 'in out' is usable only in the context of an SQL stored procedure.",
+    "As an alternative to this command, a 4D object's name can be inserted directly between << and >> characters in the SQL request text."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "READ-WRITE",
+  "displayName": "READ WRITE",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets aTable (or the default table if omitted) to read/write state for the calling process; subsequently loaded records become unlocked (if not already locked by another user)."
+    },
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets every table to read/write state for the calling process, using the '*' form instead of naming a single table."
+    }
+  ],
+  "constraints": [
+    "Only affects subsequently loaded records; it does not change the lock status of the record already loaded as current.",
+    "Read/write is the default state for all tables; this command is needed to revert a table from a prior READ ONLY call."
+  ]
+}

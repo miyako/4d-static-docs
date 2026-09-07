@@ -1,0 +1,26 @@
+{
+  "id": "Abs",
+  "displayName": "Abs",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "number",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Returns the absolute (unsigned) value of number, i.e. number unchanged if positive, or its negation if negative."
+    }
+  ]
+}

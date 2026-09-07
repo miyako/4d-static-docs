@@ -1,0 +1,48 @@
+{
+  "constraints": [
+    "If menu is a menu reference (MenuRef), the process parameter is unnecessary and is ignored if passed; if menu is a menu number, process (if passed) designates which process's menu bar to use, defaulting to the current process."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: iconRef is filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
+        },
+        {
+          "name": "menuItem",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": -1, "meaning": "the last item added to the menu" }
+          ]
+        },
+        {
+          "name": "iconRef",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Reference (pathname via the 'path:' pattern, or, depending on the variable's declared type, the number or 'pictlib:' name) of the icon associated with the menu item; blank if no icon is associated."
+        },
+        {
+          "name": "process",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

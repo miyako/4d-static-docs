@@ -1,0 +1,87 @@
+{
+  "theme": "Form-Events",
+  "constraints": [
+    "Must be called in the context of the parent form containing subformObject (e.g. from the parent form's form method).",
+    "Does nothing if subformObject is not found on the current page or is not yet instantiated.",
+    "If the subform belongs to a component, the called method/function must be marked 'Shared by components and host database'.",
+    "The execution context is preserved in the called code: the current form and form event remain defined."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Fixed 'return' direction to 'out' (draft defaulted every param to 'in'); the parameter table marks it with col2 '\u2190' as the variable receiving formula's returned value.",
+      "params": [
+        {
+          "name": "subformObject",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of subform object"
+        },
+        {
+          "name": "formula",
+          "type": [
+            { "kind": "concrete", "name": "Object" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object, or name of a project method, to execute in the context of subformObject"
+        },
+        {
+          "name": "return",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": true,
+          "description": "Variable receiving the value returned by formula"
+        },
+        {
+          "name": "param",
+          "type": { "kind": "pseudo", "name": "Expression" },
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) passed to formula"
+        }
+      ],
+      "semanticRole": "Executes formula in the context of subformObject and captures its returned value into 'return'."
+    },
+    {
+      "sourceIndices": [1],
+      "note": "Kept as its own overload (order preserved); only semanticRole added.",
+      "params": [
+        {
+          "name": "subformObject",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of subform object"
+        },
+        {
+          "name": "formula",
+          "type": [
+            { "kind": "concrete", "name": "Object" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object, or name of a project method, to execute in the context of subformObject"
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "Indicates formula does not return a value"
+        },
+        {
+          "name": "param",
+          "type": { "kind": "pseudo", "name": "Expression" },
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) passed to formula"
+        }
+      ],
+      "semanticRole": "Executes formula in the context of subformObject, explicitly discarding any return value."
+    }
+  ]
+}

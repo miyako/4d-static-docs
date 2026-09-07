@@ -1,0 +1,30 @@
+{
+  "id": "Is-license-available",
+  "displayName": "Is license available",
+  "kind": "classic_command",
+  "theme": "Licenses",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "license",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is license available command lets you find out the availability of a plug-in."
+    }
+  ],
+  "constraints": [
+    "license can be passed three ways: omitted (returns False only when the whole 4D application is in demonstration mode); one of the '\"Is License Available\" theme' plug-in constants (e.g. 4D Client SOAP license = 808465465, 4D Client Web license = 808465209, 4D for OCI license = 808465208, 4D ODBC Pro license = 808464946, 4D REST Test license = 808465719, 4D SOAP license = 808465464, 4D View license = 808465207, 4D Web license = 808464945, 4D Write license = 808464697); or a raw plug-in \"4BNX\" resource ID number.",
+    "Takes into account licenses attributed in Design mode or via SET PLUGIN ACCESS; returns False if the plug-in is operating in demo mode."
+  ]
+}

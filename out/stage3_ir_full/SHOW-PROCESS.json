@@ -1,0 +1,26 @@
+{
+  "id": "SHOW-PROCESS",
+  "displayName": "SHOW PROCESS",
+  "kind": "classic_command",
+  "theme": "Process (User Interface)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SHOW PROCESS displays all the windows belonging to process ."
+    }
+  ],
+  "constraints": [
+    "Only makes the process's windows visible; it does not bring them to the frontmost level (use BRING TO FRONT for that).",
+    "If the process's windows are already displayed, the command has no effect."
+  ]
+}

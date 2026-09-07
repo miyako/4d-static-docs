@@ -1,0 +1,52 @@
+{
+  "constraints": [
+    "If metaName is a tag path, metaContents directly receives the value (converted to the variable's declared type, Text by default; Text results are XMP-formatted XML); pass an array if the tag can hold more than one value (e.g. IPTC Keywords).",
+    "If metaName is a block name (\"TIFF\", \"EXIF\", \"GPS\", \"IPTC\") or an empty string, metaContents must instead be a valid XML DOM element reference, into which the designated block(s) are copied."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: metaContents (both the leading pair and each repeated pair) is filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "metaName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name or tag path of the metadata block to get; a constant from the Picture Metadata Names theme, a block name (\"TIFF\", \"EXIF\", \"GPS\", \"IPTC\"), or an empty string."
+        },
+        {
+          "name": "metaContents",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "metaName",
+              "type": { "kind": "concrete", "name": "Text" },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "metaContents",
+              "type": { "kind": "concrete", "name": "Variable" },
+              "direction": "out",
+              "optional": false
+            }
+          ],
+          "cardinality": { "min": 0, "max": null },
+          "position": "trailing"
+        }
+      ]
+    }
+  ]
+}

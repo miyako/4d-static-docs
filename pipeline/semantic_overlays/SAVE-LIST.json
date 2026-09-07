@@ -1,0 +1,7 @@
+{
+  "theme": "Hierarchical-Lists",
+  "constraints": [
+    "If a list with the given listName already exists in the Design environment List Editor, its contents are replaced.",
+    "Cannot be used in a structure loaded read-only, such as a .4dz project (including remote projects) or a component."
+  ]
+}

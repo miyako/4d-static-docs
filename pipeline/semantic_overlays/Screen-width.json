@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "On Macintosh, the optional * parameter has no effect: Screen width always returns the width of the main screen regardless of whether * is passed."
+  ]
+}

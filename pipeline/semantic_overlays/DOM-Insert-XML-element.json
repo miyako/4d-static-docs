@@ -1,0 +1,14 @@
+{
+  "theme": "XML-DOM",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Inserts an existing XML element (sourceElementRef, from the same DOM tree) as a child of targetElementRef, before the child at position childIndex, and returns a reference to the inserted element."
+    }
+  ],
+  "constraints": [
+    "sourceElementRef must already be the reference of an existing XML element in a DOM tree, not newly-authored text.",
+    "If childIndex does not designate a valid existing child of targetElementRef, the new element is inserted before the first child.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

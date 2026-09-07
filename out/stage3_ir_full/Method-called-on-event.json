@@ -1,0 +1,12 @@
+{
+  "id": "Method-called-on-event",
+  "displayName": "Method called on event",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Method called on event command returns the name of the method installed by the ON EVENT CALL command."
+    }
+  ]
+}

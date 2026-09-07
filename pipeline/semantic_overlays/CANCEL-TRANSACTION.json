@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Does not affect unsaved changes to records currently displayed -- they remain displayed after the command executes."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Cancels the transaction of the corresponding nesting level started by START TRANSACTION in the current process, rolling back the data operations performed during it."
+    }
+  ]
+}

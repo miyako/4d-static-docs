@@ -1,0 +1,12 @@
+{
+  "id": "Milliseconds",
+  "displayName": "Milliseconds",
+  "kind": "classic_command",
+  "theme": "Date and Time",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Milliseconds returns the number of milliseconds (1000th of a second) elapsed since the machine was started."
+    }
+  ]
+}

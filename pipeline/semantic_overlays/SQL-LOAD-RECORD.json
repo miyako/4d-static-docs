@@ -1,0 +1,22 @@
+{
+  "constraints": [
+    "If numRecords is omitted, the command retrieves only the current record from the data source (for use in a loop that receives one record at a time)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "restored the documented sentinel value on numRecords (the SQL All Records constant, value -1, meaning \"retrieve all records of the table\") which autoparse's mechanical param draft has no field for.",
+      "params": [
+        {
+          "name": "numRecords",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            {"value": -1, "meaning": "SQL All Records constant: retrieve all records of the table."}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "id": "GET-TABLE-PROPERTIES",
+  "displayName": "GET TABLE PROPERTIES",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tablePtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "invisible",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "trigSaveNew",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "trigSaveRec",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "trigDelRec",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "trigLoadRec",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Returns the properties of the table designated by a pointer.",
+      "discriminatedBy": {
+        "param": "tablePtr",
+        "rule": "Use this overload when you have a pointer to the table rather than its table number."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "invisible",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "trigSaveNew",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "trigSaveRec",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "trigDelRec",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "trigLoadRec",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Returns the properties of the table designated by its table number.",
+      "discriminatedBy": {
+        "param": "tableNum",
+        "rule": "Use this overload when you have the table number rather than a pointer to the table."
+      }
+    }
+  ],
+  "constraints": [
+    "trigLoadRec is obsolete and should not be used."
+  ]
+}

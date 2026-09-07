@@ -1,0 +1,110 @@
+{
+  "id": "DOM-Parse-XML-variable",
+  "displayName": "DOM Parse XML variable",
+  "kind": "classic_command",
+  "theme": "XML-DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "variable",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "validation",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "dtd",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Parses an XML structure held in a BLOB or Text variable, optionally validating it against a DTD (either referenced inside the structure or explicitly designated by the dtd parameter), and returns a document reference.",
+      "discriminatedBy": {
+        "param": "dtd",
+        "rule": "Third parameter is a DTD pathname/text (or omitted to use any DTD/XSD reference found inside the structure itself)."
+      },
+      "staticallyDistinguishable": false
+    },
+    {
+      "params": [
+        {
+          "name": "variable",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "validation",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "schema",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Parses an XML structure held in a BLOB or Text variable, optionally validating it against an XML Schema (XSD) explicitly designated by the schema parameter.",
+      "discriminatedBy": {
+        "param": "schema",
+        "rule": "Third parameter is an XSD file/URL pathname, selected instead of the dtd overload to validate by schema rather than DTD."
+      },
+      "staticallyDistinguishable": false
+    }
+  ],
+  "constraints": [
+    "variable holds the raw XML structure itself (a BLOB or Text value), not a pathname.",
+    "If validation is True and the third parameter is omitted, validation is attempted via a DTD or XSD reference found inside the structure itself; this can chain (a referenced DTD that itself references an XSD).",
+    "If validation cannot be performed, an error is generated and reported via the Error system variable.",
+    "The returned reference must eventually be released by calling DOM CLOSE XML with it.",
+    "The dtd/schema overloads are not statically distinguishable by parameter type (both Text) -- 4D discriminates at runtime by file-extension convention (a \".dtd\" path selects DTD validation, an \".xsd\" path selects schema validation) or by content-sniffing, same as DOM Parse XML source.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "Is-editing-text",
+  "displayName": "Is editing text",
+  "kind": "classic_command",
+  "theme": "Entry Control",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Is editing text command returns True if the user is entering values in an input form object, and False in all other cases."
+    }
+  ],
+  "constraints": [
+    "Only meaningful with these form object types: input (enterable or non-enterable listbox), and combo box; with any other object type it always returns False.",
+    "Cannot be used with 4D Write Pro or 4D View Pro areas.",
+    "Intended for use inside code triggered by the On Before Keystroke form event, to distinguish actual text entry from shortcut-key handling (e.g. listbox scrolling)."
+  ]
+}

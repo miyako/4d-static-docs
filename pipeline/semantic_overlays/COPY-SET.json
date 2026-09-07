@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "srcSet and dstSet do not need to be the same set type (process/interprocess/local-client), as long as both are visible on the same machine."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Copies the contents of one set into another (creating/replacing the destination set)."
+    }
+  ]
+}

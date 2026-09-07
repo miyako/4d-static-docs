@@ -1,0 +1,16 @@
+{
+  "id": "START-TRANSACTION",
+  "displayName": "START TRANSACTION",
+  "kind": "classic_command",
+  "theme": "Transactions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "START TRANSACTION starts a transaction in the current process."
+    }
+  ],
+  "constraints": [
+    "Transactions can be nested (sub-transactions); each transaction/sub-transaction must eventually be individually cancelled or validated.",
+    "If the main (outermost) transaction is cancelled, all of its sub-transactions are cancelled too, regardless of whether those sub-transactions were themselves already validated."
+  ]
+}

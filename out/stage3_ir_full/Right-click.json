@@ -1,0 +1,19 @@
+{
+  "id": "Right-click",
+  "displayName": "Right click",
+  "kind": "classic_command",
+  "theme": "Form-Events",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns True if the right mouse button was clicked (within an On Clicked event), otherwise False."
+    }
+  ],
+  "constraints": [
+    "Should only be used within the On Clicked form event; verify in Design mode that this event is enabled on the form and/or the specific object."
+  ]
+}

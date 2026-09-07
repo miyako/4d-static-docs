@@ -1,0 +1,39 @@
+{
+  "id": "New-shared-collection",
+  "displayName": "New shared collection",
+  "kind": "classic_command",
+  "theme": "Collections",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "members": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Create a new shared collection, optionally prefilled with one or more values, whose elements can be safely accessed from multiple processes/workers under Use...End use."
+    }
+  ],
+  "constraints": [
+    "Adding an element via the assignment operator (e.g. mySharedCol[i]:=...) must be wrapped in Use...End use, otherwise an error is generated; this is not required when adding elements via collection methods that already implement their own thread-safety."
+  ]
+}

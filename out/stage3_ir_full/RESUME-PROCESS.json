@@ -1,0 +1,26 @@
+{
+  "id": "RESUME-PROCESS",
+  "displayName": "RESUME PROCESS",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "RESUME PROCESS resumes a process whose execution has been paused or delayed."
+    }
+  ],
+  "constraints": [
+    "If process is not paused or delayed, or does not exist, the command does nothing.",
+    "Cannot be used from a client machine to resume a stored procedure on the server (process < 0)."
+  ]
+}

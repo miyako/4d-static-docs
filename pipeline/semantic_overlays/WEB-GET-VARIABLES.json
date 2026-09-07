@@ -1,0 +1,34 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "Valid regardless of whether the submitted form/URL used the POST or GET method.",
+    "For checkboxes, a name/value pair is only returned if the checkbox was actually checked."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "nameArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Web form variable names."
+        },
+        {
+          "name": "valueArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Web form variable values, synchronized index-for-index with nameArray."
+        }
+      ]
+    }
+  ]
+}

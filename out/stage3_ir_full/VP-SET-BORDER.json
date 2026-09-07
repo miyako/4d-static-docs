@@ -1,0 +1,47 @@
+{
+  "id": "VP-SET-BORDER",
+  "displayName": "VP SET BORDER",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Range of cells where the border style will be applied"
+        },
+        {
+          "name": "borderStyleObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object defining the border line color and style"
+        },
+        {
+          "name": "borderPosObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object defining where the border line is applied (all/left/top/right/bottom/outline/inside/innerHorizontal/innerVertical)"
+        }
+      ],
+      "semanticRole": "The VP SET BORDER command applies the border style(s) defined in borderStyleObj and borderPosObj to the range defined in the rangeObj ."
+    }
+  ],
+  "constraints": [
+    "If rangeObj contains multiple cells, the border is applied to the range as a whole (unlike VP SET CELL STYLE, which applies borders to each cell individually).",
+    "If a style sheet has already been applied to the range, VP SET BORDER overrides its previously applied border settings."
+  ]
+}

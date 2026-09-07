@@ -1,0 +1,43 @@
+{
+  "id": "VP-ADD-SHEET",
+  "displayName": "VP ADD SHEET",
+  "kind": "classic_command",
+  "theme": "4D-View-Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "index",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Index (0-based) at which to insert the new sheet; values <= 0 insert at the beginning, values exceeding the sheet count insert after the existing sheets"
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name for the new sheet; cannot contain *, :, [, ], ?, \\, /"
+        }
+      ],
+      "semanticRole": "Inserts a new sheet into the document loaded in vpAreaName, at an optional 0-based index (defaulting to the end) with an optional name."
+    }
+  ]
+}

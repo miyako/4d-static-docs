@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "width/height are deltas (pixels to add), not absolute sizes; pass 0 to leave a dimension unchanged, or a negative value to shrink it.",
+    "Produces the exact same result as a manual resize via the resize box (when the window type allows resizing), so it still respects each object's resize properties and the form's size limitations."
+  ]
+}

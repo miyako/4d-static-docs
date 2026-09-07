@@ -1,0 +1,19 @@
+{
+  "id": "Windows-Ctrl-down",
+  "displayName": "Windows Ctrl down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns True if the Windows Ctrl key (Command key on Macintosh) is currently pressed."
+    }
+  ],
+  "constraints": [
+    "On Macintosh, tests the Command key rather than a literal Ctrl key."
+  ]
+}

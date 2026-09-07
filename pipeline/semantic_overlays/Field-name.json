@@ -1,0 +1,20 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the name of the field pointed to by fieldPtr.",
+      "discriminatedBy": {
+        "param": "fieldPtr",
+        "rule": "single Pointer argument selects the pointer-based syntax"
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns the name of the field identified by its table number and field number.",
+      "discriminatedBy": {
+        "param": "tableNum",
+        "rule": "two Integer arguments select the table-number/field-number syntax"
+      }
+    }
+  ]
+}

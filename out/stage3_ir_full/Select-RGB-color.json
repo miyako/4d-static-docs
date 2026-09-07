@@ -1,0 +1,40 @@
+{
+  "id": "Select-RGB-color",
+  "displayName": "Select RGB color",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "defaultColor",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Select RGB color command displays the system color selection window and returns the RGB value of the color selected by the user."
+    }
+  ],
+  "constraints": [
+    "If defaultColor is omitted or 0, the color black is preselected when the dialog box opens.",
+    "Under Windows: if the user validates with OK, the command returns the selected color in RGB format and OK is set to 1; if the user cancels, the command returns -1 and OK is set to 0.",
+    "Under macOS: the dialog can only be closed via the close box or Esc; OK is always set to 1 regardless of user action, and the command returns the selected color, or the value passed in defaultColor if the user made no selection."
+  ]
+}

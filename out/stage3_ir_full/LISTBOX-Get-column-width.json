@@ -1,0 +1,102 @@
+{
+  "id": "LISTBOX-Get-column-width",
+  "displayName": "LISTBOX Get column width",
+  "kind": "classic_command",
+  "theme": "List-Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "minWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the current width (in pixels) of the list box column or column header, and optionally fills minWidth/maxWidth with its resizing limits, addressed as an object-name string (via the leading '*' flag).",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "Chosen when the caller addresses the list box/column via an object-name string (leading '*' passed)."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "minWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the current width (in pixels) of the list box column or column header, and optionally fills minWidth/maxWidth with its resizing limits, addressed as a direct Variable reference (no leading '*').",
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Chosen when the caller addresses the list box/column via a direct Variable reference (no leading '*')."
+      }
+    }
+  ],
+  "constraints": [
+    "If no minimum and/or maximum resizing limit has been set for the column (via LISTBOX SET COLUMN WIDTH), the corresponding minWidth/maxWidth parameter returns 0."
+  ]
+}

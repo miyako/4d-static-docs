@@ -1,0 +1,18 @@
+{
+  "constraints": [
+    "Operates only on a document that is currently open (docRef from a prior Open document/Create document call).",
+    "If anchor is omitted, offset is relative to the beginning of the document.",
+    "anchor values: 1 = relative to the beginning of the file, 2 = relative to the end of the file, 3 = relative to the current position."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["offset", "anchor"],
+          "rule": "The sign/range of valid offset values depends on which anchor is chosen (e.g. a negative offset is meaningful when anchored to the end or current position, but not when anchored to the beginning)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "theme": "XML-DOM",
+  "constraints": [
+    "elementName matching is case-sensitive by default (XML compliance); case sensitivity can be changed via the 'XML DOM case sensitivity' selector of XML SET OPTIONS."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the number of direct child elements of elementRef that are named elementName."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "in",
+          "optional": false,
+          "description": "Picture field or variable to convert."
+        },
+        {
+          "name": "pictureBlob",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "out",
+          "optional": false,
+          "description": "BLOB to receive the converted picture."
+        },
+        {
+          "name": "codec",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Picture Codec ID (extension, e.g. \".gif\", or Mime type, e.g. \"image/jpeg\")."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "On success, the OK system variable is set to 1 and pictureBlob contains the converted picture; on failure (converter not available) OK is set to 0 and pictureBlob is returned empty (0 byte).",
+    "Valid codec values can be obtained via the PICTURE CODEC LIST command."
+  ]
+}

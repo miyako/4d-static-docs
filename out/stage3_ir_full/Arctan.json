@@ -1,0 +1,26 @@
+{
+  "id": "Arctan",
+  "displayName": "Arctan",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "number",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Returns the arctangent of number, expressed in radians."
+    }
+  ]
+}

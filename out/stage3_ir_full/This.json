@@ -1,0 +1,20 @@
+{
+  "id": "This",
+  "displayName": "This",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The This command returns a reference to the currently processed object.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "constraints": [
+    "The value of This is determined by how the enclosing function was called, not by lexical scope; it cannot be set by assignment and may differ on each call.",
+    "Outside any context where This is meaningful (e.g. an object/class method, formula, or entity attribute context), the command returns Null."
+  ]
+}

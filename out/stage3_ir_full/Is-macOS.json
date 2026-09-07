@@ -1,0 +1,12 @@
+{
+  "id": "Is-macOS",
+  "displayName": "Is macOS",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Is macOS command returns True if the current operating system is macOS."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "Tickcount",
+  "displayName": "Tickcount",
+  "kind": "classic_command",
+  "theme": "Date and Time",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Tickcount returns the number of ticks (60th of a second) elapsed since the machine was started.Tickcount returns a value of type Long Integer.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ]
+}

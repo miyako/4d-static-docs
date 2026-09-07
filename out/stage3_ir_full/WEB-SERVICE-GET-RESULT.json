@@ -1,0 +1,50 @@
+{
+  "id": "WEB-SERVICE-GET-RESULT",
+  "displayName": "WEB SERVICE GET RESULT",
+  "kind": "classic_command",
+  "theme": "Web-Services-Client",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "returnValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the value sent back by the Web Service"
+        },
+        {
+          "name": "returnName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the specific returned parameter to retrieve (usually unnecessary since most Web Services return a single value)"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, frees the memory devoted to processing the request; must be passed only after retrieving the last value returned by the Web Service"
+        }
+      ],
+      "semanticRole": "Retrieves, in returnValue, the value (or the specific named parameter returnName) sent back by the last-called Web Service."
+    }
+  ],
+  "constraints": [
+    "Must be called only after WEB SERVICE CALL.",
+    "returnValue should be a process variable (e.g. $result, matching the proxy method's return); array/variable declarations must use the Compiler/Arrays theme commands beforehand.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
+  ]
+}

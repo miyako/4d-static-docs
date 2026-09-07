@@ -1,0 +1,83 @@
+{
+  "id": "RESOLVE-POINTER",
+  "displayName": "RESOLVE POINTER",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aPointer",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Pointer for which to retrieve the referenced object"
+        },
+        {
+          "name": "varName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "referenced object is NIL, a table, or a field"
+            }
+          ],
+          "description": "Name of referenced variable or empty string"
+        },
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "referenced object is NIL"
+            },
+            {
+              "value": -1,
+              "meaning": "referenced object is a variable, array, or array element (not a table/field)"
+            }
+          ],
+          "description": "Number of referenced table or array element or 0 or -1"
+        },
+        {
+          "name": "fieldNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "referenced object is NIL or a table"
+            },
+            {
+              "value": -1,
+              "meaning": "referenced object is a variable, array, or array element"
+            }
+          ],
+          "description": "Number of referenced field or 0"
+        }
+      ],
+      "semanticRole": "Retrieves what an existing pointer references (NIL, a variable, an array, an array element, a table, or a field) and decodes that identity into varName/tableNum/fieldNum."
+    }
+  ],
+  "constraints": [
+    "aPointer must be an actual pointer expression, or a syntax error occurs.",
+    "Does not work with pointers to local variables, since several local variables with the same name can exist in different locations."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "The returned object depends on context: DIALOG/Print form/FORM LOAD callers get the formData object (or an instantiated user-class object, or an empty object); a subform returns its parent container's object (or an empty object if the parent container variable isn't typed as an object); a table form returns the object associated with that table form, which gets a parentForm property when displayed as an input form opened from an output form."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Object" }
+    }
+  ]
+}

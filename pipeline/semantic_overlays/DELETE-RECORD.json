@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "Has no effect if there is no current record for aTable in the process (including if the record was unloaded before the call, e.g. via UNLOAD RECORD).",
+    "Does nothing when the table is in READ ONLY mode, regardless of whether the record to be deleted is locked.",
+    "Permanent and cannot be undone outside of a transaction (see Using Transactions).",
+    "Deleted record numbers are reused by subsequently created records -- do not use the record number as a durable record identifier if records may ever be deleted."
+  ]
+}

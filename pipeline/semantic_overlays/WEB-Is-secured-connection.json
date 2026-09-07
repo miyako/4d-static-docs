@@ -1,0 +1,17 @@
+{
+  "theme": "Web-Server",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "Autoparse could not find a top-level '(...)' parameter list in the no-parentheses signature 'WEB Is secured connection : Boolean', so it silently dropped the return type. Restored from the parameterTable's Function result row.",
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns True if the current 4D Web server connection was made in secured mode (TLS/SSL, i.e. an https: request), False otherwise."
+    }
+  ]
+}

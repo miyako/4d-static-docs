@@ -1,0 +1,47 @@
+{
+  "id": "Get-menu-item-parameter",
+  "displayName": "Get menu item parameter",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
+        }
+      ],
+      "semanticRole": "Get the custom character-string parameter previously attached to a menu item via SET MENU ITEM PARAMETER."
+    }
+  ],
+  "constraints": [
+    "The custom parameter must have been set beforehand using the SET MENU ITEM PARAMETER command."
+  ]
+}

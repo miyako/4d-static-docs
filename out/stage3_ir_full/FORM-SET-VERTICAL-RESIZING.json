@@ -1,0 +1,54 @@
+{
+  "id": "FORM-SET-VERTICAL-RESIZING",
+  "displayName": "FORM SET VERTICAL RESIZING",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resize",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "minHeight",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "maxHeight",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Sets, for the current process, whether the current form can be resized vertically and, if so, its minimum/maximum allowed heights in pixels.",
+      "jointConstraints": [
+        {
+          "params": [
+            "resize",
+            "minHeight",
+            "maxHeight"
+          ],
+          "rule": "minHeight and maxHeight are only meaningful when resize is True; if resize is False there is no need to pass them (the form's height becomes fixed regardless of any values given)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "New properties apply only to the current process and are not saved with the form; they override (for this process) whatever was set in the Design environment's Form editor.",
+    "If minHeight/maxHeight are omitted while resize is True, the values set in the Design environment (if any) are used instead."
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "GET-LIST-ITEM",
+  "displayName": "GET LIST ITEM",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string); if omitted, 'list' is a hierarchical list reference number."
+        },
+        {
+          "name": "list",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Name of list type object (if '*' passed), or list reference number (if '*' omitted)."
+        },
+        {
+          "name": "itemPos",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "*",
+              "meaning": "the current item in the list"
+            }
+          ]
+        },
+        {
+          "name": "itemRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "itemText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "sublist",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "the item has no attached sublist"
+            }
+          ]
+        },
+        {
+          "name": "expanded",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Only meaningful if the item has a sublist: TRUE if the sublist is currently expanded, FALSE if collapsed."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "itemPos must be expressed relative to the current expanded/collapsed state of the list and its sublists; valid range is 1 to Count list items, otherwise the command returns empty values (0, \"\") in the out parameters."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "WEB-GET-VARIABLES",
+  "displayName": "WEB GET VARIABLES",
+  "kind": "classic_command",
+  "theme": "Web-Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "nameArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Web form variable names."
+        },
+        {
+          "name": "valueArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Web form variable values, synchronized index-for-index with nameArray."
+        }
+      ],
+      "semanticRole": "The WEB GET VARIABLES command fills the text arrays nameArray and valueArray with the variable names and values contained in the Web form \u201csubmitted\u201d (i.e."
+    }
+  ],
+  "constraints": [
+    "Valid regardless of whether the submitted form/URL used the POST or GET method.",
+    "For checkboxes, a name/value pair is only returned if the checkbox was actually checked."
+  ]
+}

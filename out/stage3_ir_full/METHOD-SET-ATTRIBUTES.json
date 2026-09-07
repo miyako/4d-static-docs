@@ -1,0 +1,67 @@
+{
+  "id": "METHOD-SET-ATTRIBUTES",
+  "displayName": "METHOD SET ATTRIBUTES",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attributes",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The METHOD SET ATTRIBUTES command allows you to set the attributes values for the method(s) specified in the path parameter.",
+      "jointConstraints": [
+        {
+          "params": [
+            "path",
+            "attributes"
+          ],
+          "rule": "path and attributes must be passed as the same kind: either both a scalar (Text path, Object attributes) or both an array (Text array path, Object array attributes) of matching length; you cannot mix a scalar with an array."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "This command only works with project methods.",
+    "If called from a component you must pass the trailing '*' parameter (by default it applies to the component's own methods); '*' redirects it to the host database's methods."
+  ]
+}

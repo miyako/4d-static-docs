@@ -1,0 +1,12 @@
+{
+  "id": "In-transaction",
+  "displayName": "In transaction",
+  "kind": "classic_command",
+  "theme": "Transactions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The In transaction command returns TRUE if the current process is in a transaction , otherwise it returns FALSE ."
+    }
+  ]
+}
