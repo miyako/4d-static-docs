@@ -1,0 +1,7 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "The returned object reflects actual runtime parameters (e.g. started, uptime, httpRequestCount, startMode, SOAPServerStarted, security/cipherSuite/HTTPEnabled/HTTPSEnabled), which can differ from the configured values returned by WEB GET OPTION since runtime values depend on system settings and available resources.",
+    "The 'cache' property is included in the returned object only when withCache is True; it is omitted by default because it can be very large."
+  ]
+}

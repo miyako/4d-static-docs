@@ -2,7 +2,7 @@
   "id": "WP-Get-footer",
   "displayName": "WP Get footer",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Get footer command returns the footer associated to the targetObj range or to the specified sectionIndex of the wpDoc document."
+      "semanticRole": "Returns the footer of the first page in the range or the section/sub-section passed as targetObj (returns the visible footer if a sub-section is active)."
     },
     {
       "params": [
@@ -56,7 +56,10 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Get footer command returns the footer associated to the targetObj range or to the specified sectionIndex of the wpDoc document."
+      "semanticRole": "Returns the footer of the section identified by sectionIndex (>=1) in wpDoc, or of a specific sub-section type of that section when sectionSubType is passed."
     }
+  ],
+  "constraints": [
+    "Returns Null if no footer is found for the given parameter(s)."
   ]
 }

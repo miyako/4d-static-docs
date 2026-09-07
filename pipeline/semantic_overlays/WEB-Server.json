@@ -1,0 +1,57 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "The returned 4D.WebServer object exposes the current property values of the designated Web server (e.g. .isRunning); see the WebServer class."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "Autoparse could not find a top-level '(...)' parameter list in the no-parentheses signature 'WEB Server : 4D.WebServer', so it silently dropped the return type. Restored from the parameterTable's Function result row.",
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.WebServer"
+      },
+      "semanticRole": "Returns the default Web server object, i.e. the Web server of the project/database from which the command is called."
+    },
+    {
+      "sourceIndices": [
+        1
+      ],
+      "note": "Restored sentinelValues on option from the 3 documented 'Web server ...' constants; autoparse leaves option as a plain Integer with no enum.",
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Which Web server object to return",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Web server database: Web server of the project from which the command is called (default if option is omitted)"
+            },
+            {
+              "value": 2,
+              "meaning": "Web server host database: Web server of the host database of a component"
+            },
+            {
+              "value": 3,
+              "meaning": "Web server receiving request: Web server that actually received the request (target Web server)"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.WebServer"
+      },
+      "semanticRole": "Returns the Web server object designated by option (the database's own Web server, a host component's Web server, or the Web server that received the current request)."
+    }
+  ]
+}

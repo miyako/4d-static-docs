@@ -1,0 +1,16 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "Returns Null if no footer is found for the given parameter(s)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the footer of the first page in the range or the section/sub-section passed as targetObj (returns the visible footer if a sub-section is active)."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns the footer of the section identified by sectionIndex (>=1) in wpDoc, or of a specific sub-section type of that section when sectionSubType is passed."
+    }
+  ]
+}

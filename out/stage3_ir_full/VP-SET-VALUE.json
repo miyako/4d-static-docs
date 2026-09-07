@@ -2,7 +2,7 @@
   "id": "VP-SET-VALUE",
   "displayName": "VP SET VALUE",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -27,5 +27,11 @@
       ],
       "semanticRole": "The VP SET VALUE command assigns a specified value to a designated cell range."
     }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple cells, the same valueObj is repeated in every cell.",
+    "valueObj.value accepts Integer, Real, Boolean, Text, Date, or Null (any type except time); pass Null to erase the cell content.",
+    "valueObj.time (Real, in seconds) is used instead of value to set a time value.",
+    "valueObj.format is a pattern applied to value/time; see Cell Format."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "WA-SET-PREFERENCE",
   "displayName": "WA SET PREFERENCE",
   "kind": "classic_command",
-  "theme": "Web Area",
+  "theme": "Web-Area",
   "overloads": [
     {
       "params": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "selector",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "value",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The WA SET PREFERENCE command sets different preferences for the Web area designated by the * and object parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
         },
         {
           "name": "selector",
@@ -71,7 +45,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Preference to be modified (a WA... constant from the Web Area theme)."
         },
         {
           "name": "value",
@@ -80,10 +55,18 @@
             "name": "Boolean"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Value of the preference (True = allowed, False = not allowed)."
         }
       ],
-      "semanticRole": "The WA SET PREFERENCE command sets different preferences for the Web area designated by the * and object parameters."
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
     }
+  ],
+  "constraints": [
+    "selector must be one of the WA... preference constants defined in the Web Area theme; value is always a Boolean (True = activate, False = deactivate).",
+    "Passing True for the 'WA enable URL drop' selector is ignored when the Fluent UI rendering theme is used on Windows."
   ]
 }

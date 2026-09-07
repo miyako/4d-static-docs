@@ -2,7 +2,7 @@
   "id": "VP-SET-TEXT-VALUE",
   "displayName": "VP SET TEXT VALUE",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -36,5 +36,8 @@
       ],
       "semanticRole": "The VP SET TEXT VALUE command assigns a specified text value to a designated cell range."
     }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple cells, textValue is repeated in every cell."
   ]
 }

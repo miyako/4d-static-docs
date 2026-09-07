@@ -2,7 +2,7 @@
   "id": "VP-SET-ROW-COUNT",
   "displayName": "VP SET ROW COUNT",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "rowCount",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Total number of rows to set; must be greater than 0"
         },
         {
           "name": "sheet",
@@ -31,10 +33,21 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Explicitly designates the current spreadsheet (same as omitting sheet)."
+            }
+          ]
         }
       ],
       "semanticRole": "The VP SET ROW COUNT command defines the total number of rows in vpAreaName ."
     }
+  ],
+  "constraints": [
+    "If vpAreaName does not exist, an error is returned.",
+    "rowCount must be greater than 0."
   ]
 }

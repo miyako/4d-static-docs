@@ -1,0 +1,46 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "The command has no effect if the view is already at the requested scroll limit (e.g. rangeObj is already the topmost/leftmost cell and the view is repositioned to top/left, or the view's scroll limits are otherwise already reached)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": false,
+          "description": "Range of cells to bring into view"
+        },
+        {
+          "name": "vPos",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Vertical view position of cell or row",
+          "sentinelValues": [
+            { "value": "vk position bottom", "meaning": "Vertical alignment to the bottom of the cell or row." },
+            { "value": "vk position center", "meaning": "Alignment to the vertical center (cell/row limit)." },
+            { "value": "vk position nearest", "meaning": "Alignment to the closest vertical limit (top, center, bottom)." },
+            { "value": "vk position top", "meaning": "Vertical alignment to the top of the cell or row." }
+          ]
+        },
+        {
+          "name": "hPos",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Horizontal view position of cell or row",
+          "sentinelValues": [
+            { "value": "vk position center", "meaning": "Alignment to the horizontal center (cell/column limit)." },
+            { "value": "vk position left", "meaning": "Horizontal alignment to the left of the cell or column." },
+            { "value": "vk position nearest", "meaning": "Alignment to the closest horizontal limit (left, center, right)." },
+            { "value": "vk position right", "meaning": "Horizontal alignment to the right of the cell or column." }
+          ]
+        }
+      ]
+    }
+  ]
+}

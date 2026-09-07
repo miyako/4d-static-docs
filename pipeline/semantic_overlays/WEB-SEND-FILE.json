@@ -1,0 +1,8 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "Only has an effect when called from a Web process; called from any other process type, it does nothing and returns no error.",
+    "Sets the OK system variable to 1 if the file exists and the send did not time out, otherwise 0.",
+    "4D looks for htmlFile relative to the Web root folder defined in the Database Settings, unless an absolute pathname is given; both POSIX and system pathname syntax are accepted."
+  ]
+}

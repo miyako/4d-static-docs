@@ -1,0 +1,8 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "Should be called just before WP PRINT to synchronize the current printer page settings with the 4D Write Pro document's page size and orientation.",
+    "Other print settings are defined separately via 4D PRINT SETTINGS.",
+    "Print settings changed by this command apply for the whole 4D session."
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "WP-DELETE-STYLE-SHEET",
   "displayName": "WP DELETE STYLE SHEET",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -16,7 +16,7 @@
           "optional": false
         }
       ],
-      "semanticRole": "The WP DELETE STYLE SHEET command removes the designated paragraph or character style sheet from the current document."
+      "semanticRole": "Deletes an already-referenced style sheet object directly (e.g. one created with WP New style sheet or returned by WP Get style sheet)."
     },
     {
       "params": [
@@ -48,7 +48,7 @@
           "optional": true
         }
       ],
-      "semanticRole": "The WP DELETE STYLE SHEET command removes the designated paragraph or character style sheet from the current document."
+      "semanticRole": "Deletes the named style sheet (optionally at a given list level) from wpDoc by name rather than by object reference."
     }
   ]
 }

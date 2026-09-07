@@ -2,11 +2,15 @@
   "id": "WEB-Is-secured-connection",
   "displayName": "WEB Is secured connection",
   "kind": "classic_command",
-  "theme": "Web Server",
+  "theme": "Web-Server",
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The WEB Is secured connection command returns a Boolean indicating if the 4D Web server connection was done in secured mode through TLS/SSL (the request starts with \u201chttps:\u201d instead of \u201chttp:\u201d)."
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns True if the current 4D Web server connection was made in secured mode (TLS/SSL, i.e. an https: request), False otherwise."
     }
   ]
 }

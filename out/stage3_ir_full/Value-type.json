@@ -22,5 +22,10 @@
       },
       "semanticRole": "The Value type command returns the type of the value resulting from the evaluation of the expression you passed as parameter."
     }
+  ],
+  "constraints": [
+    "Returns the internal/runtime type of the value resulting from evaluating expression, not its declared type, so results can differ from the Type command and can differ between interpreted and compiled mode (e.g. an Integer or Long Integer field evaluates as Is real in interpreted mode but as Is longint in compiled mode).",
+    "Numeric object properties are always considered real values (Is real), regardless of how the number is stored.",
+    "Applied to an array reference, Value type returns the type of the current element index (a number, Is real in interpreted mode / Is longint in compiled mode), not the array's declared element type."
   ]
 }

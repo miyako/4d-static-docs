@@ -2,7 +2,7 @@
   "id": "WP-DELETE-SUBSECTION",
   "displayName": "WP DELETE SUBSECTION",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -25,7 +25,7 @@
           "optional": false
         }
       ],
-      "semanticRole": "The WP DELETE SUBSECTION command removes the subSectionType subsection elements from the wpSection 4D Write Pro section, or it directly removes the passed subSection ."
+      "semanticRole": "Removes the subsection elements of the given subSectionType (wk first page / wk left page / wk right page) from wpSection."
     },
     {
       "params": [
@@ -39,7 +39,10 @@
           "optional": false
         }
       ],
-      "semanticRole": "The WP DELETE SUBSECTION command removes the subSectionType subsection elements from the wpSection 4D Write Pro section, or it directly removes the passed subSection ."
+      "semanticRole": "Removes an already-referenced subsection object directly (e.g. one obtained via a prior lookup)."
     }
+  ],
+  "constraints": [
+    "The body of the document is left untouched; only header/footer/column/anchored-picture subsection elements are removed."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "WP-New-text-box",
   "displayName": "WP New text box",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -31,5 +31,8 @@
       },
       "semanticRole": "The WP New text box command creates and returns a new text box object in the page pageNum of wpDoc ."
     }
+  ],
+  "constraints": [
+    "If pageNum < 0, page number 1 is used and no error is generated."
   ]
 }

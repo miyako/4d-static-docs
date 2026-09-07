@@ -2,7 +2,7 @@
   "id": "WA-SET-PAGE-CONTENT",
   "displayName": "WA SET PAGE CONTENT",
   "kind": "classic_command",
-  "theme": "Web Area",
+  "theme": "Web-Area",
   "overloads": [
     {
       "params": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "content",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "baseURL",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The WA SET PAGE CONTENT command replaces the page displayed in the Web area designated by the * and object parameters by the HTML code passed in the content parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
         },
         {
           "name": "content",
@@ -71,7 +45,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "HTML source code."
         },
         {
           "name": "baseURL",
@@ -80,10 +55,18 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "URL for relative references (macOS only)."
         }
       ],
-      "semanticRole": "The WA SET PAGE CONTENT command replaces the page displayed in the Web area designated by the * and object parameters by the HTML code passed in the content parameter."
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
     }
+  ],
+  "constraints": [
+    "baseURL only has an effect on macOS (used to resolve relative links in content); on Windows it is ignored and relative references cannot be used.",
+    "On Windows this command can only be called after a page has already been loaded into the Web area at least once; pass \"about:blank\" as a prior URL if no real page is needed."
   ]
 }

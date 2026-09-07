@@ -1,0 +1,8 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "Passing an empty string \"\" in homePage stops sending a custom home page for the current Web process (reverts to the default home page from Database Settings).",
+    "If the named page does not yet exist when the Web process first accesses it, the Web server creates it with the default home page's contents.",
+    "The custom home page applies only to the current Web process, so it can vary per connected user."
+  ]
+}

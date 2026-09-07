@@ -1,0 +1,8 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "Must be called from the On Web Authentication database method, in the context of Web authentication in Digest mode.",
+    "Digest validation cannot be used jointly with 4D passwords.",
+    "If the browser does not support Digest authentication, an authentication error is raised instead of this command returning False."
+  ]
+}

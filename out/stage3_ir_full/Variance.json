@@ -28,5 +28,10 @@
       },
       "semanticRole": "Variance returns the variance for series ."
     }
+  ],
+  "constraints": [
+    "If series is an array, it must be of Integer, Longint, or Real type.",
+    "If series is an indexed field, the index is used to compute the variance.",
+    "If the values considered are not a full sample of the population, multiply the returned value by (n-1)/n."
   ]
 }

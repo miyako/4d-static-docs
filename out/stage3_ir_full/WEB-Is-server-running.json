@@ -2,11 +2,15 @@
   "id": "WEB-Is-server-running",
   "displayName": "WEB Is server running",
   "kind": "classic_command",
-  "theme": "Web Server",
+  "theme": "Web-Server",
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The new WEB Is server running command returns True if the 4D built-in Web server is running, and False if the Web server is off."
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns True if the 4D built-in Web server that handles requests in the calling execution context (standalone app, 4D Server, or remote mode) is currently running, False otherwise."
     }
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "Pass exactly one of filePath or fileObj to designate the destination, not both.",
+    "If filePath contains only a document name (no path), the file is saved at the same level as the 4D structure file.",
+    "If format is omitted, it is inferred from the file extension given in filePath/fileObj."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Exports wpDoc to a document on disk designated by a text file path."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Exports wpDoc to a document on disk designated by a 4D.File object."
+    }
+  ]
+}

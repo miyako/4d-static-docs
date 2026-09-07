@@ -6,7 +6,15 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Web Form command returns a 4D.WebForm proxy object, providing a means to work with and effectively emulates the Page's properties and functions."
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.WebForm"
+      },
+      "semanticRole": "Returns a 4D.WebForm proxy object emulating the current Qodly page's properties and functions, each of whose properties is a 4D.WebFormItem object."
     }
+  ],
+  "constraints": [
+    "The 4D.WebForm object is a proxy, not a direct reference to the web form: it does not expose all Page properties (e.g. in the Debugger).",
+    "Returns null if called in a request that does not originate from Qodly Studio."
   ]
 }

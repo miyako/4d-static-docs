@@ -1,0 +1,19 @@
+{
+  "theme": "WritePro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Gets a cell range from the table intersecting a range, element, or 4D Write Pro document; returns Null if no such intersection exists.",
+      "discriminatedBy": {"param": "targetObj", "note": "single Object arg resolved as a range/element/document rather than a raw table reference"}
+    },
+    {
+      "index": 1,
+      "semanticRole": "Gets a cell range from a table, addressed by table reference and explicit start column/row (with optional column/row counts, each defaulting to a single cell).",
+      "discriminatedBy": {"param": "tableRef", "note": "3-5 arg form addressing a table by reference plus explicit coordinates"}
+    }
+  ],
+  "constraints": [
+    "If numRows is omitted, a single row is returned; if both numCols and numRows are omitted, the returned range contains a single cell.",
+    "If startCol+numCols or startRow+numRows exceeds the table's dimensions, or startCol/startRow is out of range, the returned range is clamped to the maximum possible columns/rows."
+  ]
+}

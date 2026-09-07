@@ -2,7 +2,7 @@
   "id": "VP-SET-SHOW-PRINT-LINES",
   "displayName": "VP SET SHOW PRINT LINES",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -36,5 +36,10 @@
       ],
       "semanticRole": "The VP SET SHOW PRINT LINES command sets whether to display print preview lines in a spreadsheet.."
     }
+  ],
+  "constraints": [
+    "visible defaults to True (print lines displayed) if omitted.",
+    "The position of a spreadsheet's print lines depends on that spreadsheet's page breaks.",
+    "Indexing of sheet starts at 0; if omitted, the command applies to the current sheet."
   ]
 }

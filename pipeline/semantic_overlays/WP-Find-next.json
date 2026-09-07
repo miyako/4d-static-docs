@@ -1,0 +1,7 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "Does not search or replace text inside formulas; use WP Get formulas for that case.",
+    "Pass NULL in searchAfter to begin the search from the first value of targetObj."
+  ]
+}

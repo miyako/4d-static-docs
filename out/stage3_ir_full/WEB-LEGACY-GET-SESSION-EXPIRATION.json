@@ -2,7 +2,7 @@
   "id": "WEB-LEGACY-GET-SESSION-EXPIRATION",
   "displayName": "WEB LEGACY GET SESSION EXPIRATION",
   "kind": "classic_command",
-  "theme": "Web Server",
+  "theme": "Web-Server",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Session UUID"
         },
         {
           "name": "expDate",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Date"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the date of cookie expiration"
         },
         {
           "name": "expTime",
@@ -30,11 +32,16 @@
             "kind": "concrete",
             "name": "Time"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the time of cookie expiration"
         }
       ],
-      "semanticRole": "The WEB LEGACY GET SESSION EXPIRATION command returns the expiration information for the cookie of the session whose UUID you passed in sessionID ."
+      "semanticRole": "Returns, in expDate and expTime, the expiration date and time of the session cookie for the legacy Web session identified by sessionID."
     }
+  ],
+  "constraints": [
+    "Only applies to legacy Web sessions (databases converted from versions prior to 4D v18 R6); returns null date/time values when scalable web sessions mode is enabled.",
+    "Each new Web request resets the cookie's expiration to request-time + the 'Web inactive session timeout' setting, so the returned expDate/expTime reflect the most recent request, not a fixed value."
   ]
 }

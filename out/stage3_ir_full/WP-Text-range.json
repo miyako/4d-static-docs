@@ -2,7 +2,7 @@
   "id": "WP-Text-range",
   "displayName": "WP Text range",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Object"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Range or element or 4D Write Pro document"
         },
         {
           "name": "startRange",
@@ -22,7 +23,14 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Starting offset of range in the area",
+          "sentinelValues": [
+            {
+              "value": "wk start text",
+              "meaning": "Beginning of the document/element (or of the element range if targetObj is an element reference)"
+            }
+          ]
         },
         {
           "name": "endRange",
@@ -31,14 +39,26 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Ending offset of range in the area",
+          "sentinelValues": [
+            {
+              "value": "wk end text",
+              "meaning": "End of the document/element (or of the element range if targetObj is an element reference)"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Text range command returns a new range object containing the selection between startRange and endRange in the targetObj ."
+      "semanticRole": "Returns a new range object addressing the character selection between startRange and endRange within targetObj, usable for reading/writing attributes via WP GET ATTRIBUTES / WP SET ATTRIBUTES."
     }
+  ],
+  "constraints": [
+    "If targetObj is not a valid object, an empty range is returned.",
+    "A 4D Write Pro document contains not only visible text but also formatting tags, which are included in the range.",
+    "If targetObj is an element (table/row/paragraph/inline picture/body/header/footer/section/subsection), startRange and endRange are relative to that element's own start/end, not the whole document; for a section specifically, they are relative to the document body (the section's parent range)."
   ]
 }

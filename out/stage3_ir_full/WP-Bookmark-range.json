@@ -2,7 +2,7 @@
   "id": "WP-Bookmark-range",
   "displayName": "WP Bookmark range",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -31,5 +31,8 @@
       },
       "semanticRole": "The WP Bookmark range command returns a text range object (rangeObj) containing the range for the bookmark with the specified bkName in wpDoc ."
     }
+  ],
+  "constraints": [
+    "If bkName does not exist in wpDoc, an empty rangeObj object is returned rather than an error."
   ]
 }

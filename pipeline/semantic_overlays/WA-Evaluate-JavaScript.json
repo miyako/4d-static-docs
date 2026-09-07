@@ -1,0 +1,110 @@
+{
+  "theme": "Web-Area",
+  "constraints": [
+    "Must be called after the target page is loaded (the On End URL Loading form event must already have been generated).",
+    "By default the result is returned as a string; the optional type parameter converts it to the specified type.",
+    "Calling a JS function that opens a blocking dialog (alert(), print()) is not recommended; the user cannot interact with the Web area while 4D code runs."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The docs render two syntax lines only because the leading semicolon disappears when the leading '*' is omitted (object becomes Variable/Field instead of Text). Semantically this is one overload with '*' an optional literal-symbol discriminator, matching the WA-EXECUTE-JAVASCRIPT-FUNCTION fixture's treatment of the same pattern.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (Text); if omitted, object is a variable or field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or variable/field (if * is omitted) designating the Web area"
+        },
+        {
+          "name": "jsCode",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "JavaScript code to evaluate in the Web area"
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Type into which to convert the returned result (default: Text/string)",
+          "sentinelValues": [
+            {
+              "value": "Is Boolean",
+              "meaning": "6 - convert result to Boolean."
+            },
+            {
+              "value": "Is collection",
+              "meaning": "42 - convert result to Collection."
+            },
+            {
+              "value": "Is date",
+              "meaning": "4 - convert result to Date."
+            },
+            {
+              "value": "Is longint",
+              "meaning": "9 - convert result to Longint."
+            },
+            {
+              "value": "Is object",
+              "meaning": "38 - convert result to Object."
+            },
+            {
+              "value": "Is real",
+              "meaning": "1 - convert result to Real."
+            },
+            {
+              "value": "Is text",
+              "meaning": "2 - convert result to Text."
+            },
+            {
+              "value": "Is time",
+              "meaning": "11 - convert result to Time."
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "Executes JavaScript code in the designated Web area and returns the evaluated result, optionally converted to a specific 4D type."
+    }
+  ]
+}

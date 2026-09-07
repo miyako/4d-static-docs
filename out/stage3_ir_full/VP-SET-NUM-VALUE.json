@@ -2,7 +2,7 @@
   "id": "VP-SET-NUM-VALUE",
   "displayName": "VP SET NUM VALUE",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -36,5 +36,8 @@
       ],
       "semanticRole": "The VP SET NUM VALUE command assigns a specified numeric value to a designated cell range."
     }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple cells, numberValue is repeated in every cell."
   ]
 }

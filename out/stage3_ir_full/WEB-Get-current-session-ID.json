@@ -2,11 +2,18 @@
   "id": "WEB-Get-current-session-ID",
   "displayName": "WEB Get current session ID",
   "kind": "classic_command",
-  "theme": "Web Server",
+  "theme": "Web-Server",
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The WEB Get current session ID command returns the ID of the session open for the Web request."
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the UUID of the session currently open for the Web request, or an empty string if there is no active Web session."
     }
+  ],
+  "constraints": [
+    "Returns an empty string \"\" if called outside the context of a Web session."
   ]
 }

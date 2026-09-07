@@ -1,0 +1,15 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line has no parenthesized parameter list ('Web Form : 4D.WebForm'), so the mechanical parser produced an empty overload with no return type at all; added the documented 4D.WebForm return type.",
+      "params": [],
+      "returns": {"kind": "concrete", "name": "4D.WebForm"},
+      "semanticRole": "Returns a 4D.WebForm proxy object emulating the current Qodly page's properties and functions, each of whose properties is a 4D.WebFormItem object."
+    }
+  ],
+  "constraints": [
+    "The 4D.WebForm object is a proxy, not a direct reference to the web form: it does not expose all Page properties (e.g. in the Debugger).",
+    "Returns null if called in a request that does not originate from Qodly Studio."
+  ]
+}

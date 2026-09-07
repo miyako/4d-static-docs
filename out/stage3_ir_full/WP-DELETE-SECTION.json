@@ -2,7 +2,7 @@
   "id": "WP-DELETE-SECTION",
   "displayName": "WP DELETE SECTION",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -16,7 +16,7 @@
           "optional": false
         }
       ],
-      "semanticRole": "The WP DELETE SECTION command deletes the passed section object, or deletes one or more sections starting at indexNumber and depending on the count passed."
+      "semanticRole": "Deletes a single already-referenced section object directly (e.g. one previously returned by WP Get section)."
     },
     {
       "params": [
@@ -48,7 +48,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "The WP DELETE SECTION command deletes the passed section object, or deletes one or more sections starting at indexNumber and depending on the count passed."
+      "semanticRole": "Deletes one or more sections of wpDoc starting at indexNumber, removing count sections (default 1) when count is passed."
     }
+  ],
+  "constraints": [
+    "Raises an error if the requested deletion would remove all sections or if the document contains only one section.",
+    "Deleting a section also removes everything anchored to it (header, footer, part of the body, anchored pictures, text boxes, and the ending section break), and re-indexes the anchorSection attribute of remaining text boxes/pictures."
   ]
 }

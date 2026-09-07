@@ -1,0 +1,38 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If vpAreaName does not exist, an error is returned.",
+    "rowCount must be greater than 0."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "rowCount",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Total number of rows to set; must be greater than 0"
+        },
+        {
+          "name": "sheet",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted)",
+          "sentinelValues": [
+            { "value": "vk current sheet", "meaning": "Explicitly designates the current spreadsheet (same as omitting sheet)." }
+          ]
+        }
+      ]
+    }
+  ]
+}

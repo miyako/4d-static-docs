@@ -2,7 +2,7 @@
   "id": "WP-Find-next",
   "displayName": "WP Find next",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -58,5 +58,9 @@
       },
       "semanticRole": "The WP Find next command searches the targetObj , after the searchAfter range, for the searchValue based on the searchCondition ."
     }
+  ],
+  "constraints": [
+    "Does not search or replace text inside formulas; use WP Get formulas for that case.",
+    "Pass NULL in searchAfter to begin the search from the first value of targetObj."
   ]
 }

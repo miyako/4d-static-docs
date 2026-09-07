@@ -1,0 +1,7 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj includes multiple cells, timeValue is repeated in every cell.",
+    "timeValue is expressed in seconds."
+  ]
+}

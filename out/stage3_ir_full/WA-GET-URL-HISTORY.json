@@ -2,7 +2,7 @@
   "id": "WA-GET-URL-HISTORY",
   "displayName": "WA GET URL HISTORY",
   "kind": "classic_command",
-  "theme": "Web Area",
+  "theme": "Web-Area",
   "overloads": [
     {
       "params": [
@@ -15,52 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "urlsArr",
-          "type": {
-            "kind": "concrete",
-            "name": "Text array"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "direction",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "titlesArr",
-          "type": {
-            "kind": "concrete",
-            "name": "Text array"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The WA GET URL HISTORY command returns one or two arrays containing the URLs visited during the session in the Web area designated by the * and object parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -71,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
         },
         {
           "name": "urlsArr",
@@ -79,8 +44,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Array of URLs visited."
         },
         {
           "name": "direction",
@@ -89,7 +55,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "0 or omitted = list of previous URLs, 1 = list of next URLs."
         },
         {
           "name": "titlesArr",
@@ -97,11 +64,18 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Array of window titles corresponding to urlsArr."
         }
       ],
-      "semanticRole": "The WA GET URL HISTORY command returns one or two arrays containing the URLs visited during the session in the Web area designated by the * and object parameters."
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
     }
+  ],
+  "constraints": [
+    "titlesArr can only be requested if direction is also passed (it is nested inside direction's optional group in the doc signature)."
   ]
 }

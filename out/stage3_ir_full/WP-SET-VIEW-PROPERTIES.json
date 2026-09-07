@@ -2,7 +2,7 @@
   "id": "WP-SET-VIEW-PROPERTIES",
   "displayName": "WP SET VIEW PROPERTIES",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, wpArea is a form object name (Text); if omitted, wpArea is a 4D Write Pro document (object variable or field)."
         },
-        {
-          "name": "wpArea",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "wpViewProps",
-          "type": {
-            "kind": "concrete",
-            "name": "Object"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The WP SET VIEW PROPERTIES command allows you to dynamically set one or more view properties of the 4D Write Pro wpArea area."
-    },
-    {
-      "params": [
         {
           "name": "wpArea",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,10 +44,16 @@
             "name": "Object"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object whose properties are the view properties to modify; properties not included keep their previous values."
         }
       ],
-      "semanticRole": "The WP SET VIEW PROPERTIES command allows you to dynamically set one or more view properties of the 4D Write Pro wpArea area."
+      "returns": null,
+      "semanticRole": "Dynamically sets one or more view properties of the 4D Write Pro wpArea area, leaving unspecified properties unchanged."
     }
+  ],
+  "constraints": [
+    "The command can only be used if wpArea is associated with a form object currently displayed in the form; if the document is displayed in several form objects, the '*' syntax is required to identify which view to set.",
+    "Property modifications made by this command are not saved with the document or the form and persist only while the form area is in use and not overridden by a later call."
   ]
 }

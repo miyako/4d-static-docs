@@ -2,7 +2,7 @@
   "id": "WP-SELECT",
   "displayName": "WP SELECT",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -15,52 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, wpArea is a form object name (Text); if omitted, wpArea is a 4D Write Pro object variable or field."
         },
-        {
-          "name": "wpArea",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "targetObj",
-          "type": {
-            "kind": "concrete",
-            "name": "Object"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "startRange",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "endRange",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The WP SELECT command creates a new selection in the 4D Write Pro wpArea area, based upon the targetObj or a new range defined by startRange and endRange ."
-    },
-    {
-      "params": [
         {
           "name": "wpArea",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -80,7 +44,8 @@
             "name": "Object"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Range, element (table/row/paragraph/anchored or inline picture/text box/body/header/footer/section/subsection), or a 4D Write Pro document (only its body element is used)."
         },
         {
           "name": "startRange",
@@ -101,7 +66,23 @@
           "optional": true
         }
       ],
-      "semanticRole": "The WP SELECT command creates a new selection in the 4D Write Pro wpArea area, based upon the targetObj or a new range defined by startRange and endRange ."
+      "returns": null,
+      "semanticRole": "Creates a new selection in the 4D Write Pro wpArea area, based upon targetObj or upon a startRange/endRange pair.",
+      "jointConstraints": [
+        {
+          "params": [
+            "targetObj",
+            "startRange",
+            "endRange"
+          ],
+          "rule": "targetObj and the startRange/endRange pair are alternative ways to specify the selection; pass one or the other, not both. startRange/endRange are only valid when the addressed element (targetObj, or the implicit area) is body/header/footer/section/subsection."
+        }
+      ]
     }
+  ],
+  "constraints": [
+    "If no 4D Write Pro area is resolved from wpArea, the command does nothing.",
+    "wk start text may be passed in startRange and wk end text in endRange to mean the beginning/end of the area.",
+    "The command can only be used if wpArea is associated with a form object currently displayed in the form/page."
   ]
 }

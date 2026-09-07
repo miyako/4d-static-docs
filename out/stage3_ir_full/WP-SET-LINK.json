@@ -2,7 +2,7 @@
   "id": "WP-SET-LINK",
   "displayName": "WP SET LINK",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -25,7 +25,24 @@
           "optional": false
         }
       ],
-      "semanticRole": "The WP SET LINK applies a hyperlink reference to the targetObj ."
+      "semanticRole": "The WP SET LINK applies a hyperlink reference to the targetObj .",
+      "jointConstraints": [
+        {
+          "params": [
+            "linkObj.url",
+            "linkObj.bookmark",
+            "linkObj.method"
+          ],
+          "rule": "linkObj must contain exactly one of the url, bookmark, or method properties (the action to trigger); parameter and range may only be used together with method, and are ignored/inapplicable otherwise."
+        }
+      ]
     }
+  ],
+  "constraints": [
+    "If a targetObj that already fully contains existing link(s) is re-linked, those existing links are removed and the new link is applied; a link that only partially overlaps targetObj is trimmed so the non-overlapping part keeps its previous link.",
+    "Setting a link on a targetObj spanning several paragraphs creates several separate links.",
+    "Only valid (encoded) URLs are accepted; an error is generated for an invalid link.",
+    "Links to 4D methods are removed when the document is exported to HTML, MIME HTML, or .docx format.",
+    "For a method-type link, the method must exist and be allowed via SET ALLOWED METHODS; it receives the 4D Write Pro area name in $1 and an object with method/parameter/range properties in $2."
   ]
 }

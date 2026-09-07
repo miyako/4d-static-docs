@@ -2,7 +2,7 @@
   "id": "WP-Table-insert-rows",
   "displayName": "WP Table insert rows",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -29,7 +29,11 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Table insert rows command inserts one or several row(s) into a 4D Write Pro table."
+      "semanticRole": "Inserts one or more rows into the table intersecting a range, element, or 4D Write Pro document.",
+      "discriminatedBy": {
+        "param": "targetObj",
+        "note": "targetObj resolved to the first intersecting table; command does nothing (returns Null, no error) if no table/text range intersects"
+      }
     },
     {
       "params": [
@@ -65,7 +69,16 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Table insert rows command inserts one or several row(s) into a 4D Write Pro table."
+      "semanticRole": "Inserts one or more rows into a specific table at a given row index, addressed by table reference.",
+      "discriminatedBy": {
+        "param": "tableRef",
+        "note": "2-3 arg form addressing a table by reference plus explicit row index"
+      }
     }
+  ],
+  "constraints": [
+    "numRows defaults to 1 when omitted.",
+    "If rowNumber is higher than the number of rows in tableRef, the rows are appended rather than inserted.",
+    "Returns a row range representing the inserted row(s), or Null if nothing was inserted."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "WP-Insert-document-body",
   "displayName": "WP Insert document body",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -49,5 +49,11 @@
       },
       "semanticRole": "The WP Insert document body command inserts the body of the wpDoc document into the specified targetObj according to the passed insertion mode and rangeUpdate parameters, and it returns the range of the inserted document"
     }
+  ],
+  "constraints": [
+    "Only the body's children elements of wpDoc are inserted; headers, footers, text boxes, and anchored pictures are not inserted.",
+    "The mode parameter can combine one insertion-position constant (wk append/wk prepend/wk replace) with option flags (wk freeze expressions, wk keep paragraph styles) via bitwise combination.",
+    "rangeUpdate is only honored when targetObj is a range; it is ignored if targetObj is an element or document.",
+    "wpDoc is copied on insertion, so the same wpDoc object can be reused across multiple insertions."
   ]
 }

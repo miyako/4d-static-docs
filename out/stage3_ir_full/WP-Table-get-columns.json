@@ -2,7 +2,7 @@
   "id": "WP-Table-get-columns",
   "displayName": "WP Table get columns",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Table get columns command returns a new cell range object containing the selection of columns from targetObj or tableRef (defined by startCol and numCols )."
+      "semanticRole": "Gets a column range from the table intersecting a range, element, or 4D Write Pro document; returns Null if no such intersection exists.",
+      "discriminatedBy": {
+        "param": "targetObj",
+        "note": "single Object arg resolved as a range/element/document rather than a raw table reference"
+      }
     },
     {
       "params": [
@@ -56,7 +60,15 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Table get columns command returns a new cell range object containing the selection of columns from targetObj or tableRef (defined by startCol and numCols )."
+      "semanticRole": "Gets a column range from a table, addressed by table reference and explicit start column (with optional column count, defaulting to a single column).",
+      "discriminatedBy": {
+        "param": "tableRef",
+        "note": "2-3 arg form addressing a table by reference plus explicit column index"
+      }
     }
+  ],
+  "constraints": [
+    "If numCols is omitted, only the single startCol column is returned.",
+    "If startCol+numCols exceeds the number of columns in tableRef, or startCol is greater than the number of columns, the returned range is clamped to the maximum possible columns."
   ]
 }

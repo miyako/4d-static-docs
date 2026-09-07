@@ -2,11 +2,14 @@
   "id": "WEB-Get-body-part-count",
   "displayName": "WEB Get body part count",
   "kind": "classic_command",
-  "theme": "Web Server",
+  "theme": "Web-Server",
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The WEB Get body part count command returns the number of parts making up the body received."
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
     }
   ]
 }

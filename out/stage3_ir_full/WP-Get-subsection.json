@@ -2,7 +2,7 @@
   "id": "WP-Get-subsection",
   "displayName": "WP Get subsection",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Get subsection command returns first subsection intersected by the targetObj range or element, or to the specified subSectionType subsection of the wpSection section."
+      "semanticRole": "Returns the first subsection intersected by a range or element passed in targetObj; returns a null object if no subsection intersects it."
     },
     {
       "params": [
@@ -47,7 +47,10 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Get subsection command returns first subsection intersected by the targetObj range or element, or to the specified subSectionType subsection of the wpSection section."
+      "semanticRole": "Returns the subsection of the specified subSectionType (wk first page, wk left page, or wk right page) within wpSection."
     }
+  ],
+  "constraints": [
+    "If targetObj is or belongs to a header, footer, or text box, the command returns the subsection to which it is attached (or a null object if it is not attached to any subsection)."
   ]
 }

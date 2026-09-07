@@ -1,0 +1,18 @@
+{
+  "constraints": [
+    "The returned value is a bit field; use bitwise operators to interpret it (a version can be e.g. both a 64-bit version and a merged application).",
+    "Predefined constants (4D Environment theme): 64 bit version = 1, Demo version = 0 (not available in current 4D versions), Merged application = 2 (version is an application merged with 4D Volume Desktop)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ],
+  "_needsReview": [
+    "Autoparse dropped the return type entirely for this no-parentheses signature ('Version type : Integer'), a known autoparse bug for bare (no-parens) signature lines; restored via overloadPatches. TypeRef's 'concrete' kind disallows additionalProperties (no sentinelValues on a bare return type), so the bit-field constant values are documented in constraints text instead."
+  ]
+}

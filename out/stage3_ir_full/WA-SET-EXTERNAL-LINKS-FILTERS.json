@@ -2,7 +2,7 @@
   "id": "WA-SET-EXTERNAL-LINKS-FILTERS",
   "displayName": "WA SET EXTERNAL LINKS FILTERS",
   "kind": "classic_command",
-  "theme": "Web Area",
+  "theme": "Web-Area",
   "overloads": [
     {
       "params": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "filtersArr",
-          "type": {
-            "kind": "concrete",
-            "name": "Text array"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "allowDenyArr",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean array"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The WA SET EXTERNAL LINKS FILTERS command sets up one or more external link filters for the Web area designated by the * and object parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
         },
         {
           "name": "filtersArr",
@@ -71,7 +45,8 @@
             "name": "Text array"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Filters array."
         },
         {
           "name": "allowDenyArr",
@@ -80,10 +55,17 @@
             "name": "Boolean array"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Allow-deny array."
         }
       ],
-      "semanticRole": "The WA SET EXTERNAL LINKS FILTERS command sets up one or more external link filters for the Web area designated by the * and object parameters."
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
     }
+  ],
+  "constraints": [
+    "Replaces (installs) the Web area's external-link filter list; read the currently active filters back with WA GET EXTERNAL LINKS FILTERS."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "WA-Back-URL-available",
   "displayName": "WA Back URL available",
   "kind": "classic_command",
-  "theme": "Web Area",
+  "theme": "Web-Area",
   "overloads": [
     {
       "params": [
@@ -15,29 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (Text); if omitted, object is a variable or field."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Boolean"
-      },
-      "semanticRole": "The WA Back URL available command finds out whether there is a previous URL available in the sequence of URLs opened in the Web area designated by the * and object parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -48,14 +35,15 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or variable/field (if * is omitted) designating the Web area"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The WA Back URL available command finds out whether there is a previous URL available in the sequence of URLs opened in the Web area designated by the * and object parameters."
+      "semanticRole": "Finds out whether there is a previous URL available in the sequence of URLs opened in the designated Web area, so a custom navigation button can be enabled/disabled."
     }
   ]
 }

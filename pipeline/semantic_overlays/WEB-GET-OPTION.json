@@ -1,0 +1,43 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "The concrete type and meaning returned in value depend on the selector constant passed (e.g. Integer, Text, or Collection); see the Web Server theme option constants."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Code of the Web server option to get (a constant from the Web Server theme)."
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Collection"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Current value of the option; concrete type depends on selector."
+        }
+      ]
+    }
+  ]
+}

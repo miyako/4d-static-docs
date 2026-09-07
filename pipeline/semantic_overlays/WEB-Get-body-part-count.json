@@ -1,0 +1,16 @@
+{
+  "theme": "Web-Server",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "The signature has no parentheses at all ('WEB Get body part count : Integer'), which the autoparse regex (which requires a top-level '(...)' group) never matches; this silently drops the Integer return type. Restoring params (empty) and the Integer return.",
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ]
+}

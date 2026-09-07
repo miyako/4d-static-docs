@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML root element reference or reference of an open (SAX) document"
         },
         {
           "name": "selector",
@@ -28,7 +29,50 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Option to set; a constant of the XML theme",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "XML string encoding"
+            },
+            {
+              "value": 2,
+              "meaning": "XML date encoding"
+            },
+            {
+              "value": 3,
+              "meaning": "XML time encoding"
+            },
+            {
+              "value": 4,
+              "meaning": "XML indentation"
+            },
+            {
+              "value": 5,
+              "meaning": "XML binary encoding"
+            },
+            {
+              "value": 6,
+              "meaning": "XML picture encoding"
+            },
+            {
+              "value": 7,
+              "meaning": "XML external entity resolution"
+            },
+            {
+              "value": 8,
+              "meaning": "XML DOM case sensitivity"
+            },
+            {
+              "value": 9,
+              "meaning": "XML BOM"
+            },
+            {
+              "value": 10,
+              "meaning": "XML line ending"
+            }
+          ]
         },
         {
           "name": "value",
@@ -37,7 +81,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New value of the option, as a constant of the XML theme"
         },
         {
           "name": "group",
@@ -49,7 +94,8 @@
                 "name": "Integer"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Another option to set, same domain as the leading selector"
             },
             {
               "name": "value",
@@ -58,7 +104,8 @@
                 "name": "Integer"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "New value of that option"
             }
           ],
           "cardinality": {
@@ -68,7 +115,12 @@
           "position": "trailing"
         }
       ],
-      "semanticRole": "The XML SET OPTIONS command is used to modify the value of one or more XML options for the structure passed in the first parameter."
+      "semanticRole": "Sets one or more XML options (identified by selector constants) for a DOM root element or an open SAX document."
     }
+  ],
+  "constraints": [
+    "Applies to XML structures of the DOM ('tree') or SAX ('document') type.",
+    "The value-conversion options (e.g. binary/date/time/picture/string encoding, indentation, line ending) only affect the 4D-to-XML write direction used by commands such as DOM SET XML ATTRIBUTE, DOM SET XML ELEMENT VALUE, and SAX ADD XML ELEMENT VALUE; they have no effect on reading XML values into 4D.",
+    "You may pass as many selector/value pairs as needed in a single call."
   ]
 }

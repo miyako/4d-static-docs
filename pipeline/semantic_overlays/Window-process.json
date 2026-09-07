@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "If window does not correspond to an existing window, returns 0.",
+    "If window is omitted, returns the process of the current frontmost window."
+  ]
+}

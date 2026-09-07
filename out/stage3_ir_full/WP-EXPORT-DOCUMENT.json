@@ -2,7 +2,7 @@
   "id": "WP-EXPORT-DOCUMENT",
   "displayName": "WP EXPORT DOCUMENT",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -49,7 +49,7 @@
           "optional": true
         }
       ],
-      "semanticRole": "The WP EXPORT DOCUMENT command exports the wpDoc 4D Write Pro object to a document on disk according to the filePath or fileObj parameter as well as any optional parameters."
+      "semanticRole": "Exports wpDoc to a document on disk designated by a text file path."
     },
     {
       "params": [
@@ -96,7 +96,12 @@
           "optional": true
         }
       ],
-      "semanticRole": "The WP EXPORT DOCUMENT command exports the wpDoc 4D Write Pro object to a document on disk according to the filePath or fileObj parameter as well as any optional parameters."
+      "semanticRole": "Exports wpDoc to a document on disk designated by a 4D.File object."
     }
+  ],
+  "constraints": [
+    "Pass exactly one of filePath or fileObj to designate the destination, not both.",
+    "If filePath contains only a document name (no path), the file is saved at the same level as the 4D structure file.",
+    "If format is omitted, it is inferred from the file extension given in filePath/fileObj."
   ]
 }

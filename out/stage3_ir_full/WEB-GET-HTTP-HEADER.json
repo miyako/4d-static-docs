@@ -2,7 +2,7 @@
   "id": "WEB-GET-HTTP-HEADER",
   "displayName": "WEB GET HTTP HEADER",
   "kind": "classic_command",
-  "theme": "Web Server",
+  "theme": "Web-Server",
   "overloads": [
     {
       "params": [
@@ -12,11 +12,13 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Request HTTP header, e.g. \"GET /page.html HTTP\\1.0\"+Char(13)+Char(10)+... (CRLF-separated fields)."
         }
       ],
-      "semanticRole": "The WEB GET HTTP HEADER command returns either a string or two arrays, containing the HTTP header used for the currently processed request."
+      "semanticRole": "Returns the raw HTTP request header as a single string.",
+      "mechanism": "single_string_form"
     },
     {
       "params": [
@@ -26,8 +28,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "HTTP header field names."
         },
         {
           "name": "valueArray",
@@ -35,11 +38,13 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "HTTP header field values, synchronized index-for-index with fieldArray."
         }
       ],
-      "semanticRole": "The WEB GET HTTP HEADER command returns either a string or two arrays, containing the HTTP header used for the currently processed request."
+      "semanticRole": "Returns the HTTP request header split into parallel field-name/field-value arrays.",
+      "mechanism": "object_map_equivalent"
     }
   ]
 }

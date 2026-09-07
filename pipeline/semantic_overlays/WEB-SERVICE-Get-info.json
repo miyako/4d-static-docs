@@ -1,0 +1,50 @@
+{
+  "theme": "Web-Services-Client",
+  "constraints": [
+    "Generally called within a method installed via ON ERR CALL, to inspect the error raised by the last SOAP request.",
+    "Returns an empty string when no information is available, particularly when the last SOAP request did not generate any errors."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "Restored sentinelValues on infoType from the documented 'Web Service ...' info constants (values 0-3); autoparse leaves infoType as a plain Integer with no enum meaning.",
+      "params": [
+        {
+          "name": "infoType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Type of information to retrieve about the last SOAP error",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Web Service error code: main 4D error code (also returned in the Error system variable); one of 9910 (Soap fault), 9911 (Parser fault), 9912 (HTTP fault), 9913 (Network fault), 9914 (Internal fault)"
+            },
+            {
+              "value": 1,
+              "meaning": "Web Service detailed message: a message describing the error, whose content depends on the main error code"
+            },
+            {
+              "value": 2,
+              "meaning": "Web Service HTTP status code: HTTP error code, used when the main error is 9912 (HTTP fault)"
+            },
+            {
+              "value": 3,
+              "meaning": "Web Service fault actor: SOAP-protocol-reported cause of the error, used when the main error is 9910 (Soap fault) -- e.g. Version Mismatch, Must Understand, Sender Fault, Receiver Fault, Encoding Unknown"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns, as Text, the piece of information selected by infoType about the error generated during the last SOAP request sent via WEB SERVICE CALL."
+    }
+  ]
+}

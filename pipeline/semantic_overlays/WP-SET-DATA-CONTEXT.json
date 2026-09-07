@@ -1,0 +1,8 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "Passing a null object in contextData resets/removes the document's data context.",
+    "Setting a new context replaces any existing context for that document.",
+    "The data context is process-local: it is not saved with the document, and it is null/undefined (This.data is undefined) when accessed from computed formulas running in a different process."
+  ]
+}

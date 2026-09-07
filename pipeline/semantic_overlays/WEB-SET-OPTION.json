@@ -1,0 +1,11 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "selector selects which Web server setting is modified, and the accepted shape/range of value depends entirely on which selector is passed (Integer, Text, or a Collection of CORS objects, or a specific sub-enum such as the 'wdl ...' debug-log constants for the Web debug log selector).",
+    "Changes made via this command persist across Web server stop/restart but are lost when the 4D application itself is restarted.",
+    "Several selectors (e.g. Web scalable session, Web HSTS enabled) require a Web server restart to take effect; others apply immediately."
+  ],
+  "_needsReview": [
+    "WEB SET OPTION documents roughly 30 selector constants (Web character set=17, Web CORS enabled=92, Web CORS settings=93, Web debug log=84, Web HSTS enabled=86, Web HSTS max age=87, Web HTTP compression level=50, Web HTTP compression threshold=51, Web HTTP enabled=88, Web HTTP TRACE=85, Web HTTPS enabled=89, Web HTTPS port ID=39, Web inactive process timeout=78, Web inactive session timeout=72, Web IP address to listen=16, Web legacy session=70, Web log recording=29, Web max concurrent processes=18, Web max sessions=71, Web maximum requests size=27, Web port ID=15, Web scalable session=90, Web session cookie domain=81, Web session cookie name=73, Web session cookie path=82, Web session enable IP address validation=83, Web Client IP address to listen=23), each with its own value type/range/enum (e.g. the 'wdl ...' sub-constants 0/1/3/5/7 for Web debug log). Modeling all of them as per-value sentinelValues was judged too large/error-prone to hand-encode reliably in this pass; only a summarizing constraint was added. A future pass could enumerate the full selector->value-shape table from the doc prose."
+  ]
+}

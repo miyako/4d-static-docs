@@ -2,7 +2,7 @@
   "id": "VP-SET-TABLE-THEME",
   "displayName": "VP SET TABLE THEME",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "tableName",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the table to modify"
         },
         {
           "name": "options",
@@ -31,7 +33,8 @@
             "name": "cs.ViewPro.TableTheme"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object of the cs.ViewPro.TableTheme class containing the theme properties to modify"
         },
         {
           "name": "sheet",
@@ -40,7 +43,14 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted or -1)",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Applies to the current sheet (same as omitting sheet)."
+            }
+          ]
         }
       ],
       "semanticRole": "The VP SET TABLE THEME command modifies the current theme of the tableName ."

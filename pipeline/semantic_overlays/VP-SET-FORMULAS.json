@@ -1,0 +1,10 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj contains multiple ranges, only the first range is used to determine the starting cell.",
+    "formulasCol is two-dimensional: the first-level collection holds one subcollection per row, and each subcollection element is a formula (Text) assigned to successive cells in that row.",
+    "If formula is a string, use the period (.) as numerical separator and the comma (,) as parameter separator.",
+    "If a formula references a 4D method, that method must first be allowed with VP SET ALLOWED METHODS.",
+    "Remove a formula from a cell by passing an empty string (\"\") for it in formulasCol."
+  ]
+}

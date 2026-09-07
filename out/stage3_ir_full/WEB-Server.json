@@ -2,11 +2,15 @@
   "id": "WEB-Server",
   "displayName": "WEB Server",
   "kind": "classic_command",
-  "theme": "Web Server",
+  "theme": "Web-Server",
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The WEB Server command returns the default Web server object, or the Web server object defined through the option parameter."
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.WebServer"
+      },
+      "semanticRole": "Returns the default Web server object, i.e. the Web server of the project/database from which the command is called."
     },
     {
       "params": [
@@ -17,14 +21,32 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Which Web server object to return",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Web server database: Web server of the project from which the command is called (default if option is omitted)"
+            },
+            {
+              "value": 2,
+              "meaning": "Web server host database: Web server of the host database of a component"
+            },
+            {
+              "value": 3,
+              "meaning": "Web server receiving request: Web server that actually received the request (target Web server)"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "4D.WebServer"
       },
-      "semanticRole": "The WEB Server command returns the default Web server object, or the Web server object defined through the option parameter."
+      "semanticRole": "Returns the Web server object designated by option (the database's own Web server, a host component's Web server, or the Web server that received the current request)."
     }
+  ],
+  "constraints": [
+    "The returned 4D.WebServer object exposes the current property values of the designated Web server (e.g. .isRunning); see the WebServer class."
   ]
 }

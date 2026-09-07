@@ -1,0 +1,6 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "If a style sheet from sourceDoc has the same name as a style sheet already in targetDoc, the imported style sheet overwrites (replaces) the one in targetDoc."
+  ]
+}

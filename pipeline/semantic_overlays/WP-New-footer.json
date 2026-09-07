@@ -1,0 +1,6 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "If a footer element is already defined for the section or subsection, an undefined object is returned and an error is generated."
+  ]
+}

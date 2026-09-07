@@ -2,7 +2,7 @@
   "id": "WP-NEW-BOOKMARK",
   "displayName": "WP NEW BOOKMARK",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -27,5 +27,9 @@
       ],
       "semanticRole": "The WP NEW BOOKMARK command creates a new bookmark named bkName based upon the 4D Write Pro targetObj in the parent document."
     }
+  ],
+  "constraints": [
+    "targetObj must be a range that belongs to the document body, or a body element (body/table/row/inline picture/paragraph); bookmarks cannot be created from ranges in the header, footer, or a text box.",
+    "bkName must comply with HTML/CSS name rules (alphanumeric characters only; invalid characters such as spaces are automatically removed) and must be unique within the document; creating a bookmark with an existing name overwrites it."
   ]
 }

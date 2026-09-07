@@ -1,0 +1,48 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "Only applies to legacy Web sessions (databases converted from versions prior to 4D v18 R6); returns null date/time values when scalable web sessions mode is enabled.",
+    "Each new Web request resets the cookie's expiration to request-time + the 'Web inactive session timeout' setting, so the returned expDate/expTime reflect the most recent request, not a fixed value."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "Autoparse defaulted all three parameters to direction 'in', but the parameterTable arrows show expDate and expTime are filled in by the command (out), not supplied by the caller.",
+      "params": [
+        {
+          "name": "sessionID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Session UUID"
+        },
+        {
+          "name": "expDate",
+          "type": {
+            "kind": "concrete",
+            "name": "Date"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the date of cookie expiration"
+        },
+        {
+          "name": "expTime",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the time of cookie expiration"
+        }
+      ],
+      "semanticRole": "Returns, in expDate and expTime, the expiration date and time of the session cookie for the legacy Web session identified by sessionID."
+    }
+  ]
+}

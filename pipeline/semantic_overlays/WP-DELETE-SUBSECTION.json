@@ -1,0 +1,16 @@
+{
+  "theme": "WritePro",
+  "constraints": [
+    "The body of the document is left untouched; only header/footer/column/anchored-picture subsection elements are removed."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Removes the subsection elements of the given subSectionType (wk first page / wk left page / wk right page) from wpSection."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Removes an already-referenced subsection object directly (e.g. one obtained via a prior lookup)."
+    }
+  ]
+}

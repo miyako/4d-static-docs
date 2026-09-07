@@ -2,7 +2,7 @@
   "id": "WP-Find-previous",
   "displayName": "WP Find previous",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -58,5 +58,8 @@
       },
       "semanticRole": "The WP Find previous command searches the targetObj , prior to the searchBefore range, for the searchValue based on the searchCondition ."
     }
+  ],
+  "constraints": [
+    "Does not search or replace text inside formulas; use WP Get formulas for that case."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "VP-SUSPEND-COMPUTING",
   "displayName": "VP SUSPEND COMPUTING",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -18,5 +18,10 @@
       ],
       "semanticRole": "The VP SUSPEND COMPUTING command stops the calculation of all formulas in vpAreaName ."
     }
+  ],
+  "constraints": [
+    "The calculation service maintains a suspend/resume counter; each VP SUSPEND COMPUTING call must be balanced by a corresponding VP RESUME COMPUTING call.",
+    "Formulas already calculated remain unchanged, but formulas added while suspended are not calculated until computing is resumed.",
+    "If vpAreaName does not exist, an error is returned."
   ]
 }

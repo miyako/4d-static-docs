@@ -2,7 +2,7 @@
   "id": "WA-SET-URL-FILTERS",
   "displayName": "WA SET URL FILTERS",
   "kind": "classic_command",
-  "theme": "Web Area",
+  "theme": "Web-Area",
   "overloads": [
     {
       "params": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "filtersArr",
-          "type": {
-            "kind": "concrete",
-            "name": "Text array"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "allowDenyArr",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean array"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The WA SET URL FILTERS command sets up one or more filters for the Web area designated by the * and object parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
         },
         {
           "name": "filtersArr",
@@ -71,7 +45,14 @@
             "name": "Text array"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Filters array.",
+          "sentinelValues": [
+            {
+              "value": "*",
+              "meaning": "wildcard matching one or more characters within a filter entry"
+            }
+          ]
         },
         {
           "name": "allowDenyArr",
@@ -80,10 +61,21 @@
             "name": "Boolean array"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Allow-deny array."
         }
       ],
-      "semanticRole": "The WA SET URL FILTERS command sets up one or more filters for the Web area designated by the * and object parameters."
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
     }
+  ],
+  "constraints": [
+    "filtersArr and allowDenyArr must be synchronized element-by-element; '*' can be used as a wildcard within a filtersArr entry to match one or more characters.",
+    "To disable URL filtering, pass empty arrays, or pass \"*\" with True as the last elements of filtersArr/allowDenyArr.",
+    "If the same URL appears as both allowed and denied, the last (highest-index) matching setting wins.",
+    "Filtering applies only to changes of the Web area's primary URL (user/JS/4D-driven); it does not apply to WA OPEN URL calls or \"javascript:\" URLs.",
+    "Read back the currently active filters with WA GET URL FILTERS."
   ]
 }

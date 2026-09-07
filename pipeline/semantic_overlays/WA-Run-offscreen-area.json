@@ -1,0 +1,26 @@
+{
+  "theme": "Web-Area",
+  "constraints": [
+    "parameters is mutated by the command: it automatically adds a 'timeoutReached' Boolean property (true if the timeout elapsed) that callers can read after the callback returns.",
+    "The offscreen Web area only exists for the duration of this command's execution and is destroyed automatically once it completes.",
+    "Defaults inside parameters: autoQuit = true (stop on On End URL Loading/On URL Loading Error), timeout = 60 seconds (0 = no limit).",
+    "If parameters is null, a blank offscreen Web area is created and then immediately closed."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "parameters",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "Object containing the web area's attributes (url, area, onEvent, autoQuit, timeout, result, plus custom attributes); the command adds a 'timeoutReached' property to this same object."
+        }
+      ]
+    }
+  ]
+}

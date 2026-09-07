@@ -2,7 +2,7 @@
   "id": "WP-Add-picture",
   "displayName": "WP Add picture",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -13,77 +13,43 @@
             "name": "Object"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D Write Pro document"
         },
         {
-          "name": "picture",
-          "type": {
-            "kind": "concrete",
-            "name": "Picture"
-          },
+          "name": "pictureSource",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Picture"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "4D.File"
+            }
+          ],
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "The picture to add: a 4D picture (Picture), a pathname to a picture file on disk in system syntax (Text), or a 4D.File object representing a picture file (4D.File). Omit entirely to add an empty image placeholder."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Add picture command anchors the picture passed as parameter at a fixed location within the specified wpDoc and returns its reference."
-    },
-    {
-      "params": [
-        {
-          "name": "wpDoc",
-          "type": {
-            "kind": "concrete",
-            "name": "Object"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "picturePath",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Object"
-      },
-      "semanticRole": "The WP Add picture command anchors the picture passed as parameter at a fixed location within the specified wpDoc and returns its reference."
-    },
-    {
-      "params": [
-        {
-          "name": "wpDoc",
-          "type": {
-            "kind": "concrete",
-            "name": "Object"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "pictureFileObj",
-          "type": {
-            "kind": "concrete",
-            "name": "4D.File"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Object"
-      },
-      "semanticRole": "The WP Add picture command anchors the picture passed as parameter at a fixed location within the specified wpDoc and returns its reference."
+      "semanticRole": "Anchors the given picture (or an empty placeholder image if omitted) at a fixed location in wpDoc and returns its reference object.",
+      "discriminatedBy": {
+        "param": "pictureSource",
+        "rule": "The runtime type of the second argument selects its meaning: a Picture value is used directly as the image; a Text value is treated as a pathname (full, structure-file-relative, or a bare filename located next to the structure file, with extension required); a 4D.File value is treated as a picture-file reference. Passing nothing at all adds an empty image awaiting a wk image expression via WP SET ATTRIBUTES."
+      }
     }
+  ],
+  "constraints": [
+    "If the picture-source parameter is omitted entirely, a valid picture reference is still returned and an empty image is added; this lets you subsequently call WP SET ATTRIBUTES with the wk image expression selector to fill it with a computed 4D expression.",
+    "The returned reference object can be passed to WP SET ATTRIBUTES to reposition/resize/restyle the picture anywhere in wpDoc (page, section, header, footer, layer, etc.)."
   ]
 }

@@ -1,0 +1,44 @@
+{
+  "theme": "WritePro",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {"kind": "concrete", "name": "Object"},
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribName",
+              "type": {"kind": "concrete", "name": "Text"},
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attribValue",
+              "type": {"kind": "concrete", "name": "Variable"},
+              "direction": "out",
+              "optional": true
+            }
+          ],
+          "cardinality": {"min": 0, "max": null},
+          "position": "trailing"
+        }
+      ],
+      "returns": {"kind": "concrete", "name": "Object"},
+      "semanticRole": "Gets one attribute's value by name; optionally also fills the caller-supplied attribValue variable with that value in the same call.",
+      "note": "autoparse's generic group handling drops the per-member optional flag and defaults every member to direction:in; the parameter table marks attribValue '\u2190' (out) and it is documented as optional (only filled if the attribValue variable arg is passed)."
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 1,
+      "semanticRole": "Gets the values of multiple named attributes at once by passing a collection of attribute names in attribColl, returned as an object keyed by attribute name."
+    }
+  ]
+}

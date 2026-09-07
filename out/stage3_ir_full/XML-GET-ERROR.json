@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML element reference"
         },
         {
           "name": "errorText",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Text of the error"
         },
         {
           "name": "row",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Row number"
         },
         {
           "name": "column",
@@ -39,11 +42,16 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Column number"
         }
       ],
-      "semanticRole": "The XML GET ERROR command returns, in the errorText parameter, a description of the error encountered when processing the XML element designated by the elementRef parameter."
+      "semanticRole": "Retrieves a description (and optional row/column location) of the parsing/processing error last encountered for a given XML element reference."
     }
+  ],
+  "constraints": [
+    "The error information is supplied by the underlying Xerces.DLL library.",
+    "row and column, when passed, receive respectively the row number and the character position (within that row) where the erroring expression begins."
   ]
 }

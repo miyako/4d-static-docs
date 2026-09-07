@@ -1,0 +1,79 @@
+{
+  "theme": "Web-Server",
+  "constraints": [
+    "Use WEB Get body part count first to learn how many parts are available to parse.",
+    "For file parts, contents must be captured into a Blob; for plain Text form fields submitted in a multi-part request, contents can be captured into Text."
+  ],
+  "_needsReview": [
+    "Description text says '\"mimeType and name are optional but must be passed together\"', but the signature's actual trailing params are name (input-field name) then mimeType then fileName -- 'name' here plausibly means fileName (the doc reuses 'name' loosely for both the input-field name and the original file name). Modeled the joint-optionality as mimeType+fileName (the more literal reading of 'name of the original file'); could instead be mimeType+name if the doc meant the input-field name param. Please verify against the live doc page."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["mimeType", "fileName"],
+          "rule": "Optional together: when the part is a submitted file both are received; otherwise both are absent."
+        }
+      ],
+      "params": [
+        {
+          "name": "part",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the part to be parsed."
+        },
+        {
+          "name": "contents",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Contents of the part (Blob for files, Text for submitted text fields)."
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Name of the HTTP input field (variable name)."
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Mime type of the submitted file, if any; only present when the part was submitted as a file."
+        },
+        {
+          "name": "fileName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Name of the submitted file, if any; only present when the part was submitted as a file."
+        }
+      ]
+    }
+  ]
+}

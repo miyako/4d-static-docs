@@ -2,7 +2,7 @@
   "id": "WA-Evaluate-JavaScript",
   "displayName": "WA Evaluate JavaScript",
   "kind": "classic_command",
-  "theme": "Web Area",
+  "theme": "Web-Area",
   "overloads": [
     {
       "params": [
@@ -15,47 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (Text); if omitted, object is a variable or field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "jsCode",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "type",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "returns": {
-        "kind": "pseudo",
-        "name": "any"
-      },
-      "semanticRole": "The WA Evaluate JavaScript command executes, in the Web area designated by the * and object parameters, the JavaScript code passed in jsCode and returns the result."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -66,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or variable/field (if * is omitted) designating the Web area"
         },
         {
           "name": "jsCode",
@@ -75,7 +45,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "JavaScript code to evaluate in the Web area"
         },
         {
           "name": "type",
@@ -84,14 +55,54 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Type into which to convert the returned result (default: Text/string)",
+          "sentinelValues": [
+            {
+              "value": "Is Boolean",
+              "meaning": "6 - convert result to Boolean."
+            },
+            {
+              "value": "Is collection",
+              "meaning": "42 - convert result to Collection."
+            },
+            {
+              "value": "Is date",
+              "meaning": "4 - convert result to Date."
+            },
+            {
+              "value": "Is longint",
+              "meaning": "9 - convert result to Longint."
+            },
+            {
+              "value": "Is object",
+              "meaning": "38 - convert result to Object."
+            },
+            {
+              "value": "Is real",
+              "meaning": "1 - convert result to Real."
+            },
+            {
+              "value": "Is text",
+              "meaning": "2 - convert result to Text."
+            },
+            {
+              "value": "Is time",
+              "meaning": "11 - convert result to Time."
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "pseudo",
         "name": "any"
       },
-      "semanticRole": "The WA Evaluate JavaScript command executes, in the Web area designated by the * and object parameters, the JavaScript code passed in jsCode and returns the result."
+      "semanticRole": "Executes JavaScript code in the designated Web area and returns the evaluated result, optionally converted to a specific 4D type."
     }
+  ],
+  "constraints": [
+    "Must be called after the target page is loaded (the On End URL Loading form event must already have been generated).",
+    "By default the result is returned as a string; the optional type parameter converts it to the specified type.",
+    "Calling a JS function that opens a blocking dialog (alert(), print()) is not recommended; the user cannot interact with the Web area while 4D code runs."
   ]
 }

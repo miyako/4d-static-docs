@@ -1,0 +1,69 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "value's doc arrow is <- (it receives the option's current value), but autoparse's blanket direction:'in' left it (and the repeated group's value) as input; corrected both to 'out'. selector's 10 recognized option constants are given explicit sentinelValues (the leading pair and every repeated pair share the same selector domain).",
+      "params": [
+        {
+          "name": "ref",
+          "type": [{"kind": "concrete", "name": "Text"}, {"kind": "concrete", "name": "Time"}],
+          "direction": "in",
+          "optional": false,
+          "description": "XML root element reference or reference of an open (SAX) document"
+        },
+        {
+          "name": "selector",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": false,
+          "description": "Option to get; a constant of the XML theme",
+          "sentinelValues": [
+            {"value": 1, "meaning": "XML string encoding"},
+            {"value": 2, "meaning": "XML date encoding"},
+            {"value": 3, "meaning": "XML time encoding"},
+            {"value": 4, "meaning": "XML indentation"},
+            {"value": 5, "meaning": "XML binary encoding"},
+            {"value": 6, "meaning": "XML picture encoding"},
+            {"value": 7, "meaning": "XML external entity resolution"},
+            {"value": 8, "meaning": "XML DOM case sensitivity"},
+            {"value": 9, "meaning": "XML BOM"},
+            {"value": 10, "meaning": "XML line ending"}
+          ]
+        },
+        {
+          "name": "value",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "out",
+          "optional": false,
+          "description": "Current value of the option, as a constant of the XML theme"
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "selector",
+              "type": {"kind": "concrete", "name": "Integer"},
+              "direction": "in",
+              "optional": false,
+              "description": "Another option to get, same domain as the leading selector"
+            },
+            {
+              "name": "value",
+              "type": {"kind": "concrete", "name": "Integer"},
+              "direction": "out",
+              "optional": false,
+              "description": "Current value of that option"
+            }
+          ],
+          "cardinality": {"min": 0, "max": null},
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Gets the current value of one or more XML session/user options (identified by selector constants) for a DOM root element or an open SAX document, returning each value into the paired output variable."
+    }
+  ],
+  "constraints": [
+    "Scope: results reflect the current session and current user (except XML external entity resolution, which is process/cooperative-group scoped and applies globally, ignoring ref).",
+    "You may pass as many selector/value pairs as needed in a single call."
+  ]
+}

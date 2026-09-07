@@ -2,7 +2,7 @@
   "id": "VP-SET-WORKBOOK-OPTIONS",
   "displayName": "VP SET WORKBOOK OPTIONS",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -27,5 +27,9 @@
       ],
       "semanticRole": "VP SET WORKBOOK OPTIONS sets the workbook options in vpAreaName ."
     }
+  ],
+  "constraints": [
+    "If optionObj is empty, the command does nothing.",
+    "Modified workbook options are saved with the document."
   ]
 }

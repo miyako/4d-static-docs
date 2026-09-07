@@ -1,0 +1,85 @@
+{
+  "theme": "Web-Area",
+  "constraints": [
+    "description is only ever populated on macOS; on Windows it is always returned empty.",
+    "errorCode >= 400 indicates an HTTP-protocol error (see RFC 2616 section 10); otherwise it is a WebKit (macOS) or ActiveX (Windows) error code.",
+    "Intended to be called from within the On URL Loading Error form event to diagnose the error that just occurred."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines are the same call with a leading '*' literal-symbol discriminator selecting whether object is an object name (Text) or a direct Variable/Field reference, not two distinct overloads. url/description/errorCode are filled by the command (marked with the '\u2190' return arrow in the parameter table), so their direction is 'out', not the syntax-position default of 'in'.",
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, object is an object name (string); if omitted, object is a variable or field reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is passed) or Variable/Field reference (if * is omitted)."
+        },
+        {
+          "name": "url",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "URL causing the error."
+        },
+        {
+          "name": "description",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Description of the error (macOS only; always empty on Windows)."
+        },
+        {
+          "name": "errorCode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Error code."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "object",
+        "rule": "Text (an object name) when the leading * is passed; Variable or Field passed directly when * is omitted."
+      }
+    }
+  ]
+}

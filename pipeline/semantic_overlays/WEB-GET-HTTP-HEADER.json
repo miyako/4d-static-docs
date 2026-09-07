@@ -1,0 +1,49 @@
+{
+  "theme": "Web-Server",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the raw HTTP request header as a single string.",
+      "mechanism": "single_string_form",
+      "params": [
+        {
+          "name": "header",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Request HTTP header, e.g. \"GET /page.html HTTP\\1.0\"+Char(13)+Char(10)+... (CRLF-separated fields)."
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "semanticRole": "Returns the HTTP request header split into parallel field-name/field-value arrays.",
+      "mechanism": "object_map_equivalent",
+      "params": [
+        {
+          "name": "fieldArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "HTTP header field names."
+        },
+        {
+          "name": "valueArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "HTTP header field values, synchronized index-for-index with fieldArray."
+        }
+      ]
+    }
+  ]
+}

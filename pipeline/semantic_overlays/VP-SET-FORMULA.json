@@ -1,0 +1,9 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj includes multiple cells, the same formula is linked in each cell.",
+    "If formula is a string, use the period (.) as numerical separator and the comma (,) as parameter separator.",
+    "If formula references a 4D method, that method must first be allowed with VP SET ALLOWED METHODS.",
+    "Remove a formula from rangeObj by passing an empty string (\"\") for formula."
+  ]
+}

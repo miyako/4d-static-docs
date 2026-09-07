@@ -1,0 +1,29 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "4Dvar's doc arrow is <- (it receives the converted value), but autoparse's blanket direction:'in' left it as an input; corrected to 'out'.",
+      "params": [
+        {
+          "name": "xmlValue",
+          "type": {"kind": "concrete", "name": "Text"},
+          "direction": "in",
+          "optional": false,
+          "description": "Text type value coming from an XML structure"
+        },
+        {
+          "name": "4Dvar",
+          "type": [{"kind": "concrete", "name": "Field"}, {"kind": "concrete", "name": "Variable"}],
+          "direction": "out",
+          "optional": false,
+          "description": "4D variable or field receiving the converted XML value"
+        }
+      ],
+      "semanticRole": "Converts an XML-string-encoded value into a typed 4D value, storing the result into a field or variable."
+    }
+  ],
+  "constraints": [
+    "If the type of 4Dvar is not already defined (e.g. an untyped variable), the value is decoded as Text by default.",
+    "Numbers use the system's decimal separator; Booleans accept 1/0 or true/false; BLOBs and Pictures are Base64-decoded (Pictures additionally via BLOB to picture); Dates and Times are parsed from an ISO datetime string, discarding the part (date or time) not being decoded, and Time decoding honors the value's time zone offset relative to local time."
+  ]
+}

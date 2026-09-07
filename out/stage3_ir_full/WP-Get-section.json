@@ -2,7 +2,7 @@
   "id": "WP-Get-section",
   "displayName": "WP Get section",
   "kind": "classic_command",
-  "theme": "Write Pro",
+  "theme": "WritePro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Get section command returns the first section intersected by the targetObj range or element, or to the specified sectionIndex of the wpDoc document."
+      "semanticRole": "Returns the first section intersected by the given range or element (targetObj)."
     },
     {
       "params": [
@@ -47,7 +47,11 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Get section command returns the first section intersected by the targetObj range or element, or to the specified sectionIndex of the wpDoc document."
+      "semanticRole": "Returns the section corresponding to sectionIndex within wpDoc."
     }
+  ],
+  "constraints": [
+    "In the targetObj syntax, passing a subsection or an anchored picture raises an error; only a range or element (table/row/paragraph/body/text box/header/footer) is accepted.",
+    "If targetObj is or belongs to a header/footer, the section to which that header/footer is attached is returned; if it is or belongs to a text box, the first section is returned unless the text box is anchored to a section."
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "theme": "Web-Server",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "Autoparse could not find a top-level '(...)' parameter list in the no-parentheses signature 'WEB Is server running : Boolean', so it silently dropped the return type. Restored from the parameterTable's Function result row.",
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns True if the 4D built-in Web server that handles requests in the calling execution context (standalone app, 4D Server, or remote mode) is currently running, False otherwise."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj includes multiple cells, the same valueObj is repeated in every cell.",
+    "valueObj.value accepts Integer, Real, Boolean, Text, Date, or Null (any type except time); pass Null to erase the cell content.",
+    "valueObj.time (Real, in seconds) is used instead of value to set a time value.",
+    "valueObj.format is a pattern applied to value/time; see Cell Format."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If optionObj is empty, the command does nothing.",
+    "Modified workbook options are saved with the document."
+  ]
+}

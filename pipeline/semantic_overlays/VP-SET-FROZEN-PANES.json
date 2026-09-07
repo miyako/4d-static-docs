@@ -1,0 +1,38 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Setting any of paneObj's column/row count properties to zero resets (unfreezes) that property.",
+    "If a paneObj property is set to a value less than zero, the command does nothing."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "paneObj",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": false,
+          "description": "Object containing frozen column and row information (columnCount, trailingColumnCount, rowCount, trailingRowCount)"
+        },
+        {
+          "name": "sheet",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted)",
+          "sentinelValues": [
+            { "value": "vk current sheet", "meaning": "Explicitly designates the current spreadsheet (same as omitting sheet)." }
+          ]
+        }
+      ]
+    }
+  ]
+}

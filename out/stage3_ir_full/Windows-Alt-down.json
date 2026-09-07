@@ -6,7 +6,14 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Windows Alt down returns TRUE if the Windows Alt key is pressed.When called on a Macintosh platform, Windows Alt down returns TRUE if the Macintosh Option key is pressed."
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns True if the Windows Alt key (Option key on Macintosh) is currently pressed."
     }
+  ],
+  "constraints": [
+    "On Macintosh, tests the Option key rather than a literal Alt key."
   ]
 }

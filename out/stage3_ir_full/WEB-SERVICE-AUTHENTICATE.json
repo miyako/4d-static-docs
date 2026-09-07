@@ -2,7 +2,7 @@
   "id": "WEB-SERVICE-AUTHENTICATE",
   "displayName": "WEB SERVICE AUTHENTICATE",
   "kind": "classic_command",
-  "theme": "Web Services (Client)",
+  "theme": "Web-Services-Client",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "User name"
         },
         {
           "name": "password",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "User password"
         },
         {
           "name": "authMethod",
@@ -31,7 +33,22 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Authentication method to use for the next WEB SERVICE CALL",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Not specified/omitted: 4D negotiates the method automatically (sends an additional request)"
+            },
+            {
+              "value": 1,
+              "meaning": "BASIC authentication"
+            },
+            {
+              "value": 2,
+              "meaning": "DIGEST authentication"
+            }
+          ]
         },
         {
           "name": "*",
@@ -42,10 +59,17 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, indicates the authentication information must be sent to an HTTP proxy rather than the target server"
         }
       ],
-      "semanticRole": "The WEB SERVICE AUTHENTICATE command enables the use of Web Services requiring authentication of the client application (simple authentication)."
+      "semanticRole": "Registers the name/password credentials (and optional authentication method / proxy flag) to be encoded into the HTTP request sent by the next WEB SERVICE CALL."
     }
-  ]
+  ],
+  "constraints": [
+    "Must be called before WEB SERVICE CALL for the authentication information to be applied to the next request; it configures state consumed by the following WEB SERVICE CALL, it does not perform the call itself."
+  ],
+  "protocolRefs": {
+    "multiCallChain": "Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
+  }
 }

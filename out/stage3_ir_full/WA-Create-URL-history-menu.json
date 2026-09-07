@@ -2,7 +2,7 @@
   "id": "WA-Create-URL-history-menu",
   "displayName": "WA Create URL history menu",
   "kind": "classic_command",
-  "theme": "Web Area",
+  "theme": "Web-Area",
   "overloads": [
     {
       "params": [
@@ -15,38 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (Text); if omitted, object is a variable or field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "direction",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The WA Create URL history menu command creates and fills a menu that can be used directly for navigation among the URLs visited during the session in the Web area designated by the * and object parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -57,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or variable/field (if * is omitted) designating the Web area"
         },
         {
           "name": "direction",
@@ -66,14 +45,29 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Which URL list to build the menu from",
+          "sentinelValues": [
+            {
+              "value": "WA previous URLs",
+              "meaning": "0 (default if omitted): list of previous URLs."
+            },
+            {
+              "value": "WA next URLs",
+              "meaning": "1: list of next URLs."
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The WA Create URL history menu command creates and fills a menu that can be used directly for navigation among the URLs visited during the session in the Web area designated by the * and object parameters."
+      "semanticRole": "Creates and fills a menu (returning its reference) usable for direct navigation among the URLs visited during the session in the designated Web area."
     }
+  ],
+  "constraints": [
+    "As of 4D 19 R5, for Web areas using the Windows system rendering engine, this command fills the menu with only the current URL.",
+    "Call RELEASE MENU to delete a URL history menu when it is no longer needed."
   ]
 }

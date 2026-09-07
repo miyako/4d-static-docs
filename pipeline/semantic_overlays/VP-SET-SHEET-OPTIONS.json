@@ -1,0 +1,37 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If vpAreaName does not exist, an error is returned."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area name"
+        },
+        {
+          "name": "sheetOptions",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": false,
+          "description": "Sheet option(s) to set; see 4D View Pro sheet options"
+        },
+        {
+          "name": "sheet",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted)",
+          "sentinelValues": [
+            { "value": "vk current sheet", "meaning": "Explicitly designates the current spreadsheet (same as omitting sheet)." }
+          ]
+        }
+      ]
+    }
+  ]
+}

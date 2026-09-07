@@ -2,7 +2,7 @@
   "id": "VP-SET-ROW-ATTRIBUTES",
   "displayName": "VP SET ROW ATTRIBUTES",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -27,5 +27,8 @@
       ],
       "semanticRole": "The VP SET ROW ATTRIBUTES command applies the attributes defined in the propertyObj to the rows in the rangeObj ."
     }
+  ],
+  "constraints": [
+    "If rangeObj contains both columns and rows, the attributes in propertyObj are applied only to the rows."
   ]
 }
