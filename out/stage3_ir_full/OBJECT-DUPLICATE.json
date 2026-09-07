@@ -2,12 +2,12 @@
   "id": "OBJECT-DUPLICATE",
   "displayName": "OBJECT DUPLICATE",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,88 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference (the first matching object is used if the reference is ambiguous)."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "newName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "newVar",
-          "type": {
-            "kind": "concrete",
-            "name": "Pointer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "boundTo",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "moveH",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "moveV",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "resizeH",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "resizeV",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The OBJECT DUPLICATE command is used to create a copy of the object designated by the object parameter in the context of the form being executed (Application mode)."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -107,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "newName",
@@ -116,7 +45,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of new object"
         },
         {
           "name": "newVar",
@@ -125,7 +55,8 @@
             "name": "Pointer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Pointer to variable of new object"
         },
         {
           "name": "boundTo",
@@ -134,7 +65,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of previous enterable object (or radio button)"
         },
         {
           "name": "moveH",
@@ -143,7 +75,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Horizontal shift of new object (>0 = to the right, <0 = to the left)"
         },
         {
           "name": "moveV",
@@ -152,7 +85,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Vertical shift of new object (>0 = downwards, <0 = upwards)"
         },
         {
           "name": "resizeH",
@@ -161,7 +95,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Value of the horizontal resize of the object"
         },
         {
           "name": "resizeV",
@@ -170,15 +105,11 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The OBJECT DUPLICATE command is used to create a copy of the object designated by the object parameter in the context of the form being executed (Application mode)."
-    },
-    {
-      "params": [
+          "optional": true,
+          "description": "Value of the vertical resize of the object"
+        },
         {
-          "name": "*",
+          "name": "useAbsoluteCoordinates",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -186,187 +117,29 @@
             ]
           },
           "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "newName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "newVar",
-          "type": {
-            "kind": "concrete",
-            "name": "Pointer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "boundTo",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "moveH",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "moveV",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "resizeH",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "resizeV",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ]
-          },
-          "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "Trailing '*'. If present, moveH/moveV/resizeH/resizeV are absolute coordinates and all four become required; if omitted, they are optional deltas relative to the source object's previous position/size."
         }
       ],
-      "semanticRole": "The OBJECT DUPLICATE command is used to create a copy of the object designated by the object parameter in the context of the form being executed (Application mode)."
-    },
-    {
-      "params": [
+      "semanticRole": "Creates a copy of the form object designated by object in the currently-executing form (Application mode); the source form from Design mode is left unmodified.",
+      "jointConstraints": [
         {
-          "name": "object",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Variable"
-            },
-            {
-              "kind": "concrete",
-              "name": "Field"
-            }
+          "params": [
+            "useAbsoluteCoordinates",
+            "moveH",
+            "moveV",
+            "resizeH",
+            "resizeV"
           ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "newName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "newVar",
-          "type": {
-            "kind": "concrete",
-            "name": "Pointer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "boundTo",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "moveH",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "moveV",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "resizeH",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "resizeV",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ]
-          },
-          "direction": "in",
-          "optional": false
+          "rule": "When the trailing '*' (useAbsoluteCoordinates) is passed, moveH, moveV, resizeH, and resizeV all become required and specify absolute coordinates/size for the copy; when omitted, all four remain optional and specify relative deltas from the source object's position/size (0/omitted = superimposed on the source)."
         }
-      ],
-      "semanticRole": "The OBJECT DUPLICATE command is used to create a copy of the object designated by the object parameter in the context of the form being executed (Application mode)."
+      ]
     }
+  ],
+  "constraints": [
+    "Only one button in a form can have the 'Default button' property; duplicating such a button assigns the property to the copy and removes it from the source.",
+    "The keyboard shortcut of the source object is not duplicated; it is left blank on the copy.",
+    "If newName is omitted or empty, the copy's name is auto-generated by incrementing the source object's name; if the given/generated name is invalid or already used, the command does nothing and sets the OK system variable to 0.",
+    "Cannot be called from an object method's On Load event, from On Unload, or from printing-context form events (e.g. On Header, On Printing Detail); in an unsupported context OK is set to 0, and calling it in a printing context additionally raises error -10601."
   ]
 }

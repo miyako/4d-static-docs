@@ -2,7 +2,7 @@
   "id": "OB-Get-type",
   "displayName": "OB Get type",
   "kind": "classic_command",
-  "theme": "Objects (Language)",
+  "theme": "Objects-Language",
   "overloads": [
     {
       "params": [
@@ -31,5 +31,8 @@
       },
       "semanticRole": "The OB Get type command returns the type of value associated with the property of the language object .can be an object varialble or a 4D object field.."
     }
+  ],
+  "constraints": [
+    "property is case-sensitive."
   ]
 }

@@ -37,5 +37,10 @@
       },
       "semanticRole": "Max returns the maximum value in series ."
     }
+  ],
+  "constraints": [
+    "attributePath is only meaningful when series is an object field; it defines a dot-notation path (e.g. \"company.address.number\") to a nested attribute whose values are aggregated across the selection. Attribute names are case-sensitive.",
+    "Non-numeric values found at the attribute path are ignored; only numeric attribute values are computed.",
+    "Returns 0 if the series selection is empty."
   ]
 }

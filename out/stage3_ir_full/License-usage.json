@@ -6,7 +6,14 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The License usage command returns a collection of objects containing information on the retained licenses."
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Returns a collection of objects describing the licenses currently retained (per product: usage counts, remaining balance, timestamp, reason, and session details)."
     }
+  ],
+  "constraints": [
+    "Can only be executed on 4D Server; returns null when called from another context."
   ]
 }

@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Method path(s)"
         },
         {
           "name": "attributes",
@@ -33,8 +34,9 @@
               "name": "Object array"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Attribute(s) for selected method(s), as object properties (e.g. \"True\"/\"False\" for Boolean attributes)."
         },
         {
           "name": "*",
@@ -45,10 +47,13 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
         }
-      ],
-      "semanticRole": "The METHOD GET ATTRIBUTES command returns, in attributes , the current value of all attributes for the method(s) specified in the path parameter."
+      ]
     }
+  ],
+  "constraints": [
+    "path and attributes must be the same kind (both scalar Text/Object, or both Text array/Object array); the two syntaxes cannot be mixed."
   ]
 }

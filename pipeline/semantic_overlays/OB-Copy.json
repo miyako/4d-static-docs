@@ -1,0 +1,24 @@
+{
+  "theme": "Objects-Language",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Return a deep copy of object, optionally resolving any pointer values into their evaluated targets during the copy (resolvePtrs).",
+      "discriminatedBy": {
+        "param": "resolvePtrs",
+        "rule": "Chosen when the second parameter is a plain Boolean (or omitted); mutually exclusive with the option/groupWith syntax."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Return a deep copy of object with fine-grained control via option (bitwise ck constants: ck shared to return a shared object, ck resolve pointers to resolve pointers before copying), optionally grouped into an existing shared object/collection's shared group via groupWith.",
+      "discriminatedBy": {
+        "param": "option",
+        "rule": "Chosen when the second parameter is an Integer options bitfield rather than a plain Boolean; groupWith is only meaningful together with this syntax."
+      }
+    }
+  ],
+  "constraints": [
+    "If object contains pointer values, the copy keeps them as-is by default (not evaluated) unless pointer resolution is requested via resolvePtrs (overload 1) or the ck resolve pointers option (overload 2)."
+  ]
+}

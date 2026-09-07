@@ -2,7 +2,7 @@
   "id": "LISTBOX-SORT-COLUMNS",
   "displayName": "LISTBOX SORT COLUMNS",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -15,40 +15,27 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box."
         },
         {
-          "name": "colNum",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "order",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              ">",
-              "<"
-            ]
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "group",
+          "name": "sortCriteria",
           "members": [
             {
               "name": "colNum",
@@ -57,7 +44,8 @@
                 "name": "Integer"
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Column number whose array values are used as a sort criterion. Any array data type is accepted except pictures and pointers."
             },
             {
               "name": "order",
@@ -69,83 +57,22 @@
                 ]
               },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Sort order for this column: '>' for ascending, '<' for descending."
             }
           ],
           "cardinality": {
-            "min": 0,
+            "min": 1,
             "max": null
           },
           "position": "trailing"
         }
       ],
-      "semanticRole": "The LISTBOX SORT COLUMNS command applies a standard sort to the rows of the list box defined by the object and * parameters on the basis of one or more column value(s)."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "colNum",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "order",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              ">",
-              "<"
-            ]
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "group",
-          "members": [
-            {
-              "name": "colNum",
-              "type": {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "order",
-              "type": {
-                "kind": "literal_symbols",
-                "symbols": [
-                  ">",
-                  "<"
-                ]
-              },
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 0,
-            "max": null
-          },
-          "position": "trailing"
-        }
-      ],
-      "semanticRole": "The LISTBOX SORT COLUMNS command applies a standard sort to the rows of the list box defined by the object and * parameters on the basis of one or more column value(s)."
+      "semanticRole": "Applies a standard (possibly multi-level) sort to the rows of the designated list box, using one or more (column, order) pairs as sort criteria; sort level is defined by pair position in the call."
     }
+  ],
+  "constraints": [
+    "Columns are synchronized: sorting is automatically applied to all columns of the list box, not just the one(s) used as criteria.",
+    "Does not take the list box's Sortable property into account."
   ]
 }

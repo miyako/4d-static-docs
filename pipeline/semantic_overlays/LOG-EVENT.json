@@ -1,0 +1,44 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Added the documented Log Events theme constants as sentinelValues for outputType and importance; the draft parser only captured the generic Integer types.",
+      "params": [
+        {
+          "name": "outputType",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": true,
+          "description": "Output channel for message.",
+          "sentinelValues": [
+            {"value": 0, "meaning": "Into Windows log events (default if omitted); does nothing on macOS."},
+            {"value": 1, "meaning": "Into 4D debug message (Console on macOS, debug message on Windows)."},
+            {"value": 2, "meaning": "Into 4D request log, if activated."},
+            {"value": 3, "meaning": "Into 4D commands log, if activated (SET DATABASE PARAMETER selector 34)."},
+            {"value": 5, "meaning": "Into 4D diagnostic log, if enabled (SET DATABASE PARAMETER selector 79)."},
+            {"value": 6, "meaning": "Into system standard outputs: stdout for Information/Warning, stderr for Error."}
+          ]
+        },
+        {
+          "name": "message",
+          "type": {"kind": "concrete", "name": "Text"},
+          "direction": "in",
+          "optional": false,
+          "description": "Custom information to record."
+        },
+        {
+          "name": "importance",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": true,
+          "description": "Importance level attributed to message; only used with outputType 'Into Windows log events', 'Into 4D diagnostic log', and 'Into system standard outputs'. The default (0) is used if omitted or if an incorrect value is passed.",
+          "sentinelValues": [
+            {"value": 0, "meaning": "Information message (default)."},
+            {"value": 1, "meaning": "Warning message."},
+            {"value": 2, "meaning": "Error message."}
+          ]
+        }
+      ]
+    }
+  ]
+}

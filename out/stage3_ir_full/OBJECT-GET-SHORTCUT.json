@@ -2,12 +2,12 @@
   "id": "OBJECT-GET-SHORTCUT",
   "displayName": "OBJECT GET SHORTCUT",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "key",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "modifiers",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT GET SHORTCUT command returns the keyboard shortcut associated with the object(s) designated by the object and * parameters for the current process."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "key",
@@ -70,8 +44,15 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Key associated with object",
+          "sentinelValues": [
+            {
+              "value": "\"\"",
+              "meaning": "Returned (together with modifiers = 0) when object designates several objects in the form that have different shortcut settings."
+            }
+          ]
         },
         {
           "name": "modifiers",
@@ -79,8 +60,31 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Modifier key mask or combination of masks If several modifier keys are combined, the command returns the sum of their mask values.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "No modifier keys for the shortcut (also returned when object designates several objects with differing settings)."
+            },
+            {
+              "value": 256,
+              "meaning": "Command key mask (Ctrl under Windows, Command under macOS)."
+            },
+            {
+              "value": 512,
+              "meaning": "Shift key mask (Windows and macOS)."
+            },
+            {
+              "value": 2048,
+              "meaning": "Option key mask (Alt / Option under macOS)."
+            },
+            {
+              "value": 4096,
+              "meaning": "Control key mask (Ctrl under macOS, or right-click under Windows and macOS)."
+            }
+          ]
         }
       ],
       "semanticRole": "The OBJECT GET SHORTCUT command returns the keyboard shortcut associated with the object(s) designated by the object and * parameters for the current process."

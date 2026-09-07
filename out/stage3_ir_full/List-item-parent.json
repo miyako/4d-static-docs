@@ -15,7 +15,8 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If present, list is an object name (string) representing the list in the form; if omitted, list is a hierarchical list reference number."
         },
         {
           "name": "list",
@@ -30,7 +31,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "List reference number (if * omitted), or object name of the list-type form object (if * passed)."
         },
         {
           "name": "itemRef",
@@ -45,14 +47,25 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Item reference number whose parent is sought.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "The last item added to the list."
+            },
+            {
+              "value": "*",
+              "meaning": "The current item of the list (the last one selected, if several were selected manually); requires the object-name syntax (first '*' passed) if multiple representations of the same list exist."
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The List item parent command returns the item reference number of a parent item."
+      "semanticRole": "Returns the item reference number of the parent of the designated item, or 0 if the item doesn't exist, has no selected current item, or has no parent."
     }
   ]
 }

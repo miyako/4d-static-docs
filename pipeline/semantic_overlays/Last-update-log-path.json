@@ -1,0 +1,11 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line has no parenthesized parameter list ('Last update log path : Text'), so the mechanical parser produced an empty overload with no return type at all; added the documented Text return type.",
+      "params": [],
+      "returns": {"kind": "concrete", "name": "Text"},
+      "semanticRole": "Returns the complete pathname of the most recent update log file found on the machine where it is called."
+    }
+  ]
+}

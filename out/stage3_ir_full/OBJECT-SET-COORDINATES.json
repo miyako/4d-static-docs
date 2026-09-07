@@ -2,7 +2,7 @@
   "id": "OBJECT-SET-COORDINATES",
   "displayName": "OBJECT SET COORDINATES",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -15,61 +15,15 @@
             ]
           },
           "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "left",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "top",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "right",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
           "optional": true
         },
-        {
-          "name": "bottom",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The OBJECT SET COORDINATES command modifies the location and, optionally, the size of the object(s) designated by the object and * parameters for the current process."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -89,7 +43,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New absolute left coordinate, in pixels from the form's top-left corner."
         },
         {
           "name": "top",
@@ -98,7 +53,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New absolute top coordinate, in pixels from the form's top-left corner."
         },
         {
           "name": "right",
@@ -107,7 +63,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "New absolute right coordinate; if it does not match the object's width after left/top are applied, the object is resized."
         },
         {
           "name": "bottom",
@@ -116,10 +73,20 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "New absolute bottom coordinate; if it does not match the object's height after left/top are applied, the object is resized."
         }
       ],
-      "semanticRole": "The OBJECT SET COORDINATES command modifies the location and, optionally, the size of the object(s) designated by the object and * parameters for the current process."
+      "semanticRole": "Sets the absolute location and, optionally, the size of the designated form object for the current process.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
     }
+  ],
+  "constraints": [
+    "Equivalent to OBJECT MOVE with its absolute-coordinates trailing '*' passed.",
+    "Only functions in: input forms in entry mode, forms displayed via DIALOG, headers/footers of output forms displayed by MODIFY SELECTION/DISPLAY SELECTION, and forms being printed.",
+    "To move an object relative to its current position, use OBJECT MOVE instead."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "OBJECT-SET-DATA-SOURCE-FORMULA",
   "displayName": "OBJECT SET DATA SOURCE FORMULA",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -15,34 +15,15 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "formula",
-          "type": {
-            "kind": "concrete",
-            "name": "4D.Formula"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET DATA SOURCE FORMULA command assigns a formula (expression) as the data source of the object(s) designated by the object and * parameters ."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,10 +43,21 @@
             "name": "4D.Formula"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Formula (expression) object assigned as the object's data source; pass Null to reset to a dynamic form variable."
         }
       ],
-      "semanticRole": "The OBJECT SET DATA SOURCE FORMULA command assigns a formula (expression) as the data source of the object(s) designated by the object and * parameters ."
+      "semanticRole": "Assigns a 4D.Formula as the dynamic data source of the designated form object, evaluated at runtime.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
     }
+  ],
+  "constraints": [
+    "Passing Null as formula resets the object's data source to a dynamic form variable.",
+    "Does nothing if applied to an object that does not exist or cannot support formulas.",
+    "The formula executes in the context of the form that owns the object; ensure formulas used in subforms are defined/assigned in the correct form context.",
+    "If assigning a formula to an input object or another object with a modifiable value, the formula must be assignable."
   ]
 }

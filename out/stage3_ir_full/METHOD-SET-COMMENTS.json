@@ -48,7 +48,20 @@
           "optional": true
         }
       ],
-      "semanticRole": "The METHOD SET COMMENTS command replaces the documentation of the method(s) designated by the path parameter by those specified in the comments parameter."
+      "semanticRole": "The METHOD SET COMMENTS command replaces the documentation of the method(s) designated by the path parameter by those specified in the comments parameter.",
+      "jointConstraints": [
+        {
+          "params": [
+            "path",
+            "comments"
+          ],
+          "rule": "path and comments must be passed as the same kind (both scalar Text variables, or both Text arrays of matching length); the two syntaxes cannot be mixed."
+        }
+      ]
     }
+  ],
+  "constraints": [
+    "Forms and form methods share the same documentation.",
+    "If called from a component you must pass the trailing '*' parameter, because access to the component code is read-only; omitting it in that context generates error -9763."
   ]
 }

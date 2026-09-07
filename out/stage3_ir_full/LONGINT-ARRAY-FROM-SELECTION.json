@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Table of the current selection."
         },
         {
           "name": "recordArray",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled in with the (absolute) record numbers in selection; element 0 is always initialized to -1."
         },
         {
           "name": "selection",
@@ -31,10 +33,11 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of the named selection to use; the current selection of aTable is used if omitted."
         }
       ],
-      "semanticRole": "The LONGINT ARRAY FROM SELECTION command fills the recordArray array with the (absolute) record numbers that are in selection ."
+      "semanticRole": "Fills an array with the absolute record numbers of a named selection, or the current selection of aTable if none is given."
     }
   ]
 }

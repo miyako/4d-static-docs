@@ -1,0 +1,40 @@
+{
+  "constraints": [
+    "path and comments must be the same kind (both Text, or both Text array); the two syntaxes cannot be mixed."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "comments is filled in by the command (parameter table marks it with the '\u2190' return arrow), so its direction should be 'out', not the syntax-position default of 'in'.",
+      "params": [
+        {
+          "name": "path",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Text array" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Text or Text array containing one or more method path(s)"
+        },
+        {
+          "name": "comments",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Text array" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Documentation of designated method(s) (markdown in project databases, styled text in binary databases)"
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
+        }
+      ]
+    }
+  ]
+}

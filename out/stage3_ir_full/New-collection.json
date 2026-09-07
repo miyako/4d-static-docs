@@ -5,8 +5,32 @@
   "theme": "Collections",
   "overloads": [
     {
-      "params": [],
-      "semanticRole": "The New collection command creates a new empty or prefilled collection and returns its reference."
+      "params": [
+        {
+          "name": "value",
+          "members": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Create a new collection, optionally prefilled with one or more values passed as parameters; omitting all parameters creates an empty collection."
     }
   ]
 }

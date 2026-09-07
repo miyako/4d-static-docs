@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "The method must already exist; if path does not correspond to an existing method, error -9801 (\"Cannot open method\") is generated.",
+    "When called from a component, the * parameter is mandatory (component code is read-only); omitting it in that context generates error -9763.",
+    "The command is asynchronous: it returns immediately without waiting for the Method editor to finish opening."
+  ]
+}

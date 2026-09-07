@@ -2,7 +2,7 @@
   "id": "OBJECT-MOVE",
   "displayName": "OBJECT MOVE",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -15,72 +15,15 @@
             ]
           },
           "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "moveH",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "moveV",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "resizeH",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
           "optional": true
         },
-        {
-          "name": "resizeV",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ]
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The OBJECT MOVE command allows you to move the object(s) in the current form, defined by the * and object parameters moveH pixels horizontally and moveV pixels vertically."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -100,7 +43,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Horizontal move, in pixels (>0 = right, <0 = left)."
         },
         {
           "name": "moveV",
@@ -109,7 +53,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Vertical move, in pixels (>0 = down, <0 = up)."
         },
         {
           "name": "resizeH",
@@ -118,7 +63,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Horizontal resize, in pixels."
         },
         {
           "name": "resizeV",
@@ -127,10 +73,11 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Vertical resize, in pixels."
         },
         {
-          "name": "*",
+          "name": "absolute",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -138,10 +85,30 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Trailing '*', independent of the leading one: if passed, moveH/moveV/resizeH/resizeV are absolute coordinates/size instead of relative deltas."
         }
       ],
-      "semanticRole": "The OBJECT MOVE command allows you to move the object(s) in the current form, defined by the * and object parameters moveH pixels horizontally and moveV pixels vertically."
+      "semanticRole": "Moves, and optionally resizes, the designated form object(s) in the current form, either relative to their previous position or (with the trailing '*') to absolute coordinates/size.",
+      "interactionNotes": [
+        {
+          "params": [
+            "*",
+            "absolute"
+          ],
+          "note": "Two independent, non-mutually-exclusive '*' flags in the same call: the leading '*' selects how object is addressed (name string vs variable/field reference); the trailing '*' (renamed here to 'absolute' to disambiguate from the leading one, since the schema keys params by name) switches moveH/moveV/resizeH/resizeV from relative deltas to absolute coordinates/size."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
     }
+  ],
+  "constraints": [
+    "Positive moveH/moveV move right/down respectively; negative move left/up.",
+    "By default, moveH/moveV/resizeH/resizeV are relative to the object's previous position; passing the trailing '*' makes them absolute instead.",
+    "If object is a name matched via the '@' wildcard against multiple objects, all matching objects are moved/resized.",
+    "Only functions in: input forms in entry mode, forms displayed via DIALOG, headers/footers of output forms displayed by MODIFY SELECTION/DISPLAY SELECTION, and form printing events."
   ]
 }

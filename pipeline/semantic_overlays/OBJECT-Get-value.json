@@ -1,0 +1,14 @@
+{
+  "theme": "Objects-Forms",
+  "constraints": [
+    "Not available on list box column objects.",
+    "If objectName uses the wildcard character ('@') to match multiple objects, only the value of the first matched object's data source is returned.",
+    "If the data source is an array, returns the array index (an integer); if it is an expression, returns the value evaluated since the last execution cycle."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the current value of the data source of the form object(s) named by objectName."
+    }
+  ]
+}

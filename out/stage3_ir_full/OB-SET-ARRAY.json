@@ -2,7 +2,7 @@
   "id": "OB-SET-ARRAY",
   "displayName": "OB SET ARRAY",
   "kind": "classic_command",
-  "theme": "Objects (Language)",
+  "theme": "Objects-Language",
   "overloads": [
     {
       "params": [
@@ -42,5 +42,9 @@
       ],
       "semanticRole": "The OB SET ARRAY command defines the array to be associated with the property in the language object designated by the object parameter.can be an object varialble or a 4D object field."
     }
+  ],
+  "constraints": [
+    "property is case-sensitive.",
+    "If property already exists in object its value is updated (overwritten with the new array); otherwise it is created."
   ]
 }

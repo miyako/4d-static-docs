@@ -1,0 +1,14 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line has no parenthesized parameter list ('Level : Integer'), so the mechanical parser produced an empty overload with no return type at all; added the documented Integer return type.",
+      "params": [],
+      "returns": {"kind": "concrete", "name": "Integer"},
+      "semanticRole": "Returns the current header or break level, valid during the On Header and On Printing Break form events."
+    }
+  ],
+  "constraints": [
+    "Level 0 is the last level printed, used for a grand total; Level returns 1 on a break on the first sorted field, 2 on the second, and so on."
+  ]
+}

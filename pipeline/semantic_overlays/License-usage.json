@@ -1,0 +1,14 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line has no parenthesized parameter list ('License usage : Collection'), so the mechanical parser produced an empty overload with no return type at all; added the documented Collection return type.",
+      "params": [],
+      "returns": {"kind": "concrete", "name": "Collection"},
+      "semanticRole": "Returns a collection of objects describing the licenses currently retained (per product: usage counts, remaining balance, timestamp, reason, and session details)."
+    }
+  ],
+  "constraints": [
+    "Can only be executed on 4D Server; returns null when called from another context."
+  ]
+}

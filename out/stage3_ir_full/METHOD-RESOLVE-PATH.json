@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Path to resolve"
         },
         {
           "name": "methodType",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Object type selector parsed from path"
         },
         {
           "name": "ptrTable",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Pointer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Pointer to the table, filled in when path references a table-form method or a trigger; otherwise left unset."
         },
         {
           "name": "objectName",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Form name (for a table-form or project-form path) or database method name (for a database-method path)."
         },
         {
           "name": "formObjectName",
@@ -48,8 +52,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Form object name, filled in when path references an object method."
         },
         {
           "name": "*",
@@ -60,10 +65,14 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, path is considered to designate a host database method when called from a component (otherwise ignored)."
         }
-      ],
-      "semanticRole": "The METHOD RESOLVE PATH command parses the internal path name passed in the path parameter and returns its different components in the methodType , ptrTable , objectName , and formObjectName parameters."
+      ]
     }
+  ],
+  "constraints": [
+    "methodType accepts one of the documented \"Design Object Access\" theme constants: Path project method (1), Path database method (2), Path project form (4), Path trigger (8), Path table form (16), Path class (32), Path volatile method (128).",
+    "The command does not check whether the method actually exists; an error is generated only when an invalid table name is passed."
   ]
 }

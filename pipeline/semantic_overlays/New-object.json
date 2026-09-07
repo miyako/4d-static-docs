@@ -1,0 +1,6 @@
+{
+  "theme": "Objects-Language",
+  "constraints": [
+    "Passed values: numbers are always stored as reals; if a pointer is passed it is kept as-is (not evaluated until something like JSON Stringify resolves it); dates are stored as \"yyyy-mm-dd\" or ISO datetime strings per the 'dates inside objects' database setting; times are stored as a number of milliseconds (Real)."
+  ]
+}

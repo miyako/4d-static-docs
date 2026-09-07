@@ -2,7 +2,7 @@
   "id": "OB-Class",
   "displayName": "OB Class",
   "kind": "classic_command",
-  "theme": "Objects (Language)",
+  "theme": "Objects-Language",
   "overloads": [
     {
       "params": [
@@ -22,5 +22,8 @@
       },
       "semanticRole": "The OB Class command returns the class of the object passed in parameter."
     }
+  ],
+  "constraints": [
+    "Returns null (rather than raising an error) if object is not an existing/valid object."
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "protocolRefs": {
+    "multiCallChain": "Mail message building: MAIL New attachment creates attachment objects to add into an Email object's attachments collection -> MAIL Convert to MIME serializes the completed email object to MIME text (used internally by SMTP_transporter.send()) -> MAIL Convert from MIME parses an inbound MIME document back into an email object."
+  },
+  "constraints": [
+    "If options is omitted, the 'mail mode UTF8' charset/encoding configuration (US-ASCII if possible, otherwise UTF-8 & Quoted-printable) is used for both header and body parts."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Serializes an email object into MIME text, following the JMAP specification, optionally overriding the header/body charset and encoding via options."
+    }
+  ]
+}

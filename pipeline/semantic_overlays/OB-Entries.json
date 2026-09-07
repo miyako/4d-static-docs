@@ -1,0 +1,6 @@
+{
+  "theme": "Objects-Language",
+  "constraints": [
+    "Only first-level property names/values are returned; property names of sub-objects are not flattened into the result."
+  ]
+}

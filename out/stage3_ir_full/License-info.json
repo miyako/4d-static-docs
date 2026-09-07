@@ -6,7 +6,14 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The License info command returns an object providing detailed information about the active license."
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns an object with detailed information about the active 4D license (name, key, licenseNumber, version, expirationDate, per-product rights, etc.), reloading the license files from disk first."
     }
+  ],
+  "constraints": [
+    "Returns a Null object if executed on a 4D application that does not locally use a license (e.g. 4D remote)."
   ]
 }

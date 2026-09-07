@@ -2,7 +2,7 @@
   "id": "New-shared-object",
   "displayName": "New shared object",
   "kind": "classic_command",
-  "theme": "Objects (Language)",
+  "theme": "Objects-Language",
   "overloads": [
     {
       "params": [
@@ -41,5 +41,9 @@
       },
       "semanticRole": "The New shared object command creates a new empty or prefilled shared object and returns its reference."
     }
+  ],
+  "constraints": [
+    "Adding or editing a property on the shared object must be wrapped in Use...End use, otherwise an error is generated; reading a property, however, is possible without Use...End use.",
+    "Passed values: numbers are always stored as reals; a pointer is kept as-is; dates are stored as \"yyyy-mm-dd\" or ISO datetime strings per the 'dates inside objects' database setting; times are stored as a number of milliseconds (Real)."
   ]
 }

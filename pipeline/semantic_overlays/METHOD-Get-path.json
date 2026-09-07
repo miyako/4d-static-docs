@@ -1,0 +1,17 @@
+{
+  "constraints": [
+    "methodType accepts one of the documented \"Design Object Access\" theme constants: Path project method (1), Path database method (2), Path project form (4), Path trigger (8), Path table form (16), Path class (32), Path volatile method (128).",
+    "The command does not check whether the method actually exists; an error is generated only when an invalid database method name is passed with Path database method."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["methodType", "aTable", "objectName", "formObjectName"],
+          "rule": "Which of aTable/objectName/formObjectName are required depends on methodType: Path project form needs objectName (form name) and optionally formObjectName (form object name); Path table form needs aTable, objectName (form name), and optionally formObjectName (form object name); Path database method needs objectName (database method name); Path project method needs objectName (method name); Path trigger needs aTable; Path class needs objectName (class name)."
+        }
+      ]
+    }
+  ]
+}

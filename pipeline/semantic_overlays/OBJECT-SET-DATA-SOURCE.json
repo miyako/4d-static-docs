@@ -1,0 +1,64 @@
+{
+  "theme": "Objects-Forms",
+  "constraints": [
+    "For selection-type list boxes, the list box object's own data source is an internal reference and cannot be modified or read this way.",
+    "Data source changes for list box columns must be consistent with the list box type (e.g. a field cannot be used as an array-type list box column's source).",
+    "Does nothing if applied to a data source that is not modifiable."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dataSource",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Pointer to the field or variable to use as the object's new data source."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      },
+      "semanticRole": "Modifies the field/variable data source represented by the designated form object at runtime.",
+      "note": "Merged the leading-'*' dual signature into one overload with object as a Text/Variable,Field union discriminated by '*'."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "theme": "Objects-Forms",
+  "constraints": [
+    "Passing 'Object current' (or omitting selector) must be called in the context of a form object method/submethod, otherwise it returns an empty string.",
+    "Passing 'Object with focus' returns the name of the object currently holding focus in the form."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the name of the form object designated by selector: the calling object itself (default, 'Object current') or the object currently holding focus ('Object with focus').",
+      "discriminatedBy": {
+        "param": "selector",
+        "rule": "selector (a 'Form Objects (Access)' theme constant) picks between 'Object current'/omitted (the calling object) and 'Object with focus' (the focused object); no other selector values are documented for this command."
+      }
+    }
+  ]
+}

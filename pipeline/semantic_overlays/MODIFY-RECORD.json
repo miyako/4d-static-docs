@@ -1,0 +1,29 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines only because the leading semicolon disappears when aTable is omitted (\"MODIFY RECORD ( aTable {; *} )\" vs. \"MODIFY RECORD ( * )\"). Semantically this is one overload with both aTable and * independently optional.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": true,
+          "description": "Table to use for data entry, or the default table if omitted."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, the data-entry window is drawn without scroll bars or a size box."
+        }
+      ],
+      "semanticRole": "Loads (if needed) and displays the current input form for the current record of aTable (or the default table), letting the user modify it interactively; does nothing if there is no current record."
+    }
+  ],
+  "constraints": [
+    "The current record must have read-write access and must not be locked by another process/user.",
+    "Does not affect the current selection."
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "OBJECT-SET-CORNER-RADIUS",
   "displayName": "OBJECT SET CORNER RADIUS",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -15,34 +15,15 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "radius",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET CORNER RADIUS command modifies the radius of corners for the object(s) you passed in the object parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,10 +43,20 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New corner radius, in pixels."
         }
       ],
-      "semanticRole": "The OBJECT SET CORNER RADIUS command modifies the radius of corners for the object(s) you passed in the object parameter."
+      "semanticRole": "Modifies (for the current process only) the corner radius of the designated form object.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
     }
+  ],
+  "constraints": [
+    "Only supported for rectangles, and (4D projects only) inputs and text areas.",
+    "For input and text-area objects, the corner radius only has a visible effect with \"none\", \"solid\", or \"dotted\" border line styles.",
+    "The new radius is set only for the current process and is not saved in the form itself."
   ]
 }

@@ -1,0 +1,6 @@
+{
+  "theme": "Process-Communications",
+  "constraints": [
+    "The returned 4D.Signal object is itself a shared object, intended to be passed as a parameter between workers/processes so the receiver can update it and the sender can wait on it (via the signal's own API) without consuming CPU."
+  ]
+}

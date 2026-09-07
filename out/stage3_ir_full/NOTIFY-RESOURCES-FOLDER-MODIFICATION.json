@@ -2,7 +2,7 @@
   "id": "NOTIFY-RESOURCES-FOLDER-MODIFICATION",
   "displayName": "NOTIFY RESOURCES FOLDER MODIFICATION",
   "kind": "classic_command",
-  "theme": "4D Environment",
+  "theme": "4D-Environment",
   "overloads": [
     {
       "params": [],

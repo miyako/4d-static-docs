@@ -2,12 +2,12 @@
   "id": "OBJECT-GET-DRAG-AND-DROP-OPTIONS",
   "displayName": "OBJECT GET DRAG AND DROP OPTIONS",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,61 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "draggable",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "automaticDrag",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "droppable",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "automaticDrop",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT GET DRAG AND DROP OPTIONS command returns the drag and drop options for the object(s) designated by the object and * parameters for the current process."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -80,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "draggable",
@@ -88,8 +44,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Draggable = True; otherwise, False"
         },
         {
           "name": "automaticDrag",
@@ -97,8 +54,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Automatic Drag = True; otherwise, False"
         },
         {
           "name": "droppable",
@@ -106,8 +64,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Droppable = True; otherwise, False"
         },
         {
           "name": "automaticDrop",
@@ -115,8 +74,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Automatic Drop = True; otherwise, False"
         }
       ],
       "semanticRole": "The OBJECT GET DRAG AND DROP OPTIONS command returns the drag and drop options for the object(s) designated by the object and * parameters for the current process."

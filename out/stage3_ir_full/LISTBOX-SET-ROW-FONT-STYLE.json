@@ -2,7 +2,7 @@
   "id": "LISTBOX-SET-ROW-FONT-STYLE",
   "displayName": "LISTBOX SET ROW FONT STYLE",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating a list box (command applies to the row) or a list box column (command applies to the cell at the column/row intersection)."
         },
         {
           "name": "row",
@@ -33,7 +41,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Number of the row to apply the style to (hidden/shown row state is not taken into account)."
         },
         {
           "name": "style",
@@ -42,42 +51,33 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Font style constant, or a bitwise combination of constants, from the Font Styles theme.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Plain"
+            },
+            {
+              "value": 1,
+              "meaning": "Bold"
+            },
+            {
+              "value": 2,
+              "meaning": "Italic"
+            },
+            {
+              "value": 4,
+              "meaning": "Underline"
+            }
+          ]
         }
       ],
-      "semanticRole": "Note: This command only works with array type list boxes."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "row",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "style",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "Note: This command only works with array type list boxes."
+      "semanticRole": "Sets the font style of a row, or of a single cell, in an array-type list box."
     }
+  ],
+  "constraints": [
+    "This command only works with array-type list boxes.",
+    "Style arrays for columns take priority over style arrays for the list box: applying this command to the whole list box only has an effect if no style array has been assigned to the columns."
   ]
 }

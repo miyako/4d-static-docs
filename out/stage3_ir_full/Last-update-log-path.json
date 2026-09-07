@@ -6,7 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Last update log path command returns the complete pathname of the most recent update log file found on the machine where it is called."
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the complete pathname of the most recent update log file found on the machine where it is called."
     }
   ]
 }

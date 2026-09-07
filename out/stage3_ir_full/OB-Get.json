@@ -2,7 +2,7 @@
   "id": "OB-Get",
   "displayName": "OB Get",
   "kind": "classic_command",
-  "theme": "Objects (Language)",
+  "theme": "Objects-Language",
   "overloads": [
     {
       "params": [
@@ -40,5 +40,8 @@
       },
       "semanticRole": "The OB Get command returns the current value of the property of the object , optionally converted into the type specified.can be an object varialble or a 4D object field."
     }
+  ],
+  "constraints": [
+    "property is case-sensitive."
   ]
 }

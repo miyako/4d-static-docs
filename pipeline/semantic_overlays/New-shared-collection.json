@@ -1,0 +1,28 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {
+          "name": "value",
+          "members": [
+            {
+              "name": "value",
+              "type": {"kind": "pseudo", "name": "any"},
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {"min": 0, "max": null},
+          "position": "trailing"
+        }
+      ],
+      "returns": {"kind": "concrete", "name": "Collection"},
+      "semanticRole": "Create a new shared collection, optionally prefilled with one or more values, whose elements can be safely accessed from multiple processes/workers under Use...End use.",
+      "note": "Same optional-parenthesized-variadic pattern as New collection defeated the mechanical parser (empty params draft); replaced with a 0..n variadic group for 'value'."
+    }
+  ],
+  "constraints": [
+    "Adding an element via the assignment operator (e.g. mySharedCol[i]:=...) must be wrapped in Use...End use, otherwise an error is generated; this is not required when adding elements via collection methods that already implement their own thread-safety."
+  ]
+}

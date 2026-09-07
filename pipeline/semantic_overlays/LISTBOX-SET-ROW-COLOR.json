@@ -1,0 +1,57 @@
+{
+  "theme": "List-Box",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines that differ only in whether the leading '*' is passed (selecting whether 'object' is an object-name string vs. a form variable reference). That's one semantic overload with an optional literal-symbol discriminator, not two independent overloads. color/colorType also have documented special constants ('lk inherited', 'lk font color'/'lk background color') but the doc excerpt doesn't give their numeric values, so they're described in prose rather than invented as numeric sentinelValues.",
+      "params": [
+        {
+          "name": "*",
+          "type": {"kind": "literal_symbols", "symbols": ["*"]},
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {"kind": "concrete", "name": "Text"},
+            {"kind": "concrete", "name": "Variable"}
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating a list box (command applies to the row) or a list box column (command applies to the cell at the column/row intersection)."
+        },
+        {
+          "name": "row",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the row to apply the color to (hidden/visible row state is not taken into account)."
+        },
+        {
+          "name": "color",
+          "type": [
+            {"kind": "concrete", "name": "Text"},
+            {"kind": "concrete", "name": "Integer"}
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "RGB color value to apply; passing the 'lk inherited' constant makes the row/cell inherit the color set at the next higher level (column or list box)."
+        },
+        {
+          "name": "colorType",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": true,
+          "description": "Pass the 'lk font color' or 'lk background color' constant to indicate whether color is applied as the row/cell's font or background color; font color is applied if this parameter is omitted."
+        }
+      ],
+      "semanticRole": "Sets the font or background color of a row, or of a single cell, in an array-type list box."
+    }
+  ],
+  "constraints": [
+    "This command only works with array-type list boxes.",
+    "This command creates or modifies the underlying color arrays for the column or list box, retrievable via LISTBOX Get array."
+  ]
+}

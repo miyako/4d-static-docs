@@ -1,0 +1,20 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Return the numeric form of expression, using separator (if passed) as the decimal separator when expression is a Text; Boolean/Integer expressions convert directly (True/False to 1/0, or pass through).",
+      "discriminatedBy": {
+        "param": "separator",
+        "rule": "Chosen when the optional trailing parameter is a Text decimal separator (or omitted entirely); mutually exclusive with the base syntax."
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Return the numeric form of a Text expression parsed in the given base/radix (2-36), e.g. for hexadecimal or binary string conversion.",
+      "discriminatedBy": {
+        "param": "base",
+        "rule": "Chosen when the second parameter is a required Integer radix between 2 and 36; mutually exclusive with the separator syntax."
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "theme": "Objects-Language",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {"name": "object", "type": {"kind": "concrete", "name": "Object"}, "direction": "in", "optional": false},
+        {"name": "property", "type": {"kind": "concrete", "name": "Text"}, "direction": "in", "optional": false},
+        {"name": "array", "type": {"kind": "concrete", "name": "Array"}, "direction": "out", "optional": false}
+      ],
+      "semanticRole": "Retrieve, in array, the values stored in the named array property of object.",
+      "note": "array's parameter-table arrow points back to the caller (\u2190), i.e. it is an output parameter filled by the command; the mechanical draft defaulted every param to direction:'in'."
+    }
+  ],
+  "constraints": [
+    "property is case-sensitive."
+  ]
+}

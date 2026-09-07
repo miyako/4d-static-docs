@@ -2,7 +2,7 @@
   "id": "OBJECT-Get-name",
   "displayName": "OBJECT Get name",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,15 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The OBJECT Get name command returns the name of a form object."
+      "semanticRole": "Returns the name of the form object designated by selector: the calling object itself (default, 'Object current') or the object currently holding focus ('Object with focus').",
+      "discriminatedBy": {
+        "param": "selector",
+        "rule": "selector (a 'Form Objects (Access)' theme constant) picks between 'Object current'/omitted (the calling object) and 'Object with focus' (the focused object); no other selector values are documented for this command."
+      }
     }
+  ],
+  "constraints": [
+    "Passing 'Object current' (or omitting selector) must be called in the context of a form object method/submethod, otherwise it returns an empty string.",
+    "Passing 'Object with focus' returns the name of the object currently holding focus in the form."
   ]
 }

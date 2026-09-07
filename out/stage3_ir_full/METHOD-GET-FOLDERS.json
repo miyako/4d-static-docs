@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Array of Home page folder names"
         },
         {
           "name": "filter",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name filter; supports '@' for \"starts with\"/\"ends with\"/\"contains\"; an empty string is ignored."
         },
         {
           "name": "*",
@@ -33,10 +35,10 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, applies to the host database's folders when called from a component (otherwise ignored)."
         }
-      ],
-      "semanticRole": "The METHOD GET FOLDERS command returns, in the arrNames array, the names of folders created on the Home page of the 4D Explorer: Since folder names must be unique, the hierarchy is not returned in this array."
+      ]
     }
   ]
 }

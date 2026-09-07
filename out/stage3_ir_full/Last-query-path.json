@@ -13,14 +13,23 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Output format for the returned description.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Description in text format."
+            },
+            {
+              "value": 1,
+              "meaning": "Description in XML format."
+            }
+          ]
         }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The Last query path command returns the detailed internal description of the actual path of the last query carried out on the data."
+      ]
     }
+  ],
+  "constraints": [
+    "Returns a significant value only if DESCRIBE QUERY EXECUTION has been executed during the current session."
   ]
 }

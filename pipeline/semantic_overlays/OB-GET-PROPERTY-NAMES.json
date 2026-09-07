@@ -1,0 +1,15 @@
+{
+  "theme": "Objects-Language",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "params": [
+        {"name": "object", "type": {"kind": "concrete", "name": "Object"}, "direction": "in", "optional": false},
+        {"name": "arrProperties", "type": {"kind": "concrete", "name": "Text array"}, "direction": "out", "optional": false},
+        {"name": "arrTypes", "type": {"kind": "concrete", "name": "Integer array"}, "direction": "out", "optional": true}
+      ],
+      "semanticRole": "Return, in arrProperties (and optionally arrTypes), the names (and value types) of the properties contained in object.",
+      "note": "Both arrProperties and arrTypes are output parameters per the doc's \u2190 arrow column; the mechanical draft defaulted them to direction:'in'. Also: if arrProperties does not exist yet, the command creates and sizes it automatically."
+    }
+  ]
+}

@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table whose table-form object methods to return; if omitted, returns objects of the database project forms instead."
         },
         {
           "name": "arrPaths",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Array of method paths and names"
         },
         {
           "name": "filter",
@@ -31,7 +33,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name filter; supports '@' for \"starts with\"/\"ends with\"/\"contains\"; an empty string is ignored."
         },
         {
           "name": "stamp",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "inout",
+          "optional": true,
+          "description": "In: minimum modification-counter stamp value to filter on. Out: the new current (highest) stamp value, for use in a subsequent call to get only newer/modified methods."
         },
         {
           "name": "*",
@@ -51,10 +55,14 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
         }
-      ],
-      "semanticRole": "The METHOD GET PATHS FORM command fills the arrPaths array with the internal pathnames and names of the methods for all form objects as well as form methods."
+      ]
     }
+  ],
+  "constraints": [
+    "The command does not list objects of inherited forms or of subforms.",
+    "If the command detects a duplicated method name, error -9802 (\"Object path not unique\") is generated."
   ]
 }

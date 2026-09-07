@@ -2,7 +2,7 @@
   "id": "OB-Instance-of",
   "displayName": "OB Instance of",
   "kind": "classic_command",
-  "theme": "Objects (Language)",
+  "theme": "Objects-Language",
   "overloads": [
     {
       "params": [
@@ -31,5 +31,8 @@
       },
       "semanticRole": "The OB Instance of command returns true if object belongs to class or to one of its child classes, and false otherwise."
     }
+  ],
+  "constraints": [
+    "If class is not a valid Class object, error -10745 is generated."
   ]
 }

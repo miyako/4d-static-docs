@@ -46,7 +46,11 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The List item position command returns the position of the item whose item reference number is passed in itemRef , within the list whose list reference number or object name is passed in list ."
+      "semanticRole": "Returns the visible position (1-based, relative to the top item of the main list, accounting for the current expanded/collapsed state) of the item whose reference number is itemRef within the hierarchical list identified by list; returns 0 if the item does not exist.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "If * is passed, list is the object name (Text) of a form representation of the list; if omitted, list is a hierarchical list reference number (Integer)."
+      }
     }
   ]
 }

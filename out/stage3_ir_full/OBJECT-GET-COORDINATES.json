@@ -2,12 +2,12 @@
   "id": "OBJECT-GET-COORDINATES",
   "displayName": "OBJECT GET COORDINATES",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,61 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "left",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "top",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "right",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "bottom",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT GET COORDINATES command returns the coordinates left , top , right and bottom (in points) in variables or fields of the object(s) of the current form defined by the parameters * and object ."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -80,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "left",
@@ -88,8 +44,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Left coordinate of the object"
         },
         {
           "name": "top",
@@ -97,8 +54,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Top coordinate of the object"
         },
         {
           "name": "right",
@@ -106,8 +64,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Right coordinate of the object"
         },
         {
           "name": "bottom",
@@ -115,8 +74,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Bottom coordinate of the object"
         }
       ],
       "semanticRole": "The OBJECT GET COORDINATES command returns the coordinates left , top , right and bottom (in points) in variables or fields of the object(s) of the current form defined by the parameters * and object ."

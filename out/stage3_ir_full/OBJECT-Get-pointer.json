@@ -2,7 +2,7 @@
   "id": "OBJECT-Get-pointer",
   "displayName": "OBJECT Get pointer",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -38,7 +38,36 @@
         "kind": "concrete",
         "name": "Pointer"
       },
-      "semanticRole": "The OBJECT Get pointer command returns a pointer to the variable of a form object."
+      "semanticRole": "Returns a pointer to the variable of the form object designated by selector: the calling object, the focused object, the subform container's bound variable, or (with 'Object named' + objectName, optionally scoped by subformName) an arbitrary named object.",
+      "discriminatedBy": {
+        "param": "selector",
+        "rule": "selector (a 'Form Objects (Access)' theme constant) picks the addressing mode; only the 'Object named' selector consumes objectName (and optionally subformName) -- for the other selectors those two params are ignored if passed."
+      },
+      "jointConstraints": [
+        {
+          "params": [
+            "selector",
+            "objectName"
+          ],
+          "rule": "objectName must be passed when selector is 'Object named'; it is ignored for every other selector value."
+        },
+        {
+          "params": [
+            "selector",
+            "objectName",
+            "subformName"
+          ],
+          "rule": "subformName is only meaningful when selector is 'Object named' and objectName is passed; it lets the lookup target a named object inside a specific parent-form subform instead of the current form context."
+        }
+      ]
     }
+  ],
+  "constraints": [
+    "'Object current' or omitted selector: returns a pointer to the variable of the object whose method is executing (strictly equivalent to the legacy Self command, kept only for compatibility).",
+    "'Object with focus': returns a pointer to the variable of the object with focus in the form; objectName/subformName are ignored if passed.",
+    "'Object subform container': returns a pointer to the variable bound to the subform container; only usable in the context of a form used as a subform; objectName/subformName are ignored if passed.",
+    "'Object named': requires objectName; if objectName designates a subform with the \"Output subform\" option checked, returns a pointer to the subform's source table if one is specified, otherwise Nil.",
+    "subformName is only usable together with the 'Object named' selector: 4D first looks for a subform named subformName in the current form, then for objectName inside that subform, and returns a pointer to that object's variable if found.",
+    "In the context of a list box, 'Object current'/'Object with focus' return a pointer to the list box, column, or header depending on context."
   ]
 }

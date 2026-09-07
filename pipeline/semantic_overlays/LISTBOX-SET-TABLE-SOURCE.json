@@ -1,0 +1,93 @@
+{
+  "theme": "List-Box",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "Doc syntax lines 1 and 2 differ only in whether the leading '*' is passed (object-name string vs. form variable reference); that's one semantic overload (source = a table's current selection), not two.",
+      "params": [
+        {
+          "name": "*",
+          "type": {"kind": "literal_symbols", "symbols": ["*"]},
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {"kind": "concrete", "name": "Text"},
+            {"kind": "concrete", "name": "Variable"}
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box."
+        },
+        {
+          "name": "tableNum",
+          "type": {"kind": "concrete", "name": "Integer"},
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the table whose current selection is used to fill the list box."
+        },
+        {
+          "name": "highlightName",
+          "type": {"kind": "concrete", "name": "Text"},
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the highlight set to associate with the list box, managing user record highlighting."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "tableNum",
+        "rule": "Chosen when the data source is a table's current selection (tableNum is an Integer table number, not a named-selection string)."
+      },
+      "semanticRole": "Sets the list box's data source to the current selection of the designated table."
+    },
+    {
+      "sourceIndices": [2, 3],
+      "note": "Doc syntax lines 3 and 4 differ only in whether the leading '*' is passed (object-name string vs. form variable reference); that's one semantic overload (source = a named selection), not two.",
+      "params": [
+        {
+          "name": "*",
+          "type": {"kind": "literal_symbols", "symbols": ["*"]},
+          "direction": "in",
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
+        },
+        {
+          "name": "object",
+          "type": [
+            {"kind": "concrete", "name": "Text"},
+            {"kind": "concrete", "name": "Variable"}
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box."
+        },
+        {
+          "name": "selName",
+          "type": {"kind": "concrete", "name": "Text"},
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the named selection whose records are used to fill the list box."
+        },
+        {
+          "name": "highlightName",
+          "type": {"kind": "concrete", "name": "Text"},
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the highlight set to associate with the list box, managing user record highlighting."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "selName",
+        "rule": "Chosen when the data source is a named selection (a Text name rather than an Integer table number)."
+      },
+      "semanticRole": "Sets the list box's data source to the designated named selection."
+    }
+  ],
+  "constraints": [
+    "Only usable when the list box's 'Data Source' property is Current Selection or Named Selection; it does nothing for array, collection, or entity-selection list boxes.",
+    "Processed asynchronously: the list box's source only changes after the calling method finishes executing."
+  ]
+}

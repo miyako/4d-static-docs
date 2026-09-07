@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Array of project method names"
         },
         {
           "name": "filter",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name filter; must use '@' for \"starts with\"/\"ends with\"/\"contains\" type filters."
         },
         {
           "name": "*",
@@ -33,10 +35,13 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, applies to the host database's project methods when called from a component (otherwise ignored)."
         }
-      ],
-      "semanticRole": "The METHOD GET NAMES command fills the arrNames array with the names of project methods created in the application."
+      ]
     }
+  ],
+  "constraints": [
+    "Methods placed in the trash are not listed."
   ]
 }

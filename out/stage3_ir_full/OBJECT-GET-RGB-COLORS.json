@@ -2,12 +2,12 @@
   "id": "OBJECT-GET-RGB-COLORS",
   "displayName": "OBJECT GET RGB COLORS",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,70 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "foregroundColor",
           "type": [
             {
               "kind": "concrete",
               "name": "Text"
             },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "backgroundColor",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "altBackgrndColor",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The OBJECT GET RGB COLORS command returns the foreground and background colors of the object or group of objects designated by object ."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": [
             {
               "kind": "concrete",
               "name": "Variable"
@@ -89,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "foregroundColor",
@@ -103,8 +50,9 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "RGB color value for foreground Returned format depends on the variable's declared type: Text yields a CSS \"#rrggbb\" string; Integer (Longint) yields a 4-byte 0x00RRGGBB value or a negative value for a system color."
         },
         {
           "name": "backgroundColor",
@@ -118,8 +66,9 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "RGB color value for background Returned format depends on the variable's declared type: Text yields a CSS \"#rrggbb\" string; Integer (Longint) yields a 4-byte 0x00RRGGBB value or a negative value for a system color."
         },
         {
           "name": "altBackgrndColor",
@@ -133,11 +82,15 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "RGB color value for alternating background Returned format depends on the variable's declared type: Text yields a CSS \"#rrggbb\" string; Integer (Longint) yields a 4-byte 0x00RRGGBB value or a negative value for a system color."
         }
       ],
       "semanticRole": "The OBJECT GET RGB COLORS command returns the foreground and background colors of the object or group of objects designated by object ."
     }
+  ],
+  "constraints": [
+    "altBackgrndColor (alternating row background) is only meaningful when object is a list box; when used, backgroundColor applies to odd-numbered rows only."
   ]
 }

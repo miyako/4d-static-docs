@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Type of requested info (always 1)"
         },
         {
           "name": "arrNames",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Information titles"
         },
         {
           "name": "arrValues",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Real array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Information values"
         },
         {
           "name": "arrCount",
@@ -39,11 +42,14 @@
             "kind": "concrete",
             "name": "Real array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Number of objects concerned (if available)"
         }
-      ],
-      "semanticRole": "The MEMORY STATISTICS command recovers information related to the use of the data cache by 4D."
+      ]
     }
+  ],
+  "constraints": [
+    "Only one infoType value (1) is currently supported."
   ]
 }

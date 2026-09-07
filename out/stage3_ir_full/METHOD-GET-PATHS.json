@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of Home page folder to restrict results to"
         },
         {
           "name": "methodType",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Selector (or combination of selectors) of method type(s) to get, e.g. Path all objects (-1), Path project method (1), Path database method (2), Path project form (4), Path trigger (8), Path table form (16), Path class (32)."
         },
         {
           "name": "arrPaths",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Array of method paths and names"
         },
         {
           "name": "stamp",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "inout",
+          "optional": true,
+          "description": "In: minimum modification-counter stamp value to filter on. Out: the new current (highest) stamp value, for use in a subsequent call to get only newer/modified methods."
         },
         {
           "name": "*",
@@ -51,10 +55,14 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
         }
-      ],
-      "semanticRole": "The METHOD GET PATHS command fills the arrPaths array with the internal pathnames and names of methods in the application that are of the type specified by the methodType parameter."
+      ]
     }
+  ],
+  "constraints": [
+    "The '@' character cannot be used in folderName.",
+    "If the command detects a duplicated method name, error -9802 (\"Object path not unique\") is generated."
   ]
 }

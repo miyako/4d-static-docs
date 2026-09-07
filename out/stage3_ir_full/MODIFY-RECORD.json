@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "Table to use for data entry, or the default table if omitted."
         },
         {
           "name": "*",
@@ -24,26 +25,15 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, the data-entry window is drawn without scroll bars or a size box."
         }
       ],
-      "semanticRole": "The MODIFY RECORD command modifies the current record for the table aTable or for the default table if you omit the aTable parameter."
-    },
-    {
-      "params": [
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ]
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The MODIFY RECORD command modifies the current record for the table aTable or for the default table if you omit the aTable parameter."
+      "semanticRole": "Loads (if needed) and displays the current input form for the current record of aTable (or the default table), letting the user modify it interactively; does nothing if there is no current record."
     }
+  ],
+  "constraints": [
+    "The current record must have read-write access and must not be locked by another process/user.",
+    "Does not affect the current selection."
   ]
 }

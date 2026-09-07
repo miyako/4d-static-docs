@@ -2,12 +2,12 @@
   "id": "OBJECT-Get-format",
   "displayName": "OBJECT Get format",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,29 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The OBJECT Get format command returns the current display format applied to the object specified in the object parameter."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -48,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         }
       ],
       "returns": {

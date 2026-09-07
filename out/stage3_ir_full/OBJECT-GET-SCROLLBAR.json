@@ -2,12 +2,12 @@
   "id": "OBJECT-GET-SCROLLBAR",
   "displayName": "OBJECT GET SCROLLBAR",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,55 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object below is the name of the form object (string); if omitted, object is a variable or field reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "horizontal",
           "type": [
             {
               "kind": "concrete",
-              "name": "Boolean"
+              "name": "Text"
             },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "vertical",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Boolean"
-            },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT GET SCROLLBAR command is used to find out the displayed/hidden status of the horizontal and vertical scrollbars of the object or group of objects designated by object ."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": [
             {
               "kind": "concrete",
               "name": "Variable"
@@ -74,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "horizontal",
@@ -88,8 +50,23 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Visibility of horizontal scrollbar Pass a Boolean variable to get the current displayed/hidden state, or a Longint variable to get the defined visibility mode (0=hidden, 1=displayed, 2=automatic).",
+          "sentinelValues": [
+            {
+              "value": "False / 0",
+              "meaning": "Scrollbar defined as hidden."
+            },
+            {
+              "value": "True / 1",
+              "meaning": "Scrollbar defined as displayed."
+            },
+            {
+              "value": "True or False / 2",
+              "meaning": "Scrollbar set to automatic mode; Boolean reflects the current display state, Integer literally returns 2."
+            }
+          ]
         },
         {
           "name": "vertical",
@@ -103,8 +80,23 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Visibility of vertical scrollbar Pass a Boolean variable to get the current displayed/hidden state, or a Longint variable to get the defined visibility mode (0=hidden, 1=displayed, 2=automatic).",
+          "sentinelValues": [
+            {
+              "value": "False / 0",
+              "meaning": "Scrollbar defined as hidden."
+            },
+            {
+              "value": "True / 1",
+              "meaning": "Scrollbar defined as displayed."
+            },
+            {
+              "value": "True or False / 2",
+              "meaning": "Scrollbar set to automatic mode; Boolean reflects the current display state, Integer literally returns 2."
+            }
+          ]
         }
       ],
       "semanticRole": "The OBJECT GET SCROLLBAR command is used to find out the displayed/hidden status of the horizontal and vertical scrollbars of the object or group of objects designated by object ."

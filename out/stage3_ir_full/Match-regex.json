@@ -29,7 +29,7 @@
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Match regex command checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called regular expression\" or \"rational expression\"."
+      "semanticRole": "Checks whether aString, taken as a whole, completely matches the regular expression pattern (full-string equality form, no start/position parameters)."
     },
     {
       "params": [
@@ -40,7 +40,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Regular expression."
         },
         {
           "name": "aString",
@@ -49,7 +50,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "String in which to search."
         },
         {
           "name": "start",
@@ -58,7 +60,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Position in aString where the search starts."
         },
         {
           "name": "pos_found",
@@ -66,8 +69,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Position of the occurrence found."
         },
         {
           "name": "length_found",
@@ -75,8 +79,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Length of the occurrence found."
         },
         {
           "name": "*",
@@ -87,14 +92,19 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, the search is only carried out at the position specified by start, without continuing further on failure."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Match regex command checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called regular expression\" or \"rational expression\"."
+      "semanticRole": "Searches aString for pattern starting at position start, returning the position and length of the (first) match in scalar pos_found/length_found variables.",
+      "discriminatedBy": {
+        "param": "pos_found",
+        "rule": "Chosen over the array-output overload when pos_found/length_found are declared as scalar Integer variables rather than Integer arrays; only the first match is reported."
+      }
     },
     {
       "params": [
@@ -105,7 +115,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Regular expression."
         },
         {
           "name": "aString",
@@ -114,7 +125,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "String in which to search."
         },
         {
           "name": "start",
@@ -123,7 +135,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Position in aString where the search starts."
         },
         {
           "name": "pos_found",
@@ -131,8 +144,9 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Positions of the whole match (element 0) and each captured group (subsequent elements)."
         },
         {
           "name": "length_found",
@@ -140,8 +154,9 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Lengths of the whole match (element 0) and each captured group (subsequent elements)."
         },
         {
           "name": "*",
@@ -152,14 +167,19 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, the search is only carried out at the position specified by start, without continuing further on failure."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Match regex command checks the conformity of a character string with respect to a set of synthesized rules by means of a meta-language called regular expression\" or \"rational expression\"."
+      "semanticRole": "Searches aString for pattern starting at position start, returning the position and length of the whole match plus each captured group in pos_found/length_found arrays (element 0 = whole match, subsequent elements = capture groups).",
+      "discriminatedBy": {
+        "param": "pos_found",
+        "rule": "Chosen over the scalar-output overload when pos_found/length_found are declared as Integer arrays; the arrays are filled with the whole match at index 0 and each capturing group's position/length at subsequent indices."
+      }
     }
   ]
 }

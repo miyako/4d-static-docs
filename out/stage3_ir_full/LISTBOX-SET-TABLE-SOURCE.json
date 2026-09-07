@@ -2,7 +2,7 @@
   "id": "LISTBOX-SET-TABLE-SOURCE",
   "displayName": "LISTBOX SET TABLE SOURCE",
   "kind": "classic_command",
-  "theme": "List Box",
+  "theme": "List-Box",
   "overloads": [
     {
       "params": [
@@ -15,16 +15,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box."
         },
         {
           "name": "tableNum",
@@ -33,7 +41,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Number of the table whose current selection is used to fill the list box."
         },
         {
           "name": "highlightName",
@@ -42,42 +51,15 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of the highlight set to associate with the list box, managing user record highlighting."
         }
       ],
-      "semanticRole": "The LISTBOX SET TABLE SOURCE command can be used to modify the source of the data displayed in the listbox that is designated by the * and object parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "tableNum",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "highlightName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The LISTBOX SET TABLE SOURCE command can be used to modify the source of the data displayed in the listbox that is designated by the * and object parameters."
+      "semanticRole": "Sets the list box's data source to the current selection of the designated table.",
+      "discriminatedBy": {
+        "param": "tableNum",
+        "rule": "Chosen when the data source is a table's current selection (tableNum is an Integer table number, not a named-selection string)."
+      }
     },
     {
       "params": [
@@ -90,16 +72,24 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, object is a form object name (string); if omitted, object is a variable reference."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Form object name (if * is passed) or variable reference (if * is omitted), designating the target list box."
         },
         {
           "name": "selName",
@@ -108,7 +98,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the named selection whose records are used to fill the list box."
         },
         {
           "name": "highlightName",
@@ -117,42 +108,19 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of the highlight set to associate with the list box, managing user record highlighting."
         }
       ],
-      "semanticRole": "The LISTBOX SET TABLE SOURCE command can be used to modify the source of the data displayed in the listbox that is designated by the * and object parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "selName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "highlightName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The LISTBOX SET TABLE SOURCE command can be used to modify the source of the data displayed in the listbox that is designated by the * and object parameters."
+      "semanticRole": "Sets the list box's data source to the designated named selection.",
+      "discriminatedBy": {
+        "param": "selName",
+        "rule": "Chosen when the data source is a named selection (a Text name rather than an Integer table number)."
+      }
     }
+  ],
+  "constraints": [
+    "Only usable when the list box's 'Data Source' property is Current Selection or Named Selection; it does nothing for array, collection, or entity-selection list boxes.",
+    "Processed asynchronously: the list box's source only changes after the calling method finishes executing."
   ]
 }

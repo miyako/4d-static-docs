@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Text or Text array containing one or more method path(s)"
         },
         {
           "name": "comments",
@@ -33,8 +34,9 @@
               "name": "Text array"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Documentation of designated method(s) (markdown in project databases, styled text in binary databases)"
         },
         {
           "name": "*",
@@ -45,10 +47,13 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, applies to the host database's methods when called from a component (otherwise ignored)."
         }
-      ],
-      "semanticRole": "The METHOD GET COMMENTS command returns, in the comments parameter, the documentation of the method(s) designated by the path parameter."
+      ]
     }
+  ],
+  "constraints": [
+    "path and comments must be the same kind (both Text, or both Text array); the two syntaxes cannot be mixed."
   ]
 }

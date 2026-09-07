@@ -2,7 +2,7 @@
   "id": "OBJECT-Is-styled-text",
   "displayName": "OBJECT Is styled text",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -15,29 +15,15 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Boolean"
-      },
-      "semanticRole": "The OBJECT Is styled text command returns True when the \"Multi-style\" option is checked for the object(s) designated by the object and * parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -55,7 +41,11 @@
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The OBJECT Is styled text command returns True when the \"Multi-style\" option is checked for the object(s) designated by the object and * parameters."
+      "semanticRole": "Returns True if the \"Multi-style\" (rich text) option is checked for the designated form object.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
     }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line has no parenthesized parameter list ('Last table number : Integer'), so the mechanical parser produced an empty overload with no return type at all; added the documented Integer return type.",
+      "params": [],
+      "returns": {"kind": "concrete", "name": "Integer"},
+      "semanticRole": "Returns the highest table number among the tables in the database (tables are numbered in creation order)."
+    }
+  ]
+}

@@ -77,7 +77,30 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The New process command starts a new process (on the same machine) and returns the process number for that process."
+      "semanticRole": "Start a new process on the same machine, running the given process method with an allocated stack size and optional name/parameters, and return its process number.",
+      "jointConstraints": [
+        {
+          "params": [
+            "name",
+            "param"
+          ],
+          "rule": "If any param is passed to the process method, name cannot be omitted; it must be explicitly provided so the parameter list can be positionally reached."
+        }
+      ],
+      "interactionNotes": [
+        {
+          "params": [
+            "*",
+            "name"
+          ],
+          "note": "When the trailing '*' is specified, 4D first checks whether a process named `name` is already running; if so, no new process is created and the process number of the already-running process is returned instead."
+        }
+      ]
     }
+  ],
+  "constraints": [
+    "Standard Object/Collection parameters passed in param are passed by copy (a duplicate is created in the destination process); pass a shared object/collection instead to get pass-by-reference semantics.",
+    "Pointers to variables (especially local/process variables) are not recommended as param values since the pointed-to variable may no longer exist when the process method accesses it; pointers to tables/fields are fine.",
+    "Arrays cannot be passed as parameters to the new process method."
   ]
 }

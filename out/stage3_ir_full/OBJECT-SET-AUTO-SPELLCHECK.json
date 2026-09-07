@@ -2,7 +2,7 @@
   "id": "OBJECT-SET-AUTO-SPELLCHECK",
   "displayName": "OBJECT SET AUTO SPELLCHECK",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -15,34 +15,15 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "autoSpellcheck",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET AUTO SPELLCHECK command sets or dynamically modifies the status of the Auto spellcheck option for the object(s) designated by the object and * parameters for the current process."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,10 +43,18 @@
             "name": "Boolean"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "True to enable automatic spellcheck for the object, False to disable it."
         }
       ],
-      "semanticRole": "The OBJECT SET AUTO SPELLCHECK command sets or dynamically modifies the status of the Auto spellcheck option for the object(s) designated by the object and * parameters for the current process."
+      "semanticRole": "Enables or disables automatic spellcheck on data entry for the designated form object, for the current process.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
     }
+  ],
+  "constraints": [
+    "Only supported for text-based input objects and 4D Write Pro areas."
   ]
 }

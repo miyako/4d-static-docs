@@ -6,7 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Last table number returns the highest table number among the tables in the database."
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the highest table number among the tables in the database (tables are numbered in creation order)."
     }
   ]
 }

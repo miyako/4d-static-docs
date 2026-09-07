@@ -2,7 +2,7 @@
   "id": "OB-REMOVE",
   "displayName": "OB REMOVE",
   "kind": "classic_command",
-  "theme": "Objects (Language)",
+  "theme": "Objects-Language",
   "overloads": [
     {
       "params": [
@@ -27,5 +27,8 @@
       ],
       "semanticRole": "The OB REMOVE command removes the property of the language object designated by the object parameter."
     }
+  ],
+  "constraints": [
+    "property is case-sensitive."
   ]
 }
