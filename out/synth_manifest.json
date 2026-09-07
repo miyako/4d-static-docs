@@ -4616,12 +4616,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },

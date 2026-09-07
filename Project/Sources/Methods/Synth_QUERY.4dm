@@ -1,12 +1,12 @@
 // overload 0
-QUERY([SynthTable];"synthAny";*)
+QUERY([SynthTable];[SynthTable]label="synthAny";*)
 // overload 0 flag-sweep omit-trailing-from:*
-QUERY([SynthTable];"synthAny")
+QUERY([SynthTable];[SynthTable]label="synthAny")
 // overload 1
-QUERY("synthAny";*)
+QUERY([SynthTable]label="synthAny";*)
 // overload 1 flag-sweep omit-trailing-from:*
-QUERY("synthAny")
+QUERY([SynthTable]label="synthAny")
 // overload 2
-QUERY([SynthTable];[SynthTable]label;"synthText";"synthAny";*)
+QUERY([SynthTable];[SynthTable]label;"=";"synthAny";*)
 // overload 2 flag-sweep omit-trailing-from:*
-QUERY([SynthTable];[SynthTable]label;"synthText";"synthAny")
+QUERY([SynthTable];[SynthTable]label;"=";"synthAny")

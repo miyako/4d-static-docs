@@ -311,6 +311,16 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         return CONCRETE_LITERALS[name]
 
     if kind == "pseudo":
+        # An out/inout pseudo param (e.g. GET MENU ITEM PROPERTY's "value",
+        # the DOM-Get-*-XML-element family's element-handle result) is a
+        # by-reference slot exactly like a concrete out/inout one -- 4D
+        # rejects a literal/expression there ("... is an output parameter,
+        # it can't be a constant."). Declare an addressable Variant
+        # variable instead, same convention as the concrete branch above.
+        if direction in ("out", "inout"):
+            v = ctx_state.fresh_name("v")
+            ctx_state.prelude.append(f"var {v} : Variant")
+            return v
         # "any"/"Expression": default to a plain Text literal, which
         # type-checks for almost every pseudo type in a compile-time-only
         # check -- EXCEPT known by-reference pseudo params (see below).
@@ -411,6 +421,29 @@ PSEUDO_REQUIRES_REFERENCE = {
     ("SQL-EXECUTE", "parameter"),
 }
 
+# Curated (command_id, param_name) -> literal overrides for params whose
+# generic kind-based literal (see build_arg_for_type) type-checks as an
+# expression but isn't the *shape* of expression the command actually
+# requires:
+#   - QUERY/QUERY-SELECTION's "comparator" is documented as one of the
+#     symbols = # < > <= >= % (see the command's own param description);
+#     the generic concrete:Text literal ("synthText") is a well-typed
+#     Text expression but not one of those symbols, so tool4d's stricter
+#     compiler-level check rejects it at runtime semantics (confirmed by
+#     a real 4D compile) even though it's syntactically a valid Text.
+#   - QUERY/QUERY-SELECTION's "queryArgument" (the single-string calling
+#     form, overloads 0-1) must evaluate to a Boolean predicate over a
+#     field of aTable -- a bare Text/pseudo literal is not a comparison at
+#     all ("... is an expression that evaluates as true or false. It
+#     can't be a constant."), so this emits an actual field comparison
+#     instead of the generic pseudo:Expression fallback.
+SPECIAL_ARG_LITERALS = {
+    ("QUERY", "comparator"): '"="',
+    ("QUERY-SELECTION", "comparator"): '"="',
+    ("QUERY", "queryArgument"): '[SynthTable]label="synthAny"',
+    ("QUERY-SELECTION", "queryArgument"): '[SynthTable]label="synthAny"',
+}
+
 # Curated (command_id -> {frozenset({paramA, paramB}), ...}) trailing
 # optional-param pairs confirmed (via a live tool4d cross-check) to be
 # mutually exclusive alternates of the same call, not independently
@@ -474,6 +507,9 @@ def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
                 v = ctx_state.fresh_name("v")
                 ctx_state.prelude.append(f"var {v} : Variant")
                 args.append(v)
+                continue
+            if (command_id, pname) in SPECIAL_ARG_LITERALS:
+                args.append(SPECIAL_ARG_LITERALS[(command_id, pname)])
                 continue
             args.append(build_arg_for_type(ir, p["type"], pname, ctx_state, p.get("direction", "in")))
     return args
