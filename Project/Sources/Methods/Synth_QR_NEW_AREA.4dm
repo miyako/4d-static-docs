@@ -1,2 +1,3 @@
 // overload 0
-QR NEW AREA(Nil)
+var $v1 : Pointer
+QR NEW AREA($v1)

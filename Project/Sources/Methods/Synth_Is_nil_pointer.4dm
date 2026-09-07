@@ -1,3 +1,4 @@
 // overload 0
-var $synthResult1 : Variant
-$synthResult1:=Is nil pointer(Nil)
+var $v1 : Pointer
+var $synthResult2 : Variant
+$synthResult2:=Is nil pointer($v1)

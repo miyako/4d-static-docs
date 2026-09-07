@@ -2,5 +2,6 @@
 var $synthResult1 : Variant
 $synthResult1:=Table name(1)
 // overload 1
-var $synthResult2 : Variant
-$synthResult2:=Table name(Nil)
+var $v2 : Pointer
+var $synthResult3 : Variant
+$synthResult3:=Table name($v2)

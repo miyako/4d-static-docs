@@ -2301,37 +2301,37 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:fieldPtr=Pointer",
-          "comment_line": 5
+          "comment_line": 7
         },
         {
           "overload_index": 0,
           "variant": "union:fieldPtr=Text",
-          "comment_line": 7
+          "comment_line": 10
         },
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 9
+          "comment_line": 12
         },
         {
           "overload_index": 1,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 11
+          "comment_line": 15
         },
         {
           "overload_index": 1,
           "variant": "union:indexName=Pointer",
-          "comment_line": 13
+          "comment_line": 18
         },
         {
           "overload_index": 1,
           "variant": "union:indexName=Text",
-          "comment_line": 15
+          "comment_line": 21
         }
       ]
     },
@@ -4001,7 +4001,7 @@
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 4
+          "comment_line": 5
         }
       ]
     },
@@ -4316,7 +4316,7 @@
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 7
+          "comment_line": 8
         }
       ]
     },
@@ -4331,7 +4331,7 @@
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 8
+          "comment_line": 9
         }
       ]
     },
@@ -4921,7 +4921,7 @@
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 8
+          "comment_line": 9
         }
       ]
     },
@@ -4976,7 +4976,7 @@
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 8
+          "comment_line": 9
         }
       ]
     },
@@ -6691,7 +6691,7 @@
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 4
+          "comment_line": 5
         }
       ]
     },
@@ -7196,67 +7196,67 @@
         {
           "overload_index": 0,
           "variant": "union:headerVar=Integer",
-          "comment_line": 19
+          "comment_line": 20
         },
         {
           "overload_index": 0,
           "variant": "union:headerVar=Pointer",
-          "comment_line": 23
+          "comment_line": 24
         },
         {
           "overload_index": 0,
           "variant": "union:footerVar=Variable",
-          "comment_line": 27
+          "comment_line": 29
         },
         {
           "overload_index": 0,
           "variant": "union:footerVar=Pointer",
-          "comment_line": 31
+          "comment_line": 33
         },
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 34
+          "comment_line": 37
         },
         {
           "overload_index": 1,
           "variant": "union:colVariable=Array",
-          "comment_line": 39
+          "comment_line": 42
         },
         {
           "overload_index": 1,
           "variant": "union:colVariable=Field",
-          "comment_line": 44
+          "comment_line": 47
         },
         {
           "overload_index": 1,
           "variant": "union:colVariable=Variable",
-          "comment_line": 48
+          "comment_line": 51
         },
         {
           "overload_index": 1,
           "variant": "union:colVariable=Pointer",
-          "comment_line": 53
+          "comment_line": 56
         },
         {
           "overload_index": 1,
           "variant": "union:headerVar=Integer",
-          "comment_line": 57
+          "comment_line": 61
         },
         {
           "overload_index": 1,
           "variant": "union:headerVar=Pointer",
-          "comment_line": 62
+          "comment_line": 66
         },
         {
           "overload_index": 1,
           "variant": "union:footerVar=Variable",
-          "comment_line": 67
+          "comment_line": 72
         },
         {
           "overload_index": 1,
           "variant": "union:footerVar=Pointer",
-          "comment_line": 72
+          "comment_line": 77
         }
       ]
     },
@@ -7751,12 +7751,12 @@
         {
           "overload_index": 0,
           "variant": "union:footerVar=Variable",
-          "comment_line": 14
+          "comment_line": 15
         },
         {
           "overload_index": 0,
           "variant": "union:footerVar=Pointer",
-          "comment_line": 17
+          "comment_line": 18
         }
       ]
     },
@@ -7796,22 +7796,22 @@
         {
           "overload_index": 0,
           "variant": "union:headerVar=Integer",
-          "comment_line": 24
+          "comment_line": 25
         },
         {
           "overload_index": 0,
           "variant": "union:headerVar=Pointer",
-          "comment_line": 28
+          "comment_line": 29
         },
         {
           "overload_index": 0,
           "variant": "union:footerVar=Variable",
-          "comment_line": 32
+          "comment_line": 34
         },
         {
           "overload_index": 0,
           "variant": "union:footerVar=Pointer",
-          "comment_line": 36
+          "comment_line": 38
         }
       ]
     },
@@ -7941,7 +7941,7 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-leading-thru:*",
-          "comment_line": 3
+          "comment_line": 4
         }
       ]
     },
@@ -9796,12 +9796,12 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-leading-thru:asObjectName",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:useAbsoluteCoordinates",
-          "comment_line": 6
+          "comment_line": 8
         }
       ]
     },
@@ -10731,7 +10731,7 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-leading-thru:*",
-          "comment_line": 3
+          "comment_line": 4
         }
       ]
     },
@@ -15266,12 +15266,12 @@
         {
           "overload_index": 0,
           "variant": "union:destinationObject=Text",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:destinationObject=Variable",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },

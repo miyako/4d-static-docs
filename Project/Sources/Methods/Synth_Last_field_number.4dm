@@ -2,5 +2,6 @@
 var $synthResult1 : Variant
 $synthResult1:=Last field number(1)
 // overload 1
-var $synthResult2 : Variant
-$synthResult2:=Last field number(Nil)
+var $v2 : Pointer
+var $synthResult3 : Variant
+$synthResult3:=Last field number($v2)

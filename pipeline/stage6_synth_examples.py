@@ -120,6 +120,14 @@ DECLARABLE_VAR_TYPES = {
     "Collection": "Collection",
     "Variant": "Variant",
     "Picture": "Picture",
+    # "Pointer" is deliberately absent from CONCRETE_LITERALS -- there is
+    # no such thing as a Pointer literal in 4D (unlike Nil, which is a
+    # documentation term, not a keyword). A "nil pointer" is a Pointer
+    # variable that has been declared but never assigned via `->`, so
+    # every Pointer-typed argument always goes through the declared-var
+    # path below (see CONCRETE_LITERALS' "Pointer" omission forcing that
+    # branch), never a bare literal.
+    "Pointer": "Pointer",
 }
 
 
@@ -324,7 +332,12 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
             return "->[SynthTable]"
         if "Field" in targets:
             return "->[SynthTable]label"
-        return "Nil"
+        # No resolvable target: same "nil pointer" convention as the
+        # concrete:Pointer case above -- declare an unassigned Pointer
+        # variable rather than emitting the bare (invalid) "Nil" token.
+        v = ctx_state.fresh_name("v")
+        ctx_state.prelude.append(f"var {v} : Pointer")
+        return v
 
     if kind == "literal_symbols":
         symbols = type_obj["symbols"]
@@ -374,7 +387,6 @@ CONCRETE_LITERALS = {
     "Boolean": "True",
     "Date": "!2024-01-01!",
     "Time": "?00:00:00?",
-    "Pointer": "Nil",
     "Object": "New object",
     "Collection": "New collection",
     "Variant": "1",
@@ -383,6 +395,10 @@ CONCRETE_LITERALS = {
     # their Picture parameter as inout, and 4D rejects an expression
     # (New picture(...)) in a by-reference slot, so Picture always goes
     # through the var-declaration path above regardless of direction.
+    # NOTE: "Pointer" is deliberately absent -- see DECLARABLE_VAR_TYPES'
+    # "Pointer" entry above; "Nil" is not a valid 4D literal/keyword, so
+    # every Pointer-typed argument always goes through the var-declaration
+    # path (an unassigned `var $v : Pointer` is a real nil pointer).
 }
 
 # Known SQL/pseudo params that must be an addressable Field/Variant
