@@ -889,13 +889,6 @@ def cmd_generate(args):
 # LSP DiagnosticSeverity codes (see the Language Server Protocol spec).
 LSP_SEVERITY = {1: "error", 2: "warning", 3: "info", 4: "hint"}
 
-# tool4d-lsp-stdio is invoked once per chunk of files rather than in one
-# giant argv/subprocess call, so a full 1456-command corpus run (or any
-# large batch) doesn't risk hitting a single process's argv-length or
-# --timeout limits; chunk boundaries have no effect on correctness since
-# each file's diagnostics are independent.
-VALIDATE_CHUNK_SIZE = 150
-
 
 def cmd_validate(args):
     if not MANIFEST_PATH.exists():
@@ -918,45 +911,48 @@ def cmd_validate(args):
     if not rel_paths:
         raise SystemExit("no generated files match the requested ids/theme -- run 'generate' for them first")
 
+    # `check-syntax` wraps the same `experimental/checkSyntax` request the
+    # 4D Analyzer VS Code extension's "Check workspace syntax" command uses
+    # (a real project-wide compile-check pass), and unlike `validate`'s
+    # per-file pull diagnostics, it returns diagnostics for the WHOLE
+    # project in a single response regardless of which files (if any) are
+    # passed as its didOpen/anchor argument -- so this is one subprocess
+    # call, not a chunked loop. Passing just one anchor file (rather than
+    # every rel_path) avoids any argv-length concern on large batches.
+    proc = subprocess.run(
+        [str(TOOL4D_LSP), "check-syntax", "--json", "--workspace", "Project/", rel_paths[0]],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        timeout=600,
+    )
+    if proc.returncode not in (0, 1):
+        print(proc.stdout, file=sys.stdout)
+        print(proc.stderr, file=sys.stderr)
+        raise SystemExit(f"tool4d-lsp-stdio exited with unexpected code {proc.returncode}")
+
+    try:
+        # Same shape as `validate --json`: a list of {"uri": "file://...",
+        # "diagnostics": [...]}, one entry per file in the WHOLE project
+        # (not just rel_paths) -- clean files are included with an empty
+        # "diagnostics" array here (unlike `validate`, which omits them).
+        # Each diagnostic has 0-based range.start.line/range.end.line, a
+        # numeric LSP `severity`, and a `message`.
+        per_file = json.loads(proc.stdout)
+    except json.JSONDecodeError:
+        print("Could not parse --json output, raw stdout follows:", file=sys.stderr)
+        print(proc.stdout, file=sys.stderr)
+        print(proc.stderr, file=sys.stderr)
+        raise
+
     diagnostics_by_relpath = {}
-    for start in range(0, len(rel_paths), VALIDATE_CHUNK_SIZE):
-        chunk = rel_paths[start : start + VALIDATE_CHUNK_SIZE]
-        proc = subprocess.run(
-            [str(TOOL4D_LSP), "validate", "--json", "--workspace", "Project/"] + chunk,
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-            timeout=600,
-        )
-        if proc.returncode not in (0, 1):
-            print(proc.stdout, file=sys.stdout)
-            print(proc.stderr, file=sys.stderr)
-            raise SystemExit(f"tool4d-lsp-stdio exited with unexpected code {proc.returncode}")
-
-        try:
-            # Actual shape: a list of {"uri": "file://...", "diagnostics": [...]},
-            # one entry per file that had ANY diagnostics (clean files are
-            # omitted entirely). Each diagnostic has 0-based
-            # range.start.line/range.end.line, a numeric LSP `severity`, and a
-            # `message` -- there is no per-file "path" key, only the full uri.
-            per_file = json.loads(proc.stdout)
-        except json.JSONDecodeError:
-            print("Could not parse --json output, raw stdout follows:", file=sys.stderr)
-            print(proc.stdout, file=sys.stderr)
-            print(proc.stderr, file=sys.stderr)
-            raise
-
-        for entry in per_file:
-            uri = entry["uri"]
-            # uri is file:///abs/path/Project/Sources/Methods/Foo.4dm -- recover
-            # the "Sources/Methods/Foo.4dm" key used as a manifest/CLI-arg key.
-            rel = uri.split("/Project/", 1)[-1]
-            diagnostics_by_relpath[rel] = entry["diagnostics"]
-        print(
-            f"validated chunk {start // VALIDATE_CHUNK_SIZE + 1} "
-            f"({len(chunk)} file(s), {start + len(chunk)}/{len(rel_paths)} total)",
-            file=sys.stderr,
-        )
+    for entry in per_file:
+        uri = entry["uri"]
+        # uri is file:///abs/path/Project/Sources/Methods/Foo.4dm -- recover
+        # the "Sources/Methods/Foo.4dm" key used as a manifest/CLI-arg key.
+        rel = uri.split("/Project/", 1)[-1]
+        diagnostics_by_relpath[rel] = entry["diagnostics"]
+    print(f"check-syntax: {len(per_file)} file(s) in project, {len(rel_paths)} targeted this run", file=sys.stderr)
 
     report_this_run = []
     for rel_path in rel_paths:

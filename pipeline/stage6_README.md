@@ -14,6 +14,24 @@ synthesizes one or more real 4D method bodies that call the command, writes
 them to `Project/Sources/Methods/Synth_<id>.4dm`, and cross-checks them
 against a real 4D compiler (`tool4d`, driven via `tools/tool4d-lsp-stdio`'s
 LSP bridge) inside the throwaway project `Project/4DCommandIRSynthCheck.4DProject`.
+
+`validate` runs `tool4d-lsp-stdio check-syntax`, which wraps the custom
+`experimental/checkSyntax` LSP request -- the same request the 4D Analyzer
+VS Code extension's "Check workspace syntax" command uses. This is a real
+project-wide compile-check pass, not per-file pull diagnostics: one request
+returns diagnostics for every method in the project in a single response
+(confirmed empirically: passing a single anchor file still returns entries
+for all 1456 generated files). This replaced an earlier implementation that
+called `tool4d-lsp-stdio validate` once per 150-file chunk (per-file pull
+diagnostics) -- `check-syntax` is both stricter (it's the same pass the
+real compiler/editor use to report project-wide syntax errors, versus
+`validate`'s lighter live-typing-oriented per-document check) and roughly
+15-20x faster (~11s for the full 1456-command corpus vs. several minutes
+chunked). Re-validating the full corpus after the switch reproduced the
+exact same 125-error/122-command ViewPro baseline with 0 non-ViewPro
+errors, so the earlier per-file check had not been silently missing
+anything in this corpus -- but `check-syntax` is the correct long-term
+foundation and should be assumed authoritative going forward.
 Where the compiler disagrees with what the IR claims, that's fed back as a
 correction to the relevant `pipeline/semantic_overlays/<id>.json` overlay (or,
 for enum data bugs, to `references/4d-command-ir-enums.json` /
@@ -129,7 +147,7 @@ This is the actual cross-check loop the whole stage exists for:
      fix `pipeline/stage6_synth_examples.py` directly. See "Synthesizer
      internals" below for where the relevant logic lives.
    - **Tooling limitation, not a bug** (rare — confirm via an isolated
-     manual test with `tools/tool4d-lsp-stdio validate` and, ideally,
+     manual test with `tools/tool4d-lsp-stdio check-syntax`, and, ideally,
      external 4D documentation before concluding this) → add a narrowly
      scoped, well-commented exclusion (see examples above), do NOT touch
      the IR.
@@ -193,8 +211,9 @@ baseline before committing.
   attribution in `cmd_validate` is **positional** (`enumerate(starts)`),
   not keyed by `overload_index`, since multiple blocks can share one
   `overload_index` — preserve this if you touch that function.
-- `tools/tool4d-lsp-stdio validate --json --workspace Project/ <paths...>`
-  is called in chunks of `VALIDATE_CHUNK_SIZE` (150) files at a time.
+- `tools/tool4d-lsp-stdio check-syntax --json --workspace Project/ <anchor>`
+  is called exactly once per `validate` run (project-wide, not chunked --
+  see "Current coverage" above for why).
 
 ## What this document does NOT cover
 
