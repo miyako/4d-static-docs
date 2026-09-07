@@ -44,9 +44,7 @@
   ],
   "constraints": [
     "Must be called only after WEB SERVICE CALL.",
-    "returnValue should be a process variable (e.g. $result, matching the proxy method's return); array/variable declarations must use the Compiler/Arrays theme commands beforehand."
-  ],
-  "protocolRefs": {
-    "multiCallChain": "Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
-  }
+    "returnValue should be a process variable (e.g. $result, matching the proxy method's return); array/variable declarations must use the Compiler/Arrays theme commands beforehand.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
+  ]
 }

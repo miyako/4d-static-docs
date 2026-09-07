@@ -41,7 +41,7 @@
         "description": "Repeated calls build up a multi-level sort/query; a trailing '*' means more calls are coming, its absence on the final call triggers execution.",
         "leadingDiscriminatorParam": "conjOp",
         "continuationParam": "*",
-        "usedByCommands": ["ORDER-BY", "ORDER-BY-ATTRIBUTE", "QUERY-BY-ATTRIBUTE", "QUERY-SELECTION-BY-ATTRIBUTE"],
+        "usedByCommands": ["ORDER-BY", "ORDER-BY-ATTRIBUTE", "QUERY", "QUERY-BY-ATTRIBUTE", "QUERY-SELECTION", "QUERY-SELECTION-BY-ATTRIBUTE"],
         "example": "ORDER BY([Inv];[Inv]type;>;[Inv]product;>;*)\nORDER BY([Inv];[Inv]desc;>)  // final call, no *, triggers the sort"
       }
     },

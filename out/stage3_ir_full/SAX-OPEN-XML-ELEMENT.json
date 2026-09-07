@@ -56,12 +56,10 @@
       "semanticRole": "The SAX OPEN XML ELEMENT command adds a new element in the XML document referenced by document as well as, optionally, attributes and their values."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "SAX write document lifecycle: SAX OPEN XML ELEMENT (or the ARRAYS variant) opens an element -> SAX ADD XML ELEMENT VALUE adds its content while it remains open -> SAX CLOSE XML ELEMENT closes the most recently opened element (or the document itself is closed, which auto-closes any still-open elements)."
-  },
   "constraints": [
     "tag may only contain letters, numbers, and the characters '.', '-', '_', ':'; an invalid character generates an error.",
     "The added element is left open (no end tag) until SAX CLOSE XML ELEMENT is called for it or the document is closed.",
-    "Any number of attribName/attribValue pairs may be passed as a trailing repeating group."
+    "Any number of attribName/attribValue pairs may be passed as a trailing repeating group.",
+    "Reference lifecycle (implied convention, not syntactically enforced): SAX write document lifecycle: SAX OPEN XML ELEMENT (or the ARRAYS variant) opens an element -> SAX ADD XML ELEMENT VALUE adds its content while it remains open -> SAX CLOSE XML ELEMENT closes the most recently opened element (or the document itself is closed, which auto-closes any still-open elements)."
   ]
 }

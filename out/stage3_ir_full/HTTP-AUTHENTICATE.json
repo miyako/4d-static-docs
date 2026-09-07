@@ -58,10 +58,8 @@
       "semanticRole": "Registers client credentials to be encoded into the next HTTP request sent via HTTP Request or HTTP Get."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
-  },
   "constraints": [
-    "Encoded credentials are attached only to the next HTTP Request or HTTP Get call in the current process; if the 'HTTP reset auth settings' option (set via HTTP SET OPTION) is enabled, credentials are discarded after each request and this command must be called again before every subsequent request."
+    "Encoded credentials are attached only to the next HTTP Request or HTTP Get call in the current process; if the 'HTTP reset auth settings' option (set via HTTP SET OPTION) is enabled, credentials are discarded after each request and this command must be called again before every subsequent request.",
+    "Reference lifecycle (implied convention, not syntactically enforced): HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
   ]
 }

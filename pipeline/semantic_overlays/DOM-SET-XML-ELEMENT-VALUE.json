@@ -1,8 +1,5 @@
 {
   "theme": "XML-DOM",
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "overloadPatches": [
     {
       "index": 0,
@@ -13,6 +10,7 @@
     "If elementValue is undefined, an empty string is used.",
     "If elementRef designates a BLOB, the value is automatically base64-encoded (and DOM GET XML ELEMENT VALUE automatically decodes it back).",
     "All CR and CRLF end-of-line characters in elementValue are replaced by LF to comply with XML processing rules.",
-    "Arrays, pictures, and pointers cannot be passed as elementValue."
+    "Arrays, pictures, and pointers cannot be passed as elementValue.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

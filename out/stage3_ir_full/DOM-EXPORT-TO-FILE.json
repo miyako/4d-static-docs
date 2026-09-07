@@ -36,11 +36,9 @@
       "semanticRole": "Saves an XML tree to a file on disk, creating the file if it doesn't already exist."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "constraints": [
     "On export, internal LF line breaks are replaced by CRLF on Windows (no replacement on macOS); use an XML CDATA element (or the \"&#13;\" entity) to preserve literal carriage returns.",
-    "Files are written without a BOM by default; line-ending and BOM behavior are controlled via XML SET OPTIONS (compatibility note: pre-v19.x databases default to CR line endings on macOS and a BOM)."
+    "Files are written without a BOM by default; line-ending and BOM behavior are controlled via XML SET OPTIONS (compatibility note: pre-v19.x databases default to CR line endings on macOS and a BOM).",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

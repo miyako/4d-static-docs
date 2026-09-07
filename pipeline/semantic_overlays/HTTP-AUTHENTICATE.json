@@ -1,38 +1,56 @@
 {
   "theme": "HTTP-Client",
-  "protocolRefs": { "multiCallChain": "HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state." },
   "overloadMerges": [
     {
-      "sourceIndices": [0],
+      "sourceIndices": [
+        0
+      ],
       "note": "Added sentinelValues for authMethod (0 documented as 'let 4D negotiate') and a description for the trailing * marker, which the mechanical draft left undocumented.",
       "params": [
         {
           "name": "name",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "direction": "in",
           "optional": false,
           "description": "User name for authentication."
         },
         {
           "name": "password",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "direction": "in",
           "optional": false,
           "description": "User password for authentication."
         },
         {
           "name": "authMethod",
-          "type": { "kind": "concrete", "name": "Integer" },
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "direction": "in",
           "optional": true,
           "description": "Authentication method to use: HTTP basic (1) or HTTP digest (2).",
           "sentinelValues": [
-            { "value": 0, "meaning": "Let 4D negotiate the authentication method automatically; 4D sends an additional request to determine the method the server requires." }
+            {
+              "value": 0,
+              "meaning": "Let 4D negotiate the authentication method automatically; 4D sends an additional request to determine the method the server requires."
+            }
           ]
         },
         {
           "name": "*",
-          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
           "direction": "in",
           "optional": true,
           "description": "If passed, the credentials are intended for an HTTP proxy rather than the target server; pass this in addition to a non-starred call if both the proxy and the server require authentication."
@@ -42,6 +60,7 @@
     }
   ],
   "constraints": [
-    "Encoded credentials are attached only to the next HTTP Request or HTTP Get call in the current process; if the 'HTTP reset auth settings' option (set via HTTP SET OPTION) is enabled, credentials are discarded after each request and this command must be called again before every subsequent request."
+    "Encoded credentials are attached only to the next HTTP Request or HTTP Get call in the current process; if the 'HTTP reset auth settings' option (set via HTTP SET OPTION) is enabled, credentials are discarded after each request and this command must be called again before every subsequent request.",
+    "Reference lifecycle (implied convention, not syntactically enforced): HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
   ]
 }

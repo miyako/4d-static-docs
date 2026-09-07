@@ -44,7 +44,7 @@
       "semanticRole": "Returns a reference to the previous sibling of elementRef among its parent's children, for use navigating the children of an XML element; sets OK to 0 before the first sibling."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  }
+  "constraints": [
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  ]
 }

@@ -30,10 +30,8 @@
       "semanticRole": "Returns the current value of an HTTP client option that will be used by the next request issued via HTTP Get or HTTP Request."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
-  },
   "constraints": [
-    "Options are local to the current process (or, inside a component, to the executing component)."
+    "Options are local to the current process (or, inside a component, to the executing component).",
+    "Reference lifecycle (implied convention, not syntactically enforced): HTTP client protocol: HTTP AUTHENTICATE / HTTP SET OPTION / HTTP SET CERTIFICATES FOLDER configure per-process client state -> HTTP Get or HTTP Request issues the request and consumes that state -> HTTP GET OPTION / HTTP Get certificates folder read back the currently active state."
   ]
 }

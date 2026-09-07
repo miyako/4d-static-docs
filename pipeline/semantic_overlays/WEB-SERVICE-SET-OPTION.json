@@ -1,11 +1,9 @@
 {
   "theme": "Web-Services-Client",
   "constraints": [
-    "Options apply only to the next SOAP request sent via WEB SERVICE CALL; call this command once per option to set, in any order. If the same option is set multiple times before the call, only the last value is used."
+    "Options apply only to the next SOAP request sent via WEB SERVICE CALL; call this command once per option to set, in any order. If the same option is set multiple times before the call, only the last value is used.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
   ],
-  "protocolRefs": {
-    "multiCallChain": "Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
-  },
   "overloadMerges": [
     {
       "sourceIndices": [

@@ -1,30 +1,41 @@
 {
   "theme": "XML-DOM",
-  "protocolRefs": { "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close" },
   "constraints": [
     "On export, internal LF line breaks are replaced by CRLF on Windows (no replacement on macOS); use an XML CDATA element (or the \"&#13;\" entity) to preserve literal carriage returns.",
-    "Files are written without a BOM by default; line-ending and BOM behavior are controlled via XML SET OPTIONS (compatibility note: pre-v19.x databases default to CR line endings on macOS and a BOM)."
+    "Files are written without a BOM by default; line-ending and BOM behavior are controlled via XML SET OPTIONS (compatibility note: pre-v19.x databases default to CR line endings on macOS and a BOM).",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ],
   "overloadMerges": [
     {
-      "sourceIndices": [0],
+      "sourceIndices": [
+        0
+      ],
       "note": "filePath has a sentinel empty-string value that triggers an interactive save dialog instead of using a literal path; also documents the 'just a filename, no path' fallback behavior.",
       "params": [
         {
           "name": "elementRef",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "direction": "in",
           "optional": false,
           "description": "Root XML element reference to export"
         },
         {
           "name": "filePath",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "direction": "in",
           "optional": false,
           "description": "Full access path of the file to create/overwrite; if only a file name is given (no path), the file is searched for, or created, next to the structure file",
           "sentinelValues": [
-            { "value": "\"\"", "meaning": "displays a standard save/open file dialog box for the user to choose the destination" }
+            {
+              "value": "\"\"",
+              "meaning": "displays a standard save/open file dialog box for the user to choose the destination"
+            }
           ]
         }
       ]

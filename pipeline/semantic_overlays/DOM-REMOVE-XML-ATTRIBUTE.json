@@ -1,8 +1,5 @@
 {
   "theme": "XML-DOM",
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "overloadPatches": [
     {
       "index": 0,
@@ -10,6 +7,7 @@
     }
   ],
   "constraints": [
-    "Sets the OK system variable to 1 on success, or 0 (with an error) if attribName does not exist on elementRef."
+    "Sets the OK system variable to 1 on success, or 0 (with an error) if attribName does not exist on elementRef.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

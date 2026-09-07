@@ -1,30 +1,38 @@
 {
   "theme": "XML-DOM",
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "overloadMerges": [
     {
-      "sourceIndices": [0],
+      "sourceIndices": [
+        0
+      ],
       "note": "parentElemName and parentElemValue are out-parameters that the command fills in with the parent element's name/value, not inputs; the mechanical draft parsed them as direction 'in' like elementRef.",
       "params": [
         {
           "name": "elementRef",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "direction": "in",
           "optional": false,
           "description": "XML element reference"
         },
         {
           "name": "parentElemName",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "direction": "out",
           "optional": true,
           "description": "Receives the name of the parent element"
         },
         {
           "name": "parentElemValue",
-          "type": { "kind": "pseudo", "name": "any" },
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
           "direction": "out",
           "optional": true,
           "description": "Receives the value of the parent element"
@@ -38,6 +46,7 @@
     }
   ],
   "constraints": [
-    "If elementRef is already the document node, the command returns a null reference (\"0000000000000000\") and sets OK to 0."
+    "If elementRef is already the document node, the command returns a null reference (\"0000000000000000\") and sets OK to 0.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

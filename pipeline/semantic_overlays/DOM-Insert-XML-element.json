@@ -1,8 +1,5 @@
 {
   "theme": "XML-DOM",
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "overloadPatches": [
     {
       "index": 0,
@@ -11,6 +8,7 @@
   ],
   "constraints": [
     "sourceElementRef must already be the reference of an existing XML element in a DOM tree, not newly-authored text.",
-    "If childIndex does not designate a valid existing child of targetElementRef, the new element is inserted before the first child."
+    "If childIndex does not designate a valid existing child of targetElementRef, the new element is inserted before the first child.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "theme": "XML-DOM",
-  "protocolRefs": { "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close" },
   "constraints": [
     "childValue's contents are always converted to text before insertion.",
-    "If elementRef designates the Document node (top level), a Doctype node is inserted before any other node; processing instructions and comments are always inserted before the root node (but after any Doctype node)."
+    "If elementRef designates the Document node (top level), a Doctype node is inserted before any other node; processing instructions and comments are always inserted before the root node (but after any Doctype node).",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ],
   "overloadPatches": [
     {

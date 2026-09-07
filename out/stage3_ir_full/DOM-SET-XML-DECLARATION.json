@@ -46,12 +46,10 @@
       "semanticRole": "Sets declaration options (character-set encoding and whether the tree is standalone) for the XML tree rooted at elementRef."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "constraints": [
     "encoding defaults to UTF-8 if the command is not called, or if an unsupported character set is passed.",
     "standalone defaults to False (not standalone) if omitted or if the command is not called.",
-    "indentation is kept only for compatibility with pre-v12 databases; it is not recommended, and XML SET OPTIONS should be used instead to control document indentation."
+    "indentation is kept only for compatibility with pre-v12 databases; it is not recommended, and XML SET OPTIONS should be used instead to control document indentation.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

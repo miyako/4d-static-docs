@@ -19,10 +19,8 @@
       "semanticRole": "Frees the memory occupied by an XML tree, ending its DOM lifecycle."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "constraints": [
-    "elementRef must be an XML root object (e.g. as returned by DOM Create XML Ref or DOM Parse XML source/variable); otherwise an error is generated."
+    "elementRef must be an XML root object (e.g. as returned by DOM Create XML Ref or DOM Parse XML source/variable); otherwise an error is generated.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

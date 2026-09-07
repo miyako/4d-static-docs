@@ -101,9 +101,7 @@
   ],
   "constraints": [
     "Passing https:// in accessURL enables secure (SSL/TLS) mode automatically; an invalid server certificate sets OK to 0 and raises error 901, interceptable via ON ERR CALL.",
-    "Calling WEB SERVICE CALL erases any result from a previously called Web Service and replaces it with the new result(s); each new WEB SERVICE SET PARAMETER call after this one starts building a fresh request."
-  ],
-  "protocolRefs": {
-    "multiCallChain": "Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
-  }
+    "Calling WEB SERVICE CALL erases any result from a previously called Web Service and replaces it with the new result(s); each new WEB SERVICE SET PARAMETER call after this one starts building a fresh request.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Web Services (Client) SOAP call sequence: WEB SERVICE AUTHENTICATE (optional) and/or WEB SERVICE SET OPTION (optional) configure per-call client state -> WEB SERVICE SET PARAMETER is called once per request parameter to build the SOAP message -> WEB SERVICE CALL sends the request (consuming the authenticate/option/parameter state and erasing any previous result) -> WEB SERVICE GET RESULT retrieves each returned value (pass '*' on the final call to free memory) -> on error, WEB SERVICE Get info can be called from an ON ERR CALL method to inspect the SOAP fault."
+  ]
 }

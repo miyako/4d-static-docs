@@ -44,10 +44,8 @@
       "semanticRole": "Returns a reference to the parent XML element (or the \"#document\" reference if elementRef is a root element), optionally filling in the parent's name and value."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "constraints": [
-    "If elementRef is already the document node, the command returns a null reference (\"0000000000000000\") and sets OK to 0."
+    "If elementRef is already the document node, the command returns a null reference (\"0000000000000000\") and sets OK to 0.",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

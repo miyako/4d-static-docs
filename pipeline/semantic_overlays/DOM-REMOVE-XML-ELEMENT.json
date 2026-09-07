@@ -1,12 +1,12 @@
 {
   "theme": "XML-DOM",
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "overloadPatches": [
     {
       "index": 0,
       "semanticRole": "Removes the XML element designated by elementRef (and its subtree) from the DOM."
     }
+  ],
+  "constraints": [
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

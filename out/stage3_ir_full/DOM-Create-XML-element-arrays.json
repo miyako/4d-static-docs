@@ -60,11 +60,9 @@
       "semanticRole": "Creates a new XML element at a given XPath location under elementRef, setting attributes from parallel name/value arrays, and returns its reference."
     }
   ],
-  "protocolRefs": {
-    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
-  },
   "constraints": [
     "Identical to DOM Create XML element except that attribute names/values are passed as parallel arrays (already created and sized beforehand) instead of scalar pairs; you can pass as many array pairs, and as many elements per pair, as needed.",
-    "attribValuesArray may be of Text, Date, number, or Picture type; 4D converts values to text automatically (configurable via XML SET OPTIONS)."
+    "attribValuesArray may be of Text, Date, number, or Picture type; 4D converts values to text automatically (configurable via XML SET OPTIONS).",
+    "Reference lifecycle (implied convention, not syntactically enforced): DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
   ]
 }

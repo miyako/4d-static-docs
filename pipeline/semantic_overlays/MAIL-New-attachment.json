@@ -1,12 +1,10 @@
 {
-  "protocolRefs": {
-    "multiCallChain": "Mail message building: MAIL New attachment creates attachment objects to add into an Email object's attachments collection -> MAIL Convert to MIME serializes the completed email object to MIME text (used internally by SMTP_transporter.send()) -> MAIL Convert from MIME parses an inbound MIME document back into an email object."
-  },
   "constraints": [
     "If name is omitted: when the source is a file/path, the file's own name and extension are used; when the source is a BLOB or ZipFile, a random name without extension is generated.",
     "If type is omitted or an empty string, the content-type is inferred from the attachment's file extension (per the documented extension-to-MIME-type table); an explicit type overrides this regardless of extension.",
     "If disposition is omitted: it defaults to \"inline\" when a non-empty cid is passed, otherwise it defaults to \"attachment\".",
-    "cid may be passed as an empty string to explicitly opt out of the Content-Id header."
+    "cid may be passed as an empty string to explicitly opt out of the Content-Id header.",
+    "Reference lifecycle (implied convention, not syntactically enforced): Mail message building: MAIL New attachment creates attachment objects to add into an Email object's attachments collection -> MAIL Convert to MIME serializes the completed email object to MIME text (used internally by SMTP_transporter.send()) -> MAIL Convert from MIME parses an inbound MIME document back into an email object."
   ],
   "overloadPatches": [
     {
