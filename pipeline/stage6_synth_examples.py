@@ -175,6 +175,13 @@ class SynthContext:
         # in a modeled union eventually gets compiled at least once, not
         # just whichever one the default preference rules happen to pick.
         self.union_override: dict[str, int] = {}
+        # Param names (within THIS command only -- ctx_state is rebuilt
+        # per command) that must always resolve to a declared addressable
+        # variable, never a bare literal, regardless of which pass
+        # (default or union-sweep) reaches them -- see
+        # CONCRETE_REQUIRES_REFERENCE below for why direction/type alone
+        # can't capture this.
+        self.reference_required: set[str] = set()
 
     def fresh_name(self, prefix: str) -> str:
         self.counter += 1
@@ -300,7 +307,11 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
             arr = ctx_state.fresh_name("arr")
             ctx_state.prelude.append(f"ARRAY {element}({arr};0)")
             return arr
-        if direction in ("out", "inout") or name not in CONCRETE_LITERALS:
+        if (
+            direction in ("out", "inout")
+            or name not in CONCRETE_LITERALS
+            or ctx in ctx_state.reference_required
+        ):
             # By-reference params (and any concrete type this pilot has no
             # literal for) need an actual variable -- 4D rejects an
             # expression/literal in an out/inout argument slot.
@@ -419,6 +430,47 @@ CONCRETE_LITERALS = {
 # case pending a possible schema addition (see plan.md open questions).
 PSEUDO_REQUIRES_REFERENCE = {
     ("SQL-EXECUTE", "parameter"),
+}
+
+# Known CONCRETE-typed "in"-direction params that nonetheless must be an
+# addressable field/variable, never a literal -- the IR's `direction: "in"`
+# only tells the synthesizer the value flows into the command, not whether
+# the command reads it by reference. 4D's own doc convention sometimes
+# signals this via the parameter's description noun ("variable"/"Field",
+# not "value") rather than any direction/type distinction the mechanical
+# extraction can see:
+#   - WEB-SET-HTTP-HEADER's single-Text "header" overload: the doc body
+#     states outright "The command will not accept a literal text type
+#     constant as the header parameter; it must be a 4D variable or
+#     field." (confirmed on developer.4d.com). tool4d's stricter
+#     compiler-level check rejects a bare Text literal there.
+#   - LAUNCH-EXTERNAL-PROCESS's "inputStream" (stdin): documented type is
+#     a Text/Blob union and direction "in", but the real compiler rejects
+#     a literal the same way -- confirmed by the user's real-4D-app
+#     compile ("... is output which must be field or variable that is of
+#     type text"), the same requires-a-real-storage-location family as
+#     the aField-as-Field fix (see Get-external-data-path et al.).
+#   - LISTBOX-INSERT-COLUMN's "headerVar": documented as "Column header
+#     variable" (type Integer, Pointer) -- the Pointer alternative already
+#     forces a declared var (Pointer has no literal), but the union's
+#     first/default alternative is Integer, which DOES have a literal
+#     (build_arg_for_type's default preference happily emits a bare "1"),
+#     and the real compiler rejects that ("headerVar can't be a
+#     constant."). footerVar (Variable, Pointer) needs no entry here: its
+#     first alternative is concrete:Variable, which already has no
+#     CONCRETE_LITERALS entry and so already forces a declared var.
+# Consulted inside build_arg_for_type's concrete branch by param NAME
+# (via ctx_state.reference_required, populated per-command below) so it
+# applies uniformly whether a param's value is reached through the
+# default pass OR an active union-sweep variant (e.g. headerVar's own
+# "union-sweep headerVar=Integer" case) -- unlike a build_call_args-level
+# override, this can't be silently bypassed by the union-sweep dispatch,
+# since build_arg_for_type recurses into the swept alternative with the
+# same `ctx` (param name) either way.
+CONCRETE_REQUIRES_REFERENCE = {
+    ("WEB-SET-HTTP-HEADER", "header"),
+    ("LAUNCH-EXTERNAL-PROCESS", "inputStream"),
+    ("LISTBOX-INSERT-COLUMN", "headerVar"),
 }
 
 # Curated (command_id, param_name) -> literal overrides for params whose
@@ -841,6 +893,9 @@ def synthesize_command(ir, command) -> list[dict]:
     # `prelude`/`star_active` are still reset per overload since each
     # overload's declarations and star-toggle state are independent.
     ctx_state = SynthContext()
+    ctx_state.reference_required = {
+        pname for (cid, pname) in CONCRETE_REQUIRES_REFERENCE if cid == command["id"]
+    }
     # Self-declaring "ARRAY <TYPE>" commands (ARRAY TEXT, ARRAY BLOB, ...)
     # redeclare their own generic concrete:"Array" param at that exact
     # element type -- detect this from the displayName so the array
