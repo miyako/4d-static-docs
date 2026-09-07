@@ -1,0 +1,1314 @@
+{
+  "commands": [
+    {
+      "id": "ORDER-BY-FORMULA",
+      "displayName": "ORDER BY FORMULA",
+      "kind": "classic_command",
+      "theme": "Queries",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "aTable",
+              "type": {
+                "kind": "concrete",
+                "name": "Table"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "formula",
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "Expression"
+                  },
+                  "direction": "in",
+                  "optional": false
+                },
+                {
+                  "name": "order",
+                  "type": {
+                    "kind": "literal_symbols",
+                    "symbols": [
+                      ">",
+                      "<"
+                    ]
+                  },
+                  "direction": "in",
+                  "optional": true
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "ORDER BY FORMULA sorts (reorders) the records of the current selection of aTable for the current process."
+        }
+      ]
+    },
+    {
+      "id": "ORDER-BY",
+      "displayName": "ORDER BY",
+      "kind": "classic_command",
+      "theme": "Queries",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "aTable",
+              "type": {
+                "kind": "concrete",
+                "name": "Table"
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "aField",
+                  "type": {
+                    "kind": "concrete",
+                    "name": "Field"
+                  },
+                  "direction": "in",
+                  "optional": false
+                },
+                {
+                  "name": "order",
+                  "type": {
+                    "kind": "literal_symbols",
+                    "symbols": [
+                      ">",
+                      "<"
+                    ]
+                  },
+                  "direction": "in",
+                  "optional": true
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "embedded"
+            },
+            {
+              "name": "*",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  "*"
+                ]
+              },
+              "direction": "in",
+              "optional": true
+            }
+          ],
+          "semanticRole": "ORDER BY sorts (reorders) the records of the current selection of aTable for the current process."
+        }
+      ]
+    },
+    {
+      "id": "Table",
+      "displayName": "Table",
+      "kind": "classic_command",
+      "theme": "Structure Access",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "tableNum",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "semanticRole": "The Table command has three forms: If you pass a table number in tableNum , Table returns a pointer to the table."
+        },
+        {
+          "params": [
+            {
+              "name": "tablePtr",
+              "type": {
+                "kind": "concrete",
+                "name": "Pointer"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "semanticRole": "The Table command has three forms: If you pass a table number in tableNum , Table returns a pointer to the table."
+        },
+        {
+          "params": [
+            {
+              "name": "fieldPtr",
+              "type": {
+                "kind": "concrete",
+                "name": "Pointer"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "semanticRole": "The Table command has three forms: If you pass a table number in tableNum , Table returns a pointer to the table."
+        }
+      ]
+    },
+    {
+      "id": "OB-SET",
+      "displayName": "OB SET",
+      "kind": "classic_command",
+      "theme": "Objects (Language)",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "object",
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "property",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "pseudo",
+                "name": "Expression"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "property",
+                  "type": {
+                    "kind": "concrete",
+                    "name": "Text"
+                  },
+                  "direction": "in",
+                  "optional": false
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "Expression"
+                  },
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "The OB SET command creates or modifies one or more property / value pairs in the language object designated by the object parameter.must be an object variable or designate a 4D object field."
+        }
+      ]
+    },
+    {
+      "id": "MULTI-SORT-ARRAY",
+      "displayName": "MULTI SORT ARRAY",
+      "kind": "classic_command",
+      "theme": "Arrays",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "array",
+                  "type": {
+                    "kind": "concrete",
+                    "name": "Array"
+                  },
+                  "direction": "in",
+                  "optional": false
+                },
+                {
+                  "name": "sort",
+                  "type": {
+                    "kind": "literal_symbols",
+                    "symbols": [
+                      ">",
+                      "<"
+                    ]
+                  },
+                  "direction": "in",
+                  "optional": true
+                }
+              ],
+              "cardinality": {
+                "min": 1,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "The MULTI SORT ARRAY command enables you to carry out a multi-level sort on a set of arrays."
+        },
+        {
+          "params": [
+            {
+              "name": "ptrArrayName",
+              "type": {
+                "kind": "concrete",
+                "name": "Pointer array"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "sortArrayName",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer array"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "semanticRole": "The MULTI SORT ARRAY command enables you to carry out a multi-level sort on a set of arrays."
+        }
+      ]
+    },
+    {
+      "id": "SET-LIST-ITEM-PROPERTIES",
+      "displayName": "SET LIST ITEM PROPERTIES",
+      "kind": "classic_command",
+      "theme": "Hierarchical Lists",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "*",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  "*"
+                ]
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "list",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "itemRef",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Integer"
+                },
+                {
+                  "kind": "pseudo",
+                  "name": "Operator"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "enterable",
+              "type": {
+                "kind": "concrete",
+                "name": "Boolean"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "styles",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "icon",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Text"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Integer"
+                }
+              ],
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "color",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": true
+            }
+          ],
+          "semanticRole": "The SET LIST ITEM PROPERTIES command modifies the item designated by the itemRef parameter within the list whose reference number or object name is passed in list ."
+        },
+        {
+          "params": [
+            {
+              "name": "list",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "itemRef",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Integer"
+                },
+                {
+                  "kind": "pseudo",
+                  "name": "Operator"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "enterable",
+              "type": {
+                "kind": "concrete",
+                "name": "Boolean"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "styles",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "icon",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Text"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Integer"
+                }
+              ],
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "color",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": true
+            }
+          ],
+          "semanticRole": "The SET LIST ITEM PROPERTIES command modifies the item designated by the itemRef parameter within the list whose reference number or object name is passed in list ."
+        }
+      ]
+    },
+    {
+      "id": "SET-LIST-PROPERTIES",
+      "displayName": "SET LIST PROPERTIES",
+      "kind": "classic_command",
+      "theme": "Hierarchical Lists",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "list",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "appearance",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "icon",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "lineHeight",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "doubleClick",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "multiSelections",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "editable",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": true
+            }
+          ],
+          "semanticRole": "The SET LIST PROPERTIES command sets the line height and selection properties of the hierarchical list whose list reference you pass in list ."
+        }
+      ]
+    },
+    {
+      "id": "GRAPH",
+      "displayName": "GRAPH",
+      "kind": "classic_command",
+      "theme": "Graphs",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "graphPicture",
+              "type": {
+                "kind": "concrete",
+                "name": "Picture"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "graphNumber",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "xLabels",
+              "type": {
+                "kind": "concrete",
+                "name": "Array"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "yElements",
+                  "type": {
+                    "kind": "concrete",
+                    "name": "Array"
+                  },
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "GRAPH draws a graph for a picture variable on the basis of values coming from arrays."
+        },
+        {
+          "params": [
+            {
+              "name": "graphPicture",
+              "type": {
+                "kind": "concrete",
+                "name": "Picture"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "graphSettings",
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "xLabels",
+              "type": {
+                "kind": "concrete",
+                "name": "Array"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "yElements",
+                  "type": {
+                    "kind": "concrete",
+                    "name": "Array"
+                  },
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "GRAPH draws a graph for a picture variable on the basis of values coming from arrays."
+        }
+      ]
+    },
+    {
+      "id": "GRAPH-SETTINGS",
+      "displayName": "GRAPH SETTINGS",
+      "kind": "classic_command",
+      "theme": "Graphs",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "graphPicture",
+              "type": {
+                "kind": "concrete",
+                "name": "Picture"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "xmin",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Integer"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Date"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Time"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "xmax",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Integer"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Date"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Time"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "ymin",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "ymax",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "xprop",
+              "type": {
+                "kind": "concrete",
+                "name": "Boolean"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "xgrid",
+              "type": {
+                "kind": "concrete",
+                "name": "Boolean"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "ygrid",
+              "type": {
+                "kind": "concrete",
+                "name": "Boolean"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "title",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "title",
+                  "type": {
+                    "kind": "concrete",
+                    "name": "Text"
+                  },
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "GRAPH SETTINGS changes the graph settings for graph displayed in a form."
+        }
+      ]
+    },
+    {
+      "id": "QUERY-BY-ATTRIBUTE",
+      "displayName": "QUERY BY ATTRIBUTE",
+      "kind": "classic_command",
+      "theme": "Queries",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "aTable",
+              "type": {
+                "kind": "concrete",
+                "name": "Table"
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "conjOp",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  "&",
+                  "|",
+                  "#"
+                ]
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "objectField",
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attributePath",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "queryOp",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Text"
+                },
+                {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    ">"
+                  ]
+                },
+                {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    "<"
+                  ]
+                },
+                {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    ">="
+                  ]
+                },
+                {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    "<="
+                  ]
+                },
+                {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    "#"
+                  ]
+                },
+                {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    "="
+                  ]
+                },
+                {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    "|"
+                  ]
+                },
+                {
+                  "kind": "literal_symbols",
+                  "symbols": [
+                    "%"
+                  ]
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "value",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Text"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Real"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Date"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Time"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "*",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  "*"
+                ]
+              },
+              "direction": "in",
+              "optional": true
+            }
+          ],
+          "semanticRole": "QUERY BY ATTRIBUTE looks for records matching the query string defined using the objectField , attributePath , queryOp and value parameters, and returns a selection of records for aTable .changes the current selection of"
+        }
+      ]
+    },
+    {
+      "id": "SQL-EXECUTE",
+      "displayName": "SQL EXECUTE",
+      "kind": "classic_command",
+      "theme": "SQL",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "sqlStatement",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "boundObj",
+                  "type": [
+                    {
+                      "kind": "concrete",
+                      "name": "Variable"
+                    },
+                    {
+                      "kind": "concrete",
+                      "name": "Field"
+                    }
+                  ],
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "The SQL EXECUTE command executes an SQL command and binds the result to 4D objects (arrays, variables or fields)."
+        }
+      ]
+    },
+    {
+      "id": "WA-EXECUTE-JAVASCRIPT-FUNCTION",
+      "displayName": "WA EXECUTE JAVASCRIPT FUNCTION",
+      "kind": "classic_command",
+      "theme": "Web Area",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "*",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  "*"
+                ]
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "object",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "jsFunction",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "param",
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "any"
+                  },
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "The WA EXECUTE JAVASCRIPT FUNCTION command executes, in the Web area designated by the * and object parameters, the JavaScript function jsFunction and optionally returns its result in the result parameter."
+        },
+        {
+          "params": [
+            {
+              "name": "object",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Variable"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Field"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "jsFunction",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "in",
+              "optional": true
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "param",
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "any"
+                  },
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "The WA EXECUTE JAVASCRIPT FUNCTION command executes, in the Web area designated by the * and object parameters, the JavaScript function jsFunction and optionally returns its result in the result parameter."
+        },
+        {
+          "params": [
+            {
+              "name": "*",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  "*"
+                ]
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "object",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "jsFunction",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "*",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  "*"
+                ]
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "param",
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "any"
+                  },
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "The WA EXECUTE JAVASCRIPT FUNCTION command executes, in the Web area designated by the * and object parameters, the JavaScript function jsFunction and optionally returns its result in the result parameter."
+        },
+        {
+          "params": [
+            {
+              "name": "object",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Variable"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Field"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "jsFunction",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "*",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  "*"
+                ]
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "param",
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "any"
+                  },
+                  "direction": "in",
+                  "optional": false
+                }
+              ],
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "The WA EXECUTE JAVASCRIPT FUNCTION command executes, in the Web area designated by the * and object parameters, the JavaScript function jsFunction and optionally returns its result in the result parameter."
+        }
+      ]
+    },
+    {
+      "id": "WP-SET-ATTRIBUTES",
+      "displayName": "WP SET ATTRIBUTES",
+      "kind": "classic_command",
+      "theme": "Write Pro",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "targetObj",
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "group",
+              "members": [
+                {
+                  "name": "attribName",
+                  "type": {
+                    "kind": "concrete",
+                    "name": "Text"
+                  },
+                  "direction": "in",
+                  "optional": false
+                },
+                {
+                  "name": "attribValue",
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "any"
+                  },
+                  "direction": "in",
+                  "optional": true
+                }
+              ],
+              "cardinality": {
+                "min": 1,
+                "max": null
+              },
+              "position": "trailing"
+            }
+          ],
+          "semanticRole": "The WP SET ATTRIBUTES command allows you to set the value of any attribute in a range, element, document."
+        },
+        {
+          "params": [
+            {
+              "name": "targetObj",
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attribObj",
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "semanticRole": "The WP SET ATTRIBUTES command allows you to set the value of any attribute in a range, element, document."
+        }
+      ]
+    }
+  ]
+}

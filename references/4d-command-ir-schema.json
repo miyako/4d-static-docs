@@ -1,0 +1,558 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/4d-command-ir.schema.json",
+  "title": "4D Command IR — three-layer syntax schema",
+  "description": "Layer 1: per-command signatures. Layer 2: shared substructures (enums, sub-grammars, protocols, handle types, callback contracts) referenced by pointer. Layer 3: relationships between command/overload entries.",
+  "type": "object",
+  "required": ["commands"],
+  "properties": {
+
+    "enums": {
+      "description": "Layer 2 — named, reusable constant sets (e.g. Field and Variable Types). Referenced from parameters via {\"kind\":\"enum_ref\",\"enum\":\"<key>\"}.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/EnumDef" }
+    },
+
+    "subGrammars": {
+      "description": "Layer 2 — 4D-native mini-grammars fully specifiable from 4D's own docs (e.g. dotted attribute paths with [] array markers). Referenced via {\"kind\":\"subgrammar_ref\",\"grammar\":\"<key>\"}.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/SubGrammarDef" }
+    },
+
+    "foreignGrammars": {
+      "description": "Layer 2 — external, non-4D grammars (SQL, regex, WSDL, JS, ...) that this corpus cannot itself fully specify. Referenced via {\"kind\":\"foreign_grammar\",\"grammar\":\"<key>\"}.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/ForeignGrammarDef" }
+    },
+
+    "protocols": {
+      "description": "Layer 2 — multi-statement or multi-command usage protocols that no single call's signature can express alone.",
+      "type": "object",
+      "properties": {
+        "multiCallChains": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/MultiCallChainProtocol" }
+        },
+        "stateMachines": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/StateMachineProtocol" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "handleTypes": {
+      "description": "Layer 2 — opaque reference/handle types produced by some commands and consumed by others (DOM refs, SAX contexts, list refs, ...).",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/HandleTypeDef" }
+    },
+
+    "callbackContracts": {
+      "description": "Layer 2 — expected calling conventions for methods registered as callbacks (e.g. ON ERR CALL targets).",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/CallbackContractDef" }
+    },
+
+    "commands": {
+      "description": "Layer 1 — one entry per command, each with one or more overloads.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/CommandEntry" }
+    },
+
+    "relationships": {
+      "description": "Layer 3 — edges between command/overload entries: supersession, mutual exclusion, near-duplicate deltas, structural equivalence, mechanism families, platform variants.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/Relationship" }
+    }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+
+    "CommandRef": {
+      "description": "Pointer to a command, optionally scoped to a specific overload index (0-based).",
+      "type": "object",
+      "required": ["command"],
+      "properties": {
+        "command": { "type": "string", "description": "CommandEntry.id" },
+        "overloadIndex": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+
+    "EnumDef": {
+      "type": "object",
+      "required": ["values"],
+      "properties": {
+        "description": { "type": "string" },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "value"],
+            "properties": {
+              "name": { "type": "string" },
+              "value": {},
+              "description": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "SubGrammarDef": {
+      "type": "object",
+      "required": ["description"],
+      "properties": {
+        "description": { "type": "string" },
+        "syntaxExample": { "type": "string" },
+        "rules": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Plain-language grammar rules (e.g. dot-separates path segments; trailing [] marks an array attribute; optional letter inside [] names an element reference)."
+        }
+      }
+    },
+
+    "ForeignGrammarDef": {
+      "type": "object",
+      "required": ["language"],
+      "properties": {
+        "language": {
+          "type": "string",
+          "enum": ["SQL", "Regex", "XPath", "JSON", "XML", "JavaScript", "WSDL", "URL", "other"]
+        },
+        "note": { "type": "string" },
+        "validatableByThisCorpus": {
+          "type": "boolean",
+          "const": false,
+          "description": "Always false — flags that this corpus has no authority to check well-formedness of this grammar."
+        }
+      }
+    },
+
+    "MultiCallChainProtocol": {
+      "description": "Category A — a command called repeatedly, each call contributing one unit, with a leading/trailing marker distinguishing 'more to come' from 'execute now'.",
+      "type": "object",
+      "required": ["description", "continuationParam"],
+      "properties": {
+        "description": { "type": "string" },
+        "leadingDiscriminatorParam": {
+          "type": "string",
+          "description": "Name of the optional leading param (e.g. conjOp) used to join this call to the previous one, if any."
+        },
+        "continuationParam": {
+          "type": "string",
+          "description": "Name of the trailing param (typically literal *) whose presence means 'more calls coming' and whose absence triggers execution."
+        },
+        "usedByCommands": { "type": "array", "items": { "type": "string" } },
+        "example": { "type": "string" }
+      }
+    },
+
+    "StateMachineProtocol": {
+      "description": "Category L — a small grammar over a *family* of distinct named commands that must be called in a valid nested/ordered sequence (e.g. SAX open/set/close).",
+      "type": "object",
+      "required": ["description", "states", "transitions"],
+      "properties": {
+        "description": { "type": "string" },
+        "states": { "type": "array", "items": { "type": "string" } },
+        "entryCommands": { "type": "array", "items": { "type": "string" } },
+        "exitCommands": { "type": "array", "items": { "type": "string" } },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from", "to", "viaCommand"],
+            "properties": {
+              "from": { "type": "string" },
+              "to": { "type": "string" },
+              "viaCommand": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "HandleTypeDef": {
+      "description": "Category M — produce/consume/destroy lifecycle for an opaque reference type.",
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "producedBy": { "type": "array", "items": { "type": "string" } },
+        "consumedBy": { "type": "array", "items": { "type": "string" } },
+        "destroyedBy": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "CallbackContractDef": {
+      "description": "Category N — the implicit expected signature of a method registered as a callback, documented only in prose about the callback target, not in the registering command's own signature.",
+      "type": "object",
+      "required": ["description", "expectedParams"],
+      "properties": {
+        "description": { "type": "string" },
+        "trigger": { "type": "string", "description": "What causes 4D to invoke the registered method." },
+        "expectedParams": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Parameter" }
+        }
+      }
+    },
+
+    "TypeRef": {
+      "description": "A single type reference. oneOf several kinds, covering concrete types, 4D's own catch-all pseudo-types, pointers whose target can't be resolved statically, literal-symbol sets, and pointers into the Layer 2 shared tables.",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "name"],
+          "properties": {
+            "kind": { "const": "concrete" },
+            "name": {
+              "type": "string",
+              "description": "e.g. Text, Integer, Real, Boolean, Date, Time, Picture, Blob, Object, Collection, Table, Field, Array, Variable, or a 4D.<Class> OOP type."
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "name"],
+          "properties": {
+            "kind": { "const": "pseudo" },
+            "name": {
+              "type": "string",
+              "enum": ["Operator", "Expression", "any", "Variant", "UntypedArray"]
+            },
+            "note": { "type": "string" }
+          },
+          "additionalProperties": false,
+          "description": "Category O — fake/catch-all types 4D uses because the real type varies by context or can't be pinned down."
+        },
+        {
+          "type": "object",
+          "required": ["kind", "possibleTargets"],
+          "properties": {
+            "kind": { "const": "pointer_unresolved" },
+            "possibleTargets": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "e.g. [\"Table\", \"Field\"] — what the pointer might reference; not distinguishable from the call site."
+            },
+            "note": { "type": "string" }
+          },
+          "additionalProperties": false,
+          "description": "Category S — statically indistinguishable overload targets."
+        },
+        {
+          "type": "object",
+          "required": ["kind", "symbols"],
+          "properties": {
+            "kind": { "const": "literal_symbols" },
+            "symbols": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "e.g. [\">\", \"<\"] or [\"&\", \"|\", \"#\"]"
+            },
+            "meanings": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          },
+          "additionalProperties": false,
+          "description": "Category F."
+        },
+        {
+          "type": "object",
+          "required": ["kind", "enum"],
+          "properties": {
+            "kind": { "const": "enum_ref" },
+            "enum": { "type": "string", "description": "Key into root.enums" }
+          },
+          "additionalProperties": false,
+          "description": "Category D — value drawn from a shared, globally-referenced enum (e.g. Field and Variable Types constants)."
+        },
+        {
+          "type": "object",
+          "required": ["kind", "grammar"],
+          "properties": {
+            "kind": { "const": "subgrammar_ref" },
+            "grammar": { "type": "string", "description": "Key into root.subGrammars" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "grammar"],
+          "properties": {
+            "kind": { "const": "foreign_grammar_ref" },
+            "grammar": { "type": "string", "description": "Key into root.foreignGrammars" }
+          },
+          "additionalProperties": false,
+          "description": "Category J."
+        }
+      ]
+    },
+
+    "Parameter": {
+      "type": "object",
+      "required": ["name", "type", "direction"],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "type": {
+          "oneOf": [
+            { "$ref": "#/$defs/TypeRef" },
+            { "type": "array", "items": { "$ref": "#/$defs/TypeRef" }, "description": "Multi-type parameter, e.g. 'Text, Real, Date, Time'." }
+          ]
+        },
+        "direction": { "type": "string", "enum": ["in", "out", "inout"] },
+        "optional": { "type": "boolean", "default": false },
+        "default": { "description": "Documented default value/behavior if omitted." },
+
+        "sentinelValues": {
+          "description": "Category H — reserved special values carved out of an otherwise-open type.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["value", "meaning"],
+            "properties": {
+              "value": {},
+              "meaning": { "type": "string" }
+            }
+          }
+        },
+
+        "placeholderRequired": {
+          "description": "Category Q — deprecated-but-must-pass-a-literal-value parameter.",
+          "type": "object",
+          "properties": {
+            "required": { "type": "boolean", "const": true },
+            "value": {},
+            "note": { "type": "string" }
+          }
+        },
+
+        "blocksOnOmission": {
+          "description": "Category E — omitting this parameter triggers a blocking interactive UI dialog rather than a default.",
+          "type": "boolean"
+        },
+
+        "silentCoercionDefault": {
+          "description": "Category P — deterministic fallback conversion applied when this parameter's type can't be resolved (often across a language boundary).",
+          "type": "object",
+          "properties": {
+            "toType": { "type": "string" },
+            "condition": { "type": "string" }
+          }
+        },
+
+        "elementTypeSelectsMode": {
+          "description": "Category G — for array-typed parameters where the element type (e.g. Integer vs Boolean) changes the whole call's semantics, not just coerces.",
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+
+    "VariadicGroup": {
+      "description": "Category B — a named cluster of 1+ parameters that repeats as a unit within a single call.",
+      "type": "object",
+      "required": ["name", "members", "cardinality"],
+      "properties": {
+        "name": { "type": "string" },
+        "members": { "type": "array", "items": { "$ref": "#/$defs/Parameter" } },
+        "cardinality": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer", "minimum": 0 },
+            "max": { "type": ["integer", "null"], "description": "null = unbounded" }
+          }
+        },
+        "position": { "type": "string", "enum": ["leading", "trailing", "embedded"] }
+      }
+    },
+
+    "ContentBindingPair": {
+      "description": "A matched pair: one param holds literal content, the other a live variable/pointer binding to the same content (e.g. headerName/headerVar).",
+      "type": "object",
+      "required": ["contentParam", "bindingParam"],
+      "properties": {
+        "contentParam": { "$ref": "#/$defs/Parameter" },
+        "bindingParam": { "$ref": "#/$defs/Parameter" },
+        "description": { "type": "string" }
+      }
+    },
+
+    "OverloadElement": {
+      "description": "One slot in an overload's parameter list: a plain parameter, a variadic group, or a content/binding pair.",
+      "oneOf": [
+        { "$ref": "#/$defs/Parameter" },
+        { "$ref": "#/$defs/VariadicGroup" },
+        { "$ref": "#/$defs/ContentBindingPair" }
+      ]
+    },
+
+    "Overload": {
+      "type": "object",
+      "required": ["params"],
+      "properties": {
+        "params": { "type": "array", "items": { "$ref": "#/$defs/OverloadElement" } },
+        "returns": { "oneOf": [ { "$ref": "#/$defs/TypeRef" }, { "type": "null" } ] },
+
+        "semanticRole": {
+          "type": "string",
+          "description": "Category C (part 2) / general — short discriminator of what THIS overload does, distinct from sibling overloads even when types look similar."
+        },
+        "mechanism": {
+          "type": "string",
+          "description": "e.g. 'static_variadic', 'indirect_array_of_pointers', 'object_map_equivalent' — flags when two overloads solve the same problem via structurally different means (MULTI SORT ARRAY case)."
+        },
+        "discriminatedBy": {
+          "type": "object",
+          "description": "How a caller/generator picks this overload vs siblings.",
+          "properties": {
+            "param": { "type": "string" },
+            "rule": { "type": "string" }
+          }
+        },
+        "staticallyDistinguishable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Category S — set false when this overload cannot be told apart from a sibling by declared types alone."
+        },
+        "platformConstraints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "platform": { "type": "string" },
+              "valid": { "type": "boolean" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "jointConstraints": {
+          "description": "Category R — cross-parameter validation rules among named siblings, not expressible as independent per-param rules.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["params", "rule"],
+            "properties": {
+              "params": { "type": "array", "items": { "type": "string" } },
+              "rule": { "type": "string" }
+            }
+          }
+        },
+        "interactionNotes": {
+          "description": "Free-text notes on directional/partial overrides between named optional params (e.g. MODIFY SELECTION's two trailing *'s).",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "params": { "type": "array", "items": { "type": "string" } },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "CommandEntry": {
+      "type": "object",
+      "required": ["id", "displayName", "kind", "overloads"],
+      "properties": {
+        "id": { "type": "string" },
+        "displayName": { "type": "string" },
+        "kind": {
+          "type": "string",
+          "enum": ["classic_command", "compiler_directive", "oop_method"]
+        },
+        "theme": { "type": "string" },
+        "sinceVersion": { "type": "string" },
+        "deprecated": { "type": "boolean", "default": false },
+
+        "overloads": { "type": "array", "items": { "$ref": "#/$defs/Overload" } },
+
+        "protocolRefs": {
+          "description": "Category A/L — keys into root.protocols.multiCallChains / .stateMachines that this command participates in.",
+          "type": "object",
+          "properties": {
+            "multiCallChain": { "type": "string" },
+            "stateMachine": { "type": "string" }
+          }
+        },
+
+        "handleRoles": {
+          "description": "Category M — which handle type(s) this command produces/consumes/destroys.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["handleType", "role"],
+            "properties": {
+              "handleType": { "type": "string" },
+              "role": { "type": "string", "enum": ["produces", "consumes", "destroys"] }
+            }
+          }
+        },
+
+        "callbackContractRef": {
+          "type": "string",
+          "description": "Category N — key into root.callbackContracts, if this command registers a callback."
+        },
+
+        "externalSchemaSource": {
+          "description": "Category K — signature/valid-values are only fully knowable from an external artifact, not this doc.",
+          "type": "object",
+          "properties": {
+            "sourceKind": { "type": "string", "enum": ["external_service_description", "runtime_discovered", "other"] },
+            "note": { "type": "string" }
+          }
+        },
+
+        "constraints": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Prose-derived rules not expressible as types (e.g. 'must specify aTable, cannot use default table')."
+        },
+
+        "versionBehaviorChanges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["release", "change"],
+            "properties": {
+              "release": { "type": "string" },
+              "change": { "type": "string" },
+              "gatedBy": { "type": "string", "description": "e.g. a compatibility setting that must be enabled for the change to apply." }
+            }
+          }
+        },
+
+        "summary": { "type": "string" },
+        "examples": { "type": "array", "items": { "type": "string" } },
+        "seeAlso": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "Relationship": {
+      "type": "object",
+      "required": ["type", "from", "to"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "supersedes",
+            "conflicts_with",
+            "diff_from",
+            "equivalent_overloads",
+            "same_mechanism_family",
+            "platform_variant"
+          ]
+        },
+        "from": { "$ref": "#/$defs/CommandRef" },
+        "to": { "$ref": "#/$defs/CommandRef" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

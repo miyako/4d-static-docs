@@ -1,0 +1,552 @@
+{
+  "enums": {
+    "FieldVariableType": {
+      "description": "Shared 'Field and Variable Types' constants, referenced from many commands (OB Get, WA Evaluate JavaScript, etc.) instead of being inlined per-command.",
+      "values": [
+        { "name": "Is real", "value": 1, "description": "Real number" },
+        { "name": "Is text", "value": 2, "description": "Text" },
+        { "name": "Is picture", "value": 3, "description": "Picture" },
+        { "name": "Is date", "value": 4, "description": "Date" },
+        { "name": "Is Boolean", "value": 6, "description": "Boolean" },
+        { "name": "Is longint", "value": 9, "description": "Long integer" },
+        { "name": "Is time", "value": 11, "description": "Time" },
+        { "name": "Is pointer", "value": 23, "description": "Pointer" },
+        { "name": "Is object", "value": 38, "description": "Object" },
+        { "name": "Is collection", "value": 42, "description": "Collection" },
+        { "name": "Is null", "value": 255, "description": "Null" }
+      ]
+    }
+  },
+
+  "subGrammars": {
+    "attributePath": {
+      "description": "4D-native sub-grammar used inside Text-typed attributePath parameters (QUERY BY ATTRIBUTE and family). Fully specifiable from 4D's own docs.",
+      "syntaxExample": "\"myFirstAttribute.mySecondAttribute\" / \"items[]\" / \"items[i]\"",
+      "rules": [
+        "Segments are dot-separated; leading/trailing spaces around a segment are trimmed.",
+        "A trailing [] on a segment marks that attribute as an array.",
+        "An optional single letter inside the brackets (e.g. [i]) names a placeholder for referencing a specific array element in downstream formulas."
+      ]
+    }
+  },
+
+  "foreignGrammars": {
+    "SQL": { "language": "SQL", "note": "Embedded in SQL EXECUTE / SQL SET PARAMETER string arguments.", "validatableByThisCorpus": false },
+    "Regex": { "language": "Regex", "note": "Embedded in Match regex / Replace string pattern arguments.", "validatableByThisCorpus": false }
+  },
+
+  "protocols": {
+    "multiCallChains": {
+      "queryThemeChain": {
+        "description": "Repeated calls build up a multi-level sort/query; a trailing '*' means more calls are coming, its absence on the final call triggers execution.",
+        "leadingDiscriminatorParam": "conjOp",
+        "continuationParam": "*",
+        "usedByCommands": ["ORDER-BY", "ORDER-BY-ATTRIBUTE", "QUERY-BY-ATTRIBUTE", "QUERY-SELECTION-BY-ATTRIBUTE"],
+        "example": "ORDER BY([Inv];[Inv]type;>;[Inv]product;>;*)\nORDER BY([Inv];[Inv]desc;>)  // final call, no *, triggers the sort"
+      }
+    },
+    "stateMachines": {
+      "saxParsing": {
+        "description": "SAX-style XML generation: commands must be called in properly nested open/set/close order across the whole method.",
+        "states": ["idle", "in_element"],
+        "entryCommands": ["SAX-OPEN-XML-ELEMENT"],
+        "exitCommands": ["SAX-CLOSE-XML-ELEMENT"],
+        "transitions": [
+          { "from": "idle", "to": "in_element", "viaCommand": "SAX-OPEN-XML-ELEMENT" },
+          { "from": "in_element", "to": "in_element", "viaCommand": "SAX-SET-XML-ATTRIBUTE" },
+          { "from": "in_element", "to": "idle", "viaCommand": "SAX-CLOSE-XML-ELEMENT" }
+        ]
+      }
+    }
+  },
+
+  "handleTypes": {
+    "SAXContext": {
+      "description": "Opaque parsing/generation context threaded through the SAX command family.",
+      "producedBy": ["SAX-OPEN-XML-ELEMENT"],
+      "consumedBy": ["SAX-SET-XML-ATTRIBUTE", "SAX-CLOSE-XML-ELEMENT"],
+      "destroyedBy": ["SAX-CLOSE-XML-ELEMENT"]
+    }
+  },
+
+  "callbackContracts": {
+    "onErrCallHandler": {
+      "description": "Expected calling convention for a method registered via ON ERR CALL — invoked automatically by 4D when an error occurs, not called directly by user code.",
+      "trigger": "A runtime error occurs while this handler is active.",
+      "expectedParams": []
+    }
+  },
+
+  "commands": [
+
+    {
+      "id": "ORDER-BY-FORMULA",
+      "displayName": "ORDER BY FORMULA",
+      "kind": "classic_command",
+      "theme": "Queries",
+      "overloads": [
+        {
+          "params": [
+            { "name": "aTable", "type": { "kind": "concrete", "name": "Table" }, "direction": "in", "optional": false },
+            {
+              "name": "sortLevel",
+              "members": [
+                { "name": "formula", "type": { "kind": "concrete", "name": "Expression" }, "direction": "in", "optional": false },
+                {
+                  "name": "order",
+                  "type": { "kind": "literal_symbols", "symbols": [">", "<"], "meanings": { ">": "ascending", "<": "descending" } },
+                  "direction": "in",
+                  "optional": true,
+                  "default": ">"
+                }
+              ],
+              "cardinality": { "min": 1, "max": null },
+              "position": "embedded"
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "constraints": [
+        "aTable must be explicitly specified; the default table cannot be used.",
+        "Parameters ($1...$n) are not supported inside formula.",
+        "If used with PRINT SELECTION and BREAK LEVEL and a local variable, all three must execute from the same method or an error occurs at reevaluation time."
+      ],
+      "summary": "Sorts the current selection of aTable using one or more formula-based levels."
+    },
+
+    {
+      "id": "ORDER-BY",
+      "displayName": "ORDER BY",
+      "kind": "classic_command",
+      "theme": "Queries",
+      "overloads": [
+        {
+          "params": [
+            { "name": "aTable", "type": { "kind": "concrete", "name": "Table" }, "direction": "in", "optional": true, "default": "default table if set" },
+            {
+              "name": "sortLevel",
+              "members": [
+                { "name": "aField", "type": { "kind": "concrete", "name": "Field" }, "direction": "in", "optional": false },
+                { "name": "order", "type": { "kind": "literal_symbols", "symbols": [">", "<"] }, "direction": "in", "optional": true, "default": ">" }
+              ],
+              "cardinality": { "min": 1, "max": null },
+              "position": "embedded"
+            },
+            { "name": "*", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true, "blocksOnOmission": false }
+          ],
+          "returns": null,
+          "jointConstraints": []
+        }
+      ],
+      "protocolRefs": { "multiCallChain": "queryThemeChain" },
+      "constraints": [
+        "If aField, order, and * are all omitted, ORDER BY displays the interactive Order By editor instead of sorting."
+      ]
+    },
+
+    {
+      "id": "C-LONGINT",
+      "displayName": "C_LONGINT",
+      "kind": "compiler_directive",
+      "theme": "Compiler",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "variable",
+              "members": [
+                { "name": "variableName", "type": { "kind": "concrete", "name": "Variable" }, "direction": "in", "optional": false }
+              ],
+              "cardinality": { "min": 1, "max": null },
+              "position": "embedded"
+            }
+          ],
+          "returns": null,
+          "semanticRole": "Declares/types one or more local, process, or interprocess variables as Long Integer.",
+          "discriminatedBy": { "param": "method", "rule": "This overload applies when the leading optional 'method' parameter is NOT passed." }
+        },
+        {
+          "params": [
+            { "name": "method", "type": { "kind": "concrete", "name": "Method" }, "direction": "in", "optional": false },
+            {
+              "name": "variable",
+              "members": [
+                { "name": "variableName", "type": { "kind": "concrete", "name": "Variable" }, "direction": "in", "optional": false }
+              ],
+              "cardinality": { "min": 1, "max": null },
+              "position": "embedded"
+            }
+          ],
+          "returns": null,
+          "semanticRole": "Annotates the parameter types of a DIFFERENT, named method's calling convention from outside it (e.g. C_LONGINT($1;$streamRef) declares that $1 of the CURRENT method is Longint).",
+          "discriminatedBy": { "param": "method", "rule": "This overload applies when the leading 'method' parameter IS passed." }
+        }
+      ],
+      "constraints": [
+        "Must generally appear before first use / at the top of a method.",
+        "The C_LONGINT(${N}) variadic-from-position-N form only works in compiled mode; using it in interpreted mode is unsupported."
+      ]
+    },
+
+    {
+      "id": "TABLE",
+      "displayName": "Table",
+      "kind": "classic_command",
+      "theme": "Structure-Access",
+      "overloads": [
+        {
+          "params": [
+            { "name": "tableNum", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": false }
+          ],
+          "returns": { "kind": "concrete", "name": "Pointer" },
+          "staticallyDistinguishable": true
+        },
+        {
+          "params": [
+            { "name": "tablePtr", "type": { "kind": "pointer_unresolved", "possibleTargets": ["Table"] }, "direction": "in", "optional": false }
+          ],
+          "returns": { "kind": "concrete", "name": "Integer" },
+          "staticallyDistinguishable": false
+        },
+        {
+          "params": [
+            { "name": "fieldPtr", "type": { "kind": "pointer_unresolved", "possibleTargets": ["Field"] }, "direction": "in", "optional": false }
+          ],
+          "returns": { "kind": "concrete", "name": "Integer" },
+          "staticallyDistinguishable": false
+        }
+      ],
+      "constraints": [
+        "Overloads 2 and 3 declare the identical parameter type (Pointer). Which one applies depends on what the pointer actually references at runtime — not checkable from the call site alone."
+      ]
+    },
+
+    {
+      "id": "OB-SET",
+      "displayName": "OB SET",
+      "kind": "classic_command",
+      "theme": "Objects-Language",
+      "overloads": [
+        {
+          "params": [
+            { "name": "object", "type": { "kind": "concrete", "name": "Object" }, "direction": "inout", "optional": false },
+            {
+              "name": "propertyValuePair",
+              "members": [
+                { "name": "property", "type": { "kind": "concrete", "name": "Text" }, "direction": "in", "optional": false },
+                { "name": "value", "type": { "kind": "pseudo", "name": "Expression" }, "direction": "in", "optional": false }
+              ],
+              "cardinality": { "min": 1, "max": null },
+              "position": "embedded"
+            }
+          ],
+          "returns": null,
+          "mechanism": "static_variadic"
+        }
+      ],
+      "constraints": [
+        "Pointers are kept as-is (not evaluated); dates/times/objects/collections have their own storage-semantics footnotes."
+      ]
+    },
+
+    {
+      "id": "MULTI-SORT-ARRAY",
+      "displayName": "MULTI SORT ARRAY",
+      "kind": "classic_command",
+      "theme": "Arrays",
+      "overloads": [
+        {
+          "params": [
+            {
+              "name": "arraySortSpec",
+              "members": [
+                { "name": "array", "type": { "kind": "concrete", "name": "Array" }, "direction": "inout", "optional": false },
+                { "name": "sort", "type": { "kind": "literal_symbols", "symbols": [">", "<"] }, "direction": "in", "optional": true }
+              ],
+              "cardinality": { "min": 1, "max": null },
+              "position": "embedded"
+            }
+          ],
+          "returns": null,
+          "mechanism": "static_variadic",
+          "semanticRole": "Sort N arrays together using an inline, repeated (array, direction) list."
+        },
+        {
+          "params": [
+            { "name": "ptrArrayName", "type": { "kind": "concrete", "name": "Array" }, "direction": "in", "optional": false, "description": "Array of pointers to the arrays to sort together." },
+            { "name": "sortArrayName", "type": { "kind": "concrete", "name": "Array" }, "direction": "in", "optional": false, "description": "Parallel Integer array of sort codes." }
+          ],
+          "returns": null,
+          "mechanism": "indirect_array_of_pointers",
+          "semanticRole": "Sort N arrays together built up at runtime as an array-of-pointers, instead of listed inline."
+        }
+      ]
+    },
+
+    {
+      "id": "SET-LIST-ITEM-PROPERTIES",
+      "displayName": "SET LIST ITEM PROPERTIES",
+      "kind": "classic_command",
+      "theme": "Hierarchical-Lists",
+      "overloads": [
+        {
+          "params": [
+            { "name": "asObjectName", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true,
+              "description": "If present, 'list' below is a name string; if omitted, 'list' is a reference number." },
+            { "name": "list", "type": [ { "kind": "concrete", "name": "Integer" }, { "kind": "concrete", "name": "Text" } ], "direction": "in", "optional": false },
+            {
+              "name": "itemRef",
+              "type": { "kind": "concrete", "name": "Integer" },
+              "direction": "in",
+              "optional": false,
+              "sentinelValues": [
+                { "value": 0, "meaning": "the last item appended to the list" },
+                { "value": "*", "meaning": "the current list item" }
+              ]
+            },
+            { "name": "enterable", "type": { "kind": "concrete", "name": "Boolean" }, "direction": "in", "optional": false },
+            { "name": "styles", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": false },
+            { "name": "icon", "type": [ { "kind": "concrete", "name": "Text" }, { "kind": "concrete", "name": "Integer" } ], "direction": "in", "optional": true,
+              "sentinelValues": [ { "value": "\"\" or 0", "meaning": "no icon" } ] },
+            { "name": "color", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": true,
+              "sentinelValues": [ { "value": -1, "meaning": "reset to original color" } ] }
+          ],
+          "returns": null,
+          "interactionNotes": [
+            { "params": ["asObjectName (leading *)", "itemRef (* sentinel)"], "note": "The literal symbol '*' means two unrelated things depending on position: leading = 'list is a name, not a ref number'; in itemRef's slot = 'operate on the current item'." }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "SET-LIST-PROPERTIES",
+      "displayName": "SET LIST PROPERTIES",
+      "kind": "classic_command",
+      "theme": "Hierarchical-Lists",
+      "overloads": [
+        {
+          "params": [
+            { "name": "list", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": false },
+            { "name": "appearance", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": true,
+              "placeholderRequired": { "required": true, "value": 0, "note": "Deprecated; must pass 0 to reach later positional params." } },
+            { "name": "icon", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": true,
+              "placeholderRequired": { "required": true, "value": 0, "note": "Deprecated; must pass 0." } },
+            { "name": "doubleClick", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": true },
+            { "name": "editable", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": true }
+          ],
+          "returns": null
+        }
+      ]
+    },
+
+    {
+      "id": "GRAPH",
+      "displayName": "GRAPH",
+      "kind": "classic_command",
+      "theme": "Graphs",
+      "overloads": [
+        {
+          "params": [
+            { "name": "graphPicture", "type": { "kind": "concrete", "name": "Picture" }, "direction": "inout", "optional": false },
+            { "name": "graphNumber", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": false },
+            { "name": "xLabels", "type": { "kind": "concrete", "name": "Array" }, "direction": "in", "optional": false },
+            {
+              "name": "yElements",
+              "members": [ { "name": "yElement", "type": { "kind": "concrete", "name": "Array" }, "direction": "in", "optional": false } ],
+              "cardinality": { "min": 0, "max": 8 },
+              "position": "trailing"
+            }
+          ],
+          "returns": null,
+          "semanticRole": "Draw/redraw using a numeric graph-type code; may be followed by GRAPH SETTINGS to adjust further."
+        },
+        {
+          "params": [
+            { "name": "graphPicture", "type": { "kind": "concrete", "name": "Picture" }, "direction": "inout", "optional": false },
+            { "name": "graphSettings", "type": { "kind": "concrete", "name": "Object" }, "direction": "in", "optional": false },
+            { "name": "xLabels", "type": { "kind": "concrete", "name": "Array" }, "direction": "in", "optional": false },
+            {
+              "name": "yElements",
+              "members": [ { "name": "yElement", "type": { "kind": "concrete", "name": "Array" }, "direction": "in", "optional": false } ],
+              "cardinality": { "min": 0, "max": 8 },
+              "position": "trailing"
+            }
+          ],
+          "returns": null,
+          "semanticRole": "Draw and fully configure the graph in one call via an object of settings; GRAPH SETTINGS must NOT be called afterward.",
+          "platformConstraints": [
+            { "platform": "4D Server on Windows", "valid": false, "note": "This overload is not supported there per historical doc notes; verify against the target release." }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "GRAPH-SETTINGS",
+      "displayName": "GRAPH SETTINGS",
+      "kind": "classic_command",
+      "theme": "Graphs",
+      "deprecated": true,
+      "overloads": [
+        {
+          "params": [
+            { "name": "graphPicture", "type": { "kind": "concrete", "name": "Picture" }, "direction": "in", "optional": false },
+            { "name": "xmin", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true },
+            { "name": "xmax", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true },
+            { "name": "ymin", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true },
+            { "name": "ymax", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true }
+          ],
+          "returns": null,
+          "jointConstraints": [
+            { "params": ["xmin", "xmax"], "rule": "If either is null, both fall back to default graph values." },
+            { "params": ["ymin", "ymax"], "rule": "If either is null, both fall back to default graph values." }
+          ]
+        }
+      ],
+      "constraints": [
+        "Must NOT be called if the graph was generated using GRAPH's Object (graphSettings) overload."
+      ]
+    },
+
+    {
+      "id": "QUERY-BY-ATTRIBUTE",
+      "displayName": "QUERY BY ATTRIBUTE",
+      "kind": "classic_command",
+      "theme": "Queries",
+      "overloads": [
+        {
+          "params": [
+            { "name": "aTable", "type": { "kind": "concrete", "name": "Table" }, "direction": "in", "optional": true },
+            { "name": "conjOp", "type": { "kind": "literal_symbols", "symbols": ["&", "|", "#"] }, "direction": "in", "optional": true, "default": "&" },
+            { "name": "objectField", "type": { "kind": "concrete", "name": "Field" }, "direction": "in", "optional": false },
+            { "name": "attributePath", "type": { "kind": "subgrammar_ref", "grammar": "attributePath" }, "direction": "in", "optional": false },
+            { "name": "queryOp", "type": [ { "kind": "concrete", "name": "Text" }, { "kind": "literal_symbols", "symbols": [">", "<", ">=", "<=", "#", "=", "|", "%"] } ], "direction": "in", "optional": false },
+            { "name": "value", "type": [ { "kind": "concrete", "name": "Text" }, { "kind": "concrete", "name": "Real" }, { "kind": "concrete", "name": "Date" }, { "kind": "concrete", "name": "Time" } ], "direction": "in", "optional": false },
+            { "name": "*", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true }
+          ],
+          "returns": null
+        }
+      ],
+      "protocolRefs": { "multiCallChain": "queryThemeChain" },
+      "constraints": [
+        "If aTable is omitted, applies to the default table; errors if none is set."
+      ]
+    },
+
+    {
+      "id": "SQL-EXECUTE",
+      "displayName": "SQL EXECUTE",
+      "kind": "classic_command",
+      "theme": "SQL",
+      "overloads": [
+        {
+          "params": [
+            { "name": "sqlStatement", "type": { "kind": "foreign_grammar_ref", "grammar": "SQL" }, "direction": "in", "optional": false },
+            { "name": "parameter", "type": { "kind": "pseudo", "name": "any" }, "direction": "in", "optional": true }
+          ],
+          "returns": null
+        }
+      ]
+    },
+
+    {
+      "id": "WA-EXECUTE-JAVASCRIPT-FUNCTION",
+      "displayName": "WA EXECUTE JAVASCRIPT FUNCTION",
+      "kind": "classic_command",
+      "theme": "Web-Area",
+      "overloads": [
+        {
+          "params": [
+            { "name": "asObjectName", "type": { "kind": "literal_symbols", "symbols": ["*"] }, "direction": "in", "optional": true },
+            { "name": "object", "type": [ { "kind": "concrete", "name": "Text" }, { "kind": "concrete", "name": "Variable" }, { "kind": "concrete", "name": "Field" } ], "direction": "in", "optional": false },
+            { "name": "jsFunction", "type": { "kind": "concrete", "name": "Text" }, "direction": "in", "optional": false },
+            { "name": "result", "type": { "kind": "concrete", "name": "Variable" }, "direction": "out", "optional": false,
+              "sentinelValues": [ { "value": "*", "meaning": "function has no result" } ] },
+            {
+              "name": "param",
+              "members": [
+                { "name": "param", "type": { "kind": "pseudo", "name": "any" }, "direction": "in", "optional": false,
+                  "silentCoercionDefault": { "toType": "Text", "condition": "If the parameter's type is not explicitly defined, 4D coerces it to Text before passing it to the JavaScript function." } }
+              ],
+              "cardinality": { "min": 0, "max": null },
+              "position": "trailing"
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "constraints": [
+        "Calling a JS function that opens a blocking dialog (alert(), print()) is not recommended; the user cannot interact with the Web area while 4D code runs."
+      ]
+    },
+
+    {
+      "id": "WP-SET-ATTRIBUTES",
+      "displayName": "WP SET ATTRIBUTES",
+      "kind": "classic_command",
+      "theme": "WritePro",
+      "overloads": [
+        {
+          "params": [
+            { "name": "targetObj", "type": { "kind": "concrete", "name": "Object" }, "direction": "in", "optional": false },
+            {
+              "name": "attribute",
+              "members": [
+                { "name": "attribName", "type": { "kind": "concrete", "name": "Text" }, "direction": "in", "optional": false },
+                { "name": "attribValue", "type": { "kind": "pseudo", "name": "any" }, "direction": "in", "optional": true }
+              ],
+              "cardinality": { "min": 1, "max": null },
+              "position": "embedded"
+            }
+          ],
+          "returns": null,
+          "mechanism": "static_variadic"
+        },
+        {
+          "params": [
+            { "name": "targetObj", "type": { "kind": "concrete", "name": "Object" }, "direction": "in", "optional": false },
+            { "name": "attribObj", "type": { "kind": "concrete", "name": "Object" }, "direction": "in", "optional": false }
+          ],
+          "returns": null,
+          "mechanism": "object_map_equivalent",
+          "discriminatedBy": { "param": "n/a", "rule": "Keys of attribObj correspond 1:1 to attribName values in overload 1's variadic group." }
+        }
+      ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "type": "conflicts_with",
+      "from": { "command": "GRAPH", "overloadIndex": 1 },
+      "to": { "command": "GRAPH-SETTINGS" },
+      "note": "If GRAPH was called with its Object (graphSettings) overload, GRAPH SETTINGS must not be called afterward — it is an error, not merely redundant."
+    },
+    {
+      "type": "supersedes",
+      "from": { "command": "GRAPH", "overloadIndex": 1 },
+      "to": { "command": "GRAPH-SETTINGS" },
+      "note": "Deprecation-by-absorption: GRAPH's Object overload folds GRAPH SETTINGS' functionality into a single call, rather than a different replacement command."
+    },
+    {
+      "type": "diff_from",
+      "from": { "command": "QUERY-SELECTION-BY-ATTRIBUTE" },
+      "to": { "command": "QUERY-BY-ATTRIBUTE" },
+      "note": "Identical signature; only difference is scope — whole table vs. current selection."
+    },
+    {
+      "type": "equivalent_overloads",
+      "from": { "command": "WP-SET-ATTRIBUTES", "overloadIndex": 0 },
+      "to": { "command": "WP-SET-ATTRIBUTES", "overloadIndex": 1 },
+      "note": "Variadic-pairs form and object-map form set identical data via structurally different call shapes."
+    },
+    {
+      "type": "same_mechanism_family",
+      "from": { "command": "SET-LIST-ITEM-PROPERTIES" },
+      "to": { "command": "WA-EXECUTE-JAVASCRIPT-FUNCTION" },
+      "note": "Both use a leading literal '*' to switch whether a following parameter is a name string or a direct reference/variable — the star_operator_dual_signature pattern (category C), shared across ~167 commands corpus-wide."
+    }
+  ]
+}
