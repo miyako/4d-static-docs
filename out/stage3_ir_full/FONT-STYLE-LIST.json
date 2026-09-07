@@ -2,7 +2,7 @@
   "id": "FONT-STYLE-LIST",
   "displayName": "FONT STYLE LIST",
   "kind": "classic_command",
-  "theme": "System Environment",
+  "theme": "System-Environment",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the font family for which to get supported styles and names (see FONT LIST to get the list of font families)"
         },
         {
           "name": "fontStyleList",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the localized style names supported by fontFamily"
         },
         {
           "name": "fontNameList",
@@ -30,11 +32,17 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the complete, non-localized font names supported by fontFamily, synchronized element-by-element with fontStyleList"
         }
       ],
-      "semanticRole": "The FONT STYLE LIST command returns the list of font styles and the list of complete font names supported by the font family defined in the fontFamily parameter."
+      "semanticRole": "Returns, for a given font family, the parallel lists of supported (localized) style names and their corresponding (non-localized) complete font names."
     }
+  ],
+  "constraints": [
+    "fontStyleList returns localized style names (e.g. \"Italic\" appears as \"It\u00e1lico\" on a Spanish system), suitable for a localized \"Style\" pop-up menu.",
+    "fontNameList returns non-localized, system-identification-based font names intended for use with the wk font 4D Write Pro attribute of WP SET ATTRIBUTES, so stored documents remain portable across system languages.",
+    "If fontFamily is not found on the machine, both arrays are returned empty."
   ]
 }

@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table form only: table of the form, or default table if omitted"
         },
         {
           "name": "formName",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the form"
         },
         {
           "name": "width",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Width of the form, in pixels"
         },
         {
           "name": "height",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Height of the form, in pixels"
         },
         {
           "name": "numPages",
@@ -48,8 +52,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Number of pages in the form, excluding page 0"
         },
         {
           "name": "fixedWidth",
@@ -57,8 +62,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "True if the form's width is fixed (set), False if resizable/variable"
         },
         {
           "name": "fixedHeight",
@@ -66,8 +72,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "True if the form's height is fixed (set), False if resizable/variable"
         },
         {
           "name": "title",
@@ -75,11 +82,17 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Title of the form's window as defined in the Form editor's Property List; empty string if none defined"
         }
       ],
-      "semanticRole": "The FORM GET PROPERTIES command returns the properties of the form formName ."
+      "semanticRole": "Returns the size, page count, resizability, and window title properties of the named form."
     }
+  ],
+  "constraints": [
+    "width/height are derived from the form's Default window size property: automatic (sized to fit all objects plus margins), set (manually entered), or based on an object (sized relative to that object's position).",
+    "numPages excludes page 0.",
+    "title returns an empty string if no window title was defined in the Form editor's Property List."
   ]
 }

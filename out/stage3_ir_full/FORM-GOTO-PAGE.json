@@ -27,7 +27,12 @@
           "optional": true
         }
       ],
-      "semanticRole": "FORM GOTO PAGE changes the currently displayed form page to the form page specified by pageNumber ."
+      "semanticRole": "Changes the currently displayed page of the parent form (or, if the trailing * flag is passed, of the current page-type subform) to pageNumber, clamped to the valid page range."
     }
+  ],
+  "constraints": [
+    "Does nothing if no form is displayed/loaded (via FORM LOAD), or if pageNumber is already the current page.",
+    "pageNumber is clamped: values greater than the number of pages display the last page, and values less than one display the first page.",
+    "By default (no *), always applies to the parent form even when called from within a subform's method."
   ]
 }

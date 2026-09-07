@@ -16,7 +16,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "DUPLICATE RECORD creates a new record for aTable that is a duplicate of the current record."
+      "semanticRole": "Creates a new record for aTable (or the default table, if omitted) that duplicates the current record, and makes the duplicate the current record; does nothing if there is no current record."
     }
+  ],
+  "constraints": [
+    "The duplicate is not saved until SAVE RECORD is called.",
+    "No longer supports subtables as of 4D v11."
   ]
 }

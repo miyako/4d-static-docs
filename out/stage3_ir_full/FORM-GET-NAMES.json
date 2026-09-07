@@ -2,7 +2,7 @@
   "id": "FORM-GET-NAMES",
   "displayName": "FORM GET NAMES",
   "kind": "classic_command",
-  "theme": "Design Object Access",
+  "theme": "Design-Object-Access",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table for which to return table form names; if omitted, database project form names are returned instead"
         },
         {
           "name": "arrNames",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the names of forms matching filter/marker"
         },
         {
           "name": "filter",
@@ -31,7 +33,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Comparison string limiting returned form names; supports '@' wildcards; empty string or omitted means no filtering"
         },
         {
           "name": "marker",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "inout",
+          "optional": true,
+          "description": "In: minimum modification-counter value forms must meet to be returned. Out: overwritten with the new (highest) modification-counter value, for reuse as marker on the next call."
         },
         {
           "name": "*",
@@ -51,10 +55,15 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed from a component, apply the command to the host database instead of the component (ignored outside of a component context)"
         }
       ],
-      "semanticRole": "The FORM GET NAMES command fills the arrNames array with the names of forms in the application."
+      "semanticRole": "Returns the names of project or table forms in the application, optionally filtered by name pattern and/or by a modification-marker cutoff used for incremental synchronization."
     }
+  ],
+  "constraints": [
+    "filter supports the '@' wildcard character for \"starts with\"/\"ends with\"/\"contains\" matching; passing an empty string disables filtering entirely.",
+    "marker is a monotonically increasing internal database-resource modification counter: passing a value returns only forms whose marker is >= that value, and if a variable is passed, the command also writes back the new (highest) counter value into it for use as the marker in a subsequent call (incremental version-control sync pattern)."
   ]
 }

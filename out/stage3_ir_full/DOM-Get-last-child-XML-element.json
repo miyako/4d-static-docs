@@ -2,7 +2,7 @@
   "id": "DOM-Get-last-child-XML-element",
   "displayName": "DOM Get last child XML element",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML element reference"
         },
         {
           "name": "childElemName",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the name of the last child element"
         },
         {
           "name": "childElemValue",
@@ -30,15 +32,21 @@
             "kind": "pseudo",
             "name": "any"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the value of the last child element"
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The DOM Get last child XML element command returns an XML reference to the last \u201cchild\u201d of the XML element passed as reference in elementRef ."
+      "semanticRole": "Returns a reference to the last child of an XML element, usable for further DOM navigation, and optionally its name and value.",
+      "jointConstraints": [
+        {
+          "params": [
+            "childElemName",
+            "childElemValue"
+          ],
+          "rule": "childElemValue can only be passed if childElemName is also passed (the syntax nests childElemValue inside childElemName's optional group)."
+        }
+      ]
     }
   ]
 }

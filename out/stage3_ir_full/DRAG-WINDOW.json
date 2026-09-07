@@ -6,7 +6,7 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The DRAG WINDOW command lets users drag the window on which they clicked following the movements of the mouse."
+      "semanticRole": "Lets the user drag the frontmost window under the mouse, tracking mouse movement until the button is released; typically called from an invisible button's object method on mouse-down."
     }
   ]
 }

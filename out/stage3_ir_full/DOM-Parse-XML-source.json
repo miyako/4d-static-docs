@@ -2,7 +2,7 @@
   "id": "DOM-Parse-XML-source",
   "displayName": "DOM Parse XML source",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -38,7 +38,12 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The DOM Parse XML source command parses a document containing an XML structure and returns a reference for this document."
+      "semanticRole": "Parses an XML document from a path/URL, optionally validating it against a DTD (either referenced inside the document or explicitly designated by the dtd parameter), and returns a document reference.",
+      "discriminatedBy": {
+        "param": "dtd",
+        "rule": "Third parameter is a DTD pathname/text (or omitted to use any DTD/XSD reference found inside the document itself)."
+      },
+      "staticallyDistinguishable": false
     },
     {
       "params": [
@@ -74,7 +79,25 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The DOM Parse XML source command parses a document containing an XML structure and returns a reference for this document."
+      "semanticRole": "Parses an XML document from a path/URL, optionally validating it against an XML Schema (XSD) explicitly designated by the schema parameter.",
+      "discriminatedBy": {
+        "param": "schema",
+        "rule": "Third parameter is an XSD file/URL pathname, selected instead of the dtd overload to validate by schema rather than DTD."
+      },
+      "staticallyDistinguishable": false
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  },
+  "constraints": [
+    "Execution of DOM Parse XML source is synchronous.",
+    "document can be a full pathname, a Unix-style macOS path, an http(s)/ftp URL, or an empty string to prompt an Open File dialog.",
+    "If validation is True and the third parameter is omitted, validation is attempted via a DTD or XSD reference found inside the document itself; this can chain (a referenced DTD that itself references an XSD).",
+    "If validation cannot be performed (no DTD/XSD found, bad URL, etc.), an error is generated and reported via the Error system variable.",
+    "The returned reference must eventually be released by calling DOM CLOSE XML with it."
+  ],
+  "_needsReview": [
+    "The two syntax lines (dtd-parameter vs schema-parameter) are not statically distinguishable by type alone (both are Text) -- the schema overload is only reachable by the caller's choice of file extension/parameter name, which the docs describe as convention rather than a type-level discriminator."
   ]
 }

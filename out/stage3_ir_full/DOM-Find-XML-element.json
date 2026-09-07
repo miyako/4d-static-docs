@@ -2,7 +2,7 @@
   "id": "DOM-Find-XML-element",
   "displayName": "DOM Find XML element",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML element reference at which the search starts"
         },
         {
           "name": "xPath",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XPath expression identifying the element(s) to look for"
         },
         {
           "name": "arrElementRefs",
@@ -30,15 +32,16 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the list of all matching element references, useful when several elements match xPath"
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Text"
-      },
-      "semanticRole": "The DOM Find XML element command looks for specific XML elements in an XML structure."
+      "semanticRole": "Searches an XML structure, starting at elementRef, for element(s) matching an XPath expression, returning the (first) match's reference and optionally all matches."
     }
+  ],
+  "constraints": [
+    "Searches are case sensitive.",
+    "When arrElementRefs is passed and filled, the command's function-result return value is the first element of that array."
   ]
 }

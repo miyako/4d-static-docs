@@ -1,0 +1,17 @@
+{
+  "theme": "Import-and-Export",
+  "constraints": [
+    "Export order follows the entry order of fields/objects on the current output form; use an output form containing only what you want exported (buttons and other extraneous objects should not be placed on it; subform objects are ignored).",
+    "An On Load event is sent to the output form method for each exported record.",
+    "If document is an empty string, the standard save-file dialog is displayed; canceling it sets OK to 0.",
+    "Uses the UTF-8 character set by default; since DIF documents typically use IBM437, use USE CHARACTER SET to set the appropriate character set.",
+    "Default field delimiter is tab (code 9); default record delimiter is carriage return (code 13); can be changed via the relevant system variables/preferences.",
+    "Sets OK to 1 on success, 0 if canceled or an error occurred; the progress thermometer can be hidden with MESSAGES OFF."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Exports the current selection of aTable (or the default table) to a DIF document, using the current output form to determine which fields/objects are written."
+    }
+  ]
+}

@@ -13,7 +13,8 @@
             "name": "Picture"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Original source picture"
         },
         {
           "name": "picture2",
@@ -22,7 +23,8 @@
             "name": "Picture"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Picture to compare"
         },
         {
           "name": "mask",
@@ -30,15 +32,18 @@
             "kind": "concrete",
             "name": "Picture"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the resulting comparison mask picture"
         }
       ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Boolean"
-      },
-      "semanticRole": "The Equal pictures command precisely compares both the dimensions and the contents of two pictures."
+      "semanticRole": "Pixel-by-pixel compares the dimensions and contents of two pictures and produces a visual diff mask."
     }
+  ],
+  "constraints": [
+    "If dimensions differ, returns False and mask is a blank picture.",
+    "If dimensions match but contents differ, returns False and mask is a black-on-white pixel-diff picture (mismatched pixels appear white on black).",
+    "If the pictures are identical, returns True and mask is entirely black.",
+    "Sets the OK system variable to 0 if a picture is uninitialized (blank), otherwise 1."
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "constraints": [
+    "Cannot be used to read file-type data from the pasteboard; use Get file from pasteboard for that."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: data is filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "dataType",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "A 4D signature, a UTI type (macOS), a format name/number (Windows), or a 4-character type (compatibility) identifying the pasteboard data to retrieve."
+        },
+        {
+          "name": "data",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "out",
+          "optional": false,
+          "description": "Requested data extracted from the pasteboard; if the pasteboard held text copied within 4D, the BLOB's character set is likely UTF-16."
+        }
+      ]
+    }
+  ]
+}

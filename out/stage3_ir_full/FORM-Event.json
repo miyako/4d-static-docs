@@ -2,11 +2,15 @@
   "id": "FORM-Event",
   "displayName": "FORM Event",
   "kind": "classic_command",
-  "theme": "Form Events",
+  "theme": "Form-Events",
   "overloads": [
     {
       "params": [],
-      "semanticRole": "FORM Event returns an object containing information about the form event that has just occurred."
+      "semanticRole": "Returns an object describing the form event that just occurred, including its numeric code, event name (description), and the triggering object's name (objectName, omitted if the event is triggered by form code)."
     }
+  ],
+  "constraints": [
+    "Usually called from within a form or object method to inspect the event that just triggered it; returns a null object if there is no current event.",
+    "eventObj objects generated for list box/list box column objects, or for 4D View Pro areas (On VP Ready), can carry additional properties beyond code/description/objectName."
   ]
 }

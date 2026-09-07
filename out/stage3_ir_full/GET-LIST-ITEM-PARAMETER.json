@@ -15,14 +15,21 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string); if omitted, 'list' is a hierarchical list reference number."
         },
         {
           "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
           "direction": "in",
           "optional": false
         },
@@ -39,54 +46,17 @@
             }
           ],
           "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "selector",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "value",
-          "type": {
-            "kind": "concrete",
-            "name": "Variable"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The GET LIST ITEM PARAMETER command is used to find out the current value of the selector parameter for the itemRef item of the hierarchical list whose reference or object name is passed in the list parameter."
-    },
-    {
-      "params": [
-        {
-          "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "itemRef",
-          "type": [
+          "optional": false,
+          "sentinelValues": [
             {
-              "kind": "concrete",
-              "name": "Integer"
+              "value": 0,
+              "meaning": "the last item added to the list (via APPEND TO LIST)"
             },
             {
-              "kind": "pseudo",
-              "name": "Operator"
+              "value": "*",
+              "meaning": "the current item of the list"
             }
-          ],
-          "direction": "in",
-          "optional": false
+          ]
         },
         {
           "name": "selector",
@@ -103,11 +73,14 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Current value of the parameter designated by selector (a variable of type Text, Boolean, or Real)."
         }
-      ],
-      "semanticRole": "The GET LIST ITEM PARAMETER command is used to find out the current value of the selector parameter for the itemRef item of the hierarchical list whose reference or object name is passed in the list parameter."
+      ]
     }
+  ],
+  "constraints": [
+    "selector should be one of the 'Additional text' or 'Associated standard action' constants from the Hierarchical Lists theme, or a custom string; see SET LIST ITEM PARAMETER for the selector/value contract."
   ]
 }

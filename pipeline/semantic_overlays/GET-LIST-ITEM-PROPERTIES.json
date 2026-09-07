@@ -1,0 +1,68 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The two doc syntax lines differ only in whether a leading '*' is passed (list as object-name string vs. list reference number); the second line's trailing '*' after the command name is a doc footnote marker, not a parameter. Merged into one semantic overload with that param optional. Also corrected direction: enterable, styles, icon, and color are all filled in by the command ('\u2190' in the docs), not passed in; added the 0/'*' sentinel values documented for itemRef.",
+      "params": [
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string); if omitted, 'list' is a hierarchical list reference number."
+        },
+        {
+          "name": "list",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "pseudo", "name": "Operator" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "the last item added to the list" },
+            { "value": "*", "meaning": "the current item of the list" }
+          ]
+        },
+        {
+          "name": "enterable",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "styles",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Integer" }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "Picture assigned to the item: a 'path:' pathname if set via a picture file, or (depending on the variable's type) the number or 'pictlib:' name if set via a library picture; blank if no icon is associated."
+        },
+        {
+          "name": "color",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "RGB color of the item's text."
+        }
+      ]
+    }
+  ]
+}

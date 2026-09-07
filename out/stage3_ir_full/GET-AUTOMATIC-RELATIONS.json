@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True if a previous SET AUTOMATIC RELATIONS call made all manual many-to-one relations automatic for the current process; False otherwise"
         },
         {
           "name": "many",
@@ -21,11 +22,12 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True if a previous SET AUTOMATIC RELATIONS call made all manual one-to-many relations automatic for the current process; False otherwise"
         }
       ],
-      "semanticRole": "The GET AUTOMATIC RELATIONS command lets you know if the automatic/manual status of all manual many-to-one and one-to-many relations of the database have been modified in the current process.if a previous calll from the"
+      "semanticRole": "Reports, via one and many, whether SET AUTOMATIC RELATIONS has switched all manual many-to-one and one-to-many relations to automatic for the current process."
     }
   ]
 }

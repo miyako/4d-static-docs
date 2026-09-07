@@ -2,7 +2,7 @@
   "id": "Data-file",
   "displayName": "Data file",
   "kind": "classic_command",
-  "theme": "4D Environment",
+  "theme": "4D-Environment",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Data file command returns the long name of the data file for the database with which you are currently working."
+      "semanticRole": "Returns the full pathname of the current database's data file."
     }
+  ],
+  "constraints": [
+    "segment is obsolete (ignored) since 4D v11, when data segments were removed; it must no longer be used.",
+    "When called from 4D in remote mode, only the file name is returned, not the full pathname."
   ]
 }

@@ -1,0 +1,55 @@
+{
+  "theme": "XML-DOM",
+  "constraints": [
+    "If the element was a BLOB set via DOM SET XML ELEMENT VALUE, its value was automatically base64-encoded; this command automatically attempts to base64-decode it back."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "elementValue and cDATA are filled/returned params (docs: '<-' direction); autoparse defaults all params to direction:in. Also documents the silent coercion to Text when the target variable/field has no declared type.",
+      "params": [
+        {
+          "name": "elementRef",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "elementValue",
+          "type": [
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Field" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the value of the XML element",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If elementValue's variable type is not defined, Text is used by default."
+          }
+        },
+        {
+          "name": "cDATA",
+          "type": [
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Field" }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the contents of the CDATA section(s) of the element",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If cDATA's variable type is not defined, Text is used by default."
+          }
+        }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the value of an XML element and, optionally, the contents of its CDATA section(s)."
+    }
+  ]
+}

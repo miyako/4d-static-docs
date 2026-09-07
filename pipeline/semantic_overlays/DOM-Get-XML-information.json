@@ -1,0 +1,9 @@
+{
+  "theme": "XML-DOM",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Retrieves document-level XML info (encoding, XML version, DOCTYPE name/public ID/system ID, or DTD document URI) selected by an xmlInfo constant."
+    }
+  ]
+}

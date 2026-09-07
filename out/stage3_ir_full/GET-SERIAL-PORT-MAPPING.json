@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,11 +21,14 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
-      ],
-      "semanticRole": "The GET SERIAL PORT MAPPING command returns two arrays, numArray and nameArray , containing the serial port numbers and the serial port names of the current machine."
+      ]
     }
+  ],
+  "constraints": [
+    "Does not return meaningful values for standard ports; address a standard port directly with its value (0 or 1) via SET CHANNEL.",
+    "Mainly useful on macOS, where the OS dynamically allocates port numbers for USB serial adapters, so an extended port must be addressed by its (static) name rather than its number."
   ]
 }

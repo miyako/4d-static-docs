@@ -21,11 +21,11 @@
             "kind": "concrete",
             "name": "Picture"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "warning This command cannot be used in projects because the Picture library is only available in binary databases."
+      "semanticRole": "Retrieves a Picture Library graphic identified by its reference number."
     },
     {
       "params": [
@@ -44,11 +44,15 @@
             "kind": "concrete",
             "name": "Picture"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
       ],
-      "semanticRole": "warning This command cannot be used in projects because the Picture library is only available in binary databases."
+      "semanticRole": "Retrieves a Picture Library graphic identified by its name."
     }
+  ],
+  "constraints": [
+    "Cannot be used in project-mode databases; the Picture Library is only available in binary databases.",
+    "If no picture matches the given picRef/picName, picture is left unchanged."
   ]
 }

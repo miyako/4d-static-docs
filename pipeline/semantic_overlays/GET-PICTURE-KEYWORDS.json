@@ -1,0 +1,33 @@
+{
+  "constraints": [
+    "Only keywords set via IPTC/Keywords metadata are considered; other metadata types are ignored, and only picture formats that support this metadata (JPEG, TIFF, etc.) are supported.",
+    "If the picture has no keywords/IPTC metadata, an empty array is returned and no error is raised."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: arrKeywords is filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrKeywords",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, only distinct (de-duplicated) keyword values are returned."
+        }
+      ]
+    }
+  ]
+}

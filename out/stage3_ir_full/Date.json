@@ -2,7 +2,7 @@
   "id": "Date",
   "displayName": "Date",
   "kind": "classic_command",
-  "theme": "Date and Time",
+  "theme": "Date-and-Time",
   "overloads": [
     {
       "params": [
@@ -26,7 +26,7 @@
         "kind": "concrete",
         "name": "Date"
       },
-      "semanticRole": "The Date command evaluates expression and returns a date."
+      "semanticRole": "Evaluates expression (a string in ISO date format or the system's regional short-date format, or an existing Date value) and returns the corresponding Date."
     }
   ]
 }

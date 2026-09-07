@@ -10,22 +10,27 @@
           "name": "groupNames",
           "type": {
             "kind": "concrete",
-            "name": "Text array"
+            "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with group names as they appear in the Password editor window"
         },
         {
           "name": "groupNumbers",
           "type": {
             "kind": "concrete",
-            "name": "Integer array"
+            "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled, in sync with groupNames, with the corresponding unique group ID numbers"
         }
       ],
-      "semanticRole": "GET GROUP LIST populates the arrays groupNames and groupNumbers with the names and unique ID numbers of the groups as they appear in the Password editor window."
+      "semanticRole": "Fills groupNames and groupNumbers, in sync, with the names and unique IDs of every group in the Password editor."
     }
+  ],
+  "constraints": [
+    "In project databases, group ID numbers start at 15001 and are dynamically allocated at startup, maintained for the session; in binary databases, numbers are stored and fall in a range depending on the group creator."
   ]
 }

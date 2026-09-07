@@ -33,7 +33,7 @@
               "name": "Text"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -48,11 +48,18 @@
               "name": "Text"
             }
           ],
-          "direction": "in",
+          "direction": "out",
           "optional": true
         }
-      ],
-      "semanticRole": "The GET PRINT OPTION command returns the current value(s) of a print option."
+      ]
     }
+  ],
+  "constraints": [
+    "option selects a standard printing option (an Integer constant from the Print Options theme) or a PDF option code (a Text string of the form \"OptionType:OptionName\"); which of value1/value2 are meaningful, and their expected types, depends entirely on which option was passed (e.g. Paper option returns width in value1 and height in value2; Orientation option uses value1 only; Destination option returns a destination code in value1 and a pathname in value2). See the SET PRINT OPTION command description for the full per-option value contract.",
+    "If the current value for the given option is not in the predefined list, value1 returns -1 and OK is set to 1; if an error occurs, value1 and OK are both set to 0.",
+    "Mainly supports PostScript printers; some options may be unavailable on other printer types (PCL, Ink, etc.)."
+  ],
+  "_needsReview": [
+    "The option-to-value1/value2 contract is a large per-constant table (Paper, Orientation, Scale, Destination, Double sided, Page range, Print preview, etc.) documented under SET PRINT OPTION. Modeling it precisely would need a discriminatedBy entry per option constant (or a shared enum in Layer 2); left as a prose constraint here rather than guessing an incomplete discriminatedBy mapping."
   ]
 }

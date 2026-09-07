@@ -6,7 +6,7 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "False returns the Boolean value False."
+      "semanticRole": "Returns the Boolean literal False (useful in typed expressions/contexts where a literal Boolean function call is required rather than a bare keyword)."
     }
   ]
 }

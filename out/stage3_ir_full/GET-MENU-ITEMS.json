@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu reference (MenuRef), menu bar number, or menu bar reference (obtained via Get menu bar reference)."
         },
         {
           "name": "menuTitlesArray",
@@ -27,7 +28,7 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -36,11 +37,11 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "IDs of each item; an empty string if an item has no associated menu reference."
         }
-      ],
-      "semanticRole": "The GET MENU ITEMS command returns, in the menuTitlesArray and menuRefsArray arrays, the titles and IDs of all the items of the menu or menu bar designated by the menu parameter."
+      ]
     }
   ]
 }

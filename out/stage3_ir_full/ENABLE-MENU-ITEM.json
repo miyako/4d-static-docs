@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu number or MenuRef"
         },
         {
           "name": "menuItem",
@@ -28,7 +29,17 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to the menu"
+            },
+            {
+              "value": 0,
+              "meaning": "all items of the menu at once"
+            }
+          ]
         },
         {
           "name": "process",
@@ -37,10 +48,14 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Process reference number; if omitted, applies to the menu bar of the current process"
         }
       ],
-      "semanticRole": "The ENABLE MENU ITEM command enables the menu item whose menu number or reference is passed in menu and whose item number is passed in menuItem ."
+      "semanticRole": "Enables (makes selectable) the specified menu item, or all items of a submenu/menu, in a given process's menu bar."
     }
+  ],
+  "constraints": [
+    "If menu is passed as a MenuRef, the process parameter is ignored."
   ]
 }

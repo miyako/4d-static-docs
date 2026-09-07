@@ -16,7 +16,13 @@
           "optional": false
         }
       ],
-      "semanticRole": "The EXPAND BLOB command expands the BLOB blob that was previously compressed using the COMPRESS BLOB command*.* After the call, the OK variable is set to 1 if the BLOB has been expanded."
+      "semanticRole": "Expands, in place, a BLOB that was previously compressed with COMPRESS BLOB."
     }
+  ],
+  "constraints": [
+    "Sets the OK system variable to 1 if expansion succeeded, 0 otherwise.",
+    "If expansion fails due to lack of memory, no error is generated and execution continues (OK is set to 0).",
+    "If the BLOB was not previously compressed (via COMPRESS BLOB) or is damaged, error -10600 is generated, trappable with ON ERR CALL.",
+    "Use BLOB PROPERTIES to check beforehand whether a BLOB is compressed."
   ]
 }

@@ -12,11 +12,12 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Names of tables whose data exists in the data file but are not defined in the current structure (e.g. after opening the data file with a newer structure that dropped them)."
         }
       ],
-      "semanticRole": "The GET MISSING TABLE NAMES command returns the names of all the missing tables of the current database in the missingTables array."
+      "semanticRole": "Returns the names of tables present in the data file but missing from the current structure, so they can be reactivated with REGENERATE MISSING TABLE."
     }
   ]
 }

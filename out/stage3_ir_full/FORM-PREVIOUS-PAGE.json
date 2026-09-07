@@ -6,7 +6,7 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "FORM PREVIOUS PAGE changes the currently displayed form page to the previous form page."
+      "semanticRole": "Displays the previous page of the current form; does nothing if no form is being displayed/loaded (via FORM LOAD), or if the first page is already showing."
     }
   ]
 }

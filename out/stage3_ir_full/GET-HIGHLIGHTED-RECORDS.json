@@ -27,5 +27,11 @@
       ],
       "semanticRole": "The GET HIGHLIGHTED RECORDS command stores in the set designated by the setName parameter the highlighted records (i.e., the records highlighted by the user in the list form) in the aTable passed as parameter."
     }
+  ],
+  "constraints": [
+    "If aTable is omitted, the table of the current form (or subform) is used.",
+    "In Design mode, or while DISPLAY SELECTION/MODIFY SELECTION are executing, the automatically-maintained UserSet system set can be used instead; this command remains necessary for subforms (which may highlight records from a different table than the main form) and for non-form contexts (where it returns an empty set).",
+    "In included subforms without the Multiple Selection Mode property, this command returns an empty set -- use Selected record number instead to find the selected row.",
+    "setName can designate a local/client, process, or interprocess set."
   ]
 }

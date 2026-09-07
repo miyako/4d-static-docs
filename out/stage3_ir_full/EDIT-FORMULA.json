@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Table to display by default in the Formula editor"
         },
         {
           "name": "formula",
@@ -21,11 +22,18 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "inout",
+          "optional": false,
+          "description": "in: variable containing the formula to display, or \"\" to display the editor with no formula; out: the formula validated by the user (left untouched if the user cancels)"
         }
       ],
-      "semanticRole": "The EDIT FORMULA command displays the Formula editor in order to let the user write or modify a formula."
+      "semanticRole": "Displays the interactive Formula editor dialog, seeded with aTable's fields and an initial formula, and returns the user-edited formula text."
     }
+  ],
+  "constraints": [
+    "By default, method/command access is restricted to the Designer and Administrator; if formula calls a method not authorized via SET ALLOWED METHODS, a syntax error is generated and the dialog cannot be validated.",
+    "The formula editor has no default menu bar; install a standard Edit menu in the calling process to enable cut/copy/paste shortcuts.",
+    "The virtual structure defined by SET TABLE TITLES/SET FIELD TITLES is only used inside the Formula editor dialog; it must not be used in the formula variable outside the dialog.",
+    "Validating the dialog only stores the edited formula text into the formula variable; it does not execute it -- use EXECUTE FORMULA to run it."
   ]
 }

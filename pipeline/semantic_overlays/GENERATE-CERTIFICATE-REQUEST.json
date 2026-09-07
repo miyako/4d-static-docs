@@ -1,0 +1,42 @@
+{
+  "constraints": [
+    "The generated request is in PKCS format, suitable for submission directly to a certificate authority (e.g. Verisign)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "certifRequest is the BLOB the command fills in with the generated request (out), not an in parameter.",
+      "params": [
+        {
+          "name": "privKey",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB containing the private key"
+        },
+        {
+          "name": "certifRequest",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "out",
+          "optional": false,
+          "description": "BLOB receiving the generated certificate request"
+        },
+        {
+          "name": "codeArray",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Information code list"
+        },
+        {
+          "name": "nameArray",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name list"
+        }
+      ],
+      "semanticRole": "Generates, in certifRequest, a PKCS-format certificate request built from privKey and the code/name identity arrays, for submission to a certificate authority."
+    }
+  ]
+}

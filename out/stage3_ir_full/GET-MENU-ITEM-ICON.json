@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
         },
         {
           "name": "menuItem",
@@ -28,7 +29,13 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to the menu"
+            }
+          ]
         },
         {
           "name": "iconRef",
@@ -42,8 +49,9 @@
               "name": "Integer"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Reference (pathname via the 'path:' pattern, or, depending on the variable's declared type, the number or 'pictlib:' name) of the icon associated with the menu item; blank if no icon is associated."
         },
         {
           "name": "process",
@@ -54,8 +62,10 @@
           "direction": "in",
           "optional": true
         }
-      ],
-      "semanticRole": "The GET MENU ITEM ICON command returns, in the iconRef variable, the reference of any icon that is associated with the menu item designated by the menu and menuItem parameters."
+      ]
     }
+  ],
+  "constraints": [
+    "If menu is a menu reference (MenuRef), the process parameter is unnecessary and is ignored if passed; if menu is a menu number, process (if passed) designates which process's menu bar to use, defaulting to the current process."
   ]
 }

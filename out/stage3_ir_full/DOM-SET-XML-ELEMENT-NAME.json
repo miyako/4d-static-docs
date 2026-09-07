@@ -2,7 +2,7 @@
   "id": "DOM-SET-XML-ELEMENT-NAME",
   "displayName": "DOM SET XML ELEMENT NAME",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -25,7 +25,10 @@
           "optional": false
         }
       ],
-      "semanticRole": "The DOM SET XML ELEMENT NAME command modifies the name of the element set by elementRef ."
+      "semanticRole": "Renames the XML element elementRef to elementName, updating its open and close tags."
     }
-  ]
+  ],
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  }
 }

@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the style sheet as defined in Design mode, or one of the automatic style sheet constants (__automatic__, __automatic_additional_text__, __automatic_main_text__)."
         },
         {
           "name": "font",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Font name associated with the style sheet for the current platform."
         },
         {
           "name": "size",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Font size (points) associated with the style sheet for the current platform."
         },
         {
           "name": "styles",
@@ -39,11 +42,45 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Plain"
+            },
+            {
+              "value": 1,
+              "meaning": "Bold"
+            },
+            {
+              "value": 2,
+              "meaning": "Italic"
+            },
+            {
+              "value": 3,
+              "meaning": "Bold and Italic"
+            },
+            {
+              "value": 4,
+              "meaning": "Underline"
+            },
+            {
+              "value": 5,
+              "meaning": "Bold and Underline"
+            },
+            {
+              "value": 6,
+              "meaning": "Italic and Underline"
+            }
+          ]
         }
-      ],
-      "semanticRole": "The GET STYLE SHEET INFO command returns the current configuration of the style sheet designated in the styleSheetName parameter."
+      ]
     }
+  ],
+  "constraints": [
+    "On Windows, the returned configuration depends on context: inside a form, it reflects the interface (Fluent UI or Classic) actually used by that form; outside a form, it reflects the interface enabled for the project.",
+    "In project architecture, only the three automatic style sheets (__automatic__, __automatic_additional_text__, __automatic_main_text__) are supported.",
+    "The OK system variable is set to 0 if styleSheetName does not exist (1 otherwise)."
   ]
 }

@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Data types expressed as internal 4D signatures (e.g. \"com.4d.private.picture.gif\"); an empty string if a data type is not recognized by 4D."
         },
         {
           "name": "nativeTypes",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Data types expressed as native types: UTIs on macOS, or stringified format numbers on Windows."
         },
         {
           "name": "formatNames",
@@ -30,11 +32,14 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Format names/descriptions of the Windows native types, useful for building a format-selection popup menu."
         }
-      ],
-      "semanticRole": "The GET PASTEBOARD DATA TYPE command gets the list of data types present in the pasteboard."
+      ]
     }
+  ],
+  "constraints": [
+    "Intended for use in a drag-and-drop context (On Drop / On Drag Over form events) to check what data types are present in the pasteboard before deciding whether to accept a drop."
   ]
 }

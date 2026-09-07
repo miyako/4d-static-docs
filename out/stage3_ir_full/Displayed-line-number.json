@@ -6,7 +6,10 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Displayed line number command only works with the On Display Detail form event."
+      "semanticRole": "Returns the 1-based row number currently being processed while a list of records or list box row is displayed, valid only inside an On Display Detail form event; returns 0 otherwise."
     }
+  ],
+  "constraints": [
+    "For a list of records, when the displayed row is linked to a record its value matches Selected record number; unlike Selected record number, it also reports empty rows."
   ]
 }

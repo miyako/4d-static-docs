@@ -1,0 +1,19 @@
+{
+  "constraints": [
+    "The new size applies to the current process only and is not saved with the form.",
+    "This command takes horizontal/vertical resizing properties into account: e.g. if the minimum width is 500px and the command sets 400px, the actual resulting width is clamped to 500px.",
+    "Does not change the form window's size (only the form itself); use RESIZE FORM WINDOW for the window."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Sets the current form's size by programming, in one of three modes selected by which optional parameters are passed: automatic sizing with margins (object omitted, * passed), sizing relative to an object plus margins (object passed, * omitted), or a fixed width/height (both omitted).",
+      "jointConstraints": [
+        {
+          "params": ["object", "horizontal", "vertical", "*"],
+          "rule": "object and * are mutually exclusive (cannot both be passed). With * passed (object omitted): horizontal/vertical are the right/bottom margins (px) added around all form objects for automatic sizing. With object passed (* omitted, and * cannot be passed in this mode): horizontal/vertical are the right/bottom margins (px) added around that object. With both omitted: horizontal/vertical are the fixed width/height (px) of the form."
+        }
+      ]
+    }
+  ]
+}

@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Unique group ID number"
         },
         {
           "name": "name",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Name of the group"
         },
         {
           "name": "owner",
@@ -30,20 +32,32 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "always returned in project databases; in binary databases, means no owner or the group has no designer-set owner"
+            }
+          ],
+          "description": "User ID number of the group owner (binary databases only)"
         },
         {
           "name": "members",
           "type": {
             "kind": "concrete",
-            "name": "Integer array"
+            "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Filled with the unique IDs of the users and groups belonging to this group"
         }
       ],
-      "semanticRole": "GET GROUP PROPERTIES returns the properties of the group whose unique group ID number you pass in groupID ."
+      "semanticRole": "Returns the name, owner, and (optionally) member IDs of the group identified by groupID."
     }
+  ],
+  "constraints": [
+    "groupID must be a valid group ID as returned by GET GROUP LIST; if not valid, the command returns empty parameters.",
+    "owner is only meaningful for binary databases -- it always returns 0 in project databases."
   ]
 }

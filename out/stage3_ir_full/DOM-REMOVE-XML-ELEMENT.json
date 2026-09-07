@@ -2,7 +2,7 @@
   "id": "DOM-REMOVE-XML-ELEMENT",
   "displayName": "DOM REMOVE XML ELEMENT",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -16,7 +16,10 @@
           "optional": false
         }
       ],
-      "semanticRole": "The DOM REMOVE XML ELEMENT command removes the element designated by elementRef ."
+      "semanticRole": "Removes the XML element designated by elementRef (and its subtree) from the DOM."
     }
-  ]
+  ],
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  }
 }

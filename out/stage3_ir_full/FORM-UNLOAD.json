@@ -6,7 +6,10 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The FORM UNLOAD command releases from memory the current form designated using the FORM LOAD command."
+      "semanticRole": "Releases from memory the current form previously loaded via FORM LOAD."
     }
+  ],
+  "constraints": [
+    "Only necessary when FORM LOAD was used outside of a printing context; when printing, the current form is automatically closed again when CLOSE PRINTING JOB is called."
   ]
 }

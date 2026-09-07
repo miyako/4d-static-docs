@@ -22,7 +22,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name or tag path of the metadata block to get; a constant from the Picture Metadata Names theme, a block name (\"TIFF\", \"EXIF\", \"GPS\", \"IPTC\"), or an empty string."
         },
         {
           "name": "metaContents",
@@ -30,7 +31,7 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -51,7 +52,7 @@
                 "kind": "concrete",
                 "name": "Variable"
               },
-              "direction": "in",
+              "direction": "out",
               "optional": false
             }
           ],
@@ -61,8 +62,11 @@
           },
           "position": "trailing"
         }
-      ],
-      "semanticRole": "The GET PICTURE METADATA command can be used to read the contents of the metadata (or meta-tags) found in picture (4D picture field or variable)."
+      ]
     }
+  ],
+  "constraints": [
+    "If metaName is a tag path, metaContents directly receives the value (converted to the variable's declared type, Text by default; Text results are XMP-formatted XML); pass an array if the tag can hold more than one value (e.g. IPTC Keywords).",
+    "If metaName is a block name (\"TIFF\", \"EXIF\", \"GPS\", \"IPTC\") or an empty string, metaContents must instead be a valid XML DOM element reference, into which the designated block(s) are copied."
   ]
 }

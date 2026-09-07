@@ -1,0 +1,38 @@
+{
+  "constraints": [
+    "If dimensions differ, returns False and mask is a blank picture.",
+    "If dimensions match but contents differ, returns False and mask is a black-on-white pixel-diff picture (mismatched pixels appear white on black).",
+    "If the pictures are identical, returns True and mask is entirely black.",
+    "Sets the OK system variable to 0 if a picture is uninitialized (blank), otherwise 1."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Fixed 'mask' direction to 'out' (draft defaulted to 'in'); the parameter table marks it with col2 '\u2190' as the resulting comparison mask.",
+      "params": [
+        {
+          "name": "picture1",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "in",
+          "optional": false,
+          "description": "Original source picture"
+        },
+        {
+          "name": "picture2",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "in",
+          "optional": false,
+          "description": "Picture to compare"
+        },
+        {
+          "name": "mask",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the resulting comparison mask picture"
+        }
+      ],
+      "semanticRole": "Pixel-by-pixel compares the dimensions and contents of two pictures and produces a visual diff mask."
+    }
+  ]
+}

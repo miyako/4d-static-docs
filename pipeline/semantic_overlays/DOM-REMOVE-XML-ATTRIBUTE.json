@@ -1,0 +1,15 @@
+{
+  "theme": "XML-DOM",
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  },
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Removes the attribute named attribName from the XML element elementRef, if it exists."
+    }
+  ],
+  "constraints": [
+    "Sets the OK system variable to 1 on success, or 0 (with an error) if attribName does not exist on elementRef."
+  ]
+}

@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True if the form can be resized vertically, False otherwise"
         },
         {
           "name": "minHeight",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Smallest form height allowed, in pixels"
         },
         {
           "name": "maxHeight",
@@ -30,11 +32,15 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Largest form height allowed, in pixels"
         }
       ],
-      "semanticRole": "The FORM GET VERTICAL RESIZING command returns the vertical resizing properties of the current form in the resize , minHeight and maxHeight variables."
+      "semanticRole": "Returns the current form's vertical resizing properties (whether resizable, and the allowed min/max height in pixels)."
     }
+  ],
+  "constraints": [
+    "These properties may have been set in the Form editor (Design mode) or previously in the current process via FORM SET VERTICAL RESIZING."
   ]
 }

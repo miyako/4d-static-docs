@@ -2,12 +2,12 @@
   "id": "EDIT-ITEM",
   "displayName": "EDIT ITEM",
   "kind": "classic_command",
-  "theme": "Entry Control",
+  "theme": "Entry-Control",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'object' below is an object name (pass a string); if omitted, 'object' is a Table or Variable reference."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "item",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The EDIT ITEM command allows you to edit the current item or the item number item in the array or the list set in the object parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Table"
@@ -53,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' passed) or Table/variable reference (if '*' omitted)"
         },
         {
           "name": "item",
@@ -62,10 +45,16 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Position of the item (hierarchical list) or row number (list box column/list form/subform); if omitted, applies to the current item, or the first item if there is no current item."
         }
       ],
-      "semanticRole": "The EDIT ITEM command allows you to edit the current item or the item number item in the array or the list set in the object parameter."
+      "semanticRole": "Switches the current (or specified) item of the given enterable list-like object into edit mode, replacing its content on the next keystroke."
     }
+  ],
+  "constraints": [
+    "Applies only to enterable objects: hierarchical lists, list box columns, subforms (object name only), and list forms displayed via DISPLAY SELECTION/MODIFY SELECTION.",
+    "If used on an enterable object that is not a list, it behaves the same as GOTO OBJECT.",
+    "Does nothing if the target list/array is empty or invisible; if the list/array is not enterable, it only selects the item without entering edit mode."
   ]
 }

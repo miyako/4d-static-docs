@@ -10,13 +10,17 @@
           "name": "methodsArray",
           "type": {
             "kind": "concrete",
-            "name": "Text array"
+            "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the names of methods authorized for use in formulas"
         }
       ],
-      "semanticRole": "The GET ALLOWED METHODS command returns, in methodsArray , the names of methods that can be used to write formulas."
+      "semanticRole": "Returns, in methodsArray, the names (or '@' wildcard groups) of methods currently authorized for use in formulas via SET ALLOWED METHODS."
     }
+  ],
+  "constraints": [
+    "Returns exactly what was previously passed to SET ALLOWED METHODS, including any '@' wildcard group strings (not the individually expanded method names); returns an empty array if SET ALLOWED METHODS has never been called."
   ]
 }

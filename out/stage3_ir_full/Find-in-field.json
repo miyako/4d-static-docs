@@ -13,7 +13,8 @@
             "name": "Field"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Field on which to execute the search"
         },
         {
           "name": "value",
@@ -27,15 +28,20 @@
               "name": "Variable"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "inout",
+          "optional": false,
+          "description": "in: value to search for (may use the '@' wildcard); out: value found"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Find in field command returns the number of the first record whose targetField field is equal to value ."
+      "semanticRole": "Searches for the first record whose targetField equals value (supports the '@' wildcard), returning its record number, or -1 if none is found; on success, value is overwritten with the value found."
     }
+  ],
+  "constraints": [
+    "Because value is reassigned by the search (it is both an input search value and an output for the value found), you cannot pass a numbered parameter ($1, $2, etc.) as value -- this would cause malfunctions in compiled mode.",
+    "If value is itself a field, its value is reassigned when the query succeeds, so Modified record will return True for the current record afterward."
   ]
 }

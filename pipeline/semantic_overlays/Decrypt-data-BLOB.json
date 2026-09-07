@@ -1,0 +1,88 @@
+{
+  "theme": "Data-Security",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "decryptedBLOB is an out-parameter that receives the decrypted result; the mechanical draft parsed it as direction 'in' like the other params.",
+      "params": [
+        {
+          "name": "blobToDecrypt",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB to decrypt"
+        },
+        {
+          "name": "keyObject",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": false,
+          "description": "JSON object containing the encryption key, with the same structure as the object returned by New data key"
+        },
+        {
+          "name": "salt",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Salt value; must match the one used for encryption"
+        },
+        {
+          "name": "decryptedBLOB",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the decrypted data (empty on error)"
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Boolean" },
+      "semanticRole": "Decrypts blobToDecrypt (AES-256) using an explicit encryption-key object, returning the result in decryptedBLOB and True on success.",
+      "discriminatedBy": {
+        "param": "keyObject",
+        "rule": "Second parameter is an Object holding a prebuilt encryption key (as returned by New data key)."
+      }
+    },
+    {
+      "sourceIndices": [1],
+      "note": "decryptedBLOB is an out-parameter that receives the decrypted result; the mechanical draft parsed it as direction 'in' like the other params.",
+      "params": [
+        {
+          "name": "blobToDecrypt",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB to decrypt"
+        },
+        {
+          "name": "passPhrase",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Passphrase used to generate the encryption key directly"
+        },
+        {
+          "name": "salt",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Salt value; must match the one used for encryption"
+        },
+        {
+          "name": "decryptedBLOB",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the decrypted data (empty on error)"
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Boolean" },
+      "semanticRole": "Decrypts blobToDecrypt (AES-256) using a passphrase to derive the encryption key directly, returning the result in decryptedBLOB and True on success.",
+      "discriminatedBy": {
+        "param": "passPhrase",
+        "rule": "Second parameter is a Text passphrase used to generate the key directly."
+      }
+    }
+  ],
+  "constraints": [
+    "salt must match the value used when the BLOB was originally encrypted, or decryption fails."
+  ]
+}

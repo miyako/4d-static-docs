@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name or path of the document/folder to get the icon of, or an empty string to prompt via the standard Open File dialog"
         },
         {
           "name": "icon",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Picture"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the document's icon"
         },
         {
           "name": "size",
@@ -31,10 +33,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Size, in pixels, of the returned icon picture"
         }
       ],
-      "semanticRole": "The GET DOCUMENT ICON command returns, in the 4D picture variable or field icon , the icon of the document whose name or complete pathname is passed in docPath .can specify a file of any type (executable, document, short"
+      "semanticRole": "Fills icon with the icon of the document or folder designated by docPath (or prompts the user for one when docPath is empty), optionally at a requested pixel size."
     }
+  ],
+  "constraints": [
+    "If docPath is an empty string, the standard Open File dialog box appears and blocks for user input; the selected path is then available via the Document system variable.",
+    "docPath can name a file of any type (executable, document, alias/shortcut) or a folder; a relative name/pathname is resolved against the database's current working directory."
   ]
 }

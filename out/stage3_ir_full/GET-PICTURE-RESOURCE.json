@@ -27,8 +27,9 @@
               "name": "Variable"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "inout",
+          "optional": false,
+          "description": "Picture field or variable to receive the picture; filled with the contents of the 'PICT' resource."
         },
         {
           "name": "resFile",
@@ -37,10 +38,14 @@
             "name": "Time"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Resource file reference number to restrict the search to; if omitted, all open resource files are searched."
         }
-      ],
-      "semanticRole": "The GET PICTURE RESOURCE command returns in the picture field or variable resData the picture stored in the picture (\u201cPICT\u201d) resource whose ID is passed in resID ."
+      ]
     }
+  ],
+  "constraints": [
+    "If the resource is not found, resData is left unchanged and the OK system variable is set to 0.",
+    "If resFile is omitted, the first matching resource found across the chain of open resource files is returned; otherwise only that file is searched."
   ]
 }

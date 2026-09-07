@@ -2,7 +2,7 @@
   "id": "FORM-EDIT",
   "displayName": "FORM EDIT",
   "kind": "classic_command",
-  "theme": "Design Object Access",
+  "theme": "Design-Object-Access",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table owning the form (table form); if omitted, form is a project form"
         },
         {
           "name": "form",
@@ -22,30 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The FORM EDIT command opens the form associated to aTable in the 4D Form editor, with optionnally object selected."
-    },
-    {
-      "params": [
-        {
-          "name": "aTable",
-          "type": {
-            "kind": "concrete",
-            "name": "Table"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "form",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the form to open in the 4D Form editor"
         },
         {
           "name": "object",
@@ -54,10 +33,24 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "Name of a form object or group to select automatically; pass an empty string to deselect all objects",
+          "sentinelValues": [
+            {
+              "value": "\"\"",
+              "meaning": "deselect all objects in the open form"
+            }
+          ]
         }
       ],
-      "semanticRole": "The FORM EDIT command opens the form associated to aTable in the 4D Form editor, with optionnally object selected."
+      "semanticRole": "Opens the specified form (project or table form) in the 4D Form editor, asynchronously, optionally pre-selecting a named object or group (or deselecting all, if object is an empty string)."
     }
+  ],
+  "constraints": [
+    "Requires access to the Design environment; otherwise error -9804 (\"Cannot open form\") is generated.",
+    "If form does not exist, error 81 (\"Form not found\") is generated.",
+    "The command is asynchronous: it returns immediately without waiting for the editor to actually open.",
+    "If object is not found in form, the form still opens and no error is returned.",
+    "Passing an empty string in object deselects all objects in the open form."
   ]
 }

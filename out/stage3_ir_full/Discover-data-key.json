@@ -2,11 +2,15 @@
   "id": "Discover-data-key",
   "displayName": "Discover data key",
   "kind": "classic_command",
-  "theme": "Data Security",
+  "theme": "Data-Security",
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Discover data key command searches for a valid encryption key corresponding to the currently opened data file at the root level of all connected devices and returns True if successful."
+      "semanticRole": "Searches the root level of all connected devices for a \".4DKeyChain\" file holding a valid encryption key for the currently-open data file; if found, applies it and adds it to the 4D keychain, returning True."
     }
+  ],
+  "constraints": [
+    "Only searches the top level of connected devices (USB keys, external disks); does not traverse folder hierarchies.",
+    "Key files must use the \".4DKeyChain\" extension and store the key in JSON format."
   ]
 }

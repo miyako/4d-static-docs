@@ -1,0 +1,51 @@
+{
+  "constraints": [
+    "The array must already be sorted, and the sort order must match the order parameter ('>' for ascending, '<' for descending); behavior is unspecified if the array isn't actually sorted that way.",
+    "Uses a binary search, so it is markedly more efficient on large arrays than Find in array."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "posFirst and posLast are documented as out parameters (returned positions/insertion points), not in -- the mechanical draft defaulted every parameter to direction 'in'.",
+      "params": [
+        {
+          "name": "array",
+          "type": { "kind": "concrete", "name": "Array" },
+          "direction": "in",
+          "optional": false,
+          "description": "Array to search"
+        },
+        {
+          "name": "value",
+          "type": { "kind": "pseudo", "name": "Expression" },
+          "direction": "in",
+          "optional": false,
+          "description": "Value (same type as array) to search for"
+        },
+        {
+          "name": "order",
+          "type": { "kind": "literal_symbols", "symbols": [">", "<"] },
+          "direction": "in",
+          "optional": false,
+          "description": "'>' if array is sorted ascending, '<' if descending"
+        },
+        {
+          "name": "posFirst",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Position of the first matching occurrence if found, otherwise the position where value should be inserted"
+        },
+        {
+          "name": "posLast",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Position of the last matching occurrence if found, otherwise same as posFirst"
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Boolean" },
+      "semanticRole": "Returns true if at least one element of the sorted array matches value, using a binary search, and optionally returns the first/last matching positions (or insertion point) via posFirst/posLast."
+    }
+  ]
+}

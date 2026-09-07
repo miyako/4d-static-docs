@@ -2,7 +2,7 @@
   "id": "FOLDER-LIST",
   "displayName": "FOLDER LIST",
   "kind": "classic_command",
-  "theme": "System Documents",
+  "theme": "System-Documents",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Absolute pathname to a volume, directory, or folder"
         },
         {
           "name": "directories",
@@ -21,11 +22,17 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the names of the folders located at pathname"
         }
       ],
-      "semanticRole": "The FOLDER LIST command populates the Text or String array directories with the names of the folders located at the pathname you pass in pathname .The pathname parameter only accepts absolute pathnames."
+      "semanticRole": "Populates an array with the names of the folders directly located at the given absolute path."
     }
+  ],
+  "constraints": [
+    "pathname must be an absolute path; only absolute pathnames are accepted.",
+    "Generates a file-manager error (trappable via ON ERR CALL) if pathname is invalid.",
+    "If there are no folders at pathname, directories is returned as an empty array."
   ]
 }

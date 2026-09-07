@@ -2,7 +2,7 @@
   "id": "Field",
   "displayName": "Field",
   "kind": "classic_command",
-  "theme": "Structure Access",
+  "theme": "Structure-Access",
   "overloads": [
     {
       "params": [
@@ -29,7 +29,11 @@
         "kind": "concrete",
         "name": "Pointer"
       },
-      "semanticRole": "The Field command has two forms: If you pass a table number in tableNum and a field number in fieldNum , Field returns a pointer to the field."
+      "semanticRole": "Returns a pointer to the field designated by its table number and field number.",
+      "discriminatedBy": {
+        "param": "first two positional parameters",
+        "rule": "Two Integer parameters (tableNum, fieldNum) -- forward lookup from numeric identifiers to a field pointer."
+      }
     },
     {
       "params": [
@@ -47,7 +51,11 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Field command has two forms: If you pass a table number in tableNum and a field number in fieldNum , Field returns a pointer to the field."
+      "semanticRole": "Returns the field number of the field designated by a field pointer.",
+      "discriminatedBy": {
+        "param": "first positional parameter",
+        "rule": "A single Pointer parameter (fieldPtr) -- reverse lookup from a field pointer to its numeric field number."
+      }
     }
   ]
 }

@@ -6,7 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The FORM Get color scheme command returns the name of the actual color scheme of the currently displayed form."
+      "semanticRole": "Returns the actual, resolved color scheme (\"light\" or \"dark\") of the currently displayed form, or an empty string if there is no current form."
     }
+  ],
+  "constraints": [
+    "On Windows with the Classic theme, this command always returns \"light\".",
+    "The color scheme resolution order is: the form's 'Color Scheme' property; if that is 'inherited', SET APPLICATION COLOR SCHEME; if not called or 'inherited', the host database Settings; if 'inherited', the OS user preferences."
   ]
 }

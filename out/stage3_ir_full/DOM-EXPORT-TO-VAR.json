@@ -2,7 +2,7 @@
   "id": "DOM-EXPORT-TO-VAR",
   "displayName": "DOM EXPORT TO VAR",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Root XML element reference to export"
         },
         {
           "name": "vXmlVar",
@@ -27,11 +28,20 @@
               "name": "Blob"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Text or BLOB variable that receives the exported XML tree"
         }
       ],
-      "semanticRole": "The DOM EXPORT TO VAR command saves an XML tree in a text or BLOB variable."
+      "semanticRole": "Saves an XML tree into a Text or BLOB variable in memory."
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  },
+  "constraints": [
+    "vXmlVar must be a Text or BLOB variable; a Text variable is limited to 32K in non-Unicode mode (2GB in Unicode mode), and in non-Unicode mode its content loses its original encoding declaration (use BLOB to preserve valid, sendable XML in that case).",
+    "On export, internal LF line breaks are replaced by CRLF on Windows (no replacement on macOS); use an XML CDATA element (or the \"&#13;\" entity) to preserve literal carriage returns.",
+    "Written without a BOM by default; line-ending and BOM behavior are controlled via XML SET OPTIONS."
   ]
 }

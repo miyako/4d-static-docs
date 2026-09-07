@@ -13,7 +13,17 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Full method text"
+            },
+            {
+              "value": 2,
+              "meaning": "Highlighted method text"
+            }
+          ]
         },
         {
           "name": "textParam",
@@ -21,11 +31,11 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "All (or, if Highlighted method text was passed, only the selected portion of) the text of the calling method."
         }
-      ],
-      "semanticRole": "The GET MACRO PARAMETER command returns, in the paramText parameter, all or part of the text of the method from which it was called."
+      ]
     }
   ]
 }

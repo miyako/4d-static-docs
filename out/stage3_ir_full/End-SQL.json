@@ -6,7 +6,10 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "End SQL is a keyword indicating the end of a sequence of SQL commands in the Method editor."
+      "semanticRole": "Marks the end of an inline SQL statement sequence started by Begin SQL in the Method editor."
     }
+  ],
+  "constraints": [
+    "Must be paired with a preceding Begin SQL: a sequence of SQL statements must be enclosed between Begin SQL and End SQL."
   ]
 }

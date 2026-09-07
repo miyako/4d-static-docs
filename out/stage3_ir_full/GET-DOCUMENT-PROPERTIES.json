@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Document name or pathname"
         },
         {
           "name": "locked",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True if the document is locked (cannot be modified)"
         },
         {
           "name": "invisible",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True if the document is hidden"
         },
         {
           "name": "createdOn",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Date"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Creation date"
         },
         {
           "name": "createdAt",
@@ -48,8 +52,9 @@
             "kind": "concrete",
             "name": "Time"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Creation time"
         },
         {
           "name": "modifiedOn",
@@ -57,8 +62,9 @@
             "kind": "concrete",
             "name": "Date"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Last modification date"
         },
         {
           "name": "modifiedAt",
@@ -66,11 +72,12 @@
             "kind": "concrete",
             "name": "Time"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Last modification time"
         }
       ],
-      "semanticRole": "The GET DOCUMENT PROPERTIES command returns information about the document whose name or pathname you pass in document ."
+      "semanticRole": "Returns lock/visibility status plus creation and last-modification date/time for the named document."
     }
   ]
 }

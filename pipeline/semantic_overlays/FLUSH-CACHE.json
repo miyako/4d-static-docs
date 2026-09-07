@@ -1,0 +1,29 @@
+{
+  "theme": "Cache-Management",
+  "constraints": [
+    "Passing a parameter to this command is reserved for testing purposes; freeing cache memory in production is not recommended for performance reasons.",
+    "By default (no parameter), the cache memory itself is left untouched and continues to be used for subsequent reads; only the data buffers are saved to disk."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The two syntax lines are the same optional argument slot expressed as either a numeric byte count or the literal '*' marker; merged into one overload with a discriminated-union param instead of two overloads.",
+      "params": [
+        {
+          "name": "size",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "literal_symbols", "symbols": ["*"] }
+          ],
+          "direction": "in",
+          "optional": true,
+          "sentinelValues": [
+            { "value": "*", "meaning": "save the cache and free the entire cache memory" }
+          ],
+          "description": "Number of bytes to free from the cache, or '*' to free it entirely; if omitted, the cache is only saved to disk, not freed"
+        }
+      ],
+      "semanticRole": "Immediately saves the data buffers to disk and, optionally, frees some or all of the cache memory."
+    }
+  ]
+}

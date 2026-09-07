@@ -2,7 +2,7 @@
   "id": "Document-to-text",
   "displayName": "Document to text",
   "kind": "classic_command",
-  "theme": "System Documents",
+  "theme": "System-Documents",
   "overloads": [
     {
       "params": [
@@ -44,7 +44,14 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Document to text command lets you retrieve the contents of a file directly on disk in a 4D text variable or text field."
+      "semanticRole": "Reads the contents of the disk file fileName into a text result, applying character-set decoding and end-of-line normalization."
     }
+  ],
+  "constraints": [
+    "fileName can be a bare file name (resolved next to the structure file), a pathname relative to the structure file, or an absolute pathname; the file must exist or an error is generated (caught via ON ERR CALL).",
+    "If the document has a Byte Order Mark (BOM), the BOM's character set is used instead of charSet, which is then ignored.",
+    "If there is no BOM and charSet is omitted, the default is ANSI on Windows and MacRoman on macOS.",
+    "breakMode defaults to native line-break format (1) when omitted; other values (0=unchanged, 2=CRLF, 3=CR, 4=LF) are documented constants in the System Documents theme.",
+    "Does not modify the OK system variable; failures raise a catchable error instead."
   ]
 }

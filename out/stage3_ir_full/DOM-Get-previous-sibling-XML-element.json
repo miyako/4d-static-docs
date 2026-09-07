@@ -2,7 +2,7 @@
   "id": "DOM-Get-previous-sibling-XML-element",
   "displayName": "DOM Get previous sibling XML element",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML element reference"
         },
         {
           "name": "siblingElemName",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the name of the previous sibling element"
         },
         {
           "name": "siblingElemValue",
@@ -30,15 +32,19 @@
             "kind": "pseudo",
             "name": "any"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the value of the previous sibling element"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The DOM Get previous sibling XML element command returns a reference to the previous \u201csibling\u201d of the XML element passed as reference."
+      "semanticRole": "Returns a reference to the previous sibling of elementRef among its parent's children, for use navigating the children of an XML element; sets OK to 0 before the first sibling."
     }
-  ]
+  ],
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  }
 }

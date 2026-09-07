@@ -13,28 +13,44 @@
             "name": "Field"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Indexable field to use for data; unindexed fields are supported but slower"
         },
         {
           "name": "array",
           "type": {
-            "kind": "concrete",
-            "name": "Array"
+            "kind": "pseudo",
+            "name": "any"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the distinct field values, sorted ascending using the field's index; must match aField's type (retyped if necessary, except Picture fields with a keyword index, which require a Text array)"
         },
         {
           "name": "countArray",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer array"
-          },
-          "direction": "in",
-          "optional": true
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer array"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real array"
+            }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "Receives, for each value in array, its number of occurrences in the current selection; not supported (returned empty) for text/picture fields with a keyword index"
         }
       ],
-      "semanticRole": "The DISTINCT VALUES command creates and populates the array array with non-repeated (unique) values coming from the field aField for the current selection of the table to which the field belongs and, optionally, returns"
+      "semanticRole": "Returns the non-repeated (unique) values of a field for the current selection, sorted ascending via the field's index, and optionally the occurrence count of each value."
     }
+  ],
+  "constraints": [
+    "Does not support Object type fields.",
+    "For Text fields, a keyword index (if any) is always used in preference to a standard index; for Picture fields, a keyword index is required or the array is returned empty.",
+    "Executing on an unindexed field is slower and loses the current record.",
+    "On 4D Server, the array is built and values calculated server-side, then the whole array is sent to the client.",
+    "Does not change the current selection or the current record."
   ]
 }

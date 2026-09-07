@@ -13,7 +13,8 @@
             "name": "Field"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object field to get distinct attribute values from; must be of the Object type"
         },
         {
           "name": "path",
@@ -22,19 +23,27 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Dot-notation path of the attribute whose distinct values to get (case-sensitive)"
         },
         {
           "name": "valuesArray",
           "type": {
-            "kind": "concrete",
-            "name": "Array"
+            "kind": "pseudo",
+            "name": "any"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the non-repeated values; must be the same scalar array type (Text, number, Boolean, Date, or Time) as the values stored at path"
         }
       ],
-      "semanticRole": "The DISTINCT ATTRIBUTE VALUES command creates and populates the valuesArray with non-repeated (unique) values coming from the path attribute in the objectField field for the current selection of the table to which this f"
+      "semanticRole": "Returns the non-repeated (unique) values found at a given nested attribute path of an Object field, for the current selection."
     }
+  ],
+  "constraints": [
+    "objectField must be of the Object type, otherwise an error is returned.",
+    "All values at path across the selection must be of the same scalar type (Text, number, Boolean, Date, or Time); mixed types (e.g. text in one record, number in another) generate an error. Pointers, objects, BLOBs, and images are not supported.",
+    "Can be used with indexed or non-indexed fields, but is slower on unindexed fields and loses the current record in that case.",
+    "Does not change the current selection or the current record."
   ]
 }

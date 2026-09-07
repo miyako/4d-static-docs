@@ -1,0 +1,37 @@
+{
+  "constraints": [
+    "Values are expressed in pixels relative to the paper edges (the physical sheet), not the printable area; combine with GET PRINTABLE AREA to compute the total paper size."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: left, top, right, and bottom are all filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "left",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "top",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "right",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "bottom",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

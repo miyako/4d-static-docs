@@ -6,7 +6,7 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "FORM LAST PAGE changes the currently displayed form page to the last form page."
+      "semanticRole": "Displays the last page of the current form; does nothing if no form is being displayed/loaded (via FORM LOAD), or if the last page is already showing."
     }
   ]
 }

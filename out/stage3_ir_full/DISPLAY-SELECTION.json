@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table to display, or Default table, if omitted"
         },
         {
           "name": "selectMode",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Selection mode: pass one of the 'Form Parameters' theme constants (No selection=0, Single selection=1, Multiple selection=2); defaults to Multiple selection"
         },
         {
           "name": "enterList",
@@ -31,10 +33,11 @@
             "name": "Boolean"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "True to authorize the 'Enter in list' mode (selection of values in the list, not modification); defaults to False"
         },
         {
-          "name": "*",
+          "name": "useOutputFormForOneRecord",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -42,10 +45,11 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If present, a one-record selection is displayed using the output form (instead of the input form), and scroll bars are hidden if the user double-clicks into the input form"
         },
         {
-          "name": "*",
+          "name": "showScrollBars",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -53,10 +57,24 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If present, reverses the scroll-bar-hiding effect of the first optional '*', showing scroll bars in the input form again"
         }
       ],
-      "semanticRole": "DISPLAY SELECTION displays the selection of aTable , using the output form."
+      "semanticRole": "Displays the selection of aTable as a scrollable list using the output form, letting the user select (and optionally enter-in-list edit) records.",
+      "jointConstraints": [
+        {
+          "params": [
+            "useOutputFormForOneRecord",
+            "showScrollBars"
+          ],
+          "rule": "showScrollBars only has an effect when useOutputFormForOneRecord is also passed; it overrides that flag's scroll-bar-hiding behavior."
+        }
+      ]
     }
+  ],
+  "constraints": [
+    "If enterList is omitted, Enter-in-list mode is disabled by default; if selectMode is omitted, Multiple Selection mode is used by default.",
+    "During and after execution, records the user highlights are kept in a set named UserSet, available to object methods and to the calling method after DISPLAY SELECTION completes."
   ]
 }

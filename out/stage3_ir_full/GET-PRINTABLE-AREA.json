@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Height of the printable area, in pixels."
         },
         {
           "name": "width",
@@ -21,11 +22,14 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Width of the printable area, in pixels."
         }
-      ],
-      "semanticRole": "The GET PRINTABLE AREA command returns the size, in pixels, of the height and width parameters of the printable area."
+      ]
     }
+  ],
+  "constraints": [
+    "Sizes are constant across pages within the same print job (they do not change after a page break)."
   ]
 }

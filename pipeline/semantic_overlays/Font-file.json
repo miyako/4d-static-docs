@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "fontStyle accepts one constant or a bitwise combination of the Font Styles theme constants (Bold=1, Italic=2, Plain=0); any other value is ignored.",
+    "Returns a Null object if the designated font family is not installed in the OS."
+  ]
+}

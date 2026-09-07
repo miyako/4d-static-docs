@@ -1,0 +1,35 @@
+{
+  "constraints": [
+    "These properties may have been set in the Form editor (Design mode) or previously in the current process via FORM SET VERTICAL RESIZING."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "resize, minHeight and maxHeight are all filled by the command (parameter table arrow '\u2190'), so their direction should be 'out', not the syntax-position default of 'in'.",
+      "params": [
+        {
+          "name": "resize",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True if the form can be resized vertically, False otherwise"
+        },
+        {
+          "name": "minHeight",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Smallest form height allowed, in pixels"
+        },
+        {
+          "name": "maxHeight",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Largest form height allowed, in pixels"
+        }
+      ],
+      "semanticRole": "Returns the current form's vertical resizing properties (whether resizable, and the allowed min/max height in pixels)."
+    }
+  ]
+}

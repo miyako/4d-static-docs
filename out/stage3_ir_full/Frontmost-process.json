@@ -22,7 +22,11 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "Frontmost process returns the number of the process whose window (or windows) are in the front."
+      "semanticRole": "Returns the process number of the frontmost window; without the optional * parameter this checks the floating-window layer when called from a floating window's method, otherwise the regular window layer, while passing * always returns the frontmost active window of the regular (non-floating) layer.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "presence of the literal '*' forces the result to the regular (non-floating) window layer instead of the layer implied by the calling context"
+      }
     }
   ]
 }

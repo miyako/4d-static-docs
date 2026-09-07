@@ -1,0 +1,25 @@
+{
+  "constraints": [
+    "Only absolute pathnames are supported; the command does not accept relative paths.",
+    "By default the path is interpreted as POSIX syntax; a platform-specific pathname (Windows or macOS) must be flagged via the pathType parameter (fk platform path).",
+    "The optional trailing * parameter is only meaningful when the command is called from a component: it makes the command resolve against the host database instead of the component. If * is omitted when called from a component, a null object is always returned."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates and returns a 4D.File object for the file at the given path string.",
+      "discriminatedBy": {
+        "param": "path",
+        "rule": "first argument is a Text path string"
+      }
+    },
+    {
+      "index": 1,
+      "semanticRole": "Creates and returns a 4D.File object for a 4D built-in or system file designated by a file constant; returns a null object if the designated file does not currently exist.",
+      "discriminatedBy": {
+        "param": "fileConstant",
+        "rule": "first argument is an Integer file constant"
+      }
+    }
+  ]
+}

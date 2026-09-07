@@ -1,0 +1,21 @@
+{
+  "constraints": [
+    "Returns exactly what was previously passed to SET ALLOWED METHODS, including any '@' wildcard group strings (not the individually expanded method names); returns an empty array if SET ALLOWED METHODS has never been called."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "methodsArray is filled in by the command (out), not an in parameter.",
+      "params": [
+        {
+          "name": "methodsArray",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the names of methods authorized for use in formulas"
+        }
+      ],
+      "semanticRole": "Returns, in methodsArray, the names (or '@' wildcard groups) of methods currently authorized for use in formulas via SET ALLOWED METHODS."
+    }
+  ]
+}

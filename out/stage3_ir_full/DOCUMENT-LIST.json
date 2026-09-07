@@ -2,7 +2,7 @@
   "id": "DOCUMENT-LIST",
   "displayName": "DOCUMENT LIST",
   "kind": "classic_command",
-  "theme": "System Documents",
+  "theme": "System-Documents",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Absolute pathname to volume, directory, or folder"
         },
         {
           "name": "documents",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the names (or paths, depending on options) of documents found; empty array if none found"
         },
         {
           "name": "options",
@@ -31,10 +33,16 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Bit-combinable constants from the System Documents theme: Recursive parsing=1, Absolute path=2, Posix path=4, Ignore invisible=8; defaults to plain document names only when omitted"
         }
       ],
-      "semanticRole": "The DOCUMENT LIST command populates the Text array documents with the names of the documents located at the location you pass in pathname .You must pass an absolute pathname in the pathname parameter."
+      "semanticRole": "Populates an array with the names (or paths) of documents present at a given folder/volume location, with options controlling path format and recursion."
     }
+  ],
+  "constraints": [
+    "In relative mode with Recursive parsing (option 1 only), subfolder document paths begin with ':' (macOS) or '\\' (Windows).",
+    "In relative mode with Posix path (option 4 only), paths do not start with '/'; in absolute mode with Posix path (option 4 + 2), paths always begin with '/'.",
+    "An invalid pathname generates a file manager error, interceptable via ON ERR CALL."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "DOM-Find-XML-element-by-ID",
   "displayName": "DOM Find XML element by ID",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -29,7 +29,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The DOM Find XML element by ID command searches within an XML document for the element whose id attribute equals the value passed in the id parameter."
+      "semanticRole": "Searches the whole XML document (regardless of elementRef's position) for the element whose id attribute equals a given value."
     }
+  ],
+  "constraints": [
+    "The document's id attribute values must each be unique and a valid XML name (XML validity constraint); if this is violated, the command's result is unpredictable (it returns the reference to the first matching element found).",
+    "The search always covers the whole document, regardless of which element elementRef designates."
   ]
 }

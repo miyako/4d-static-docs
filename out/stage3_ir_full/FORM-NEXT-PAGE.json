@@ -6,7 +6,7 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "FORM NEXT PAGE changes the currently displayed form page to the next form page."
+      "semanticRole": "Displays the next page of the current form; does nothing if no form is being displayed/loaded (via FORM LOAD), or if the last page is already showing."
     }
   ]
 }

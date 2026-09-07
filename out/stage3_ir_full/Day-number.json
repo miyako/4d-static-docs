@@ -2,7 +2,7 @@
   "id": "Day-number",
   "displayName": "Day number",
   "kind": "classic_command",
-  "theme": "Date and Time",
+  "theme": "Date-and-Time",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Day number command returns a number representing the weekday on which aDate falls."
+      "semanticRole": "Returns the weekday number (1-7, Sunday=1) of aDate; returns 2 for null dates."
     }
   ]
 }

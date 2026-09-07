@@ -1,0 +1,10 @@
+{
+  "theme": "XML-DOM",
+  "protocolRefs": { "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close" },
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Appends an existing XML element as the last child of another XML element's children."
+    }
+  ]
+}

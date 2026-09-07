@@ -15,14 +15,21 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string); if omitted, 'list' is a hierarchical list reference number."
         },
         {
           "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
           "direction": "in",
           "optional": false
         },
@@ -39,54 +46,17 @@
             }
           ],
           "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "arrSelection",
-          "type": {
-            "kind": "concrete",
-            "name": "Text array"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "arrValues",
-          "type": {
-            "kind": "concrete",
-            "name": "Text array"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The GET LIST ITEM PARAMETER ARRAYS command lets you retrieve all the parameters in a single call (as well as, optionally, their values) that are associated with the itemRef item in the hierarchical list whose reference o"
-    },
-    {
-      "params": [
-        {
-          "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "itemRef",
-          "type": [
+          "optional": false,
+          "sentinelValues": [
             {
-              "kind": "concrete",
-              "name": "Integer"
+              "value": 0,
+              "meaning": "the last item added to the list (via APPEND TO LIST)"
             },
             {
-              "kind": "pseudo",
-              "name": "Operator"
+              "value": "*",
+              "meaning": "the current item of the list"
             }
-          ],
-          "direction": "in",
-          "optional": false
+          ]
         },
         {
           "name": "arrSelection",
@@ -94,8 +64,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the parameters set for the item."
         },
         {
           "name": "arrValues",
@@ -103,11 +74,11 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Values associated with each parameter in arrSelection; non-Text values (number/Boolean) are converted to strings (True=\"1\", False=\"0\")."
         }
-      ],
-      "semanticRole": "The GET LIST ITEM PARAMETER ARRAYS command lets you retrieve all the parameters in a single call (as well as, optionally, their values) that are associated with the itemRef item in the hierarchical list whose reference o"
+      ]
     }
   ]
 }

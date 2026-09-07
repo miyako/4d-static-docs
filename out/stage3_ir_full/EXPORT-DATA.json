@@ -2,7 +2,7 @@
   "id": "EXPORT-DATA",
   "displayName": "EXPORT DATA",
   "kind": "classic_command",
-  "theme": "Import and Export",
+  "theme": "Import-and-Export",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Full path name of the export file, or \"\" to display the save-file dialog"
         },
         {
           "name": "project",
@@ -27,8 +28,9 @@
               "name": "Blob"
             }
           ],
-          "direction": "in",
-          "optional": true
+          "direction": "inout",
+          "optional": true,
+          "description": "in: contents of the export project (XML text, a reference to a pre-existing DOM element, or a BLOB); out: new contents of the export project, only if '*' was also passed"
         },
         {
           "name": "*",
@@ -39,10 +41,17 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Forces the export dialog box to be displayed (pre-filled with project) and updates project with the resulting parameters"
         }
       ],
-      "semanticRole": "The EXPORT DATA command exports data in the fileName file.4D can export data in the following formats: Text, Fixed length text, XML, SYLK, DIF, DBF (dBase), and 4D."
+      "semanticRole": "Exports the current selection's data to fileName, either silently using a supplied export project or interactively via the export dialog box."
     }
+  ],
+  "constraints": [
+    "If fileName is an empty string, the standard save-file dialog is displayed and the Document system variable receives the chosen path; if the user cancels, OK is set to 0.",
+    "Passing project performs the export directly without user intervention, unless '*' is also passed.",
+    "Since 4D v12, export projects are encoded in XML (Text); the legacy BLOB format from pre-v12 databases can still be read but new projects can no longer be saved back to that format.",
+    "Sets the OK system variable to 1 if the export succeeded."
   ]
 }

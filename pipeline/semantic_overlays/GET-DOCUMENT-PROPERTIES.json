@@ -1,0 +1,60 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "All six status/date/time parameters are filled in by the command (out), not in parameters; only document is an in parameter.",
+      "params": [
+        {
+          "name": "document",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Document name or pathname"
+        },
+        {
+          "name": "locked",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True if the document is locked (cannot be modified)"
+        },
+        {
+          "name": "invisible",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": false,
+          "description": "True if the document is hidden"
+        },
+        {
+          "name": "createdOn",
+          "type": { "kind": "concrete", "name": "Date" },
+          "direction": "out",
+          "optional": false,
+          "description": "Creation date"
+        },
+        {
+          "name": "createdAt",
+          "type": { "kind": "concrete", "name": "Time" },
+          "direction": "out",
+          "optional": false,
+          "description": "Creation time"
+        },
+        {
+          "name": "modifiedOn",
+          "type": { "kind": "concrete", "name": "Date" },
+          "direction": "out",
+          "optional": false,
+          "description": "Last modification date"
+        },
+        {
+          "name": "modifiedAt",
+          "type": { "kind": "concrete", "name": "Time" },
+          "direction": "out",
+          "optional": false,
+          "description": "Last modification time"
+        }
+      ],
+      "semanticRole": "Returns lock/visibility status plus creation and last-modification date/time for the named document."
+    }
+  ]
+}

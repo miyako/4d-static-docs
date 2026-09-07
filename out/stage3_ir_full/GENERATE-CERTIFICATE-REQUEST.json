@@ -13,7 +13,8 @@
             "name": "Blob"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "BLOB containing the private key"
         },
         {
           "name": "certifRequest",
@@ -21,29 +22,35 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "BLOB receiving the generated certificate request"
         },
         {
           "name": "codeArray",
           "type": {
             "kind": "concrete",
-            "name": "Integer array"
+            "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Information code list"
         },
         {
           "name": "nameArray",
           "type": {
             "kind": "concrete",
-            "name": "Text array"
+            "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name list"
         }
       ],
-      "semanticRole": "The GENERATE CERTIFICATE REQUEST command generates a certificate request at the PKCS format which can be directly used by certificate authorities such as Verisign(R) ."
+      "semanticRole": "Generates, in certifRequest, a PKCS-format certificate request built from privKey and the code/name identity arrays, for submission to a certificate authority."
     }
+  ],
+  "constraints": [
+    "The generated request is in PKCS format, suitable for submission directly to a certificate authority (e.g. Verisign)."
   ]
 }

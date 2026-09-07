@@ -2,7 +2,7 @@
   "id": "DOM-Get-root-XML-element",
   "displayName": "DOM Get root XML element",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,10 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The DOM Get root XML element command returns a reference to the root element of the document to which the XML element that is passed in the elementRef parameter belongs."
+      "semanticRole": "Returns a reference to the root element of the document that the XML element passed in elementRef belongs to (or \"\" on error)."
     }
-  ]
+  ],
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "theme": "XML-DOM",
+  "protocolRefs": { "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close" },
+  "constraints": [
+    "You must call DOM CLOSE XML on the returned reference when finished, to free the in-memory XML tree.",
+    "root may be prefixed with a namespace name followed by ':' (e.g. \"MyNameSpace:MyRoot\"); when it is, the nameSpace parameter (the namespace value) becomes mandatory."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates a new, empty in-memory XML tree with the given root element name (and optional namespace declarations), returning its root reference.",
+      "jointConstraints": [
+        {
+          "params": ["root", "nameSpace"],
+          "rule": "If root is prefixed with 'namespaceName:', nameSpace (declaring that namespace's value) must also be passed."
+        }
+      ]
+    }
+  ]
+}

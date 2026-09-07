@@ -1,0 +1,9 @@
+{
+  "theme": "Date-and-Time",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Evaluates expression (a string in ISO date format or the system's regional short-date format, or an existing Date value) and returns the corresponding Date."
+    }
+  ]
+}

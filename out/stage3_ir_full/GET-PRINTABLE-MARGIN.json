@@ -12,7 +12,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -30,7 +30,7 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -39,11 +39,13 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
-      ],
-      "semanticRole": "The GET PRINTABLE MARGIN command returns the current values of the different margins defined using the Print form , PRINT SELECTION and PRINT RECORD commands."
+      ]
     }
+  ],
+  "constraints": [
+    "Values are expressed in pixels relative to the paper edges (the physical sheet), not the printable area; combine with GET PRINTABLE AREA to compute the total paper size."
   ]
 }

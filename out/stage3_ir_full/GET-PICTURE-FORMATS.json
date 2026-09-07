@@ -21,11 +21,14 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "IDs of all formats/codecs embedded in the picture, returned as file extensions (e.g. \".gif\"), MIME types (e.g. \"image/jpeg\"), or 4-character QuickTime codes."
         }
-      ],
-      "semanticRole": "The GET PICTURE FORMATS command returns an array of all the codec IDs (picture formats) contained in the picture passed as parameter."
+      ]
     }
+  ],
+  "constraints": [
+    "The JPEG, PNG, TIFF, GIF, BMP, SVG, PDF, and EMF codecs (handled internally by 4D) are always returned as extensions; 4-character QuickTime codes may appear only when the deprecated QuickTime support compatibility option is enabled."
   ]
 }

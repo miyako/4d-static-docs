@@ -2,7 +2,7 @@
   "id": "DOM-Append-XML-child-node",
   "displayName": "DOM Append XML child node",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -38,7 +38,14 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The DOM Append XML child node command is used to append the childValue value to the XML node designated by elementRef ."
+      "semanticRole": "Appends a new child node (comment, processing instruction, CDATA, DATA, DOCTYPE, or ELEMENT) with the given value to an XML node, returning a reference to the new child. The node kind is selected by the childType constant (one of the 'XML' theme values: comment=2, processing instruction=3, DATA=6, CDATA=7, DOCTYPE=10, ELEMENT=11)."
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  },
+  "constraints": [
+    "childValue's contents are always converted to text before insertion.",
+    "If elementRef designates the Document node (top level), a Doctype node is inserted before any other node; processing instructions and comments are always inserted before the root node (but after any Doctype node)."
   ]
 }

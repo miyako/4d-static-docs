@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Displays the previous page of the current form; does nothing if no form is being displayed/loaded (via FORM LOAD), or if the first page is already showing."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "The array and value parameters must be of the same type (Text, Numeric, Date, Pointer, Object, or Boolean arrays are supported); with Object arrays only object references can be used for value, not deep equality.",
+    "Matching uses the same equality rules as the equality operator (exact match), not a substring/wildcard search."
+  ]
+}

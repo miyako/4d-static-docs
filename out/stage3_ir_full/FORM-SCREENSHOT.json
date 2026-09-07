@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table form only: table of the form (requires formName to also be passed)"
         },
         {
           "name": "formName",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of the form template to screenshot as displayed in the Form editor; if omitted (with aTable), screenshots the form currently being executed/loaded instead"
         },
         {
           "name": "formPict",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Picture"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the screenshot picture"
         },
         {
           "name": "pageNum",
@@ -40,10 +43,18 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "default": "page 1, if omitted",
+          "description": "Page number to screenshot; only meaningful with the form-editor-template syntax (formName passed)"
         }
       ],
-      "semanticRole": "The FORM SCREENSHOT command returns a form as a picture."
+      "semanticRole": "Returns a picture of a form: either a live screenshot of the form currently being executed/loaded (no formName), or a static screenshot of a named form template as rendered in the Form editor (formName passed, optionally at a specific pageNum)."
     }
+  ],
+  "constraints": [
+    "The current-form syntax (aTable/formName omitted) only works with input forms and returns the form exactly as executed/loaded, ignoring the containing window's size.",
+    "The form-editor-template syntax (formName passed) renders the form as it appears in the Form editor, including inherited forms and page-0 objects, and defaults to page 1 unless pageNum is given.",
+    "Web areas are never rendered in the returned screenshot.",
+    "Because aTable and formName are both optional, a pointer-returning function call (e.g. Current form table->, Table->) cannot be passed directly as an argument in compiled mode; use an intermediate pointer variable instead."
   ]
 }

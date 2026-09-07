@@ -1,0 +1,63 @@
+{
+  "theme": "XML-DOM",
+  "constraints": [
+    "elementName matching is case-sensitive by default (XML compliance); configurable via the 'XML DOM case sensitivity' selector of XML SET OPTIONS.",
+    "attrNames/attrValues arrays are automatically created and sized by the command if passed."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "elementValue, attrNames, and attrValues are filled/returned params (docs: '<-' direction); autoparse defaults all params to direction:in.",
+      "params": [
+        {
+          "name": "elementRef",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "elementName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the child element to get"
+        },
+        {
+          "name": "index",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Index number (among same-named children) of the element to get"
+        },
+        {
+          "name": "elementValue",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the value of the found element"
+        },
+        {
+          "name": "attrNames",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the names of the found element's attributes"
+        },
+        {
+          "name": "attrValues",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the values of the found element's attributes"
+        }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the reference of a child element identified by name and index, optionally along with its value and attribute name/value arrays."
+    }
+  ]
+}

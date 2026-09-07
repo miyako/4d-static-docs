@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "A 4D signature, a UTI type (macOS), a format name/number (Windows), or a 4-character type (compatibility) identifying the pasteboard data to retrieve."
         },
         {
           "name": "data",
@@ -21,11 +22,14 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Requested data extracted from the pasteboard; if the pasteboard held text copied within 4D, the BLOB's character set is likely UTF-16."
         }
-      ],
-      "semanticRole": "The GET PASTEBOARD DATA command returns, in the BLOB field or in the data variable, the data present in the pasteboard and whose type you pass in dataType ."
+      ]
     }
+  ],
+  "constraints": [
+    "Cannot be used to read file-type data from the pasteboard; use Get file from pasteboard for that."
   ]
 }

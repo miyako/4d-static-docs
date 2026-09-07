@@ -13,7 +13,8 @@
             "name": "Array"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Array to search"
         },
         {
           "name": "value",
@@ -22,7 +23,8 @@
             "name": "Expression"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Value (same type as array) to search for"
         },
         {
           "name": "order",
@@ -34,7 +36,8 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "'>' if array is sorted ascending, '<' if descending"
         },
         {
           "name": "posFirst",
@@ -42,8 +45,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Position of the first matching occurrence if found, otherwise the position where value should be inserted"
         },
         {
           "name": "posLast",
@@ -51,15 +55,20 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Position of the last matching occurrence if found, otherwise same as posFirst"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Find in sorted array command returns true if at least one element in the sorted array matches the value , and optionally returns position(s) of matched element(s)."
+      "semanticRole": "Returns true if at least one element of the sorted array matches value, using a binary search, and optionally returns the first/last matching positions (or insertion point) via posFirst/posLast."
     }
+  ],
+  "constraints": [
+    "The array must already be sorted, and the sort order must match the order parameter ('>' for ascending, '<' for descending); behavior is unspecified if the array isn't actually sorted that way.",
+    "Uses a binary search, so it is markedly more efficient on large arrays than Find in array."
   ]
 }

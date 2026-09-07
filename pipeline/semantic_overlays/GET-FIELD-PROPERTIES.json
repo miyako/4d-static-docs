@@ -1,0 +1,109 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "fieldType/fieldLength/indexed/unique/invisible are all filled in by the command (out), not in parameters.",
+      "params": [
+        {
+          "name": "fieldPtr",
+          "type": { "kind": "concrete", "name": "Pointer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Field pointer"
+        },
+        {
+          "name": "fieldType",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Type of field (see the Field and Variable Types theme constants)"
+        },
+        {
+          "name": "fieldLength",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Length of the field, if alphanumeric"
+        },
+        {
+          "name": "indexed",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": true,
+          "description": "True = indexed, False = non-indexed"
+        },
+        {
+          "name": "unique",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": true,
+          "description": "True = unique, False = non-unique"
+        },
+        {
+          "name": "invisible",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": true,
+          "description": "True = invisible, False = visible"
+        }
+      ],
+      "semanticRole": "Returns the structure-level type and attributes (length, indexed, unique, invisible) of the field pointed to by fieldPtr."
+    },
+    {
+      "sourceIndices": [1],
+      "note": "Same out-parameter correction as the fieldPtr-based overload.",
+      "params": [
+        {
+          "name": "tableNum",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Table number"
+        },
+        {
+          "name": "fieldNum",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Field number"
+        },
+        {
+          "name": "fieldType",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Type of field (see the Field and Variable Types theme constants)"
+        },
+        {
+          "name": "fieldLength",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Length of the field, if alphanumeric"
+        },
+        {
+          "name": "indexed",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": true,
+          "description": "True = indexed, False = non-indexed"
+        },
+        {
+          "name": "unique",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": true,
+          "description": "True = unique, False = non-unique"
+        },
+        {
+          "name": "invisible",
+          "type": { "kind": "concrete", "name": "Boolean" },
+          "direction": "out",
+          "optional": true,
+          "description": "True = invisible, False = visible"
+        }
+      ],
+      "semanticRole": "Returns the structure-level type and attributes (length, indexed, unique, invisible) of the field identified by tableNum and fieldNum."
+    }
+  ]
+}

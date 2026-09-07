@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table for which to set the input form; default table if omitted"
         },
         {
           "name": "form",
@@ -28,7 +29,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of a table form, a POSIX path to a .json file describing a form, or an object describing a form"
         },
         {
           "name": "userForm",
@@ -37,7 +39,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of a user form (built via _o_CREATE USER FORM) to use as the default input form instead of form"
         },
         {
           "name": "*",
@@ -48,10 +51,17 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, tells 4D to use the form's Design-environment Form Properties window size settings to automatically resize the window the next time the form is used (as an input form or dialog box); see Open window."
         }
       ],
-      "semanticRole": "The FORM SET INPUT command sets the current input form for aTable to form , or userForm ."
+      "semanticRole": "Designates, for the current process, which form (or user form) is used as the input form of aTable for data entry, import, and related commands."
     }
+  ],
+  "constraints": [
+    "form must belong to aTable (or the default table, if aTable is omitted); this command is not compatible with project forms.",
+    "Does not display the form; it only designates which form is used for data entry (or by import commands) in the current process, until changed or the process ends.",
+    "If the specified form does not exist, the table's default input form (defined in the Explorer) is used instead.",
+    "userForm lets a user form (built via _o_CREATE USER FORM) be designated instead of the plain input form, so several custom user forms can coexist and be switched between."
   ]
 }

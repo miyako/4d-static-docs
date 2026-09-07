@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    "There can only be one current form per process; loading a new form implicitly replaces the previous current form.",
+    "When executed from a component, the command loads the component's own forms by default; passing * makes it load the host database's forms instead.",
+    "For printing, a print job must already be open (via OPEN PRINTING JOB) before calling FORM LOAD; OPEN PRINTING JOB implicitly calls FORM UNLOAD first.",
+    "formData's properties become available from within the form context via the Form command, and are visible in the On Load form event; alternatively, a user class associated with the form is auto-instantiated to serve the same role."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Loads a form (by name, .json file path, or description object) as the current form in memory for the current process, optionally attaching formData, so its contents can be printed or parsed without displaying it."
+    }
+  ]
+}

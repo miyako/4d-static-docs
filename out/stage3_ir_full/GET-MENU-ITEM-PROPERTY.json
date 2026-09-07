@@ -19,7 +19,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Menu reference (MenuRef) or menu number."
         },
         {
           "name": "menuItem",
@@ -28,7 +29,13 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to the menu"
+            }
+          ]
         },
         {
           "name": "property",
@@ -37,7 +44,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "A constant from the Menu Item Properties theme, or a custom property name."
         },
         {
           "name": "value",
@@ -45,7 +53,7 @@
             "kind": "pseudo",
             "name": "any"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -57,8 +65,11 @@
           "direction": "in",
           "optional": true
         }
-      ],
-      "semanticRole": "The GET MENU ITEM PROPERTY command returns, in the value parameter, the current value of the property of the menu item designated by the menu and menuItem parameters."
+      ]
     }
+  ],
+  "constraints": [
+    "If menu is a menu reference (MenuRef), the process parameter is unnecessary and is ignored if passed; if menu is a menu number, process (if passed) designates which process's menu bar to use, defaulting to the current process.",
+    "By default, if value is untyped or declared as text, the command returns a Standard Action name; to get the deprecated numeric 'Value for Associated Standard Action' constant instead, declare value as longint."
   ]
 }

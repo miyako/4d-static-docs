@@ -2,7 +2,7 @@
   "id": "DOM-Get-XML-information",
   "displayName": "DOM Get XML information",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -29,7 +29,7 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The DOM Get XML information command retrieves diverse information about the XML element designated by elementRef ."
+      "semanticRole": "Retrieves document-level XML info (encoding, XML version, DOCTYPE name/public ID/system ID, or DTD document URI) selected by an xmlInfo constant."
     }
   ]
 }

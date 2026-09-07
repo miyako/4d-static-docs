@@ -15,14 +15,21 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, 'list' below is an object name (string); if omitted, 'list' is a hierarchical list reference number."
         },
         {
           "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
           "direction": "in",
           "optional": false
         },
@@ -39,45 +46,17 @@
             }
           ],
           "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "icon",
-          "type": {
-            "kind": "concrete",
-            "name": "Picture"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The GET LIST ITEM ICON command returns, in icon , the icon associated with the item whose reference number is passed in itemRef in the list whose reference number or object name is passed in list ."
-    },
-    {
-      "params": [
-        {
-          "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "itemRef",
-          "type": [
+          "optional": false,
+          "sentinelValues": [
             {
-              "kind": "pseudo",
-              "name": "Operator"
+              "value": 0,
+              "meaning": "the last item added to the list (via APPEND TO LIST)"
             },
             {
-              "kind": "concrete",
-              "name": "Integer"
+              "value": "*",
+              "meaning": "the current item of the list"
             }
-          ],
-          "direction": "in",
-          "optional": false
+          ]
         },
         {
           "name": "icon",
@@ -85,11 +64,11 @@
             "kind": "concrete",
             "name": "Picture"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Icon associated with the item, regardless of its source (static picture, resource, or picture expression); returned empty if the item has no icon."
         }
-      ],
-      "semanticRole": "The GET LIST ITEM ICON command returns, in icon , the icon associated with the item whose reference number is passed in itemRef in the list whose reference number or object name is passed in list ."
+      ]
     }
   ]
 }

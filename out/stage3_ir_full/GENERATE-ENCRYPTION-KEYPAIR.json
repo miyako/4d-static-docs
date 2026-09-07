@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "BLOB to receive the generated private key"
         },
         {
           "name": "pubKey",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "BLOB to receive the generated public key"
         },
         {
           "name": "length",
@@ -31,10 +33,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "default": 512,
+          "description": "Key length in bits, in the range 512...2048"
         }
       ],
-      "semanticRole": "The GENERATE ENCRYPTION KEYPAIR command generates a new pair of RSA keys."
+      "semanticRole": "Generates a new RSA key pair, returning the private and public keys in privKey and pubKey, at the requested key length (default 512 bits)."
     }
+  ],
+  "constraints": [
+    "Larger key sizes are harder to break but require more computation; length must be chosen accordingly."
   ]
 }

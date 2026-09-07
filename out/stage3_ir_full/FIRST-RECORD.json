@@ -16,7 +16,10 @@
           "optional": true
         }
       ],
-      "semanticRole": "FIRST RECORD makes the first record of the current selection of aTable the current record, and loads the record from disk."
+      "semanticRole": "Loads the first record of aTable's current selection from disk and makes it the current record."
     }
+  ],
+  "constraints": [
+    "Query, selection, and sort commands also reset the current record to the first record; FIRST RECORD is a no-op if the selection is empty or the current record is already first."
   ]
 }

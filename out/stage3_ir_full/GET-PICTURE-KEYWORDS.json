@@ -21,7 +21,7 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         },
         {
@@ -33,10 +33,14 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, only distinct (de-duplicated) keyword values are returned."
         }
-      ],
-      "semanticRole": "The GET PICTURE KEYWORDS command returns, in the arrKeywords array, the list of keywords associated with the picture passed as parameter."
+      ]
     }
+  ],
+  "constraints": [
+    "Only keywords set via IPTC/Keywords metadata are considered; other metadata types are ignored, and only picture formats that support this metadata (JPEG, TIFF, etc.) are supported.",
+    "If the picture has no keywords/IPTC metadata, an empty array is returned and no error is raised."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "DOM-GET-XML-ELEMENT-NAME",
   "displayName": "DOM GET XML ELEMENT NAME",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML element reference"
         },
         {
           "name": "elementName",
@@ -21,11 +22,16 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the name of the XML element",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If elementName's variable type is not defined, Text is used by default."
+          }
         }
       ],
-      "semanticRole": "The DOM GET XML ELEMENT NAME command returns, in the elementName parameter, the name of the XML element designated by elementRef ."
+      "semanticRole": "Returns the name of an XML element."
     }
   ]
 }

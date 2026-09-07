@@ -1,0 +1,40 @@
+{
+  "theme": "XML-DOM",
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  },
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "siblingElemName and siblingElemValue are out-parameters filled in with the previous sibling's name/value, not inputs; the mechanical draft parsed them as direction 'in'.",
+      "params": [
+        {
+          "name": "elementRef",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "siblingElemName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the name of the previous sibling element"
+        },
+        {
+          "name": "siblingElemValue",
+          "type": { "kind": "pseudo", "name": "any" },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the value of the previous sibling element"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns a reference to the previous sibling of elementRef among its parent's children, for use navigating the children of an XML element; sets OK to 0 before the first sibling."
+    }
+  ]
+}

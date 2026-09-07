@@ -1,0 +1,13 @@
+{
+  "theme": "Data-Security",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Searches the root level of all connected devices for a \".4DKeyChain\" file holding a valid encryption key for the currently-open data file; if found, applies it and adds it to the 4D keychain, returning True."
+    }
+  ],
+  "constraints": [
+    "Only searches the top level of connected devices (USB keys, external disks); does not traverse folder hierarchies.",
+    "Key files must use the \".4DKeyChain\" extension and store the key in JSON format."
+  ]
+}

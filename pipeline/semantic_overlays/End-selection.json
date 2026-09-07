@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "PREVIOUS RECORD does not move the pointer back into range once it is past the boundary; use FIRST RECORD, LAST RECORD, or GOTO SELECTED RECORD to do so.",
+    "Also returns True in the last footer when a report is printed via PRINT SELECTION or the Print menu, so it can be used to detect the last page's footer."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Tests whether the current record pointer for aTable has moved past the last record of the current selection (e.g. after NEXT RECORD), or the selection is empty."
+    }
+  ]
+}

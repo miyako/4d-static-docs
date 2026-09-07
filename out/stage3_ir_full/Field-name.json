@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Field name command returns the name of the field whose pointer you pass in fieldPtr or whose table and field number you pass in tableNum and fieldNum ."
+      "semanticRole": "Returns the name of the field pointed to by fieldPtr.",
+      "discriminatedBy": {
+        "param": "fieldPtr",
+        "rule": "single Pointer argument selects the pointer-based syntax"
+      }
     },
     {
       "params": [
@@ -47,7 +51,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Field name command returns the name of the field whose pointer you pass in fieldPtr or whose table and field number you pass in tableNum and fieldNum ."
+      "semanticRole": "Returns the name of the field identified by its table number and field number.",
+      "discriminatedBy": {
+        "param": "tableNum",
+        "rule": "two Integer arguments select the table-number/field-number syntax"
+      }
     }
   ]
 }

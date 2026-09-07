@@ -2,7 +2,7 @@
   "id": "Decrypt-data-BLOB",
   "displayName": "Decrypt data BLOB",
   "kind": "classic_command",
-  "theme": "Data Security",
+  "theme": "Data-Security",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Blob"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "BLOB to decrypt"
         },
         {
           "name": "keyObject",
@@ -22,7 +23,8 @@
             "name": "Object"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "JSON object containing the encryption key, with the same structure as the object returned by New data key"
         },
         {
           "name": "salt",
@@ -31,7 +33,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Salt value; must match the one used for encryption"
         },
         {
           "name": "decryptedBLOB",
@@ -39,15 +42,20 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the decrypted data (empty on error)"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Decrypt data BLOB command decrypts the blobToDecrypt parameter with the same algorithm as 4D uses to decrypt data (AES-256) and returns the result in decryptedBLOB ."
+      "semanticRole": "Decrypts blobToDecrypt (AES-256) using an explicit encryption-key object, returning the result in decryptedBLOB and True on success.",
+      "discriminatedBy": {
+        "param": "keyObject",
+        "rule": "Second parameter is an Object holding a prebuilt encryption key (as returned by New data key)."
+      }
     },
     {
       "params": [
@@ -58,7 +66,8 @@
             "name": "Blob"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "BLOB to decrypt"
         },
         {
           "name": "passPhrase",
@@ -67,7 +76,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Passphrase used to generate the encryption key directly"
         },
         {
           "name": "salt",
@@ -76,7 +86,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Salt value; must match the one used for encryption"
         },
         {
           "name": "decryptedBLOB",
@@ -84,15 +95,23 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the decrypted data (empty on error)"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Decrypt data BLOB command decrypts the blobToDecrypt parameter with the same algorithm as 4D uses to decrypt data (AES-256) and returns the result in decryptedBLOB ."
+      "semanticRole": "Decrypts blobToDecrypt (AES-256) using a passphrase to derive the encryption key directly, returning the result in decryptedBLOB and True on success.",
+      "discriminatedBy": {
+        "param": "passPhrase",
+        "rule": "Second parameter is a Text passphrase used to generate the key directly."
+      }
     }
+  ],
+  "constraints": [
+    "salt must match the value used when the BLOB was originally encrypted, or decryption fails."
   ]
 }

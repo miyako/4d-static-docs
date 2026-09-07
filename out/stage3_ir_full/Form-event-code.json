@@ -6,7 +6,14 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Form event code returns a numeric value identifying the type of form event that has just occurred."
+      "semanticRole": "Form event code returns a numeric value identifying the type of form event that has just occurred.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
     }
+  ],
+  "constraints": [
+    "Intended to be called from within a form or object method; some event codes are generic (any object type) while others are specific to a particular object type -- compare the result against the Form Events theme constants."
   ]
 }

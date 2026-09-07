@@ -2,7 +2,7 @@
   "id": "DOM-Get-XML-document-ref",
   "displayName": "DOM Get XML document ref",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,10 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The DOM Get XML document ref command is used to recover the reference of the \"document\" element of the DOM tree whose reference you have passed in elementRef ."
+      "semanticRole": "Returns the reference of the DOM tree's document node (the parent of the root element), given the reference of any element in the tree."
     }
+  ],
+  "constraints": [
+    "Only usable together with DOM Append XML child node and DOM GET XML CHILD NODES; at this document-node level you can only append/replace Doctype, processing-instruction, or comment nodes (not CDATA or Text nodes)."
   ]
 }

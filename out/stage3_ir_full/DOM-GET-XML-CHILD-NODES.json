@@ -2,7 +2,7 @@
   "id": "DOM-GET-XML-CHILD-NODES",
   "displayName": "DOM GET XML CHILD NODES",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML element reference"
         },
         {
           "name": "childTypesArr",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the type of each child node: one of the 'XML' theme constants (comment=2, processing instruction=3, DATA=6, CDATA=7, DOCTYPE=10, ELEMENT=11)"
         },
         {
           "name": "nodeRefsArr",
@@ -30,11 +32,12 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives, for each child node, its reference (for ELEMENT nodes) or its value (for content/instruction nodes)"
         }
       ],
-      "semanticRole": "The DOM GET XML CHILD NODES command returns the types and references or values of all the child nodes of the XML element designated by elementRef ."
+      "semanticRole": "Returns the types and references/values of all direct child nodes of an XML element."
     }
   ]
 }

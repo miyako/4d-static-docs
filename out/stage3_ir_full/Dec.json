@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Real"
       },
-      "semanticRole": "Dec returns the decimal (fractional) portion of number .The value returned is always positive or zero."
+      "semanticRole": "Returns the decimal (fractional) portion of number, always as a non-negative value."
     }
   ]
 }

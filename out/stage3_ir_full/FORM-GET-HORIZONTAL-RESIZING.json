@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True if the form can be resized horizontally, False otherwise"
         },
         {
           "name": "minWidth",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Smallest form width allowed, in pixels"
         },
         {
           "name": "maxWidth",
@@ -30,11 +32,15 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Largest form width allowed, in pixels"
         }
       ],
-      "semanticRole": "The FORM GET HORIZONTAL RESIZING command returns the horizontal resizing properties of the current form in the resize , minWidth and maxWidth variables."
+      "semanticRole": "Returns the current form's horizontal resizing properties (whether resizable, and the allowed min/max width in pixels)."
     }
+  ],
+  "constraints": [
+    "These properties may have been set in the Form editor (Design mode) or previously in the current process via FORM SET HORIZONTAL RESIZING."
   ]
 }

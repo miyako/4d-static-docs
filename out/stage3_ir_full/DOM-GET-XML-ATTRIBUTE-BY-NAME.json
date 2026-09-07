@@ -2,7 +2,7 @@
   "id": "DOM-GET-XML-ATTRIBUTE-BY-NAME",
   "displayName": "DOM GET XML ATTRIBUTE BY NAME",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML element reference"
         },
         {
           "name": "attribName",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the attribute to get the value of"
         },
         {
           "name": "attribValue",
@@ -30,11 +32,20 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the attribute's value, converted to the variable's declared type",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If attribValue's variable type is not defined, the value is returned as Text by default."
+          }
         }
       ],
-      "semanticRole": "The DOM GET XML ATTRIBUTE BY NAME command gets the value of an attribute specified by name."
+      "semanticRole": "Gets the value of an XML element's attribute selected by name."
     }
+  ],
+  "constraints": [
+    "If no attribute named attribName exists, an error is returned.",
+    "If several attributes share the same name, only the first one's value is returned."
   ]
 }

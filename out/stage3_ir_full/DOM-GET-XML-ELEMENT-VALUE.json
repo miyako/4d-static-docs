@@ -2,7 +2,7 @@
   "id": "DOM-GET-XML-ELEMENT-VALUE",
   "displayName": "DOM GET XML ELEMENT VALUE",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "XML element reference"
         },
         {
           "name": "elementValue",
@@ -27,8 +28,13 @@
               "name": "Field"
             }
           ],
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the value of the XML element",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If elementValue's variable type is not defined, Text is used by default."
+          }
         },
         {
           "name": "cDATA",
@@ -42,11 +48,19 @@
               "name": "Field"
             }
           ],
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the contents of the CDATA section(s) of the element",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If cDATA's variable type is not defined, Text is used by default."
+          }
         }
       ],
-      "semanticRole": "The DOM GET XML ELEMENT VALUE command returns, in the elementValue parameter, the value of the XML element designated by elementRef ."
+      "semanticRole": "Returns the value of an XML element and, optionally, the contents of its CDATA section(s)."
     }
+  ],
+  "constraints": [
+    "If the element was a BLOB set via DOM SET XML ELEMENT VALUE, its value was automatically base64-encoded; this command automatically attempts to base64-decode it back."
   ]
 }

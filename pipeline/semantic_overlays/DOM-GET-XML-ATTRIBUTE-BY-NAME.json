@@ -1,0 +1,46 @@
+{
+  "theme": "XML-DOM",
+  "constraints": [
+    "If no attribute named attribName exists, an error is returned.",
+    "If several attributes share the same name, only the first one's value is returned."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "attribValue is a filled/returned variable (docs: 'Attribute value', direction '<-'); autoparse defaults all params to direction:in. Also documents the silent coercion to Text when the target variable has no declared type.",
+      "params": [
+        {
+          "name": "elementRef",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "XML element reference"
+        },
+        {
+          "name": "attribName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the attribute to get the value of"
+        },
+        {
+          "name": "attribValue",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the attribute's value, converted to the variable's declared type",
+          "silentCoercionDefault": {
+            "toType": "Text",
+            "condition": "If attribValue's variable type is not defined, the value is returned as Text by default."
+          }
+        }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Gets the value of an XML element's attribute selected by name."
+    }
+  ]
+}

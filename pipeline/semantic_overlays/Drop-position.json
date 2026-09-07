@@ -1,0 +1,64 @@
+{
+  "theme": "Drag-and-Drop",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "columnNumber is an out-parameter (the list box column where the drop occurred), not an input; the mechanical draft parsed it as direction 'in'.",
+      "params": [
+        {
+          "name": "columnNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the list box column number where the drop occurred (-1 if beyond the last column)"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Called while handling a drag-and-drop event over a list box: returns the row number where the item was dropped, and fills in columnNumber with the column.",
+      "discriminatedBy": {
+        "rule": "Not selected by parameter type (both overloads take one optional Integer out-parameter); the applicable overload depends on the destination form object's type (list box vs picture) at the time of the drop event, which is not statically knowable from the call site."
+      },
+      "staticallyDistinguishable": false
+    },
+    {
+      "sourceIndices": [
+        1
+      ],
+      "note": "pictPosY is an out-parameter (the Y coordinate of the drop in a picture object), not an input; the mechanical draft parsed it as direction 'in'.",
+      "params": [
+        {
+          "name": "pictPosY",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the vertical (Y) pixel coordinate of the drop, local to the picture object"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Called while handling a drag-and-drop event over a picture-type variable/field: returns the X pixel coordinate of the drop, and fills in pictPosY with the Y coordinate.",
+      "discriminatedBy": {
+        "rule": "Not selected by parameter type; the applicable overload depends on the destination form object's type (picture vs list box) at the time of the drop event, which is not statically knowable from the call site."
+      },
+      "staticallyDistinguishable": false
+    }
+  ],
+  "constraints": [
+    "Over a hierarchical list, the function result is an item position; over a text/combo box/4D Write Pro area, it is a character position within the string; in these cases there is no out-parameter.",
+    "Returns -1 if the source was dropped beyond the last element/item of the destination, or if called outside a drag-and-drop event over a droppable object.",
+    "Only applies to a form object whose Droppable property is selected."
+  ]
+}

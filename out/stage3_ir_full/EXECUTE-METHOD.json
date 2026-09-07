@@ -13,10 +13,11 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of project method to be executed"
         }
       ],
-      "semanticRole": "The EXECUTE METHOD command executes the methodName project method while passing any parameters in param1...paramN ."
+      "semanticRole": "Executes methodName with no parameters, discarding any result (equivalent to passing '*' with no param list)."
     },
     {
       "params": [
@@ -27,7 +28,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of project method to be executed"
         },
         {
           "name": "result",
@@ -35,30 +37,22 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Variable receiving the method's returned result"
         },
         {
-          "name": "group",
-          "members": [
-            {
-              "name": "param",
-              "type": {
-                "kind": "pseudo",
-                "name": "Expression"
-              },
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 0,
-            "max": null
+          "name": "param",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
           },
-          "position": "trailing"
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) of the method"
         }
       ],
-      "semanticRole": "The EXECUTE METHOD command executes the methodName project method while passing any parameters in param1...paramN ."
+      "semanticRole": "Executes methodName with the given parameters and captures its return value into result."
     },
     {
       "params": [
@@ -69,7 +63,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of project method to be executed"
         },
         {
           "name": "*",
@@ -80,29 +75,25 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Indicates the method does not return a result"
         },
         {
-          "name": "group",
-          "members": [
-            {
-              "name": "param",
-              "type": {
-                "kind": "pseudo",
-                "name": "Expression"
-              },
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 0,
-            "max": null
+          "name": "param",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
           },
-          "position": "trailing"
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) of the method"
         }
       ],
-      "semanticRole": "The EXECUTE METHOD command executes the methodName project method while passing any parameters in param1...paramN ."
+      "semanticRole": "Executes methodName with the given parameters, explicitly discarding any return value."
     }
+  ],
+  "constraints": [
+    "The execution context is preserved in the called method: the current form and current form event remain defined.",
+    "If methodName belongs to a component being called from the host database (or vice versa), the method must be marked 'Shared by components and host database'."
   ]
 }

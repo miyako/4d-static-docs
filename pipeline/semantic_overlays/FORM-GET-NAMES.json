@@ -1,0 +1,51 @@
+{
+  "theme": "Design-Object-Access",
+  "constraints": [
+    "filter supports the '@' wildcard character for \"starts with\"/\"ends with\"/\"contains\" matching; passing an empty string disables filtering entirely.",
+    "marker is a monotonically increasing internal database-resource modification counter: passing a value returns only forms whose marker is >= that value, and if a variable is passed, the command also writes back the new (highest) counter value into it for use as the marker in a subsequent call (incremental version-control sync pattern)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "arrNames is filled by the command (parameter table arrow '\u2190'), so its direction should be 'out'. marker is documented and arrow-marked ('\u2194') as inout: it both filters (input) and is overwritten with the new counter value (output).",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": true,
+          "description": "Table for which to return table form names; if omitted, database project form names are returned instead"
+        },
+        {
+          "name": "arrNames",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the names of forms matching filter/marker"
+        },
+        {
+          "name": "filter",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": true,
+          "description": "Comparison string limiting returned form names; supports '@' wildcards; empty string or omitted means no filtering"
+        },
+        {
+          "name": "marker",
+          "type": { "kind": "concrete", "name": "Real" },
+          "direction": "inout",
+          "optional": true,
+          "description": "In: minimum modification-counter value forms must meet to be returned. Out: overwritten with the new (highest) modification-counter value, for reuse as marker on the next call."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed from a component, apply the command to the host database instead of the component (ignored outside of a component context)"
+        }
+      ],
+      "semanticRole": "Returns the names of project or table forms in the application, optionally filtered by name pattern and/or by a modification-marker cutoff used for incremental synchronization."
+    }
+  ]
+}

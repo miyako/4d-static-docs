@@ -2,7 +2,7 @@
   "id": "EXECUTE-METHOD-IN-SUBFORM",
   "displayName": "EXECUTE METHOD IN SUBFORM",
   "kind": "classic_command",
-  "theme": "Form Events",
+  "theme": "Form-Events",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of subform object"
         },
         {
           "name": "formula",
@@ -28,7 +29,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Formula object, or name of a project method, to execute in the context of subformObject"
         },
         {
           "name": "return",
@@ -36,30 +38,22 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Variable receiving the value returned by formula"
         },
         {
-          "name": "group",
-          "members": [
-            {
-              "name": "param",
-              "type": {
-                "kind": "pseudo",
-                "name": "Expression"
-              },
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 0,
-            "max": null
+          "name": "param",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
           },
-          "position": "trailing"
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) passed to formula"
         }
       ],
-      "semanticRole": "The EXECUTE METHOD IN SUBFORM command can be used to execute the code designated by formula in the context of the subformObject subform object."
+      "semanticRole": "Executes formula in the context of subformObject and captures its returned value into 'return'."
     },
     {
       "params": [
@@ -70,7 +64,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of subform object"
         },
         {
           "name": "formula",
@@ -85,7 +80,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Formula object, or name of a project method, to execute in the context of subformObject"
         },
         {
           "name": "*",
@@ -96,29 +92,27 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Indicates formula does not return a value"
         },
         {
-          "name": "group",
-          "members": [
-            {
-              "name": "param",
-              "type": {
-                "kind": "pseudo",
-                "name": "Expression"
-              },
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 0,
-            "max": null
+          "name": "param",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
           },
-          "position": "trailing"
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) passed to formula"
         }
       ],
-      "semanticRole": "The EXECUTE METHOD IN SUBFORM command can be used to execute the code designated by formula in the context of the subformObject subform object."
+      "semanticRole": "Executes formula in the context of subformObject, explicitly discarding any return value."
     }
+  ],
+  "constraints": [
+    "Must be called in the context of the parent form containing subformObject (e.g. from the parent form's form method).",
+    "Does nothing if subformObject is not found on the current page or is not yet instantiated.",
+    "If the subform belongs to a component, the called method/function must be marked 'Shared by components and host database'.",
+    "The execution context is preserved in the called code: the current form and form event remain defined."
   ]
 }

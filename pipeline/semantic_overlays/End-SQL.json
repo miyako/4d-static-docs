@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Must be paired with a preceding Begin SQL: a sequence of SQL statements must be enclosed between Begin SQL and End SQL."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Marks the end of an inline SQL statement sequence started by Begin SQL in the Method editor."
+    }
+  ]
+}

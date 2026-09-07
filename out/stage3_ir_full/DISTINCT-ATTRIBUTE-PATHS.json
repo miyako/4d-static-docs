@@ -13,7 +13,8 @@
             "name": "Field"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Indexed object field; must be an indexed Object-type field or an error is returned"
         },
         {
           "name": "pathArray",
@@ -21,11 +22,17 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Receives the distinct attribute paths (dot notation), in alphabetical (diacritic) order"
         }
       ],
-      "semanticRole": "The DISTINCT ATTRIBUTE PATHS command returns the list of distinct paths found in the indexed object field you passed in objectField for the current selection of the table to which this field belongs."
+      "semanticRole": "Returns, in alphabetical order, the list of distinct object attribute paths found in an indexed Object field for the current selection."
     }
+  ],
+  "constraints": [
+    "objectField must be an indexed Object-type field; otherwise an error is returned.",
+    "Records with an undefined value in objectField are not taken into account.",
+    "Does not change the current selection or the current record."
   ]
 }

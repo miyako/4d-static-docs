@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4-character resource type."
         },
         {
           "name": "resID",
@@ -30,8 +31,9 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB field or variable to receive the data; filled with the contents of the resource."
         },
         {
           "name": "resFile",
@@ -40,10 +42,15 @@
             "name": "Time"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Resource file reference number to restrict the search to; if omitted, all open resource files are searched."
         }
-      ],
-      "semanticRole": "The GET RESOURCE command returns in the BLOB field or variable resData the contents of the resource whose type and ID is passed in resType and resID ."
+      ]
     }
+  ],
+  "constraints": [
+    "resType must be a 4-character string.",
+    "If the resource is not found, resData is left unchanged and the OK system variable is set to 0.",
+    "If resFile is omitted, the first matching resource found across the chain of open resource files is returned; otherwise only that file is searched."
   ]
 }

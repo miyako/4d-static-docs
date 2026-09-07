@@ -2,7 +2,7 @@
   "id": "Day-of",
   "displayName": "Day of",
   "kind": "classic_command",
-  "theme": "Date and Time",
+  "theme": "Date-and-Time",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Day of command returns the day of the month of aDate ."
+      "semanticRole": "Returns the day-of-month number (1-31) of date."
     }
   ]
 }

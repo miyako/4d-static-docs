@@ -13,7 +13,8 @@
             "name": "Pointer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Field pointer"
         },
         {
           "name": "fieldType",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Type of field (see the Field and Variable Types theme constants)"
         },
         {
           "name": "fieldLength",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Length of the field, if alphanumeric"
         },
         {
           "name": "indexed",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "True = indexed, False = non-indexed"
         },
         {
           "name": "unique",
@@ -48,8 +52,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "True = unique, False = non-unique"
         },
         {
           "name": "invisible",
@@ -57,11 +62,12 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "True = invisible, False = visible"
         }
       ],
-      "semanticRole": "The GET FIELD PROPERTIES command returns information about the field specified by fieldPtr or by tableNum and fieldNum ."
+      "semanticRole": "Returns the structure-level type and attributes (length, indexed, unique, invisible) of the field pointed to by fieldPtr."
     },
     {
       "params": [
@@ -72,7 +78,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Table number"
         },
         {
           "name": "fieldNum",
@@ -81,7 +88,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Field number"
         },
         {
           "name": "fieldType",
@@ -89,8 +97,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Type of field (see the Field and Variable Types theme constants)"
         },
         {
           "name": "fieldLength",
@@ -98,8 +107,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Length of the field, if alphanumeric"
         },
         {
           "name": "indexed",
@@ -107,8 +117,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "True = indexed, False = non-indexed"
         },
         {
           "name": "unique",
@@ -116,8 +127,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "True = unique, False = non-unique"
         },
         {
           "name": "invisible",
@@ -125,11 +137,12 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "True = invisible, False = visible"
         }
       ],
-      "semanticRole": "The GET FIELD PROPERTIES command returns information about the field specified by fieldPtr or by tableNum and fieldNum ."
+      "semanticRole": "Returns the structure-level type and attributes (length, indexed, unique, invisible) of the field identified by tableNum and fieldNum."
     }
   ]
 }

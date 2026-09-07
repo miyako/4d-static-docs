@@ -2,7 +2,7 @@
   "id": "DOM-SET-XML-ATTRIBUTE",
   "displayName": "DOM SET XML ATTRIBUTE",
   "kind": "classic_command",
-  "theme": "XML DOM",
+  "theme": "XML-DOM",
   "overloads": [
     {
       "params": [
@@ -62,7 +62,13 @@
           "position": "trailing"
         }
       ],
-      "semanticRole": "The DOM SET XML ATTRIBUTE command adds one or more attributes to the XML element whose reference is passed in the elementRef parameter."
+      "semanticRole": "Sets (adding if not present) one or more attribute name/value pairs on the XML element elementRef, converting non-Text attrValue values to text."
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close"
+  },
+  "constraints": [
+    "attrValue may be Text or another scalar type (Boolean, Integer, Real, Date, Time); non-Text values are converted to text (e.g. Boolean -> \"true\"/\"false\", Date -> RFC 3339 string, Time -> number of seconds as text)."
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "constraints": [
+    "The meaning of destinationObject depends on destinationType: empty string if 0 (current selection) or 3 (variable, use destinationPtr instead); the set name if 1; the named selection name if 2.",
+    "destinationPtr only points to a meaningful local variable when destinationType returns 3; otherwise it is not significant."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: all three parameters are filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "destinationType",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "into current selection" },
+            { "value": 1, "meaning": "into set" },
+            { "value": 2, "meaning": "into named selection" },
+            { "value": 3, "meaning": "into variable" }
+          ]
+        },
+        {
+          "name": "destinationObject",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Name of the set or named selection, or an empty string when destinationType is 'current selection' or 'variable'."
+        },
+        {
+          "name": "destinationPtr",
+          "type": { "kind": "concrete", "name": "Pointer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Pointer to the local variable that receives query results, meaningful only when destinationType is 3 (variable)."
+        }
+      ]
+    }
+  ]
+}

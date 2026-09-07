@@ -44,7 +44,12 @@
           "position": "trailing"
         }
       ],
-      "semanticRole": "The EXECUTE ON CLIENT command forces the execution of the methodName method, with the parameters param1..."
+      "semanticRole": "Asynchronously queues execution of methodName (with the given parameters) on the named registered 4D Client, running in a process automatically created on that client workstation."
     }
+  ],
+  "constraints": [
+    "clientName must be a name previously registered via REGISTER CLIENT.",
+    "Pass the wildcard character '@' in clientName to execute the method simultaneously on multiple or all registered 4D Clients.",
+    "Repeated calls targeting the same client are queued and executed one after another in asynchronous order (not interrupted or cancelable except by unregistering the client with UNREGISTER CLIENT)."
   ]
 }

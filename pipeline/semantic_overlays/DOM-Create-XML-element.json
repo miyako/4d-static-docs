@@ -1,0 +1,15 @@
+{
+  "theme": "XML-DOM",
+  "protocolRefs": { "multiCallChain": "DOM XML document lifecycle: create/parse ref -> navigate/get/set elements and attributes -> export/close" },
+  "constraints": [
+    "xPath uses a subset of XPath notation (absolute/relative paths, indexed predicates like para[1]/para[last()]); if any intermediate path elements don't exist, they are created, otherwise a new node is added.",
+    "If the tree (elementRef) has one or more namespaces defined, xPath must be prefixed with the namespace to use (e.g. \"MyNameSpace:MyElement\").",
+    "Non-text attrValue values (Boolean, Integer, Real, Date, Time) are automatically converted to their text representation."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates a new XML element at a given XPath location under elementRef, optionally setting attribute name/value pairs on it, and returns its reference."
+    }
+  ]
+}

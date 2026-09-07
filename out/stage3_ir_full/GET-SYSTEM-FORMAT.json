@@ -21,11 +21,13 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": false
         }
-      ],
-      "semanticRole": "The GET SYSTEM FORMAT command returns the current value of several regional parameters defined in the operating system."
+      ]
     }
+  ],
+  "constraints": [
+    "format must be one of the System Format theme constants (e.g. Currency symbol, Decimal separator, Date/Time separators, short/medium/long date and time patterns, day/month/year position in short dates, AM/PM labels, Thousand separator); the returned value is always a string, formatted according to the operating system's regional settings."
   ]
 }

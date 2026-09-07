@@ -1,0 +1,26 @@
+{
+  "constraints": [
+    "Does not return meaningful values for standard ports; address a standard port directly with its value (0 or 1) via SET CHANNEL.",
+    "Mainly useful on macOS, where the OS dynamically allocates port numbers for USB serial adapters, so an extended port must be addressed by its (static) name rather than its number."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Corrected direction: numArray and nameArray are filled in by the command ('\u2190' in the docs), not passed in.",
+      "params": [
+        {
+          "name": "numArray",
+          "type": { "kind": "concrete", "name": "Integer array" },
+          "direction": "out",
+          "optional": false
+        },
+        {
+          "name": "nameArray",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

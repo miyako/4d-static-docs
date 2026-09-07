@@ -1,0 +1,35 @@
+{
+  "constraints": [
+    "If SET FIELD TITLES has been called during the session, only the 'modified' names/numbers it defined are returned; otherwise all structure-defined field names are returned. Invisible fields are never returned, in either case."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "fieldTitles and fieldNums are filled in by the command (out), not in parameters.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": false,
+          "description": "Table whose field names/numbers are wanted"
+        },
+        {
+          "name": "fieldTitles",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the current (visible) field names"
+        },
+        {
+          "name": "fieldNums",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the corresponding field numbers, synchronized with fieldTitles"
+        }
+      ],
+      "semanticRole": "Fills fieldTitles and fieldNums, in sync, with the names and numbers of aTable's visible fields."
+    }
+  ]
+}

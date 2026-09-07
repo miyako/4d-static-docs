@@ -13,7 +13,8 @@
             "name": "Pointer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Field pointer"
         },
         {
           "name": "list",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Associated choice list name, or empty string if none"
         },
         {
           "name": "mandatory",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True = mandatory, False = optional"
         },
         {
           "name": "nonEnterable",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True = non-enterable, False = enterable"
         },
         {
           "name": "nonModifiable",
@@ -48,11 +52,12 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True = non-modifiable, False = modifiable"
         }
       ],
-      "semanticRole": "The GET FIELD ENTRY PROPERTIES command returns the data entry properties for the field specified by tableNum and fieldNum or by fieldPtr ."
+      "semanticRole": "Returns the data-entry properties (choice list, mandatory, non-enterable, non-modifiable) of the field pointed to by fieldPtr."
     },
     {
       "params": [
@@ -63,7 +68,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Table number"
         },
         {
           "name": "fieldNum",
@@ -72,7 +78,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Field number"
         },
         {
           "name": "list",
@@ -80,8 +87,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Associated choice list name, or empty string if none"
         },
         {
           "name": "mandatory",
@@ -89,8 +97,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True = mandatory, False = optional"
         },
         {
           "name": "nonEnterable",
@@ -98,8 +107,9 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True = non-enterable, False = enterable"
         },
         {
           "name": "nonModifiable",
@@ -107,11 +117,16 @@
             "kind": "concrete",
             "name": "Boolean"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "True = non-modifiable, False = modifiable"
         }
       ],
-      "semanticRole": "The GET FIELD ENTRY PROPERTIES command returns the data entry properties for the field specified by tableNum and fieldNum or by fieldPtr ."
+      "semanticRole": "Returns the data-entry properties (choice list, mandatory, non-enterable, non-modifiable) of the field identified by tableNum and fieldNum."
     }
+  ],
+  "constraints": [
+    "Reports the properties defined at the structure (Design) level, not any overriding properties set at the form level.",
+    "The choice list applies only to fields of type String, Text, Real, Integer, Long Integer, Date, Time, or Boolean; list returns an empty string if there is no associated list or the field type doesn't support one."
   ]
 }
