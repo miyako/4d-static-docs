@@ -48,6 +48,10 @@
           "description": "Process reference number; defaults to the current process if omitted."
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "Get the current font style (bold/italic/underline combination) of a menu item."
     }
   ],

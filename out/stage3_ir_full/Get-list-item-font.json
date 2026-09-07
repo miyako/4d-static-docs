@@ -60,6 +60,10 @@
           ]
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Get the current character font name of a hierarchical list item, addressed either by list reference number or by the form object name of the list's representation."
     }
   ],

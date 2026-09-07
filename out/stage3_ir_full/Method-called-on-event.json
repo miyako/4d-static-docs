@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "The Method called on event command returns the name of the method installed by the ON EVENT CALL command."
     }
   ]

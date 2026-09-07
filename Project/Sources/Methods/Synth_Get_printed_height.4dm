@@ -1,2 +1,3 @@
 // overload 0
-Get printed height()
+var $synthResult1 : Variant
+$synthResult1:=Get printed height()

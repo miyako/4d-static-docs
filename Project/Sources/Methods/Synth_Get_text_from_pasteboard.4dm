@@ -1,2 +1,3 @@
 // overload 0
-Get text from pasteboard()
+var $synthResult1 : Variant
+$synthResult1:=Get text from pasteboard()

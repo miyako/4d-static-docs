@@ -3,7 +3,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "childElemName and childElemValue are filled/returned params (docs: '<-' direction); autoparse defaults all params to direction:in. Also adds jointConstraint reflecting the doc syntax's nested optional (childElemValue can only be passed together with childElemName).",
+      "note": "childElemName and childElemValue are filled/returned params (docs: '<-' direction); autoparse defaults all params to direction:in. Also adds jointConstraint reflecting the doc syntax's nested optional (childElemValue can only be passed together with childElemName). Restored `returns` (Text) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
       "params": [
         {
           "name": "elementRef",
@@ -26,7 +26,8 @@
           "optional": true,
           "description": "Receives the value of the last child element"
         }
-      ]
+      ],
+      "returns": {"kind": "concrete", "name": "Text"}
     }
   ],
   "overloadPatches": [

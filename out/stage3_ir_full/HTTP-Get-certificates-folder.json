@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Returns the pathname of the folder 4D currently searches for client certificate files required by Web servers (the default \"ClientCertificatesFolder\" folder, or a custom one set via HTTP SET CERTIFICATES FOLDER)."
     }
   ],

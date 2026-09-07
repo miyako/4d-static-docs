@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Returns True in a form/object method when the frontmost window containing the form has just moved to the background (equivalent to detecting the On Deactivate form event)."
     }
   ],

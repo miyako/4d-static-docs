@@ -1,2 +1,3 @@
 // overload 0
-Outside call()
+var $synthResult1 : Variant
+$synthResult1:=Outside call()

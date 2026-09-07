@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The Get print preview command returns True if the SET PRINT PREVIEW command was called with the True value in the current process."
     }
   ],

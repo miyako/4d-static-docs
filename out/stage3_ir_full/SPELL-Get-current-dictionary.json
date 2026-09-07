@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "The SPELL Get current dictionary command returns the ID number of the dictionary being used."
     }
   ]

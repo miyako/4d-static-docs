@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Current machine command returns the name of the machine as set in the network parameters of the operating system.",
       "returns": {
         "kind": "concrete",
         "name": "Text"
-      }
+      },
+      "semanticRole": "The Current machine command returns the name of the machine as set in the network parameters of the operating system."
     }
   ]
 }

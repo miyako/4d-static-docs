@@ -72,7 +72,8 @@
         }
       ],
       "semanticRole": "Opens the document named by document (or presents the Open File dialog if document is an empty string), filtered by fileType, in the mode specified by mode, and returns its document reference number.",
-      "note": "Documented the document empty-string sentinel (interactive dialog), the fileType '*'/'.*' sentinel, and the mode open-mode constants, which autoparse left as bare Text/Text/Integer params."
+      "note": "Documented the document empty-string sentinel (interactive dialog), the fileType '*'/'.*' sentinel, and the mode open-mode constants, which autoparse left as bare Text/Text/Integer params. Restored `returns` (Time) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
+      "returns": {"kind": "concrete", "name": "Time"}
     }
   ]
 }

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "Returns the number of live, user-initiated processes (i.e. those whose Process info origin is >= 0), excluding specific internal/system process types."
     }
   ],

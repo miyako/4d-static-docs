@@ -1,2 +1,3 @@
 // overload 0
-FORM Event()
+var $synthResult1 : Variant
+$synthResult1:=FORM Event()

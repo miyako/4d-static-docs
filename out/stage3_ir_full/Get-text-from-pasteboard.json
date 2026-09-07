@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Get text from pasteboard returns the text present in the pasteboard."
     }
   ],

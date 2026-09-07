@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Macintosh option down returns TRUE if the Macintosh Option key is pressed.When called on a Windows platform, Macintosh option down returns TRUE if the Windows Alt key is pressed."
     }
   ]

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The In transaction command returns TRUE if the current process is in a transaction , otherwise it returns FALSE ."
     }
   ]

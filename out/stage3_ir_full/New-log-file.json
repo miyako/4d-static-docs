@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Preliminary note: This command only works with 4D Server."
     }
   ],

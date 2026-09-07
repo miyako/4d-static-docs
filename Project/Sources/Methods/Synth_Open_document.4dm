@@ -1,2 +1,3 @@
 // overload 0
-Open document("synthText";"synthText";1)
+var $synthResult1 : Variant
+$synthResult1:=Open document("synthText";"synthText";1)

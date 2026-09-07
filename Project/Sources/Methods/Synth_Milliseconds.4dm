@@ -1,2 +1,3 @@
 // overload 0
-Milliseconds()
+var $synthResult1 : Variant
+$synthResult1:=Milliseconds()

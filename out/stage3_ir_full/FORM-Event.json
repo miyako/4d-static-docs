@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
       "semanticRole": "Returns an object describing the form event that just occurred, including its numeric code, event name (description), and the triggering object's name (objectName, omitted if the event is triggered by form code)."
     }
   ],

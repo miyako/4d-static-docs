@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Version type command returns a numeric value that denotes the type of 4D or 4D Server version that you are running.",
       "returns": {
         "kind": "concrete",
         "name": "Integer"
-      }
+      },
+      "semanticRole": "The Version type command returns a numeric value that denotes the type of 4D or 4D Server version that you are running."
     }
   ],
   "constraints": [

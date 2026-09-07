@@ -7,7 +7,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "arrElementRefs is a filled/returned array (docs: 'List of element references found'); autoparse defaults all params to direction:in.",
+      "note": "arrElementRefs is a filled/returned array (docs: 'List of element references found'); autoparse defaults all params to direction:in. Restored `returns` (Text) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
       "params": [
         {
           "name": "elementRef",
@@ -30,7 +30,8 @@
           "optional": true,
           "description": "Receives the list of all matching element references, useful when several elements match xPath"
         }
-      ]
+      ],
+      "returns": {"kind": "concrete", "name": "Text"}
     }
   ],
   "overloadPatches": [

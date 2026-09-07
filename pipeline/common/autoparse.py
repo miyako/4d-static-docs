@@ -172,9 +172,20 @@ def _to_overload_element(item: dict, is_last: bool) -> dict | None:
 def draft_overload_params(signature_text: str) -> tuple[list[dict], list[str], dict | None]:
     """Return (overload_elements, notes, returns)."""
     notes: list[str] = []
-    m = re.search(r"\((.*)\)\s*(?::\s*(.+))?\s*$", signature_text.strip())
+    text = signature_text.strip()
+    m = re.search(r"\((.*)\)\s*(?::\s*(.+))?\s*$", text)
     if not m:
-        return [], [f"could not locate a top-level '(...)' parameter list in: {signature_text!r}"], None
+        # No top-level '(...)' parameter list at all -- this is a valid
+        # shape for a zero-argument command/function, e.g. the bare
+        # "Monitored activity : Collection" signature. Fall back to
+        # matching just a trailing ": ReturnType" after the bolded name,
+        # with an empty parameter list, rather than dropping the return
+        # type entirely (see pipeline/semantic_overlays/*.json's several
+        # pre-existing hand-authored notes documenting this exact gap).
+        m2 = re.search(r":\s*(.+)\s*$", text)
+        if not m2:
+            return [], [f"could not locate a top-level '(...)' parameter list in: {signature_text!r}"], None
+        return [], [], _type_ref(m2.group(1))
 
     body, return_type = m.group(1), m.group(2)
     items = _parse_items(body)

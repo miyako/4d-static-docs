@@ -1,2 +1,3 @@
 // overload 0
-After()
+var $synthResult1 : Variant
+$synthResult1:=After()

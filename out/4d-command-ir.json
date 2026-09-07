@@ -3472,6 +3472,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Returns True in a form method when the window containing the form becomes the frontmost window of the frontmost process (the On Activate form event); obsolete, superseded by Form event code."
         }
       ],
@@ -3489,6 +3493,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Returns True only if the current process has an active (not suspended) transaction in progress."
         }
       ],
@@ -3557,6 +3565,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Returns True during the After execution cycle (the On Validate form event) following object/form validation."
         }
       ],
@@ -3611,6 +3623,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Returns the full path of the 4D executable file/application currently running."
         }
       ]
@@ -3623,6 +3639,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Object"
+          },
           "semanticRole": "Returns an object describing the current application instance's activity and network configuration (CPU/network usage, server listening state, ports, UI mode flags, uptime, etc.), scoped to wherever the call executes."
         }
       ],
@@ -3639,6 +3659,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Returns a numeric constant identifying which kind of 4D environment (desktop, remote, server, volume desktop, tool4d) the calling process is running under."
         }
       ],
@@ -4767,6 +4791,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Returns True when the current form event corresponds to the Before (On Load) execution cycle."
         }
       ],
@@ -6654,6 +6682,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
           "semanticRole": "Returns a collection describing every step of the current process's method call chain (method/formula, calling database/component, and line number), equivalent to the Debugger window's call stack."
         }
       ],
@@ -6670,6 +6702,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Caps lock down returns TRUE if the Caps Lock key is pressed."
         }
       ]
@@ -6861,6 +6897,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Returns the number of consecutive clicks of the same mouse button in the current mouse-click form event (2 for a double-click)."
         }
       ],
@@ -7113,6 +7153,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Returns True if the current mouse event was a contextual (right-button, or Control+click on Mac OS) click."
         }
       ],
@@ -7517,6 +7561,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Returns the number of parameters actually passed to the current project method/function call."
         }
       ],
@@ -7532,6 +7580,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Returns the number of screen monitors connected to the machine."
         }
       ]
@@ -7544,6 +7596,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Returns the highest alive process number, which (before any process has been aborted in the session) equals the total number of open processes including internal kernel processes."
         }
       ],
@@ -7559,6 +7615,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Returns the number of live, user-initiated processes (i.e. those whose Process info origin is >= 0), excluding specific internal/system process types."
         }
       ],
@@ -7574,6 +7634,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Returns the number of users currently connected to the 4D Server."
         }
       ],
@@ -7881,11 +7945,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Current default table returns a pointer to the table that has been passed to the last call to DEFAULT TABLE for the current process.",
           "returns": {
             "kind": "concrete",
             "name": "Pointer"
-          }
+          },
+          "semanticRole": "Current default table returns a pointer to the table that has been passed to the last call to DEFAULT TABLE for the current process."
         }
       ]
     },
@@ -7897,11 +7961,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Current form name command returns the name of the current form defined for the process.",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "The Current form name command returns the name of the current form defined for the process."
         }
       ],
       "constraints": [
@@ -7918,11 +7982,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Current form table command returns the pointer to the table of the form being displayed or printed in the current process.",
           "returns": {
             "kind": "concrete",
             "name": "Pointer"
-          }
+          },
+          "semanticRole": "The Current form table command returns the pointer to the table of the form being displayed or printed in the current process."
         }
       ],
       "constraints": [
@@ -7939,11 +8003,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Current form window command returns the reference of the current form window.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "The Current form window command returns the reference of the current form window."
         }
       ],
       "constraints": [
@@ -7959,11 +8023,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Current machine command returns the name of the machine as set in the network parameters of the operating system.",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "The Current machine command returns the name of the machine as set in the network parameters of the operating system."
         }
       ]
     },
@@ -7975,11 +8039,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Current method name command returns the method name where it has been invoked.",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "The Current method name command returns the method name where it has been invoked."
         }
       ],
       "constraints": [
@@ -7996,11 +8060,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Current method path command returns the internal pathname of the database method, trigger, project method, form method or object method being executed.",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "The Current method path command returns the internal pathname of the database method, trigger, project method, form method or object method being executed."
         }
       ],
       "constraints": [
@@ -8015,11 +8079,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Current process name command returns the name of the process within which this command is called.",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "The Current process name command returns the name of the process within which this command is called."
         }
       ],
       "constraints": [
@@ -8034,11 +8098,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Current process returns the process reference number of the process within which this command is called.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "Current process returns the process reference number of the process within which this command is called."
         }
       ]
     },
@@ -8050,11 +8114,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Current system user command returns the owner name of your machine, as set in the current user account on the machine.",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "The Current system user command returns the owner name of your machine, as set in the current user account on the machine."
         }
       ]
     },
@@ -9860,6 +9924,10 @@
               "description": "Receives the list of all matching element references, useful when several elements match xPath"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Searches an XML structure, starting at elementRef, for element(s) matching an XPath expression, returning the (first) match's reference and optionally all matches."
         }
       ],
@@ -10224,6 +10292,10 @@
               "description": "Receives the values of the found element's attributes"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Returns the reference of a child element identified by name and index, optionally along with its value and attribute name/value arrays."
         }
       ],
@@ -10306,6 +10378,10 @@
               "description": "Receives the value of the first child element"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Returns a reference to the first child of an XML element, usable for further DOM navigation, and optionally its name and value.",
           "jointConstraints": [
             {
@@ -10358,6 +10434,10 @@
               "description": "Receives the value of the last child element"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Returns a reference to the last child of an XML element, usable for further DOM navigation, and optionally its name and value.",
           "jointConstraints": [
             {
@@ -10410,6 +10490,10 @@
               "description": "Receives the value of the next sibling element"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Navigates to the next sibling of an XML element, returning its reference and optionally its name and value; sets OK to 0 after the last sibling.",
           "jointConstraints": [
             {
@@ -11352,6 +11436,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Returns True in a form/object method when the frontmost window containing the form has just moved to the background (equivalent to detecting the On Deactivate form event)."
         }
       ],
@@ -11559,6 +11647,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Searches the root level of all connected devices for a \".4DKeyChain\" file holding a valid encryption key for the currently-open data file; if found, applies it and adds it to the 4D keychain, returning True."
         }
       ],
@@ -11575,6 +11667,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Returns the 1-based row number currently being processed while a list of records or list box row is displayed, valid only inside an On Display Detail form event; returns 0 otherwise."
         }
       ],
@@ -12611,6 +12707,10 @@
               "description": "Receives the encrypted data"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Encrypts a BLOB using an explicit encryption-key object (e.g. from New data key)."
         },
         {
@@ -12656,6 +12756,10 @@
               "description": "Receives the encrypted data"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Encrypts a BLOB using an encryption key derived directly from a passphrase string."
         }
       ],
@@ -13000,6 +13104,10 @@
               "description": "Receives the resulting comparison mask picture"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Pixel-by-pixel compares the dimensions and contents of two pictures and produces a visual diff mask."
         }
       ],
@@ -13124,6 +13232,10 @@
               "description": "If a process named 'name' is already running, reuse it (return its process number) instead of starting a new one"
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Starts a new process running 'procedure' on the Server machine (Client/Server) or locally (single-user), optionally reusing an already-running process of the same name."
         }
       ],
@@ -13586,6 +13698,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Object"
+          },
           "semanticRole": "Returns an object describing the form event that just occurred, including its numeric code, event name (description), and the triggering object's name (objectName, omitted if the event is triggered by form code)."
         }
       ],
@@ -14052,6 +14168,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Returns the actual, resolved color scheme (\"light\" or \"dark\") of the currently displayed form, or an empty string if there is no current form."
         }
       ],
@@ -14241,7 +14361,16 @@
               "description": "Page number to screenshot; only meaningful with the form-editor-template syntax (formName passed)"
             }
           ],
-          "semanticRole": "Returns a picture of a form: either a live screenshot of the form currently being executed/loaded (no formName), or a static screenshot of a named form template as rendered in the Form editor (formName passed, optionally at a specific pageNum)."
+          "semanticRole": "Returns a picture of a form: either a live screenshot of the form currently being executed/loaded (no formName), or a static screenshot of a named form template as rendered in the Form editor (formName passed, optionally at a specific pageNum).",
+          "jointConstraints": [
+            {
+              "params": [
+                "aTable",
+                "formName"
+              ],
+              "rule": "aTable is only meaningful when formName is also passed (table-form template lookup); passing aTable alone without formName is not a valid combination."
+            }
+          ]
         }
       ],
       "constraints": [
@@ -14606,6 +14735,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Returns the OS interface rendering theme actually used by the current form (\"Classic\"/\"FluentUI\" on Windows, \"Classic\"/\"LiquidGlass\" on macOS), or an empty string if there is no current form."
         }
       ],
@@ -14622,6 +14755,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Returns the Boolean literal False (useful in typed expressions/contexts where a literal Boolean function call is required rather than a bare keyword)."
         }
       ]
@@ -15173,11 +15310,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Returns a pointer to the form object that currently has the focus, or a nil pointer if no object has the focus.",
           "returns": {
             "kind": "concrete",
             "name": "Pointer"
-          }
+          },
+          "semanticRole": "Returns a pointer to the form object that currently has the focus, or a nil pointer if no object has the focus."
         }
       ],
       "constraints": [
@@ -15321,11 +15458,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Form event code returns a numeric value identifying the type of form event that has just occurred.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "Form event code returns a numeric value identifying the type of form event that has just occurred."
         }
       ],
       "constraints": [
@@ -15340,11 +15477,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Form command returns the object associated with the current form (instantiated from the formData parameter or the user class assigned in the Form editor).",
           "returns": {
             "kind": "concrete",
             "name": "Object"
-          }
+          },
+          "semanticRole": "The Form command returns the object associated with the current form (instantiated from the formData parameter or the user class assigned in the Form editor)."
         }
       ],
       "constraints": [
@@ -18889,11 +19026,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Returns a new random UUID using the default version (v4).",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "Returns a new random UUID using the default version (v4)."
         },
         {
           "params": [
@@ -19272,6 +19409,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Get assert enabled command returns True or False according to whether or not assertions are enabled in the current process."
         }
       ]
@@ -19284,6 +19425,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Real"
+          },
           "semanticRole": "The Get cache size command returns the current database cache size in bytes.This command only works in local mode (4D Server and 4D); it must not be used from 4D in remote mode."
         }
       ],
@@ -19299,6 +19444,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "The Get current printer command returns the name of the current printer defined in the 4D application."
         }
       ],
@@ -19409,6 +19558,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "The Get default user command returns the unique user ID of the user set as “Default user” in the database Settings dialog box: If no default user has been set, the command returns 0."
         }
       ],
@@ -19500,6 +19653,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "The Get edited text command is mainly to be used with the On After Edit form event to retrieve the text as it is being entered."
         }
       ],
@@ -19585,6 +19742,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
           "semanticRole": "The Get group access command returns the memberships of the 4D user account for the current session."
         }
       ]
@@ -19700,6 +19861,10 @@
               ]
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Get the current character font name of a hierarchical list item, addressed either by list reference number or by the form object name of the list's representation."
         }
       ],
@@ -19788,6 +19953,10 @@
               "description": "Process reference number; defaults to the current process if omitted."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Get the character code of the standard Ctrl (Windows) / Command (macOS) shortcut key assigned to a menu item."
         }
       ],
@@ -19846,6 +20015,10 @@
               "description": "Process reference number; defaults to the current process if omitted."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Get the current check mark character of a menu item."
         }
       ],
@@ -19904,6 +20077,10 @@
               "description": "Process number designating another process's menu bar; only meaningful when menu is a menu number."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Get the name of the 4D project method attached to a menu item."
         }
       ],
@@ -19962,6 +20139,10 @@
               "description": "Process number."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Get the additional modifier key(s) (Shift and/or Option/Alt) combined with a menu item's standard shortcut key."
         }
       ],
@@ -20010,6 +20191,10 @@
               ]
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Get the custom character-string parameter previously attached to a menu item via SET MENU ITEM PARAMETER."
         }
       ],
@@ -20067,6 +20252,10 @@
               "description": "Process reference number; defaults to the current process if omitted."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Get the current font style (bold/italic/underline combination) of a menu item."
         }
       ],
@@ -20125,6 +20314,10 @@
               "description": "Process reference number; defaults to the current process if omitted."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Get the display text of a menu item, addressed by menu (number or MenuRef) and item number, optionally scoped to a specific process's menu bar."
         }
       ],
@@ -20300,6 +20493,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Get print preview command returns True if the SET PRINT PREVIEW command was called with the True value in the current process."
         }
       ],
@@ -20315,6 +20512,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "The Get printed height command returns the overall height (in pixels) of the section printed using the Print form command."
         }
       ],
@@ -20331,6 +20532,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "The Get query limit command returns the limit for the number of records that a query may find in the current process."
         }
       ],
@@ -20445,6 +20650,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "The Get selected menu item parameter command returns the custom character string associated with the selected menu item."
         }
       ],
@@ -20530,6 +20739,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Get text from pasteboard returns the text present in the pasteboard."
         }
       ],
@@ -20948,6 +21161,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Returns the pathname of the folder 4D currently searches for client certificate files required by Web servers (the default \"ClientCertificatesFolder\" folder, or a custom one set via HTTP SET CERTIFICATES FOLDER)."
         }
       ],
@@ -22069,6 +22286,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "In break returns True for the In break execution cycle."
         }
       ]
@@ -22081,6 +22302,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "In footer returns True for the In footer execution cycle."
         }
       ]
@@ -22093,6 +22318,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "In header returns True for the In header execution cycle."
         }
       ]
@@ -22105,6 +22334,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The In transaction command returns TRUE if the current process is in a transaction , otherwise it returns FALSE ."
         }
       ]
@@ -22196,6 +22429,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Is Windows command returns True if the current operating system is Windows."
         }
       ]
@@ -22292,6 +22529,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Is data file locked command returns True if the data file of the open database or at least one of its segments is locked — i.e."
         }
       ]
@@ -22304,6 +22545,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Is editing text command returns True if the user is entering values in an input form object, and False in all other cases."
         }
       ],
@@ -22425,6 +22670,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Is in print preview command returns True if the Preview on Screen option is checked in the printing dialog box and False otherwise."
         }
       ],
@@ -22497,6 +22746,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Is macOS command returns True if the current operating system is macOS."
         }
       ]
@@ -22693,6 +22946,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Is waiting mouse up command returns True if the current object has been clicked and the mouse button has not been released, while the parent window has the focus."
         }
       ],
@@ -29219,7 +29476,11 @@
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          }
         }
       ],
       "constraints": [
@@ -29254,7 +29515,11 @@
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          }
         }
       ],
       "constraints": [
@@ -29667,6 +29932,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "The Log file command returns the long name (i.e."
         }
       ]
@@ -31493,6 +31762,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Macintosh command down returns TRUE if the Macintosh command key is pressed.When called on a Windows platform, Macintosh command down returns TRUE if the Windows Ctrl key is pressed."
         }
       ]
@@ -31505,6 +31778,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Macintosh control down returns TRUE if the Macintosh Control key is pressed.When called on a Windows platform, Macintosh control down always return FALSE."
         }
       ]
@@ -31517,6 +31794,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Macintosh option down returns TRUE if the Macintosh Option key is pressed.When called on a Windows platform, Macintosh option down returns TRUE if the Windows Alt key is pressed."
         }
       ]
@@ -31760,6 +32041,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Menu bar height returns the height of the menu bar, expressed in pixels."
         }
       ]
@@ -31772,6 +32057,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Menu bar screen returns the number of the screen where the menu bar is located."
         }
       ]
@@ -31837,6 +32126,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "The Method called on event command returns the name of the method installed by the ON EVENT CALL command."
         }
       ]
@@ -31849,6 +32142,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "Milliseconds returns the number of milliseconds (1000th of a second) elapsed since the machine was started."
         }
       ]
@@ -31994,6 +32291,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
           "semanticRole": "The Monitored activity command returns a collection of objects describing operations recorded according to the specifications set by the START MONITORING ACTIVITY command."
         }
       ]
@@ -32140,6 +32441,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "New list creates a new, empty hierarchical list in memory and returns its unique list reference number."
         }
       ]
@@ -32152,6 +32457,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "Preliminary note: This command only works with 4D Server."
         }
       ],
@@ -32491,6 +32800,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Null"
+          },
           "semanticRole": "Null returns the Null type value null ."
         }
       ]
@@ -35788,12 +36101,12 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Returns the current value of the data source bound to the subform container displayed in the parent form.",
           "returns": {
             "kind": "pseudo",
             "name": "any",
             "note": "Type mirrors whatever the parent form's subform-container data source resolves to (scalar value, array index, or Undefined)."
-          }
+          },
+          "semanticRole": "Returns the current value of the data source bound to the subform container displayed in the parent form."
         }
       ],
       "constraints": [
@@ -36624,7 +36937,16 @@
           "discriminatedBy": {
             "param": "*",
             "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
-          }
+          },
+          "jointConstraints": [
+            {
+              "params": [
+                "right",
+                "bottom"
+              ],
+              "rule": "right/bottom are optional together; when given, they redefine the object's size (resizing it) rather than just its position."
+            }
+          ]
         }
       ],
       "constraints": [
@@ -38285,7 +38607,16 @@
               ]
             }
           ],
-          "semanticRole": "Sets the Print Variable Frame property (and, only for subforms in fixed-frame mode, the fixed-frame printing option) of the object(s) designated by object and *."
+          "semanticRole": "Sets the Print Variable Frame property (and, only for subforms in fixed-frame mode, the fixed-frame printing option) of the object(s) designated by object and *.",
+          "jointConstraints": [
+            {
+              "params": [
+                "fixedSubform",
+                "variableFrame"
+              ],
+              "rule": "fixedSubform is only used when variableFrame is False and object is a subform; it is ignored in every other case."
+            }
+          ]
         }
       ],
       "constraints": [
@@ -38561,7 +38892,24 @@
               "description": "Trailing '*'. If present, forces the target line (and column, if hPosition is passed) to be placed in the first visible position even if it was already visible; for pictures, places the requested point at the picture's origin (0,0) even if already shown."
             }
           ],
-          "semanticRole": "Scrolls the visible content (rows/columns of a subform, list form, hierarchical list, or list box; or the pixel offset of a picture) of the object(s) designated by object and * to the position given by vPosition/hPosition, or, if these are omitted, auto-scrolls just enough to reveal the first highlighted line."
+          "semanticRole": "Scrolls the visible content (rows/columns of a subform, list form, hierarchical list, or list box; or the pixel offset of a picture) of the object(s) designated by object and * to the position given by vPosition/hPosition, or, if these are omitted, auto-scrolls just enough to reveal the first highlighted line.",
+          "jointConstraints": [
+            {
+              "params": [
+                "hPosition",
+                "vPosition"
+              ],
+              "rule": "hPosition can only be passed if vPosition is also passed, since it is nested inside vPosition's optional group in the signature."
+            },
+            {
+              "params": [
+                "scrollToFirstPosition",
+                "vPosition",
+                "hPosition"
+              ],
+              "rule": "This trailing '*' only changes behavior when the target line/column (given by vPosition/hPosition) would otherwise already be visible and the command would do nothing; for pictures it forces the requested point to the origin (0,0) even if already shown."
+            }
+          ]
         }
       ],
       "constraints": [
@@ -40063,6 +40411,10 @@
               ]
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Time"
+          },
           "semanticRole": "Opens the document named by document (or presents the Open File dialog if document is an empty string), filtered by fileType, in the mode specified by mode, and returns its document reference number."
         }
       ],
@@ -40192,6 +40544,10 @@
               "description": "macOS file type (4-character string) or Windows file extension (1-3 characters) used to filter the Open dialog; if omitted, all files are shown."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Time"
+          },
           "semanticRole": "Opens the resource file named or pathed by resFilename (or presents the Open File dialog if resFilename is an empty string, filtered by fileType), returning its resource file reference number."
         }
       ],
@@ -40296,6 +40652,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "Outside call returns True for the After execution cycle."
         }
       ],
@@ -42005,6 +42365,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "The Printing page command returns the printing page number."
         }
       ]
@@ -42017,6 +42381,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The Process aborted command returns True if the process in which it is called is about to be interrupted unexpectedly, which means that the execution of the command was unable to reach its “normal” completion."
         }
       ],
@@ -43799,6 +44167,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "The QR New offscreen area command creates a new Quick Report offscreen area and returns its reference."
         }
       ]
@@ -44624,7 +44996,25 @@
               "description": "Bottom boundary row number"
             }
           ],
-          "semanticRole": "Highlights (or clears the highlight of) a cell, row, column, or the whole area, as if selected with the mouse."
+          "semanticRole": "Highlights (or clears the highlight of) a cell, row, column, or the whole area, as if selected with the mouse.",
+          "jointConstraints": [
+            {
+              "params": [
+                "left",
+                "top"
+              ],
+              "rule": "If both left and top are 0, the entire area is highlighted."
+            },
+            {
+              "params": [
+                "left",
+                "top",
+                "right",
+                "bottom"
+              ],
+              "rule": "To clear the current selection (select nothing), pass -1 for all four of left, top, right, and bottom."
+            }
+          ]
         }
       ]
     },
@@ -53074,6 +53464,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The SOAP Request command returns True if the code being executed is part of a SOAP request."
         }
       ]
@@ -53365,6 +53759,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
           "semanticRole": "The SPELL Get current dictionary command returns the ID number of the dictionary being used."
         }
       ]
@@ -53601,6 +53999,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
           "semanticRole": "The SQL End selection command is used to determine if the boundaries of the result set have been reached."
         }
       ]
@@ -53744,6 +54146,10 @@
       "overloads": [
         {
           "params": [],
+          "returns": {
+            "kind": "concrete",
+            "name": "Text"
+          },
           "semanticRole": "The SQL Get current data source command returns the name of the current data source of the application."
         }
       ]
@@ -57273,11 +57679,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The System info command returns an object containg information about the operating system and the characteristics of the system hardware and software from the machine it's executed on.",
           "returns": {
             "kind": "concrete",
             "name": "Object"
-          }
+          },
+          "semanticRole": "The System info command returns an object containg information about the operating system and the characteristics of the system hardware and software from the machine it's executed on."
         }
       ]
     },
@@ -57953,11 +58359,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Temporary folder command returns the pathname to the current temporary folder set by your system.",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "The Temporary folder command returns the pathname to the current temporary folder set by your system."
         }
       ]
     },
@@ -58027,11 +58433,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The This command returns a reference to the currently processed object.",
           "returns": {
             "kind": "concrete",
             "name": "Object"
-          }
+          },
+          "semanticRole": "The This command returns a reference to the currently processed object."
         }
       ],
       "constraints": [
@@ -58047,11 +58453,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Tickcount returns the number of ticks (60th of a second) elapsed since the machine was started.Tickcount returns a value of type Long Integer.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "Tickcount returns the number of ticks (60th of a second) elapsed since the machine was started.Tickcount returns a value of type Long Integer."
         }
       ]
     },
@@ -58134,11 +58540,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Timestamp returns the current UTC time in ISO format with milliseconds, i.e.",
           "returns": {
             "kind": "concrete",
             "name": "Text"
-          }
+          },
+          "semanticRole": "Timestamp returns the current UTC time in ISO format with milliseconds, i.e."
         }
       ]
     },
@@ -58150,11 +58556,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Tool bar height command returns the height of the current visible tool bar, expressed in pixels.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "The Tool bar height command returns the height of the current visible tool bar, expressed in pixels."
         }
       ],
       "constraints": [
@@ -58169,11 +58575,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Transaction level command returns the current transaction level for the process.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "The Transaction level command returns the current transaction level for the process."
         }
       ],
       "constraints": [
@@ -58188,11 +58594,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "Called from within a trigger, the Trigger event command returns a numeric value that denotes the type of the database event, in other words, the reason why the trigger has been invoked.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "Called from within a trigger, the Trigger event command returns a numeric value that denotes the type of the database event, in other words, the reason why the trigger has been invoked."
         }
       ],
       "constraints": [
@@ -58208,11 +58614,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Trigger level command returns the execution level of the trigger.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "The Trigger level command returns the execution level of the trigger."
         }
       ],
       "constraints": [
@@ -58306,11 +58712,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "True returns the Boolean value True.",
           "returns": {
             "kind": "concrete",
             "name": "Boolean"
-          }
+          },
+          "semanticRole": "True returns the Boolean value True."
         }
       ]
     },
@@ -64818,11 +65224,11 @@
       "overloads": [
         {
           "params": [],
-          "semanticRole": "The Version type command returns a numeric value that denotes the type of 4D or 4D Server version that you are running.",
           "returns": {
             "kind": "concrete",
             "name": "Integer"
-          }
+          },
+          "semanticRole": "The Version type command returns a numeric value that denotes the type of 4D or 4D Server version that you are running."
         }
       ],
       "constraints": [

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "In break returns True for the In break execution cycle."
     }
   ]

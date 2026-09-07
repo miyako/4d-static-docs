@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Returns True when the current form event corresponds to the Before (On Load) execution cycle."
     }
   ],

@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Current default table returns a pointer to the table that has been passed to the last call to DEFAULT TABLE for the current process.",
       "returns": {
         "kind": "concrete",
         "name": "Pointer"
-      }
+      },
+      "semanticRole": "Current default table returns a pointer to the table that has been passed to the last call to DEFAULT TABLE for the current process."
     }
   ]
 }

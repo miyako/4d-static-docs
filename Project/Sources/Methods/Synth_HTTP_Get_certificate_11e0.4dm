@@ -1,2 +1,3 @@
 // overload 0
-HTTP Get certificates folder()
+var $synthResult1 : Variant
+$synthResult1:=HTTP Get certificates folder()

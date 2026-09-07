@@ -1,2 +1,3 @@
 // overload 0
-Before()
+var $synthResult1 : Variant
+$synthResult1:=Before()

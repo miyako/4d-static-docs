@@ -1,2 +1,3 @@
 // overload 0
-FORM Get color scheme()
+var $synthResult1 : Variant
+$synthResult1:=FORM Get color scheme()

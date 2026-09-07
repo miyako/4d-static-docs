@@ -3426,7 +3426,7 @@
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 5
+          "comment_line": 6
         }
       ]
     },
@@ -3531,7 +3531,7 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 3
+          "comment_line": 4
         }
       ]
     },
@@ -5751,17 +5751,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-leading-thru:*",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:itemRef=Integer",
-          "comment_line": 5
+          "comment_line": 7
         },
         {
           "overload_index": 0,
           "variant": "union:itemRef=pseudo:Operator",
-          "comment_line": 7
+          "comment_line": 10
         }
       ]
     },
@@ -5786,12 +5786,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5806,12 +5806,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5826,12 +5826,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5846,12 +5846,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5866,12 +5866,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5886,12 +5886,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5906,12 +5906,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },

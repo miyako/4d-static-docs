@@ -37,6 +37,10 @@
           "description": "Receives the resulting comparison mask picture"
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Pixel-by-pixel compares the dimensions and contents of two pictures and produces a visual diff mask."
     }
   ],

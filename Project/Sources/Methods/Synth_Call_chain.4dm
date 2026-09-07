@@ -1,2 +1,3 @@
 // overload 0
-Call chain()
+var $synthResult1 : Variant
+$synthResult1:=Call chain()

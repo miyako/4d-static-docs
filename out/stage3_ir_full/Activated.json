@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Returns True in a form method when the window containing the form becomes the frontmost window of the frontmost process (the On Activate form event); obsolete, superseded by Form event code."
     }
   ],

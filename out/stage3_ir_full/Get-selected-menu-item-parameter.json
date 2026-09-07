@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "The Get selected menu item parameter command returns the custom character string associated with the selected menu item."
     }
   ],

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Returns the OS interface rendering theme actually used by the current form (\"Classic\"/\"FluentUI\" on Windows, \"Classic\"/\"LiquidGlass\" on macOS), or an empty string if there is no current form."
     }
   ],

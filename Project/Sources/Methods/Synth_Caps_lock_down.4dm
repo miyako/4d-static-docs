@@ -1,2 +1,3 @@
 // overload 0
-Caps lock down()
+var $synthResult1 : Variant
+$synthResult1:=Caps lock down()

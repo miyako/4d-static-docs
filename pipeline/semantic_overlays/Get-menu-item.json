@@ -5,7 +5,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "Added the -1 sentinel value documented for menuItem (no direction change needed: process is already optional and all params are correctly 'in').",
+      "note": "Added the -1 sentinel value documented for menuItem (no direction change needed: process is already optional and all params are correctly 'in'). Restored `returns` (Text) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
       "semanticRole": "Get the display text of a menu item, addressed by menu (number or MenuRef) and item number, optionally scoped to a specific process's menu bar.",
       "params": [
         {
@@ -34,7 +34,8 @@
           "optional": true,
           "description": "Process reference number; defaults to the current process if omitted."
         }
-      ]
+      ],
+      "returns": {"kind": "concrete", "name": "Text"}
     }
   ]
 }

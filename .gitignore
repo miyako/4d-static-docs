@@ -6,7 +6,7 @@ mcp_console_render.html
 cache/
 __pycache__/
 *.pyc
-tools/
+/tools/
 Project/[dD][aA][tT][aA]/
 Project/DerivedData/
 Project/Libraries/

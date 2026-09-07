@@ -1,2 +1,3 @@
 // overload 0
-Get assert enabled()
+var $synthResult1 : Variant
+$synthResult1:=Get assert enabled()

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Returns the actual, resolved color scheme (\"light\" or \"dark\") of the currently displayed form, or an empty string if there is no current form."
     }
   ],

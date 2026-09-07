@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "New list creates a new, empty hierarchical list in memory and returns its unique list reference number."
     }
   ]

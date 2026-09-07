@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The Is waiting mouse up command returns True if the current object has been clicked and the mouse button has not been released, while the parent window has the focus."
     }
   ],

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Null"
+      },
       "semanticRole": "Null returns the Null type value null ."
     }
   ]

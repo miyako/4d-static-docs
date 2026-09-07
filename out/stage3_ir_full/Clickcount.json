@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "Returns the number of consecutive clicks of the same mouse button in the current mouse-click form event (2 for a double-click)."
     }
   ],

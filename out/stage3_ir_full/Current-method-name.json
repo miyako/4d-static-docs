@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Current method name command returns the method name where it has been invoked.",
       "returns": {
         "kind": "concrete",
         "name": "Text"
-      }
+      },
+      "semanticRole": "The Current method name command returns the method name where it has been invoked."
     }
   ],
   "constraints": [

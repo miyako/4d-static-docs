@@ -1,2 +1,3 @@
 // overload 0
-Is in print preview()
+var $synthResult1 : Variant
+$synthResult1:=Is in print preview()

@@ -1,2 +1,3 @@
 // overload 0
-Method called on event()
+var $synthResult1 : Variant
+$synthResult1:=Method called on event()

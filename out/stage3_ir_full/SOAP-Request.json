@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The SOAP Request command returns True if the code being executed is part of a SOAP request."
     }
   ]

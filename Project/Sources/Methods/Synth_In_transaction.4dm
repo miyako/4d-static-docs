@@ -1,2 +1,3 @@
 // overload 0
-In transaction()
+var $synthResult1 : Variant
+$synthResult1:=In transaction()

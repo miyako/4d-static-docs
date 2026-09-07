@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Form command returns the object associated with the current form (instantiated from the formData parameter or the user class assigned in the Form editor).",
       "returns": {
         "kind": "concrete",
         "name": "Object"
-      }
+      },
+      "semanticRole": "The Form command returns the object associated with the current form (instantiated from the formData parameter or the user class assigned in the Form editor)."
     }
   ],
   "constraints": [

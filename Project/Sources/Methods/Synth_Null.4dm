@@ -1,2 +1,3 @@
 // overload 0
-Null()
+var $synthResult1 : Variant
+$synthResult1:=Null()

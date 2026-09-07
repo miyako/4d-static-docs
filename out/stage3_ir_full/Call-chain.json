@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
       "semanticRole": "Returns a collection describing every step of the current process's method call chain (method/formula, calling database/component, and line number), equivalent to the Debugger window's call stack."
     }
   ],

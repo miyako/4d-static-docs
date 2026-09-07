@@ -1,2 +1,3 @@
 // overload 0
-Get query limit()
+var $synthResult1 : Variant
+$synthResult1:=Get query limit()

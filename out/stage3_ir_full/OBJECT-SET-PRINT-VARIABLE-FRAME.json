@@ -69,7 +69,16 @@
           ]
         }
       ],
-      "semanticRole": "Sets the Print Variable Frame property (and, only for subforms in fixed-frame mode, the fixed-frame printing option) of the object(s) designated by object and *."
+      "semanticRole": "Sets the Print Variable Frame property (and, only for subforms in fixed-frame mode, the fixed-frame printing option) of the object(s) designated by object and *.",
+      "jointConstraints": [
+        {
+          "params": [
+            "fixedSubform",
+            "variableFrame"
+          ],
+          "rule": "fixedSubform is only used when variableFrame is False and object is a subform; it is ignored in every other case."
+        }
+      ]
     }
   ],
   "constraints": [

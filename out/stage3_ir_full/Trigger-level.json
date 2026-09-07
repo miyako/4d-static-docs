@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Trigger level command returns the execution level of the trigger.",
       "returns": {
         "kind": "concrete",
         "name": "Integer"
-      }
+      },
+      "semanticRole": "The Trigger level command returns the execution level of the trigger."
     }
   ],
   "constraints": [

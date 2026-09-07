@@ -48,6 +48,10 @@
           "description": "Process number."
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "Get the additional modifier key(s) (Shift and/or Option/Alt) combined with a menu item's standard shortcut key."
     }
   ],

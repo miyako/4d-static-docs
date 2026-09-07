@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The Is data file locked command returns True if the data file of the open database or at least one of its segments is locked \u2014 i.e."
     }
   ]

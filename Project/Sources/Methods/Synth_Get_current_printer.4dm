@@ -1,2 +1,3 @@
 // overload 0
-Get current printer()
+var $synthResult1 : Variant
+$synthResult1:=Get current printer()

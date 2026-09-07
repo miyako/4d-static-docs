@@ -1,2 +1,3 @@
 // overload 0
-Count user processes()
+var $synthResult1 : Variant
+$synthResult1:=Count user processes()

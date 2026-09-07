@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "Returns a numeric constant identifying which kind of 4D environment (desktop, remote, server, volume desktop, tool4d) the calling process is running under."
     }
   ],

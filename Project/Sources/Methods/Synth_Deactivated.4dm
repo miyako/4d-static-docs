@@ -1,2 +1,3 @@
 // overload 0
-Deactivated()
+var $synthResult1 : Variant
+$synthResult1:=Deactivated()

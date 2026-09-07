@@ -38,6 +38,10 @@
           ]
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Get the custom character-string parameter previously attached to a menu item via SET MENU ITEM PARAMETER."
     }
   ],

@@ -1,2 +1,3 @@
 // overload 0
-Count users()
+var $synthResult1 : Variant
+$synthResult1:=Count users()

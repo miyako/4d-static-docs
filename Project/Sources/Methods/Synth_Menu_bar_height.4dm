@@ -1,2 +1,3 @@
 // overload 0
-Menu bar height()
+var $synthResult1 : Variant
+$synthResult1:=Menu bar height()

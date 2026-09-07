@@ -1,2 +1,3 @@
 // overload 0
-Is waiting mouse up()
+var $synthResult1 : Variant
+$synthResult1:=Is waiting mouse up()

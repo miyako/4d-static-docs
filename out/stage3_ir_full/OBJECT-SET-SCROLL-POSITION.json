@@ -75,7 +75,24 @@
           "description": "Trailing '*'. If present, forces the target line (and column, if hPosition is passed) to be placed in the first visible position even if it was already visible; for pictures, places the requested point at the picture's origin (0,0) even if already shown."
         }
       ],
-      "semanticRole": "Scrolls the visible content (rows/columns of a subform, list form, hierarchical list, or list box; or the pixel offset of a picture) of the object(s) designated by object and * to the position given by vPosition/hPosition, or, if these are omitted, auto-scrolls just enough to reveal the first highlighted line."
+      "semanticRole": "Scrolls the visible content (rows/columns of a subform, list form, hierarchical list, or list box; or the pixel offset of a picture) of the object(s) designated by object and * to the position given by vPosition/hPosition, or, if these are omitted, auto-scrolls just enough to reveal the first highlighted line.",
+      "jointConstraints": [
+        {
+          "params": [
+            "hPosition",
+            "vPosition"
+          ],
+          "rule": "hPosition can only be passed if vPosition is also passed, since it is nested inside vPosition's optional group in the signature."
+        },
+        {
+          "params": [
+            "scrollToFirstPosition",
+            "vPosition",
+            "hPosition"
+          ],
+          "rule": "This trailing '*' only changes behavior when the target line/column (given by vPosition/hPosition) would otherwise already be visible and the command would do nothing; for pictures it forces the requested point to the origin (0,0) even if already shown."
+        }
+      ]
     }
   ],
   "constraints": [

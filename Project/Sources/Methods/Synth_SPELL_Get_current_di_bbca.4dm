@@ -1,2 +1,3 @@
 // overload 0
-SPELL Get current dictionary()
+var $synthResult1 : Variant
+$synthResult1:=SPELL Get current dictionary()

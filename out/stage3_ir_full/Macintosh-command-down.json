@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Macintosh command down returns TRUE if the Macintosh command key is pressed.When called on a Windows platform, Macintosh command down returns TRUE if the Windows Ctrl key is pressed."
     }
   ]

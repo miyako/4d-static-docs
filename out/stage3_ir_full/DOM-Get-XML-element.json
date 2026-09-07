@@ -67,6 +67,10 @@
           "description": "Receives the values of the found element's attributes"
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Returns the reference of a child element identified by name and index, optionally along with its value and attribute name/value arrays."
     }
   ],

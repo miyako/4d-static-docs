@@ -1,2 +1,3 @@
 // overload 0
-Is editing text()
+var $synthResult1 : Variant
+$synthResult1:=Is editing text()

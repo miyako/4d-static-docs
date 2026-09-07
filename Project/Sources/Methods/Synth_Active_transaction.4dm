@@ -1,2 +1,3 @@
 // overload 0
-Active transaction()
+var $synthResult1 : Variant
+$synthResult1:=Active transaction()

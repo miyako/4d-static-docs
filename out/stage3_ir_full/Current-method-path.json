@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Current method path command returns the internal pathname of the database method, trigger, project method, form method or object method being executed.",
       "returns": {
         "kind": "concrete",
         "name": "Text"
-      }
+      },
+      "semanticRole": "The Current method path command returns the internal pathname of the database method, trigger, project method, form method or object method being executed."
     }
   ],
   "constraints": [

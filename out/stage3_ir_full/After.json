@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Returns True during the After execution cycle (the On Validate form event) following object/form validation."
     }
   ],

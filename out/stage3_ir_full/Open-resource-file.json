@@ -32,6 +32,10 @@
           "description": "macOS file type (4-character string) or Windows file extension (1-3 characters) used to filter the Open dialog; if omitted, all files are shown."
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Time"
+      },
       "semanticRole": "Opens the resource file named or pathed by resFilename (or presents the Open File dialog if resFilename is an empty string, filtered by fileType), returning its resource file reference number."
     }
   ],

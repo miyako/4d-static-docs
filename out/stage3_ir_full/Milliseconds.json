@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "Milliseconds returns the number of milliseconds (1000th of a second) elapsed since the machine was started."
     }
   ]
