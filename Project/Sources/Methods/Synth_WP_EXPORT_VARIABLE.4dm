@@ -1,11 +1,15 @@
 // overload 0
-WP EXPORT VARIABLE(New object;"synthText";1;New object)
-// overload 0 union-sweep destination=Text
-WP EXPORT VARIABLE(New object;"synthText";1;New object)
-// overload 0 union-sweep destination=Blob
-var $v1 : Variant
+var $v1 : Text
 WP EXPORT VARIABLE(New object;$v1;1;New object)
+// overload 0 union-sweep destination=Text
+var $v2 : Text
+WP EXPORT VARIABLE(New object;$v2;1;New object)
+// overload 0 union-sweep destination=Blob
+var $v3 : Variant
+WP EXPORT VARIABLE(New object;$v3;1;New object)
 // overload 0 union-sweep option=Object
-WP EXPORT VARIABLE(New object;"synthText";1;New object)
+var $v4 : Text
+WP EXPORT VARIABLE(New object;$v4;1;New object)
 // overload 0 union-sweep option=Integer
-WP EXPORT VARIABLE(New object;"synthText";1;1)
+var $v5 : Text
+WP EXPORT VARIABLE(New object;$v5;1;1)

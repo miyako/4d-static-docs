@@ -9681,22 +9681,6 @@
   },
   {
     "id": "Num",
-    "overload_index": 0,
-    "variant": "union:expression=Boolean",
-    "file": "Sources/Methods/Synth_Num.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Num",
-    "overload_index": 0,
-    "variant": "union:expression=Integer",
-    "file": "Sources/Methods/Synth_Num.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Num",
     "overload_index": 1,
     "variant": "default",
     "file": "Sources/Methods/Synth_Num.4dm",
@@ -9707,22 +9691,6 @@
     "id": "Num",
     "overload_index": 1,
     "variant": "union:expression=Text",
-    "file": "Sources/Methods/Synth_Num.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Num",
-    "overload_index": 1,
-    "variant": "union:expression=Boolean",
-    "file": "Sources/Methods/Synth_Num.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Num",
-    "overload_index": 1,
-    "variant": "union:expression=Integer",
     "file": "Sources/Methods/Synth_Num.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13587,14 +13555,6 @@
     "id": "REGISTER-CLIENT",
     "overload_index": 0,
     "variant": "default",
-    "file": "Sources/Methods/Synth_REGISTER_CLIENT.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "REGISTER-CLIENT",
-    "overload_index": 0,
-    "variant": "flag:omit-leading-thru:*",
     "file": "Sources/Methods/Synth_REGISTER_CLIENT.4dm",
     "diagnostics": [],
     "status": "clean"

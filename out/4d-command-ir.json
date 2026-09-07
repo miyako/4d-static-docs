@@ -32848,7 +32848,16 @@
           "discriminatedBy": {
             "param": "separator",
             "rule": "Chosen when the optional trailing parameter is a Text decimal separator (or omitted entirely); mutually exclusive with the base syntax."
-          }
+          },
+          "jointConstraints": [
+            {
+              "params": [
+                "expression",
+                "separator"
+              ],
+              "rule": "separator is only meaningful (and only legal to pass) when expression is Text -- confirmed via real 4D compiler: Num(True;\"x\") and Num(1;\"x\") are both rejected (\"Incompatible type\"). When expression is Boolean or Integer, call Num(expression) alone, with no second parameter at all."
+            }
+          ]
         },
         {
           "params": [
@@ -32889,7 +32898,16 @@
           "discriminatedBy": {
             "param": "base",
             "rule": "Chosen when the second parameter is a required Integer radix between 2 and 36; mutually exclusive with the separator syntax."
-          }
+          },
+          "jointConstraints": [
+            {
+              "params": [
+                "expression",
+                "base"
+              ],
+              "rule": "This syntax (with a base argument) is only legal when expression is Text -- confirmed via real 4D compiler: Num(True;1) and Num(1;1) are both rejected (\"Incompatible type\"). When expression is Boolean or Integer, there is no base-syntax equivalent; call Num(expression) alone (the separator-syntax overload with no second parameter)."
+            }
+          ]
         }
       ]
     },
@@ -46583,6 +46601,7 @@
         }
       ],
       "constraints": [
+        "At least one parameter must be supplied -- despite clientName and * both being independently optional per the doc's own bracket notation, a fully bare REGISTER CLIENT() call is rejected by the real 4D compiler (\"this 4D command requires at least one parameter\"), a requirement the doc text never states explicitly.",
         "Has no effect when called from 4D running in local mode; it only does something on a 4D client connected to 4D Server.",
         "More than one client station can be registered under the same clientName; names are not required to be unique.",
         "A client's registered name cannot be changed while it is registered; you must call UNREGISTER CLIENT first, then REGISTER CLIENT again with the new name.",

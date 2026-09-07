@@ -1,11 +1,15 @@
 // overload 0
-var $v1 : Integer
-var $v2 : Integer
-var $v3 : Pointer
-LISTBOX GET CELL POSITION(*;"synthText";1;1;$v1;$v2;$v3)
+var $v1 : Real
+var $v2 : Real
+var $v3 : Integer
+var $v4 : Integer
+var $v5 : Pointer
+LISTBOX GET CELL POSITION(*;"synthText";$v1;$v2;$v3;$v4;$v5)
 // overload 1
-var $v4 : Variant
-var $v5 : Integer
-var $v6 : Integer
-var $v7 : Pointer
-LISTBOX GET CELL POSITION($v4;1;1;$v5;$v6;$v7)
+var $v6 : Variant
+var $v7 : Real
+var $v8 : Real
+var $v9 : Integer
+var $v10 : Integer
+var $v11 : Pointer
+LISTBOX GET CELL POSITION($v6;$v7;$v8;$v9;$v10;$v11)

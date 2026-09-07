@@ -1,6 +1,8 @@
 // overload 0
-var $synthResult1 : Variant
-$synthResult1:=JSON Stringify array("synthAny";*)
-// overload 0 flag-sweep omit-trailing-from:*
+var $v1 : Variant
 var $synthResult2 : Variant
-$synthResult2:=JSON Stringify array("synthAny")
+$synthResult2:=JSON Stringify array($v1;*)
+// overload 0 flag-sweep omit-trailing-from:*
+var $v3 : Variant
+var $synthResult4 : Variant
+$synthResult4:=JSON Stringify array($v3)
