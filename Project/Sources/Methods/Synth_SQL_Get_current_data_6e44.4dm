@@ -1,2 +1,3 @@
 // overload 0
-SQL Get current data source()
+var $synthResult1 : Variant
+$synthResult1:=SQL Get current data source()

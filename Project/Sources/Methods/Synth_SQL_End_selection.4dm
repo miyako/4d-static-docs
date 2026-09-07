@@ -1,2 +1,3 @@
 // overload 0
-SQL End selection()
+var $synthResult1 : Variant
+$synthResult1:=SQL End selection()

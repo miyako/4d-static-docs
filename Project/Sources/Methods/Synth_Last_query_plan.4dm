@@ -1,2 +1,3 @@
 // overload 0
-Last query plan(1)
+var $synthResult1 : Variant
+$synthResult1:=Last query plan(1)

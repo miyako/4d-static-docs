@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Returns a new random UUID using the default version (v4).",
       "returns": {
         "kind": "concrete",
         "name": "Text"
-      }
+      },
+      "semanticRole": "Returns a new random UUID using the default version (v4)."
     },
     {
       "params": [

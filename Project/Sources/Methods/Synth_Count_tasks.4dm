@@ -1,2 +1,3 @@
 // overload 0
-Count tasks()
+var $synthResult1 : Variant
+$synthResult1:=Count tasks()

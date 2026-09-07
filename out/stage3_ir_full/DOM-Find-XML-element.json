@@ -37,6 +37,10 @@
           "description": "Receives the list of all matching element references, useful when several elements match xPath"
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Searches an XML structure, starting at elementRef, for element(s) matching an XPath expression, returning the (first) match's reference and optionally all matches."
     }
   ],

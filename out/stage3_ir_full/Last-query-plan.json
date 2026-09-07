@@ -26,7 +26,11 @@
             }
           ]
         }
-      ]
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
     }
   ],
   "constraints": [

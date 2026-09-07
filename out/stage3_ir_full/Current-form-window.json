@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Current form window command returns the reference of the current form window.",
       "returns": {
         "kind": "concrete",
         "name": "Integer"
-      }
+      },
+      "semanticRole": "The Current form window command returns the reference of the current form window."
     }
   ],
   "constraints": [

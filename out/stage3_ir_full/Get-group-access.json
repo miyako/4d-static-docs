@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
       "semanticRole": "The Get group access command returns the memberships of the 4D user account for the current session."
     }
   ]

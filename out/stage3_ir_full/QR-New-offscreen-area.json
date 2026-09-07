@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "The QR New offscreen area command creates a new Quick Report offscreen area and returns its reference."
     }
   ]

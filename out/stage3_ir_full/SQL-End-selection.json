@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The SQL End selection command is used to determine if the boundaries of the result set have been reached."
     }
   ]

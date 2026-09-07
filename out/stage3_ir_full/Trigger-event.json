@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Called from within a trigger, the Trigger event command returns a numeric value that denotes the type of the database event, in other words, the reason why the trigger has been invoked.",
       "returns": {
         "kind": "concrete",
         "name": "Integer"
-      }
+      },
+      "semanticRole": "Called from within a trigger, the Trigger event command returns a numeric value that denotes the type of the database event, in other words, the reason why the trigger has been invoked."
     }
   ],
   "constraints": [

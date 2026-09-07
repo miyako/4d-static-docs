@@ -15,13 +15,13 @@
       "overloads": [
         {
           "overload_index": 0,
-          "variant": "default",
+          "variant": "chain",
           "comment_line": 1
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 3
+          "comment_line": 4
         }
       ]
     },
@@ -165,48 +165,48 @@
       "overloads": [
         {
           "overload_index": 0,
-          "variant": "default",
+          "variant": "chain",
           "comment_line": 1
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-leading-thru:conjOp",
-          "comment_line": 3
+          "comment_line": 6
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 5
+          "comment_line": 8
         },
         {
           "overload_index": 0,
           "variant": "union:queryOp=Text",
-          "comment_line": 7
+          "comment_line": 10
         },
         {
           "overload_index": 0,
           "variant": "union:queryOp=>|<|>=|<=|#|=|||%",
-          "comment_line": 9
+          "comment_line": 12
         },
         {
           "overload_index": 0,
           "variant": "union:value=Text",
-          "comment_line": 11
+          "comment_line": 14
         },
         {
           "overload_index": 0,
           "variant": "union:value=Real",
-          "comment_line": 13
+          "comment_line": 16
         },
         {
           "overload_index": 0,
           "variant": "union:value=Date",
-          "comment_line": 15
+          "comment_line": 18
         },
         {
           "overload_index": 0,
           "variant": "union:value=Time",
-          "comment_line": 17
+          "comment_line": 20
         }
       ]
     },
@@ -3426,7 +3426,7 @@
         {
           "overload_index": 1,
           "variant": "default",
-          "comment_line": 5
+          "comment_line": 6
         }
       ]
     },
@@ -3531,7 +3531,7 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 3
+          "comment_line": 4
         }
       ]
     },
@@ -4616,12 +4616,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5751,17 +5751,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-leading-thru:*",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:itemRef=Integer",
-          "comment_line": 5
+          "comment_line": 7
         },
         {
           "overload_index": 0,
           "variant": "union:itemRef=pseudo:Operator",
-          "comment_line": 7
+          "comment_line": 10
         }
       ]
     },
@@ -5786,12 +5786,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5806,12 +5806,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5826,12 +5826,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5846,12 +5846,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5866,12 +5866,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5886,12 +5886,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -5906,12 +5906,12 @@
         {
           "overload_index": 0,
           "variant": "union:menu=Integer",
-          "comment_line": 3
+          "comment_line": 4
         },
         {
           "overload_index": 0,
           "variant": "union:menu=Text",
-          "comment_line": 5
+          "comment_line": 7
         }
       ]
     },
@@ -11525,13 +11525,13 @@
       "overloads": [
         {
           "overload_index": 0,
-          "variant": "default",
+          "variant": "chain",
           "comment_line": 1
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 3
+          "comment_line": 4
         }
       ]
     },
@@ -12785,48 +12785,48 @@
       "overloads": [
         {
           "overload_index": 0,
-          "variant": "default",
+          "variant": "chain",
           "comment_line": 1
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-leading-thru:conjOp",
-          "comment_line": 3
+          "comment_line": 6
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 5
+          "comment_line": 8
         },
         {
           "overload_index": 0,
           "variant": "union:queryOp=>|<|>=|<=|#|=|||%",
-          "comment_line": 7
+          "comment_line": 10
         },
         {
           "overload_index": 0,
           "variant": "union:queryOp=Text",
-          "comment_line": 9
+          "comment_line": 12
         },
         {
           "overload_index": 0,
           "variant": "union:value=Text",
-          "comment_line": 11
+          "comment_line": 14
         },
         {
           "overload_index": 0,
           "variant": "union:value=Real",
-          "comment_line": 13
+          "comment_line": 16
         },
         {
           "overload_index": 0,
           "variant": "union:value=Date",
-          "comment_line": 15
+          "comment_line": 18
         },
         {
           "overload_index": 0,
           "variant": "union:value=Time",
-          "comment_line": 17
+          "comment_line": 20
         }
       ]
     },
@@ -12855,33 +12855,33 @@
       "overloads": [
         {
           "overload_index": 0,
-          "variant": "default",
+          "variant": "chain",
           "comment_line": 1
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 3
+          "comment_line": 6
         },
         {
           "overload_index": 1,
-          "variant": "default",
-          "comment_line": 5
+          "variant": "chain",
+          "comment_line": 8
         },
         {
           "overload_index": 1,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 7
+          "comment_line": 13
         },
         {
           "overload_index": 2,
           "variant": "default",
-          "comment_line": 9
+          "comment_line": 15
         },
         {
           "overload_index": 2,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 11
+          "comment_line": 17
         }
       ]
     },
@@ -12900,33 +12900,33 @@
       "overloads": [
         {
           "overload_index": 0,
-          "variant": "default",
+          "variant": "chain",
           "comment_line": 1
         },
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 3
+          "comment_line": 6
         },
         {
           "overload_index": 1,
-          "variant": "default",
-          "comment_line": 5
+          "variant": "chain",
+          "comment_line": 8
         },
         {
           "overload_index": 1,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 7
+          "comment_line": 13
         },
         {
           "overload_index": 2,
           "variant": "default",
-          "comment_line": 9
+          "comment_line": 15
         },
         {
           "overload_index": 2,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 11
+          "comment_line": 17
         }
       ]
     },

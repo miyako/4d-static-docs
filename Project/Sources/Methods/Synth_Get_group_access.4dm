@@ -1,2 +1,3 @@
 // overload 0
-Get group access()
+var $synthResult1 : Variant
+$synthResult1:=Get group access()

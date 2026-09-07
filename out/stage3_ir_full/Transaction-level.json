@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Transaction level command returns the current transaction level for the process.",
       "returns": {
         "kind": "concrete",
         "name": "Integer"
-      }
+      },
+      "semanticRole": "The Transaction level command returns the current transaction level for the process."
     }
   ],
   "constraints": [

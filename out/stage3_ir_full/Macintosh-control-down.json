@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Macintosh control down returns TRUE if the Macintosh Control key is pressed.When called on a Windows platform, Macintosh control down always return FALSE."
     }
   ]

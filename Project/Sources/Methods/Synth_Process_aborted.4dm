@@ -1,2 +1,3 @@
 // overload 0
-Process aborted()
+var $synthResult1 : Variant
+$synthResult1:=Process aborted()

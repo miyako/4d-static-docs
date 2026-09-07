@@ -47,6 +47,10 @@
           "description": "Receives the encrypted data"
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Encrypts a BLOB using an explicit encryption-key object (e.g. from New data key)."
     },
     {
@@ -92,6 +96,10 @@
           "description": "Receives the encrypted data"
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Encrypts a BLOB using an encryption key derived directly from a passphrase string."
     }
   ],

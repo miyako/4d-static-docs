@@ -66,6 +66,10 @@
           ]
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Time"
+      },
       "semanticRole": "Opens the document named by document (or presents the Open File dialog if document is an empty string), filtered by fileType, in the mode specified by mode, and returns its document reference number."
     }
   ],

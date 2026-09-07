@@ -1,2 +1,3 @@
 // overload 0
-Contextual click()
+var $synthResult1 : Variant
+$synthResult1:=Contextual click()

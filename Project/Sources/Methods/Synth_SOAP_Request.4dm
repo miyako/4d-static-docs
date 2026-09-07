@@ -1,2 +1,3 @@
 // overload 0
-SOAP Request()
+var $synthResult1 : Variant
+$synthResult1:=SOAP Request()

@@ -1,2 +1,3 @@
 // overload 0
-Monitored activity()
+var $synthResult1 : Variant
+$synthResult1:=Monitored activity()

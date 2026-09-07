@@ -1,2 +1,3 @@
 // overload 0
-Is Windows()
+var $synthResult1 : Variant
+$synthResult1:=Is Windows()

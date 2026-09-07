@@ -1,2 +1,3 @@
 // overload 0
-Get default user()
+var $synthResult1 : Variant
+$synthResult1:=Get default user()

@@ -1,2 +1,3 @@
 // overload 0
-Printing page()
+var $synthResult1 : Variant
+$synthResult1:=Printing page()

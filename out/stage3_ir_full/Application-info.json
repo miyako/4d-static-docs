@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
       "semanticRole": "Returns an object describing the current application instance's activity and network configuration (CPU/network usage, server listening state, ports, UI mode flags, uptime, etc.), scoped to wherever the call executes."
     }
   ],

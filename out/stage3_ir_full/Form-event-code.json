@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Form event code returns a numeric value identifying the type of form event that has just occurred.",
       "returns": {
         "kind": "concrete",
         "name": "Integer"
-      }
+      },
+      "semanticRole": "Form event code returns a numeric value identifying the type of form event that has just occurred."
     }
   ],
   "constraints": [

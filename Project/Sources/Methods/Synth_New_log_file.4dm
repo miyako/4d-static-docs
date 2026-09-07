@@ -1,2 +1,3 @@
 // overload 0
-New log file()
+var $synthResult1 : Variant
+$synthResult1:=New log file()

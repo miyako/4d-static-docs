@@ -1,2 +1,3 @@
 // overload 0
-Displayed line number()
+var $synthResult1 : Variant
+$synthResult1:=Displayed line number()

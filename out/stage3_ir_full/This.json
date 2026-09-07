@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The This command returns a reference to the currently processed object.",
       "returns": {
         "kind": "concrete",
         "name": "Object"
-      }
+      },
+      "semanticRole": "The This command returns a reference to the currently processed object."
     }
   ],
   "constraints": [

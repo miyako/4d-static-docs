@@ -37,6 +37,10 @@
           "description": "Receives the value of the next sibling element"
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Navigates to the next sibling of an XML element, returning its reference and optionally its name and value; sets OK to 0 after the last sibling.",
       "jointConstraints": [
         {

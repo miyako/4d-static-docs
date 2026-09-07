@@ -81,7 +81,16 @@
       "discriminatedBy": {
         "param": "*",
         "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
-      }
+      },
+      "jointConstraints": [
+        {
+          "params": [
+            "right",
+            "bottom"
+          ],
+          "rule": "right/bottom are optional together; when given, they redefine the object's size (resizing it) rather than just its position."
+        }
+      ]
     }
   ],
   "constraints": [

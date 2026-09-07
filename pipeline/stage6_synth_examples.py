@@ -311,6 +311,16 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         return CONCRETE_LITERALS[name]
 
     if kind == "pseudo":
+        # An out/inout pseudo param (e.g. GET MENU ITEM PROPERTY's "value",
+        # the DOM-Get-*-XML-element family's element-handle result) is a
+        # by-reference slot exactly like a concrete out/inout one -- 4D
+        # rejects a literal/expression there ("... is an output parameter,
+        # it can't be a constant."). Declare an addressable Variant
+        # variable instead, same convention as the concrete branch above.
+        if direction in ("out", "inout"):
+            v = ctx_state.fresh_name("v")
+            ctx_state.prelude.append(f"var {v} : Variant")
+            return v
         # "any"/"Expression": default to a plain Text literal, which
         # type-checks for almost every pseudo type in a compile-time-only
         # check -- EXCEPT known by-reference pseudo params (see below).
@@ -411,6 +421,152 @@ PSEUDO_REQUIRES_REFERENCE = {
     ("SQL-EXECUTE", "parameter"),
 }
 
+# Curated (command_id, param_name) -> literal overrides for params whose
+# generic kind-based literal (see build_arg_for_type) type-checks as an
+# expression but isn't the *shape* of expression the command actually
+# requires:
+#   - QUERY/QUERY-SELECTION's "comparator" is documented as one of the
+#     symbols = # < > <= >= % (see the command's own param description);
+#     the generic concrete:Text literal ("synthText") is a well-typed
+#     Text expression but not one of those symbols, so tool4d's stricter
+#     compiler-level check rejects it at runtime semantics (confirmed by
+#     a real 4D compile) even though it's syntactically a valid Text.
+#   - QUERY/QUERY-SELECTION's "queryArgument" (the single-string calling
+#     form, overloads 0-1) must evaluate to a Boolean predicate over a
+#     field of aTable -- a bare Text/pseudo literal is not a comparison at
+#     all ("... is an expression that evaluates as true or false. It
+#     can't be a constant."), so this emits an actual field comparison
+#     instead of the generic pseudo:Expression fallback.
+SPECIAL_ARG_LITERALS = {
+    ("QUERY", "comparator"): '"="',
+    ("QUERY-SELECTION", "comparator"): '"="',
+    ("QUERY", "queryArgument"): '[SynthTable]label="synthAny"',
+    ("QUERY-SELECTION", "queryArgument"): '[SynthTable]label="synthAny"',
+}
+
+# Commands using the queryThemeChain protocol's single-expression
+# "queryArgument" calling form (out/4d-command-ir.json's protocols.
+# multiCallChains.queryThemeChain lists QUERY/QUERY-SELECTION alongside
+# QUERY-BY-ATTRIBUTE/ORDER-BY/etc, but only these two share this exact
+# param shape -- see render_query_chain). Confirmed against developer.4d.
+# com's QUERY page (Examples 4, 6-8, 10, 12, 15-17): a real multi-criteria
+# query means calling the command repeatedly, re-passing aTable (if the
+# overload takes one) every time, with the trailing '*' flag on every call
+# except the last, and a leading conjunction ('&'/'|'/'#') on every call
+# after the first. A single one-shot call (what render_block's "default"
+# variant emits) can only ever prove the FIRST call's own shape type-
+# checks -- it never exercises the continuation shape at all, which has
+# an entire extra positional argument (the conjunction) that doesn't
+# appear anywhere in the IR's own params list for this overload, since
+# the conjunction is documented as embedded in queryArgument's own
+# micro-grammar rather than modeled as a distinct param (unlike QUERY-BY-
+# ATTRIBUTE, which already has an explicit conjOp param of its own).
+QUERY_ARG_CHAIN_COMMANDS = {"QUERY", "QUERY-SELECTION"}
+# AND/OR/AND-EXCEPT -- swept across the continuation calls below so every
+# conjunction symbol gets compiled at least once, not just one.
+QUERY_CHAIN_CONJUNCTIONS = ["|", "&", "#"]
+QUERY_CHAIN_PREDICATES = [
+    '[SynthTable]label="synthAny"',
+    '[SynthTable]label="synthOther"',
+    '[SynthTable]label="synthYetAnother"',
+    '[SynthTable]label="synthFourth"',
+]
+
+
+def render_query_chain(call_name: str, oi: int, has_a_table: bool) -> dict:
+    """Build a real multi-criteria call chain for a queryThemeChain
+    command's single-expression overload: an opening call (no
+    conjunction, trailing '*'), one continuation call per
+    QUERY_CHAIN_CONJUNCTIONS symbol (leading conjunction, trailing '*'
+    except on the last), and no separate closing call -- the last
+    continuation simply omits '*' to execute the accumulated query, per
+    the documented "call repeatedly; only the very last call omits '*'"
+    rule. Every call re-passes aTable when the overload has one (see
+    Example 4/6-8 etc: aTable is NOT omitted on continuation calls, only
+    the leading-conjunction rule differs from the first call)."""
+    lines = [f"// overload {oi} multi-query chain"]
+    n = len(QUERY_CHAIN_CONJUNCTIONS) + 1
+    for i in range(n):
+        args = []
+        if has_a_table:
+            args.append("[SynthTable]")
+        if i > 0:
+            args.append(QUERY_CHAIN_CONJUNCTIONS[i - 1])
+        args.append(QUERY_CHAIN_PREDICATES[i])
+        if i < n - 1:
+            args.append("*")
+        lines.append(f"{call_name}({';'.join(args)})")
+    return {"overload_index": oi, "variant": "chain", "lines": lines}
+
+
+# QUERY BY ATTRIBUTE / QUERY SELECTION BY ATTRIBUTE already model their
+# conjunction as an explicit "conjOp" param (unlike QUERY/QUERY-SELECTION
+# above), but the default single-call rendering always includes it, which
+# contradicts developer.4d.com's own rule ("The conjOp parameter is not
+# used for the first QUERY BY ATTRIBUTE call of a multiple query, or if
+# the query is a simple query."). Build a real chain instead: an opening
+# call with conjOp omitted entirely, then one continuation call per
+# QUERY_CHAIN_CONJUNCTIONS symbol (conjOp included, trailing '*' except
+# on the last).
+QUERY_ATTR_CHAIN_COMMANDS = {"QUERY-BY-ATTRIBUTE", "QUERY-SELECTION-BY-ATTRIBUTE"}
+
+
+def render_query_attr_chain(ir, ctx_state: "SynthContext", call_name: str, oi: int, params: list, command_id: str) -> dict:
+    has_a_table = bool(params) and params[0].get("name") == "aTable"
+    rest = [p for p in params if p.get("name") not in ("aTable", "conjOp", "*")]
+    ctx_state.prelude = []
+    lines = [f"// overload {oi} multi-query chain"]
+    n = len(QUERY_CHAIN_CONJUNCTIONS) + 1
+    for i in range(n):
+        args = []
+        if has_a_table:
+            args.append("[SynthTable]")
+        if i > 0:
+            args.append(QUERY_CHAIN_CONJUNCTIONS[i - 1])
+        for p in rest:
+            args.append(build_arg_for_type(ir, p["type"], p.get("name", "arg"), ctx_state, p.get("direction", "in")))
+        if i < n - 1:
+            args.append("*")
+        lines.append(f"{call_name}({';'.join(args)})")
+    lines[1:1] = ctx_state.prelude
+    return {"overload_index": oi, "variant": "chain", "lines": lines}
+
+
+# ORDER BY / ORDER BY ATTRIBUTE have no conjunction at all -- multiple
+# sort levels are built by calling the command repeatedly, ONE sort level
+# (one repetition of the VariadicGroup "sortLevel"/"group") per call,
+# re-passing aTable every time, trailing '*' on every call except the
+# last (confirmed against developer.4d.com's ORDER BY / ORDER BY
+# ATTRIBUTE pages: "you can pass only one sort level (field) per...
+# call"). The default single-call rendering (render_block above, which
+# expands the VariadicGroup to cardinality.min=1 rep and always includes
+# the trailing '*') leaves a dangling, never-closed chain -- syntactically
+# fine but never actually demonstrates or closes a real multi-level sort.
+ORDER_CHAIN_COMMANDS = {"ORDER-BY", "ORDER-BY-ATTRIBUTE"}
+ORDER_CHAIN_ORDERS = [">", "<"]
+
+
+def render_order_chain(ir, ctx_state: "SynthContext", call_name: str, oi: int, params: list, command_id: str) -> dict:
+    has_a_table = bool(params) and params[0].get("name") == "aTable"
+    group_param = next(p for p in params if "members" in p)
+    ctx_state.prelude = []
+    lines = [f"// overload {oi} multi-sort chain"]
+    n = len(ORDER_CHAIN_ORDERS)
+    for i in range(n):
+        args = []
+        if has_a_table:
+            args.append("[SynthTable]")
+        for m in group_param["members"]:
+            if m.get("name") == "order":
+                args.append(ORDER_CHAIN_ORDERS[i])
+            else:
+                args.append(build_arg_for_type(ir, m["type"], m.get("name", "arg"), ctx_state, m.get("direction", "in")))
+        if i < n - 1:
+            args.append("*")
+        lines.append(f"{call_name}({';'.join(args)})")
+    lines[1:1] = ctx_state.prelude
+    return {"overload_index": oi, "variant": "chain", "lines": lines}
+
 # Curated (command_id -> {frozenset({paramA, paramB}), ...}) trailing
 # optional-param pairs confirmed (via a live tool4d cross-check) to be
 # mutually exclusive alternates of the same call, not independently
@@ -474,6 +630,9 @@ def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
                 v = ctx_state.fresh_name("v")
                 ctx_state.prelude.append(f"var {v} : Variant")
                 args.append(v)
+                continue
+            if (command_id, pname) in SPECIAL_ARG_LITERALS:
+                args.append(SPECIAL_ARG_LITERALS[(command_id, pname)])
                 continue
             args.append(build_arg_for_type(ir, p["type"], pname, ctx_state, p.get("direction", "in")))
     return args
@@ -737,7 +896,27 @@ def synthesize_command(ir, command) -> list[dict]:
                 block.append(f"{call_name}({arg_str})")
             return {"overload_index": oi, "variant": variant, "lines": block}
 
-        blocks.append(render_block("default", "", {}))
+        param_names = [p.get("name") for p in params if "members" not in p and "contentParam" not in p]
+        if (
+            command["id"] in QUERY_ARG_CHAIN_COMMANDS
+            and "queryArgument" in param_names
+            and "*" in param_names
+        ):
+            blocks.append(render_query_chain(call_name, oi, param_names[0] == "aTable"))
+        elif (
+            command["id"] in QUERY_ATTR_CHAIN_COMMANDS
+            and "conjOp" in param_names
+            and "*" in param_names
+        ):
+            blocks.append(render_query_attr_chain(ir, ctx_state, call_name, oi, params, command["id"]))
+        elif (
+            command["id"] in ORDER_CHAIN_COMMANDS
+            and any("members" in p for p in params)
+            and "*" in param_names
+        ):
+            blocks.append(render_order_chain(ir, ctx_state, call_name, oi, params, command["id"]))
+        else:
+            blocks.append(render_block("default", "", {}))
 
         # Enum-value sweep: for every enum_ref param this overload has,
         # emit one additional block per enum value so every constant name

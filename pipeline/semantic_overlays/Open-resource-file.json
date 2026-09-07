@@ -37,7 +37,8 @@
         }
       ],
       "semanticRole": "Opens the resource file named or pathed by resFilename (or presents the Open File dialog if resFilename is an empty string, filtered by fileType), returning its resource file reference number.",
-      "note": "Documented the resFilename empty-string sentinel (interactive dialog), which autoparse left as a bare Text param."
+      "note": "Documented the resFilename empty-string sentinel (interactive dialog), which autoparse left as a bare Text param. Restored `returns` (Time) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
+      "returns": {"kind": "concrete", "name": "Time"}
     }
   ]
 }

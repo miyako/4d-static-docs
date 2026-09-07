@@ -1,2 +1,3 @@
 // overload 0
-Macintosh control down()
+var $synthResult1 : Variant
+$synthResult1:=Macintosh control down()

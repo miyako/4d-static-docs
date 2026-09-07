@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Searches the root level of all connected devices for a \".4DKeyChain\" file holding a valid encryption key for the currently-open data file; if found, applies it and adds it to the 4D keychain, returning True."
     }
   ],

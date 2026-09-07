@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "The Get printed height command returns the overall height (in pixels) of the section printed using the Print form command."
     }
   ],

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The Get assert enabled command returns True or False according to whether or not assertions are enabled in the current process."
     }
   ]

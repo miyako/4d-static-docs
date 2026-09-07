@@ -48,7 +48,16 @@
           "description": "Page number to screenshot; only meaningful with the form-editor-template syntax (formName passed)"
         }
       ],
-      "semanticRole": "Returns a picture of a form: either a live screenshot of the form currently being executed/loaded (no formName), or a static screenshot of a named form template as rendered in the Form editor (formName passed, optionally at a specific pageNum)."
+      "semanticRole": "Returns a picture of a form: either a live screenshot of the form currently being executed/loaded (no formName), or a static screenshot of a named form template as rendered in the Form editor (formName passed, optionally at a specific pageNum).",
+      "jointConstraints": [
+        {
+          "params": [
+            "aTable",
+            "formName"
+          ],
+          "rule": "aTable is only meaningful when formName is also passed (table-form template lookup); passing aTable alone without formName is not a valid combination."
+        }
+      ]
     }
   ],
   "constraints": [

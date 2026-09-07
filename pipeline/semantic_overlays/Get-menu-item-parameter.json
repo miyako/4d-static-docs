@@ -5,7 +5,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "Added the -1 sentinel value documented for menuItem.",
+      "note": "Added the -1 sentinel value documented for menuItem. Restored `returns` (Text) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
       "semanticRole": "Get the custom character-string parameter previously attached to a menu item via SET MENU ITEM PARAMETER.",
       "params": [
         {
@@ -27,7 +27,8 @@
             { "value": -1, "meaning": "the last item added to menu" }
           ]
         }
-      ]
+      ],
+      "returns": {"kind": "concrete", "name": "Text"}
     }
   ]
 }

@@ -1,2 +1,3 @@
 // overload 0
-Get edited text()
+var $synthResult1 : Variant
+$synthResult1:=Get edited text()

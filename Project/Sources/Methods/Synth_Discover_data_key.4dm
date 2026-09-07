@@ -1,2 +1,3 @@
 // overload 0
-Discover data key()
+var $synthResult1 : Variant
+$synthResult1:=Discover data key()

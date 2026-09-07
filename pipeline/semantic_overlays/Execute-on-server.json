@@ -10,7 +10,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "Added sentinelValues on 'stack' (0 = default/recommended stack size) and documented the optional trailing '*' marker's dedup-check semantics.",
+      "note": "Added sentinelValues on 'stack' (0 = default/recommended stack size) and documented the optional trailing '*' marker's dedup-check semantics. Restored `returns` (Integer) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
       "params": [
         {
           "name": "procedure",
@@ -50,7 +50,8 @@
           "description": "If a process named 'name' is already running, reuse it (return its process number) instead of starting a new one"
         }
       ],
-      "semanticRole": "Starts a new process running 'procedure' on the Server machine (Client/Server) or locally (single-user), optionally reusing an already-running process of the same name."
+      "semanticRole": "Starts a new process running 'procedure' on the Server machine (Client/Server) or locally (single-user), optionally reusing an already-running process of the same name.",
+      "returns": {"kind": "concrete", "name": "Integer"}
     }
   ]
 }

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The Is editing text command returns True if the user is entering values in an input form object, and False in all other cases."
     }
   ],

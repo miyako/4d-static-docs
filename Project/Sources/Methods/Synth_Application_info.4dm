@@ -1,2 +1,3 @@
 // overload 0
-Application info()
+var $synthResult1 : Variant
+$synthResult1:=Application info()

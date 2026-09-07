@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
       "semanticRole": "The Monitored activity command returns a collection of objects describing operations recorded according to the specifications set by the START MONITORING ACTIVITY command."
     }
   ]

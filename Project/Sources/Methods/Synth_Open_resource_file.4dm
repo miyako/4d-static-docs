@@ -1,2 +1,3 @@
 // overload 0
-Open resource file("synthText";"synthText")
+var $synthResult1 : Variant
+$synthResult1:=Open resource file("synthText";"synthText")

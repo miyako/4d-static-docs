@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Returns the Boolean literal False (useful in typed expressions/contexts where a literal Boolean function call is required rather than a bare keyword)."
     }
   ]

@@ -1,2 +1,3 @@
 // overload 0
-FORM theme()
+var $synthResult1 : Variant
+$synthResult1:=FORM theme()

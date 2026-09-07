@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Tool bar height command returns the height of the current visible tool bar, expressed in pixels.",
       "returns": {
         "kind": "concrete",
         "name": "Integer"
-      }
+      },
+      "semanticRole": "The Tool bar height command returns the height of the current visible tool bar, expressed in pixels."
     }
   ],
   "constraints": [

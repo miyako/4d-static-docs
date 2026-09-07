@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Current process returns the process reference number of the process within which this command is called.",
       "returns": {
         "kind": "concrete",
         "name": "Integer"
-      }
+      },
+      "semanticRole": "Current process returns the process reference number of the process within which this command is called."
     }
   ]
 }

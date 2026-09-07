@@ -37,6 +37,10 @@
           "description": "Receives the value of the last child element"
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Returns a reference to the last child of an XML element, usable for further DOM navigation, and optionally its name and value.",
       "jointConstraints": [
         {

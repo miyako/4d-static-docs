@@ -48,6 +48,10 @@
           "description": "Process reference number; defaults to the current process if omitted."
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "Get the character code of the standard Ctrl (Windows) / Command (macOS) shortcut key assigned to a menu item."
     }
   ],

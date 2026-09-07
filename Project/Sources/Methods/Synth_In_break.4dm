@@ -1,2 +1,3 @@
 // overload 0
-In break()
+var $synthResult1 : Variant
+$synthResult1:=In break()

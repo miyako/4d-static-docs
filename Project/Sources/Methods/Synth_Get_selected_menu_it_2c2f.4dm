@@ -1,2 +1,3 @@
 // overload 0
-Get selected menu item parameter()
+var $synthResult1 : Variant
+$synthResult1:=Get selected menu item parameter()

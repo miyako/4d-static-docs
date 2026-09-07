@@ -48,6 +48,10 @@
           "description": "Process reference number; defaults to the current process if omitted."
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
       "semanticRole": "Get the current check mark character of a menu item."
     }
   ],

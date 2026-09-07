@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "The Is in print preview command returns True if the Preview on Screen option is checked in the printing dialog box and False otherwise."
     }
   ],

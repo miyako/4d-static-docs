@@ -8,7 +8,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "Fixed 'encryptedBLOB' direction to 'out' (draft defaulted to 'in'); the parameter table marks it with col2 '\u2190' as the BLOB variable receiving the encrypted result.",
+      "note": "Fixed 'encryptedBLOB' direction to 'out' (draft defaulted to 'in'); the parameter table marks it with col2 '←' as the BLOB variable receiving the encrypted result. Restored `returns` (Boolean) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
       "params": [
         {
           "name": "blobToEncrypt",
@@ -39,11 +39,12 @@
           "description": "Receives the encrypted data"
         }
       ],
-      "semanticRole": "Encrypts a BLOB using an explicit encryption-key object (e.g. from New data key)."
+      "semanticRole": "Encrypts a BLOB using an explicit encryption-key object (e.g. from New data key).",
+      "returns": {"kind": "concrete", "name": "Boolean"}
     },
     {
       "sourceIndices": [1],
-      "note": "Fixed 'encryptedBLOB' direction to 'out' (draft defaulted to 'in'); same as overload 1.",
+      "note": "Fixed 'encryptedBLOB' direction to 'out' (draft defaulted to 'in'); same as overload 1. Restored `returns` (Boolean) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
       "params": [
         {
           "name": "blobToEncrypt",
@@ -74,7 +75,8 @@
           "description": "Receives the encrypted data"
         }
       ],
-      "semanticRole": "Encrypts a BLOB using an encryption key derived directly from a passphrase string."
+      "semanticRole": "Encrypts a BLOB using an encryption key derived directly from a passphrase string.",
+      "returns": {"kind": "concrete", "name": "Boolean"}
     }
   ]
 }

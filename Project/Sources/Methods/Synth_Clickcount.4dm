@@ -1,2 +1,3 @@
 // overload 0
-Clickcount()
+var $synthResult1 : Variant
+$synthResult1:=Clickcount()

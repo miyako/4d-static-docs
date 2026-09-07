@@ -6,12 +6,12 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Returns the current value of the data source bound to the subform container displayed in the parent form.",
       "returns": {
         "kind": "pseudo",
         "name": "any",
         "note": "Type mirrors whatever the parent form's subform-container data source resolves to (scalar value, array index, or Undefined)."
-      }
+      },
+      "semanticRole": "Returns the current value of the data source bound to the subform container displayed in the parent form."
     }
   ],
   "constraints": [

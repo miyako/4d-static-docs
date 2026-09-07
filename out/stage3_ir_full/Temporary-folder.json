@@ -6,11 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Temporary folder command returns the pathname to the current temporary folder set by your system.",
       "returns": {
         "kind": "concrete",
         "name": "Text"
-      }
+      },
+      "semanticRole": "The Temporary folder command returns the pathname to the current temporary folder set by your system."
     }
   ]
 }

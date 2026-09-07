@@ -8,7 +8,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "Fixed 'mask' direction to 'out' (draft defaulted to 'in'); the parameter table marks it with col2 '\u2190' as the resulting comparison mask.",
+      "note": "Fixed 'mask' direction to 'out' (draft defaulted to 'in'); the parameter table marks it with col2 '←' as the resulting comparison mask. Restored `returns` (Boolean) from the parameter table's 'Function result' row -- apply_overload_merges replaces the whole overload from this merge entry's fields, so it was silently dropped even though the mechanical draft had correctly computed it.",
       "params": [
         {
           "name": "picture1",
@@ -32,7 +32,8 @@
           "description": "Receives the resulting comparison mask picture"
         }
       ],
-      "semanticRole": "Pixel-by-pixel compares the dimensions and contents of two pictures and produces a visual diff mask."
+      "semanticRole": "Pixel-by-pixel compares the dimensions and contents of two pictures and produces a visual diff mask.",
+      "returns": {"kind": "concrete", "name": "Boolean"}
     }
   ]
 }

@@ -6,6 +6,10 @@
   "overloads": [
     {
       "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
       "semanticRole": "Returns True if the current mouse event was a contextual (right-button, or Control+click on Mac OS) click."
     }
   ],

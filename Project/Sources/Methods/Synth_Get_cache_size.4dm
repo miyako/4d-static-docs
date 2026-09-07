@@ -1,2 +1,3 @@
 // overload 0
-Get cache size()
+var $synthResult1 : Variant
+$synthResult1:=Get cache size()

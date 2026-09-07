@@ -64,6 +64,10 @@
           "description": "If a process named 'name' is already running, reuse it (return its process number) instead of starting a new one"
         }
       ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
       "semanticRole": "Starts a new process running 'procedure' on the Server machine (Client/Server) or locally (single-user), optionally reusing an already-running process of the same name."
     }
   ],
