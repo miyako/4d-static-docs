@@ -5672,30 +5672,6 @@
     "status": "clean"
   },
   {
-    "id": "Get-external-data-path",
-    "overload_index": 0,
-    "variant": "union:aField=Text",
-    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Get-external-data-path",
-    "overload_index": 0,
-    "variant": "union:aField=Blob",
-    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "Get-external-data-path",
-    "overload_index": 0,
-    "variant": "union:aField=Picture",
-    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
     "id": "Get-file-from-pasteboard",
     "overload_index": 0,
     "variant": "default",
@@ -13848,38 +13824,6 @@
     "status": "clean"
   },
   {
-    "id": "RELOAD-EXTERNAL-DATA",
-    "overload_index": 0,
-    "variant": "union:aField=Text",
-    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "RELOAD-EXTERNAL-DATA",
-    "overload_index": 0,
-    "variant": "union:aField=Blob",
-    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "RELOAD-EXTERNAL-DATA",
-    "overload_index": 0,
-    "variant": "union:aField=Picture",
-    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "RELOAD-EXTERNAL-DATA",
-    "overload_index": 0,
-    "variant": "union:aField=Object",
-    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
     "id": "RELOAD-PROJECT",
     "overload_index": 0,
     "variant": "default",
@@ -15291,30 +15235,6 @@
     "id": "SET-EXTERNAL-DATA-PATH",
     "overload_index": 0,
     "variant": "default",
-    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "SET-EXTERNAL-DATA-PATH",
-    "overload_index": 0,
-    "variant": "union:aField=Text",
-    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "SET-EXTERNAL-DATA-PATH",
-    "overload_index": 0,
-    "variant": "union:aField=Blob",
-    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
-    "id": "SET-EXTERNAL-DATA-PATH",
-    "overload_index": 0,
-    "variant": "union:aField=Picture",
     "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
     "diagnostics": [],
     "status": "clean"

@@ -6,17 +6,14 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "Adds sentinelValues for path's numeric-constant meanings (0/1), which are otherwise indistinguishable from an arbitrary Integer.",
+      "note": "Adds sentinelValues for path's numeric-constant meanings (0/1), which are otherwise indistinguishable from an arbitrary Integer. Also corrects aField from a Text/Blob/Picture value union to concrete:Field -- the doc's Type column names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler.",
       "params": [
         {
           "name": "aField",
-          "type": [
-            { "kind": "concrete", "name": "Text" },
-            { "kind": "concrete", "name": "Blob" },
-            { "kind": "concrete", "name": "Picture" }
-          ],
+          "type": { "kind": "concrete", "name": "Field" },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Field for which to set the storage location. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, or Picture -- the doc's own Type column names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
         },
         {
           "name": "path",

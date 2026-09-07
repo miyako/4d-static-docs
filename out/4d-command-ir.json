@@ -19675,22 +19675,13 @@
           "params": [
             {
               "name": "aField",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Blob"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Picture"
-                }
-              ],
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Field whose storage location you want to get. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, or Picture -- the doc's own Type column (\"Text, Blob, Picture\") names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
             }
           ],
           "returns": {
@@ -46829,26 +46820,13 @@
           "params": [
             {
               "name": "aField",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Blob"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Picture"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Object"
-                }
-              ],
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Field for which to reload the storage location. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, Picture, or Object -- the doc's own Type column names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
             }
           ],
           "semanticRole": "The RELOAD EXTERNAL DATA command reloads the contents in memory of an external storage file associated with a BLOB, Picture, or Text type field."
@@ -50363,22 +50341,13 @@
           "params": [
             {
               "name": "aField",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Blob"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Picture"
-                }
-              ],
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
               "direction": "in",
-              "optional": false
+              "optional": false,
+              "description": "Field for which to set the storage location. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, or Picture -- the doc's own Type column names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
             },
             {
               "name": "path",

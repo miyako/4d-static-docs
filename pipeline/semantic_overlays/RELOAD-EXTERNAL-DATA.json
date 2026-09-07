@@ -1,4 +1,21 @@
 {
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Field for which to reload the storage location. Must be an actual field reference (e.g. [Table]FieldName) of type Text, BLOB, Picture, or Object -- the doc's own Type column names the field's data type, not the shape of a value that can be passed here; a same-typed variable or literal is rejected by the compiler (\"The function expects a field not a variable or constant.\")."
+        }
+      ]
+    }
+  ],
   "constraints": [
     "Only useful for BLOB, Picture, or Text type fields that use an external storage file, when that file has been modified on disk (e.g. by an external editor) after the record was already loaded into memory."
   ]
