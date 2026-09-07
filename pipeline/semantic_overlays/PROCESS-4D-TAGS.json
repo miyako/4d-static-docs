@@ -1,0 +1,47 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "inputTemplate",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Blob" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Data containing 4D transformation tags to process."
+        },
+        {
+          "name": "outputResult",
+          "type": [
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Blob" }
+          ],
+          "direction": "out",
+          "optional": false,
+          "description": "Result from template execution."
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "param",
+              "type": { "kind": "pseudo", "name": "Expression" },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": { "min": 0, "max": null },
+          "position": "trailing"
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "inputTemplate can contain any tag-based text (4DTEXT, 4DHTML, 4DSCRIPT, etc.), not just HTML.",
+    "Optional param values are inserted into the template's tags/expressions during processing; a full description of the tag grammar is in the 4D Transformation Tags section."
+  ]
+}

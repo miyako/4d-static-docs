@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "A table must be assigned to the report area because the editor uses that table's current selection to display data, perform computations, and propagate relations."
+  ]
+}

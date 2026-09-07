@@ -13,32 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ]
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "PRINT LABEL enables you to print labels with the data from the selection of aTable ."
-    },
-    {
-      "params": [
-        {
-          "name": "aTable",
-          "type": {
-            "kind": "concrete",
-            "name": "Table"
-          },
-          "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table to print, or the default table if omitted."
         },
         {
           "name": "document",
@@ -47,7 +23,20 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of disk label document; if omitted, prints the current selection as labels using the current output form."
+        },
+        {
+          "name": ">",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              ">"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Do not reinitialize the current print parameters."
         },
         {
           "name": "*",
@@ -58,10 +47,15 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Suppress the printing dialog box."
         }
       ],
-      "semanticRole": "PRINT LABEL enables you to print labels with the data from the selection of aTable ."
+      "semanticRole": "Prints labels using the data of the selection of aTable, either via the current output form (no document) or via the Label Wizard / an existing label document on disk (document specified)."
     }
+  ],
+  "constraints": [
+    "Cannot be used to print subforms.",
+    "If the user cancels the Print job dialog box (when not suppressed), the command is canceled and no labels are printed."
   ]
 }

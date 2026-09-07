@@ -1,0 +1,12 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Forces a graphical refresh of the subform displaying aTable after its data was changed programmatically."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Forces a graphical refresh of the given Field/Variable form object; for a list box in selection mode, refreshes the data displayed by that list box."
+    }
+  ]
+}

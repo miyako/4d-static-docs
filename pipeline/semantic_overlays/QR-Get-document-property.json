@@ -1,0 +1,33 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "property's four documented constants (from the QR Document Properties theme) are recorded as sentinelValues; the parameter table's terse description ('1 = Print Dialog, 2 = Document unit') omits the field/record separator constants that the prose documents.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "property",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Document property to query",
+          "sentinelValues": [
+            { "value": 1, "meaning": "qr printing dialog - display of the print dialog box (0=not displayed, 1=displayed, default)" },
+            { "value": 2, "meaning": "qr unit - document unit (0=points, 1=centimeters, 2=inches)" },
+            { "value": 3, "meaning": "qr field separator - character code of the field separator (default: FldDelimit, Tab)" },
+            { "value": 4, "meaning": "qr record separator - character code of the record separator (default: RecDelimit, Carriage Return)" }
+          ]
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Retrieves the current value of a Quick Report document-level property (print dialog display, document unit, or field/record separator character code) for area."
+    }
+  ]
+}

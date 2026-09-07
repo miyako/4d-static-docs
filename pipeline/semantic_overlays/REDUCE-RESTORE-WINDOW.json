@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Toggles rather than sets a fixed state: if window is currently displayed, it is reduced to the taskbar/dock; if window is currently reduced, it is restored to its previous state instead.",
+    "On macOS the command is asynchronous."
+  ]
+}

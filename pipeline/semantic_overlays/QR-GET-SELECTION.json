@@ -1,0 +1,61 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "left, top, right and bottom are all documented with the '\u2190' arrow (values returned by the command), not '\u2192'; auto-parse defaulted all of them to direction 'in'. Documents their sentinel values (0 and -1 special cases) explicitly.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "left",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Column number that is the left boundary of the selection",
+          "sentinelValues": [
+            { "value": 0, "meaning": "The entire row is selected" },
+            { "value": -1, "meaning": "There is no selection" }
+          ]
+        },
+        {
+          "name": "top",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Row number that is the top boundary of the selection",
+          "sentinelValues": [
+            { "value": 0, "meaning": "The entire column is selected (and, if left also equals 0, the entire area is highlighted)" },
+            { "value": -1, "meaning": "There is no selection" }
+          ]
+        },
+        {
+          "name": "right",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Column number that is the right boundary of the selection",
+          "sentinelValues": [
+            { "value": -1, "meaning": "There is no selection" }
+          ]
+        },
+        {
+          "name": "bottom",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Row number that is the bottom boundary of the selection",
+          "sentinelValues": [
+            { "value": -1, "meaning": "There is no selection" }
+          ]
+        }
+      ],
+      "semanticRole": "Returns the cell-range coordinates of the currently selected cell(s) in area, using 0 as a whole-row/whole-column/whole-area sentinel and -1 for all four outputs when there is no selection."
+    }
+  ]
+}

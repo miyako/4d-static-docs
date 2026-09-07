@@ -12,11 +12,18 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Variable that receives the value; in interpreted mode it is created/typed on the fly if it doesn't already exist, in compiled mode it must already match the received type."
         }
       ],
-      "semanticRole": "RECEIVE VARIABLE receives variable , which was previously sent by SEND VARIABLE from the document or serial port previously opened by SET CHANNEL ."
+      "semanticRole": "Receives a scalar variable previously sent by SEND VARIABLE from the document or serial port opened via SET CHANNEL, replacing variable's contents with the received value."
     }
+  ],
+  "constraints": [
+    "Only works with a channel opened by SET CHANNEL; documents opened via Open document/Create document/Append document are not supported.",
+    "Does not support array variables; use the BLOB commands to send/receive arrays instead.",
+    "In interpreted mode, an undeclared variable is created and typed based on what is received; in compiled mode, variable must already be of the same type as what is received.",
+    "The read interrupts on Ctrl-Alt-Shift (Windows) / Command-Option-Shift (macOS), raising error -9994, catchable via an ON ERR CALL method."
   ]
 }

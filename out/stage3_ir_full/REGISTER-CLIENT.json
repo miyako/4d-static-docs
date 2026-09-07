@@ -27,7 +27,23 @@
           "optional": true
         }
       ],
-      "semanticRole": "The REGISTER CLIENT command \"registers\" a 4D client station with the name specified in clientName on 4D Server, so as to allow other clients or possibly 4D Server (by using stored methods) to execute methods on it by usi"
+      "semanticRole": "Registers a 4D client station under clientName on 4D Server, creating a named process on the client that other clients (or the server) can target via EXECUTE ON CLIENT.",
+      "jointConstraints": [
+        {
+          "params": [
+            "*",
+            "clientName"
+          ],
+          "rule": "The trailing '*' is only meaningful when clientName is also passed; it prepends '$' to clientName for compatibility with older naming conventions."
+        }
+      ]
     }
+  ],
+  "constraints": [
+    "Has no effect when called from 4D running in local mode; it only does something on a 4D client connected to 4D Server.",
+    "More than one client station can be registered under the same clientName; names are not required to be unique.",
+    "A client's registered name cannot be changed while it is registered; you must call UNREGISTER CLIENT first, then REGISTER CLIENT again with the new name.",
+    "Clients can also be auto-registered at connection time via the \"Register Clients at Startup...\" option in the Properties dialog box.",
+    "The process created on the client station by this command can only be aborted by UNREGISTER CLIENT."
   ]
 }

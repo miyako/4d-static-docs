@@ -1,0 +1,37 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "Autoparse split this into two overloads (one per doc syntax line, '...{;*}' vs '...{;>}') and silently dropped the '>' param on the second line because its name ('>') doesn't match the parser's identifier pattern. Per the docs, '*' and '>' are two independently optional dialog-suppression flags that can both be used on the same call ('the > parameter causes a print job without reinitializing the current print parameters', used in addition to '*'), so merged into one overload with both optional. The parameter table description also documents aTable as defaulting to the default table when omitted, so its optionality is corrected to true despite the doc syntax line omitting braces around it.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": true,
+          "description": "Table for which to print the current record, or the default table if omitted."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "Suppress the printing dialog box, using the current print parameters."
+        },
+        {
+          "name": ">",
+          "type": { "kind": "literal_symbols", "symbols": [">"] },
+          "direction": "in",
+          "optional": true,
+          "description": "Do not reinitialize the current print parameters (useful across successive calls, e.g. inside a loop)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Does nothing if there is no current record for aTable.",
+    "Prints unsaved modifications to the record (in-memory values), not the values on disk.",
+    "Unlike Print form, this command can print subforms.",
+    "If the user cancels the Print job dialog box (when not suppressed), the command is canceled and the record is not printed."
+  ]
+}

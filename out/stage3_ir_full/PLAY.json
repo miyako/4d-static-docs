@@ -27,5 +27,11 @@
       ],
       "semanticRole": "The PLAY command plays sound or multimedia files."
     }
+  ],
+  "constraints": [
+    "On macOS, sound is always played asynchronously regardless of whether async is passed.",
+    "The async parameter only affects behavior on Windows: if passed with 0 (or any longint value) playback is asynchronous, otherwise playback is synchronous by default.",
+    "Passing an empty string in objectName stops an asynchronous sound currently playing.",
+    "On macOS, objectName can also name a system sound instead of a file path."
   ]
 }

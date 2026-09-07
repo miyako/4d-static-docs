@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-LIST-BY-REFERENCE",
   "displayName": "OBJECT SET LIST BY REFERENCE",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "listType",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "list",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET LIST BY REFERENCE command defines or replaces the list associated with the object(s) designated by the object and * parameters, with the hierarchical list referenced in the list parameter."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "listType",
@@ -71,7 +45,23 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Type of list to set: Choice list, Required list, or Excluded list; defaults to Choice list (0) if omitted.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Choice list -- simple list of values to choose from (default if listType is omitted)"
+            },
+            {
+              "value": 1,
+              "meaning": "Required list -- lists only values accepted for entry"
+            },
+            {
+              "value": 2,
+              "meaning": "Excluded list -- lists values not accepted for entry"
+            }
+          ],
+          "default": 0
         },
         {
           "name": "list",
@@ -80,10 +70,16 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "List reference number, or 0 to end the association for the given listType"
         }
       ],
-      "semanticRole": "The OBJECT SET LIST BY REFERENCE command defines or replaces the list associated with the object(s) designated by the object and * parameters, with the hierarchical list referenced in the list parameter."
+      "semanticRole": "Associates or replaces the hierarchical-list association of the given type (choice/required/excluded) for the object(s) designated by object and *, using a list reference number."
     }
+  ],
+  "constraints": [
+    "list must be a reference number produced by Copy list, Load list, or New list.",
+    "Passing 0 in list ends the association for the given listType; it does not free the list reference from memory -- call CLEAR LIST when the list is no longer needed.",
+    "Existing values are replaced differently depending on how the list is bound to the object: a plain choice-list association replaces the list itself; an array-bound list is replaced by copying into array elements; an object-bound list (not supported in binary databases) is copied as collection elements into the object's values property."
   ]
 }

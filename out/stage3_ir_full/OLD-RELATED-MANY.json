@@ -16,7 +16,11 @@
           "optional": false
         }
       ],
-      "semanticRole": "OLD RELATED MANY operates the same way RELATE MANY does, except that OLD RELATED MANY uses the old value in the one field to establish the relation."
+      "semanticRole": "Establishes and loads the related-many selection using the pre-modification (old) value of aField instead of its current value, then selects the first record of the resulting selection as current record."
     }
+  ],
+  "constraints": [
+    "Operates the same as RELATE MANY, except the relation is established using the old value of the one field (as returned by the Old function/command), not its current value.",
+    "Changes the selection of the related table and makes the first record of the new selection the current record."
   ]
 }

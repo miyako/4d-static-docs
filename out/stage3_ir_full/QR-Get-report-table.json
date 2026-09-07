@@ -2,7 +2,7 @@
   "id": "QR-Get-report-table",
   "displayName": "QR Get report table",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [

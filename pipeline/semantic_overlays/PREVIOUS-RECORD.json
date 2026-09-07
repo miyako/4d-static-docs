@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "No effect if the current selection is empty, or if the record pointer is already before/at end of selection (Before selection or End selection is True).",
+    "If moving before the current selection, End selection returns True and there is no current record; use FIRST RECORD, LAST RECORD or GOTO SELECTED RECORD to move back into the selection."
+  ]
+}

@@ -18,5 +18,8 @@
       ],
       "semanticRole": "The REJECT NEW REMOTE CONNECTIONS command specifies whether or not the application server accepts new remote user connections."
     }
+  ],
+  "constraints": [
+    "Only takes effect on 4D Server; if the calling method executes locally on a remote client or in 4D single-user mode, the command does nothing."
   ]
 }

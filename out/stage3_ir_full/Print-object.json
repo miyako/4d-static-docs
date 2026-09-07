@@ -15,65 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (Text)."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "posX",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "posY",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "width",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "height",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "returns": {
-        "kind": "concrete",
-        "name": "Boolean"
-      },
-      "semanticRole": "The Print object command lets you print the form object(s) designated by the object and * parameters, at the location set by the posX and posY parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -84,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if '*' is specified) or a Variable/Field reference (if '*' is omitted)."
         },
         {
           "name": "posX",
@@ -93,7 +45,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Horizontal location of object."
         },
         {
           "name": "posY",
@@ -102,7 +55,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Vertical location of object."
         },
         {
           "name": "width",
@@ -111,7 +65,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Width of object in pixels."
         },
         {
           "name": "height",
@@ -120,14 +75,21 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Height of object in pixels."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The Print object command lets you print the form object(s) designated by the object and * parameters, at the location set by the posX and posY parameters."
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
     }
+  ],
+  "constraints": [
+    "Returns True if the object was printed entirely, False otherwise (e.g. not enough room left on the page)."
   ]
 }

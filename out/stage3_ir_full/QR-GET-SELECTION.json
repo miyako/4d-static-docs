@@ -2,7 +2,7 @@
   "id": "QR-GET-SELECTION",
   "displayName": "QR GET SELECTION",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "left",
@@ -21,8 +22,19 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Column number that is the left boundary of the selection",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "The entire row is selected"
+            },
+            {
+              "value": -1,
+              "meaning": "There is no selection"
+            }
+          ]
         },
         {
           "name": "top",
@@ -30,8 +42,19 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Row number that is the top boundary of the selection",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "The entire column is selected (and, if left also equals 0, the entire area is highlighted)"
+            },
+            {
+              "value": -1,
+              "meaning": "There is no selection"
+            }
+          ]
         },
         {
           "name": "right",
@@ -39,8 +62,15 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Column number that is the right boundary of the selection",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "There is no selection"
+            }
+          ]
         },
         {
           "name": "bottom",
@@ -48,11 +78,18 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Row number that is the bottom boundary of the selection",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "There is no selection"
+            }
+          ]
         }
       ],
-      "semanticRole": "The QR GET SELECTION command returns the coordinates of the cell that is selected."
+      "semanticRole": "Returns the cell-range coordinates of the currently selected cell(s) in area, using 0 as a whole-row/whole-column/whole-area sentinel and -1 for all four outputs when there is no selection."
     }
   ]
 }

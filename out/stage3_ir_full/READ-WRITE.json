@@ -16,7 +16,7 @@
           "optional": true
         }
       ],
-      "semanticRole": "READ WRITE changes the state of aTable to read/write for the process in which it is called."
+      "semanticRole": "Sets aTable (or the default table if omitted) to read/write state for the calling process; subsequently loaded records become unlocked (if not already locked by another user)."
     },
     {
       "params": [
@@ -32,7 +32,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "READ WRITE changes the state of aTable to read/write for the process in which it is called."
+      "semanticRole": "Sets every table to read/write state for the calling process, using the '*' form instead of naming a single table."
     }
+  ],
+  "constraints": [
+    "Only affects subsequently loaded records; it does not change the lock status of the record already loaded as current.",
+    "Read/write is the default state for all tables; this command is needed to revert a table from a prior READ ONLY call."
   ]
 }

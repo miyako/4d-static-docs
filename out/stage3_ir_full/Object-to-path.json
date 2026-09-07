@@ -22,5 +22,10 @@
       },
       "semanticRole": "The Object to path command returns a pathname (string) based upon path information you passed in the pathObject parameter."
     }
+  ],
+  "constraints": [
+    "pathObject must contain the properties: parentFolder (Text, directory info; last character must be a folder separator -- '/' selects a Posix-style path, otherwise the system separator is used), name (Text, final file/folder name without extension), extension (Text, starts with '.', can be omitted, empty string '' if none) and isFolder (Boolean, defaults to false).",
+    "Only builds a string: it does not validate the path's syntax against the chosen path type, nor check that any file or folder actually exists.",
+    "pathObject is typically produced by Path to object, but can be built by any means."
   ]
 }

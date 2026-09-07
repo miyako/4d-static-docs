@@ -2,7 +2,7 @@
   "id": "QR-DELETE-COLUMN",
   "displayName": "QR DELETE COLUMN",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -27,5 +27,8 @@
       ],
       "semanticRole": "The QR DELETE COLUMN command deletes the column in area whose number was passed in colNumber ."
     }
+  ],
+  "constraints": [
+    "Does not apply to cross-table reports (only valid for list-mode Quick Report areas)."
   ]
 }

@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table for which to print the selection, or the default table if omitted."
         },
         {
           "name": "*",
@@ -24,24 +25,27 @@
             ]
           },
           "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "PRINT SELECTION prints the current selection of aTable ."
-    },
-    {
-      "params": [
+          "optional": true,
+          "description": "Suppress the printing dialog box, using the current print parameters."
+        },
         {
-          "name": "aTable",
+          "name": ">",
           "type": {
-            "kind": "concrete",
-            "name": "Table"
+            "kind": "literal_symbols",
+            "symbols": [
+              ">"
+            ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Do not reinitialize the current print parameters (useful across successive calls, e.g. inside a loop)."
         }
-      ],
-      "semanticRole": "PRINT SELECTION prints the current selection of aTable ."
+      ]
     }
+  ],
+  "constraints": [
+    "Does nothing if the current selection of aTable is empty.",
+    "Performs the same action as the Print menu command in the Design environment.",
+    "If the user cancels the Print job dialog box (when not suppressed), the command is canceled and the report is not printed."
   ]
 }

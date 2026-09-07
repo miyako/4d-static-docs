@@ -1,0 +1,41 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "value is documented with the '\u2190' arrow (returned by the command), not '\u2192'; auto-parse defaulted it to direction 'in'. Its four documented meanings are recorded as sentinelValues/description rather than a bare Integer.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "subtotal",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Subtotal (break) level, between 1 and the number of subtotals/sorts"
+        },
+        {
+          "name": "value",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Spacing configured below the subtotal row",
+          "sentinelValues": [
+            { "value": 0, "meaning": "No space added below the subtotal row" },
+            { "value": 32000, "meaning": "A page break is inserted" }
+          ]
+        }
+      ],
+      "semanticRole": "Retrieves the spacing configured below a given subtotal (break) row of a list-mode report: 0 for none, 32000 for a page break, a positive number of pixels, or a negative percentage of the subtotal row's height."
+    }
+  ],
+  "constraints": [
+    "Applies only to list mode reports.",
+    "A positive value expresses the spacing in pixels; a negative value expresses it as a percentage of the subtotal row (e.g. -100 means 100% of the row's height)."
+  ]
+}

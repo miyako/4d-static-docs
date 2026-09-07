@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "QR SET DESTINATION must first be called to set the area's output type to HTML file for the template to be used."
+  ]
+}

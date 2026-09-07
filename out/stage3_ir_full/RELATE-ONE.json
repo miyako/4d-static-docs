@@ -16,7 +16,7 @@
           "optional": false
         }
       ],
-      "semanticRole": "RELATE ONE has two forms."
+      "semanticRole": "Establishes every automatic Many-to-One relation for manyTable at once, loading each related table's related record as its current record."
     },
     {
       "params": [
@@ -39,7 +39,12 @@
           "optional": true
         }
       ],
-      "semanticRole": "RELATE ONE has two forms."
+      "semanticRole": "Looks up the (not necessarily automatic) relation for manyField and loads the related record as current; if choiceField is given and multiple candidates match, shows a selection list to the user instead of failing."
     }
+  ],
+  "constraints": [
+    "choiceField must be an Alpha, Text, Numeric, Date, Time, or Boolean field in the related table; Picture, BLOB, and Object type fields are not supported for choiceField, and this command does not support Object type fields for manyField either.",
+    "More than one matching record can occur when manyField ends with the wildcard character '@'; the resulting selection list shows related-field values in the left column and choiceField values in the right column, and is skipped automatically when only one match exists.",
+    "Passing choiceField is equivalent to specifying a wildcard choice when defining the table relation itself."
   ]
 }

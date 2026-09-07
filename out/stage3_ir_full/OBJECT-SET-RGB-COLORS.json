@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-RGB-COLORS",
   "displayName": "OBJECT SET RGB COLORS",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,70 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "foregroundColor",
           "type": [
             {
               "kind": "concrete",
               "name": "Text"
             },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "backgroundColor",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "altBackgrndColor",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The OBJECT SET RGB COLORS command changes the foreground and background colors of the objects specified by the object parameter and the optional * parameter."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": [
             {
               "kind": "concrete",
               "name": "Variable"
@@ -89,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "foregroundColor",
@@ -104,7 +51,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "RGB color value for foreground (CSS name, \"#rrggbb\"/\"rgb(r,g,b)\" string, 4-byte 0x00rrggbb integer, or 4D system color constant); pass \"\" to leave it unchanged"
         },
         {
           "name": "backgroundColor",
@@ -119,7 +67,8 @@
             }
           ],
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "RGB color value for background (same formats as foregroundColor, plus \"transparent\"); pass \"\" to leave it unchanged"
         },
         {
           "name": "altBackgrndColor",
@@ -134,10 +83,17 @@
             }
           ],
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "RGB color value for the alternating (even-row) background, list boxes/list box columns only"
         }
       ],
-      "semanticRole": "The OBJECT SET RGB COLORS command changes the foreground and background colors of the objects specified by the object parameter and the optional * parameter."
+      "semanticRole": "Sets, for the current process, the foreground and background color(s) (and, for list boxes, the alternating even-row background color) of the object(s) designated by object and *."
     }
+  ],
+  "constraints": [
+    "Pass \"\" in foregroundColor and/or backgroundColor to leave that color unchanged.",
+    "\"transparent\" can only be used for backgroundColor and altBackgrndColor.",
+    "altBackgrndColor only takes effect when object designates a list box or a list box column; when it is used, backgroundColor then applies only to odd-numbered rows and altBackgrndColor to even-numbered rows.",
+    "If object designates a whole list box, alternating colors apply to the entire list box; if it designates a single column, only that column uses the given colors."
   ]
 }

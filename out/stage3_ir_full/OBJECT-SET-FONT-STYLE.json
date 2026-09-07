@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-FONT-STYLE",
   "displayName": "OBJECT SET FONT STYLE",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "styles",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "OBJECT SET FONT STYLE sets the form objects specified by object to be displayed using the font style you pass in styles ."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -53,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "styles",
@@ -62,10 +45,29 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Sum of font style constants to apply",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Plain -- no style"
+            },
+            {
+              "value": 1,
+              "meaning": "Bold"
+            },
+            {
+              "value": 2,
+              "meaning": "Italic"
+            },
+            {
+              "value": 4,
+              "meaning": "Underline"
+            }
+          ]
         }
       ],
-      "semanticRole": "OBJECT SET FONT STYLE sets the form objects specified by object to be displayed using the font style you pass in styles ."
+      "semanticRole": "Sets the font style (a sum of Bold/Italic/Underline bit values, or Plain to clear all) used to display the object(s) designated by object and *, for the current process."
     }
   ]
 }

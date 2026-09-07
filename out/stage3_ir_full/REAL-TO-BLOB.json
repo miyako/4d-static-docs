@@ -13,7 +13,8 @@
             "name": "Real"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Real value to write into the BLOB."
         },
         {
           "name": "blob",
@@ -22,7 +23,8 @@
             "name": "Blob"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "BLOB to receive the Real value; its size is adjusted to fit the written value."
         },
         {
           "name": "realFormat",
@@ -31,7 +33,26 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Internal format/byte-ordering constant for the written value: 0 Native, 1 Extended, 2 Macintosh Double, 3 Windows/PC Double.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Native real format"
+            },
+            {
+              "value": 1,
+              "meaning": "Extended real format"
+            },
+            {
+              "value": 2,
+              "meaning": "Macintosh Double real format"
+            },
+            {
+              "value": 3,
+              "meaning": "Windows/PC Double real format"
+            }
+          ]
         },
         {
           "name": "offset",
@@ -39,40 +60,9 @@
             "kind": "concrete",
             "name": "Variable"
           },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The REAL TO BLOB command writes the Real value real into the BLOB blob ."
-    },
-    {
-      "params": [
-        {
-          "name": "real",
-          "type": {
-            "kind": "concrete",
-            "name": "Real"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "blob",
-          "type": {
-            "kind": "concrete",
-            "name": "Blob"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "realFormat",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
+          "direction": "inout",
+          "optional": true,
+          "description": "Byte offset (from zero) within blob at which to write; on return, incremented by the number of bytes written so it can be reused for a subsequent BLOB write."
         },
         {
           "name": "*",
@@ -83,10 +73,15 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, append the Real value at the end of blob instead of writing at the start or at offset."
         }
       ],
-      "semanticRole": "The REAL TO BLOB command writes the Real value real into the BLOB blob ."
+      "semanticRole": "Writes real into blob in the byte format/ordering selected by realFormat, either at the start of the BLOB, at a caller-supplied offset, or appended at the end."
     }
+  ],
+  "constraints": [
+    "New bytes allocated by extending the BLOB (other than the value being written) are zero-initialized.",
+    "Does not support blob objects (4D.Blob type); it mutates the classic BLOB parameter in place, so blob must be a legacy BLOB, not a 4D.Blob."
   ]
 }

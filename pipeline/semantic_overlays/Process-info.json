@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "If you pass an incorrect/invalid processNumber, the command returns a null object rather than raising an error."
+  ]
+}

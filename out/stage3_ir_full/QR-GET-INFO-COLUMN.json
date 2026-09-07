@@ -2,7 +2,7 @@
   "id": "QR-GET-INFO-COLUMN",
   "displayName": "QR GET INFO COLUMN",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "colNum",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Number of the column to inspect"
         },
         {
           "name": "title",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Title displayed in the column header (meaningless in cross-table mode)"
         },
         {
           "name": "object",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Field name or formula assigned to the column"
         },
         {
           "name": "hide",
@@ -48,8 +52,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "0 = displayed, 1 = hidden (meaningless in cross-table mode)"
         },
         {
           "name": "size",
@@ -57,8 +62,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Column size in pixels; negative means automatic size"
         },
         {
           "name": "repeatedValue",
@@ -66,8 +72,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "0 = values not repeated, 1 = values repeated (meaningless in cross-table mode)"
         },
         {
           "name": "displayFormat",
@@ -75,8 +82,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Display format for the data"
         },
         {
           "name": "resultVar",
@@ -84,11 +92,16 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Name of the variable (\"C1\", \"C2\", ...) automatically assigned by the Quick Report editor to a formula column, if any"
         }
       ],
-      "semanticRole": "List mode \u200b The QR GET INFO COLUMN command retrieves the parameters of an existing column."
+      "semanticRole": "Retrieves the display and data-source parameters (title, field/formula, visibility, size, repetition, format, and formula-result variable name) of an existing column identified by colNum in a Quick Report area; in cross-table mode, title/hide/repeatedValue are meaningless and colNum's meaning for size vs. data source/format differs (see cross-table numbering in the docs)."
     }
+  ],
+  "constraints": [
+    "In cross-table mode, the title, hide, and repeatedValue parameters are meaningless, and the numbering used for colNum differs between retrieving the column size and retrieving the data source/display format.",
+    "Does not take into account any virtual structure defined via SET TABLE TITLES / SET FIELD TITLES: object always returns the actual field name."
   ]
 }

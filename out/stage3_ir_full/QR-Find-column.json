@@ -2,7 +2,7 @@
   "id": "QR-Find-column",
   "displayName": "QR Find column",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -37,5 +37,8 @@
       },
       "semanticRole": "The QR Find column command returns the number of the first column whose contents match the expression passed in parameter."
     }
+  ],
+  "constraints": [
+    "Returns \u20131 if no column matches expression."
   ]
 }

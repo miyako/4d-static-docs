@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of process for which to retrieve the process number"
         },
         {
           "name": "*",
@@ -24,14 +25,20 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, retrieve from a remote 4D the number of a process executing on the server (returned value is negative, unless executed with * from the server machine itself)."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Process number command returns the number of the process whose name or id you pass in the first parameter."
+      "semanticRole": "Looks up a running process by its process name and returns its process number, or 0 if no matching process is found.",
+      "discriminatedBy": {
+        "param": "name",
+        "rule": "Intended lookup key is a process name (not statically distinguishable from the 'id' overload -- both take a single required Text argument; which overload applies depends on the caller's intent, not on the argument's declared type)."
+      },
+      "staticallyDistinguishable": false
     },
     {
       "params": [
@@ -42,7 +49,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "ID of process for which to retrieve the process number"
         },
         {
           "name": "*",
@@ -53,14 +61,24 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, retrieve from a remote 4D the number of a process executing on the server (returned value is negative, unless executed with * from the server machine itself)."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Process number command returns the number of the process whose name or id you pass in the first parameter."
+      "semanticRole": "Looks up a running process by its unique process ID (as returned by Process info's \"ID\" property) and returns its process number, or 0 if no matching process is found.",
+      "discriminatedBy": {
+        "param": "id",
+        "rule": "Intended lookup key is a process ID (not statically distinguishable from the 'name' overload -- both take a single required Text argument; which overload applies depends on the caller's intent, not on the argument's declared type)."
+      },
+      "staticallyDistinguishable": false
     }
+  ],
+  "constraints": [
+    "The optional * flag retrieves, from a remote 4D machine, the number of a process executing on the server; the returned value is then negative, unless the command is executed with * from the server machine itself, in which case it is positive.",
+    "Returns 0 if no process is found matching the given name or id."
   ]
 }

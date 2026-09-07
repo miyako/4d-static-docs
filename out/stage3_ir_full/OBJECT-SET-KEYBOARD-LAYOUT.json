@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-KEYBOARD-LAYOUT",
   "displayName": "OBJECT SET KEYBOARD LAYOUT",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "languageCode",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET KEYBOARD LAYOUT command sets or dynamically modifies the keyboard layout associated with the object(s) designated by the object and * parameters for the current process."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -53,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "languageCode",
@@ -62,10 +45,14 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "RFC3066/ISO639/ISO3166 language code, \"\" = no change"
         }
       ],
-      "semanticRole": "The OBJECT SET KEYBOARD LAYOUT command sets or dynamically modifies the keyboard layout associated with the object(s) designated by the object and * parameters for the current process."
+      "semanticRole": "Sets or dynamically modifies, for the current process, the keyboard layout forced on the object(s) designated by object and *."
     }
+  ],
+  "constraints": [
+    "Pass an empty string \"\" in languageCode to make no change to the current keyboard layout."
   ]
 }

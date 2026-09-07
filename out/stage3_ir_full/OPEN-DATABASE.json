@@ -15,7 +15,15 @@
           "direction": "in",
           "optional": false
         }
-      ]
+      ],
+      "semanticRole": "Closes the current 4D database and opens on-the-fly the database designated by filePath, useful for automated testing or letting a merged remote application choose which database server to connect to."
     }
+  ],
+  "constraints": [
+    "filePath may use a .4db, .4dc, .4dbase, .4dproject, .4dz, or .4dlink extension; if only a file name is passed, the file must be located next to the current database's structure file.",
+    "The command executes asynchronously: after the call, 4D continues executing the rest of the method, then quits the currently open database (as if Quit had been selected) and opens the specified database; open processes get 10 seconds to finish before being terminated.",
+    "In single-user mode, the On Exit database method of the closing database and the On Startup database method (or On Server Open Connection database method) of the opening database are called successively.",
+    "Should generally not be used in the On Startup database method (or a method it calls), since it causes the application to quit before re-opening.",
+    "If the target database file is not found or invalid, a standard file system error is returned and 4D does nothing."
   ]
 }

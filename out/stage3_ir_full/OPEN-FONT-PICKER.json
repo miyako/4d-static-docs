@@ -8,5 +8,10 @@
       "params": [],
       "semanticRole": "The OPEN FONT PICKER command displays the system font picker dialog box."
     }
+  ],
+  "constraints": [
+    "The selected font and/or style changes are applied to the current text selection in the object with focus only if that object's 'Allow Font/Color Picker' property is checked; otherwise the command does nothing.",
+    "This dialog box is modal under Windows but not under macOS.",
+    "If the font was changed, the On After Edit form event is generated for the object."
   ]
 }

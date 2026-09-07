@@ -69,5 +69,17 @@
       ],
       "semanticRole": "The ORDER BY ATTRIBUTE command sorts (reorders) the records of the current selection of aTable for the current process based on the contents of the objectField 's attributePath ."
     }
-  ]
+  ],
+  "constraints": [
+    "Each ORDER BY ATTRIBUTE call sorts on exactly one level (one objectField/attributePath pair); for multi-level sorts, call the command repeatedly with the optional trailing '*' on every call except the last, which starts the actual sort.",
+    "Can be combined with ORDER BY calls in the same multi-level sort chain.",
+    "Only attributes containing scalar values (number, text, boolean, date) can be sorted; an array element in attributePath is an error.",
+    "attribute names are case-sensitive.",
+    "If the field attribute is null for a record, null values sort first in ascending order (>) and last in descending order (<).",
+    "If a single indexed field is specified (one-level sort), the index is used; otherwise (unindexed field, or more than one level) the sort is performed sequentially.",
+    "If aTable is omitted, the command applies to the default table if one is set, otherwise to the table of the first field passed."
+  ],
+  "protocolRefs": {
+    "multiCallChain": "queryThemeChain"
+  }
 }

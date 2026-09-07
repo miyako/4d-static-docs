@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Returns -102 if the pasteboard is empty or contains no data of the specified type; otherwise returns the size (in bytes) of that data.",
+    "dataType accepts a 4D signature, a UTI type (macOS), a format name/number (Windows), or a legacy 4-character type."
+  ]
+}

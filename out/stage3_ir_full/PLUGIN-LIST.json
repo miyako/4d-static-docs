@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Numbers of plug-ins."
         },
         {
           "name": "namesArray",
@@ -21,11 +22,16 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Names of plug-ins, synchronized with numbersArray."
         }
       ],
       "semanticRole": "The PLUGIN LIST command fills in the numbersArray and namesArray arrays with the numbers and names of the plug-ins loaded and usable by the 4D application."
     }
+  ],
+  "constraints": [
+    "Values returned in numbersArray can be compared with the constants of the 'Is License Available' theme.",
+    "Includes all plug-ins usable by the application, both integrated ones (e.g. 4D Chart) and third-party plug-ins."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "QR-GET-TOTALS-DATA",
   "displayName": "QR GET TOTALS DATA",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "colNum",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Column number of the cell whose data is retrieved"
         },
         {
           "name": "breakNum",
@@ -31,7 +33,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "List mode: subtotal/break row number, or -3 (qr grand total) for the grand total. Cross-table mode: row number of the cell."
         },
         {
           "name": "operator",
@@ -39,8 +42,39 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Sum of all operator constants present in the cell (0 if there is no operator)",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "qr sum"
+            },
+            {
+              "value": 2,
+              "meaning": "qr average"
+            },
+            {
+              "value": 4,
+              "meaning": "qr min"
+            },
+            {
+              "value": 8,
+              "meaning": "qr max"
+            },
+            {
+              "value": 16,
+              "meaning": "qr count"
+            },
+            {
+              "value": 32,
+              "meaning": "qr standard deviation"
+            },
+            {
+              "value": 0,
+              "meaning": "No operator present in the cell"
+            }
+          ]
         },
         {
           "name": "text",
@@ -48,11 +82,21 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Text present in the cell (returned only when the cell has no operator)"
         }
       ],
-      "semanticRole": "List Mode \u200b The QR GET TOTALS DATA command retrieves the details of a specific break."
+      "semanticRole": "Retrieves the operator(s) and/or literal text configured for a given break/grand-total cell (list mode) or a given cell (cross-table mode)."
+    }
+  ],
+  "jointConstraints": [
+    {
+      "params": [
+        "operator",
+        "text"
+      ],
+      "rule": "operator and text are mutually exclusive: a given cell returns a result through exactly one of them (a non-zero operator, or non-empty text), never both."
     }
   ]
 }

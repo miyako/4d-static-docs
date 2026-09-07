@@ -1,0 +1,32 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "row accepts either a positive break-level integer or one of three documented named constants from the QR Rows for Properties theme; the latter recorded as sentinelValues.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area created"
+        },
+        {
+          "name": "row",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Row designator: a positive subtotal (break) level, or one of the documented constants",
+          "sentinelValues": [
+            { "value": -1, "meaning": "qr title - title of report" },
+            { "value": -2, "meaning": "qr detail - detail area of report" },
+            { "value": -3, "meaning": "qr grand total - grand total area" }
+          ]
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Retrieves whether the contents of the given row (a break level or one of the qr title/qr detail/qr grand total constants) are displayed (0) or hidden (1)."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "Only useful for BLOB, Picture, or Text type fields that use an external storage file, when that file has been modified on disk (e.g. by an external editor) after the record was already loaded into memory."
+  ]
+}

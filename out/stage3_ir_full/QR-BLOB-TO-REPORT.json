@@ -2,7 +2,7 @@
   "id": "QR-BLOB-TO-REPORT",
   "displayName": "QR BLOB TO REPORT",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [

@@ -36,5 +36,8 @@
       ],
       "semanticRole": "The QR SET DOCUMENT PROPERTY command displays the printing dialog or sets the unit used for the document."
     }
+  ],
+  "constraints": [
+    "The meaning of value depends on property: for qr printing dialog (1), value is 0 (hidden) or 1 (displayed, default); for qr unit (2), value is 0=points, 1=centimeters, 2=inches; for qr field separator (3) / qr record separator (4), value is a character code (defaults to FldDelimit/RecDelimit)."
   ]
 }

@@ -1,0 +1,101 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "left/top each carry a documented sentinel meaning (0 selects the whole row/column) beyond being plain boundary coordinates; the all-zero and all-(-1) combinations are cross-parameter rules, modeled as jointConstraints.",
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "left",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Left boundary column number",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Selects the entire row"
+            },
+            {
+              "value": -1,
+              "meaning": "Part of the all-(-1) combination that clears the selection"
+            }
+          ]
+        },
+        {
+          "name": "top",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Top boundary row number",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Selects the entire column"
+            },
+            {
+              "value": -1,
+              "meaning": "Part of the all-(-1) combination that clears the selection"
+            }
+          ]
+        },
+        {
+          "name": "right",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Right boundary column number"
+        },
+        {
+          "name": "bottom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Bottom boundary row number"
+        }
+      ],
+      "semanticRole": "Highlights (or clears the highlight of) a cell, row, column, or the whole area, as if selected with the mouse.",
+      "jointConstraints": [
+        {
+          "params": [
+            "left",
+            "top"
+          ],
+          "rule": "If both left and top are 0, the entire area is highlighted."
+        },
+        {
+          "params": [
+            "left",
+            "top",
+            "right",
+            "bottom"
+          ],
+          "rule": "To clear the current selection (select nothing), pass -1 for all four of left, top, right, and bottom."
+        }
+      ]
+    }
+  ]
+}

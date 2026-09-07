@@ -25,7 +25,10 @@
           "optional": true
         }
       ],
-      "semanticRole": "QUERY SELECTION BY FORMULA looks for records in aTable .changes the current selection of aTable for the current process and makes the first record of the new selection the current record."
+      "semanticRole": "Applies a Boolean formula to the records currently selected in aTable, building a new selection from the records where the formula evaluates to True."
     }
+  ],
+  "constraints": [
+    "Scope differs from QUERY BY FORMULA: QUERY SELECTION BY FORMULA only queries the records currently selected in aTable, whereas QUERY BY FORMULA queries every record in the table; otherwise the two commands work identically (see QUERY BY FORMULA for the queryFormula rules)."
   ]
 }

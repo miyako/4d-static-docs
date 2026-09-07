@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Can be used with list reports only, not cross-table reports.",
+    "column and newPos must both be valid column numbers (between 1 and the total number of columns in the report)."
+  ]
+}

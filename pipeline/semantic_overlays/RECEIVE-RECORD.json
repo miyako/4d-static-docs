@@ -1,0 +1,9 @@
+{
+  "constraints": [
+    "Only works with a channel opened by SET CHANNEL; documents opened via Open document/Create document/Append document are not supported.",
+    "The record must have been sent by a matching SEND RECORD call; if the source and destination table structures differ, 4D converts values according to the destination table's field definitions.",
+    "Automatically creates a new record for aTable (or the default table); the caller must call SAVE RECORD afterward to persist it.",
+    "The complete record is transferred, including any pictures and BLOBs stored in or with it.",
+    "The read interrupts on Ctrl-Alt-Shift (Windows) / Command-Option-Shift (macOS), raising error -9994, catchable via an ON ERR CALL method."
+  ]
+}

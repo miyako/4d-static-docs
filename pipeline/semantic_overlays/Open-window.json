@@ -1,0 +1,15 @@
+{
+  "constraints": [
+    "Kept only for compatibility; new code should use Open form window instead, which better suits current interfaces.",
+    "Passing -1 for both right and bottom auto-sizes the window from the form's Sizing Options, but only if FORM SET INPUT was called beforehand for that form with its optional '*' parameter.",
+    "Passing an empty string for title uses the form's designed Window Title, but again only if FORM SET INPUT was called beforehand with its '*' parameter.",
+    "A negative window type value opens a floating window (only supported by some window types).",
+    "If more than one window is open for a process, the most recently opened window is the active (frontmost) window for that process."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Opens a new window at the pixel coordinates given by left/top/right/bottom (or auto-sized if right and bottom are -1), of the given type, with the given title and optional Control-menu-box/Close-Box method, returning the window reference number."
+    }
+  ]
+}

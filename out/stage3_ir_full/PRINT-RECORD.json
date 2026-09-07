@@ -13,7 +13,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "Table for which to print the current record, or the default table if omitted."
         },
         {
           "name": "*",
@@ -24,24 +25,28 @@
             ]
           },
           "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "PRINT RECORD prints the current record of aTable , without modifying the current selection."
-    },
-    {
-      "params": [
+          "optional": true,
+          "description": "Suppress the printing dialog box, using the current print parameters."
+        },
         {
-          "name": "aTable",
+          "name": ">",
           "type": {
-            "kind": "concrete",
-            "name": "Table"
+            "kind": "literal_symbols",
+            "symbols": [
+              ">"
+            ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "Do not reinitialize the current print parameters (useful across successive calls, e.g. inside a loop)."
         }
-      ],
-      "semanticRole": "PRINT RECORD prints the current record of aTable , without modifying the current selection."
+      ]
     }
+  ],
+  "constraints": [
+    "Does nothing if there is no current record for aTable.",
+    "Prints unsaved modifications to the record (in-memory values), not the values on disk.",
+    "Unlike Print form, this command can print subforms.",
+    "If the user cancels the Print job dialog box (when not suppressed), the command is canceled and the record is not printed."
   ]
 }

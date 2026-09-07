@@ -2,7 +2,7 @@
   "id": "OBJECT-SET-TITLE",
   "displayName": "OBJECT SET TITLE",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
@@ -15,34 +15,15 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "title",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET TITLE command changes the title of the object(s) specified by object to the value you pass in title ."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,10 +43,20 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New title for the object."
         }
       ],
-      "semanticRole": "The OBJECT SET TITLE command changes the title of the object(s) specified by object to the value you pass in title ."
+      "semanticRole": "Changes the title of the form object(s) designated by object to the value passed in title.",
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "When '*' is passed, object is an object name (Text) identifying the target(s) by name; when '*' is omitted, object must be a direct Variable or Field reference."
+      }
     }
+  ],
+  "constraints": [
+    "Can be applied to any simple object that displays a title: buttons and 3D buttons, check boxes and 3D check boxes, radio buttons and 3D radio buttons, list box headers, static text areas, group boxes.",
+    "Do not use carriage returns in title; use the '\\' character as a line return instead (permitted for 3D buttons, 3D check boxes, 3D radio buttons and list box headers).",
+    "If the object's title area is too small to hold the text, the text is truncated."
   ]
 }

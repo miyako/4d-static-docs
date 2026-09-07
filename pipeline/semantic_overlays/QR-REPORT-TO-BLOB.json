@@ -1,0 +1,33 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "note": "blob is filled by the command (parameter table marks it with the '\u2190' return arrow), so its direction should be 'out', not the syntax-position default of 'in'.",
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the report generated from the area (in the area's current QR SET DESTINATION output type)."
+        }
+      ],
+      "semanticRole": "Renders the report of the designated Quick Report area and places it into a BLOB (variable or field) instead of printing/writing it to a document."
+    }
+  ]
+}

@@ -18,5 +18,9 @@
       ],
       "semanticRole": "The REGENERATE MISSING TABLE command rebuilds the missing table whose name is passed in the tableName parameter."
     }
+  ],
+  "constraints": [
+    "If tableName does not designate an actual missing table (data present in the data file but absent at the structure level), the command silently does nothing.",
+    "Use GET MISSING TABLE NAMES to enumerate the missing tables available to regenerate."
   ]
 }

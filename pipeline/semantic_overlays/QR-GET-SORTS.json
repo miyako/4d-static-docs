@@ -1,0 +1,46 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "aColumns and aOrders are both documented with the '\u2190' arrow (arrays populated/returned by the command), not '\u2192'; auto-parse defaulted both to direction 'in'.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "aColumns",
+          "type": { "kind": "concrete", "name": "Real array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Populated with the columns that have a sort order (in cross-table mode: at most 2 elements, 1=columns, 2=rows)"
+        },
+        {
+          "name": "aOrders",
+          "type": { "kind": "concrete", "name": "Real array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Populated with the sort order matching each element of aColumns: 1 = ascending, -1 = descending",
+          "sentinelValues": [
+            { "value": 1, "meaning": "Ascending sort order" },
+            { "value": -1, "meaning": "Descending sort order" }
+          ]
+        }
+      ],
+      "semanticRole": "Populates aColumns with every column that has a sort order and the parallel array aOrders with each column's sort direction."
+    }
+  ],
+  "jointConstraints": [
+    {
+      "params": ["aColumns", "aOrders"],
+      "rule": "aColumns and aOrders are parallel arrays: aOrders{n} gives the sort direction for the column referenced by aColumns{n}."
+    }
+  ],
+  "constraints": [
+    "In cross-table mode, aColumns/aOrders cannot have more than two elements, since sorts can only be performed on columns (1) and rows (2)."
+  ]
+}

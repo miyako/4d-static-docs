@@ -16,7 +16,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "REJECT has two forms."
+      "semanticRole": "Forces the user to remain in the current data-entry form (if aField is omitted) or in aField specifically (if passed), rejecting an attempt to accept/exit."
     }
+  ],
+  "constraints": [
+    "Two behaviors share one optional parameter: called with no argument, it rejects the entire data entry and keeps the user in the form; called with aField, it rejects only that field and keeps the user in it.",
+    "Docs recommend considering built-in data validation tools before reaching for this command."
   ]
 }

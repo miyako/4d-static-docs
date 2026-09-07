@@ -12,8 +12,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Printer names (fixed 'system' names on macOS)."
         },
         {
           "name": "altNamesArray",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Windows: printer network locations/local ports. macOS: custom printer names, editable by the user."
         },
         {
           "name": "modelsArray",
@@ -30,11 +32,16 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Printer models."
         }
       ],
       "semanticRole": "The PRINTERS LIST command fills in the array(s) passed as parameter(s) with the names as well as, optionally, the locations or custom names and models of the available printers for the machine."
     }
+  ],
+  "constraints": [
+    "If printers are managed via a print server/spooler, the returned name is the full access path (Windows) or the spooler name (macOS).",
+    "Values returned in namesArray are the ones to pass to SET CURRENT PRINTER and Get current printer to select/read the current printer."
   ]
 }

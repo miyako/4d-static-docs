@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "blob",
@@ -21,11 +22,12 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the report generated from the area (in the area's current QR SET DESTINATION output type)."
         }
       ],
-      "semanticRole": "The QR REPORT TO BLOB command places the report whose reference was passed in area in a BLOB (variable or field)."
+      "semanticRole": "Renders the report of the designated Quick Report area and places it into a BLOB (variable or field) instead of printing/writing it to a document."
     }
   ]
 }

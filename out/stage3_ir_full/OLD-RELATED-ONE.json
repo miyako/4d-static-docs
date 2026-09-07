@@ -16,7 +16,12 @@
           "optional": false
         }
       ],
-      "semanticRole": "OLD RELATED ONE operates the same way as RELATE ONE does, except that OLD RELATED ONE uses the old value of aField to establish the relation."
+      "semanticRole": "Loads the record previously related to the current record, establishing the relation using the pre-modification (old) value of aField instead of its current value."
     }
+  ],
+  "constraints": [
+    "Operates the same as RELATE ONE, except the relation is established using the old value of aField (the many field, as returned by the Old function/command), not its current value.",
+    "To modify and save the loaded old related record, you must call SAVE RELATED ONE.",
+    "There is no old related record for a newly created record."
   ]
 }

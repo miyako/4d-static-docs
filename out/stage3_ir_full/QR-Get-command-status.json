@@ -2,7 +2,7 @@
   "id": "QR-Get-command-status",
   "displayName": "QR Get command status",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "command",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Command number, from the QR Commands constant theme"
         },
         {
           "name": "value",
@@ -36,15 +38,16 @@
               "name": "Text"
             }
           ],
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Value of the selected sub-item, if any (e.g. the selected font name for the Font menu command, or a color number for a color menu command)"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The QR Get command status command returns 0 if the command is disabled or 1 if it is enabled."
+      "semanticRole": "Returns whether the toolbar command is enabled (1) or disabled (0), and optionally the currently selected sub-item value via value; typically called either as a standalone status check, or inside the method installed by QR ON COMMAND (where $1 is the area reference and $2 the command number)."
     }
   ]
 }

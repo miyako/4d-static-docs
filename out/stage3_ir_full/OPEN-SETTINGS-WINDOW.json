@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Path key designating a theme, page, or group of parameters in the Preferences or Settings dialog box (e.g. \"/Database/Compiler\"); a lone \"/\" opens the first page of the Database Settings dialog box."
         },
         {
           "name": "access",
@@ -22,7 +23,17 @@
             "name": "Boolean"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": true,
+              "meaning": "Lock every other page of the dialog box; only the page named by selector remains active/modifiable."
+            },
+            {
+              "value": false,
+              "meaning": "Leave all pages of the dialog box accessible (default if omitted)."
+            }
+          ]
         },
         {
           "name": "settingsType",
@@ -31,10 +42,29 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Only meaningful for databases configured in 'User settings' mode; a constant from the '4D Environment' theme.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Structure settings (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "User settings."
+            },
+            {
+              "value": 2,
+              "meaning": "User settings for data file."
+            }
+          ]
         }
       ],
-      "semanticRole": "The OPEN SETTINGS WINDOW command opens the Preferences dialog box of 4D or the Settings of the current 4D application and displays the parameters or the page corresponding to the key passed in selector ."
+      "semanticRole": "Opens the 4D Preferences or the current application's Settings dialog box, displaying the theme/page/parameters designated by the selector path key, optionally locking the other pages (access) and choosing which settings store to target (settingsType)."
     }
+  ],
+  "constraints": [
+    "selector is a path key of the form '/Dialog{/Page{/Parameters}}' (Dialog is '4D' for Preferences or 'Database' for Database Settings); passing an invalid key displays the first page of the Database Settings dialog box.",
+    "The set of valid selector keys differs between standard ('Structure settings') mode and 'User settings'/'User settings for data file' mode (settingsType 1/2 only accept a restricted subset of keys)."
   ]
 }

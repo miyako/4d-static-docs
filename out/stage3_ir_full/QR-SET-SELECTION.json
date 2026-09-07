@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "left",
@@ -22,7 +23,18 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Left boundary column number",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Selects the entire row"
+            },
+            {
+              "value": -1,
+              "meaning": "Part of the all-(-1) combination that clears the selection"
+            }
+          ]
         },
         {
           "name": "top",
@@ -31,7 +43,18 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Top boundary row number",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Selects the entire column"
+            },
+            {
+              "value": -1,
+              "meaning": "Part of the all-(-1) combination that clears the selection"
+            }
+          ]
         },
         {
           "name": "right",
@@ -40,7 +63,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Right boundary column number"
         },
         {
           "name": "bottom",
@@ -49,10 +73,11 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Bottom boundary row number"
         }
       ],
-      "semanticRole": "The QR SET SELECTION command highlights a cell, a row, a column or the entire area as you would with a mouse click."
+      "semanticRole": "Highlights (or clears the highlight of) a cell, row, column, or the whole area, as if selected with the mouse."
     }
   ]
 }

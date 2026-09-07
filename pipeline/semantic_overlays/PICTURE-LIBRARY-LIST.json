@@ -1,0 +1,29 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "picRefs",
+          "type": { "kind": "concrete", "name": "Integer array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Reference numbers of the Picture Library graphics."
+        },
+        {
+          "name": "picNames",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the Picture Library graphics, synchronized with picRefs."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Cannot be used in projects because the Picture Library is only available in binary (.4DB) databases.",
+    "picRefs and picNames are synchronized: the nth element of picRefs is the reference number of the Picture Library graphic whose name is the nth element of picNames.",
+    "Both arrays are automatically created/resized by the command, and are returned empty if the Picture Library contains no pictures.",
+    "Maximum length of a Picture Library graphic name is 255 characters."
+  ]
+}

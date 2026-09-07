@@ -36,7 +36,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "QUERY looks for records matching the criteria specified in queryArgument and returns a selection of records for aTable .changes the current selection of aTable for the current process and makes the first record of the ne"
+      "semanticRole": "Runs an interactive or programmatic query against every record of the explicitly given aTable, replacing its current selection.",
+      "discriminatedBy": {
+        "param": "aTable",
+        "rule": "Chosen when the target table is passed explicitly rather than relying on the default table."
+      }
     },
     {
       "params": [
@@ -61,7 +65,25 @@
           "optional": true
         }
       ],
-      "semanticRole": "QUERY looks for records matching the criteria specified in queryArgument and returns a selection of records for aTable .changes the current selection of aTable for the current process and makes the first record of the ne"
+      "semanticRole": "Runs an interactive or programmatic query against every record of the default table, replacing its current selection.",
+      "discriminatedBy": {
+        "param": "aTable",
+        "rule": "Chosen when aTable is omitted; applies to the default table (error if none is set)."
+      }
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "queryThemeChain"
+  },
+  "constraints": [
+    "queryArgument is written as {conjunction ;} field comparator value: conjunction joins this call to a preceding QUERY call in the same multi-query sequence and is one of & (AND), | (OR), # (AND EXCEPT); it is omitted on the first/only call of a sequence and defaults to & (AND) if omitted elsewhere.",
+    "comparator is one of the symbols = # < > <= >= % (% means \"contains keyword\"); it can alternatively be passed as its own alphanumeric-expression argument (e.g. a variable holding \"#\" or \"=\") instead of embedded in queryArgument, which requires separating every item of the query with semicolons.",
+    "field may belong to another table if that table is related to aTable via a One-side automatic or manual relation.",
+    "To build a multi-criteria query, call QUERY repeatedly, passing the trailing '*' flag on every call except the last; the final call (no '*') actually executes the accumulated query and updates the current selection.",
+    "If queryArgument and '*' are both omitted, QUERY displays the interactive Query editor for aTable instead of running a programmatic query (except when this call is the closing call of a multi-query sequence).",
+    "The OK system variable is set to 1 if the query completes normally, or 0 if the user cancels the interactive editor (or, in 'query and lock' mode, if the query encounters at least one locked record, which also updates the LockedSet system set)."
+  ],
+  "_needsReview": [
+    "The alphanumeric-comparator calling form (field, comparator, and value passed as three separate arguments instead of one queryArgument expression -- see the command's own example 21 and 'Specifying the Query Argument' section) is documented in prose but Stage 1 only extracted the two queryArgument:Expression syntax lines, so it isn't modeled here as its own Overload."
   ]
 }

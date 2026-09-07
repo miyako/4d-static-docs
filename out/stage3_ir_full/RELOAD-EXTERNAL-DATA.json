@@ -32,5 +32,8 @@
       ],
       "semanticRole": "The RELOAD EXTERNAL DATA command reloads the contents in memory of an external storage file associated with a BLOB, Picture, or Text type field."
     }
+  ],
+  "constraints": [
+    "Only useful for BLOB, Picture, or Text type fields that use an external storage file, when that file has been modified on disk (e.g. by an external editor) after the record was already loaded into memory."
   ]
 }

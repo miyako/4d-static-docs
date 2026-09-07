@@ -1,0 +1,38 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "codecArray",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "IDs of available picture Codecs."
+        },
+        {
+          "name": "namesArray",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": true,
+          "description": "Names of picture Codecs, parallel/synchronized to codecArray."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, also return codecs that can only decode (read) pictures."
+        }
+      ],
+      "discriminatedBy": {
+        "param": "*",
+        "rule": "By default (no '*'), only encoding-capable (write) codecs are returned; passing '*' additionally includes read-only (decoding) codecs in the result."
+      }
+    }
+  ],
+  "constraints": [
+    "Codec IDs returned can be a file extension (e.g. \".gif\"), a Mime type (e.g. \"image/jpeg\"), or, if QuickTime is enabled, a 4-character QuickTime code; the exact form depends on how the codec is registered at the OS level.",
+    "Codec IDs returned by this command are valid values for the format/codec parameter of WRITE PICTURE FILE and PICTURE TO BLOB."
+  ]
+}

@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-SUBFORM",
   "displayName": "OBJECT SET SUBFORM",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,64 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "aTable",
-          "type": {
-            "kind": "concrete",
-            "name": "Table"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
-          "name": "detailSubform",
           "type": [
             {
               "kind": "concrete",
               "name": "Text"
             },
-            {
-              "kind": "concrete",
-              "name": "Object"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "listSubform",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            {
-              "kind": "concrete",
-              "name": "Object"
-            }
-          ],
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The OBJECT SET SUBFORM command dynamically modifies the detail form as well as, optionally, the screen list form associated with the subform object designated by the * , object parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": [
             {
               "kind": "concrete",
               "name": "Variable"
@@ -83,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "aTable",
@@ -92,7 +45,8 @@
             "name": "Table"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table of the forms to use; may be omitted when detailSubform is a project form"
         },
         {
           "name": "detailSubform",
@@ -107,7 +61,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the detail form, a POSIX path to a .json file describing it, or an object describing it"
         },
         {
           "name": "listSubform",
@@ -122,10 +77,17 @@
             }
           ],
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Name of the list form, a POSIX path to a .json file describing it, or an object describing it; only valid when modifying a list-type subform"
         }
       ],
-      "semanticRole": "The OBJECT SET SUBFORM command dynamically modifies the detail form as well as, optionally, the screen list form associated with the subform object designated by the * , object parameters."
+      "semanticRole": "Dynamically replaces the detail form (and, only for list-type subforms, the list form) used by the subform object designated by object and *."
     }
+  ],
+  "constraints": [
+    "Cannot change the type (list vs. page) of the subform itself -- that can only be set in Design mode.",
+    "listSubform can only be passed when modifying a list-type subform.",
+    "Unlike other dynamic-form commands, .json paths passed here are relative to the subform's parent form, not the subform itself.",
+    "Modifying a page subform can be done at any time without disturbing current selections; modifying a list subform is only allowed while it is displaying the list -- calling it while the detail form is open (after a double-click) raises an error."
   ]
 }

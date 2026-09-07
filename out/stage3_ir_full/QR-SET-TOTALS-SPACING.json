@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "subtotal",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Subtotal (break) level to affect"
         },
         {
           "name": "value",
@@ -31,10 +33,24 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Spacing below the subtotal row: a positive value is pixels, a negative value is a percentage of the row height (e.g. -100 = 100%)",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "No space is added"
+            },
+            {
+              "value": 32000,
+              "meaning": "Inserts a page break"
+            }
+          ]
         }
       ],
-      "semanticRole": "The QR SET TOTALS SPACING command sets a space below a subtotal row."
+      "semanticRole": "Sets the vertical spacing (or forces a page break) below a given subtotal row; applies only to list-mode reports."
     }
+  ],
+  "constraints": [
+    "If the added space pushes the next row onto a following page, no space is inserted above that row on the new page."
   ]
 }

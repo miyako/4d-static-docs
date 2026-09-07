@@ -8,5 +8,11 @@
       "params": [],
       "semanticRole": "The OPEN PRINTING JOB command opens a print job and stacks all the subsequent printing orders there until the CLOSE PRINTING JOB command is called."
     }
+  ],
+  "constraints": [
+    "Must be balanced by a later CLOSE PRINTING JOB call to terminate the print job and actually send the document to the printer; if omitted, the print document remains stacked and unsent.",
+    "Print-setting commands (e.g. SET PRINT OPTION) must be called before OPEN PRINTING JOB, otherwise an error is generated (exception: the Orientation option can be changed within an open print job).",
+    "The print job is local to the process; each process has its own printing settings. Several print jobs can be open at the same time across different processes.",
+    "Starting with 4D v20 R4, printing jobs are non-blocking in new projects."
   ]
 }

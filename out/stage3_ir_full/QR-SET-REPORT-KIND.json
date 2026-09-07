@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "type",
@@ -22,10 +23,24 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Report type to assign",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "qr list report -- list-mode report"
+            },
+            {
+              "value": 2,
+              "meaning": "qr cross report -- cross-table report"
+            }
+          ]
         }
       ],
-      "semanticRole": "The QR SET REPORT KIND command sets the report type for the area whose reference was passed in area ."
+      "semanticRole": "Sets (or changes) the report type of an area; changing the type on an existing report discards its previous settings and creates a new empty report."
     }
+  ],
+  "constraints": [
+    "Setting a new type on an area that already has a report removes the previous settings and creates a new, empty report."
   ]
 }

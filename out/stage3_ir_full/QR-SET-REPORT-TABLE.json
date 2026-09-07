@@ -27,5 +27,8 @@
       ],
       "semanticRole": "The QR SET REPORT TABLE command sets the current table for the report area whose reference was passed in area to the table whose number was passed in aTable ."
     }
+  ],
+  "constraints": [
+    "A table must be assigned to the report area because the editor uses that table's current selection to display data, perform computations, and propagate relations."
   ]
 }

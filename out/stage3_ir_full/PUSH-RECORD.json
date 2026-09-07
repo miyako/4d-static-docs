@@ -18,5 +18,9 @@
       ],
       "semanticRole": "PUSH RECORD pushes the current record of aTable (and its subrecords, if any) onto the table\u2019s record stack.may be executed before a record is saved."
     }
+  ],
+  "constraints": [
+    "A record pushed while unlocked stays locked for all other processes/users until it is popped (POP RECORD) and unloaded.",
+    "Compatibility note: since 4D v11, this command no longer supports subtables."
   ]
 }

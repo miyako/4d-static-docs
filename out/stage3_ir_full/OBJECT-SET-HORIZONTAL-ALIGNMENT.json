@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-HORIZONTAL-ALIGNMENT",
   "displayName": "OBJECT SET HORIZONTAL ALIGNMENT",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "alignment",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET HORIZONTAL ALIGNMENT command allows you to set the type of horizontal alignment applied to the object(s) designated by the object and * parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -53,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "alignment",
@@ -62,10 +45,33 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Alignment code",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Align default"
+            },
+            {
+              "value": 2,
+              "meaning": "Align left"
+            },
+            {
+              "value": 3,
+              "meaning": "Align center"
+            },
+            {
+              "value": 4,
+              "meaning": "Align right"
+            },
+            {
+              "value": 5,
+              "meaning": "wk justify -- available for 4D Write Pro areas only"
+            }
+          ]
         }
       ],
-      "semanticRole": "The OBJECT SET HORIZONTAL ALIGNMENT command allows you to set the type of horizontal alignment applied to the object(s) designated by the object and * parameters."
+      "semanticRole": "Sets the horizontal text alignment applied to the object(s) designated by object and *."
     }
   ]
 }

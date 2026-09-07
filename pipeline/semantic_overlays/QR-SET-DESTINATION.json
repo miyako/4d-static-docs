@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "The meaning of specifics depends on the value passed in type: for qr printer, specifics is \"*\" to suppress the print dialog; for qr HTML file / qr text file, specifics is the target file pathname (an empty string for qr text file triggers a Save file dialog).",
+    "Passing an empty string in specifics for qr text file output displays a Save file dialog instead of writing directly to a path.",
+    "For qr text file output, the default field/record delimiters are the FldDelimit/RecDelimit system variables (Tab / carriage return by default), which are shared with other commands such as IMPORT TEXT."
+  ]
+}

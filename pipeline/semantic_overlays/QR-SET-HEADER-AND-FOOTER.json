@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "selector chooses which element is set: 1=header, 2=footer.",
+    "pictAlignment only applies when picture is passed: 1=left, 2=centered, 3=right."
+  ]
+}

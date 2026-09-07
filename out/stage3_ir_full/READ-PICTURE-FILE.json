@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Full pathname or bare file name of the picture file to read, or an empty string to show the standard Open file dialog."
         },
         {
           "name": "picture",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Picture"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Field or variable receiving the loaded picture."
         },
         {
           "name": "*",
@@ -33,10 +35,16 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, accept any type of file rather than only formats with an available codec."
         }
       ],
-      "semanticRole": "The READ PICTURE FILE command opens the picture saved in the fileName disk file and loads it in the picture 4D field or variable."
+      "semanticRole": "Opens the picture file named by fileName from disk and loads it into the picture field or variable."
     }
+  ],
+  "constraints": [
+    "If fileName is a bare file name (no path), the file must be located next to the database structure file; under Windows the file extension must be included.",
+    "If fileName is an empty string, the standard Open file dialog box appears and the user selects both the file and the format.",
+    "The available picture formats/codecs can be enumerated with PICTURE CODEC LIST; without the trailing '*', only files matching a known codec are accepted."
   ]
 }

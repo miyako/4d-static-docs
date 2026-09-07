@@ -13,7 +13,8 @@
             "name": "Picture"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Picture for which to get information."
         },
         {
           "name": "width",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Width of the picture expressed in pixels."
         },
         {
           "name": "height",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Height of the picture expressed in pixels."
         },
         {
           "name": "hOffset",
@@ -39,8 +42,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Horizontal offset when displayed on background."
         },
         {
           "name": "vOffset",
@@ -48,8 +52,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Vertical offset when displayed on background."
         },
         {
           "name": "mode",
@@ -57,11 +62,15 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Transfer mode when displayed on background."
         }
       ],
       "semanticRole": "The PICTURE PROPERTIES command returns information about the picture you pass in picture ."
     }
+  ],
+  "constraints": [
+    "hOffset, vOffset and mode only have meaning for a picture displayed 'On Background' in a form; they are otherwise not meaningful."
   ]
 }

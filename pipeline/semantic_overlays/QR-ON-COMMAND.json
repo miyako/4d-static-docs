@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "methodName is invoked with $1 = the area reference (Longint) and $2 = the number of the invoked Quick Report command (Longint); if the database will be compiled, $1 and $2 must be declared as Longints even if unused.",
+    "If area is 0, methodName intercepts commands for every Quick Report area until QR ON COMMAND(0;\"\") is called to reset it.",
+    "Intercepting a command does not execute it automatically; methodName must call QR EXECUTE COMMAND($1;$2) to run the original command."
+  ]
+}

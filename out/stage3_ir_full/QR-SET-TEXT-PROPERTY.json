@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "colNum",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Number of the cell column (still required, even if unused, when rowNum is -4 or -5)"
         },
         {
           "name": "rowNum",
@@ -31,7 +33,30 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the cell row, or a negative constant designating a special report area",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "qr title -- title area of the report"
+            },
+            {
+              "value": -2,
+              "meaning": "qr detail -- detail area of the report"
+            },
+            {
+              "value": -3,
+              "meaning": "qr grand total -- grand total area"
+            },
+            {
+              "value": -4,
+              "meaning": "qr header -- page header"
+            },
+            {
+              "value": -5,
+              "meaning": "qr footer -- page footer"
+            }
+          ]
         },
         {
           "name": "property",
@@ -40,7 +65,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Text attribute to assign, from the QR Text Properties theme (e.g. qr bold, qr font size, qr justification, qr font name, qr background color, qr alternate background color)"
         },
         {
           "name": "value",
@@ -55,10 +81,14 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New value for the attribute selected by property; its concrete type (Integer flag/size/color number, or Text font name) depends on which property is targeted"
         }
       ],
-      "semanticRole": "The QR SET TEXT PROPERTY command sets the text attributes for the cell determined by colNum and rowNum ."
+      "semanticRole": "Sets a single text-display attribute (font, size, style, color, justification, ...) of the cell identified by colNum/rowNum."
     }
+  ],
+  "constraints": [
+    "In cross-table mode, row values used in rowNum are always positive (the negative title/detail/grand total/header/footer constants are a list-mode-only convention)."
   ]
 }

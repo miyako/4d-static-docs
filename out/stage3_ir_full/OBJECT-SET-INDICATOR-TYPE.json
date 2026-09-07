@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-INDICATOR-TYPE",
   "displayName": "OBJECT SET INDICATOR TYPE",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "indicator",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET INDICATOR TYPE command modifies the type of progress indicator for the thermometer(s) designated by the object and * parameters in the current process."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -53,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "indicator",
@@ -62,10 +45,25 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Indicator type",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "Progress bar -- standard progress bar"
+            },
+            {
+              "value": 2,
+              "meaning": "Barber shop -- bar displaying continuous animation"
+            },
+            {
+              "value": 3,
+              "meaning": "Asynchronous progress bar -- circular indicator displaying continuous animation"
+            }
+          ]
         }
       ],
-      "semanticRole": "The OBJECT SET INDICATOR TYPE command modifies the type of progress indicator for the thermometer(s) designated by the object and * parameters in the current process."
+      "semanticRole": "Sets, for the current process, the progress-indicator display variant of the thermometer(s) designated by object and *."
     }
   ]
 }

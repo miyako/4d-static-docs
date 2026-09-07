@@ -1,0 +1,70 @@
+{
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0,
+        1
+      ],
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
+        },
+        {
+          "name": "maxValue",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Date"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Maximum value for object"
+        }
+      ],
+      "semanticRole": "Sets, for the current process, the maximum-value constraint of the number/date/time object(s) designated by object and *."
+    }
+  ],
+  "constraints": [
+    "maxValue's type must match the object's underlying data type, otherwise error 18 'Field types are incompatible' is generated."
+  ]
+}

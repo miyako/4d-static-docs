@@ -18,5 +18,10 @@
       ],
       "semanticRole": "PAUSE PROCESS suspends the execution of process until it is reactivated by the RESUME PROCESS command."
     }
+  ],
+  "constraints": [
+    "Silently does nothing if process is already paused, if process does not exist, or if process refers to the calling/main process (it only affects processes the caller has started).",
+    "A process delayed via DELAY PROCESS is also considered paused by this command.",
+    "Windows belonging to the paused process become non-enterable while it is suspended; the process itself stays in memory."
   ]
 }

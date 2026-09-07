@@ -2,7 +2,7 @@
   "id": "QR-GET-BORDERS",
   "displayName": "QR GET BORDERS",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "column",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Column number"
         },
         {
           "name": "row",
@@ -31,7 +33,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Row number (positive break level, or one of the QR Rows for Properties constants: qr title=-1, qr detail=-2, qr grand total=-3)"
         },
         {
           "name": "border",
@@ -40,7 +43,34 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Which cell border is queried",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "qr left border"
+            },
+            {
+              "value": 4,
+              "meaning": "qr right border"
+            },
+            {
+              "value": 2,
+              "meaning": "qr top border"
+            },
+            {
+              "value": 8,
+              "meaning": "qr bottom border"
+            },
+            {
+              "value": 16,
+              "meaning": "qr inside vertical border"
+            },
+            {
+              "value": 32,
+              "meaning": "qr inside horizontal border"
+            }
+          ]
         },
         {
           "name": "line",
@@ -48,8 +78,9 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Line thickness: 0=no line, 1=1/4 point, 2=1/2 point, 3=1 point, 4=2 points"
         },
         {
           "name": "color",
@@ -57,11 +88,15 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Color applied to the line segment"
         }
       ],
-      "semanticRole": "The QR GET BORDERS command allows you to retrieve the border style for a border of a given cell."
+      "semanticRole": "Retrieves the border style (line thickness and color) for one border (border) of a given report cell (column/row), unlike QR SET BORDERS this command does not accept a cumulative border value -- each border must be tested separately."
     }
+  ],
+  "constraints": [
+    "Unlike QR SET BORDERS, this command does not accept a cumulative border value; each border constant must be queried separately to build an overall view of a cell's borders."
   ]
 }

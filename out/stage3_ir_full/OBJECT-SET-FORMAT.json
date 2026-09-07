@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-FORMAT",
   "displayName": "OBJECT SET FORMAT",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "displayFormat",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "OBJECT SET FORMAT sets the display format for the objects specified by object to the format you pass in displayFormat ."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -53,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "displayFormat",
@@ -62,10 +45,17 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "New display format for the object"
         }
       ],
-      "semanticRole": "OBJECT SET FORMAT sets the display format for the objects specified by object to the format you pass in displayFormat ."
+      "semanticRole": "Sets, for the current display only (not stored with the form), the display format applied to the object(s) designated by object and *."
     }
+  ],
+  "constraints": [
+    "The new format is used only for the current display; it is not stored with the form.",
+    "displayFormat must be compatible with the data type of the object/field it is applied to.",
+    "For Boolean fields: a single value in displayFormat renders the field as a checkbox labeled with that value; in binary databases only, two semicolon-separated values render it as two radio buttons.",
+    "For Date/Time fields or variables, a predefined format constant (from Date Display Formats / Time Display Formats) is passed as Char(n), where n is the constant's value."
   ]
 }

@@ -36,5 +36,10 @@
       ],
       "semanticRole": "The QR SET SORTS command sets the sort orders for the columns in the report whose reference is passed in area ."
     }
+  ],
+  "constraints": [
+    "aColumns and aOrders are parallel arrays: aOrders{i} gives the sort order for the column number stored in aColumns{i}.",
+    "Each aOrders element must be 1 (ascending) or -1 (descending).",
+    "In cross-table mode, the arrays cannot have more than two items: only columns (1) and rows (2) can be sorted, not the data at their intersection."
   ]
 }

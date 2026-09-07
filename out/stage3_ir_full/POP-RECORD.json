@@ -18,5 +18,9 @@
       ],
       "semanticRole": "POP RECORD pops a record belonging to aTable from the table\u2019s record stack, and makes the record the current record."
     }
+  ],
+  "constraints": [
+    "Pushing a record that was unlocked keeps it locked for all other processes/users until it is popped (POP RECORD).",
+    "If any command moves the record pointer before the pushed/current record is saved, the copy held on the stack is lost."
   ]
 }

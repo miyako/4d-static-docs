@@ -36,7 +36,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "QUERY SELECTION looks for records in aTable ."
+      "semanticRole": "Runs an interactive or programmatic query against the records currently selected in the explicitly given aTable, replacing its current selection.",
+      "discriminatedBy": {
+        "param": "aTable",
+        "rule": "Chosen when the target table is passed explicitly rather than relying on the default table."
+      }
     },
     {
       "params": [
@@ -61,7 +65,21 @@
           "optional": true
         }
       ],
-      "semanticRole": "QUERY SELECTION looks for records in aTable ."
+      "semanticRole": "Runs an interactive or programmatic query against the records currently selected in the default table, replacing its current selection.",
+      "discriminatedBy": {
+        "param": "aTable",
+        "rule": "Chosen when aTable is omitted; applies to the default table."
+      }
     }
+  ],
+  "protocolRefs": {
+    "multiCallChain": "queryThemeChain"
+  },
+  "constraints": [
+    "Scope differs from QUERY: QUERY SELECTION only searches within aTable's current selection, whereas QUERY searches every record in the table; otherwise both commands share the same queryArgument syntax and multi-call '*' chaining behavior (see QUERY).",
+    "Most useful when a query needs to run against a current selection that did not itself come from a previous QUERY call (e.g. one produced by USE SET)."
+  ],
+  "_needsReview": [
+    "Same alphanumeric-comparator calling form caveat as QUERY: the field/comparator/value 3-argument form is documented by reference to QUERY's own docs but not modeled as a separate Overload here."
   ]
 }

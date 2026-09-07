@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "colNum",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Number of the column to modify"
         },
         {
           "name": "title",
@@ -31,7 +33,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Title displayed in the header of the column"
         },
         {
           "name": "object",
@@ -46,7 +49,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "The actual object of the column: a field/formula path (Text) or a pointer to a variable"
         },
         {
           "name": "hide",
@@ -55,7 +59,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "0 = column shown, 1 = column hidden"
         },
         {
           "name": "size",
@@ -64,7 +69,14 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Column width in pixels",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Column width is made automatic"
+            }
+          ]
         },
         {
           "name": "repeatedValue",
@@ -73,7 +85,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "0 = value not repeated across identical rows, 1 = value repeated"
         },
         {
           "name": "displayFormat",
@@ -82,10 +95,11 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D display format compatible with the column's data"
         }
       ],
-      "semanticRole": "List mode \u200b The QR SET INFO COLUMN command sets the parameters of an existing column."
+      "semanticRole": "Sets the title, source object, visibility, width, repetition, and display format of an existing report column, in list mode."
     }
   ]
 }

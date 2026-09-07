@@ -42,5 +42,8 @@
       ],
       "semanticRole": "The QR INSERT COLUMN command inserts or creates a column at the specified position."
     }
+  ],
+  "constraints": [
+    "Cannot be used with a cross-table report."
   ]
 }

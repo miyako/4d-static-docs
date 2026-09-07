@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-SCROLLBAR",
   "displayName": "OBJECT SET SCROLLBAR",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,55 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable."
         },
         {
           "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "horizontal",
           "type": [
             {
               "kind": "concrete",
-              "name": "Boolean"
+              "name": "Text"
             },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "vertical",
-          "type": [
-            {
-              "kind": "concrete",
-              "name": "Boolean"
-            },
-            {
-              "kind": "concrete",
-              "name": "Integer"
-            }
-          ],
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET SCROLLBAR command allows you to display or hide the horizontal and/or vertical scrollbars in the object set using the object and * parameters."
-    },
-    {
-      "params": [
-        {
-          "name": "object",
-          "type": [
             {
               "kind": "concrete",
               "name": "Variable"
@@ -74,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "horizontal",
@@ -89,7 +51,22 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Visibility of horizontal scrollbar",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Hidden (equivalent to False)"
+            },
+            {
+              "value": 1,
+              "meaning": "Shown (equivalent to True)"
+            },
+            {
+              "value": 2,
+              "meaning": "Automatic mode -- shown only when necessary; not available for text-object fields/variables or subforms"
+            }
+          ]
         },
         {
           "name": "vertical",
@@ -104,10 +81,29 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Visibility of vertical scrollbar",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Hidden (equivalent to False)"
+            },
+            {
+              "value": 1,
+              "meaning": "Shown (equivalent to True)"
+            },
+            {
+              "value": 2,
+              "meaning": "Automatic mode -- shown only when necessary; not available for text-object fields/variables or subforms"
+            }
+          ]
         }
       ],
-      "semanticRole": "The OBJECT SET SCROLLBAR command allows you to display or hide the horizontal and/or vertical scrollbars in the object set using the object and * parameters."
+      "semanticRole": "Shows, hides, or (for object types that support it) sets automatic-mode visibility of the horizontal and/or vertical scrollbars of the object(s) designated by object and *."
     }
+  ],
+  "constraints": [
+    "Scrollbars are displayed by default.",
+    "Automatic mode (2) is not available for text-object fields/variables or subforms."
   ]
 }

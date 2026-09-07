@@ -2,7 +2,7 @@
   "id": "QR-Get-report-kind",
   "displayName": "QR Get report kind",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -22,5 +22,8 @@
       },
       "semanticRole": "The QR Get report kind command retrieves the report type for the area whose reference was passed in area ."
     }
+  ],
+  "constraints": [
+    "Return value maps to the QR Report Types constants: 1 = qr list report (list mode), 2 = qr cross report (cross-table mode)."
   ]
 }

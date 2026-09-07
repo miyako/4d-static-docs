@@ -2,7 +2,7 @@
   "id": "QR-Get-drop-column",
   "displayName": "QR Get drop column",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The QR Get drop column command returns a value depending on where the drop was performed: if the value is negative, it indicates a column number (i.e., -3 if the the drop was performed on column number 3) if the value is"
+      "semanticRole": "Returns where a column-header drag-and-drop was performed: a negative value indicates a column number the drop landed on (e.g. -3 = column 3), a positive value indicates the drop landed on the separator preceding that column number (e.g. 3 = after column 2); the drop is not required to occur before an existing column."
     }
   ]
 }

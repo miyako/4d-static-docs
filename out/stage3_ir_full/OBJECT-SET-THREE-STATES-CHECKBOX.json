@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-THREE-STATES-CHECKBOX",
   "displayName": "OBJECT SET THREE STATES CHECKBOX",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "threeStates",
-          "type": {
-            "kind": "concrete",
-            "name": "Boolean"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET THREE STATES CHECKBOX command modifies, for the current process, the \"Three-States\" property of the checkbox(es) designated by the object and * parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -53,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "threeStates",
@@ -62,10 +45,14 @@
             "name": "Boolean"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "True = three-states checkbox, False = standard checkbox"
         }
       ],
-      "semanticRole": "The OBJECT SET THREE STATES CHECKBOX command modifies, for the current process, the \"Three-States\" property of the checkbox(es) designated by the object and * parameters."
+      "semanticRole": "Enables or disables, for the current process, the 'Three-States' (semi-checked) mode of the checkbox(es) designated by object and *."
     }
+  ],
+  "constraints": [
+    "Only applies to checkboxes bound to variables; has no effect on Boolean fields displayed as checkboxes."
   ]
 }

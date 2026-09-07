@@ -27,7 +27,11 @@
           "optional": true
         }
       ],
-      "semanticRole": "QUERY BY EXAMPLE performs the same action as the Query by Example menu command in the Design environment."
+      "semanticRole": "Opens the current input form as an interactive Query by Example window for aTable, using indexed fields automatically to optimize the resulting query."
     }
+  ],
+  "constraints": [
+    "The input form must contain the fields the user should be able to query on.",
+    "The trailing '*' here only suppresses the scrolling status bar during the query; unlike QUERY's trailing '*', it is not a multi-call continuation flag -- QUERY BY EXAMPLE is always a single call."
   ]
 }

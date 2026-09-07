@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "row",
@@ -22,7 +23,22 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Row designator: a positive subtotal (break) level, or a negative constant designating a special report area",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "qr title -- title area of the report"
+            },
+            {
+              "value": -2,
+              "meaning": "qr detail -- detail area of the report"
+            },
+            {
+              "value": -3,
+              "meaning": "qr grand total -- grand total area"
+            }
+          ]
         },
         {
           "name": "hide",
@@ -31,10 +47,11 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "0 = row shown, 1 = row hidden"
         }
       ],
-      "semanticRole": "The QR SET INFO ROW command shows/hides the row whose reference was passed in row ."
+      "semanticRole": "Shows or hides the given row (or special report area) of the report."
     }
   ]
 }

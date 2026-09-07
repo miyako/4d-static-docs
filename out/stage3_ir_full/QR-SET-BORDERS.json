@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "column",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Column number of the cell"
         },
         {
           "name": "row",
@@ -31,7 +33,22 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Row number of the cell, or a negative constant designating a special report area",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "qr title -- title area of the report"
+            },
+            {
+              "value": -2,
+              "meaning": "qr detail -- detail area of the report"
+            },
+            {
+              "value": -3,
+              "meaning": "qr grand total -- grand total area"
+            }
+          ]
         },
         {
           "name": "border",
@@ -40,7 +57,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Composite (additive) value of the QR Borders theme constants indicating which side(s) of the cell to affect (e.g. left=1, top=2, right=4, bottom=8, inside vertical=16, inside horizontal=32); values can be summed to affect several borders at once."
         },
         {
           "name": "line",
@@ -49,7 +67,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Line thickness: 0=no line, 1=1/4 point, 2=1/2 point, 3=1 point, 4=2 points"
         },
         {
           "name": "color",
@@ -58,10 +77,11 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Border line color; a positive value indicates a specific color, 0 is black"
         }
       ],
-      "semanticRole": "The QR SET BORDERS command sets the border style for a given cell."
+      "semanticRole": "Sets which border(s) of a given report cell are drawn, along with their line thickness and color."
     }
   ]
 }

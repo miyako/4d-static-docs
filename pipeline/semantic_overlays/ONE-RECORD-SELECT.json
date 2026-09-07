@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "If there is no current record for aTable, or the current record is not loaded into memory, the command has no effect."
+  ]
+}

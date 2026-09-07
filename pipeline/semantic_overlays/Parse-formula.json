@@ -1,0 +1,33 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "formula",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Plain text formula to analyze/normalize."
+        },
+        {
+          "name": "options",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Instructions for input/output form (real vs virtual vs tokenized names)."
+        },
+        {
+          "name": "errorMessage",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "out",
+          "optional": true,
+          "description": "Error message (empty string if no error)."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Virtual structure names are those defined via SET TABLE TITLES and SET FIELD TITLES."
+  ]
+}

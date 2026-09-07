@@ -2,7 +2,7 @@
   "id": "QR-Get-info-row",
   "displayName": "QR Get info row",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area created"
         },
         {
           "name": "row",
@@ -22,14 +23,29 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Row designator: a positive subtotal (break) level, or one of the documented constants",
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "qr title - title of report"
+            },
+            {
+              "value": -2,
+              "meaning": "qr detail - detail area of report"
+            },
+            {
+              "value": -3,
+              "meaning": "qr grand total - grand total area"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The QR Get info row command retrieves the display status of the row whose reference was passed in row ."
+      "semanticRole": "Retrieves whether the contents of the given row (a break level or one of the qr title/qr detail/qr grand total constants) are displayed (0) or hidden (1)."
     }
   ]
 }

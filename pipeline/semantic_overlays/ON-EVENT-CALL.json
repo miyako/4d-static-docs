@@ -1,0 +1,45 @@
+{
+  "constraints": [
+    "The scope of this command is the current working session; only one event-handling method can be active at a time.",
+    "By default the event-handling method runs in a separate local process named '$Event Manager' if processName is omitted.",
+    "If processName is prefixed with a dollar sign ($), a local process is started (usually what you want).",
+    "Do not call commands that generate events from within the event-handling method, or it becomes very difficult to exit that method's execution."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "params": [
+        {
+          "name": "eventMethod",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "Stops intercepting events instead of installing a handler."
+            }
+          ]
+        },
+        {
+          "name": "processName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the process created for the event-handling method; defaults to '$Event Manager' if omitted.",
+          "default": "$Event Manager"
+        }
+      ],
+      "semanticRole": "Installs eventMethod as the event-catching method run in a dedicated process (named by processName, or '$Event Manager' by default), or stops catching events if eventMethod is an empty string.",
+      "note": "Documented the eventMethod empty-string sentinel (stop intercepting) and the processName default process name, which autoparse left as bare Text params."
+    }
+  ]
+}

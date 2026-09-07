@@ -36,5 +36,8 @@
       ],
       "semanticRole": "The QR SET AREA PROPERTY command shows or hides the interface element whose reference is passed in property ."
     }
+  ],
+  "constraints": [
+    "Can only be used with a Quick Report area embedded in a form."
   ]
 }

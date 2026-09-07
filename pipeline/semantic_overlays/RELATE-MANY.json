@@ -1,0 +1,15 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Establishes every One-to-Many relation for oneTable at once, regenerating the current selection of each related Many table based on the current value of each related field in the One table."
+    },
+    {
+      "index": 1,
+      "semanticRole": "Establishes the single One-to-Many relation for oneField, regenerating the current selection of the related Many table."
+    }
+  ],
+  "constraints": [
+    "Each call regenerates the current selections of the affected Many tables from scratch, and loads the first record of each new selection as the current record."
+  ]
+}

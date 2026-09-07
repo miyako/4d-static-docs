@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "pathType selects the separator convention used to interpret path: Path is system (0, default) uses the current OS system separators ('\\\\' on Windows, ':' on macOS); Path is POSIX (1) uses '/' separators."
+  ]
+}

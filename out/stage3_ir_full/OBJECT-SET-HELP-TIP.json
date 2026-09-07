@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-HELP-TIP",
   "displayName": "OBJECT SET HELP TIP",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,34 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "helpTip",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET HELP TIP command sets or dynamically modifies the help tip associated with the object(s) designated by the object and * parameters for the current process."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -53,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "helpTip",
@@ -62,10 +45,17 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Contents of help message"
         }
       ],
-      "semanticRole": "The OBJECT SET HELP TIP command sets or dynamically modifies the help tip associated with the object(s) designated by the object and * parameters for the current process."
+      "semanticRole": "Sets or dynamically modifies, for the current process, the help tip shown when the cursor hovers over the object(s) designated by object and *."
     }
+  ],
+  "constraints": [
+    "Passing an empty string \"\" removes the current help tip.",
+    "If a help tip is already displayed when this command is called, it is closed and a new tip is opened at the mouse location, restarting the Tips duration counter.",
+    "Can be used with a list box object to give a different help tip per row/cell (e.g. combined with LISTBOX GET CELL POSITION to determine the cursor's row).",
+    "Tips delay/duration are controlled globally via SET DATABASE PARAMETER, which can also disable help tips entirely."
   ]
 }

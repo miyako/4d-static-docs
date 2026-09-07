@@ -1,0 +1,7 @@
+{
+  "theme": "Quick-Report",
+  "constraints": [
+    "Returns the default HTML template if none was explicitly set for the area.",
+    "Returns nothing (no template) if the area's output destination was not set to HTML file, either manually or programmatically."
+  ]
+}

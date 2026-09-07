@@ -22,5 +22,8 @@
       },
       "semanticRole": "The Process info command returns an object providing detailed information about process whose number you pass in processNumber ."
     }
+  ],
+  "constraints": [
+    "If you pass an incorrect/invalid processNumber, the command returns a null object rather than raising an error."
   ]
 }

@@ -12,15 +12,20 @@
             "kind": "concrete",
             "name": "Blob"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Current print settings, saved by the command"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Print settings to BLOB command saves the current 4D print settings in the printSettings BLOB."
+      "semanticRole": "Saves the current 4D print settings (layout and print parameters, including platform-specific driver settings) into printSettings so they can be persisted and restored later via BLOB to print settings; returns 1 on success or 0 if no printer is currently selected."
     }
+  ],
+  "constraints": [
+    "Must be used in conjunction with BLOB to print settings, which reloads a BLOB previously produced by this command; the generated BLOB must not be modified by programming.",
+    "The printSettings BLOB mixes cross-platform and platform-specific (driver-dependent) data; sharing one BLOB between Windows and macOS can lose platform-specific parts, so it is recommended to keep separate BLOBs per platform in heterogeneous environments."
   ]
 }

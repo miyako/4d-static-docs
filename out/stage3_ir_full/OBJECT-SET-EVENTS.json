@@ -2,12 +2,12 @@
   "id": "OBJECT-SET-EVENTS",
   "displayName": "OBJECT SET EVENTS",
   "kind": "classic_command",
-  "theme": "Objects (Forms)",
+  "theme": "Objects-Forms",
   "overloads": [
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If specified, object is an object name (string); if omitted, object is a variable or a field."
         },
-        {
-          "name": "object",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "arrEvents",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer array"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "mode",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": false
-        }
-      ],
-      "semanticRole": "The OBJECT SET EVENTS command modifies, for the current process, the configuration of the form events of the form or object(s) designated by the object and * parameters."
-    },
-    {
-      "params": [
         {
           "name": "object",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,16 +35,18 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * is specified) or Variable or field (if * is omitted)"
         },
         {
           "name": "arrEvents",
           "type": {
             "kind": "concrete",
-            "name": "Integer array"
+            "name": "Array"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Array of predefined (Form Events theme) or custom Longint event codes to modify; the On Load event cannot be included."
         },
         {
           "name": "mode",
@@ -80,10 +55,32 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Activation mode for the events listed in arrEvents",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Enable events disable others -- events in arrEvents are enabled, all other events are disabled"
+            },
+            {
+              "value": 1,
+              "meaning": "Enable events others unchanged -- events in arrEvents are enabled, other events keep their current status"
+            },
+            {
+              "value": 2,
+              "meaning": "Disable events others unchanged -- events in arrEvents are disabled, other events keep their current status"
+            }
+          ]
         }
       ],
-      "semanticRole": "The OBJECT SET EVENTS command modifies, for the current process, the configuration of the form events of the form or object(s) designated by the object and * parameters."
+      "semanticRole": "Modifies, for the current process, the enabled/disabled configuration of the form events of the form or object(s) designated by object and *."
     }
+  ],
+  "constraints": [
+    "To configure events for the form itself (rather than an object), pass * together with an empty string \"\" in object.",
+    "To modify a subform's events for a related table, only the object-name syntax (with *) works.",
+    "Custom (non-predefined) event codes should use negative values.",
+    "Enabling events unsupported by the object's type is harmless; they are simply ignored.",
+    "If an object is duplicated after this command is called, the resulting event configuration is duplicated with it."
   ]
 }

@@ -27,5 +27,8 @@
       ],
       "semanticRole": "The QR SET HTML TEMPLATE command sets the HTML template currently used for the Quick Report area ."
     }
+  ],
+  "constraints": [
+    "QR SET DESTINATION must first be called to set the area's output type to HTML file for the template to be used."
   ]
 }

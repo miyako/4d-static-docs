@@ -10,7 +10,10 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The Process activity command returns a snapshot of running processes and/or (4D Server only) connected user sessions at a given time."
+      "semanticRole": "Returns a full, unfiltered snapshot: an object with a \"processes\" collection (all running processes) and, on 4D Server, a \"sessions\" collection (all connected user sessions).",
+      "discriminatedBy": {
+        "rule": "Called with no arguments."
+      }
     },
     {
       "params": [
@@ -21,14 +24,33 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Selects which collection(s) to return",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Processes and sessions - returns both \"processes\" and \"sessions\" lists (default value)"
+            },
+            {
+              "value": 1,
+              "meaning": "Processes only - returns only the \"processes\" list"
+            },
+            {
+              "value": 2,
+              "meaning": "Sessions only - returns only the \"sessions\" list"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The Process activity command returns a snapshot of running processes and/or (4D Server only) connected user sessions at a given time."
+      "semanticRole": "On 4D Server, returns a snapshot filtered (via the options constant) to just the processes list, just the sessions list, or both, across all sessions.",
+      "discriminatedBy": {
+        "param": "options",
+        "rule": "Called with a single Integer argument (no sessionID)."
+      }
     },
     {
       "params": [
@@ -39,14 +61,19 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Session ID to scope the snapshot to"
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The Process activity command returns a snapshot of running processes and/or (4D Server only) connected user sessions at a given time."
+      "semanticRole": "On 4D Server, returns a snapshot scoped to a single user session: by default a collection of all processes related to that session, plus a collection with a single object describing the session itself (and an additional server-only \"session\" property on each returned process). Returns a null object if sessionID is invalid.",
+      "discriminatedBy": {
+        "param": "sessionID",
+        "rule": "Called with a single Text argument (no options)."
+      }
     },
     {
       "params": [
@@ -57,7 +84,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Session ID to scope the snapshot to"
         },
         {
           "name": "options",
@@ -66,14 +94,38 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Selects which collection(s) to return",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Processes and sessions - returns both \"processes\" and \"sessions\" lists (default value)"
+            },
+            {
+              "value": 1,
+              "meaning": "Processes only - returns only the \"processes\" list"
+            },
+            {
+              "value": 2,
+              "meaning": "Sessions only - returns only the \"sessions\" list"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The Process activity command returns a snapshot of running processes and/or (4D Server only) connected user sessions at a given time."
+      "semanticRole": "On 4D Server, returns a snapshot scoped to a single user session (sessionID) and further filtered to just the processes list, just the sessions list, or both (via options).",
+      "discriminatedBy": {
+        "param": "sessionID, options",
+        "rule": "Called with both a Text sessionID and an Integer options argument."
+      }
     }
+  ],
+  "constraints": [
+    "sessionID and options are honored only on 4D Server; when executed on 4D in remote or local mode, Process activity always returns the list of all running processes regardless of the parameters passed.",
+    "This command returns all processes, including internal processes not reachable by Process info.",
+    "Passing an invalid sessionID returns a null object."
   ]
 }

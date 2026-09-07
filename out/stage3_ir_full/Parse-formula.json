@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Plain text formula to analyze/normalize."
         },
         {
           "name": "options",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Instructions for input/output form (real vs virtual vs tokenized names)."
         },
         {
           "name": "errorMessage",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Text"
           },
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Error message (empty string if no error)."
         }
       ],
       "returns": {
@@ -40,5 +43,8 @@
       },
       "semanticRole": "The Parse formula function analyzes the 4D formula , checks its syntax, and returns its normalized form."
     }
+  ],
+  "constraints": [
+    "Virtual structure names are those defined via SET TABLE TITLES and SET FIELD TITLES."
   ]
 }

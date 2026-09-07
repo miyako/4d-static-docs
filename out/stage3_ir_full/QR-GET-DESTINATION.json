@@ -2,7 +2,7 @@
   "id": "QR-GET-DESTINATION",
   "displayName": "QR GET DESTINATION",
   "kind": "classic_command",
-  "theme": "Quick Report",
+  "theme": "Quick-Report",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Reference of the area"
         },
         {
           "name": "type",
@@ -21,8 +22,23 @@
             "kind": "concrete",
             "name": "Integer"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Output type of the report",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "qr printer -- specifics returns \"*\" if the print dialog boxes are suppressed"
+            },
+            {
+              "value": 2,
+              "meaning": "qr text file -- specifics returns the pathname to the file"
+            },
+            {
+              "value": 5,
+              "meaning": "qr HTML file -- specifics returns the pathname to the file"
+            }
+          ]
         },
         {
           "name": "specifics",
@@ -36,11 +52,12 @@
               "name": "Variable"
             }
           ],
-          "direction": "in",
-          "optional": true
+          "direction": "out",
+          "optional": true,
+          "description": "Value linked to the returned output type (see sentinelValues on type)"
         }
       ],
-      "semanticRole": "The QR GET DESTINATION command retrieves the output type of the report for the area whose reference was passed in area ."
+      "semanticRole": "Retrieves the current output destination type of the report for area, plus any type-specific detail (e.g. output file pathname) in specifics."
     }
   ]
 }

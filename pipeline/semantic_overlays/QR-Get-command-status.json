@@ -1,0 +1,37 @@
+{
+  "theme": "Quick-Report",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "value is documented with the '\u2190' arrow (returned by the command), not '\u2192'; auto-parse defaulted it to direction 'in'.",
+      "params": [
+        {
+          "name": "area",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Reference of the area"
+        },
+        {
+          "name": "command",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Command number, from the QR Commands constant theme"
+        },
+        {
+          "name": "value",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "Value of the selected sub-item, if any (e.g. the selected font name for the Font menu command, or a color number for a color menu command)"
+        }
+      ],
+      "returns": { "kind": "concrete", "name": "Integer" },
+      "semanticRole": "Returns whether the toolbar command is enabled (1) or disabled (0), and optionally the currently selected sub-item value via value; typically called either as a standalone status check, or inside the method installed by QR ON COMMAND (where $1 is the area reference and $2 the command number)."
+    }
+  ]
+}

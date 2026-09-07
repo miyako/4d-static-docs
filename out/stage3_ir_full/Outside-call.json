@@ -8,5 +8,9 @@
       "params": [],
       "semanticRole": "Outside call returns True for the After execution cycle."
     }
+  ],
+  "constraints": [
+    "Only returns True for a form's/object's 'After execution cycle' event; requires the 'On Outside Call' event property to be enabled for the form and/or object in the Design environment, otherwise the cycle is never generated.",
+    "Equivalent to testing whether Form event code returns the On Outside Call event."
   ]
 }

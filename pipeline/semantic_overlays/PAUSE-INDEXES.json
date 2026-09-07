@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Cannot be executed from a 4D remote application.",
+    "Indexes are not physically deleted (unlike DELETE INDEX): they are only invalidated and stop being updated, and their internal index numbers are preserved (avoiding automatic reindexing on RESUME INDEXES, unlike a DELETE INDEX/CREATE INDEX cycle).",
+    "If the database is quit while indexes for a table remain paused (RESUME INDEXES was never called), all of that table's indexes are automatically rebuilt the next time the database starts."
+  ]
+}

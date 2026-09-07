@@ -1,0 +1,43 @@
+{
+  "constraints": [
+    "If resFilename is an empty string, the standard Open File dialog box is presented for interactive selection.",
+    "If a resource file already open within the current 4D session is reopened, the existing reference number is returned instead of erroring (unlike Open document); attempting to open a resource file already open in another application raises an I/O error.",
+    "Each successful open (even of an already-open file) must still be matched by one CLOSE RESOURCE FILE call to actually close it; all opened resource files are auto-closed when quitting the application or opening another database."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [
+        0
+      ],
+      "params": [
+        {
+          "name": "resFilename",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": "",
+              "meaning": "Presents the standard Open File dialog box for interactive selection instead of opening a named resource file."
+            }
+          ]
+        },
+        {
+          "name": "fileType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "macOS file type (4-character string) or Windows file extension (1-3 characters) used to filter the Open dialog; if omitted, all files are shown."
+        }
+      ],
+      "semanticRole": "Opens the resource file named or pathed by resFilename (or presents the Open File dialog if resFilename is an empty string, filtered by fileType), returning its resource file reference number.",
+      "note": "Documented the resFilename empty-string sentinel (interactive dialog), which autoparse left as a bare Text param."
+    }
+  ]
+}

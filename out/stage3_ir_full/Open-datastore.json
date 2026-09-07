@@ -31,5 +31,12 @@
       },
       "semanticRole": "The Open datastore command connects the application to the remote datastore identified by the connectionInfo parameter and returns a matching 4D.DataStoreImplementation object associated with the localID local alias."
     }
+  ],
+  "constraints": [
+    "connectionInfo must describe a remote datastore whose Web Server is running with http/https enabled and which is exposed as a REST server; a 4D Client license may be required.",
+    "All connectionInfo properties are optional except hostname (host/IP + mandatory port number).",
+    "If tls is true, HTTPS is only actually used when HTTPS is enabled on the remote datastore, the port is the configured HTTPS port, and a valid certificate/private key are installed; otherwise error 1610 is raised.",
+    "If localID already names an existing local session, that session is reused; otherwise a new one is created (lazily, when the datastore object is first used). Calling ds(localID) afterwards returns a reference to the same datastore object.",
+    "Returns Null if no matching datastore is found."
   ]
 }
