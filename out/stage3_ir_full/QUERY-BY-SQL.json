@@ -7,19 +7,10 @@
     {
       "params": [
         {
-          "name": "aTable",
-          "type": {
-            "kind": "concrete",
-            "name": "Table"
-          },
-          "direction": "in",
-          "optional": true
-        },
-        {
           "name": "sqlFormula",
           "type": {
-            "kind": "concrete",
-            "name": "Text"
+            "kind": "foreign_grammar_ref",
+            "grammar": "SQLWhereClauseWithExpressionSubstitution"
           },
           "direction": "in",
           "optional": false
@@ -35,8 +26,5 @@
     "sqlFormula can embed references to 4D expressions/variables using the same <> or :MyVar syntax used in the integrated SQL commands or inside Begin SQL/End SQL blocks.",
     "Compatible with the SET QUERY LIMIT and SET QUERY DESTINATION commands, like QUERY BY FORMULA.",
     "Behaves like QUERY BY FORMULA otherwise: it changes aTable's current selection and makes the new selection's first record current."
-  ],
-  "_needsReview": [
-    "sqlFormula embeds a SQL-2 grammar fragment inside a Text parameter (Category J, embedded foreign-language grammar), but no foreignGrammars{} Layer-2 registry entry exists yet in this corpus to reference by key, so it is only described here in constraints rather than typed as a foreign_grammar_ref."
   ]
 }

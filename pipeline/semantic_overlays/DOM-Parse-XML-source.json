@@ -28,9 +28,7 @@
     "document can be a full pathname, a Unix-style macOS path, an http(s)/ftp URL, or an empty string to prompt an Open File dialog.",
     "If validation is True and the third parameter is omitted, validation is attempted via a DTD or XSD reference found inside the document itself; this can chain (a referenced DTD that itself references an XSD).",
     "If validation cannot be performed (no DTD/XSD found, bad URL, etc.), an error is generated and reported via the Error system variable.",
-    "The returned reference must eventually be released by calling DOM CLOSE XML with it."
-  ],
-  "_needsReview": [
-    "The two syntax lines (dtd-parameter vs schema-parameter) are not statically distinguishable by type alone (both are Text) -- the schema overload is only reachable by the caller's choice of file extension/parameter name, which the docs describe as convention rather than a type-level discriminator."
+    "The returned reference must eventually be released by calling DOM CLOSE XML with it.",
+    "The dtd/schema overloads are not statically distinguishable by parameter type (both Text) -- 4D discriminates at runtime by file-extension convention (a \".dtd\" path selects DTD validation, an \".xsd\" path selects schema validation) or by content-sniffing (if the third parameter's text begins with \"<?xml\", it is treated as an inline DTD rather than a pathname)."
   ]
 }

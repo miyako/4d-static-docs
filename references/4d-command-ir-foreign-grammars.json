@@ -1,0 +1,8 @@
+{
+  "_source": "Curated ForeignGrammarDef entries (schema Category K) for commands whose Text parameters embed a grammar this corpus has no authority to validate. A final corpus-assembly step is expected to merge these into the root IR document's top-level \"foreignGrammars\" map.",
+  "SQLWhereClauseWithExpressionSubstitution": {
+    "language": "SQL",
+    "note": "A SQL-2-compliant boolean search-condition fragment (the WHERE-clause of an implicit \"SELECT * FROM table WHERE ...\"), evaluated by 4D's own integrated SQL engine (not an external SQL connection). Can additionally embed references to 4D expressions/variables using the same <> or :MyVar substitution syntax supported inside Begin SQL/End SQL blocks and the other integrated SQL commands -- so the full grammar is SQL-2 plus this 4D-specific expression-substitution extension, which is why it is modeled as its own foreignGrammars entry rather than a plain 'SQL' one.",
+    "validatableByThisCorpus": false
+  }
+}

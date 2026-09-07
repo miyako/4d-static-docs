@@ -3,10 +3,7 @@
     {
       "index": 0,
       "returns": { "kind": "concrete", "name": "Object" },
-      "semanticRole": "Returns the built-in 4D class-store object (the entry point for accessing 4D's built-in ORDA/framework classes)."
+      "semanticRole": "Returns the 4D.ClassStore object for 4D's built-in classes. Per the Classes concept page, two class stores exist: `cs` for user/component classes, `4D` for built-in classes."
     }
-  ],
-  "_needsReview": [
-    "Stage 1 extracted no description text for this page (only the Properties section: Command number 1709, Thread safe yes). The semanticRole above reflects general knowledge of what the '4D' command/class-store object is, not text pulled from this record's sections.description -- worth a human spot-check against the live doc page."
   ]
 }

@@ -70,6 +70,65 @@
         "param": "aTable",
         "rule": "Chosen when aTable is omitted; applies to the default table."
       }
+    },
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "field",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "The field to query; may belong to another table related to aTable via a One-side relation."
+        },
+        {
+          "name": "comparator",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "The comparison symbol (=, #, <, >, <=, >=, %) passed as its own alphanumeric-expression argument instead of embedded inside a single queryArgument string."
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "The value field is compared against."
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Runs a programmatic query, over the records currently selected in aTable, using an alphanumeric-comparator calling form -- field, comparator, and value passed as three separate arguments after aTable -- instead of a single queryArgument expression string. Same calling-form variant as QUERY's third overload; the docs state QUERY SELECTION 'works and performs the same actions as QUERY' and defer entirely to QUERY's own description for queryArgument syntax.",
+      "discriminatedBy": {
+        "param": "comparator",
+        "rule": "Chosen when the comparison operator itself needs to be a runtime value (e.g. a variable holding \"#\" or \"=\"), letting callers build configurable query sequences or custom query UIs (see QUERY's Example 21). Using this form makes it mandatory to separate every item of the query with semicolons rather than embedding the comparator symbol inside one expression string."
+      }
     }
   ],
   "protocolRefs": {
@@ -78,8 +137,5 @@
   "constraints": [
     "Scope differs from QUERY: QUERY SELECTION only searches within aTable's current selection, whereas QUERY searches every record in the table; otherwise both commands share the same queryArgument syntax and multi-call '*' chaining behavior (see QUERY).",
     "Most useful when a query needs to run against a current selection that did not itself come from a previous QUERY call (e.g. one produced by USE SET)."
-  ],
-  "_needsReview": [
-    "Same alphanumeric-comparator calling form caveat as QUERY: the field/comparator/value 3-argument form is documented by reference to QUERY's own docs but not modeled as a separate Overload here."
   ]
 }

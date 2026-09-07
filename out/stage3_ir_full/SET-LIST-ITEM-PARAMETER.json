@@ -107,7 +107,7 @@
       ]
     }
   ],
-  "_needsReview": [
-    "value's concrete type (Text/Boolean/Real) may still depend on selector when a custom (non-enum) property name is passed; for the two documented HierarchicalListItemSelector constants (Additional text, Associated standard action name) value is Text."
+  "constraints": [
+    "value's concrete type (Text/Boolean/Real) may still depend on selector when a custom (non-enum) property name is passed; for the two documented HierarchicalListItemSelector constants (Additional text, Associated standard action name), value is Text."
   ]
 }
