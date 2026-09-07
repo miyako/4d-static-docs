@@ -53,8 +53,8 @@ alternative for anything ambiguous), plus these sweeps add more blocks:
 | flag on/off sweep | every optional `literal_symbols` flag (e.g. `*`, `>`), present vs. omitted | `find_flag_omission_variants` + `call_params` override |
 | union-discriminator sweep | every alternative of a union-typed param, one at a time | `find_union_params_in_params` + `ctx_state.union_override` |
 
-Total (excluding `EXCLUDED_THEMES`): 2576 overload+variant entries across
-1334 commands, **2576 clean, 0 warnings, 0 errors**. Any error is a real
+Total (excluding `EXCLUDED_THEMES`): 2543 overload+variant entries across
+1334 commands, **2543 clean, 0 warnings, 0 errors**. Any error is a real
 finding that must be triaged.
 
 ### Permanently excluded themes
@@ -102,6 +102,44 @@ comment explaining the reasoning — read them before changing:
   selector-dependent, not a free union; forcing an arbitrary alternative
   against the sweep's arbitrary default selector is a real type mismatch,
   not an IR bug.
+- `COMPILER_REQUIRES_NONEMPTY_CALL = {"QR-REPORT", "REGISTER-CLIENT"}` —
+  same root cause as `FLAG_SWEEP_SKIP_EMPTY_CALL` above (a fully bare
+  zero-argument call real-compiler-rejects despite the doc's own bracket
+  notation implying it's legal), but this table is a genuine *compiler*
+  rule rather than a tool4d static-analyzer artifact, so it's also
+  documented as a `constraints` entry in the affected command's own
+  overlay (closing the IR-consumer-facing gap, not just working around it
+  in the synthesizer).
+- `CONCRETE_REQUIRES_REFERENCE` / `PSEUDO_REQUIRES_REFERENCE` /
+  `PSEUDO_ANY_REQUIRES_REFERENCE` — params the IR models as accepting a
+  literal (concrete or pseudo:"any") but that the real compiler rejects
+  unless an addressable variable/field is passed instead (e.g. "headerVar
+  can't be a constant.", "Invalid constant type: Real/Alphanumeric"). Grow
+  this list whenever tool4d/the real compiler reports this class of error
+  for a param not yet listed here.
+- `ARRAY_ELEMENT_TYPE_OVERRIDE` — commands whose `Array`-typed param's
+  element type must match some other argument's actual field/list type
+  (e.g. `DISTINCT-VALUES`, `ARRAY-TO-SELECTION`) rather than the generic
+  LONGINT default; keyed by bare param name, so it applies uniformly
+  whether that param is top-level or embedded in a `group`.
+- `MUTUALLY_EXCLUSIVE_TRAILING_PARAMS` / `SKIP_GROUP_FOR_TRAILING_PARAM` —
+  commands whose own `jointConstraints` already correctly documents two
+  (or more) trailing optional params/groups as alternates ("pass at most
+  one"), but whose default block includes every optional param regardless,
+  producing an invalid combination. The former handles N plain trailing
+  params (a `frozenset` of names, generalizes past 2); the latter handles
+  the case where one side of the pair is an embedded `VariadicGroup`
+  member instead of a plain param.
+- `UNION_SWEEP_TEXT_ONLY_WITH_TRAILING` — a union param whose non-Text
+  alternatives can't legally combine with a trailing param at all (per the
+  command's own doc prose, e.g. `Num`'s "When expression is of the string
+  type, you can use a separator parameter or a base parameter"); excludes
+  those alternatives from the union-discriminator sweep rather than
+  generating an invalid call.
+- `LINKED_UNION_GROUPS` — sibling params (e.g. `METHOD-SET-COMMENTS`'s
+  content/binding pair) whose union alternatives must move together to the
+  same index in one call; swept as a whole group (see the code) instead of
+  independently, which would desync them into a mixed-kind invalid call.
 
 If you find yourself tempted to write a new command-specific exception,
 first ask whether the IR itself is wrong (fix the overlay) before excluding
@@ -139,7 +177,7 @@ python3 pipeline/stage6_synth_examples.py validate --all
 ```
 
 Compare the final line's totals against the last known-good baseline
-(currently: `2576 overload(s) checked, 2576 clean, 0 warning-only, 0
+(currently: `2543 overload(s) checked, 2543 clean, 0 warning-only, 0
 error`). Any error at all is a new finding — triage it (see the loop below)
 before committing. (Errors from `EXCLUDED_THEMES` commands can no longer
 appear here since they're never generated -- see "Permanently excluded
