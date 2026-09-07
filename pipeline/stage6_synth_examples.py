@@ -131,10 +131,38 @@ class SynthContext:
         self.prelude: list[str] = []
         self.counter = 0
         self.star_active = False
+        # Set when synthesizing a self-declaring ARRAY <TYPE> command (e.g.
+        # ARRAY TEXT, ARRAY BLOB): its own generic concrete:"Array" param
+        # must declare that exact element type, not the LONGINT default,
+        # or 4D reports "Redefinition of variable ... from ARRAY LONGINT
+        # to ARRAY <TYPE>" (the command's own body redeclares it).
+        self.self_array_element: str | None = None
 
     def fresh_name(self, prefix: str) -> str:
         self.counter += 1
         return f"${prefix}{self.counter}"
+
+
+# Concrete IR type names of the form "<Element> array" (as opposed to the
+# generic "Array") carry their element type in the name -- map each to the
+# 4D ARRAY-declaration keyword for that element.
+ARRAY_TYPE_ELEMENT = {
+    "Boolean array": "BOOLEAN",
+    "Date array": "DATE",
+    "Integer array": "INTEGER",
+    "Object array": "OBJECT",
+    "Pointer array": "POINTER",
+    "Real array": "REAL",
+    "Text array": "TEXT",
+}
+
+# Valid 4D ARRAY-declaration element keywords, used to recognize a
+# self-declaring "ARRAY <TYPE>" command from its displayName (see
+# SynthContext.self_array_element above).
+ARRAY_DECLARE_KEYWORDS = {
+    "BLOB", "BOOLEAN", "DATE", "INTEGER", "LONGINT", "OBJECT",
+    "PICTURE", "POINTER", "REAL", "TEXT", "TIME",
+}
 
 
 def enum_literal(ir, enum_name: str) -> str:
@@ -172,11 +200,15 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
             return "[SynthTable]"
         if name == "Field":
             return "[SynthTable]label"
-        if name == "Array":
+        if name == "Array" or name in ARRAY_TYPE_ELEMENT:
             # Arrays are by-reference by construction -- always declare a
-            # real typed array and pass its name, never a literal.
+            # real typed array and pass its name, never a literal. Element
+            # type: explicit "<Element> array" names carry it directly;
+            # bare "Array" uses the self-declaring-command override (see
+            # SynthContext.self_array_element) when set, else LONGINT.
+            element = ARRAY_TYPE_ELEMENT.get(name) or ctx_state.self_array_element or "LONGINT"
             arr = ctx_state.fresh_name("arr")
-            ctx_state.prelude.append(f"ARRAY LONGINT({arr};0)")
+            ctx_state.prelude.append(f"ARRAY {element}({arr};0)")
             return arr
         if direction in ("out", "inout") or name not in CONCRETE_LITERALS:
             # By-reference params (and any concrete type this pilot has no
@@ -270,9 +302,9 @@ PSEUDO_REQUIRES_REFERENCE = {
 
 
 def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
-    """Flatten an overload's `params` (Parameter | VariadicGroup elements)
-    into a list of argument expressions, honoring each VariadicGroup's
-    minimum cardinality."""
+    """Flatten an overload's `params` (Parameter | VariadicGroup |
+    ContentBindingPair elements) into a list of argument expressions,
+    honoring each VariadicGroup's minimum cardinality."""
     args = []
     for p in params:
         if "members" in p:
@@ -286,6 +318,21 @@ def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
                             ir, m["type"], m.get("name", "arg"), ctx_state, m.get("direction", "in")
                         )
                     )
+        elif "contentParam" in p:
+            # ContentBindingPair: ONE argument slot with two documented
+            # alternatives (e.g. LISTBOX INSERT COLUMN's headerName: pass
+            # either a literal "content" value or a live variable/pointer
+            # "binding" to it -- confirmed against real doc syntax
+            # "headerName Integer, Pointer", a plain union, not two
+            # separate slots). The contentParam alternative is used since
+            # it is always literal-friendly (Integer/Text), unlike
+            # bindingParam which is typically Pointer/Variable-only.
+            content = p["contentParam"]
+            args.append(
+                build_arg_for_type(
+                    ir, content["type"], content.get("name", "arg"), ctx_state, content.get("direction", "in")
+                )
+            )
         else:
             pname = p.get("name", "arg")
             if (command_id, pname) in PSEUDO_REQUIRES_REFERENCE:
@@ -314,14 +361,34 @@ def synthesize_command(ir, command) -> list[list[str]]:
     # `prelude`/`star_active` are still reset per overload since each
     # overload's declarations and star-toggle state are independent.
     ctx_state = SynthContext()
+    # Self-declaring "ARRAY <TYPE>" commands (ARRAY TEXT, ARRAY BLOB, ...)
+    # redeclare their own generic concrete:"Array" param at that exact
+    # element type -- detect this from the displayName so the array
+    # element type below matches, instead of always defaulting to LONGINT.
+    m = re.match(r"^ARRAY (\w+)$", command["displayName"])
+    if m and m.group(1) in ARRAY_DECLARE_KEYWORDS:
+        ctx_state.self_array_element = m.group(1)
     for oi, overload in enumerate(command.get("overloads", [])):
         params = overload.get("params", [])
         ctx_state.prelude = []
         ctx_state.star_active = False
-        args = build_call_args(ir, params, ctx_state, command["id"])
         call_name = command["displayName"]
-        arg_str = ";".join(args)
         block = [f"// overload {oi}"]
+        if command["id"] in KEYWORD_BLOCK_COMMANDS:
+            # A bare 4D keyword-pair block (e.g. Begin SQL/End SQL), not a
+            # callable command: written unparenthesized with no argument
+            # list, per the IR's own "Is a keyword, not a callable command
+            # with parameters" constraint note. Begin SQL and End SQL only
+            # type-check as a matched pair, so both synthetic methods (one
+            # per command id) emit the full pair -- this is still a valid
+            # cross-check that tool4d recognizes each keyword, even though
+            # it can't isolate "just Begin SQL" from "just End SQL".
+            block.append("Begin SQL")
+            block.append("End SQL")
+            blocks.append(block)
+            continue
+        args = build_call_args(ir, params, ctx_state, command["id"])
+        arg_str = ";".join(args)
         block.extend(ctx_state.prelude)
         if overload.get("returns"):
             block.append(f"var $synthResult_{oi} : Variant")
@@ -332,22 +399,73 @@ def synthesize_command(ir, command) -> list[list[str]]:
     return blocks
 
 
+# Commands that are 4D language keywords rather than callable commands
+# (written bare, with no parentheses/argument list) -- confirmed via
+# developer.4d.com ("Begin SQL is a keyword used in the Method editor...").
+# Each must be paired with its closing keyword in the same synthetic
+# method for the pair to be syntactically valid on its own.
+KEYWORD_BLOCK_COMMANDS = {"Begin-SQL", "End-SQL"}
+
+
+def resolve_target_ids(ir, commands_by_id, args, default_ids):
+    """Decide which command ids a generate/validate/report invocation
+    should target, from mutually exclusive --all / --ids / --theme flags,
+    falling back to `default_ids` (the Phase 1 pilot set) when none are
+    given -- this keeps the original pilot-only invocation
+    (`generate`/`validate`/`report` with no flags) working unchanged.
+
+    Returns (target_ids, is_batch): is_batch is True only for --ids/--theme
+    (a partial slice of the corpus, used for the Phase 2 merge-not-replace
+    manifest/report semantics below) and False for --all or the default
+    pilot set (both of which replace their manifest/report wholesale)."""
+    all_ids = getattr(args, "all", False)
+    ids_arg = getattr(args, "ids", None)
+    theme_arg = getattr(args, "theme", None)
+    chosen = sum(bool(x) for x in (all_ids, ids_arg, theme_arg))
+    if chosen > 1:
+        raise SystemExit("--all, --ids, and --theme are mutually exclusive")
+    if all_ids:
+        return list(commands_by_id.keys()), False
+    if ids_arg:
+        ids = [x.strip() for x in ids_arg.split(",") if x.strip()]
+        missing = [cid for cid in ids if cid not in commands_by_id]
+        if missing:
+            raise SystemExit(f"--ids: not found in assembled IR: {missing}")
+        return ids, True
+    if theme_arg:
+        ids = [cid for cid, c in commands_by_id.items() if c.get("theme") == theme_arg]
+        if not ids:
+            raise SystemExit(f"--theme: no commands found with theme {theme_arg!r}")
+        return ids, True
+    return default_ids, False
+
+
 def cmd_generate(args):
     ir = load_json(IR_PATH)
     examples = load_json(EXAMPLES_PATH)
     fixture_ids = [c["id"] for c in examples.get("commands", [])]
-    pilot_ids = fixture_ids + EXTRA_PILOT_IDS
+    default_pilot_ids = fixture_ids + EXTRA_PILOT_IDS
 
     commands_by_id = {c["id"]: c for c in ir["commands"]}
-    missing = [cid for cid in pilot_ids if cid not in commands_by_id]
-    if missing:
-        print(f"WARNING: pilot ids not found in assembled IR: {missing}", file=sys.stderr)
-        pilot_ids = [cid for cid in pilot_ids if cid in commands_by_id]
+    default_pilot_ids = [cid for cid in default_pilot_ids if cid in commands_by_id]
+    target_ids, subset_mode = resolve_target_ids(ir, commands_by_id, args, default_pilot_ids)
 
     METHODS_DIR.mkdir(parents=True, exist_ok=True)
-    manifest = {"pilot_ids": pilot_ids, "files": {}}
 
-    for cid in pilot_ids:
+
+    # A full (--all) or default (pilot) run replaces the manifest wholesale.
+    # A --ids/--theme batch run merges into whatever manifest already
+    # exists on disk, so regenerating one batch doesn't discard the
+    # file->overload mappings already recorded for every other command
+    # (needed for the "revalidate just this batch" Phase 2 workflow).
+    if subset_mode and MANIFEST_PATH.exists():
+        manifest = load_json(MANIFEST_PATH)
+        manifest.setdefault("files", {})
+    else:
+        manifest = {"files": {}}
+    manifest["pilot_ids"] = sorted(set(manifest.get("pilot_ids", [])) | set(target_ids)) if subset_mode else target_ids
+
+    for cid in target_ids:
         command = commands_by_id[cid]
         method_name = sanitize_method_name(cid)
         file_path = METHODS_DIR / f"{method_name}.4dm"
@@ -370,11 +488,18 @@ def cmd_generate(args):
         print(f"wrote {file_path.relative_to(ROOT)} ({len(command.get('overloads', []))} overload(s))")
 
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2) + "\n")
-    print(f"\n{len(pilot_ids)} pilot commands -> {MANIFEST_PATH.relative_to(ROOT)}")
+    print(f"\n{len(target_ids)} command(s) -> {MANIFEST_PATH.relative_to(ROOT)}")
 
 
 # LSP DiagnosticSeverity codes (see the Language Server Protocol spec).
 LSP_SEVERITY = {1: "error", 2: "warning", 3: "info", 4: "hint"}
+
+# tool4d-lsp-stdio is invoked once per chunk of files rather than in one
+# giant argv/subprocess call, so a full 1456-command corpus run (or any
+# large batch) doesn't risk hitting a single process's argv-length or
+# --timeout limits; chunk boundaries have no effect on correctness since
+# each file's diagnostics are independent.
+VALIDATE_CHUNK_SIZE = 150
 
 
 def cmd_validate(args):
@@ -383,44 +508,64 @@ def cmd_validate(args):
     if not TOOL4D_LSP.exists():
         raise SystemExit("tools/tool4d-lsp-stdio not found -- provision it per skills/4dtools/SKILL.md")
 
+    ir = load_json(IR_PATH)
+    commands_by_id = {c["id"]: c for c in ir["commands"]}
     manifest = load_json(MANIFEST_PATH)
-    rel_paths = sorted(manifest["files"].keys())
 
-    proc = subprocess.run(
-        [str(TOOL4D_LSP), "validate", "--json", "--workspace", "Project/"] + rel_paths,
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        timeout=180,
+    all_ids = list(manifest.get("pilot_ids", []))
+    target_ids, _ = resolve_target_ids(ir, commands_by_id, args, all_ids)
+    target_id_set = set(target_ids)
+    subset_mode = target_id_set != set(all_ids)
+
+    rel_paths = sorted(
+        rel for rel, info in manifest["files"].items() if info["command_id"] in target_id_set
     )
-    if proc.returncode not in (0, 1):
-        print(proc.stdout, file=sys.stdout)
-        print(proc.stderr, file=sys.stderr)
-        raise SystemExit(f"tool4d-lsp-stdio exited with unexpected code {proc.returncode}")
-
-    try:
-        # Actual shape: a list of {"uri": "file://...", "diagnostics": [...]},
-        # one entry per file that had ANY diagnostics (clean files are
-        # omitted entirely). Each diagnostic has 0-based
-        # range.start.line/range.end.line, a numeric LSP `severity`, and a
-        # `message` -- there is no per-file "path" key, only the full uri.
-        per_file = json.loads(proc.stdout)
-    except json.JSONDecodeError:
-        print("Could not parse --json output, raw stdout follows:", file=sys.stderr)
-        print(proc.stdout, file=sys.stderr)
-        print(proc.stderr, file=sys.stderr)
-        raise
+    if not rel_paths:
+        raise SystemExit("no generated files match the requested ids/theme -- run 'generate' for them first")
 
     diagnostics_by_relpath = {}
-    for entry in per_file:
-        uri = entry["uri"]
-        # uri is file:///abs/path/Project/Sources/Methods/Foo.4dm -- recover
-        # the "Sources/Methods/Foo.4dm" key used as a manifest/CLI-arg key.
-        rel = uri.split("/Project/", 1)[-1]
-        diagnostics_by_relpath[rel] = entry["diagnostics"]
+    for start in range(0, len(rel_paths), VALIDATE_CHUNK_SIZE):
+        chunk = rel_paths[start : start + VALIDATE_CHUNK_SIZE]
+        proc = subprocess.run(
+            [str(TOOL4D_LSP), "validate", "--json", "--workspace", "Project/"] + chunk,
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=600,
+        )
+        if proc.returncode not in (0, 1):
+            print(proc.stdout, file=sys.stdout)
+            print(proc.stderr, file=sys.stderr)
+            raise SystemExit(f"tool4d-lsp-stdio exited with unexpected code {proc.returncode}")
 
-    report = []
-    for rel_path, file_info in manifest["files"].items():
+        try:
+            # Actual shape: a list of {"uri": "file://...", "diagnostics": [...]},
+            # one entry per file that had ANY diagnostics (clean files are
+            # omitted entirely). Each diagnostic has 0-based
+            # range.start.line/range.end.line, a numeric LSP `severity`, and a
+            # `message` -- there is no per-file "path" key, only the full uri.
+            per_file = json.loads(proc.stdout)
+        except json.JSONDecodeError:
+            print("Could not parse --json output, raw stdout follows:", file=sys.stderr)
+            print(proc.stdout, file=sys.stderr)
+            print(proc.stderr, file=sys.stderr)
+            raise
+
+        for entry in per_file:
+            uri = entry["uri"]
+            # uri is file:///abs/path/Project/Sources/Methods/Foo.4dm -- recover
+            # the "Sources/Methods/Foo.4dm" key used as a manifest/CLI-arg key.
+            rel = uri.split("/Project/", 1)[-1]
+            diagnostics_by_relpath[rel] = entry["diagnostics"]
+        print(
+            f"validated chunk {start // VALIDATE_CHUNK_SIZE + 1} "
+            f"({len(chunk)} file(s), {start + len(chunk)}/{len(rel_paths)} total)",
+            file=sys.stderr,
+        )
+
+    report_this_run = []
+    for rel_path in rel_paths:
+        file_info = manifest["files"][rel_path]
         cid = file_info["command_id"]
         diags = diagnostics_by_relpath.get(rel_path, [])
         # Attribute each diagnostic to the overload whose comment_line is
@@ -447,7 +592,7 @@ def cmd_validate(args):
                 status = "error"
             elif matched:
                 status = "warning"
-            report.append(
+            report_this_run.append(
                 {
                     "id": cid,
                     "overload_index": oi,
@@ -457,11 +602,26 @@ def cmd_validate(args):
                 }
             )
 
+    # Merge semantics: a subset run (--ids/--theme) only touches the
+    # entries for the ids it revalidated, leaving every other command's
+    # last-known result in place from a prior full/other-batch run; a full
+    # run (no flags, or --all) replaces the report wholesale.
+    if subset_mode and REPORT_PATH.exists():
+        prior_report = load_json(REPORT_PATH)
+        report = [r for r in prior_report if r["id"] not in target_id_set] + report_this_run
+    else:
+        report = report_this_run
+
     REPORT_PATH.write_text(json.dumps(report, indent=2) + "\n")
-    n_error = sum(1 for r in report if r["status"] == "error")
-    n_warning = sum(1 for r in report if r["status"] == "warning")
-    n_clean = sum(1 for r in report if r["status"] == "clean")
-    print(f"{len(report)} overload(s) checked: {n_clean} clean, {n_warning} warning-only, {n_error} error")
+    n_error = sum(1 for r in report_this_run if r["status"] == "error")
+    n_warning = sum(1 for r in report_this_run if r["status"] == "warning")
+    n_clean = sum(1 for r in report_this_run if r["status"] == "clean")
+    print(f"{len(report_this_run)} overload(s) checked this run: {n_clean} clean, {n_warning} warning-only, {n_error} error")
+    if subset_mode:
+        t_error = sum(1 for r in report if r["status"] == "error")
+        t_warning = sum(1 for r in report if r["status"] == "warning")
+        t_clean = sum(1 for r in report if r["status"] == "clean")
+        print(f"report totals (all commands): {len(report)} overload(s), {t_clean} clean, {t_warning} warning-only, {t_error} error")
     print(f"-> {REPORT_PATH.relative_to(ROOT)}")
 
 
@@ -469,6 +629,18 @@ def cmd_report(args):
     if not REPORT_PATH.exists():
         raise SystemExit("out/lsp_crosscheck_report.json not found -- run 'validate' first")
     report = load_json(REPORT_PATH)
+
+    ids_arg = getattr(args, "ids", None)
+    theme_arg = getattr(args, "theme", None)
+    if ids_arg or theme_arg:
+        ir = load_json(IR_PATH)
+        commands_by_id = {c["id"]: c for c in ir["commands"]}
+        if ids_arg:
+            wanted = {x.strip() for x in ids_arg.split(",") if x.strip()}
+        else:
+            wanted = {cid for cid, c in commands_by_id.items() if c.get("theme") == theme_arg}
+        report = [r for r in report if r["id"] in wanted]
+
     for r in report:
         if r["status"] != "clean":
             print(f"{r['id']} overload {r['overload_index']}: {r['status']}")
@@ -479,9 +651,18 @@ def cmd_report(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("generate", help="write synthetic .4dm files + manifest")
-    sub.add_parser("validate", help="run tool4d-lsp-stdio and write the cross-check report")
-    sub.add_parser("report", help="print a summary of non-clean overloads")
+
+    gen_p = sub.add_parser("generate", help="write synthetic .4dm files + manifest")
+    val_p = sub.add_parser("validate", help="run tool4d-lsp-stdio and write the cross-check report")
+    rep_p = sub.add_parser("report", help="print a summary of non-clean overloads")
+
+    for p in (gen_p, val_p):
+        p.add_argument("--all", action="store_true", help="target every command in the assembled IR (Phase 2 full corpus)")
+        p.add_argument("--ids", help="comma-separated command ids to target (batch mode)")
+        p.add_argument("--theme", help="target every command with this IR 'theme' (batch mode)")
+    rep_p.add_argument("--ids", help="comma-separated command ids to filter the printed summary to")
+    rep_p.add_argument("--theme", help="filter the printed summary to commands with this IR 'theme'")
+
     args = parser.parse_args()
 
     {"generate": cmd_generate, "validate": cmd_validate, "report": cmd_report}[args.command](args)

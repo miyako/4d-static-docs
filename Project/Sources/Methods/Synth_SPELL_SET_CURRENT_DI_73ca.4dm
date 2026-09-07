@@ -1,0 +1,2 @@
+// overload 0
+SPELL SET CURRENT DICTIONARY(1)
