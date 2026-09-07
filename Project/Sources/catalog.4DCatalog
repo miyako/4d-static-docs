@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="4DCommandIRSynthCheck" uuid="B0000000000000000000000000000000" collation_locale="en-gb">
+  <schema name="DEFAULT_SCHEMA"/>
+
+  <table name="SynthTable" uuid="A0010000000000000000000000000000" id="1">
+    <field name="ID" uuid="F0010001000000000000000000000000" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+    <field name="label" uuid="F0010002000000000000000000000000" type="10" limiting_length="255" id="2"/>
+    <primary_key field_name="ID" field_uuid="F0010001000000000000000000000000"/>
+  </table>
+
+  <index kind="regular" unique_keys="true" uuid="C0010001000000000000000000000000" type="7">
+    <field_ref uuid="F0010001000000000000000000000000" name="ID">
+      <table_ref uuid="A0010000000000000000000000000000" name="SynthTable"/>
+    </field_ref>
+  </index>
+
+  <base_extra>
+    <journal_file journal_file_enabled="true"/>
+  </base_extra>
+</base>
