@@ -21,6 +21,34 @@ re-running these stages blindly.
 | 4.5 / 6 | `stage6_synth_examples.py` (separate follow-on effort, see `stage6_README.md`) | `out/4d-command-ir.json` | `out/lsp_crosscheck_report.json` (`tool4d-lsp-stdio` compiler cross-check) |
 | 5 | `stage5_assemble.py` | fixtures + Stage 3 output + Layer-2 registries | `out/4d-command-ir.json` (final root IR document) |
 
+## Tooling divide: pure Python vs. licensed 4D install
+
+Stages 0, 1, 2, 3, and 5 — the entire core pipeline that produces
+`out/4d-command-ir.json` — are **pure Python** with no proprietary
+dependency: they parse the static HTML mirror already checked into this
+repo and require nothing beyond `pip install -r pipeline/requirements.txt`.
+Anyone can clone this repo and reproduce the IR from scratch.
+
+**Stage 6** (`stage6_synth_examples.py`, see `stage6_README.md`) is the one
+exception: it synthesizes real 4D method calls and compiles them against
+`tool4d`, which requires a genuine, licensed 4D installation (or the 4D
+Analyzer VS Code extension's bundled copy) on the host. This is a
+compiler/LSP cross-check layer used to catch real semantic bugs (e.g.
+missing parameters) that schema validation alone can't — it's additive QA
+on top of the IR, not a build dependency of it. `out/4d-command-ir.json` is
+complete and usable without ever running Stage 6; skip it entirely if no
+licensed 4D install is available.
+
+## Out of scope: static page generation
+
+This pipeline's output is the structured `out/4d-command-ir.json` document
+itself — a machine-readable IR, not rendered documentation. Generating
+human-facing static pages (an HTML/Markdown reference site, IDE
+autocomplete snippets, etc.) *from* the IR is explicitly out of scope for
+this repo; that is left to downstream consumers of the IR. Likewise, this
+pipeline only *reads* the pre-existing `mirror/docs/` HTML snapshot — it
+does not fetch, scrape, or regenerate that mirror itself.
+
 ## Run
 
 ```sh
