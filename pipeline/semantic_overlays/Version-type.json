@@ -1,7 +1,7 @@
 {
   "constraints": [
-    "The returned value is a bit field; use bitwise operators to interpret it (a version can be e.g. both a 64-bit version and a merged application).",
-    "Predefined constants (4D Environment theme): 64 bit version = 1, Demo version = 0 (not available in current 4D versions), Merged application = 2 (version is an application merged with 4D Volume Desktop)."
+    "The returned value is a bit field (see the VersionTypeBitFlag enum); use bitwise operators to interpret it (a version can be e.g. both a 64-bit version and a merged application). Not modeled as a plain enum_ref because return values are an OR-combination of these flags, not a single selected constant.",
+    "Predefined constants (4D Environment theme, VersionTypeBitFlag enum): 64 bit version = 1, Demo version = 0 (not available in current 4D versions), Merged application = 2 (version is an application merged with 4D Volume Desktop)."
   ],
   "overloadPatches": [
     {

@@ -37,7 +37,10 @@
         },
         {
           "name": "selector",
-          "type": { "kind": "concrete", "name": "Text" },
+          "type": [
+            { "kind": "enum_ref", "enum": "HierarchicalListItemSelector" },
+            { "kind": "concrete", "name": "Text" }
+          ],
           "direction": "in",
           "optional": false,
           "description": "One of the documented \"Hierarchical Lists\" theme constants (e.g. Additional text), or a custom property name."
@@ -63,6 +66,6 @@
     }
   ],
   "_needsReview": [
-    "value's concrete type (Text/Boolean/Real) is selected by which 'selector' constant is passed, similar to the object_map_equivalent selector-dependency pattern, but the full selector-to-type mapping requires the complete 'Hierarchical Lists' constants table which was truncated in the extracted description; not encoded as an enum_ref here to avoid guessing."
+    "value's concrete type (Text/Boolean/Real) may still depend on selector when a custom (non-enum) property name is passed; for the two documented HierarchicalListItemSelector constants (Additional text, Associated standard action name) value is Text."
   ]
 }

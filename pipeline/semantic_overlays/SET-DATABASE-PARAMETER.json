@@ -1,9 +1,18 @@
 {
   "constraints": [
     "If aTable is omitted, the command applies to the default table.",
-    "selector must be one of the predefined constants from the \"Database Parameters\" theme; the meaning, scope, and valid values of the value parameter depend entirely on which selector constant is passed (documented per-constant in a large reference table)."
+    "selector must be one of the DatabaseParameterSelector enum constants; the meaning, scope, and valid values of the value parameter depend entirely on which selector constant is passed (several selectors -- Direct2D status, Diagnostic log level, Min TLS version, Times inside objects, Dates inside objects -- draw value from their own dedicated sub-enum; see each DatabaseParameterSelector entry's description)."
   ],
-  "_needsReview": [
-    "value's TypeRef is a simple Real/Text union with no per-selector discrimination -- the docs define dozens of distinct selector constants each with its own value semantics (thread-safety, scope, persistence across sessions), which is too large/volatile a mapping to safely encode here without an enums{} entry sourced from the full constants table."
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        { "name": "selector", "type": { "kind": "enum_ref", "enum": "DatabaseParameterSelector" }, "direction": "in", "optional": false }
+      ],
+      "discriminatedBy": {
+        "param": "selector",
+        "rule": "value's accepted range/type is selected by which DatabaseParameterSelector constant is passed; some selectors expect a sub-enum value (see that selector's description), others a plain Real/Integer or Text setting."
+      }
+    }
   ]
 }

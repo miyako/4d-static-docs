@@ -1,0 +1,208 @@
+{
+  "_source": "Curated from 4D's own localized-constants XLIFF corpus (4D_ConstantsEN.xlf / 4D_ConstantsThemesEN.xlf, user-provided, parsed into references/4d-constants-registry.json). Each entry here is a hand-picked subset of one XLIFF theme group, scoped to exactly the constants a given command's docs actually document, not the group's full raw contents (a raw XLIFF theme group commonly bundles several logically-distinct constant lists together -- see 4d-constants-registry.json's module docstring). Referenced from command overlays via {\"kind\":\"enum_ref\",\"enum\":\"<key>\"}; a final corpus-assembly step is expected to merge these into the root IR document's top-level \"enums\" map alongside references/4d-command-ir-examples.json's own enums.",
+  "WebServerOptionSelector": {
+    "description": "WEB SET OPTION / WEB GET OPTION selector constants (XLIFF theme group 73, 'Web Server'). Selects which Web server setting is read/modified; the value parameter's expected type/range depends on which of these is passed.",
+    "values": [
+      { "name": "Web port ID", "value": 15, "description": "Integer: TCP port the Web server listens on." },
+      { "name": "Web IP address to listen", "value": 16, "description": "Text: IP address the Web server listens on." },
+      { "name": "Web character set", "value": 17, "description": "Integer: character set used by the Web server." },
+      { "name": "Web max concurrent processes", "value": 18, "description": "Integer: maximum number of concurrent Web processes." },
+      { "name": "Web maximum requests size", "value": 27, "description": "Integer: maximum size (bytes) accepted for incoming requests." },
+      { "name": "Web log recording", "value": 29, "description": "Boolean/Integer: enables/disables Web server log recording." },
+      { "name": "Web HTTPS port ID", "value": 39, "description": "Integer: TCP port the Web server listens on for HTTPS." },
+      { "name": "Web HTTP compression level", "value": 50, "description": "Integer: HTTP response compression level." },
+      { "name": "Web HTTP compression threshold", "value": 51, "description": "Integer: minimum response size (bytes) before compression is applied." },
+      { "name": "Web legacy session", "value": 70, "description": "Boolean/Integer: enables legacy Web session behavior." },
+      { "name": "Web max sessions", "value": 71, "description": "Integer: maximum number of concurrent Web sessions." },
+      { "name": "Web inactive session timeout", "value": 72, "description": "Integer: inactive-session timeout." },
+      { "name": "Web session cookie name", "value": 73, "description": "Text: name used for the Web session cookie." },
+      { "name": "Web inactive process timeout", "value": 78, "description": "Integer: inactive-process timeout." },
+      { "name": "Web session cookie domain", "value": 81, "description": "Text: domain attribute of the Web session cookie." },
+      { "name": "Web session cookie path", "value": 82, "description": "Text: path attribute of the Web session cookie." },
+      { "name": "Web session enable IP address validation", "value": 83, "description": "Boolean: enables IP-address validation for Web sessions. (Doc prose word order differs slightly from the XLIFF constant name 'Web session IP address validation enabled'; same constant, value 83.)" },
+      { "name": "Web debug log", "value": 84, "description": "Integer, one of the WebDebugLogLevel enum values (wdl ...): sets the Web server debug log verbosity." },
+      { "name": "Web HTTP TRACE", "value": 85, "description": "Boolean/Integer: enables/disables the HTTP TRACE method." },
+      { "name": "Web HSTS enabled", "value": 86, "description": "Boolean/Integer: enables HTTP Strict Transport Security." },
+      { "name": "Web HSTS max age", "value": 87, "description": "Integer: HSTS max-age value (seconds)." },
+      { "name": "Web HTTP enabled", "value": 88, "description": "Boolean/Integer: enables/disables plain HTTP." },
+      { "name": "Web HTTPS enabled", "value": 89, "description": "Boolean/Integer: enables/disables HTTPS." },
+      { "name": "Web scalable session", "value": 90, "description": "Boolean/Integer: enables scalable (multi-process-shared) Web sessions." },
+      { "name": "Web CORS enabled", "value": 92, "description": "Boolean/Integer: enables Cross-Origin Resource Sharing support." },
+      { "name": "Web CORS settings", "value": 93, "description": "Collection: CORS configuration objects." },
+      { "name": "Web Client IP address to listen", "value": 23, "description": "Text: client-facing IP address the Web server listens on." }
+    ]
+  },
+  "WebDebugLogLevel": {
+    "description": "Sub-enum for WEB SET OPTION / WEB GET OPTION's value parameter when selector = Web debug log (84). XLIFF theme group 73, the 'wdl ...' constants.",
+    "values": [
+      { "name": "wdl disable web log", "value": 0 },
+      { "name": "wdl enable without body", "value": 1 },
+      { "name": "wdl enable with request body", "value": 3 },
+      { "name": "wdl enable with response body", "value": 5 },
+      { "name": "wdl enable with all body parts", "value": 7 }
+    ]
+  },
+  "PrintOptionSelector": {
+    "description": "SET PRINT OPTION / GET PRINT OPTION option-selector constants (XLIFF theme group 47, 'Print Options'). Selects which printing option is read/modified; the shape/meaning of value1/value2 depends on which of these is passed.",
+    "values": [
+      { "name": "Paper option", "value": 1, "description": "value1/value2 = paper width/height." },
+      { "name": "Orientation option", "value": 2, "description": "value1 only." },
+      { "name": "Scale option", "value": 3 },
+      { "name": "Number of copies option", "value": 4 },
+      { "name": "Paper source option", "value": 5 },
+      { "name": "Color option", "value": 8 },
+      { "name": "Destination option", "value": 9, "description": "value1 is one of the PrintDestinationTarget enum, value2 is a pathname." },
+      { "name": "Double sided option", "value": 11 },
+      { "name": "Spooler document name option", "value": 12 },
+      { "name": "Mac spool file format option", "value": 13 },
+      { "name": "Page range option", "value": 15 },
+      { "name": "Legacy printing layer option", "value": 16 },
+      { "name": "Print preview option", "value": 18, "description": "value1 is one of the PrintPreviewMode enum." }
+    ]
+  },
+  "PrintDestinationTarget": {
+    "description": "Sub-enum for SET PRINT OPTION / GET PRINT OPTION's value1 when option = Destination option (9). XLIFF theme group 47.",
+    "values": [
+      { "name": "Page setup dialog", "value": 1 },
+      { "name": "Print dialog", "value": 2 }
+    ]
+  },
+  "PrintPreviewMode": {
+    "description": "Sub-enum for SET PRINT OPTION / GET PRINT OPTION's value1 when option = Print preview option (18). XLIFF theme group 47. Note 'kp preview automatic' and 'kp preview none' are distinct named constants that both carry value 0.",
+    "values": [
+      { "name": "kp preview automatic", "value": 0 },
+      { "name": "kp preview XPS", "value": 1 },
+      { "name": "kp preview PDF", "value": 2 },
+      { "name": "kp preview none", "value": 0 }
+    ]
+  },
+  "DatabaseParameterSelector": {
+    "description": "Get/SET DATABASE PARAMETER selector constants (XLIFF theme group 37, 'Database Parameters'), restricted to the currently-active (non-deprecated) selectors; the group also contains legacy/obsolete selector names (XLIFF-marked with an '_o_' prefix, e.g. '_o_Seq order ratio') which are intentionally omitted here. The meaning/type/scope of the value parameter depends on which selector is passed; several selectors (Direct2D status, Diagnostic log level, Min TLS version, Times inside objects, Dates inside objects) have their own sub-enum of possible values.",
+    "values": [
+      { "name": "4D Server timeout", "value": 13 },
+      { "name": "4D Remote mode timeout", "value": 14 },
+      { "name": "Port ID", "value": 15 },
+      { "name": "Character set", "value": 17 },
+      { "name": "Max concurrent Web processes", "value": 18 },
+      { "name": "Client port ID", "value": 22 },
+      { "name": "Client character set", "value": 24 },
+      { "name": "Client max concurrent Web proc", "value": 25 },
+      { "name": "Maximum Web requests size", "value": 27 },
+      { "name": "4D Server log recording", "value": 28 },
+      { "name": "Client Web log recording", "value": 30 },
+      { "name": "Table sequence number", "value": 31 },
+      { "name": "TCP_NODELAY", "value": 33 },
+      { "name": "Debug log recording", "value": 34 },
+      { "name": "Client Server port ID", "value": 35 },
+      { "name": "HTTPS port ID", "value": 39 },
+      { "name": "Client HTTPS port ID", "value": 40 },
+      { "name": "Unicode mode", "value": 41 },
+      { "name": "SQL autocommit", "value": 43 },
+      { "name": "SQL engine case sensitivity", "value": 44 },
+      { "name": "Client log recording", "value": 45 },
+      { "name": "Query by formula on server", "value": 46 },
+      { "name": "Order by formula on server", "value": 47 },
+      { "name": "Auto synchro resources folder", "value": 48 },
+      { "name": "Query by formula joins", "value": 49 },
+      { "name": "HTTP compression level", "value": 50 },
+      { "name": "HTTP compression threshold", "value": 51 },
+      { "name": "Server base process stack size", "value": 53 },
+      { "name": "Idle connections timeout", "value": 54 },
+      { "name": "PHP interpreter IP address", "value": 55 },
+      { "name": "PHP interpreter port", "value": 56 },
+      { "name": "Cache unload minimum size", "value": 66 },
+      { "name": "SSL cipher list", "value": 64 },
+      { "name": "Direct2D status", "value": 69, "description": "value is one of the Direct2DStatus enum." },
+      { "name": "Direct2D get active status", "value": 74 },
+      { "name": "Diagnostic log recording", "value": 79 },
+      { "name": "Log command list", "value": 80 },
+      { "name": "Spellchecker", "value": 81 },
+      { "name": "Dates inside objects", "value": 85, "description": "value is one of the DatesInsideObjectsFormat enum." },
+      { "name": "Diagnostic log level", "value": 86, "description": "value is one of the DiagnosticLogLevel enum." },
+      { "name": "SQL Server Port ID", "value": 88 },
+      { "name": "Circular log limitation", "value": 90 },
+      { "name": "Number of formulas in cache", "value": 92 },
+      { "name": "OpenSSL version", "value": 94 },
+      { "name": "Cache flush periodicity", "value": 95 },
+      { "name": "Remote connection sleep timeout", "value": 98 },
+      { "name": "Tips enabled", "value": 101 },
+      { "name": "Tips delay", "value": 102 },
+      { "name": "Tips duration", "value": 103 },
+      { "name": "Min TLS version", "value": 105, "description": "value is one of the MinTlsVersion enum." },
+      { "name": "Use AST interpreter", "value": 106 },
+      { "name": "User param value", "value": 108 },
+      { "name": "Times inside objects", "value": 109, "description": "value is one of the TimesInsideObjectsUnit enum." },
+      { "name": "SMTP Log", "value": 110 },
+      { "name": "Current process debug log recording", "value": 111 },
+      { "name": "Is current database a project", "value": 112 },
+      { "name": "Is host database a project", "value": 113 },
+      { "name": "Libldap version", "value": 114 },
+      { "name": "Libsasl version", "value": 115 },
+      { "name": "POP3 Log", "value": 116 },
+      { "name": "Is host database writable", "value": 117 },
+      { "name": "IMAP Log", "value": 119 },
+      { "name": "Libzip version", "value": 120 },
+      { "name": "Pause logging", "value": 121 },
+      { "name": "TCPUDP log recording", "value": 131 },
+      { "name": "Uncooperative process threshold", "value": 132 },
+      { "name": "RDP Optimization", "value": 133 },
+      { "name": "QUIC Connection Timeout", "value": 135 },
+      { "name": "Use legacy print rendering", "value": 136 }
+    ]
+  },
+  "Direct2DStatus": {
+    "description": "Sub-enum for Get/SET DATABASE PARAMETER's value when selector = Direct2D status (69). XLIFF theme group 37, active (non-'_o_') values only.",
+    "values": [
+      { "name": "Direct2D disabled", "value": 0 },
+      { "name": "Direct2D hardware", "value": 1 },
+      { "name": "Direct2D software", "value": 3 }
+    ]
+  },
+  "DiagnosticLogLevel": {
+    "description": "Sub-enum for Get/SET DATABASE PARAMETER's value when selector = Diagnostic log level (86). XLIFF theme group 37.",
+    "values": [
+      { "name": "Log trace", "value": 2 },
+      { "name": "Log debug", "value": 3 },
+      { "name": "Log info", "value": 4 },
+      { "name": "Log warn", "value": 5 },
+      { "name": "Log error", "value": 6 }
+    ]
+  },
+  "MinTlsVersion": {
+    "description": "Sub-enum for Get/SET DATABASE PARAMETER's value when selector = Min TLS version (105). XLIFF theme group 37, active (non-'_o_') values only.",
+    "values": [
+      { "name": "TLSv1_2", "value": 3 },
+      { "name": "TLSv1_3", "value": 4 }
+    ]
+  },
+  "TimesInsideObjectsUnit": {
+    "description": "Sub-enum for Get/SET DATABASE PARAMETER's value when selector = Times inside objects (109). XLIFF theme group 37.",
+    "values": [
+      { "name": "Times in seconds", "value": 0 },
+      { "name": "Times in milliseconds", "value": 1 }
+    ]
+  },
+  "DatesInsideObjectsFormat": {
+    "description": "Sub-enum for Get/SET DATABASE PARAMETER's value when selector = Dates inside objects (85). XLIFF theme group 37.",
+    "values": [
+      { "name": "String type without time zone", "value": 0 },
+      { "name": "String type with time zone", "value": 1 },
+      { "name": "Date type", "value": 2 }
+    ]
+  },
+  "HierarchicalListItemSelector": {
+    "description": "SET LIST ITEM PARAMETER / GET LIST ITEM PARAMETER selector constants (XLIFF theme group 28, 'Hierarchical Lists'), active (non-'_o_') values only; the group also contains legacy resource-based constants (Ala Macintosh/Ala Windows/Use PICT resource/Use PicRef/node ids) which predate the current text-property-based API and are intentionally omitted here.",
+    "values": [
+      { "name": "Additional text", "value": "4D_additional_text" },
+      { "name": "Associated standard action name", "value": "4D_standard_action_name" }
+    ]
+  },
+  "VersionTypeBitFlag": {
+    "description": "Version type's bit-field return-value constants (XLIFF theme group 5, '4D Environment'). The return value is a bit field (a version can be several of these simultaneously; combine with bitwise AND to test).",
+    "values": [
+      { "name": "Demo version", "value": 0, "description": "Not available in current 4D versions." },
+      { "name": "64 bit version", "value": 1 },
+      { "name": "Merged application", "value": 2, "description": "Version is an application merged with 4D Volume Desktop." }
+    ]
+  }
+}
