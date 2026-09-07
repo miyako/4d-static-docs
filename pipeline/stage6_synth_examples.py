@@ -149,6 +149,15 @@ class SynthContext:
         # instead, so every constant name in a modeled enum eventually
         # gets compiled at least once, not just the first.
         self.enum_override: dict[str, str] = {}
+        # Union-type discriminator sweep override: normally a union-typed
+        # param resolves via the preference rules below (star toggle,
+        # first-concrete fallback); when a specific union sweep variant is
+        # being synthesized (see find_union_params_in_params /
+        # synthesize_command below), this maps param name -> the
+        # alternative index to force instead, so every alternative shape
+        # in a modeled union eventually gets compiled at least once, not
+        # just whichever one the default preference rules happen to pick.
+        self.union_override: dict[str, int] = {}
 
     def fresh_name(self, prefix: str) -> str:
         self.counter += 1
@@ -196,6 +205,15 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         # these shapes". Default: first alternative, EXCEPT the
         # star_operator_dual_signature toggle (see SynthContext docstring):
         # once `*` has been passed, prefer a Text alternative if present.
+        # Union-discriminator sweep override (see find_union_params_in_
+        # params / synthesize_command) takes precedence over every other
+        # preference below -- if this exact param is being actively swept,
+        # force the requested alternative index regardless of any other
+        # rule, so every alternative shape gets exercised at least once.
+        if ctx in ctx_state.union_override:
+            idx = ctx_state.union_override[ctx]
+            if 0 <= idx < len(type_obj):
+                return build_arg_for_type(ir, type_obj[idx], ctx, ctx_state, direction)
         # Enum-value sweep override (see synthesize_command) takes
         # precedence over every other preference below -- if one of the
         # union alternatives is an enum_ref this call is actively
@@ -276,9 +294,19 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         return CONCRETE_LITERALS[name]
 
     if kind == "pseudo":
-        # "any"/"expression"/etc: default to a plain Text literal, which
+        # "any"/"Expression": default to a plain Text literal, which
         # type-checks for almost every pseudo type in a compile-time-only
         # check -- EXCEPT known by-reference pseudo params (see below).
+        # "Operator": this pseudo name is always used (15 occurrences,
+        # all within a union alongside concrete:Integer -- see
+        # find_union_params_in_params) to represent a param whose
+        # sentinelValues document a bare '*' token meaning "the current/
+        # selected item" (e.g. DELETE-FROM-LIST's itemRef). A quoted Text
+        # literal is the wrong shape for that -- tool4d rejects it -- the
+        # bare unquoted symbol is what's actually expected here, same as
+        # a literal_symbols flag.
+        if type_obj.get("name") == "Operator":
+            return "*"
         return '"synthAny"'
 
     if kind == "pointer_unresolved":
@@ -524,6 +552,82 @@ def find_flag_omission_variants(params, command_id: str) -> list[tuple[str, list
     return variants
 
 
+def _alt_label(t: dict) -> str:
+    kind = t.get("kind")
+    if kind == "concrete":
+        return t.get("name", "concrete")
+    if kind == "pseudo":
+        return f"pseudo:{t.get('name', 'any')}"
+    if kind == "literal_symbols":
+        return "|".join(t.get("symbols", []))
+    if kind == "enum_ref":
+        return f"enum_ref:{t.get('enum')}"
+    return kind or "?"
+
+
+def find_union_params_in_params(params) -> list[tuple[str, list]]:
+    """Return (param_name, alternatives) pairs, one per plain Parameter
+    whose type is a union (list) of 2+ alternatives -- used to drive the
+    union-discriminator sweep below. Only plain Parameter entries are
+    inspected, matching find_enum_refs_in_params/find_flag_omission_
+    variants' existing precedent (no VariadicGroup/ContentBindingPair
+    param in this corpus carries a union type at the top level).
+
+    Excludes the one param immediately following a leading '*'
+    star_operator_dual_signature flag (e.g. DELETE-FROM-LIST's "list"
+    right after "asObjectName") when that param's alternatives include a
+    "Text" concrete alongside another concrete/pseudo alternative -- this
+    is the same condition build_arg_for_type's star_active/star_present
+    preference rules already key off of. That param's value isn't an
+    independently choosable union member; it's strictly governed by the
+    flag (per the IR's own interactionNotes on these commands), so
+    forcing e.g. "list=Integer" while the flag is still present in the
+    call produces an invalid combination the flag-omission sweep (see
+    find_flag_omission_variants) already exercises correctly via the two
+    flag on/off variants instead.
+
+    Also excludes any union param in an overload that ALSO has a plain
+    enum_ref selector param (only WEB-SET-OPTION's "value" and
+    SET-DATABASE-PARAMETER's "value" in this corpus): the union's actual
+    valid shape is selector-dependent (e.g. WEB-SET-OPTION's "Web port
+    ID" selector requires Integer, not Boolean/Text/Collection), not a
+    free choice independent of which selector value the enum-value sweep
+    (see find_enum_refs_in_params) happens to be using in a given block
+    -- confirmed via tool4d: forcing value=Boolean against the sweep's
+    default selector={values[0]} ("Web port ID") produced a real type
+    error, not an IR bug."""
+    has_enum_selector = any(
+        "members" not in q
+        and "contentParam" not in q
+        and isinstance(q.get("type"), dict)
+        and q["type"].get("kind") == "enum_ref"
+        for q in params
+    )
+    out = []
+    for i, p in enumerate(params):
+        if "members" in p or "contentParam" in p:
+            continue
+        t = p.get("type")
+        if isinstance(t, list) and len(t) > 1:
+            if has_enum_selector:
+                continue
+            if i > 0:
+                prev = params[i - 1]
+                prev_t = prev.get("type")
+                if (
+                    "members" not in prev
+                    and "contentParam" not in prev
+                    and isinstance(prev_t, dict)
+                    and prev_t.get("kind") == "literal_symbols"
+                    and prev_t.get("symbols") == ["*"]
+                ):
+                    names = [x.get("name") for x in t if x.get("kind") == "concrete"]
+                    if "Text" in names and len(t) > 1:
+                        continue
+            out.append((p.get("name", "?"), t))
+    return out
+
+
 def synthesize_command(ir, command) -> list[dict]:
     """Return one dict per synthesized block: {"overload_index", "variant",
     "lines"} (any variable-declaration prelude lines its by-reference/
@@ -572,10 +676,11 @@ def synthesize_command(ir, command) -> list[dict]:
             for p in params
         )
 
-        def render_block(variant: str, comment_suffix: str, overrides: dict[str, str], call_params=None):
+        def render_block(variant: str, comment_suffix: str, overrides: dict[str, str], call_params=None, union_overrides: dict[str, int] | None = None):
             ctx_state.prelude = []
             ctx_state.star_active = False
             ctx_state.enum_override = overrides
+            ctx_state.union_override = union_overrides or {}
             block = [f"// overload {oi}{comment_suffix}"]
             if command["id"] in KEYWORD_BLOCK_COMMANDS:
                 # A bare 4D keyword-pair block (e.g. Begin SQL/End SQL), not
@@ -655,6 +760,27 @@ def synthesize_command(ir, command) -> list[dict]:
                         call_params=call_params,
                     )
                 )
+
+            # Union-discriminator sweep: for every plain param whose type
+            # is a union of 2+ alternatives, emit one additional block per
+            # alternative (one param swept at a time, others left at
+            # default) -- the "default" block above only ever exercises
+            # whichever single alternative the preference rules in
+            # build_arg_for_type happen to pick (first concrete, or the
+            # star-toggle Text/non-Text choice), so every other shape in
+            # a modeled union (e.g. SET-LIST-ITEM-PROPERTIES's "icon":
+            # [concrete:Picture, concrete:Integer, concrete:Text]) was
+            # never actually compiled before this sweep.
+            for pname, alts in find_union_params_in_params(params):
+                for idx, alt in enumerate(alts):
+                    blocks.append(
+                        render_block(
+                            f"union:{pname}={_alt_label(alt)}",
+                            f" union-sweep {pname}={_alt_label(alt)}",
+                            {},
+                            union_overrides={pname: idx},
+                        )
+                    )
     return blocks
 
 

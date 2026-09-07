@@ -54,3 +54,27 @@ GET PRINT OPTION(Legacy printing layer option;$v25;$v26)
 var $v27 : Integer
 var $v28 : Integer
 GET PRINT OPTION(Print preview option;$v27;$v28)
+// overload 0 union-sweep option=enum_ref:PrintOptionSelector
+var $v29 : Integer
+var $v30 : Integer
+GET PRINT OPTION(Paper option;$v29;$v30)
+// overload 0 union-sweep option=Text
+var $v31 : Integer
+var $v32 : Integer
+GET PRINT OPTION("synthText";$v31;$v32)
+// overload 0 union-sweep value1=Integer
+var $v33 : Integer
+var $v34 : Integer
+GET PRINT OPTION("synthText";$v33;$v34)
+// overload 0 union-sweep value1=Text
+var $v35 : Text
+var $v36 : Integer
+GET PRINT OPTION("synthText";$v35;$v36)
+// overload 0 union-sweep value2=Integer
+var $v37 : Integer
+var $v38 : Integer
+GET PRINT OPTION("synthText";$v37;$v38)
+// overload 0 union-sweep value2=Text
+var $v39 : Integer
+var $v40 : Text
+GET PRINT OPTION("synthText";$v39;$v40)

@@ -160,6 +160,22 @@
     "status": "clean"
   },
   {
+    "id": "APPEND-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_APPEND_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "APPEND-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_APPEND_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "APPEND-TO-ARRAY",
     "overload_index": 0,
     "variant": "default",
@@ -283,6 +299,22 @@
     "id": "ARRAY-TO-LIST",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_ARRAY_TO_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ARRAY-TO-LIST",
+    "overload_index": 0,
+    "variant": "union:list=Text",
+    "file": "Sources/Methods/Synth_ARRAY_TO_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ARRAY-TO-LIST",
+    "overload_index": 0,
+    "variant": "union:list=Integer",
     "file": "Sources/Methods/Synth_ARRAY_TO_LIST.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -440,6 +472,22 @@
     "status": "clean"
   },
   {
+    "id": "Average",
+    "overload_index": 0,
+    "variant": "union:series=Field",
+    "file": "Sources/Methods/Synth_Average.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Average",
+    "overload_index": 0,
+    "variant": "union:series=Array",
+    "file": "Sources/Methods/Synth_Average.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "BACKUP",
     "overload_index": 0,
     "variant": "default",
@@ -451,6 +499,38 @@
     "id": "BACKUP-INFO",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_BACKUP_INFO.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BACKUP-INFO",
+    "overload_index": 0,
+    "variant": "union:info1=Integer",
+    "file": "Sources/Methods/Synth_BACKUP_INFO.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BACKUP-INFO",
+    "overload_index": 0,
+    "variant": "union:info1=Date",
+    "file": "Sources/Methods/Synth_BACKUP_INFO.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BACKUP-INFO",
+    "overload_index": 0,
+    "variant": "union:info2=Time",
+    "file": "Sources/Methods/Synth_BACKUP_INFO.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BACKUP-INFO",
+    "overload_index": 0,
+    "variant": "union:info2=Text",
     "file": "Sources/Methods/Synth_BACKUP_INFO.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -472,6 +552,38 @@
     "status": "clean"
   },
   {
+    "id": "BASE64-DECODE",
+    "overload_index": 0,
+    "variant": "union:toDecode=Text",
+    "file": "Sources/Methods/Synth_BASE64_DECODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BASE64-DECODE",
+    "overload_index": 0,
+    "variant": "union:toDecode=Blob",
+    "file": "Sources/Methods/Synth_BASE64_DECODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BASE64-DECODE",
+    "overload_index": 0,
+    "variant": "union:decoded=Text",
+    "file": "Sources/Methods/Synth_BASE64_DECODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BASE64-DECODE",
+    "overload_index": 0,
+    "variant": "union:decoded=Blob",
+    "file": "Sources/Methods/Synth_BASE64_DECODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "BASE64-ENCODE",
     "overload_index": 0,
     "variant": "default",
@@ -483,6 +595,38 @@
     "id": "BASE64-ENCODE",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_BASE64_ENCODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BASE64-ENCODE",
+    "overload_index": 0,
+    "variant": "union:toEncode=Blob",
+    "file": "Sources/Methods/Synth_BASE64_ENCODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BASE64-ENCODE",
+    "overload_index": 0,
+    "variant": "union:toEncode=Text",
+    "file": "Sources/Methods/Synth_BASE64_ENCODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BASE64-ENCODE",
+    "overload_index": 0,
+    "variant": "union:encoded=Blob",
+    "file": "Sources/Methods/Synth_BASE64_ENCODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "BASE64-ENCODE",
+    "overload_index": 0,
+    "variant": "union:encoded=Text",
     "file": "Sources/Methods/Synth_BASE64_ENCODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -664,6 +808,22 @@
     "status": "clean"
   },
   {
+    "id": "CALL-FORM",
+    "overload_index": 0,
+    "variant": "union:formula=Object",
+    "file": "Sources/Methods/Synth_CALL_FORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CALL-FORM",
+    "overload_index": 0,
+    "variant": "union:formula=Text",
+    "file": "Sources/Methods/Synth_CALL_FORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "CALL-SUBFORM-CONTAINER",
     "overload_index": 0,
     "variant": "default",
@@ -675,6 +835,38 @@
     "id": "CALL-WORKER",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_CALL_WORKER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CALL-WORKER",
+    "overload_index": 0,
+    "variant": "union:process=Text",
+    "file": "Sources/Methods/Synth_CALL_WORKER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CALL-WORKER",
+    "overload_index": 0,
+    "variant": "union:process=Integer",
+    "file": "Sources/Methods/Synth_CALL_WORKER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CALL-WORKER",
+    "overload_index": 0,
+    "variant": "union:formula=Object",
+    "file": "Sources/Methods/Synth_CALL_WORKER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CALL-WORKER",
+    "overload_index": 0,
+    "variant": "union:formula=Text",
     "file": "Sources/Methods/Synth_CALL_WORKER.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -699,6 +891,22 @@
     "id": "CHANGE-CURRENT-USER",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_CHANGE_CURRENT_USER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CHANGE-CURRENT-USER",
+    "overload_index": 0,
+    "variant": "union:user=Text",
+    "file": "Sources/Methods/Synth_CHANGE_CURRENT_USER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CHANGE-CURRENT-USER",
+    "overload_index": 0,
+    "variant": "union:user=Integer",
     "file": "Sources/Methods/Synth_CHANGE_CURRENT_USER.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -872,6 +1080,22 @@
     "status": "clean"
   },
   {
+    "id": "CONVERT-FROM-TEXT",
+    "overload_index": 0,
+    "variant": "union:charSet=Text",
+    "file": "Sources/Methods/Synth_CONVERT_FROM_TEXT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CONVERT-FROM-TEXT",
+    "overload_index": 0,
+    "variant": "union:charSet=Integer",
+    "file": "Sources/Methods/Synth_CONVERT_FROM_TEXT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "CONVERT-PICTURE",
     "overload_index": 0,
     "variant": "default",
@@ -1008,6 +1232,22 @@
     "status": "clean"
   },
   {
+    "id": "CREATE-SELECTION-FROM-ARRAY",
+    "overload_index": 0,
+    "variant": "union:recordArray=Integer array",
+    "file": "Sources/Methods/Synth_CREATE_SELECTION_FRO_1245.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CREATE-SELECTION-FROM-ARRAY",
+    "overload_index": 0,
+    "variant": "union:recordArray=Boolean array",
+    "file": "Sources/Methods/Synth_CREATE_SELECTION_FRO_1245.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "CREATE-SET",
     "overload_index": 0,
     "variant": "default",
@@ -1019,6 +1259,22 @@
     "id": "CREATE-SET-FROM-ARRAY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_CREATE_SET_FROM_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CREATE-SET-FROM-ARRAY",
+    "overload_index": 0,
+    "variant": "union:recordsArray=Integer array",
+    "file": "Sources/Methods/Synth_CREATE_SET_FROM_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "CREATE-SET-FROM-ARRAY",
+    "overload_index": 0,
+    "variant": "union:recordsArray=Boolean array",
     "file": "Sources/Methods/Synth_CREATE_SET_FROM_ARRAY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1091,6 +1347,22 @@
     "id": "Choose",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Choose.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Choose",
+    "overload_index": 0,
+    "variant": "union:criterion=Boolean",
+    "file": "Sources/Methods/Synth_Choose.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Choose",
+    "overload_index": 0,
+    "variant": "union:criterion=Integer",
     "file": "Sources/Methods/Synth_Choose.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1192,6 +1464,22 @@
     "status": "clean"
   },
   {
+    "id": "Convert-to-text",
+    "overload_index": 0,
+    "variant": "union:charSet=Text",
+    "file": "Sources/Methods/Synth_Convert_to_text.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Convert-to-text",
+    "overload_index": 0,
+    "variant": "union:charSet=Integer",
+    "file": "Sources/Methods/Synth_Convert_to_text.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Copy-list",
     "overload_index": 0,
     "variant": "default",
@@ -1251,6 +1539,22 @@
     "id": "Count-menu-items",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Count_menu_items.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Count-menu-items",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Count_menu_items.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Count-menu-items",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_Count_menu_items.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1339,6 +1643,22 @@
     "id": "Create-menu",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Create_menu.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Create-menu",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_Create_menu.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Create-menu",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
     "file": "Sources/Methods/Synth_Create_menu.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1568,6 +1888,22 @@
     "status": "clean"
   },
   {
+    "id": "DELETE-FROM-LIST",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_DELETE_FROM_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-FROM-LIST",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_DELETE_FROM_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "DELETE-INDEX",
     "overload_index": 0,
     "variant": "default",
@@ -1585,6 +1921,22 @@
   },
   {
     "id": "DELETE-INDEX",
+    "overload_index": 0,
+    "variant": "union:fieldPtr=Pointer",
+    "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-INDEX",
+    "overload_index": 0,
+    "variant": "union:fieldPtr=Text",
+    "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-INDEX",
     "overload_index": 1,
     "variant": "default",
     "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
@@ -1595,6 +1947,22 @@
     "id": "DELETE-INDEX",
     "overload_index": 1,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-INDEX",
+    "overload_index": 1,
+    "variant": "union:indexName=Pointer",
+    "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-INDEX",
+    "overload_index": 1,
+    "variant": "union:indexName=Text",
     "file": "Sources/Methods/Synth_DELETE_INDEX.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1603,6 +1971,22 @@
     "id": "DELETE-MENU-ITEM",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_DELETE_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_DELETE_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DELETE-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_DELETE_MENU_ITEM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1656,6 +2040,22 @@
     "status": "clean"
   },
   {
+    "id": "DIALOG",
+    "overload_index": 0,
+    "variant": "union:form=Text",
+    "file": "Sources/Methods/Synth_DIALOG.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DIALOG",
+    "overload_index": 0,
+    "variant": "union:form=Object",
+    "file": "Sources/Methods/Synth_DIALOG.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "DIFFERENCE",
     "overload_index": 0,
     "variant": "default",
@@ -1667,6 +2067,22 @@
     "id": "DISABLE-MENU-ITEM",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_DISABLE_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISABLE-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_DISABLE_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISABLE-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_DISABLE_MENU_ITEM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1747,6 +2163,22 @@
     "id": "DISTINCT-VALUES",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_DISTINCT_VALUES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISTINCT-VALUES",
+    "overload_index": 0,
+    "variant": "union:countArray=Integer array",
+    "file": "Sources/Methods/Synth_DISTINCT_VALUES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISTINCT-VALUES",
+    "overload_index": 0,
+    "variant": "union:countArray=Real array",
     "file": "Sources/Methods/Synth_DISTINCT_VALUES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -1848,6 +2280,22 @@
     "status": "clean"
   },
   {
+    "id": "DOM-EXPORT-TO-VAR",
+    "overload_index": 0,
+    "variant": "union:vXmlVar=Text",
+    "file": "Sources/Methods/Synth_DOM_EXPORT_TO_VAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-EXPORT-TO-VAR",
+    "overload_index": 0,
+    "variant": "union:vXmlVar=Blob",
+    "file": "Sources/Methods/Synth_DOM_EXPORT_TO_VAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "DOM-Find-XML-element",
     "overload_index": 0,
     "variant": "default",
@@ -1899,6 +2347,38 @@
     "id": "DOM-GET-XML-ELEMENT-VALUE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_DOM_GET_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-GET-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:elementValue=Variable",
+    "file": "Sources/Methods/Synth_DOM_GET_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-GET-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:elementValue=Field",
+    "file": "Sources/Methods/Synth_DOM_GET_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-GET-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:cDATA=Variable",
+    "file": "Sources/Methods/Synth_DOM_GET_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-GET-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:cDATA=Field",
     "file": "Sources/Methods/Synth_DOM_GET_XML_ELEMENT_VALUE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2009,8 +2489,40 @@
   },
   {
     "id": "DOM-Parse-XML-variable",
+    "overload_index": 0,
+    "variant": "union:variable=Blob",
+    "file": "Sources/Methods/Synth_DOM_Parse_XML_variable.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-Parse-XML-variable",
+    "overload_index": 0,
+    "variant": "union:variable=Text",
+    "file": "Sources/Methods/Synth_DOM_Parse_XML_variable.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-Parse-XML-variable",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_DOM_Parse_XML_variable.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-Parse-XML-variable",
+    "overload_index": 1,
+    "variant": "union:variable=Blob",
+    "file": "Sources/Methods/Synth_DOM_Parse_XML_variable.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DOM-Parse-XML-variable",
+    "overload_index": 1,
+    "variant": "union:variable=Text",
     "file": "Sources/Methods/Synth_DOM_Parse_XML_variable.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2128,6 +2640,22 @@
     "status": "clean"
   },
   {
+    "id": "Date",
+    "overload_index": 0,
+    "variant": "union:expression=Text",
+    "file": "Sources/Methods/Synth_Date.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Date",
+    "overload_index": 0,
+    "variant": "union:expression=Date",
+    "file": "Sources/Methods/Synth_Date.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Day-number",
     "overload_index": 0,
     "variant": "default",
@@ -2208,6 +2736,22 @@
     "status": "clean"
   },
   {
+    "id": "Document-to-text",
+    "overload_index": 0,
+    "variant": "union:charSet=Text",
+    "file": "Sources/Methods/Synth_Document_to_text.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Document-to-text",
+    "overload_index": 0,
+    "variant": "union:charSet=Integer",
+    "file": "Sources/Methods/Synth_Document_to_text.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Drop-position",
     "overload_index": 0,
     "variant": "default",
@@ -2272,6 +2816,22 @@
     "status": "clean"
   },
   {
+    "id": "ENABLE-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_ENABLE_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ENABLE-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_ENABLE_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ENCRYPT-BLOB",
     "overload_index": 0,
     "variant": "default",
@@ -2329,6 +2889,22 @@
   },
   {
     "id": "EXECUTE-METHOD-IN-SUBFORM",
+    "overload_index": 0,
+    "variant": "union:formula=Object",
+    "file": "Sources/Methods/Synth_EXECUTE_METHOD_IN_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "EXECUTE-METHOD-IN-SUBFORM",
+    "overload_index": 0,
+    "variant": "union:formula=Text",
+    "file": "Sources/Methods/Synth_EXECUTE_METHOD_IN_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "EXECUTE-METHOD-IN-SUBFORM",
     "overload_index": 1,
     "variant": "default",
     "file": "Sources/Methods/Synth_EXECUTE_METHOD_IN_SUBFORM.4dm",
@@ -2339,6 +2915,22 @@
     "id": "EXECUTE-METHOD-IN-SUBFORM",
     "overload_index": 1,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_EXECUTE_METHOD_IN_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "EXECUTE-METHOD-IN-SUBFORM",
+    "overload_index": 1,
+    "variant": "union:formula=Object",
+    "file": "Sources/Methods/Synth_EXECUTE_METHOD_IN_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "EXECUTE-METHOD-IN-SUBFORM",
+    "overload_index": 1,
+    "variant": "union:formula=Text",
     "file": "Sources/Methods/Synth_EXECUTE_METHOD_IN_SUBFORM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2371,6 +2963,22 @@
     "id": "EXPORT-DATA",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_EXPORT_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "EXPORT-DATA",
+    "overload_index": 0,
+    "variant": "union:project=Text",
+    "file": "Sources/Methods/Synth_EXPORT_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "EXPORT-DATA",
+    "overload_index": 0,
+    "variant": "union:project=Blob",
     "file": "Sources/Methods/Synth_EXPORT_DATA.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2433,6 +3041,22 @@
   },
   {
     "id": "Encrypt-data-file",
+    "overload_index": 0,
+    "variant": "union:archiveFolder=Text",
+    "file": "Sources/Methods/Synth_Encrypt_data_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Encrypt-data-file",
+    "overload_index": 0,
+    "variant": "union:archiveFolder=4D.Folder",
+    "file": "Sources/Methods/Synth_Encrypt_data_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Encrypt-data-file",
     "overload_index": 1,
     "variant": "default",
     "file": "Sources/Methods/Synth_Encrypt_data_file.4dm",
@@ -2441,8 +3065,40 @@
   },
   {
     "id": "Encrypt-data-file",
+    "overload_index": 1,
+    "variant": "union:archiveFolder=Text",
+    "file": "Sources/Methods/Synth_Encrypt_data_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Encrypt-data-file",
+    "overload_index": 1,
+    "variant": "union:archiveFolder=4D.Folder",
+    "file": "Sources/Methods/Synth_Encrypt_data_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Encrypt-data-file",
     "overload_index": 2,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Encrypt_data_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Encrypt-data-file",
+    "overload_index": 2,
+    "variant": "union:archiveFolder=Text",
+    "file": "Sources/Methods/Synth_Encrypt_data_file.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Encrypt-data-file",
+    "overload_index": 2,
+    "variant": "union:archiveFolder=4D.Folder",
     "file": "Sources/Methods/Synth_Encrypt_data_file.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2539,6 +3195,22 @@
     "id": "FLUSH-CACHE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_FLUSH_CACHE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FLUSH-CACHE",
+    "overload_index": 0,
+    "variant": "union:size=Integer",
+    "file": "Sources/Methods/Synth_FLUSH_CACHE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FLUSH-CACHE",
+    "overload_index": 0,
+    "variant": "union:size=*",
     "file": "Sources/Methods/Synth_FLUSH_CACHE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2760,6 +3432,22 @@
     "status": "clean"
   },
   {
+    "id": "FORM-LOAD",
+    "overload_index": 0,
+    "variant": "union:form=Text",
+    "file": "Sources/Methods/Synth_FORM_LOAD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FORM-LOAD",
+    "overload_index": 0,
+    "variant": "union:form=Object",
+    "file": "Sources/Methods/Synth_FORM_LOAD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "FORM-NEXT-PAGE",
     "overload_index": 0,
     "variant": "default",
@@ -2816,9 +3504,41 @@
     "status": "clean"
   },
   {
+    "id": "FORM-SET-INPUT",
+    "overload_index": 0,
+    "variant": "union:form=Text",
+    "file": "Sources/Methods/Synth_FORM_SET_INPUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FORM-SET-INPUT",
+    "overload_index": 0,
+    "variant": "union:form=Object",
+    "file": "Sources/Methods/Synth_FORM_SET_INPUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "FORM-SET-OUTPUT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_FORM_SET_OUTPUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FORM-SET-OUTPUT",
+    "overload_index": 0,
+    "variant": "union:form=Text",
+    "file": "Sources/Methods/Synth_FORM_SET_OUTPUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "FORM-SET-OUTPUT",
+    "overload_index": 0,
+    "variant": "union:form=Object",
     "file": "Sources/Methods/Synth_FORM_SET_OUTPUT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -2947,6 +3667,22 @@
     "id": "Find-in-field",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Find_in_field.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Find-in-field",
+    "overload_index": 0,
+    "variant": "union:value=Field",
+    "file": "Sources/Methods/Synth_Find_in_field.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Find-in-field",
+    "overload_index": 0,
+    "variant": "union:value=Variable",
     "file": "Sources/Methods/Synth_Find_in_field.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3264,6 +4000,30 @@
     "status": "clean"
   },
   {
+    "id": "GET-HIGHLIGHT",
+    "overload_index": 0,
+    "variant": "union:object=Variable",
+    "file": "Sources/Methods/Synth_GET_HIGHLIGHT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-HIGHLIGHT",
+    "overload_index": 0,
+    "variant": "union:object=Field",
+    "file": "Sources/Methods/Synth_GET_HIGHLIGHT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-HIGHLIGHT",
+    "overload_index": 0,
+    "variant": "union:object=pseudo:any",
+    "file": "Sources/Methods/Synth_GET_HIGHLIGHT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-HIGHLIGHTED-RECORDS",
     "overload_index": 0,
     "variant": "default",
@@ -3288,6 +4048,22 @@
     "status": "clean"
   },
   {
+    "id": "GET-LIST-ITEM",
+    "overload_index": 0,
+    "variant": "union:itemPos=Integer",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM",
+    "overload_index": 0,
+    "variant": "union:itemPos=pseudo:Operator",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-LIST-ITEM-ICON",
     "overload_index": 0,
     "variant": "default",
@@ -3299,6 +4075,22 @@
     "id": "GET-LIST-ITEM-ICON",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
     "file": "Sources/Methods/Synth_GET_LIST_ITEM_ICON.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3315,6 +4107,22 @@
     "id": "GET-LIST-ITEM-PARAMETER",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
     "file": "Sources/Methods/Synth_GET_LIST_ITEM_PARAMETER.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3331,6 +4139,22 @@
     "id": "GET-LIST-ITEM-PARAMETER-ARRAYS",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PARAME_fb2c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PARAMETER-ARRAYS",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PARAME_fb2c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PARAMETER-ARRAYS",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
     "file": "Sources/Methods/Synth_GET_LIST_ITEM_PARAME_fb2c.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3347,6 +4171,38 @@
     "id": "GET-LIST-ITEM-PROPERTIES",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PROPERTIES",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PROPERTIES",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PROPERTIES",
+    "overload_index": 0,
+    "variant": "union:icon=Text",
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-PROPERTIES",
+    "overload_index": 0,
+    "variant": "union:icon=Integer",
     "file": "Sources/Methods/Synth_GET_LIST_ITEM_PROPERTIES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3376,6 +4232,22 @@
     "status": "clean"
   },
   {
+    "id": "GET-MENU-ITEMS",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_GET_MENU_ITEMS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-MENU-ITEMS",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_GET_MENU_ITEMS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-MENU-ITEM-ICON",
     "overload_index": 0,
     "variant": "default",
@@ -3384,9 +4256,57 @@
     "status": "clean"
   },
   {
+    "id": "GET-MENU-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_GET_MENU_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-MENU-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_GET_MENU_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-MENU-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:iconRef=Text",
+    "file": "Sources/Methods/Synth_GET_MENU_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-MENU-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:iconRef=Integer",
+    "file": "Sources/Methods/Synth_GET_MENU_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GET-MENU-ITEM-PROPERTY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_GET_MENU_ITEM_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-MENU-ITEM-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_GET_MENU_ITEM_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-MENU-ITEM-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_GET_MENU_ITEM_PROPERTY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3475,6 +4395,22 @@
     "id": "GET-PICTURE-RESOURCE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_GET_PICTURE_RESOURCE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PICTURE-RESOURCE",
+    "overload_index": 0,
+    "variant": "union:resData=Field",
+    "file": "Sources/Methods/Synth_GET_PICTURE_RESOURCE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PICTURE-RESOURCE",
+    "overload_index": 0,
+    "variant": "union:resData=Variable",
     "file": "Sources/Methods/Synth_GET_PICTURE_RESOURCE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3603,6 +4539,54 @@
     "id": "GET-PRINT-OPTION",
     "overload_index": 0,
     "variant": "enum:PrintOptionSelector=Print preview option",
+    "file": "Sources/Methods/Synth_GET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:option=enum_ref:PrintOptionSelector",
+    "file": "Sources/Methods/Synth_GET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:option=Text",
+    "file": "Sources/Methods/Synth_GET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:value1=Integer",
+    "file": "Sources/Methods/Synth_GET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:value1=Text",
+    "file": "Sources/Methods/Synth_GET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:value2=Integer",
+    "file": "Sources/Methods/Synth_GET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:value2=Text",
     "file": "Sources/Methods/Synth_GET_PRINT_OPTION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -3760,6 +4744,22 @@
     "status": "clean"
   },
   {
+    "id": "GOTO-OBJECT",
+    "overload_index": 1,
+    "variant": "union:object=Variable",
+    "file": "Sources/Methods/Synth_GOTO_OBJECT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GOTO-OBJECT",
+    "overload_index": 1,
+    "variant": "union:object=Field",
+    "file": "Sources/Methods/Synth_GOTO_OBJECT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "GOTO-RECORD",
     "overload_index": 0,
     "variant": "default",
@@ -3808,6 +4808,54 @@
     "status": "clean"
   },
   {
+    "id": "GRAPH-SETTINGS",
+    "overload_index": 0,
+    "variant": "union:xmin=Integer",
+    "file": "Sources/Methods/Synth_GRAPH_SETTINGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GRAPH-SETTINGS",
+    "overload_index": 0,
+    "variant": "union:xmin=Date",
+    "file": "Sources/Methods/Synth_GRAPH_SETTINGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GRAPH-SETTINGS",
+    "overload_index": 0,
+    "variant": "union:xmin=Time",
+    "file": "Sources/Methods/Synth_GRAPH_SETTINGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GRAPH-SETTINGS",
+    "overload_index": 0,
+    "variant": "union:xmax=Integer",
+    "file": "Sources/Methods/Synth_GRAPH_SETTINGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GRAPH-SETTINGS",
+    "overload_index": 0,
+    "variant": "union:xmax=Date",
+    "file": "Sources/Methods/Synth_GRAPH_SETTINGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GRAPH-SETTINGS",
+    "overload_index": 0,
+    "variant": "union:xmax=Time",
+    "file": "Sources/Methods/Synth_GRAPH_SETTINGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Generate-UUID",
     "overload_index": 0,
     "variant": "default",
@@ -3835,6 +4883,22 @@
     "id": "Generate-digest",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Generate_digest.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Generate-digest",
+    "overload_index": 0,
+    "variant": "union:param=Blob",
+    "file": "Sources/Methods/Synth_Generate_digest.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Generate-digest",
+    "overload_index": 0,
+    "variant": "union:param=Text",
     "file": "Sources/Methods/Synth_Generate_digest.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4576,6 +5640,22 @@
     "status": "clean"
   },
   {
+    "id": "Get-document-size",
+    "overload_index": 0,
+    "variant": "union:document=Text",
+    "file": "Sources/Methods/Synth_Get_document_size.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-document-size",
+    "overload_index": 0,
+    "variant": "union:document=Time",
+    "file": "Sources/Methods/Synth_Get_document_size.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-edited-text",
     "overload_index": 0,
     "variant": "default",
@@ -4587,6 +5667,30 @@
     "id": "Get-external-data-path",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-external-data-path",
+    "overload_index": 0,
+    "variant": "union:aField=Text",
+    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-external-data-path",
+    "overload_index": 0,
+    "variant": "union:aField=Blob",
+    "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-external-data-path",
+    "overload_index": 0,
+    "variant": "union:aField=Picture",
     "file": "Sources/Methods/Synth_Get_external_data_path.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4632,6 +5736,22 @@
     "status": "clean"
   },
   {
+    "id": "Get-list-item-font",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_Get_list_item_font.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-list-item-font",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_Get_list_item_font.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-menu-bar-reference",
     "overload_index": 0,
     "variant": "default",
@@ -4648,9 +5768,41 @@
     "status": "clean"
   },
   {
+    "id": "Get-menu-item",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Get_menu_item.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_Get_menu_item.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-menu-item-key",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Get_menu_item_key.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-key",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Get_menu_item_key.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-key",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_Get_menu_item_key.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4664,9 +5816,41 @@
     "status": "clean"
   },
   {
+    "id": "Get-menu-item-mark",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Get_menu_item_mark.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-mark",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_Get_menu_item_mark.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-menu-item-method",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Get_menu_item_method.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-method",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Get_menu_item_method.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-method",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_Get_menu_item_method.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4680,9 +5864,41 @@
     "status": "clean"
   },
   {
+    "id": "Get-menu-item-modifiers",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Get_menu_item_modifiers.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-modifiers",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_Get_menu_item_modifiers.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-menu-item-parameter",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Get_menu_item_parameter.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-parameter",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Get_menu_item_parameter.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-parameter",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_Get_menu_item_parameter.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4696,9 +5912,41 @@
     "status": "clean"
   },
   {
+    "id": "Get-menu-item-style",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Get_menu_item_style.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-item-style",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_Get_menu_item_style.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Get-menu-title",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Get_menu_title.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-title",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_Get_menu_title.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Get-menu-title",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_Get_menu_title.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -4896,6 +6144,22 @@
     "status": "clean"
   },
   {
+    "id": "HIGHLIGHT-TEXT",
+    "overload_index": 1,
+    "variant": "union:object=Variable",
+    "file": "Sources/Methods/Synth_HIGHLIGHT_TEXT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HIGHLIGHT-TEXT",
+    "overload_index": 1,
+    "variant": "union:object=Field",
+    "file": "Sources/Methods/Synth_HIGHLIGHT_TEXT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "HTTP-AUTHENTICATE",
     "overload_index": 0,
     "variant": "default",
@@ -4936,6 +6200,46 @@
     "status": "clean"
   },
   {
+    "id": "HTTP-Get",
+    "overload_index": 0,
+    "variant": "union:response=Text",
+    "file": "Sources/Methods/Synth_HTTP_Get.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Get",
+    "overload_index": 0,
+    "variant": "union:response=Blob",
+    "file": "Sources/Methods/Synth_HTTP_Get.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Get",
+    "overload_index": 0,
+    "variant": "union:response=Picture",
+    "file": "Sources/Methods/Synth_HTTP_Get.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Get",
+    "overload_index": 0,
+    "variant": "union:response=Object",
+    "file": "Sources/Methods/Synth_HTTP_Get.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Get",
+    "overload_index": 0,
+    "variant": "union:response=Collection",
+    "file": "Sources/Methods/Synth_HTTP_Get.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "HTTP-Get-certificates-folder",
     "overload_index": 0,
     "variant": "default",
@@ -4952,6 +6256,22 @@
     "status": "clean"
   },
   {
+    "id": "HTTP-Parse-message",
+    "overload_index": 0,
+    "variant": "union:data=Text",
+    "file": "Sources/Methods/Synth_HTTP_Parse_message.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Parse-message",
+    "overload_index": 0,
+    "variant": "union:data=Blob",
+    "file": "Sources/Methods/Synth_HTTP_Parse_message.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "HTTP-Request",
     "overload_index": 0,
     "variant": "default",
@@ -4963,6 +6283,86 @@
     "id": "HTTP-Request",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:contents=Text",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:contents=Blob",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:contents=Picture",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:contents=Object",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:contents=Collection",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:response=Text",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:response=Blob",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:response=Picture",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:response=Object",
+    "file": "Sources/Methods/Synth_HTTP_Request.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "HTTP-Request",
+    "overload_index": 0,
+    "variant": "union:response=Collection",
     "file": "Sources/Methods/Synth_HTTP_Request.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5011,6 +6411,22 @@
     "id": "IMPORT-DATA",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_IMPORT_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "IMPORT-DATA",
+    "overload_index": 0,
+    "variant": "union:project=Text",
+    "file": "Sources/Methods/Synth_IMPORT_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "IMPORT-DATA",
+    "overload_index": 0,
+    "variant": "union:project=Blob",
     "file": "Sources/Methods/Synth_IMPORT_DATA.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5080,6 +6496,22 @@
     "status": "clean"
   },
   {
+    "id": "INSERT-IN-LIST",
+    "overload_index": 0,
+    "variant": "union:beforeItemRef=Integer",
+    "file": "Sources/Methods/Synth_INSERT_IN_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "INSERT-IN-LIST",
+    "overload_index": 0,
+    "variant": "union:beforeItemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_INSERT_IN_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "INSERT-MENU-ITEM",
     "overload_index": 0,
     "variant": "default",
@@ -5091,6 +6523,22 @@
     "id": "INSERT-MENU-ITEM",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_INSERT_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "INSERT-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_INSERT_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "INSERT-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_INSERT_MENU_ITEM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5432,6 +6880,22 @@
     "status": "clean"
   },
   {
+    "id": "JSON-Stringify",
+    "overload_index": 0,
+    "variant": "union:value=Object",
+    "file": "Sources/Methods/Synth_JSON_Stringify.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "JSON-Stringify",
+    "overload_index": 0,
+    "variant": "union:value=pseudo:any",
+    "file": "Sources/Methods/Synth_JSON_Stringify.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "JSON-Stringify-array",
     "overload_index": 0,
     "variant": "default",
@@ -5464,9 +6928,41 @@
     "status": "clean"
   },
   {
+    "id": "JSON-Validate",
+    "overload_index": 0,
+    "variant": "union:vJson=Object",
+    "file": "Sources/Methods/Synth_JSON_Validate.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "JSON-Validate",
+    "overload_index": 0,
+    "variant": "union:vJson=Collection",
+    "file": "Sources/Methods/Synth_JSON_Validate.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "KILL-WORKER",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_KILL_WORKER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "KILL-WORKER",
+    "overload_index": 0,
+    "variant": "union:process=Text",
+    "file": "Sources/Methods/Synth_KILL_WORKER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "KILL-WORKER",
+    "overload_index": 0,
+    "variant": "union:process=Integer",
     "file": "Sources/Methods/Synth_KILL_WORKER.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5491,6 +6987,54 @@
     "id": "LAUNCH-EXTERNAL-PROCESS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LAUNCH_EXTERNAL_PROCESS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LAUNCH-EXTERNAL-PROCESS",
+    "overload_index": 0,
+    "variant": "union:inputStream=Text",
+    "file": "Sources/Methods/Synth_LAUNCH_EXTERNAL_PROCESS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LAUNCH-EXTERNAL-PROCESS",
+    "overload_index": 0,
+    "variant": "union:inputStream=Blob",
+    "file": "Sources/Methods/Synth_LAUNCH_EXTERNAL_PROCESS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LAUNCH-EXTERNAL-PROCESS",
+    "overload_index": 0,
+    "variant": "union:outputStream=Text",
+    "file": "Sources/Methods/Synth_LAUNCH_EXTERNAL_PROCESS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LAUNCH-EXTERNAL-PROCESS",
+    "overload_index": 0,
+    "variant": "union:outputStream=Blob",
+    "file": "Sources/Methods/Synth_LAUNCH_EXTERNAL_PROCESS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LAUNCH-EXTERNAL-PROCESS",
+    "overload_index": 0,
+    "variant": "union:errorStream=Text",
+    "file": "Sources/Methods/Synth_LAUNCH_EXTERNAL_PROCESS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LAUNCH-EXTERNAL-PROCESS",
+    "overload_index": 0,
+    "variant": "union:errorStream=Blob",
     "file": "Sources/Methods/Synth_LAUNCH_EXTERNAL_PROCESS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5585,8 +7129,136 @@
   },
   {
     "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 0,
+    "variant": "union:colVariable=Array",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 0,
+    "variant": "union:colVariable=Field",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 0,
+    "variant": "union:colVariable=Variable",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 0,
+    "variant": "union:colVariable=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 0,
+    "variant": "union:headerVar=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 0,
+    "variant": "union:headerVar=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 0,
+    "variant": "union:footerVar=Variable",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 0,
+    "variant": "union:footerVar=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 1,
+    "variant": "union:colVariable=Array",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 1,
+    "variant": "union:colVariable=Field",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 1,
+    "variant": "union:colVariable=Variable",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 1,
+    "variant": "union:colVariable=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 1,
+    "variant": "union:headerVar=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 1,
+    "variant": "union:headerVar=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 1,
+    "variant": "union:footerVar=Variable",
+    "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-DUPLICATE-COLUMN",
+    "overload_index": 1,
+    "variant": "union:footerVar=Pointer",
     "file": "Sources/Methods/Synth_LISTBOX_DUPLICATE_COLUMN.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5681,8 +7353,72 @@
   },
   {
     "id": "LISTBOX-GET-GRID-COLORS",
+    "overload_index": 0,
+    "variant": "union:hColor=Text",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-GRID-COLORS",
+    "overload_index": 0,
+    "variant": "union:hColor=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-GRID-COLORS",
+    "overload_index": 0,
+    "variant": "union:vColor=Text",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-GRID-COLORS",
+    "overload_index": 0,
+    "variant": "union:vColor=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-GRID-COLORS",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-GRID-COLORS",
+    "overload_index": 1,
+    "variant": "union:hColor=Text",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-GRID-COLORS",
+    "overload_index": 1,
+    "variant": "union:hColor=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-GRID-COLORS",
+    "overload_index": 1,
+    "variant": "union:vColor=Text",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-GRID-COLORS",
+    "overload_index": 1,
+    "variant": "union:vColor=Integer",
     "file": "Sources/Methods/Synth_LISTBOX_GET_GRID_COLORS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -5729,8 +7465,40 @@
   },
   {
     "id": "LISTBOX-GET-PRINT-INFORMATION",
+    "overload_index": 0,
+    "variant": "union:info=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_PRINT_IN_d093.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-PRINT-INFORMATION",
+    "overload_index": 0,
+    "variant": "union:info=Boolean",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_PRINT_IN_d093.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-PRINT-INFORMATION",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_PRINT_IN_d093.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-PRINT-INFORMATION",
+    "overload_index": 1,
+    "variant": "union:info=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_GET_PRINT_IN_d093.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-GET-PRINT-INFORMATION",
+    "overload_index": 1,
+    "variant": "union:info=Boolean",
     "file": "Sources/Methods/Synth_LISTBOX_GET_PRINT_IN_d093.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6040,6 +7808,70 @@
     "status": "clean"
   },
   {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:colVariable=Array",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:colVariable=Field",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:colVariable=Variable",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:colVariable=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:headerVar=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:headerVar=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:footerVar=Variable",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:footerVar=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "LISTBOX-INSERT-COLUMN-FORMULA",
     "overload_index": 0,
     "variant": "default",
@@ -6051,6 +7883,38 @@
     "id": "LISTBOX-INSERT-COLUMN-FORMULA",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUM_8f17.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN-FORMULA",
+    "overload_index": 0,
+    "variant": "union:headerVar=Integer",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUM_8f17.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN-FORMULA",
+    "overload_index": 0,
+    "variant": "union:headerVar=Pointer",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUM_8f17.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN-FORMULA",
+    "overload_index": 0,
+    "variant": "union:footerVar=Variable",
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUM_8f17.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN-FORMULA",
+    "overload_index": 0,
+    "variant": "union:footerVar=Pointer",
     "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUM_8f17.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6163,6 +8027,22 @@
     "id": "LISTBOX-SELECT-ROWS",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SELECT_ROWS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SELECT-ROWS",
+    "overload_index": 0,
+    "variant": "union:selection=Object",
+    "file": "Sources/Methods/Synth_LISTBOX_SELECT_ROWS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SELECT-ROWS",
+    "overload_index": 0,
+    "variant": "union:selection=Collection",
     "file": "Sources/Methods/Synth_LISTBOX_SELECT_ROWS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6291,6 +8171,22 @@
     "id": "LISTBOX-SET-GRID-COLOR",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_GRID_COLOR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-GRID-COLOR",
+    "overload_index": 0,
+    "variant": "union:color=Text",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_GRID_COLOR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-GRID-COLOR",
+    "overload_index": 0,
+    "variant": "union:color=Integer",
     "file": "Sources/Methods/Synth_LISTBOX_SET_GRID_COLOR.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6387,6 +8283,22 @@
     "id": "LISTBOX-SET-ROW-COLOR",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:*",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_ROW_COLOR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-ROW-COLOR",
+    "overload_index": 0,
+    "variant": "union:color=Text",
+    "file": "Sources/Methods/Synth_LISTBOX_SET_ROW_COLOR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-SET-ROW-COLOR",
+    "overload_index": 0,
+    "variant": "union:color=Integer",
     "file": "Sources/Methods/Synth_LISTBOX_SET_ROW_COLOR.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6507,6 +8419,22 @@
     "id": "LIST-TO-ARRAY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_LIST_TO_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LIST-TO-ARRAY",
+    "overload_index": 0,
+    "variant": "union:list=Text",
+    "file": "Sources/Methods/Synth_LIST_TO_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LIST-TO-ARRAY",
+    "overload_index": 0,
+    "variant": "union:list=Integer",
     "file": "Sources/Methods/Synth_LIST_TO_ARRAY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6712,6 +8640,22 @@
     "status": "clean"
   },
   {
+    "id": "List-item-parent",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_List_item_parent.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "List-item-parent",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_List_item_parent.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "List-item-position",
     "overload_index": 0,
     "variant": "default",
@@ -6816,6 +8760,22 @@
     "status": "clean"
   },
   {
+    "id": "MAIL-Convert-from-MIME",
+    "overload_index": 0,
+    "variant": "union:mime=Blob",
+    "file": "Sources/Methods/Synth_MAIL_Convert_from_MIME.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "MAIL-Convert-from-MIME",
+    "overload_index": 0,
+    "variant": "union:mime=Text",
+    "file": "Sources/Methods/Synth_MAIL_Convert_from_MIME.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "MAIL-Convert-to-MIME",
     "overload_index": 0,
     "variant": "default",
@@ -6912,6 +8872,38 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-GET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:path=Text",
+    "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:path=Text array",
+    "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:attributes=Object",
+    "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:attributes=Object array",
+    "file": "Sources/Methods/Synth_METHOD_GET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-GET-CODE",
     "overload_index": 0,
     "variant": "default",
@@ -6923,6 +8915,38 @@
     "id": "METHOD-GET-CODE",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-CODE",
+    "overload_index": 0,
+    "variant": "union:path=Text",
+    "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-CODE",
+    "overload_index": 0,
+    "variant": "union:path=Text array",
+    "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-CODE",
+    "overload_index": 0,
+    "variant": "union:code=Text",
+    "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-CODE",
+    "overload_index": 0,
+    "variant": "union:code=Text array",
     "file": "Sources/Methods/Synth_METHOD_GET_CODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6939,6 +8963,38 @@
     "id": "METHOD-GET-COMMENTS",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-COMMENTS",
+    "overload_index": 0,
+    "variant": "union:path=Text",
+    "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-COMMENTS",
+    "overload_index": 0,
+    "variant": "union:path=Text array",
+    "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-COMMENTS",
+    "overload_index": 0,
+    "variant": "union:comments=Text",
+    "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-COMMENTS",
+    "overload_index": 0,
+    "variant": "union:comments=Text array",
     "file": "Sources/Methods/Synth_METHOD_GET_COMMENTS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -6971,6 +9027,54 @@
     "id": "METHOD-GET-MODIFICATION-DATE",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-MODIFICATION-DATE",
+    "overload_index": 0,
+    "variant": "union:path=Text",
+    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-MODIFICATION-DATE",
+    "overload_index": 0,
+    "variant": "union:path=Text array",
+    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-MODIFICATION-DATE",
+    "overload_index": 0,
+    "variant": "union:modDate=Date",
+    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-MODIFICATION-DATE",
+    "overload_index": 0,
+    "variant": "union:modDate=Date array",
+    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-MODIFICATION-DATE",
+    "overload_index": 0,
+    "variant": "union:modTime=Time",
+    "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-GET-MODIFICATION-DATE",
+    "overload_index": 0,
+    "variant": "union:modTime=Integer array",
     "file": "Sources/Methods/Synth_METHOD_GET_MODIFICAT_af22.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7112,6 +9216,22 @@
     "status": "clean"
   },
   {
+    "id": "METHOD-SET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:attribValue=Boolean",
+    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:attribValue=Text",
+    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "METHOD-SET-ATTRIBUTES",
     "overload_index": 0,
     "variant": "default",
@@ -7123,6 +9243,38 @@
     "id": "METHOD-SET-ATTRIBUTES",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:path=Text",
+    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:path=Text array",
+    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:attributes=Object",
+    "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:attributes=Object array",
     "file": "Sources/Methods/Synth_METHOD_SET_ATTRIBUTES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7139,6 +9291,38 @@
     "id": "METHOD-SET-CODE",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-CODE",
+    "overload_index": 0,
+    "variant": "union:path=Text",
+    "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-CODE",
+    "overload_index": 0,
+    "variant": "union:path=Text array",
+    "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-CODE",
+    "overload_index": 0,
+    "variant": "union:code=Text",
+    "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-CODE",
+    "overload_index": 0,
+    "variant": "union:code=Text array",
     "file": "Sources/Methods/Synth_METHOD_SET_CODE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7155,6 +9339,38 @@
     "id": "METHOD-SET-COMMENTS",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-COMMENTS",
+    "overload_index": 0,
+    "variant": "union:path=Text",
+    "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-COMMENTS",
+    "overload_index": 0,
+    "variant": "union:path=Text array",
+    "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-COMMENTS",
+    "overload_index": 0,
+    "variant": "union:comments=Text",
+    "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "METHOD-SET-COMMENTS",
+    "overload_index": 0,
+    "variant": "union:comments=Text array",
     "file": "Sources/Methods/Synth_METHOD_SET_COMMENTS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7344,6 +9560,22 @@
     "status": "clean"
   },
   {
+    "id": "Max",
+    "overload_index": 0,
+    "variant": "union:series=Field",
+    "file": "Sources/Methods/Synth_Max.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Max",
+    "overload_index": 0,
+    "variant": "union:series=Array",
+    "file": "Sources/Methods/Synth_Max.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Menu-bar-height",
     "overload_index": 0,
     "variant": "default",
@@ -7395,6 +9627,22 @@
     "id": "Min",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Min.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Min",
+    "overload_index": 0,
+    "variant": "union:series=Field",
+    "file": "Sources/Methods/Synth_Min.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Min",
+    "overload_index": 0,
+    "variant": "union:series=Array",
     "file": "Sources/Methods/Synth_Min.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7577,8 +9825,56 @@
   },
   {
     "id": "Num",
+    "overload_index": 0,
+    "variant": "union:expression=Text",
+    "file": "Sources/Methods/Synth_Num.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Num",
+    "overload_index": 0,
+    "variant": "union:expression=Boolean",
+    "file": "Sources/Methods/Synth_Num.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Num",
+    "overload_index": 0,
+    "variant": "union:expression=Integer",
+    "file": "Sources/Methods/Synth_Num.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Num",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Num.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Num",
+    "overload_index": 1,
+    "variant": "union:expression=Text",
+    "file": "Sources/Methods/Synth_Num.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Num",
+    "overload_index": 1,
+    "variant": "union:expression=Boolean",
+    "file": "Sources/Methods/Synth_Num.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Num",
+    "overload_index": 1,
+    "variant": "union:expression=Integer",
     "file": "Sources/Methods/Synth_Num.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7688,6 +9984,30 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-GET-MAXIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:maxValue=Date",
+    "file": "Sources/Methods/Synth_OBJECT_GET_MAXIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-MAXIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:maxValue=Time",
+    "file": "Sources/Methods/Synth_OBJECT_GET_MAXIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-MAXIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:maxValue=Real",
+    "file": "Sources/Methods/Synth_OBJECT_GET_MAXIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-MINIMUM-VALUE",
     "overload_index": 0,
     "variant": "default",
@@ -7699,6 +10019,30 @@
     "id": "OBJECT-GET-MINIMUM-VALUE",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_MINIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-MINIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:minValue=Date",
+    "file": "Sources/Methods/Synth_OBJECT_GET_MINIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-MINIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:minValue=Time",
+    "file": "Sources/Methods/Synth_OBJECT_GET_MINIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-MINIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:minValue=Real",
     "file": "Sources/Methods/Synth_OBJECT_GET_MINIMUM_VALUE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7747,6 +10091,54 @@
     "id": "OBJECT-GET-RGB-COLORS",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:foregroundColor=Text",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:foregroundColor=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:backgroundColor=Text",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:backgroundColor=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:altBackgrndColor=Text",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:altBackgrndColor=Integer",
     "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -7763,6 +10155,38 @@
     "id": "OBJECT-GET-SCROLLBAR",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_GET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "union:horizontal=Boolean",
+    "file": "Sources/Methods/Synth_OBJECT_GET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "union:horizontal=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_GET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "union:vertical=Boolean",
+    "file": "Sources/Methods/Synth_OBJECT_GET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "union:vertical=Integer",
     "file": "Sources/Methods/Synth_OBJECT_GET_SCROLLBAR.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8552,6 +10976,22 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-ENTERABLE",
+    "overload_index": 0,
+    "variant": "union:enterable=Boolean",
+    "file": "Sources/Methods/Synth_OBJECT_SET_ENTERABLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-ENTERABLE",
+    "overload_index": 0,
+    "variant": "union:enterable=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_SET_ENTERABLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-EVENTS",
     "overload_index": 0,
     "variant": "default",
@@ -8771,6 +11211,30 @@
     "id": "OBJECT-SET-MAXIMUM-VALUE",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MAXIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-MAXIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:maxValue=Date",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MAXIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-MAXIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:maxValue=Time",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MAXIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-MAXIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:maxValue=Real",
     "file": "Sources/Methods/Synth_OBJECT_SET_MAXIMUM_VALUE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8787,6 +11251,30 @@
     "id": "OBJECT-SET-MINIMUM-VALUE",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MINIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-MINIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:minValue=Date",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MINIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-MINIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:minValue=Time",
+    "file": "Sources/Methods/Synth_OBJECT_SET_MINIMUM_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-MINIMUM-VALUE",
+    "overload_index": 0,
+    "variant": "union:minValue=Real",
     "file": "Sources/Methods/Synth_OBJECT_SET_MINIMUM_VALUE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8867,6 +11355,54 @@
     "id": "OBJECT-SET-RGB-COLORS",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:foregroundColor=Text",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:foregroundColor=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:backgroundColor=Text",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:backgroundColor=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:altBackgrndColor=Text",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:altBackgrndColor=Integer",
     "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8883,6 +11419,38 @@
     "id": "OBJECT-SET-SCROLLBAR",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "union:horizontal=Boolean",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "union:horizontal=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "union:vertical=Boolean",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SCROLLBAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SCROLLBAR",
+    "overload_index": 0,
+    "variant": "union:vertical=Integer",
     "file": "Sources/Methods/Synth_OBJECT_SET_SCROLLBAR.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -8955,6 +11523,38 @@
     "id": "OBJECT-SET-SUBFORM",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SUBFORM",
+    "overload_index": 0,
+    "variant": "union:detailSubform=Text",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SUBFORM",
+    "overload_index": 0,
+    "variant": "union:detailSubform=Object",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SUBFORM",
+    "overload_index": 0,
+    "variant": "union:listSubform=Text",
+    "file": "Sources/Methods/Synth_OBJECT_SET_SUBFORM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-SUBFORM",
+    "overload_index": 0,
+    "variant": "union:listSubform=Object",
     "file": "Sources/Methods/Synth_OBJECT_SET_SUBFORM.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9080,6 +11680,22 @@
     "status": "clean"
   },
   {
+    "id": "OB-Copy",
+    "overload_index": 1,
+    "variant": "union:groupWith=Collection",
+    "file": "Sources/Methods/Synth_OB_Copy.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OB-Copy",
+    "overload_index": 1,
+    "variant": "union:groupWith=Object",
+    "file": "Sources/Methods/Synth_OB_Copy.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OB-Entries",
     "overload_index": 0,
     "variant": "default",
@@ -9152,6 +11768,22 @@
     "status": "clean"
   },
   {
+    "id": "OB-Is-shared",
+    "overload_index": 0,
+    "variant": "union:toCheck=Object",
+    "file": "Sources/Methods/Synth_OB_Is_shared.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OB-Is-shared",
+    "overload_index": 0,
+    "variant": "union:toCheck=Collection",
+    "file": "Sources/Methods/Synth_OB_Is_shared.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OB-Keys",
     "overload_index": 0,
     "variant": "default",
@@ -9179,6 +11811,22 @@
     "id": "OB-SET-ARRAY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OB_SET_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OB-SET-ARRAY",
+    "overload_index": 0,
+    "variant": "union:array=Array",
+    "file": "Sources/Methods/Synth_OB_SET_ARRAY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OB-SET-ARRAY",
+    "overload_index": 0,
+    "variant": "union:array=Variable",
     "file": "Sources/Methods/Synth_OB_SET_ARRAY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9411,6 +12059,22 @@
     "id": "Open-form-window",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_Open_form_window.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Open-form-window",
+    "overload_index": 0,
+    "variant": "union:formName=Text",
+    "file": "Sources/Methods/Synth_Open_form_window.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Open-form-window",
+    "overload_index": 0,
+    "variant": "union:formName=Object",
     "file": "Sources/Methods/Synth_Open_form_window.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -9776,6 +12440,46 @@
     "status": "clean"
   },
   {
+    "id": "PROCESS-4D-TAGS",
+    "overload_index": 0,
+    "variant": "union:inputTemplate=Text",
+    "file": "Sources/Methods/Synth_PROCESS_4D_TAGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PROCESS-4D-TAGS",
+    "overload_index": 0,
+    "variant": "union:inputTemplate=Blob",
+    "file": "Sources/Methods/Synth_PROCESS_4D_TAGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PROCESS-4D-TAGS",
+    "overload_index": 0,
+    "variant": "union:outputResult=Variable",
+    "file": "Sources/Methods/Synth_PROCESS_4D_TAGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PROCESS-4D-TAGS",
+    "overload_index": 0,
+    "variant": "union:outputResult=Text",
+    "file": "Sources/Methods/Synth_PROCESS_4D_TAGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PROCESS-4D-TAGS",
+    "overload_index": 0,
+    "variant": "union:outputResult=Blob",
+    "file": "Sources/Methods/Synth_PROCESS_4D_TAGS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "PUSH-RECORD",
     "overload_index": 0,
     "variant": "default",
@@ -9851,6 +12555,22 @@
     "id": "Print-form",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Print_form.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Print-form",
+    "overload_index": 0,
+    "variant": "union:form=Text",
+    "file": "Sources/Methods/Synth_Print_form.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Print-form",
+    "overload_index": 0,
+    "variant": "union:form=Object",
     "file": "Sources/Methods/Synth_Print_form.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10024,6 +12744,22 @@
     "status": "clean"
   },
   {
+    "id": "QR-Find-column",
+    "overload_index": 0,
+    "variant": "union:expression=Text",
+    "file": "Sources/Methods/Synth_QR_Find_column.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-Find-column",
+    "overload_index": 0,
+    "variant": "union:expression=Pointer",
+    "file": "Sources/Methods/Synth_QR_Find_column.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "QR-GET-BORDERS",
     "overload_index": 0,
     "variant": "default",
@@ -10035,6 +12771,22 @@
     "id": "QR-GET-DESTINATION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_QR_GET_DESTINATION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-GET-DESTINATION",
+    "overload_index": 0,
+    "variant": "union:specifics=Text",
+    "file": "Sources/Methods/Synth_QR_GET_DESTINATION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-GET-DESTINATION",
+    "overload_index": 0,
+    "variant": "union:specifics=Variable",
     "file": "Sources/Methods/Synth_QR_GET_DESTINATION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10112,6 +12864,22 @@
     "status": "clean"
   },
   {
+    "id": "QR-Get-command-status",
+    "overload_index": 0,
+    "variant": "union:value=Integer",
+    "file": "Sources/Methods/Synth_QR_Get_command_status.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-Get-command-status",
+    "overload_index": 0,
+    "variant": "union:value=Text",
+    "file": "Sources/Methods/Synth_QR_Get_command_status.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "QR-Get-document-property",
     "overload_index": 0,
     "variant": "default",
@@ -10163,6 +12931,22 @@
     "id": "QR-INSERT-COLUMN",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_QR_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:object=Text",
+    "file": "Sources/Methods/Synth_QR_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-INSERT-COLUMN",
+    "overload_index": 0,
+    "variant": "union:object=Pointer",
     "file": "Sources/Methods/Synth_QR_INSERT_COLUMN.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10264,6 +13048,22 @@
     "status": "clean"
   },
   {
+    "id": "QR-SET-DESTINATION",
+    "overload_index": 0,
+    "variant": "union:specifics=Text",
+    "file": "Sources/Methods/Synth_QR_SET_DESTINATION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-SET-DESTINATION",
+    "overload_index": 0,
+    "variant": "union:specifics=Variable",
+    "file": "Sources/Methods/Synth_QR_SET_DESTINATION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "QR-SET-DOCUMENT-PROPERTY",
     "overload_index": 0,
     "variant": "default",
@@ -10291,6 +13091,22 @@
     "id": "QR-SET-INFO-COLUMN",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_QR_SET_INFO_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-SET-INFO-COLUMN",
+    "overload_index": 0,
+    "variant": "union:object=Text",
+    "file": "Sources/Methods/Synth_QR_SET_INFO_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-SET-INFO-COLUMN",
+    "overload_index": 0,
+    "variant": "union:object=Pointer",
     "file": "Sources/Methods/Synth_QR_SET_INFO_COLUMN.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10339,6 +13155,22 @@
     "id": "QR-SET-TEXT-PROPERTY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_QR_SET_TEXT_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-SET-TEXT-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:value=Integer",
+    "file": "Sources/Methods/Synth_QR_SET_TEXT_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QR-SET-TEXT-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:value=Text",
     "file": "Sources/Methods/Synth_QR_SET_TEXT_PROPERTY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10435,6 +13267,54 @@
     "id": "QUERY-BY-ATTRIBUTE",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:queryOp=Text",
+    "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:queryOp=>|<|>=|<=|#|=|||%",
+    "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:value=Text",
+    "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:value=Real",
+    "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:value=Date",
+    "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:value=Time",
     "file": "Sources/Methods/Synth_QUERY_BY_ATTRIBUTE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10547,6 +13427,54 @@
     "id": "QUERY-SELECTION-BY-ATTRIBUTE",
     "overload_index": 0,
     "variant": "flag:omit-trailing-from:*",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:queryOp=>|<|>=|<=|#|=|||%",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:queryOp=Text",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:value=Text",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:value=Real",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:value=Date",
+    "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:value=Time",
     "file": "Sources/Methods/Synth_QUERY_SELECTION_BY_A_e1c7.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10697,8 +13625,40 @@
   },
   {
     "id": "RECEIVE-PACKET",
+    "overload_index": 0,
+    "variant": "union:receiveVar=Text",
+    "file": "Sources/Methods/Synth_RECEIVE_PACKET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RECEIVE-PACKET",
+    "overload_index": 0,
+    "variant": "union:receiveVar=Blob",
+    "file": "Sources/Methods/Synth_RECEIVE_PACKET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RECEIVE-PACKET",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_RECEIVE_PACKET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RECEIVE-PACKET",
+    "overload_index": 1,
+    "variant": "union:receiveVar=Text",
+    "file": "Sources/Methods/Synth_RECEIVE_PACKET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RECEIVE-PACKET",
+    "overload_index": 1,
+    "variant": "union:receiveVar=Blob",
     "file": "Sources/Methods/Synth_RECEIVE_PACKET.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10731,6 +13691,22 @@
     "id": "REDRAW",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_REDRAW.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "REDRAW",
+    "overload_index": 1,
+    "variant": "union:object=Field",
+    "file": "Sources/Methods/Synth_REDRAW.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "REDRAW",
+    "overload_index": 1,
+    "variant": "union:object=Variable",
     "file": "Sources/Methods/Synth_REDRAW.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -10872,6 +13848,38 @@
     "status": "clean"
   },
   {
+    "id": "RELOAD-EXTERNAL-DATA",
+    "overload_index": 0,
+    "variant": "union:aField=Text",
+    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RELOAD-EXTERNAL-DATA",
+    "overload_index": 0,
+    "variant": "union:aField=Blob",
+    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RELOAD-EXTERNAL-DATA",
+    "overload_index": 0,
+    "variant": "union:aField=Picture",
+    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RELOAD-EXTERNAL-DATA",
+    "overload_index": 0,
+    "variant": "union:aField=Object",
+    "file": "Sources/Methods/Synth_RELOAD_EXTERNAL_DATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "RELOAD-PROJECT",
     "overload_index": 0,
     "variant": "default",
@@ -10963,6 +13971,38 @@
     "id": "RESTORE-INFO",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_RESTORE_INFO.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RESTORE-INFO",
+    "overload_index": 0,
+    "variant": "union:info1=Integer",
+    "file": "Sources/Methods/Synth_RESTORE_INFO.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RESTORE-INFO",
+    "overload_index": 0,
+    "variant": "union:info1=Date",
+    "file": "Sources/Methods/Synth_RESTORE_INFO.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RESTORE-INFO",
+    "overload_index": 0,
+    "variant": "union:info2=Text",
+    "file": "Sources/Methods/Synth_RESTORE_INFO.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "RESTORE-INFO",
+    "overload_index": 0,
+    "variant": "union:info2=Time",
     "file": "Sources/Methods/Synth_RESTORE_INFO.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -11168,6 +14208,22 @@
     "status": "clean"
   },
   {
+    "id": "SAX-ADD-XML-CDATA",
+    "overload_index": 0,
+    "variant": "union:data=Blob",
+    "file": "Sources/Methods/Synth_SAX_ADD_XML_CDATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SAX-ADD-XML-CDATA",
+    "overload_index": 0,
+    "variant": "union:data=Text",
+    "file": "Sources/Methods/Synth_SAX_ADD_XML_CDATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SAX-ADD-XML-COMMENT",
     "overload_index": 0,
     "variant": "default",
@@ -11200,6 +14256,30 @@
     "status": "clean"
   },
   {
+    "id": "SAX-ADD-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:data=Text",
+    "file": "Sources/Methods/Synth_SAX_ADD_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SAX-ADD-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:data=Variable",
+    "file": "Sources/Methods/Synth_SAX_ADD_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SAX-ADD-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:data=Field",
+    "file": "Sources/Methods/Synth_SAX_ADD_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SAX-CLOSE-XML-ELEMENT",
     "overload_index": 0,
     "variant": "default",
@@ -11211,6 +14291,22 @@
     "id": "SAX-GET-XML-CDATA",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SAX_GET_XML_CDATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SAX-GET-XML-CDATA",
+    "overload_index": 0,
+    "variant": "union:value=Text",
+    "file": "Sources/Methods/Synth_SAX_GET_XML_CDATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SAX-GET-XML-CDATA",
+    "overload_index": 0,
+    "variant": "union:value=Blob",
     "file": "Sources/Methods/Synth_SAX_GET_XML_CDATA.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -11243,6 +14339,22 @@
     "id": "SAX-GET-XML-ELEMENT-VALUE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SAX_GET_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SAX-GET-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:value=Variable",
+    "file": "Sources/Methods/Synth_SAX_GET_XML_ELEMENT_VALUE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SAX-GET-XML-ELEMENT-VALUE",
+    "overload_index": 0,
+    "variant": "union:value=Field",
     "file": "Sources/Methods/Synth_SAX_GET_XML_ELEMENT_VALUE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -11411,6 +14523,22 @@
     "id": "SEND-PACKET",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SEND_PACKET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SEND-PACKET",
+    "overload_index": 0,
+    "variant": "union:packet=Text",
+    "file": "Sources/Methods/Synth_SEND_PACKET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SEND-PACKET",
+    "overload_index": 0,
+    "variant": "union:packet=Blob",
     "file": "Sources/Methods/Synth_SEND_PACKET.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12168,6 +15296,46 @@
     "status": "clean"
   },
   {
+    "id": "SET-EXTERNAL-DATA-PATH",
+    "overload_index": 0,
+    "variant": "union:aField=Text",
+    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-EXTERNAL-DATA-PATH",
+    "overload_index": 0,
+    "variant": "union:aField=Blob",
+    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-EXTERNAL-DATA-PATH",
+    "overload_index": 0,
+    "variant": "union:aField=Picture",
+    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-EXTERNAL-DATA-PATH",
+    "overload_index": 0,
+    "variant": "union:path=Text",
+    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-EXTERNAL-DATA-PATH",
+    "overload_index": 0,
+    "variant": "union:path=Integer",
+    "file": "Sources/Methods/Synth_SET_EXTERNAL_DATA_PATH.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-FIELD-RELATION",
     "overload_index": 0,
     "variant": "default",
@@ -12256,6 +15424,22 @@
     "status": "clean"
   },
   {
+    "id": "SET-INDEX",
+    "overload_index": 0,
+    "variant": "union:index=Boolean",
+    "file": "Sources/Methods/Synth_SET_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-INDEX",
+    "overload_index": 0,
+    "variant": "union:index=Integer",
+    "file": "Sources/Methods/Synth_SET_INDEX.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-INDEX-CACHE-PRIORITY",
     "overload_index": 0,
     "variant": "default",
@@ -12280,6 +15464,22 @@
     "status": "clean"
   },
   {
+    "id": "SET-LIST-ITEM",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-LIST-ITEM-FONT",
     "overload_index": 0,
     "variant": "default",
@@ -12291,6 +15491,38 @@
     "id": "SET-LIST-ITEM-FONT",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_FONT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-FONT",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_FONT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-FONT",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_FONT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-FONT",
+    "overload_index": 0,
+    "variant": "union:font=Text",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_FONT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-FONT",
+    "overload_index": 0,
+    "variant": "union:font=Integer",
     "file": "Sources/Methods/Synth_SET_LIST_ITEM_FONT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12307,6 +15539,38 @@
     "id": "SET-LIST-ITEM-ICON",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:icon=Picture",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:icon=Pointer",
     "file": "Sources/Methods/Synth_SET_LIST_ITEM_ICON.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12344,6 +15608,62 @@
     "status": "clean"
   },
   {
+    "id": "SET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:itemRef=Integer",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:itemRef=pseudo:Operator",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:selector=enum_ref:HierarchicalListItemSelector",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:selector=Text",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:value=Text",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:value=Boolean",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:value=Real",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-LIST-ITEM-PROPERTIES",
     "overload_index": 0,
     "variant": "default",
@@ -12355,6 +15675,22 @@
     "id": "SET-LIST-ITEM-PROPERTIES",
     "overload_index": 0,
     "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PROPERTIES",
+    "overload_index": 0,
+    "variant": "union:icon=Text",
+    "file": "Sources/Methods/Synth_SET_LIST_ITEM_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-LIST-ITEM-PROPERTIES",
+    "overload_index": 0,
+    "variant": "union:icon=Integer",
     "file": "Sources/Methods/Synth_SET_LIST_ITEM_PROPERTIES.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12392,6 +15728,30 @@
     "status": "clean"
   },
   {
+    "id": "SET-MENU-BAR",
+    "overload_index": 0,
+    "variant": "union:menuBar=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_BAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-BAR",
+    "overload_index": 0,
+    "variant": "union:menuBar=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_BAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-BAR",
+    "overload_index": 0,
+    "variant": "union:menuBar=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_BAR.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-MENU-ITEM",
     "overload_index": 0,
     "variant": "default",
@@ -12408,9 +15768,57 @@
     "status": "clean"
   },
   {
+    "id": "SET-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-MENU-ITEM-ICON",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:iconRef=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-ICON",
+    "overload_index": 0,
+    "variant": "union:iconRef=Integer",
     "file": "Sources/Methods/Synth_SET_MENU_ITEM_ICON.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12424,9 +15832,41 @@
     "status": "clean"
   },
   {
+    "id": "SET-MENU-ITEM-MARK",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_MARK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-MARK",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_MARK.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-MENU-ITEM-METHOD",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_METHOD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-METHOD",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_METHOD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-METHOD",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_SET_MENU_ITEM_METHOD.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12440,9 +15880,65 @@
     "status": "clean"
   },
   {
+    "id": "SET-MENU-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-PARAMETER",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_PARAMETER.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-MENU-ITEM-PROPERTY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:value=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:value=Real",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_PROPERTY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-PROPERTY",
+    "overload_index": 0,
+    "variant": "union:value=Boolean",
     "file": "Sources/Methods/Synth_SET_MENU_ITEM_PROPERTY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12457,8 +15953,40 @@
   },
   {
     "id": "SET-MENU-ITEM-SHORTCUT",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_SHORTCUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-SHORTCUT",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_SHORTCUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-SHORTCUT",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_SHORTCUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-SHORTCUT",
+    "overload_index": 1,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_SHORTCUT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-SHORTCUT",
+    "overload_index": 1,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_SET_MENU_ITEM_SHORTCUT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12467,6 +15995,22 @@
     "id": "SET-MENU-ITEM-STYLE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-STYLE",
+    "overload_index": 0,
+    "variant": "union:menu=Integer",
+    "file": "Sources/Methods/Synth_SET_MENU_ITEM_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-MENU-ITEM-STYLE",
+    "overload_index": 0,
+    "variant": "union:menu=Text",
     "file": "Sources/Methods/Synth_SET_MENU_ITEM_STYLE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12483,6 +16027,22 @@
     "id": "SET-PICTURE-METADATA",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_PICTURE_METADATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-PICTURE-METADATA",
+    "overload_index": 0,
+    "variant": "union:metaContents=Variable",
+    "file": "Sources/Methods/Synth_SET_PICTURE_METADATA.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-PICTURE-METADATA",
+    "overload_index": 0,
+    "variant": "union:metaContents=pseudo:Expression",
     "file": "Sources/Methods/Synth_SET_PICTURE_METADATA.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12544,6 +16104,54 @@
     "status": "clean"
   },
   {
+    "id": "SET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:option=Integer",
+    "file": "Sources/Methods/Synth_SET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:option=Text",
+    "file": "Sources/Methods/Synth_SET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:value1=Integer",
+    "file": "Sources/Methods/Synth_SET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:value1=Text",
+    "file": "Sources/Methods/Synth_SET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:value2=Integer",
+    "file": "Sources/Methods/Synth_SET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-PRINT-OPTION",
+    "overload_index": 0,
+    "variant": "union:value2=Text",
+    "file": "Sources/Methods/Synth_SET_PRINT_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SET-PRINT-PREVIEW",
     "overload_index": 0,
     "variant": "default",
@@ -12571,6 +16179,22 @@
     "id": "SET-QUERY-DESTINATION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_QUERY_DESTINATION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-QUERY-DESTINATION",
+    "overload_index": 0,
+    "variant": "union:destinationObject=Text",
+    "file": "Sources/Methods/Synth_SET_QUERY_DESTINATION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-QUERY-DESTINATION",
+    "overload_index": 0,
+    "variant": "union:destinationObject=Variable",
     "file": "Sources/Methods/Synth_SET_QUERY_DESTINATION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12697,8 +16321,40 @@
   },
   {
     "id": "SET-WINDOW-DOCUMENT-ICON",
+    "overload_index": 2,
+    "variant": "union:file=4D.File",
+    "file": "Sources/Methods/Synth_SET_WINDOW_DOCUMENT_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-WINDOW-DOCUMENT-ICON",
+    "overload_index": 2,
+    "variant": "union:file=4D.Folder",
+    "file": "Sources/Methods/Synth_SET_WINDOW_DOCUMENT_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-WINDOW-DOCUMENT-ICON",
     "overload_index": 3,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SET_WINDOW_DOCUMENT_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-WINDOW-DOCUMENT-ICON",
+    "overload_index": 3,
+    "variant": "union:file=4D.File",
+    "file": "Sources/Methods/Synth_SET_WINDOW_DOCUMENT_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SET-WINDOW-DOCUMENT-ICON",
+    "overload_index": 3,
+    "variant": "union:file=4D.Folder",
     "file": "Sources/Methods/Synth_SET_WINDOW_DOCUMENT_ICON.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12864,6 +16520,22 @@
     "status": "clean"
   },
   {
+    "id": "SPELL-ADD-TO-USER-DICTIONARY",
+    "overload_index": 0,
+    "variant": "union:words=Text",
+    "file": "Sources/Methods/Synth_SPELL_ADD_TO_USER_DI_f19c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SPELL-ADD-TO-USER-DICTIONARY",
+    "overload_index": 0,
+    "variant": "union:words=Text array",
+    "file": "Sources/Methods/Synth_SPELL_ADD_TO_USER_DI_f19c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SPELL-CHECKING",
     "overload_index": 0,
     "variant": "default",
@@ -12899,6 +16571,22 @@
     "id": "SPELL-SET-CURRENT-DICTIONARY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SPELL_SET_CURRENT_DI_73ca.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SPELL-SET-CURRENT-DICTIONARY",
+    "overload_index": 0,
+    "variant": "union:dictionary=Integer",
+    "file": "Sources/Methods/Synth_SPELL_SET_CURRENT_DI_73ca.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SPELL-SET-CURRENT-DICTIONARY",
+    "overload_index": 0,
+    "variant": "union:dictionary=Text",
     "file": "Sources/Methods/Synth_SPELL_SET_CURRENT_DI_73ca.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -12976,6 +16664,22 @@
     "status": "clean"
   },
   {
+    "id": "SQL-GET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Integer",
+    "file": "Sources/Methods/Synth_SQL_GET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SQL-GET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Text",
+    "file": "Sources/Methods/Synth_SQL_GET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SQL-Get-current-data-source",
     "overload_index": 0,
     "variant": "default",
@@ -13027,6 +16731,22 @@
     "id": "SQL-SET-OPTION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_SQL_SET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SQL-SET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Integer",
+    "file": "Sources/Methods/Synth_SQL_SET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SQL-SET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Text",
     "file": "Sources/Methods/Synth_SQL_SET_OPTION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13288,6 +17008,22 @@
     "status": "clean"
   },
   {
+    "id": "ST-SET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:attribValue=Text",
+    "file": "Sources/Methods/Synth_ST_SET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "ST-SET-ATTRIBUTES",
+    "overload_index": 0,
+    "variant": "union:attribValue=Integer",
+    "file": "Sources/Methods/Synth_ST_SET_ATTRIBUTES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "ST-SET-OPTIONS",
     "overload_index": 0,
     "variant": "default",
@@ -13400,6 +17136,30 @@
     "status": "clean"
   },
   {
+    "id": "SVG-GET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:attribValue=Text",
+    "file": "Sources/Methods/Synth_SVG_GET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SVG-GET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:attribValue=Integer",
+    "file": "Sources/Methods/Synth_SVG_GET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SVG-GET-ATTRIBUTE",
+    "overload_index": 0,
+    "variant": "union:attribValue=Boolean",
+    "file": "Sources/Methods/Synth_SVG_GET_ATTRIBUTE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SVG-SET-ATTRIBUTE",
     "overload_index": 0,
     "variant": "default",
@@ -13504,6 +17264,22 @@
     "status": "clean"
   },
   {
+    "id": "Select-document",
+    "overload_index": 0,
+    "variant": "union:directory=Text",
+    "file": "Sources/Methods/Synth_Select_document.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Select-document",
+    "overload_index": 0,
+    "variant": "union:directory=Integer",
+    "file": "Sources/Methods/Synth_Select_document.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Select-folder",
     "overload_index": 0,
     "variant": "default",
@@ -13515,6 +17291,22 @@
     "id": "Select-folder",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Select_folder.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Select-folder",
+    "overload_index": 1,
+    "variant": "union:defaultPath=Text",
+    "file": "Sources/Methods/Synth_Select_folder.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Select-folder",
+    "overload_index": 1,
+    "variant": "union:defaultPath=Integer",
     "file": "Sources/Methods/Synth_Select_folder.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13632,6 +17424,22 @@
     "status": "clean"
   },
   {
+    "id": "Set-user-properties",
+    "overload_index": 0,
+    "variant": "union:password=Text",
+    "file": "Sources/Methods/Synth_Set_user_properties.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Set-user-properties",
+    "overload_index": 0,
+    "variant": "union:password=pseudo:Operator",
+    "file": "Sources/Methods/Synth_Set_user_properties.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Shift-down",
     "overload_index": 0,
     "variant": "default",
@@ -13680,6 +17488,22 @@
     "status": "clean"
   },
   {
+    "id": "Std-deviation",
+    "overload_index": 0,
+    "variant": "union:series=Field",
+    "file": "Sources/Methods/Synth_Std_deviation.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Std-deviation",
+    "overload_index": 0,
+    "variant": "union:series=Array",
+    "file": "Sources/Methods/Synth_Std_deviation.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Storage",
     "overload_index": 0,
     "variant": "default",
@@ -13691,6 +17515,22 @@
     "id": "String",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_String.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "String",
+    "overload_index": 0,
+    "variant": "union:format=Integer",
+    "file": "Sources/Methods/Synth_String.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "String",
+    "overload_index": 0,
+    "variant": "union:format=Text",
     "file": "Sources/Methods/Synth_String.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13744,6 +17584,22 @@
     "status": "clean"
   },
   {
+    "id": "Subtotal",
+    "overload_index": 0,
+    "variant": "union:data=Field",
+    "file": "Sources/Methods/Synth_Subtotal.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Subtotal",
+    "overload_index": 0,
+    "variant": "union:data=Variable",
+    "file": "Sources/Methods/Synth_Subtotal.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Sum",
     "overload_index": 0,
     "variant": "default",
@@ -13752,9 +17608,41 @@
     "status": "clean"
   },
   {
+    "id": "Sum",
+    "overload_index": 0,
+    "variant": "union:series=Field",
+    "file": "Sources/Methods/Synth_Sum.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Sum",
+    "overload_index": 0,
+    "variant": "union:series=Array",
+    "file": "Sources/Methods/Synth_Sum.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Sum-squares",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Sum_squares.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Sum-squares",
+    "overload_index": 0,
+    "variant": "union:series=Field",
+    "file": "Sources/Methods/Synth_Sum_squares.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Sum-squares",
+    "overload_index": 0,
+    "variant": "union:series=Array",
     "file": "Sources/Methods/Synth_Sum_squares.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13835,6 +17723,22 @@
     "id": "TEXT-TO-DOCUMENT",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_TEXT_TO_DOCUMENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "TEXT-TO-DOCUMENT",
+    "overload_index": 0,
+    "variant": "union:charSet=Text",
+    "file": "Sources/Methods/Synth_TEXT_TO_DOCUMENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "TEXT-TO-DOCUMENT",
+    "overload_index": 0,
+    "variant": "union:charSet=Integer",
     "file": "Sources/Methods/Synth_TEXT_TO_DOCUMENT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13976,9 +17880,41 @@
     "status": "clean"
   },
   {
+    "id": "Time",
+    "overload_index": 0,
+    "variant": "union:timeValue=Text",
+    "file": "Sources/Methods/Synth_Time.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Time",
+    "overload_index": 0,
+    "variant": "union:timeValue=Integer",
+    "file": "Sources/Methods/Synth_Time.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Time-string",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Time_string.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Time-string",
+    "overload_index": 0,
+    "variant": "union:seconds=Integer",
+    "file": "Sources/Methods/Synth_Time_string.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Time-string",
+    "overload_index": 0,
+    "variant": "union:seconds=Time",
     "file": "Sources/Methods/Synth_Time_string.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -14072,6 +18008,22 @@
     "status": "clean"
   },
   {
+    "id": "Type",
+    "overload_index": 0,
+    "variant": "union:fieldVar=Field",
+    "file": "Sources/Methods/Synth_Type.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Type",
+    "overload_index": 0,
+    "variant": "union:fieldVar=Variable",
+    "file": "Sources/Methods/Synth_Type.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "UNION",
     "overload_index": 0,
     "variant": "default",
@@ -14107,6 +18059,22 @@
     "id": "USE-CHARACTER-SET",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_USE_CHARACTER_SET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "USE-CHARACTER-SET",
+    "overload_index": 0,
+    "variant": "union:map=Text",
+    "file": "Sources/Methods/Synth_USE_CHARACTER_SET.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "USE-CHARACTER-SET",
+    "overload_index": 0,
+    "variant": "union:map=pseudo:Operator",
     "file": "Sources/Methods/Synth_USE_CHARACTER_SET.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -15998,6 +19966,22 @@
     "status": "clean"
   },
   {
+    "id": "Validate-password",
+    "overload_index": 0,
+    "variant": "union:userID=Integer",
+    "file": "Sources/Methods/Synth_Validate_password.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Validate-password",
+    "overload_index": 0,
+    "variant": "union:userID=Text",
+    "file": "Sources/Methods/Synth_Validate_password.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Value-type",
     "overload_index": 0,
     "variant": "default",
@@ -16009,6 +19993,22 @@
     "id": "Variance",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_Variance.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Variance",
+    "overload_index": 0,
+    "variant": "union:series=Field",
+    "file": "Sources/Methods/Synth_Variance.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Variance",
+    "overload_index": 0,
+    "variant": "union:series=Array",
     "file": "Sources/Methods/Synth_Variance.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -16494,9 +20494,41 @@
     "status": "clean"
   },
   {
+    "id": "WEB-GET-BODY-PART",
+    "overload_index": 0,
+    "variant": "union:contents=Blob",
+    "file": "Sources/Methods/Synth_WEB_GET_BODY_PART.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-GET-BODY-PART",
+    "overload_index": 0,
+    "variant": "union:contents=Text",
+    "file": "Sources/Methods/Synth_WEB_GET_BODY_PART.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WEB-GET-HTTP-BODY",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WEB_GET_HTTP_BODY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-GET-HTTP-BODY",
+    "overload_index": 0,
+    "variant": "union:body=Blob",
+    "file": "Sources/Methods/Synth_WEB_GET_HTTP_BODY.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-GET-HTTP-BODY",
+    "overload_index": 0,
+    "variant": "union:body=Text",
     "file": "Sources/Methods/Synth_WEB_GET_HTTP_BODY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -16521,6 +20553,30 @@
     "id": "WEB-GET-OPTION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WEB_GET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-GET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Integer",
+    "file": "Sources/Methods/Synth_WEB_GET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-GET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Text",
+    "file": "Sources/Methods/Synth_WEB_GET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-GET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Collection",
     "file": "Sources/Methods/Synth_WEB_GET_OPTION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -16713,6 +20769,22 @@
     "id": "WEB-SERVICE-SET-OPTION",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WEB_SERVICE_SET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-SERVICE-SET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Integer",
+    "file": "Sources/Methods/Synth_WEB_SERVICE_SET_OPTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WEB-SERVICE-SET-OPTION",
+    "overload_index": 0,
+    "variant": "union:value=Text",
     "file": "Sources/Methods/Synth_WEB_SERVICE_SET_OPTION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -17054,6 +21126,30 @@
     "status": "clean"
   },
   {
+    "id": "WP-Add-picture",
+    "overload_index": 0,
+    "variant": "union:pictureSource=Picture",
+    "file": "Sources/Methods/Synth_WP_Add_picture.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Add-picture",
+    "overload_index": 0,
+    "variant": "union:pictureSource=Text",
+    "file": "Sources/Methods/Synth_WP_Add_picture.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Add-picture",
+    "overload_index": 0,
+    "variant": "union:pictureSource=4D.File",
+    "file": "Sources/Methods/Synth_WP_Add_picture.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WP-Bookmark-range",
     "overload_index": 0,
     "variant": "default",
@@ -17167,8 +21263,40 @@
   },
   {
     "id": "WP-EXPORT-DOCUMENT",
+    "overload_index": 0,
+    "variant": "union:option=Object",
+    "file": "Sources/Methods/Synth_WP_EXPORT_DOCUMENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-EXPORT-DOCUMENT",
+    "overload_index": 0,
+    "variant": "union:option=Integer",
+    "file": "Sources/Methods/Synth_WP_EXPORT_DOCUMENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-EXPORT-DOCUMENT",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WP_EXPORT_DOCUMENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-EXPORT-DOCUMENT",
+    "overload_index": 1,
+    "variant": "union:option=Object",
+    "file": "Sources/Methods/Synth_WP_EXPORT_DOCUMENT.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-EXPORT-DOCUMENT",
+    "overload_index": 1,
+    "variant": "union:option=Integer",
     "file": "Sources/Methods/Synth_WP_EXPORT_DOCUMENT.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -17177,6 +21305,38 @@
     "id": "WP-EXPORT-VARIABLE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WP_EXPORT_VARIABLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-EXPORT-VARIABLE",
+    "overload_index": 0,
+    "variant": "union:destination=Text",
+    "file": "Sources/Methods/Synth_WP_EXPORT_VARIABLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-EXPORT-VARIABLE",
+    "overload_index": 0,
+    "variant": "union:destination=Blob",
+    "file": "Sources/Methods/Synth_WP_EXPORT_VARIABLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-EXPORT-VARIABLE",
+    "overload_index": 0,
+    "variant": "union:option=Object",
+    "file": "Sources/Methods/Synth_WP_EXPORT_VARIABLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-EXPORT-VARIABLE",
+    "overload_index": 0,
+    "variant": "union:option=Integer",
     "file": "Sources/Methods/Synth_WP_EXPORT_VARIABLE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -17313,6 +21473,22 @@
     "id": "WP-Get-frame",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WP_Get_frame.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Get-frame",
+    "overload_index": 1,
+    "variant": "union:wpArea=Variable",
+    "file": "Sources/Methods/Synth_WP_Get_frame.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Get-frame",
+    "overload_index": 1,
+    "variant": "union:wpArea=Field",
     "file": "Sources/Methods/Synth_WP_Get_frame.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -17455,8 +21631,40 @@
   },
   {
     "id": "WP-Import-document",
+    "overload_index": 0,
+    "variant": "union:option=Integer",
+    "file": "Sources/Methods/Synth_WP_Import_document.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Import-document",
+    "overload_index": 0,
+    "variant": "union:option=Object",
+    "file": "Sources/Methods/Synth_WP_Import_document.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Import-document",
     "overload_index": 1,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WP_Import_document.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Import-document",
+    "overload_index": 1,
+    "variant": "union:option=Integer",
+    "file": "Sources/Methods/Synth_WP_Import_document.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Import-document",
+    "overload_index": 1,
+    "variant": "union:option=Object",
     "file": "Sources/Methods/Synth_WP_Import_document.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -17502,6 +21710,22 @@
     "status": "clean"
   },
   {
+    "id": "WP-Insert-picture",
+    "overload_index": 1,
+    "variant": "union:pictureFile=4D.File",
+    "file": "Sources/Methods/Synth_WP_Insert_picture.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-Insert-picture",
+    "overload_index": 1,
+    "variant": "union:pictureFile=Text",
+    "file": "Sources/Methods/Synth_WP_Insert_picture.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "WP-Insert-table",
     "overload_index": 0,
     "variant": "default",
@@ -17529,6 +21753,30 @@
     "id": "WP-New",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_WP_New.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-New",
+    "overload_index": 0,
+    "variant": "union:source=Text",
+    "file": "Sources/Methods/Synth_WP_New.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-New",
+    "overload_index": 0,
+    "variant": "union:source=Blob",
+    "file": "Sources/Methods/Synth_WP_New.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WP-New",
+    "overload_index": 0,
+    "variant": "union:source=Object",
     "file": "Sources/Methods/Synth_WP_New.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -17974,6 +22222,22 @@
     "status": "clean"
   },
   {
+    "id": "XML-DECODE",
+    "overload_index": 0,
+    "variant": "union:4Dvar=Field",
+    "file": "Sources/Methods/Synth_XML_DECODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "XML-DECODE",
+    "overload_index": 0,
+    "variant": "union:4Dvar=Variable",
+    "file": "Sources/Methods/Synth_XML_DECODE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "XML-GET-ERROR",
     "overload_index": 0,
     "variant": "default",
@@ -17990,9 +22254,41 @@
     "status": "clean"
   },
   {
+    "id": "XML-GET-OPTIONS",
+    "overload_index": 0,
+    "variant": "union:ref=Text",
+    "file": "Sources/Methods/Synth_XML_GET_OPTIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "XML-GET-OPTIONS",
+    "overload_index": 0,
+    "variant": "union:ref=Time",
+    "file": "Sources/Methods/Synth_XML_GET_OPTIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "XML-SET-OPTIONS",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_XML_SET_OPTIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "XML-SET-OPTIONS",
+    "overload_index": 0,
+    "variant": "union:ref=Text",
+    "file": "Sources/Methods/Synth_XML_SET_OPTIONS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "XML-SET-OPTIONS",
+    "overload_index": 0,
+    "variant": "union:ref=Time",
     "file": "Sources/Methods/Synth_XML_SET_OPTIONS.4dm",
     "diagnostics": [],
     "status": "clean"
