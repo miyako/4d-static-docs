@@ -39,8 +39,8 @@
             "name": "Text"
           },
           "direction": "out",
-          "optional": false,
-          "description": "Name of the HTTP input field (variable name)."
+          "optional": true,
+          "description": "Name of the HTTP input field (variable name); only present when the part was submitted as <input type=\"file\"> (paired with mimeType). See _needsReview: doc prose alternately suggests this holds the original file's name instead."
         },
         {
           "name": "mimeType",
@@ -50,7 +50,7 @@
           },
           "direction": "out",
           "optional": true,
-          "description": "Mime type of the submitted file, if any; only present when the part was submitted as a file."
+          "description": "Mime type of the submitted file, if any; only present when the part was submitted as a file (paired with name)."
         },
         {
           "name": "fileName",
@@ -68,7 +68,7 @@
         {
           "params": [
             "mimeType",
-            "fileName"
+            "name"
           ],
           "rule": "Optional together: when the part is a submitted file both are received; otherwise both are absent."
         }
@@ -77,9 +77,10 @@
   ],
   "constraints": [
     "Use WEB Get body part count first to learn how many parts are available to parse.",
-    "For file parts, contents must be captured into a Blob; for plain Text form fields submitted in a multi-part request, contents can be captured into Text."
+    "For file parts, contents must be captured into a Blob; for plain Text form fields submitted in a multi-part request, contents can be captured into Text.",
+    "mimeType and name are optional but must be passed together: both are received only when the part was submitted as <input type=\"file\">; otherwise both are absent."
   ],
   "_needsReview": [
-    "Description text says '\"mimeType and name are optional but must be passed together\"', but the signature's actual trailing params are name (input-field name) then mimeType then fileName -- 'name' here plausibly means fileName (the doc reuses 'name' loosely for both the input-field name and the original file name). Modeled the joint-optionality as mimeType+fileName (the more literal reading of 'name of the original file'); could instead be mimeType+name if the doc meant the input-field name param. Please verify against the live doc page."
+    "Confirmed via the live doc page's rendered HTML that mimeType is paired with name (not fileName) in the 'optional but must be passed together' rule. However the page's own two descriptions of `name` conflict: its parameter tooltip reads 'Name of \"input\" variable' (i.e. the HTML form field's name attribute), while the surrounding prose sentence reads '...receive the Mime type and the name of the original file' (i.e. same content as fileName). Left name's description following the tooltip/parameter-table gloss (input field name) since that is the more specific, parameter-table-sourced text, but this may actually mean the original file's name -- please verify against a live WEB GET BODY PART example/response."
   ]
 }
