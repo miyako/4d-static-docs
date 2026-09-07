@@ -1,0 +1,108 @@
+{
+  "id": "EXECUTE-METHOD",
+  "displayName": "EXECUTE METHOD",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The EXECUTE METHOD command executes the methodName project method while passing any parameters in param1...paramN ."
+    },
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "result",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "Expression"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The EXECUTE METHOD command executes the methodName project method while passing any parameters in param1...paramN ."
+    },
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "Expression"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The EXECUTE METHOD command executes the methodName project method while passing any parameters in param1...paramN ."
+    }
+  ]
+}

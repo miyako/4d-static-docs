@@ -1,0 +1,48 @@
+{
+  "id": "IMPORT-DATA",
+  "displayName": "IMPORT DATA",
+  "kind": "classic_command",
+  "theme": "Import and Export",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fileName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "project",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The IMPORT DATA command imports the data located in the fileName file."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "SET-TIMEOUT",
+  "displayName": "SET TIMEOUT",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "seconds",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SET TIMEOUT specifies how much time a serial port command has to complete."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "Super",
+  "displayName": "Super",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ]
+    },
+    {
+      "params": []
+    }
+  ]
+}

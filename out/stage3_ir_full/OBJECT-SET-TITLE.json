@@ -1,0 +1,71 @@
+{
+  "id": "OBJECT-SET-TITLE",
+  "displayName": "OBJECT SET TITLE",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "title",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OBJECT SET TITLE command changes the title of the object(s) specified by object to the value you pass in title ."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "title",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OBJECT SET TITLE command changes the title of the object(s) specified by object to the value you pass in title ."
+    }
+  ]
+}

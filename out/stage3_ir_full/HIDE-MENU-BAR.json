@@ -1,0 +1,12 @@
+{
+  "id": "HIDE-MENU-BAR",
+  "displayName": "HIDE MENU BAR",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The HIDE MENU BAR command makes the menu bar invisible."
+    }
+  ]
+}

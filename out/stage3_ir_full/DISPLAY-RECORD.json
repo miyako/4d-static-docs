@@ -1,0 +1,22 @@
+{
+  "id": "DISPLAY-RECORD",
+  "displayName": "DISPLAY RECORD",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The DISPLAY RECORD command displays the current record of aTable , using the current input form."
+    }
+  ]
+}

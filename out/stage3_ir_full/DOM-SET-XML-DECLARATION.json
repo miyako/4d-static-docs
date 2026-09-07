@@ -1,0 +1,49 @@
+{
+  "id": "DOM-SET-XML-DECLARATION",
+  "displayName": "DOM SET XML DECLARATION",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "encoding",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "standalone",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "indentation",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The DOM SET XML DECLARATION command allows you to define various options that are useful in creating the XML tree set using elementRef ."
+    }
+  ]
+}

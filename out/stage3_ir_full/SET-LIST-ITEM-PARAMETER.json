@@ -1,0 +1,133 @@
+{
+  "id": "SET-LIST-ITEM-PARAMETER",
+  "displayName": "SET LIST ITEM PARAMETER",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET LIST ITEM PARAMETER command modifies the selector parameter for the itemRef item of the hierarchical list whose reference or object name is passed in the list parameter."
+    },
+    {
+      "params": [
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET LIST ITEM PARAMETER command modifies the selector parameter for the itemRef item of the hierarchical list whose reference or object name is passed in the list parameter."
+    }
+  ]
+}

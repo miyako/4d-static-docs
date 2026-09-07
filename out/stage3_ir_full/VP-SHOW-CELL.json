@@ -1,0 +1,40 @@
+{
+  "id": "VP-SHOW-CELL",
+  "displayName": "VP SHOW CELL",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "vPos",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "hPos",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP SHOW CELL command vertically and horizontally repositions the view of the rangeObj ."
+    }
+  ]
+}

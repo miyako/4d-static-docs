@@ -1,0 +1,89 @@
+{
+  "id": "WP-SET-FRAME",
+  "displayName": "WP SET FRAME",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "wpArea",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "frameSelector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "textBoxID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WP SET FRAME command sets the cursor into the frame designated by frameSelector and optionally, textBoxID , in the 4D Write Pro wpArea area."
+    },
+    {
+      "params": [
+        {
+          "name": "wpArea",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "frameSelector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "textBoxID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WP SET FRAME command sets the cursor into the frame designated by frameSelector and optionally, textBoxID , in the 4D Write Pro wpArea area."
+    }
+  ]
+}

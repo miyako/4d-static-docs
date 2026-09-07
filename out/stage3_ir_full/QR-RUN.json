@@ -1,0 +1,22 @@
+{
+  "id": "QR-RUN",
+  "displayName": "QR RUN",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR RUN command executes the report area whose reference was passed as parameter with the Quick Report current settings, including the output type."
+    }
+  ]
+}

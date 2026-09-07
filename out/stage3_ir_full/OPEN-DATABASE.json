@@ -1,0 +1,21 @@
+{
+  "id": "OPEN-DATABASE",
+  "displayName": "OPEN DATABASE",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "filePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

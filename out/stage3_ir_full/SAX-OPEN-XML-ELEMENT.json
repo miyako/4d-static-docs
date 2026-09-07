@@ -1,0 +1,59 @@
+{
+  "id": "SAX-OPEN-XML-ELEMENT",
+  "displayName": "SAX OPEN XML ELEMENT",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tag",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attribValue",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The SAX OPEN XML ELEMENT command adds a new element in the XML document referenced by document as well as, optionally, attributes and their values."
+    }
+  ]
+}

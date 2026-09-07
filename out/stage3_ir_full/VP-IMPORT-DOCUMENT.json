@@ -1,0 +1,40 @@
+{
+  "id": "VP-IMPORT-DOCUMENT",
+  "displayName": "VP IMPORT DOCUMENT",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "filePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "paramObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP IMPORT DOCUMENT command imports and displays the document designated by filePath in the 4D View Pro area vpAreaName ."
+    }
+  ]
+}

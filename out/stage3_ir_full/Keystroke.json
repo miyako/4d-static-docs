@@ -1,0 +1,12 @@
+{
+  "id": "Keystroke",
+  "displayName": "Keystroke",
+  "kind": "classic_command",
+  "theme": "Entry Control",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Keystroke returns the character entered by the user into a field or an enterable area."
+    }
+  ]
+}

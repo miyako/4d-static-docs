@@ -1,0 +1,102 @@
+{
+  "id": "WP-EXPORT-DOCUMENT",
+  "displayName": "WP EXPORT DOCUMENT",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "filePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "format",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "option",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WP EXPORT DOCUMENT command exports the wpDoc 4D Write Pro object to a document on disk according to the filePath or fileObj parameter as well as any optional parameters."
+    },
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fileObj",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "format",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "option",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WP EXPORT DOCUMENT command exports the wpDoc 4D Write Pro object to a document on disk according to the filePath or fileObj parameter as well as any optional parameters."
+    }
+  ]
+}

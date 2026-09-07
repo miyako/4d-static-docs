@@ -1,0 +1,22 @@
+{
+  "id": "REGENERATE-MISSING-TABLE",
+  "displayName": "REGENERATE MISSING TABLE",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The REGENERATE MISSING TABLE command rebuilds the missing table whose name is passed in the tableName parameter."
+    }
+  ]
+}

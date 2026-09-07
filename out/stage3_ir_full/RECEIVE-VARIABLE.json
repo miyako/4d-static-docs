@@ -1,0 +1,22 @@
+{
+  "id": "RECEIVE-VARIABLE",
+  "displayName": "RECEIVE VARIABLE",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "variable",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "RECEIVE VARIABLE receives variable , which was previously sent by SEND VARIABLE from the document or serial port previously opened by SET CHANNEL ."
+    }
+  ]
+}

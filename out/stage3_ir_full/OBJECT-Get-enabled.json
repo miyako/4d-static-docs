@@ -1,0 +1,61 @@
+{
+  "id": "OBJECT-Get-enabled",
+  "displayName": "OBJECT Get enabled",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The OBJECT Get enabled command returns True if the object or group of objects designated by object is enabled in the form and False if it is not enabled."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The OBJECT Get enabled command returns True if the object or group of objects designated by object is enabled in the form and False if it is not enabled."
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "QUERY-SELECTION-BY-ATTRIBUTE",
+  "displayName": "QUERY SELECTION BY ATTRIBUTE",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "conjOp",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "&",
+              "|",
+              "#"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "objectField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "queryOp",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                ">"
+              ]
+            },
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                "<"
+              ]
+            },
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                ">="
+              ]
+            },
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                "<="
+              ]
+            },
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                "#"
+              ]
+            },
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                "="
+              ]
+            },
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                "|"
+              ]
+            },
+            {
+              "kind": "literal_symbols",
+              "symbols": [
+                "%"
+              ]
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            },
+            {
+              "kind": "concrete",
+              "name": "Date"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "QUERY SELECTION BY ATTRIBUTE works and performs the same actions as QUERY BY ATTRIBUTE ."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "WEB-GET-BODY-PART",
+  "displayName": "WEB GET BODY PART",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "part",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "contents",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fileName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB GET BODY PART command, when called in the context of a Web process, parses the \"body\" part of a multi-part request."
+    }
+  ]
+}

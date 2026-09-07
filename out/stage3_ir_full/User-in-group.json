@@ -1,0 +1,35 @@
+{
+  "id": "User-in-group",
+  "displayName": "User in group",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "user",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "User in group returns TRUE if user is in group ."
+    }
+  ]
+}

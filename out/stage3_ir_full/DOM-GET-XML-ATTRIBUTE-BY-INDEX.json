@@ -1,0 +1,49 @@
+{
+  "id": "DOM-GET-XML-ATTRIBUTE-BY-INDEX",
+  "displayName": "DOM GET XML ATTRIBUTE BY INDEX",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribIndex",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribName",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DOM GET XML ATTRIBUTE BY INDEX command gets the name of an attribute specified by its index number as well as its value."
+    }
+  ]
+}

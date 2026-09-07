@@ -1,0 +1,35 @@
+{
+  "id": "Get-text-resource",
+  "displayName": "Get text resource",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get text resource command returns the text stored in the text (\u201cTEXT\u201d) resource whose ID is passed in resID ."
+    }
+  ]
+}

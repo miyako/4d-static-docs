@@ -1,0 +1,35 @@
+{
+  "id": "ZIP-Read-archive",
+  "displayName": "ZIP Read archive",
+  "kind": "classic_command",
+  "theme": "File and Folder",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "zipFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "password",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.ZipArchive"
+      },
+      "semanticRole": "The ZIP Read archive command retrieves the contents of zipFile and returns it as a 4D.ZipArchive object."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "GOTO-OBJECT",
+  "displayName": "GOTO OBJECT",
+  "kind": "classic_command",
+  "theme": "Entry Control",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GOTO OBJECT command is used to select the data entry object object as the active area of the form."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GOTO OBJECT command is used to select the data entry object object as the active area of the form."
+    }
+  ]
+}

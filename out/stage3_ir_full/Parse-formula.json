@@ -1,0 +1,44 @@
+{
+  "id": "Parse-formula",
+  "displayName": "Parse formula",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "errorMessage",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Parse formula function analyzes the 4D formula , checks its syntax, and returns its normalized form."
+    }
+  ]
+}

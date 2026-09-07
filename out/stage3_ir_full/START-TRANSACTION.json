@@ -1,0 +1,12 @@
+{
+  "id": "START-TRANSACTION",
+  "displayName": "START TRANSACTION",
+  "kind": "classic_command",
+  "theme": "Transactions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "START TRANSACTION starts a transaction in the current process."
+    }
+  ]
+}

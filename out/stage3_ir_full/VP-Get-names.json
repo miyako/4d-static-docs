@@ -1,0 +1,35 @@
+{
+  "id": "VP-Get-names",
+  "displayName": "VP Get names",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "scope",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The VP Get names command returns a collection of all defined \"names\" in the current sheet or in the scope designated by the scope parameter."
+    }
+  ]
+}

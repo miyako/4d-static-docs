@@ -1,0 +1,61 @@
+{
+  "id": "CALL-FORM",
+  "displayName": "CALL FORM",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formula",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "Expression"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Posts a formula (with optional parameters) to a window's message box so it executes in the context of the form displayed in that window, regardless of the calling process."
+    }
+  ],
+  "constraints": [
+    "Arrays cannot be passed as parameters to formula.",
+    "formula's parameters arrive as named parameters (if formula is a function/project method) or sequentially in $1, $2, ...",
+    "Executes regardless of which process owns window, allowing a preemptive process to exchange information with a form's (cooperative) process via its message box."
+  ]
+}

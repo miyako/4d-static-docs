@@ -1,0 +1,46 @@
+{
+  "id": "QR-GET-DESTINATION",
+  "displayName": "QR GET DESTINATION",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "specifics",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The QR GET DESTINATION command retrieves the output type of the report for the area whose reference was passed in area ."
+    }
+  ]
+}

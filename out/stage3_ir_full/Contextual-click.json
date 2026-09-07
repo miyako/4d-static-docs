@@ -1,0 +1,15 @@
+{
+  "id": "Contextual-click",
+  "displayName": "Contextual click",
+  "kind": "classic_command",
+  "theme": "Form-Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns True if the current mouse event was a contextual (right-button, or Control+click on Mac OS) click."
+    }
+  ],
+  "constraints": [
+    "Should only be used in the context of the On Clicked form event."
+  ]
+}

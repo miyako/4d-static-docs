@@ -1,0 +1,26 @@
+{
+  "id": "Records-in-selection",
+  "displayName": "Records in selection",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Records in selection returns the number of records in the current selection of aTable ."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "GET-STYLE-SHEET-INFO",
+  "displayName": "GET STYLE SHEET INFO",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "styleSheetName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "font",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "styles",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET STYLE SHEET INFO command returns the current configuration of the style sheet designated in the styleSheetName parameter."
+    }
+  ]
+}

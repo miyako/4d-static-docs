@@ -1,0 +1,22 @@
+{
+  "id": "WP-DELETE-HEADER",
+  "displayName": "WP DELETE HEADER",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpSection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP DELETE HEADER command deletes the header element associated to the section or subsection defined by the wpSection parameter."
+    }
+  ]
+}

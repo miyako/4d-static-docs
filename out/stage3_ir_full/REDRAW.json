@@ -1,0 +1,42 @@
+{
+  "id": "REDRAW",
+  "displayName": "REDRAW",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "When you use a method to change the value of a field displayed in a subform, you must execute REDRAW to ensure that the form is updated."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "When you use a method to change the value of a field displayed in a subform, you must execute REDRAW to ensure that the form is updated."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "INVOKE-ACTION",
+  "displayName": "INVOKE ACTION",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "action",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "target",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The INVOKE ACTION command triggers the standard action defined by the action parameter, optionally in the target context."
+    }
+  ]
+}

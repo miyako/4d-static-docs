@@ -1,0 +1,15 @@
+{
+  "id": "BEEP",
+  "displayName": "BEEP",
+  "kind": "classic_command",
+  "theme": "User-Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Makes the computer emit a beep (or the system's configured alert sound)."
+    }
+  ],
+  "constraints": [
+    "Do not call from within a Web connection process -- the beep is produced on the 4D Web server machine, not the client browser machine."
+  ]
+}

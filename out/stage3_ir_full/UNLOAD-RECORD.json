@@ -1,0 +1,22 @@
+{
+  "id": "UNLOAD-RECORD",
+  "displayName": "UNLOAD RECORD",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "UNLOAD RECORD unloads the current record of table ."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Menu-bar-height",
+  "displayName": "Menu bar height",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Menu bar height returns the height of the menu bar, expressed in pixels."
+    }
+  ]
+}

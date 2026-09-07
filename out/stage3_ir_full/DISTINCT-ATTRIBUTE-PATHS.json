@@ -1,0 +1,31 @@
+{
+  "id": "DISTINCT-ATTRIBUTE-PATHS",
+  "displayName": "DISTINCT ATTRIBUTE PATHS",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pathArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DISTINCT ATTRIBUTE PATHS command returns the list of distinct paths found in the indexed object field you passed in objectField for the current selection of the table to which this field belongs."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "Trim",
+  "displayName": "Trim",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Trim command removes whitespace from both ends of the aString parameter and returns a new string, without modifying the original one."
+    }
+  ]
+}

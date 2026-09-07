@@ -1,0 +1,41 @@
+{
+  "id": "WEB-GET-OPTION",
+  "displayName": "WEB GET OPTION",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Collection"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB GET OPTION command gets the current value of an option for the 4D Web server operation."
+    }
+  ]
+}

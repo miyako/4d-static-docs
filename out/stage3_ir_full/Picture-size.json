@@ -1,0 +1,26 @@
+{
+  "id": "Picture-size",
+  "displayName": "Picture size",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Picture size returns the size of picture in bytes."
+    }
+  ]
+}

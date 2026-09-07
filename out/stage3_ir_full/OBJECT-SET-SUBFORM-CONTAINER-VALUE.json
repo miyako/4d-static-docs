@@ -1,0 +1,22 @@
+{
+  "id": "OBJECT-SET-SUBFORM-CONTAINER-VALUE",
+  "displayName": "OBJECT SET SUBFORM CONTAINER VALUE",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OBJECT SET SUBFORM CONTAINER VALUE command sets the current value of the data source bound with the subform container displayed in the parent form."
+    }
+  ]
+}

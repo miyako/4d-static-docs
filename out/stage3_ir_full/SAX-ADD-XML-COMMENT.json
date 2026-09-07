@@ -1,0 +1,31 @@
+{
+  "id": "SAX-ADD-XML-COMMENT",
+  "displayName": "SAX ADD XML COMMENT",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "comment",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SAX ADD XML COMMENT command adds a comment in the XML document referenced by document ."
+    }
+  ]
+}

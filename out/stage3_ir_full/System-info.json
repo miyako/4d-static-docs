@@ -1,0 +1,12 @@
+{
+  "id": "System-info",
+  "displayName": "System info",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The System info command returns an object containg information about the operating system and the characteristics of the system hardware and software from the machine it's executed on."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "collection is passed in as an existing (possibly already-populated) Collection and mutated in place -- existing elements are replaced and new ones appended as needed -- so direction is 'inout', not the syntax-position default of 'in'. Also documents that propertyName is mandatory once the collection holds objects.",
+      "params": [
+        {
+          "name": "collection",
+          "type": { "kind": "concrete", "name": "Collection" },
+          "direction": "inout",
+          "optional": false,
+          "description": "Collection to fill; existing elements are replaced and new ones appended if the source array(s) are longer."
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "array",
+              "type": { "kind": "concrete", "name": "Array" },
+              "direction": "in",
+              "optional": false,
+              "description": "Array whose elements are copied into collection (or into propertyName's values, if passed)."
+            },
+            {
+              "name": "propertyName",
+              "type": { "kind": "concrete", "name": "Text" },
+              "direction": "in",
+              "optional": true,
+              "description": "Object property name to fill with this array's values; if any propertyName is passed for one (array;propertyName) pair, it becomes mandatory for all of them, since collection is then built as an array of objects rather than of plain values."
+            }
+          ],
+          "cardinality": { "min": 1, "max": null },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Copies one or more arrays' elements into collection, either as plain collection elements or, when propertyName(s) are given, as a named property of each element object."
+    }
+  ]
+}

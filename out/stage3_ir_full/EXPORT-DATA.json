@@ -1,0 +1,48 @@
+{
+  "id": "EXPORT-DATA",
+  "displayName": "EXPORT DATA",
+  "kind": "classic_command",
+  "theme": "Import and Export",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fileName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "project",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The EXPORT DATA command exports data in the fileName file.4D can export data in the following formats: Text, Fixed length text, XML, SYLK, DIF, DBF (dBase), and 4D."
+    }
+  ]
+}

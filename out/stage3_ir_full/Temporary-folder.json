@@ -1,0 +1,12 @@
+{
+  "id": "Temporary-folder",
+  "displayName": "Temporary folder",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Temporary folder command returns the pathname to the current temporary folder set by your system."
+    }
+  ]
+}

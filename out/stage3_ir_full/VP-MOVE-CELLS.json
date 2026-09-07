@@ -1,0 +1,40 @@
+{
+  "id": "VP-MOVE-CELLS",
+  "displayName": "VP MOVE CELLS",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "originRange",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "targetRange",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP MOVE CELLS command moves or copies the values, style and formulas from originRange to targetRange ."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "Select-RGB-color",
+  "displayName": "Select RGB color",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "defaultColor",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Select RGB color command displays the system color selection window and returns the RGB value of the color selected by the user."
+    }
+  ]
+}

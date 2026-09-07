@@ -1,0 +1,16 @@
+{
+  "id": "CANCEL",
+  "displayName": "CANCEL",
+  "kind": "classic_command",
+  "theme": "Data Entry",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Cancels the current interactive context (data entry started by ADD RECORD/MODIFY RECORD, a DIALOG-displayed form, a DISPLAY SELECTION/MODIFY SELECTION, or an in-progress form print), acting like the user pressing Escape."
+    }
+  ],
+  "constraints": [
+    "Cannot be queued; two CANCEL calls in a row from one method have the same effect as one.",
+    "In the On Printing Detail form event during Print form execution, CANCEL suspends printing of the current form and resumes it on the next page, rather than cancelling data entry."
+  ]
+}

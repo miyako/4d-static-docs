@@ -1,0 +1,40 @@
+{
+  "id": "QR-GET-SORTS",
+  "displayName": "QR GET SORTS",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "aColumns",
+          "type": {
+            "kind": "concrete",
+            "name": "Real array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "aOrders",
+          "type": {
+            "kind": "concrete",
+            "name": "Real array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR GET SORTS command populates two arrays: aColumns This array includes all the columns that have a sort order."
+    }
+  ]
+}

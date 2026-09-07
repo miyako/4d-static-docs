@@ -1,0 +1,51 @@
+{
+  "id": "HTTP-AUTHENTICATE",
+  "displayName": "HTTP AUTHENTICATE",
+  "kind": "classic_command",
+  "theme": "HTTP",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "password",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "authMethod",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The HTTP AUTHENTICATE command enables HTTP requests to servers requiring authentication of the client application."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Is-waiting-mouse-up",
+  "displayName": "Is waiting mouse up",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Is waiting mouse up command returns True if the current object has been clicked and the mouse button has not been released, while the parent window has the focus."
+    }
+  ]
+}

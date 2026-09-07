@@ -1,0 +1,40 @@
+{
+  "id": "STRING-LIST-TO-ARRAY",
+  "displayName": "STRING LIST TO ARRAY",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "strings",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The STRING LIST TO ARRAY command populates the array strings with: Either the strings stored in the string list (\"STR#\") resource whose ID is passed in resID ."
+    }
+  ]
+}

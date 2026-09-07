@@ -1,0 +1,38 @@
+{
+  "id": "FLUSH-CACHE",
+  "displayName": "FLUSH CACHE",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The FLUSH CACHE command immediately saves the data buffers to disk."
+    },
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The FLUSH CACHE command immediately saves the data buffers to disk."
+    }
+  ]
+}

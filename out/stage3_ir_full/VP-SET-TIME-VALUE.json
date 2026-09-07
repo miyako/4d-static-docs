@@ -1,0 +1,40 @@
+{
+  "id": "VP-SET-TIME-VALUE",
+  "displayName": "VP SET TIME VALUE",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "timeValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formatPattern",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP SET TIME VALUE command assigns a specified time value to a designated cell range."
+    }
+  ]
+}

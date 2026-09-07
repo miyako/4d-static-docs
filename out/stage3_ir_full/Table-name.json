@@ -1,0 +1,44 @@
+{
+  "id": "Table-name",
+  "displayName": "Table name",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Table name command returns the name of the table whose number or pointer you pass in tableNum or tablePtr ."
+    },
+    {
+      "params": [
+        {
+          "name": "tablePtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Table name command returns the name of the table whose number or pointer you pass in tableNum or tablePtr ."
+    }
+  ]
+}

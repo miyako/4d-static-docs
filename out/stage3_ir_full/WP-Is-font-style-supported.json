@@ -1,0 +1,35 @@
+{
+  "id": "WP-Is-font-style-supported",
+  "displayName": "WP Is font style supported",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "wpFontStyle",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The WP Is font style supported command returns True if the wpFontStyle style is supported by any part of the text in rangeObj ."
+    }
+  ]
+}

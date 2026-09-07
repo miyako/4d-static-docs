@@ -1,0 +1,26 @@
+{
+  "id": "Get-subrecord-key",
+  "displayName": "Get subrecord key",
+  "kind": "classic_command",
+  "theme": "Subrecords",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "idField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Get subrecord key command facilitates the migration of 4D code using converted subtables to standard code for working with tables.Beginning with version 11 of 4D, subtables are not supported."
+    }
+  ]
+}

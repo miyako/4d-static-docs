@@ -1,0 +1,22 @@
+{
+  "id": "VP-DELETE-ROWS",
+  "displayName": "VP DELETE ROWS",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP DELETE ROWS command removes the rows in the rangeObj ."
+    }
+  ]
+}

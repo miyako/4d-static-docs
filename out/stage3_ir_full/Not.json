@@ -1,0 +1,26 @@
+{
+  "id": "Not",
+  "displayName": "Not",
+  "kind": "classic_command",
+  "theme": "Boolean",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "boolean",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Not function returns the negation of boolean , changing True to False or False to True."
+    }
+  ]
+}

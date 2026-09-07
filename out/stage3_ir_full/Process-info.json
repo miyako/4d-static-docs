@@ -1,0 +1,26 @@
+{
+  "id": "Process-info",
+  "displayName": "Process info",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "processNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Process info command returns an object providing detailed information about process whose number you pass in processNumber ."
+    }
+  ]
+}

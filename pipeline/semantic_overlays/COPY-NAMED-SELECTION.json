@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "The default table for the current process is used when aTable is omitted.",
+    "The source table's current selection and current record are left unchanged (only a copy is stored under name).",
+    "Use CLEAR NAMED SELECTION to free the memory used by name once no longer needed; memory cost is ~4 bytes per selected record."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Copies the current selection of a table into a new (or replaced) named selection, leaving the table's current selection and current record unchanged."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "DOM-SET-XML-ELEMENT-NAME",
+  "displayName": "DOM SET XML ELEMENT NAME",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "elementName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DOM SET XML ELEMENT NAME command modifies the name of the element set by elementRef ."
+    }
+  ]
+}

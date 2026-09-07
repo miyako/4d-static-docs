@@ -1,0 +1,26 @@
+{
+  "id": "Modified",
+  "displayName": "Modified",
+  "kind": "classic_command",
+  "theme": "Data Entry",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Modified returns True if field has been programmatically assigned a value or has been edited during data entry."
+    }
+  ]
+}

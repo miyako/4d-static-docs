@@ -1,0 +1,53 @@
+{
+  "id": "WA-STOP-LOADING-URL",
+  "displayName": "WA STOP LOADING URL",
+  "kind": "classic_command",
+  "theme": "Web Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WA STOP LOADING URL command stops loading the resources of the current URL of the Web area designated by the * and object parameters."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WA STOP LOADING URL command stops loading the resources of the current URL of the Web area designated by the * and object parameters."
+    }
+  ]
+}

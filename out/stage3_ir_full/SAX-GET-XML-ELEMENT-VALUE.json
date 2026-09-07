@@ -1,0 +1,37 @@
+{
+  "id": "SAX-GET-XML-ELEMENT-VALUE",
+  "displayName": "SAX GET XML ELEMENT VALUE",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SAX GET XML ELEMENT VALUE command allows you to get the value of an XML element that exists in the XML document referenced in the document parameter."
+    }
+  ]
+}

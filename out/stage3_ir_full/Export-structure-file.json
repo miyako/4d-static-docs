@@ -1,0 +1,35 @@
+{
+  "id": "Export-structure-file",
+  "displayName": "Export structure file",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "folderPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Export structure file command breaks down the current 4D database structure into a set of text-based files or native picture files and stores them in the specified folderPath ."
+    }
+  ]
+}

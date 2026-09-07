@@ -1,0 +1,37 @@
+{
+  "id": "DOM-EXPORT-TO-VAR",
+  "displayName": "DOM EXPORT TO VAR",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "vXmlVar",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DOM EXPORT TO VAR command saves an XML tree in a text or BLOB variable."
+    }
+  ]
+}

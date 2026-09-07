@@ -1,0 +1,53 @@
+{
+  "id": "SORT-ARRAY",
+  "displayName": "SORT ARRAY",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "array",
+              "type": {
+                "kind": "concrete",
+                "name": "Array"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "embedded"
+        },
+        {
+          "name": "order",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              ">",
+              "<"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SORT ARRAY command sorts one or more arrays into ascending or descending order."
+    }
+  ]
+}

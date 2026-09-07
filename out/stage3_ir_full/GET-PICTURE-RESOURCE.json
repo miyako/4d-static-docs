@@ -1,0 +1,46 @@
+{
+  "id": "GET-PICTURE-RESOURCE",
+  "displayName": "GET PICTURE RESOURCE",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resData",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The GET PICTURE RESOURCE command returns in the picture field or variable resData the picture stored in the picture (\u201cPICT\u201d) resource whose ID is passed in resID ."
+    }
+  ]
+}

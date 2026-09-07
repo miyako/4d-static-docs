@@ -1,0 +1,41 @@
+{
+  "id": "DELETE-FROM-ARRAY",
+  "displayName": "DELETE FROM ARRAY",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "Array to shrink; mutated in place."
+        },
+        {
+          "name": "where",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "howMany",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of consecutive elements to delete starting at where; the array shrinks by this amount. If omitted, exactly 1 element is deleted."
+        }
+      ]
+    }
+  ]
+}

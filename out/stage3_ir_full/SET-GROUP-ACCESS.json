@@ -1,0 +1,22 @@
+{
+  "id": "SET-GROUP-ACCESS",
+  "displayName": "SET GROUP ACCESS",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "groups",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET GROUP ACCESS command modifies the memberships of the 4D user account for the current session."
+    }
+  ]
+}

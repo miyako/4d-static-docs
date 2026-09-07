@@ -1,0 +1,22 @@
+{
+  "id": "WP-COMPUTE-FORMULAS",
+  "displayName": "WP COMPUTE FORMULAS",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP COMPUTE FORMULAS command evaluates the formulas in targetObj ."
+    }
+  ]
+}

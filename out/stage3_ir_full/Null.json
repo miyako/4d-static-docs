@@ -1,0 +1,12 @@
+{
+  "id": "Null",
+  "displayName": "Null",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Null returns the Null type value null ."
+    }
+  ]
+}

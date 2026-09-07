@@ -1,0 +1,26 @@
+{
+  "id": "DOM-Get-root-XML-element",
+  "displayName": "DOM Get root XML element",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The DOM Get root XML element command returns a reference to the root element of the document to which the XML element that is passed in the elementRef parameter belongs."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "TRUNCATE-TABLE",
+  "displayName": "TRUNCATE TABLE",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The TRUNCATE TABLE command quickly deletes all the records of aTable ."
+    }
+  ]
+}

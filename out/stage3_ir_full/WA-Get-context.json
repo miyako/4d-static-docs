@@ -1,0 +1,14 @@
+{
+  "id": "WA-Get-context",
+  "displayName": "WA Get context",
+  "kind": "classic_command",
+  "theme": "Web Area",
+  "overloads": [
+    {
+      "params": []
+    },
+    {
+      "params": []
+    }
+  ]
+}

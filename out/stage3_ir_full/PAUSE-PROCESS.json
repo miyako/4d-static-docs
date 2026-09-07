@@ -1,0 +1,22 @@
+{
+  "id": "PAUSE-PROCESS",
+  "displayName": "PAUSE PROCESS",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "PAUSE PROCESS suspends the execution of process until it is reactivated by the RESUME PROCESS command."
+    }
+  ]
+}

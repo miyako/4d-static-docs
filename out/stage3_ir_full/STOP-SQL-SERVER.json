@@ -1,0 +1,12 @@
+{
+  "id": "STOP-SQL-SERVER",
+  "displayName": "STOP SQL SERVER",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The STOP SQL SERVER command stops the integrated SQL server in the 4D application where it has been executed."
+    }
+  ]
+}

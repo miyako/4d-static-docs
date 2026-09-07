@@ -1,0 +1,31 @@
+{
+  "id": "WP-IMPORT-STYLE-SHEETS",
+  "displayName": "WP IMPORT STYLE SHEETS",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sourceDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP IMPORT STYLE SHEETS command imports all of the style sheets from the sourceDoc into the targetDoc ."
+    }
+  ]
+}

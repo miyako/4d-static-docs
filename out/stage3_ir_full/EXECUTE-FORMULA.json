@@ -1,0 +1,22 @@
+{
+  "id": "EXECUTE-FORMULA",
+  "displayName": "EXECUTE FORMULA",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "statement",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "EXECUTE FORMULA executes statement as a line of code."
+    }
+  ]
+}

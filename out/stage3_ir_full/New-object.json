@@ -1,0 +1,45 @@
+{
+  "id": "New-object",
+  "displayName": "New object",
+  "kind": "classic_command",
+  "theme": "Objects (Language)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "property",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The New object command creates a new empty or prefilled object and returns its reference."
+    }
+  ]
+}

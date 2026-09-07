@@ -1,0 +1,49 @@
+{
+  "id": "MEMORY-STATISTICS",
+  "displayName": "MEMORY STATISTICS",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "infoType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrValues",
+          "type": {
+            "kind": "concrete",
+            "name": "Real array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrCount",
+          "type": {
+            "kind": "concrete",
+            "name": "Real array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The MEMORY STATISTICS command recovers information related to the use of the data cache by 4D."
+    }
+  ]
+}

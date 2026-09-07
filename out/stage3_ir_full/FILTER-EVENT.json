@@ -1,0 +1,12 @@
+{
+  "id": "FILTER-EVENT",
+  "displayName": "FILTER EVENT",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "You call the FILTER EVENT command from within an event-handling project method installed using the ON EVENT CALL command."
+    }
+  ]
+}

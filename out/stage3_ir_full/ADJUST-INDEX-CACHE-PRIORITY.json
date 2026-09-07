@@ -1,0 +1,37 @@
+{
+  "id": "ADJUST-INDEX-CACHE-PRIORITY",
+  "displayName": "ADJUST INDEX CACHE PRIORITY",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "priority",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The ADJUST INDEX CACHE PRIORITY command modifies the priority value of the index(es) related to the aField in cache for the current process."
+    }
+  ],
+  "constraints": [
+    "priority must be one of the named 'Cache Management' theme constants (Cache priority low / Cache priority very low / Cache priority normal / Cache priority high / Cache priority very high), not an arbitrary Integer.",
+    "Only works in local mode (4D Server or 4D single-user); cannot be used in 4D remote mode.",
+    "Applies to all indexes on aField, including keyword indexes, but does not change composite-index priority.",
+    "A new call replaces any priority previously set by this command in the same process."
+  ]
+}

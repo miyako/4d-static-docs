@@ -1,0 +1,31 @@
+{
+  "id": "RESOURCE-TYPE-LIST",
+  "displayName": "RESOURCE TYPE LIST",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resTypes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "resFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The RESOURCE TYPE LIST command populates the array resTypes with the resource types of the resources present in the resource files currently open."
+    }
+  ]
+}

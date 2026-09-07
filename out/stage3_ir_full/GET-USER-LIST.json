@@ -1,0 +1,31 @@
+{
+  "id": "GET-USER-LIST",
+  "displayName": "GET USER LIST",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "userNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "userNumbers",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "GET USER LIST populates the arrays userNames and userNumbers with the names and unique ID numbers of the users as they appear in the Passwords window."
+    }
+  ]
+}

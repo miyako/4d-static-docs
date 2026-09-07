@@ -1,0 +1,31 @@
+{
+  "id": "PICTURE-LIBRARY-LIST",
+  "displayName": "PICTURE LIBRARY LIST",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picRefs",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "picNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "warning This command cannot be used in projects because the Picture library is only available in binary databases."
+    }
+  ]
+}

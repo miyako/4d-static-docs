@@ -1,0 +1,31 @@
+{
+  "id": "VP-SET-FORMULAS",
+  "displayName": "VP SET FORMULAS",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formulasCol",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET FORMULAS command assigns a collection of formulas starting at the specified cell range."
+    }
+  ]
+}

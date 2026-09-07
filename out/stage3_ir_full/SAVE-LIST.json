@@ -1,0 +1,31 @@
+{
+  "id": "SAVE-LIST",
+  "displayName": "SAVE LIST",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "listName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SAVE LIST command saves the list whose reference number you pass in list , within the Design environment List Editor, under the name you pass in listName ."
+    }
+  ]
+}

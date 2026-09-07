@@ -1,0 +1,12 @@
+{
+  "id": "HTTP-Get-certificates-folder",
+  "displayName": "HTTP Get certificates folder",
+  "kind": "classic_command",
+  "theme": "HTTP",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The HTTP Get certificates folder command returns the complete pathname of the active client certificates folder."
+    }
+  ]
+}

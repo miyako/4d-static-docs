@@ -1,0 +1,33 @@
+{
+  "id": "WEB-SEND-RAW-DATA",
+  "displayName": "WEB SEND RAW DATA",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WEB SEND RAW DATA command lets the 4D Web server send \u201craw\u201d HTTP data, which can be chunked."
+    }
+  ]
+}

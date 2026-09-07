@@ -1,0 +1,31 @@
+{
+  "id": "SOAP-SEND-FAULT",
+  "displayName": "SOAP SEND FAULT",
+  "kind": "classic_command",
+  "theme": "Web Services (Server)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "faultType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SOAP SEND FAULT command returns an error to a SOAP client indicating the origin of the fault: client or server."
+    }
+  ]
+}

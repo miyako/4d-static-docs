@@ -1,0 +1,26 @@
+{
+  "id": "Get-plugin-access",
+  "displayName": "Get plugin access",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "plugIn",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get plugin access command returns the name of the user group authorized to use the plug-in whose number was passed in the plugIn parameter."
+    }
+  ]
+}

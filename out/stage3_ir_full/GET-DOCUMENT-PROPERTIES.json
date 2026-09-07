@@ -1,0 +1,76 @@
+{
+  "id": "GET-DOCUMENT-PROPERTIES",
+  "displayName": "GET DOCUMENT PROPERTIES",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "locked",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "invisible",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "createdOn",
+          "type": {
+            "kind": "concrete",
+            "name": "Date"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "createdAt",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "modifiedOn",
+          "type": {
+            "kind": "concrete",
+            "name": "Date"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "modifiedAt",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET DOCUMENT PROPERTIES command returns information about the document whose name or pathname you pass in document ."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "OPEN-RUNTIME-EXPLORER",
+  "displayName": "OPEN RUNTIME EXPLORER",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The OPEN RUNTIME EXPLORER command displays the Runtime Explorer in a floating window."
+    }
+  ]
+}

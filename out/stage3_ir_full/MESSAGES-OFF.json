@@ -1,0 +1,12 @@
+{
+  "id": "MESSAGES-OFF",
+  "displayName": "MESSAGES OFF",
+  "kind": "classic_command",
+  "theme": "Messages",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The MESSAGES OFF and MESSAGES ON commands turn on and off the progress meters displayed by 4D while executing time-consuming operations."
+    }
+  ]
+}

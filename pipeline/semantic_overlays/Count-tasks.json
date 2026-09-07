@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Counts all processes including automatically-managed kernel processes (Main, Design, Cache Manager, Indexing, Web Server, etc.), not just user-created ones -- see Count user processes for the user-only count."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the highest alive process number, which (before any process has been aborted in the session) equals the total number of open processes including internal kernel processes."
+    }
+  ]
+}

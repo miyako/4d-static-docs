@@ -1,0 +1,12 @@
+{
+  "id": "VALIDATE-TRANSACTION",
+  "displayName": "VALIDATE TRANSACTION",
+  "kind": "classic_command",
+  "theme": "Transactions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "VALIDATE TRANSACTION accepts the transaction that was started with START TRANSACTION of the corresponding level in the current process."
+    }
+  ]
+}

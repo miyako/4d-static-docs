@@ -1,0 +1,31 @@
+{
+  "id": "QR-SET-REPORT-KIND",
+  "displayName": "QR SET REPORT KIND",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR SET REPORT KIND command sets the report type for the area whose reference was passed in area ."
+    }
+  ]
+}

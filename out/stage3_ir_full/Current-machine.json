@@ -1,0 +1,16 @@
+{
+  "id": "Current-machine",
+  "displayName": "Current machine",
+  "kind": "classic_command",
+  "theme": "System-Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Current machine command returns the name of the machine as set in the network parameters of the operating system.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ]
+}

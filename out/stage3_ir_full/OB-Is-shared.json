@@ -1,0 +1,32 @@
+{
+  "id": "OB-Is-shared",
+  "displayName": "OB Is shared",
+  "kind": "classic_command",
+  "theme": "Objects (Language)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "toCheck",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Collection"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The OB Is shared command returns True if the toCheck object or collection is shared, and False otherwise (see Shared objects and shared collections )."
+    }
+  ]
+}

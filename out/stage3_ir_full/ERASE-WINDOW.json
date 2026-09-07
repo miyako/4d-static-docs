@@ -1,0 +1,22 @@
+{
+  "id": "ERASE-WINDOW",
+  "displayName": "ERASE WINDOW",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The ERASE WINDOW command clears the contents of the window whose reference number is passed in window ."
+    }
+  ]
+}

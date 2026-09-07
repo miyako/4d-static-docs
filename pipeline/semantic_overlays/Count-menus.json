@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the number of menus in the menu bar of the specified process (or the current process if process is omitted)."
+    }
+  ]
+}

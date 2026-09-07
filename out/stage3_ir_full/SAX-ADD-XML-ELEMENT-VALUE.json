@@ -1,0 +1,52 @@
+{
+  "id": "SAX-ADD-XML-ELEMENT-VALUE",
+  "displayName": "SAX ADD XML ELEMENT VALUE",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "data",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "In the XML document referenced by document , the SAX ADD XML ELEMENT VALUE command adds data directly without converting them."
+    }
+  ]
+}

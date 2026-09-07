@@ -1,0 +1,68 @@
+{
+  "id": "GET-PROCESS-VARIABLE",
+  "displayName": "GET PROCESS VARIABLE",
+  "kind": "classic_command",
+  "theme": "Process (Communications)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "srcVar",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dstVar",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "srcVar",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "dstVar",
+              "type": {
+                "kind": "concrete",
+                "name": "Variable"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The GET PROCESS VARIABLE command reads the srcVar process variables ( srvVar2 , etc.) from the source process whose number is passed in process , and returns their current values in the dstVar variables ( dstVar2 , etc.)"
+    }
+  ]
+}

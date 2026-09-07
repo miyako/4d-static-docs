@@ -1,0 +1,12 @@
+{
+  "id": "Right-click",
+  "displayName": "Right click",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Right click command returns True if the right button of the mouse has been clicked."
+    }
+  ]
+}

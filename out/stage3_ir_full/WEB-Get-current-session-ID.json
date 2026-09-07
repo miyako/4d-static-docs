@@ -1,0 +1,12 @@
+{
+  "id": "WEB-Get-current-session-ID",
+  "displayName": "WEB Get current session ID",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The WEB Get current session ID command returns the ID of the session open for the Web request."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "EXPORT-STRUCTURE",
+  "displayName": "EXPORT STRUCTURE",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "exportedStructure",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "format",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The EXPORT STRUCTURE command exports the structure definition of the current 4D database in exportedStructure ."
+    }
+  ]
+}

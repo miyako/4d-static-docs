@@ -1,0 +1,26 @@
+{
+  "id": "System-folder",
+  "displayName": "System folder",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The System folder command returns the pathname to a particular folder of the operating system or to the active Windows or macOS System folder itself."
+    }
+  ]
+}

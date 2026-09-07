@@ -1,0 +1,45 @@
+{
+  "id": "throw",
+  "displayName": "throw",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "errorCode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The throw command creates an error that will be thrown either immediately or when the calling method returns to its caller (deferred mode)."
+    },
+    {
+      "params": [
+        {
+          "name": "errorObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The throw command creates an error that will be thrown either immediately or when the calling method returns to its caller (deferred mode)."
+    }
+  ]
+}

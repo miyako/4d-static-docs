@@ -1,0 +1,16 @@
+{
+  "id": "Position",
+  "displayName": "Position",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Position returns the position of the first occurrence of find in aString ."
+    },
+    {
+      "params": [],
+      "semanticRole": "Position returns the position of the first occurrence of find in aString ."
+    }
+  ]
+}

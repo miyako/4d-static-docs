@@ -1,0 +1,55 @@
+{
+  "constraints": [
+    "All fields listed must belong to the same table (no related/foreign-table fields), and all arrays must have the same number of elements or a syntax error is generated.",
+    "If the array has more elements than the current selection, new records are created; existing and new records are saved automatically. Because it can create records, this command ignores a table's read-only state.",
+    "Records locked by another process are skipped (left unmodified) and collected into the process set LockedSet, which can be tested after the call.",
+    "Passing the trailing * defers execution: 4D stores the statement in memory instead of running it immediately, letting several ARRAY TO SELECTION lines (like QUERY) stack up and execute together as one final call without *; the command can therefore also be called with no parameters at all to run the stacked lines."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Fixed aField's direction: the parameter table's column arrow shows aField as an output ('<-', data copied INTO the field/record), not an input, even though the draft parser defaulted every parameter to direction:in. Also propagated the same fix onto the repeated (array;aField) group member, since each repetition is the same pair.",
+      "params": [
+        {
+          "name": "array",
+          "type": { "kind": "concrete", "name": "Array" },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "aField",
+          "type": { "kind": "concrete", "name": "Field" },
+          "direction": "out",
+          "optional": true
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "array",
+              "type": { "kind": "concrete", "name": "Array" },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "aField",
+              "type": { "kind": "concrete", "name": "Field" },
+              "direction": "out",
+              "optional": false
+            }
+          ],
+          "cardinality": { "min": 0, "max": null },
+          "position": "embedded"
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, defer execution of this statement and stack it with other ARRAY TO SELECTION(...; *) lines until a final call without *."
+        }
+      ],
+      "semanticRole": "Copies one or more parallel arrays into a selection of records field-by-field (by array/record order), creating new records if the arrays are longer than the current selection; the optional trailing * defers execution so several such statements can be stacked and run together."
+    }
+  ]
+}

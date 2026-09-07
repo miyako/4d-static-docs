@@ -1,0 +1,22 @@
+{
+  "id": "LIST-OF-STYLE-SHEETS",
+  "displayName": "LIST OF STYLE SHEETS",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "arrStyleSheets",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The LIST OF STYLE SHEETS command returns the list of application style sheets in the arrStyleSheets array."
+    }
+  ]
+}

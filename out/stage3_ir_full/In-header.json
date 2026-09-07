@@ -1,0 +1,12 @@
+{
+  "id": "In-header",
+  "displayName": "In header",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "In header returns True for the In header execution cycle."
+    }
+  ]
+}

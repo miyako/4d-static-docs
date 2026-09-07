@@ -1,0 +1,42 @@
+{
+  "id": "METHOD-GET-FOLDERS",
+  "displayName": "METHOD GET FOLDERS",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "arrNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "filter",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The METHOD GET FOLDERS command returns, in the arrNames array, the names of folders created on the Home page of the 4D Explorer: Since folder names must be unique, the hierarchy is not returned in this array."
+    }
+  ]
+}

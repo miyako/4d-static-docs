@@ -1,0 +1,46 @@
+{
+  "id": "JSON-Parse",
+  "displayName": "JSON Parse",
+  "kind": "classic_command",
+  "theme": "JSON",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "jsonString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "The JSON Parse command parses the contents of a JSON-formatted string and extracts values that you can store in a 4D field or variable."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "SET-DOCUMENT-POSITION",
+  "displayName": "SET DOCUMENT POSITION",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "docRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "anchor",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "This command operates only on a document currently open whose document reference number you pass in docRef .sets the position you pass in offset where the next read ( RECEIVE PACKET ) or write ( SEND PACKET ) will occur."
+    }
+  ]
+}

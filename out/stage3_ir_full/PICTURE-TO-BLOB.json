@@ -1,0 +1,40 @@
+{
+  "id": "PICTURE-TO-BLOB",
+  "displayName": "PICTURE TO BLOB",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pictureBlob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "codec",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The PICTURE TO BLOB command converts a picture stored in a 4D variable or field to another format and places the resulting picture in a BLOB."
+    }
+  ]
+}

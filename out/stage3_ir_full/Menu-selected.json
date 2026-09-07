@@ -1,0 +1,26 @@
+{
+  "id": "Menu-selected",
+  "displayName": "Menu selected",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "subMenu",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Menu selected is used only when forms are displayed."
+    }
+  ]
+}

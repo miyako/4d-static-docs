@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Only meaningful when called from within an error-handling project method installed via ON ERR CALL; it stops the execution that ON ERR CALL intercepted and resumes control at the appropriate outer level (form, menu, process, or import/export/query operation) instead of showing 4D's standard error dialog."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Stops the interrupted execution from within an installed error-handling method, in place of 4D's standard error dialog box."
+    }
+  ]
+}

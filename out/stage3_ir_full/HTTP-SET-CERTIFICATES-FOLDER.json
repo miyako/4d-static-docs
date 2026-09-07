@@ -1,0 +1,22 @@
+{
+  "id": "HTTP-SET-CERTIFICATES-FOLDER",
+  "displayName": "HTTP SET CERTIFICATES FOLDER",
+  "kind": "classic_command",
+  "theme": "HTTP",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "certificatesFolder",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The HTTP SET CERTIFICATES FOLDER command modifies the active client certificates folder for all processes of the current session."
+    }
+  ]
+}

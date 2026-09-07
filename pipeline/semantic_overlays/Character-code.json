@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "If character contains more than one character, only the code of the first character is returned."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the Unicode UTF-16 code (1-65535) of the first character of the character string; the inverse of Char."
+    }
+  ]
+}

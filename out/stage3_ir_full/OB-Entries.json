@@ -1,0 +1,26 @@
+{
+  "id": "OB-Entries",
+  "displayName": "OB Entries",
+  "kind": "classic_command",
+  "theme": "Objects (Language)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The OB Entries command returns a collection of objects containing the contents of the object as key / value property pairs."
+    }
+  ]
+}

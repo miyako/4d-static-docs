@@ -1,0 +1,28 @@
+{
+  "id": "Structure-file",
+  "displayName": "Structure file",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Structure file command returns the pathname of the structure file for the database with which you are currently working.file."
+    }
+  ]
+}

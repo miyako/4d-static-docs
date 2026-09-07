@@ -1,0 +1,30 @@
+{
+  "id": "WEB-Server",
+  "displayName": "WEB Server",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The WEB Server command returns the default Web server object, or the Web server object defined through the option parameter."
+    },
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.WebServer"
+      },
+      "semanticRole": "The WEB Server command returns the default Web server object, or the Web server object defined through the option parameter."
+    }
+  ]
+}

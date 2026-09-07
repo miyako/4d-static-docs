@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "If newChars is an empty string, source is returned unchanged.",
+    "If where is less than 1 or greater than the length of source, source is returned unchanged.",
+    "Always returns a string of the same length as source (overlays characters starting at where rather than inserting them, unlike Insert string)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Overwrites a run of characters in source starting at a given position with newChars, returning the result at source's original length."
+    }
+  ]
+}

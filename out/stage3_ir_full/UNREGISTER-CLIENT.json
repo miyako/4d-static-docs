@@ -1,0 +1,12 @@
+{
+  "id": "UNREGISTER-CLIENT",
+  "displayName": "UNREGISTER CLIENT",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The UNREGISTER CLIENT command \u201cunregisters\u201d a 4D client station."
+    }
+  ]
+}

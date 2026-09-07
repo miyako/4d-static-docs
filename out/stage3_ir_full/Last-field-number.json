@@ -1,0 +1,44 @@
+{
+  "id": "Last-field-number",
+  "displayName": "Last field number",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Last field number command returns the highest field number among the fields in the table whose number or pointer you pass in tableNum or tablePtr ."
+    },
+    {
+      "params": [
+        {
+          "name": "tablePtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Last field number command returns the highest field number among the fields in the table whose number or pointer you pass in tableNum or tablePtr ."
+    }
+  ]
+}

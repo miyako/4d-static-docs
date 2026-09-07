@@ -1,0 +1,31 @@
+{
+  "id": "ON-EVENT-CALL",
+  "displayName": "ON EVENT CALL",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "eventMethod",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "processName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The ON EVENT CALL command installs the method, whose name you pass in eventMethod , as the method for catching (trapping) events."
+    }
+  ]
+}

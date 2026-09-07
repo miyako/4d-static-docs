@@ -1,0 +1,31 @@
+{
+  "id": "QUERY-SELECTION-WITH-ARRAY",
+  "displayName": "QUERY SELECTION WITH ARRAY",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QUERY SELECTION WITH ARRAY command searches the table of the field passed as first parameter for the records where the value of targetField is equal to at least one of the values of the elements in the array ."
+    }
+  ]
+}

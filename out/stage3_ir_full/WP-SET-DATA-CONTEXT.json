@@ -1,0 +1,31 @@
+{
+  "id": "WP-SET-DATA-CONTEXT",
+  "displayName": "WP SET DATA CONTEXT",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "contextData",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP SET DATA CONTEXT command sets the contextData object as data context of the wpDoc 4D Write Pro document."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "SET-TIMER",
+  "displayName": "SET TIMER",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tickCount",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET TIMER command activates the On Timer form event and sets, for the current form and process, the number of ticks elapsed between each On Timer form event."
+    }
+  ]
+}

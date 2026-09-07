@@ -1,0 +1,44 @@
+{
+  "id": "Register-data-key",
+  "displayName": "Register data key",
+  "kind": "classic_command",
+  "theme": "Data Security",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "curPassPhrase",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Register data key command adds the data encryption key passed in parameter to the 4D keychain."
+    },
+    {
+      "params": [
+        {
+          "name": "curDataKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Register data key command adds the data encryption key passed in parameter to the 4D keychain."
+    }
+  ]
+}

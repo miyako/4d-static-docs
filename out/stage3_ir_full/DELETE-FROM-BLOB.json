@@ -1,0 +1,43 @@
+{
+  "id": "DELETE-FROM-BLOB",
+  "displayName": "DELETE FROM BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB to shrink in place; becomes len bytes smaller."
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "len",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Because it alters the BLOB parameter in place, this command does not support 4D.Blob objects, only legacy BLOB variables/fields (see Passing blobs and blob objects to 4D commands)."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "SET-HELP-MENU",
+  "displayName": "SET HELP MENU",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menuCol",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET HELP MENU command allows you to replace the default 4D Help menu with the menuCol collection of menu items in the application mode."
+    }
+  ]
+}

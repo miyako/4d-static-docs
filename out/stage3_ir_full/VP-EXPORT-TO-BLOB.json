@@ -1,0 +1,31 @@
+{
+  "id": "VP-EXPORT-TO-BLOB",
+  "displayName": "VP EXPORT TO BLOB",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "paramObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP EXPORT TO BLOB command exports the vpAreaName 4D View Pro document in a 4D.Blob according to the paramObj options."
+    }
+  ]
+}

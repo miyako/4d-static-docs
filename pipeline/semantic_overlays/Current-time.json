@@ -1,0 +1,21 @@
+{
+  "theme": "Date-and-Time",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed on a 4D Client machine (4D Server context), returns the current time from the server instead of the local machine's clock."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "The returned time is always between 00:00:00 and 23:59:59.",
+    "Use String or Time string to obtain the string form of the returned time expression."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "Call-chain",
+  "displayName": "Call chain",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns a collection describing every step of the current process's method call chain (method/formula, calling database/component, and line number), equivalent to the Debugger window's call stack."
+    }
+  ],
+  "constraints": [
+    "Works from any 4D environment including compiled mode, but requires Range checking to not be disabled for the command to operate correctly in compiled mode.",
+    "The 'formula' property of a returned object is omitted (Undefined) when the corresponding source code is not available."
+  ]
+}

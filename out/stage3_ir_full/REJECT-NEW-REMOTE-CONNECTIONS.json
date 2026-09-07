@@ -1,0 +1,22 @@
+{
+  "id": "REJECT-NEW-REMOTE-CONNECTIONS",
+  "displayName": "REJECT NEW REMOTE CONNECTIONS",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rejectStatus",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The REJECT NEW REMOTE CONNECTIONS command specifies whether or not the application server accepts new remote user connections."
+    }
+  ]
+}

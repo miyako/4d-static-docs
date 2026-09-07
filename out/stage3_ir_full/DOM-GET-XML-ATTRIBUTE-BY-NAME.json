@@ -1,0 +1,40 @@
+{
+  "id": "DOM-GET-XML-ATTRIBUTE-BY-NAME",
+  "displayName": "DOM GET XML ATTRIBUTE BY NAME",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DOM GET XML ATTRIBUTE BY NAME command gets the value of an attribute specified by name."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "VP-SUSPEND-COMPUTING",
+  "displayName": "VP SUSPEND COMPUTING",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SUSPEND COMPUTING command stops the calculation of all formulas in vpAreaName ."
+    }
+  ]
+}

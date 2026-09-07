@@ -1,0 +1,56 @@
+{
+  "id": "FONT-LIST",
+  "displayName": "FONT LIST",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fonts",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "listType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The FONT LIST command populates the fonts text array with the names of scalable fonts available on your system."
+    },
+    {
+      "params": [
+        {
+          "name": "fonts",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The FONT LIST command populates the fonts text array with the names of scalable fonts available on your system."
+    }
+  ]
+}

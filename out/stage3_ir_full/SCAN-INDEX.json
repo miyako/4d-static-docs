@@ -1,0 +1,43 @@
+{
+  "id": "SCAN-INDEX",
+  "displayName": "SCAN INDEX",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "number",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "order",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              ">",
+              "<"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SCAN INDEX returns a selection of number records from the table containing the aField field."
+    }
+  ]
+}

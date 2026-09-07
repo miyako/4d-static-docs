@@ -1,0 +1,49 @@
+{
+  "id": "XML-GET-ERROR",
+  "displayName": "XML GET ERROR",
+  "kind": "classic_command",
+  "theme": "XML",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "errorText",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "row",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "column",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The XML GET ERROR command returns, in the errorText parameter, a description of the error encountered when processing the XML element designated by the elementRef parameter."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "PRINT-RECORD",
+  "displayName": "PRINT RECORD",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "PRINT RECORD prints the current record of aTable , without modifying the current selection."
+    },
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "PRINT RECORD prints the current record of aTable , without modifying the current selection."
+    }
+  ]
+}

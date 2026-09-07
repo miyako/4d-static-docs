@@ -1,0 +1,12 @@
+{
+  "id": "Session",
+  "displayName": "Session",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Session command returns the Session object corresponding to the current session."
+    }
+  ]
+}

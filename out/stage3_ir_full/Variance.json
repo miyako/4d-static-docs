@@ -1,0 +1,32 @@
+{
+  "id": "Variance",
+  "displayName": "Variance",
+  "kind": "classic_command",
+  "theme": "On a Series",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "series",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Variance returns the variance for series ."
+    }
+  ]
+}

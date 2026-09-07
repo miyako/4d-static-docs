@@ -1,0 +1,38 @@
+{
+  "id": "SELECT-LOG-FILE",
+  "displayName": "SELECT LOG FILE",
+  "kind": "classic_command",
+  "theme": "Backup",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "logFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SELECT LOG FILE command creates, or closes the log file according to the value you pass in parameter."
+    },
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SELECT LOG FILE command creates, or closes the log file according to the value you pass in parameter."
+    }
+  ]
+}

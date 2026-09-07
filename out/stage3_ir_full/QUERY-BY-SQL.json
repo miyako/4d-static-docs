@@ -1,0 +1,31 @@
+{
+  "id": "QUERY-BY-SQL",
+  "displayName": "QUERY BY SQL",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "sqlFormula",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QUERY BY SQL command can be used to take advantage of the SQL kernel integrated into 4D."
+    }
+  ]
+}

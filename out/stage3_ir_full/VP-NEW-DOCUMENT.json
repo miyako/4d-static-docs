@@ -1,0 +1,22 @@
+{
+  "id": "VP-NEW-DOCUMENT",
+  "displayName": "VP NEW DOCUMENT",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP NEW DOCUMENT command loads and display a new, default document in the 4D View Pro form area object vpAreaName ."
+    }
+  ]
+}

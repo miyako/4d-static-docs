@@ -1,0 +1,22 @@
+{
+  "id": "USERS-TO-BLOB",
+  "displayName": "USERS TO BLOB",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "users",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Compatibility Note: This command only works in binary databases."
+    }
+  ]
+}

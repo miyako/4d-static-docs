@@ -1,0 +1,12 @@
+{
+  "id": "Count-screens",
+  "displayName": "Count screens",
+  "kind": "classic_command",
+  "theme": "System-Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns the number of screen monitors connected to the machine."
+    }
+  ]
+}

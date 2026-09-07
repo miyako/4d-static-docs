@@ -1,0 +1,12 @@
+{
+  "id": "MESSAGES-ON",
+  "displayName": "MESSAGES ON",
+  "kind": "classic_command",
+  "theme": "Messages",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "See the description of the MESSAGES OFF command."
+    }
+  ]
+}

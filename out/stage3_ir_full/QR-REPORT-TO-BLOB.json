@@ -1,0 +1,31 @@
+{
+  "id": "QR-REPORT-TO-BLOB",
+  "displayName": "QR REPORT TO BLOB",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR REPORT TO BLOB command places the report whose reference was passed in area in a BLOB (variable or field)."
+    }
+  ]
+}

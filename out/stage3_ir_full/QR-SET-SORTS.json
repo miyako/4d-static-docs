@@ -1,0 +1,40 @@
+{
+  "id": "QR-SET-SORTS",
+  "displayName": "QR SET SORTS",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "aColumns",
+          "type": {
+            "kind": "concrete",
+            "name": "Real array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "aOrders",
+          "type": {
+            "kind": "concrete",
+            "name": "Real array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The QR SET SORTS command sets the sort orders for the columns in the report whose reference is passed in area ."
+    }
+  ]
+}

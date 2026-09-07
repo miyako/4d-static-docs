@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns True when the current record pointer of the given (or default) table is positioned before the first record of the current selection, including when the selection is empty."
+    }
+  ]
+}

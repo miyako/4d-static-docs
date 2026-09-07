@@ -1,0 +1,31 @@
+{
+  "id": "SET-WINDOW-TITLE",
+  "displayName": "SET WINDOW TITLE",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "title",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET WINDOW TITLE command changes the title of the window whose reference number is passed in window to the text passed in title (max."
+    }
+  ]
+}

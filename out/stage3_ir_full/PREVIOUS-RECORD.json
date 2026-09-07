@@ -1,0 +1,22 @@
+{
+  "id": "PREVIOUS-RECORD",
+  "displayName": "PREVIOUS RECORD",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "PREVIOUS RECORD moves the current record pointer to the previous record in the current selection of aTable for the current process."
+    }
+  ]
+}

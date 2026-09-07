@@ -1,0 +1,26 @@
+{
+  "id": "Read-only-state",
+  "displayName": "Read only state",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "This function tests whether or not the state of aTable is read-only for the process in which it is called."
+    }
+  ]
+}

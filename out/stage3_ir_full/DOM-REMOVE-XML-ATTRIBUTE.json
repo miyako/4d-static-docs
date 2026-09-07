@@ -1,0 +1,31 @@
+{
+  "id": "DOM-REMOVE-XML-ATTRIBUTE",
+  "displayName": "DOM REMOVE XML ATTRIBUTE",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DOM REMOVE XML ATTRIBUTE command removes, if it exists, the attribute designated by attribName from the XML element whose reference is passed in the elementRef parameter."
+    }
+  ]
+}

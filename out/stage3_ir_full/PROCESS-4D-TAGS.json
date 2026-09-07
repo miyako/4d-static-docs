@@ -1,0 +1,66 @@
+{
+  "id": "PROCESS-4D-TAGS",
+  "displayName": "PROCESS 4D TAGS",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "inputTemplate",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "outputResult",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "Expression"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The PROCESS 4D TAGS command causes the processing of 4D transformation tags contained in the inputTemplate parameter while (optionally) inserting value(s) using the param parameters and returns the result in outputResult"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "Process-activity",
+  "displayName": "Process activity",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Process activity command returns a snapshot of running processes and/or (4D Server only) connected user sessions at a given time."
+    },
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Process activity command returns a snapshot of running processes and/or (4D Server only) connected user sessions at a given time."
+    },
+    {
+      "params": [
+        {
+          "name": "sessionID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Process activity command returns a snapshot of running processes and/or (4D Server only) connected user sessions at a given time."
+    },
+    {
+      "params": [
+        {
+          "name": "sessionID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Process activity command returns a snapshot of running processes and/or (4D Server only) connected user sessions at a given time."
+    }
+  ]
+}

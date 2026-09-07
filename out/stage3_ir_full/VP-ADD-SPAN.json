@@ -1,0 +1,22 @@
+{
+  "id": "VP-ADD-SPAN",
+  "displayName": "VP ADD SPAN",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP ADD SPAN command combines the cells in rangeObj as a single span of cells."
+    }
+  ]
+}

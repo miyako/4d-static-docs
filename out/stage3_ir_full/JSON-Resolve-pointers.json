@@ -1,0 +1,35 @@
+{
+  "id": "JSON-Resolve-pointers",
+  "displayName": "JSON Resolve pointers",
+  "kind": "classic_command",
+  "theme": "JSON",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The JSON Resolve pointers command resolves all the JSON pointers found in the object , with regards to options settings (if any)."
+    }
+  ]
+}

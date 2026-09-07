@@ -1,0 +1,42 @@
+{
+  "id": "WEB-SERVICE-GET-RESULT",
+  "displayName": "WEB SERVICE GET RESULT",
+  "kind": "classic_command",
+  "theme": "Web Services (Client)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "returnValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "returnName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WEB SERVICE GET RESULT command retrieves a value sent back by the Web Service as a result of the processing performed.This command must be used only after the WEB SERVICE CALL command."
+    }
+  ]
+}

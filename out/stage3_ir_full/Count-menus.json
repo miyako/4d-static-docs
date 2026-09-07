@@ -1,0 +1,26 @@
+{
+  "id": "Count-menus",
+  "displayName": "Count menus",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Returns the number of menus in the menu bar of the specified process (or the current process if process is omitted)."
+    }
+  ]
+}

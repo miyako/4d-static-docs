@@ -1,0 +1,28 @@
+{
+  "id": "Get-Application-color-scheme",
+  "displayName": "Get Application color scheme",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get Application color scheme command returns the name of the actual color scheme in use at the application level."
+    }
+  ]
+}

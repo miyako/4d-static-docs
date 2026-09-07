@@ -1,0 +1,31 @@
+{
+  "id": "WP-GET-BOOKMARKS",
+  "displayName": "WP GET BOOKMARKS",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrBKNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP GET BOOKMARKS command returns an array containing the names of all bookmarks defined in wpDoc ."
+    }
+  ]
+}

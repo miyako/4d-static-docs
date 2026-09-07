@@ -1,0 +1,26 @@
+{
+  "id": "SOAP-Get-info",
+  "displayName": "SOAP Get info",
+  "kind": "classic_command",
+  "theme": "Web Services (Server)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "infoNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The SOAP Get info command retrieves, in the form of a character string, the different types of information concerning a SOAP request."
+    }
+  ]
+}

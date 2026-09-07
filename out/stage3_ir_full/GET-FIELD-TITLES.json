@@ -1,0 +1,40 @@
+{
+  "id": "GET-FIELD-TITLES",
+  "displayName": "GET FIELD TITLES",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fieldTitles",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fieldNums",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET FIELD TITLES command fills the fieldTitles and fieldNums arrays with the names and numbers of database fields for the desired aTable ."
+    }
+  ]
+}

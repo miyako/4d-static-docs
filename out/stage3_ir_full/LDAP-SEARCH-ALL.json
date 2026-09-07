@@ -1,0 +1,67 @@
+{
+  "id": "LDAP-SEARCH-ALL",
+  "displayName": "LDAP SEARCH ALL",
+  "kind": "classic_command",
+  "theme": "LDAP",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "dnRootEntry",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrResult",
+          "type": {
+            "kind": "concrete",
+            "name": "Object array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "filter",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "scope",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "attributes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "attributesAsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The LDAP SEARCH ALL command searches in the target LDAP server for all occurrences matching the criteria defined."
+    }
+  ]
+}

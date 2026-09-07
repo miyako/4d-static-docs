@@ -1,0 +1,51 @@
+{
+  "id": "WEB-SERVICE-AUTHENTICATE",
+  "displayName": "WEB SERVICE AUTHENTICATE",
+  "kind": "classic_command",
+  "theme": "Web Services (Client)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "password",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "authMethod",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WEB SERVICE AUTHENTICATE command enables the use of Web Services requiring authentication of the client application (simple authentication)."
+    }
+  ]
+}

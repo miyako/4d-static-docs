@@ -1,0 +1,22 @@
+{
+  "id": "FIRST-RECORD",
+  "displayName": "FIRST RECORD",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "FIRST RECORD makes the first record of the current selection of aTable the current record, and loads the record from disk."
+    }
+  ]
+}

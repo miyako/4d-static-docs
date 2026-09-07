@@ -1,0 +1,9 @@
+{
+  "theme": "System-Environment",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Text" }
+    }
+  ]
+}

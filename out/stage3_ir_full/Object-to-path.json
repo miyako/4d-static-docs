@@ -1,0 +1,26 @@
+{
+  "id": "Object-to-path",
+  "displayName": "Object to path",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "pathObject",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Object to path command returns a pathname (string) based upon path information you passed in the pathObject parameter."
+    }
+  ]
+}

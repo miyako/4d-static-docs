@@ -1,0 +1,26 @@
+{
+  "id": "Test-path-name",
+  "displayName": "Test path name",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "pathname",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Test path name function checks if a document or folder whose name or pathname you pass in pathname is present on the disk."
+    }
+  ]
+}

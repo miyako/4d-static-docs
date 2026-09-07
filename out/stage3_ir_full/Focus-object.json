@@ -1,0 +1,12 @@
+{
+  "id": "Focus-object",
+  "displayName": "Focus object",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Focus object returns a pointer to the object having the focus in the current form."
+    }
+  ]
+}

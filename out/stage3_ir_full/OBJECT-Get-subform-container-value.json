@@ -1,0 +1,12 @@
+{
+  "id": "OBJECT-Get-subform-container-value",
+  "displayName": "OBJECT Get subform container value",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The OBJECT Get subform container value command returns the current value of the data source bound with the subform container displayed in the parent form."
+    }
+  ]
+}

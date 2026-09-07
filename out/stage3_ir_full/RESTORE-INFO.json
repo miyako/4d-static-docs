@@ -1,0 +1,52 @@
+{
+  "id": "RESTORE-INFO",
+  "displayName": "RESTORE INFO",
+  "kind": "classic_command",
+  "theme": "Backup",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "info1",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Date"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "info2",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The RESTORE INFO command gets information related to the last automatic database restore."
+    }
+  ]
+}

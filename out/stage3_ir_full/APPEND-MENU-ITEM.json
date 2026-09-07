@@ -1,0 +1,73 @@
+{
+  "id": "APPEND-MENU-ITEM",
+  "displayName": "APPEND MENU ITEM",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "subMenu",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The APPEND MENU ITEM command appends new menu items to the menu whose number or reference is passed in menu ."
+    }
+  ],
+  "constraints": [
+    "If menu is a MenuRef (string), the process parameter serves no purpose and is ignored.",
+    "Unless the trailing '*' is passed, itemText uses a mini-grammar of metacharacters: ';' separates multiple item labels in one call; a leading '(' disables the item; \"-\" or \"(-\" creates a separator line; '<B'/'<I'/'<U' set bold/italic/underline style; '!' followed by a character sets a check-mark character; '^' followed by a character selects a Mac OS icon resource (code + 208); '/' followed by a character sets a keyboard shortcut.",
+    "When the trailing '*' is passed, all of those metacharacters (including ';') are treated as literal standard characters instead, which also means only one menu item can be created per call.",
+    "Newly appended items have no associated method/action; SET MENU ITEM PROPERTY or SET MENU ITEM METHOD (or Menu selected in a form method) must be used to wire them up.",
+    "subMenu must be an existing menu reference (e.g. created with Create menu); if the call appends more than one item, the submenu is attached to the first one."
+  ]
+}

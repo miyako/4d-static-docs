@@ -1,0 +1,26 @@
+{
+  "id": "SMTP-New-transporter",
+  "displayName": "SMTP New transporter",
+  "kind": "classic_command",
+  "theme": "Mail",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "server",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.SMTPTransporter"
+      },
+      "semanticRole": "The SMTP New transporter command configures a new SMTP connection according to the server parameter and returns a new SMTP transporter object object."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "SET-CURRENT-PRINTER",
+  "displayName": "SET CURRENT PRINTER",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "printerName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET CURRENT PRINTER command designates the printer to be used for printing with the current 4D application."
+    }
+  ]
+}

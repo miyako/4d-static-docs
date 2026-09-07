@@ -1,0 +1,12 @@
+{
+  "id": "Level",
+  "displayName": "Level",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Level is used to determine the current header or break level."
+    }
+  ]
+}

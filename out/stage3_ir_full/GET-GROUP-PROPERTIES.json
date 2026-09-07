@@ -1,0 +1,49 @@
+{
+  "id": "GET-GROUP-PROPERTIES",
+  "displayName": "GET GROUP PROPERTIES",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "groupID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "owner",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "members",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "GET GROUP PROPERTIES returns the properties of the group whose unique group ID number you pass in groupID ."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "VP-Get-binding-path",
+  "displayName": "VP Get binding path",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The VP Get binding path command returns the name of the attribute bound to the cell specified in rangeObj ."
+    }
+  ]
+}

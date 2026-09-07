@@ -1,0 +1,31 @@
+{
+  "id": "VP-SET-BINDING-PATH",
+  "displayName": "VP SET BINDING PATH",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dataContextAttribute",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET BINDING PATH command binds an attribute from a sheet's data context to rangeObj ."
+    }
+  ]
+}

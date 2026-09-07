@@ -1,0 +1,26 @@
+{
+  "id": "Char",
+  "displayName": "Char",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "charCode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Returns the character whose UTF-16 code is charCode (1-65535); the inverse of Character code."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "Sum-squares",
+  "displayName": "Sum squares",
+  "kind": "classic_command",
+  "theme": "On a Series",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "series",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Sum squares returns the sum of the squares of series ."
+    }
+  ]
+}

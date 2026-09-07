@@ -1,0 +1,26 @@
+{
+  "id": "Is-a-variable",
+  "displayName": "Is a variable",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aPointer",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is a variable command returns True if the pointer you pass in aPointer references a defined variable."
+    }
+  ]
+}

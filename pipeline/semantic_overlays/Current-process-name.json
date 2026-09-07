@@ -1,0 +1,11 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Text" }
+    }
+  ],
+  "constraints": [
+    "Particularly useful with worker processes, to identify the worker process to call when writing generic code (see the About workers section)."
+  ]
+}

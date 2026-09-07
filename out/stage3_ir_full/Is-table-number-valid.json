@@ -1,0 +1,26 @@
+{
+  "id": "Is-table-number-valid",
+  "displayName": "Is table number valid",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is table number valid command returns True if the table whose number is passed in the tableNum parameter exists in the database and False otherwise."
+    }
+  ]
+}

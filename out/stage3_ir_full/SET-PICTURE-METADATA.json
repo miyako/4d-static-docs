@@ -1,0 +1,80 @@
+{
+  "id": "SET-PICTURE-METADATA",
+  "displayName": "SET PICTURE METADATA",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "metaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "metaContents",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Expression"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "metaName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "metaContents",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Variable"
+                },
+                {
+                  "kind": "pseudo",
+                  "name": "Expression"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The SET PICTURE METADATA command lets you set or modify the contents of the metadata (or meta-tags) found in the picture (4D picture field or variable), when they are modifiable."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "Data-file",
+  "displayName": "Data file",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "segment",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Data file command returns the long name of the data file for the database with which you are currently working."
+    }
+  ]
+}

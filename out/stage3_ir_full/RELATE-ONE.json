@@ -1,0 +1,45 @@
+{
+  "id": "RELATE-ONE",
+  "displayName": "RELATE ONE",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "manyTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "RELATE ONE has two forms."
+    },
+    {
+      "params": [
+        {
+          "name": "manyField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "choiceField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "RELATE ONE has two forms."
+    }
+  ]
+}

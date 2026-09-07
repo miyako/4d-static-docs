@@ -1,0 +1,36 @@
+{
+  "id": "RELATE-MANY",
+  "displayName": "RELATE MANY",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "oneTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "RELATE MANY has two forms."
+    },
+    {
+      "params": [
+        {
+          "name": "oneField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "RELATE MANY has two forms."
+    }
+  ]
+}

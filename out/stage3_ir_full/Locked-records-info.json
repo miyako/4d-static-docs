@@ -1,0 +1,26 @@
+{
+  "id": "Locked-records-info",
+  "displayName": "Locked records info",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Locked records info command returns an object containing different information about the currently locked record(s) in aTable .The command works only with 4D and 4D Server."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "This",
+  "displayName": "This",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The This command returns a reference to the currently processed object."
+    }
+  ]
+}

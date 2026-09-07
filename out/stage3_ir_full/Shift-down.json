@@ -1,0 +1,12 @@
+{
+  "id": "Shift-down",
+  "displayName": "Shift down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Shift down returns TRUE if the Shift key is pressed."
+    }
+  ]
+}

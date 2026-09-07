@@ -1,0 +1,31 @@
+{
+  "id": "VP-SET-SHEET-COUNT",
+  "displayName": "VP SET SHEET COUNT",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "number",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET SHEET COUNT command sets the number of sheets in vpAreaName ."
+    }
+  ]
+}

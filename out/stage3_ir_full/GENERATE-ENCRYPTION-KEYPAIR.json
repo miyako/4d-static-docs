@@ -1,0 +1,40 @@
+{
+  "id": "GENERATE-ENCRYPTION-KEYPAIR",
+  "displayName": "GENERATE ENCRYPTION KEYPAIR",
+  "kind": "classic_command",
+  "theme": "Secured Protocol",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "privKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pubKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "length",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The GENERATE ENCRYPTION KEYPAIR command generates a new pair of RSA keys."
+    }
+  ]
+}

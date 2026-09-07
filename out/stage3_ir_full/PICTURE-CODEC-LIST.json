@@ -1,0 +1,42 @@
+{
+  "id": "PICTURE-CODEC-LIST",
+  "displayName": "PICTURE CODEC LIST",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "codecArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "namesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The PICTURE CODEC LIST command fills the codecArray array with the list of picture Codec IDs that are available on the machine where it is executed."
+    }
+  ]
+}

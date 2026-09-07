@@ -1,0 +1,49 @@
+{
+  "id": "FORM-GET-OBJECTS",
+  "displayName": "FORM GET OBJECTS",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "variablesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "pagesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "formPageOption",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The FORM GET OBJECTS command returns the list of all objects present in the current form in the form of (an) array(s)."
+    }
+  ]
+}

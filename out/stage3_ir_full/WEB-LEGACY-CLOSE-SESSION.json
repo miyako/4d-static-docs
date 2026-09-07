@@ -1,0 +1,22 @@
+{
+  "id": "WEB-LEGACY-CLOSE-SESSION",
+  "displayName": "WEB LEGACY CLOSE SESSION",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "sessionID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB LEGACY CLOSE SESSION command invalidates an existing session designated by the sessionID parameter."
+    }
+  ]
+}

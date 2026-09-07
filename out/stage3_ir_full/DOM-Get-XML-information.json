@@ -1,0 +1,35 @@
+{
+  "id": "DOM-Get-XML-information",
+  "displayName": "DOM Get XML information",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "xmlInfo",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The DOM Get XML information command retrieves diverse information about the XML element designated by elementRef ."
+    }
+  ]
+}

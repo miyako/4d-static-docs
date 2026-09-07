@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "A new MenuRef is created even when copying an existing menu; the copy is independent of the source menu after creation.",
+    "A menu created without the menu parameter is blank and must be populated/managed via RELEASE MENU, SET MENU ITEM, and related commands."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates a new in-memory-only menu (blank, or an exact copy of the menu identified by menu including its submenus) and returns its MenuRef."
+    }
+  ]
+}

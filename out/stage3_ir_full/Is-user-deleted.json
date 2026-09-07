@@ -1,0 +1,26 @@
+{
+  "id": "Is-user-deleted",
+  "displayName": "Is user deleted",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "userNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is user deleted command tests the user account whose unique user ID number you pass in userID ."
+    }
+  ]
+}

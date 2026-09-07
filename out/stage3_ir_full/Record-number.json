@@ -1,0 +1,26 @@
+{
+  "id": "Record-number",
+  "displayName": "Record number",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Record number returns the physical record number for the current record of aTable ."
+    }
+  ]
+}

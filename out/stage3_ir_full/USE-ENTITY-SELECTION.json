@@ -1,0 +1,22 @@
+{
+  "id": "USE-ENTITY-SELECTION",
+  "displayName": "USE ENTITY SELECTION",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "entitySelection",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.EntitySelection"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The USE ENTITY SELECTION command updates the current selection of the table matching the dataclass of the entitySelection parameter, according to the content of the entity selection."
+    }
+  ]
+}

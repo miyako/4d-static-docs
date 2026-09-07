@@ -1,0 +1,12 @@
+{
+  "id": "Tool-bar-height",
+  "displayName": "Tool bar height",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Tool bar height command returns the height of the current visible tool bar, expressed in pixels."
+    }
+  ]
+}

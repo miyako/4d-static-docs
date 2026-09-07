@@ -1,0 +1,37 @@
+{
+  "id": "SAX-ADD-XML-CDATA",
+  "displayName": "SAX ADD XML CDATA",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "data",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "In the XML document referenced by document , the SAX ADD XML CDATA command adds data of the text or BLOB type."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "MOVE-DOCUMENT",
+  "displayName": "MOVE DOCUMENT",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "srcPathname",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dstPathname",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The MOVE DOCUMENT command moves or renames a document."
+    }
+  ]
+}

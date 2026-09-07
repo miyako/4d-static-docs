@@ -1,0 +1,26 @@
+{
+  "id": "Session-storage",
+  "displayName": "Session storage",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "id",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Session storage command returns the storage object of the session whose unique identifier you passed in the id parameter."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Windows-Alt-down",
+  "displayName": "Windows Alt down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Windows Alt down returns TRUE if the Windows Alt key is pressed.When called on a Macintosh platform, Windows Alt down returns TRUE if the Macintosh Option key is pressed."
+    }
+  ]
+}

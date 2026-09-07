@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "Arrays cannot be passed as parameters to formula.",
+    "formula's parameters arrive as named parameters (if formula is a function/project method) or sequentially in $1, $2, ...",
+    "Executes regardless of which process owns window, allowing a preemptive process to exchange information with a form's (cooperative) process via its message box."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Posts a formula (with optional parameters) to a window's message box so it executes in the context of the form displayed in that window, regardless of the calling process."
+    }
+  ]
+}

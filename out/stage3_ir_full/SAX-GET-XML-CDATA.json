@@ -1,0 +1,37 @@
+{
+  "id": "SAX-GET-XML-CDATA",
+  "displayName": "SAX GET XML CDATA",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SAX GET XML CDATA command gets the CDATA value of an XML element that exists in the XML document referenced in the document parameter."
+    }
+  ]
+}

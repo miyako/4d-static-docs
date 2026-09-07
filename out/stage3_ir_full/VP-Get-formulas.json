@@ -1,0 +1,26 @@
+{
+  "id": "VP-Get-formulas",
+  "displayName": "VP Get formulas",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The VP Get formulas command retrieves the formulas from a designated rangeObj ."
+    }
+  ]
+}

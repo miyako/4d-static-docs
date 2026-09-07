@@ -1,0 +1,26 @@
+{
+  "id": "POP3-New-transporter",
+  "displayName": "POP3 New transporter",
+  "kind": "classic_command",
+  "theme": "Mail",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "server",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.POP3Transporter"
+      },
+      "semanticRole": "The POP3 New transporter command configures a new POP3 connectionaccording to the server parameter and returns a new POP3 transporter object."
+    }
+  ]
+}

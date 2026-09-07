@@ -1,0 +1,33 @@
+{
+  "id": "WEB-SEND-HTTP-REDIRECT",
+  "displayName": "WEB SEND HTTP REDIRECT",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "url",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WEB SEND HTTP REDIRECT command allows you to transform a URL into another one."
+    }
+  ]
+}

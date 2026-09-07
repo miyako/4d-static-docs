@@ -1,0 +1,32 @@
+{
+  "id": "Time-string",
+  "displayName": "Time string",
+  "kind": "classic_command",
+  "theme": "Date and Time",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "seconds",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Time string command returns the string form of the time expression you pass in seconds ."
+    }
+  ]
+}

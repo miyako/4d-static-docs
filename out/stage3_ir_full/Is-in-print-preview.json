@@ -1,0 +1,12 @@
+{
+  "id": "Is-in-print-preview",
+  "displayName": "Is in print preview",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Is in print preview command returns True if the Preview on Screen option is checked in the printing dialog box and False otherwise."
+    }
+  ]
+}

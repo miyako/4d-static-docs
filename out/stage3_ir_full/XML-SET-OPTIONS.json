@@ -1,0 +1,74 @@
+{
+  "id": "XML-SET-OPTIONS",
+  "displayName": "XML SET OPTIONS",
+  "kind": "classic_command",
+  "theme": "XML",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "ref",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "selector",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The XML SET OPTIONS command is used to modify the value of one or more XML options for the structure passed in the first parameter."
+    }
+  ]
+}

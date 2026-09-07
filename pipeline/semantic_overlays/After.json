@@ -1,0 +1,13 @@
+{
+  "theme": "Form-Events",
+  "constraints": [
+    "Requires the On Validate event property to be enabled for the form and/or the object in the Design environment, otherwise the After execution cycle never fires.",
+    "Equivalent to testing whether Form event code returns On Validate."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns True during the After execution cycle (the On Validate form event) following object/form validation."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "String",
+  "displayName": "String",
+  "kind": "classic_command",
+  "theme": "String",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "expression",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "format",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "addTime",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The String command returns the string form of the numeric, Date, Time, string or Boolean expression you pass in expression ."
+    },
+    {
+      "params": [
+        {
+          "name": "expression",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "base",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The String command returns the string form of the numeric, Date, Time, string or Boolean expression you pass in expression ."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Web-Event",
+  "displayName": "Web Event",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Web Event returns an object with information on a triggered event linked to a web page component."
+    }
+  ]
+}

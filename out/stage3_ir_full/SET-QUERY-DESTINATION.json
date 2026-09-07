@@ -1,0 +1,46 @@
+{
+  "id": "SET-QUERY-DESTINATION",
+  "displayName": "SET QUERY DESTINATION",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "destinationType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationObject",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "destinationPtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SET QUERY DESTINATION enables you to tell 4D where to put the result of any subsequent query for the current process."
+    }
+  ]
+}

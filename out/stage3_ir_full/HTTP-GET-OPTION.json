@@ -1,0 +1,31 @@
+{
+  "id": "HTTP-GET-OPTION",
+  "displayName": "HTTP GET OPTION",
+  "kind": "classic_command",
+  "theme": "HTTP",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The HTTP GET OPTION command returns the current value of the HTTP options (options used by client for next request triggered by the HTTP Get or HTTP Request commands)."
+    }
+  ]
+}

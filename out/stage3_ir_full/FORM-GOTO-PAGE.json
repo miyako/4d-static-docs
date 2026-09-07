@@ -1,0 +1,33 @@
+{
+  "id": "FORM-GOTO-PAGE",
+  "displayName": "FORM GOTO PAGE",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "pageNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "FORM GOTO PAGE changes the currently displayed form page to the form page specified by pageNumber ."
+    }
+  ]
+}

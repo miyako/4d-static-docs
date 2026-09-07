@@ -1,0 +1,40 @@
+{
+  "id": "SPELL-GET-DICTIONARY-LIST",
+  "displayName": "SPELL GET DICTIONARY LIST",
+  "kind": "classic_command",
+  "theme": "Spell Checker",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "langID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "langFiles",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "langNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SPELL GET DICTIONARY LIST command returns, in the langID , langFiles and langNames arrays, the IDs, file names and language names corresponding to the Hunspell dictionary files installed on the machine."
+    }
+  ]
+}

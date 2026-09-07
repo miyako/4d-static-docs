@@ -1,0 +1,26 @@
+{
+  "id": "VP-Get-formula",
+  "displayName": "VP Get formula",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The VP Get formula command retrieves the formula from a designated cell range."
+    }
+  ]
+}

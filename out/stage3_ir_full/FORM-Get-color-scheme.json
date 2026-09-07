@@ -1,0 +1,12 @@
+{
+  "id": "FORM-Get-color-scheme",
+  "displayName": "FORM Get color scheme",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The FORM Get color scheme command returns the name of the actual color scheme of the currently displayed form."
+    }
+  ]
+}

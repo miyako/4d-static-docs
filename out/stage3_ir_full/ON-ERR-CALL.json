@@ -1,0 +1,31 @@
+{
+  "id": "ON-ERR-CALL",
+  "displayName": "ON ERR CALL",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "errorMethod",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "scope",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The ON ERR CALL command installs the project method, whose name you pass in errorMethod , as the method for catching (trapping) errors for the defined execution context in the current project."
+    }
+  ]
+}

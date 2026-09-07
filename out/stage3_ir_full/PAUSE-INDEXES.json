@@ -1,0 +1,22 @@
+{
+  "id": "PAUSE-INDEXES",
+  "displayName": "PAUSE INDEXES",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The PAUSE INDEXES command temporarily disables all the indexes of aTable , except for the index of the primary key."
+    }
+  ]
+}

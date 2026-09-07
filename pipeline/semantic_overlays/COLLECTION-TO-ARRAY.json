@@ -1,0 +1,56 @@
+{
+  "constraints": [
+    "propertyName is mandatory when collection contains objects (values are read from that property of each object); it must be omitted when collection contains plain values.",
+    "Any number of additional (array; propertyName) pairs may be passed to fan the same collection out into multiple arrays in one call.",
+    "After execution every filled array has a size equal to the collection length."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Fixed direction of the leading 'array' and repeated trailing group's 'array' member to 'out' since the command fills/sizes them from the collection; params were otherwise correct so kept as a single-source merge.",
+      "params": [
+        {
+          "name": "collection",
+          "type": { "kind": "concrete", "name": "Collection" },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection to copy in array(s)"
+        },
+        {
+          "name": "array",
+          "type": { "kind": "concrete", "name": "Array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Array to receive the elements of the collection; if propertyName passed, array to receive the values of propertyName in the collection"
+        },
+        {
+          "name": "propertyName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": true,
+          "description": "Object property name whose values to copy in array (\"\" for all elements); mandatory if collection holds objects"
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "array",
+              "type": { "kind": "concrete", "name": "Array" },
+              "direction": "out",
+              "optional": false
+            },
+            {
+              "name": "propertyName",
+              "type": { "kind": "concrete", "name": "Text" },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": { "min": 0, "max": null },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "Fills one or more arrays with either the raw elements of a values collection, or with a named property's values pulled from each object of an objects collection, optionally fanning out multiple (array; propertyName) pairs in one call."
+    }
+  ]
+}

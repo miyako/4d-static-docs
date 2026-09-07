@@ -1,0 +1,22 @@
+{
+  "id": "SET-QUERY-AND-LOCK",
+  "displayName": "SET QUERY AND LOCK",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "lock",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET QUERY AND LOCK command can be used to request the automatic locking of records found by all queries that follow the calling of this command in the current transaction."
+    }
+  ]
+}

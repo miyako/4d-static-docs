@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Starting with 4D v20 R4, printing jobs are non-blocking in new projects (see the Non-blocking printing compatibility setting)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Closes the print job opened by OPEN PRINTING JOB and sends the assembled print document to the current printer."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "QUERY-BY-FORMULA",
+  "displayName": "QUERY BY FORMULA",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "queryFormula",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "QUERY BY FORMULA looks for records in aTable ."
+    }
+  ]
+}

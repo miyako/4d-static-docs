@@ -1,0 +1,40 @@
+{
+  "id": "GET-DOCUMENT-ICON",
+  "displayName": "GET DOCUMENT ICON",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "docPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "icon",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The GET DOCUMENT ICON command returns, in the 4D picture variable or field icon , the icon of the document whose name or complete pathname is passed in docPath .can specify a file of any type (executable, document, short"
+    }
+  ]
+}

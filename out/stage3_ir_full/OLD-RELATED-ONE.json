@@ -1,0 +1,22 @@
+{
+  "id": "OLD-RELATED-ONE",
+  "displayName": "OLD RELATED ONE",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "OLD RELATED ONE operates the same way as RELATE ONE does, except that OLD RELATED ONE uses the old value of aField to establish the relation."
+    }
+  ]
+}

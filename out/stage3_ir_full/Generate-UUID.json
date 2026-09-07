@@ -1,0 +1,30 @@
+{
+  "id": "Generate-UUID",
+  "displayName": "Generate UUID",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Generate UUID returns a new 32-character UUID identifier in non-canonical form."
+    },
+    {
+      "params": [
+        {
+          "name": "version",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Generate UUID returns a new 32-character UUID identifier in non-canonical form."
+    }
+  ]
+}

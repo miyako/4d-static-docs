@@ -1,0 +1,40 @@
+{
+  "id": "ARRAY-DATE",
+  "displayName": "ARRAY DATE",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "arrayName",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "size2",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Creates or resizes an in-memory array of Date elements; enlarging an existing array leaves existing elements unchanged and initializes new elements to the null date (!00/00/00!)."
+    }
+  ]
+}

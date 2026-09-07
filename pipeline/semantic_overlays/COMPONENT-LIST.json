@@ -1,0 +1,21 @@
+{
+  "constraints": [
+    "Callable from either the host project or a component; returns an empty array if the project uses no components."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "componentsArray is sized and filled by the command (direction was mechanically drafted as 'in'); corrected to 'out'.",
+      "params": [
+        {
+          "name": "componentsArray",
+          "type": { "kind": "concrete", "name": "Text array" },
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the components loaded by the 4D application for the current host project"
+        }
+      ],
+      "semanticRole": "Sizes and fills an array with the names of the components currently loaded for the host project."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "DOM-GET-XML-ELEMENT-NAME",
+  "displayName": "DOM GET XML ELEMENT NAME",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "elementName",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DOM GET XML ELEMENT NAME command returns, in the elementName parameter, the name of the XML element designated by elementRef ."
+    }
+  ]
+}

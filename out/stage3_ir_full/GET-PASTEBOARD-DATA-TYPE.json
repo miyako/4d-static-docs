@@ -1,0 +1,40 @@
+{
+  "id": "GET-PASTEBOARD-DATA-TYPE",
+  "displayName": "GET PASTEBOARD DATA TYPE",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "4Dsignatures",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "nativeTypes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formatNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The GET PASTEBOARD DATA TYPE command gets the list of data types present in the pasteboard."
+    }
+  ]
+}

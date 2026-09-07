@@ -1,0 +1,22 @@
+{
+  "id": "OPEN-DATA-FILE",
+  "displayName": "OPEN DATA FILE",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "accessPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OPEN DATA FILE command allows changing the data file opened by the 4D application on-the-fly."
+    }
+  ]
+}

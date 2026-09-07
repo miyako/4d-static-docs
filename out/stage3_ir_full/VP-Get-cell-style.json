@@ -1,0 +1,26 @@
+{
+  "id": "VP-Get-cell-style",
+  "displayName": "VP Get cell style",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The VP Get cell style command returns a style object for the first cell in the rangeObj ."
+    }
+  ]
+}

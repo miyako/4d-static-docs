@@ -1,0 +1,44 @@
+{
+  "id": "BLOB-to-list",
+  "displayName": "BLOB to list",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "inout",
+          "optional": true,
+          "default": "0 (start of the BLOB)",
+          "description": "Byte offset to read the hierarchical-list data from; on return, updated to the offset immediately following the data read."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Creates a new hierarchical list from data stored in blob at the given (or default) byte offset, advancing offset past the data read, and returns the new list's reference number."
+    }
+  ],
+  "constraints": [
+    "If offset is omitted, reading starts at the beginning of the BLOB (byte 0).",
+    "The BLOB's data must have previously been produced by LIST TO BLOB for the created list to be well-formed."
+  ],
+  "_needsReview": [
+    "offset is typed plain Integer here (unlike the analogous BLOB to integer command, where the equivalent updated-in-place offset parameter is typed Variable), yet the docs still describe it as updated with 'New offset after reading' -- left as inout per the parameter table's arrow, but this may be a doc inconsistency worth checking against the live command's actual pass-by-reference behavior."
+  ]
+}

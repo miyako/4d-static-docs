@@ -1,0 +1,28 @@
+{
+  "id": "PAGE-BREAK",
+  "displayName": "PAGE BREAK",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "PAGE BREAK triggers the printing of the data that has been sent to the printer and ejects the page."
+    },
+    {
+      "params": [],
+      "semanticRole": "PAGE BREAK triggers the printing of the data that has been sent to the printer and ejects the page."
+    }
+  ]
+}

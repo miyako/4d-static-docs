@@ -1,0 +1,28 @@
+{
+  "id": "KILL-WORKER",
+  "displayName": "KILL WORKER",
+  "kind": "classic_command",
+  "theme": "Process (Communications)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The KILL WORKER command posts a message to the worker process whose name or number you passed in process , asking it to ignore any pending messages and to terminate its execution as soon as the current task ends."
+    }
+  ]
+}

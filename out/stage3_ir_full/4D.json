@@ -1,0 +1,19 @@
+{
+  "id": "4D",
+  "displayName": "4D",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns the built-in 4D class-store object (the entry point for accessing 4D's built-in ORDA/framework classes)."
+    }
+  ],
+  "_needsReview": [
+    "Stage 1 extracted no description text for this page (only the Properties section: Command number 1709, Thread safe yes). The semanticRole above reflects general knowledge of what the '4D' command/class-store object is, not text pulled from this record's sections.description -- worth a human spot-check against the live doc page."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "SET-DOCUMENT-SIZE",
+  "displayName": "SET DOCUMENT SIZE",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "docRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET DOCUMENT SIZE command sets the size of a document to the number of bytes you pass in size ."
+    }
+  ]
+}

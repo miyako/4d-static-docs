@@ -1,0 +1,44 @@
+{
+  "id": "Drop-position",
+  "displayName": "Drop position",
+  "kind": "classic_command",
+  "theme": "Drag and Drop",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "columnNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Drop position command can be used to find out the location, in a \u201ccomplex\u201d destination object, where an object has been (dragged and) dropped."
+    },
+    {
+      "params": [
+        {
+          "name": "pictPosY",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Drop position command can be used to find out the location, in a \u201ccomplex\u201d destination object, where an object has been (dragged and) dropped."
+    }
+  ]
+}

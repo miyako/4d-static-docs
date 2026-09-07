@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    "options is a combination of bit-flag 'sk ...' constants from the Strings theme (e.g. sk case insensitive, sk char codes, sk diacritic insensitive, sk kana insensitive, sk strict, sk whole word, sk width insensitive); several are mutually exclusive alternatives (case-insensitive vs. char-codes vs. strict) while others (kana/width insensitive, diacritic/case insensitive) can be combined.",
+    "sk kana insensitive and sk width insensitive only take effect when the current data language is Japanese; otherwise the comparison behaves as if sk strict were specified.",
+    "The @ wildcard character is not supported by Compare strings; it is evaluated as a literal '@'.",
+    "Return value is one of -1 (aString lower), 0 (equal), or 1 (aString higher) -- not an arbitrary signed magnitude."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Compares two text values under the current data-language collation (like the '<' operator) and returns -1/0/1, optionally modified by case/diacritic/kana/width-sensitivity options."
+    }
+  ]
+}

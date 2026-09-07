@@ -1,0 +1,13 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "returns": { "kind": "concrete", "name": "Text" }
+    }
+  ],
+  "constraints": [
+    "The returned string's format depends on the calling context: 'MethodName' for a database method or project method, 'Trigger on [TableName]' for a trigger, '[TableName].FormName' for a table form method, 'FormName.ObjectName' for a project form object method, 'ClassName:constructor' / 'ClassName.FunctionName' for a class constructor/function, and component-scoped variants like 'MethodName(ComponentName)' when invoked from a component.",
+    "Cannot be called from within a 4D formula.",
+    "To operate correctly in compiled mode, the calling method must not have range checking disabled (see Range checking)."
+  ]
+}

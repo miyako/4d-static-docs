@@ -1,0 +1,12 @@
+{
+  "id": "Log-file",
+  "displayName": "Log file",
+  "kind": "classic_command",
+  "theme": "Backup",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Log file command returns the long name (i.e."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "New-data-key",
+  "displayName": "New data key",
+  "kind": "classic_command",
+  "theme": "Data Security",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "passPhrase",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The New data key command generates a binary data encryption key from the text passed in the passPhrase parameter."
+    }
+  ]
+}

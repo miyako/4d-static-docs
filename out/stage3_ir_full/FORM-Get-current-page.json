@@ -1,0 +1,28 @@
+{
+  "id": "FORM-Get-current-page",
+  "displayName": "FORM Get current page",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The FORM Get current page command returns the number of the currently displayed form page or of the current form loaded by the FORM LOAD command."
+    }
+  ]
+}

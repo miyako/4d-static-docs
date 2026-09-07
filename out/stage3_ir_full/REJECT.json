@@ -1,0 +1,22 @@
+{
+  "id": "REJECT",
+  "displayName": "REJECT",
+  "kind": "classic_command",
+  "theme": "Data Entry",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "REJECT has two forms."
+    }
+  ]
+}

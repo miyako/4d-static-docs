@@ -1,0 +1,22 @@
+{
+  "id": "HIDE-PROCESS",
+  "displayName": "HIDE PROCESS",
+  "kind": "classic_command",
+  "theme": "Process (User Interface)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "HIDE PROCESS hides all windows that belong to process ."
+    }
+  ]
+}

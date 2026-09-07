@@ -1,0 +1,22 @@
+{
+  "id": "VP-ADD-SELECTION",
+  "displayName": "VP ADD SELECTION",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP ADD SELECTION command adds the specified cells to the currently selected cells."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "Convert-path-POSIX-to-system",
+  "displayName": "Convert path POSIX to system",
+  "kind": "classic_command",
+  "theme": "System-Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "posixPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Converts an absolute POSIX-syntax pathname to the equivalent pathname in the current platform's system syntax."
+    }
+  ],
+  "constraints": [
+    "posixPath must be an absolute disk path beginning with \"/\"; network paths (e.g. ftp://...) are not supported.",
+    "The '*' literal-symbol parameter tells the command that posixPath is percent-encoded (special characters escaped); if posixPath is actually encoded but '*' is omitted, the returned system path is invalid. Without '*', the output path is not encoded either."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "POST-OUTSIDE-CALL",
+  "displayName": "POST OUTSIDE CALL",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "POST OUTSIDE CALL calls the form displayed in the frontmost window of process ."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "operator selects one of three combination modes (constants of the 'Picture Transformation' theme): 1 = horizontal concatenation, 2 = vertical concatenation, 3 = superimposition.",
+    "horOffset/vertOffset only apply when operator is superimposition (3); they translate pict2 before superimposing it onto pict1.",
+    "Differs from the & and | picture operators: those always rasterize to a plain bitmap, while COMBINE PICTURES preserves the compound-type characteristics of the source pictures."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Combines two pictures (pict1, pict2) using the given combination mode (horizontal/vertical concatenation or superimposition) into a third, compound-type resulting picture."
+    }
+  ]
+}

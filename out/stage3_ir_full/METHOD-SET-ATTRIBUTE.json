@@ -1,0 +1,91 @@
+{
+  "id": "METHOD-SET-ATTRIBUTE",
+  "displayName": "METHOD SET ATTRIBUTE",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribValue",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribType",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attribValue",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Boolean"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Text"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "embedded"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The METHOD SET ATTRIBUTE command sets the value(s) of the attribType attribute(s) for the project method designated by the path parameter."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "theme": "Hierarchical-Lists",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "The docs render two syntax lines that differ only in whether a leading '*' is passed (selecting whether 'list' is a name-string vs. a reference-number). That's one semantic overload with an optional literal-symbol discriminator on 'list', not two overloads.",
+      "semanticRole": "Deletes a single item (or, if the trailing * is passed, its attached sublist too) from a hierarchical list, identified by item reference number, by the sentinel 0 (last item added), or by the sentinel * (currently selected item).",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, 'list' below is an object name (Text); if omitted, 'list' is a hierarchical list reference number (Integer). Required if several representations of the same list exist and you are targeting the current item (second '*' passed), since only object-name addressing distinguishes each representation's own current item."
+        },
+        {
+          "name": "list",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "concrete", "name": "Text" }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": [
+            { "kind": "concrete", "name": "Integer" },
+            { "kind": "pseudo", "name": "Operator" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": 0, "meaning": "the last item added to the list" },
+            { "value": "*", "meaning": "the currently selected list item" }
+          ],
+          "description": "If no item exists with the given reference number, the command does nothing."
+        },
+        {
+          "name": "eraseSublist",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, any sublist attached to the deleted item is also erased from memory. If omitted, the sublist (if any) is not erased -- retrieve its list reference number beforehand (e.g. to delete it later with CLEAR LIST) if needed."
+        }
+      ],
+      "interactionNotes": [
+        {
+          "params": ["asObjectName (leading *)", "itemRef (* sentinel)"],
+          "note": "The literal symbol '*' means two unrelated things depending on position: leading = 'list is a name, not a ref number'; in itemRef's slot = 'operate on the current item'."
+        }
+      ]
+    }
+  ]
+}

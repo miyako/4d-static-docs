@@ -1,0 +1,35 @@
+{
+  "id": "FORM-Convert-to-dynamic",
+  "displayName": "FORM Convert to dynamic",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "formName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The FORM Convert to dynamic command converts the formName (classic form) to a dynamic form and returns it in an object."
+    }
+  ]
+}

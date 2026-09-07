@@ -1,0 +1,22 @@
+{
+  "id": "VOLUME-LIST",
+  "displayName": "VOLUME LIST",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "volumes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VOLUME LIST command populates the text array volumes with the names of the volumes currently defined (Windows) or mounted (Macintosh) on your machine."
+    }
+  ]
+}

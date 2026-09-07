@@ -1,0 +1,43 @@
+{
+  "id": "Action-info",
+  "displayName": "Action info",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "action",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "target",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns an object describing the given standard action's current availability/status (enabled, visible, checked/unchecked/mixed, title, current parameter value) in the specified form context."
+    }
+  ],
+  "constraints": [
+    "action can be a plain action-name string or a constant from the Standard Action theme; some actions require the 'name?param=value' pattern (e.g. \"gotoPage?value=2\").",
+    "If target is omitted, the ak current form context is used by default.",
+    "Returns null (undefined) if the action's status cannot be determined (e.g. not attached to any object or menu command)."
+  ],
+  "_needsReview": [
+    "The prose description lists the returned object's properties as enabled/status/title/visible/value, but the parameter table's Function result row instead lists boolean properties isEnabled/isVisible/isChecked/isMixed/isUnknownState -- the two doc sources disagree on the exact returned shape and neither was preferred here; left unrecorded as a formal returns TypeRef shape rather than guessing which is authoritative."
+  ]
+}

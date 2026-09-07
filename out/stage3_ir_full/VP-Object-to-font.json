@@ -1,0 +1,26 @@
+{
+  "id": "VP-Object-to-font",
+  "displayName": "VP Object to font",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fontObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The VP Object to font command returns a font shorthand string from fontObj ."
+    }
+  ]
+}

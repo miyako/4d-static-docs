@@ -1,0 +1,12 @@
+{
+  "id": "FORM-UNLOAD",
+  "displayName": "FORM UNLOAD",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The FORM UNLOAD command releases from memory the current form designated using the FORM LOAD command."
+    }
+  ]
+}

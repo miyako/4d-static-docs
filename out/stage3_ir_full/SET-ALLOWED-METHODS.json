@@ -1,0 +1,22 @@
+{
+  "id": "SET-ALLOWED-METHODS",
+  "displayName": "SET ALLOWED METHODS",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "methodsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET ALLOWED METHODS command designates the project methods that can be entered via the application."
+    }
+  ]
+}

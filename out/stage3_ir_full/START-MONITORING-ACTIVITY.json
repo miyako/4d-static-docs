@@ -1,0 +1,31 @@
+{
+  "id": "START-MONITORING-ACTIVITY",
+  "displayName": "START MONITORING ACTIVITY",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "duration",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "source",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The START MONITORING ACTIVITY command records operations exceeding a specified duration in memory."
+    }
+  ]
+}

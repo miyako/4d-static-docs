@@ -1,0 +1,92 @@
+{
+  "id": "BLOB-to-text",
+  "displayName": "BLOB to text",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "BLOB from which to get the text"
+        },
+        {
+          "name": "textFormat",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Format and character set of the text to read",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Mac C string"
+            },
+            {
+              "value": 1,
+              "meaning": "Mac Pascal string"
+            },
+            {
+              "value": 2,
+              "meaning": "Mac text with length"
+            },
+            {
+              "value": 3,
+              "meaning": "Mac text without length (requires textLength)"
+            },
+            {
+              "value": 4,
+              "meaning": "UTF8 C string"
+            },
+            {
+              "value": 5,
+              "meaning": "UTF8 text with length"
+            },
+            {
+              "value": 6,
+              "meaning": "UTF8 text without length (requires textLength)"
+            }
+          ]
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "inout",
+          "optional": true,
+          "description": "Offset within the BLOB (expressed in bytes); on return, incremented by the number of bytes read",
+          "default": "0 (start of the BLOB) if omitted"
+        },
+        {
+          "name": "textLength",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of characters to read; only used (and required) when textFormat is 'Mac text without length' (3) or 'UTF8 text without length' (6) -- ignored for the other formats, which self-describe their length"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "Reads and returns a Text value from a BLOB at a given (or default) byte offset, decoded per an explicit character-set/length format, and advances the offset variable by the bytes consumed."
+    }
+  ],
+  "constraints": [
+    "The 'UTF8' format constants can only be used when the application runs in Unicode mode.",
+    "The 'Mac' format constants cannot work with texts greater than 32 KB."
+  ]
+}

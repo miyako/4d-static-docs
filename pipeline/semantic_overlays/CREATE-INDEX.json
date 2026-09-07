@@ -1,0 +1,59 @@
+{
+  "constraints": [
+    "Keyword indexes (indexType = -1) cannot be composite: fieldsArray must contain exactly one field.",
+    "Composite indexes require two or more fields in fieldsArray, and the order of the fields in the array matters for how the index is built.",
+    "If an index named indexName already exists, the command does nothing.",
+    "With '*' passed, indexing runs asynchronously: the calling method continues immediately, regardless of whether indexing has finished.",
+    "Locked records encountered during indexing are skipped until unlocked; the command waits for them."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Added sentinelValues documenting the four legal indexType constants from the 'Index Type' theme.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": false,
+          "description": "Table for which to create an index"
+        },
+        {
+          "name": "fieldsArray",
+          "type": { "kind": "concrete", "name": "Pointer array" },
+          "direction": "in",
+          "optional": false,
+          "description": "Pointer(s) to field(s) to be indexed"
+        },
+        {
+          "name": "indexType",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            { "value": -1, "meaning": "Keywords index: word-by-word indexing (Text/Alpha/Picture fields only); cannot be composite" },
+            { "value": 0, "meaning": "Default index type: 4D picks the most optimized type (excluding keywords) for the field contents" },
+            { "value": 1, "meaning": "Standard B-Tree index" },
+            { "value": 3, "meaning": "Cluster B-Tree index: optimized when few distinct keywords occur frequently" }
+          ],
+          "description": "Type of index to create"
+        },
+        {
+          "name": "indexName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the index to create; if it already exists, the command does nothing"
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, indexing runs asynchronously"
+        }
+      ],
+      "semanticRole": "Creates a standard or keyword index on one or more fields of a table, optionally running the indexing asynchronously."
+    }
+  ]
+}

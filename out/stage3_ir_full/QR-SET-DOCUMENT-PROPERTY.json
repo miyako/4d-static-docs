@@ -1,0 +1,40 @@
+{
+  "id": "QR-SET-DOCUMENT-PROPERTY",
+  "displayName": "QR SET DOCUMENT PROPERTY",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR SET DOCUMENT PROPERTY command displays the printing dialog or sets the unit used for the document."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "SOAP-Request",
+  "displayName": "SOAP Request",
+  "kind": "classic_command",
+  "theme": "Web Services (Server)",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SOAP Request command returns True if the code being executed is part of a SOAP request."
+    }
+  ]
+}

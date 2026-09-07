@@ -1,0 +1,12 @@
+{
+  "id": "FORM-theme",
+  "displayName": "FORM theme",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The FORM theme command returns the OS interface theme rendered for the current form: \"FluentUI\" (Windows), \"LiquidGlass\" (macOS), or \"Classic\" (all platforms)."
+    }
+  ]
+}

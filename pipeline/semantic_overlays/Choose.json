@@ -1,0 +1,19 @@
+{
+  "constraints": [
+    "All value parameters must be of the same type; the command performs no type-consistency check itself.",
+    "value parameters cannot be pictures, pointers, BLOBs, or arrays.",
+    "Choose evaluates every value parameter before returning, even ones that are not selected -- side effects and errors in any value parameter always occur."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Selects and returns one of the value parameters; if criterion is Boolean it acts as a ternary (must pass exactly value1/value2), if criterion is an Integer it acts as a 0-based index into the full value list.",
+      "jointConstraints": [
+        {
+          "params": ["criterion", "value", "group"],
+          "rule": "When criterion is Boolean, exactly two value parameters (value1, value2) are expected/used. When criterion is Integer, at least one value parameter is expected and criterion is a 0-based position into value1, value2, ... ; an out-of-range criterion yields a type-appropriate null value."
+        }
+      ]
+    }
+  ]
+}

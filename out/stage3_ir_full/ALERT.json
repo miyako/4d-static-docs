@@ -1,0 +1,34 @@
+{
+  "id": "ALERT",
+  "displayName": "ALERT",
+  "kind": "classic_command",
+  "theme": "Messages",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "okButtonTitle",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The ALERT command displays an alert dialog box composed of a note icon, a message, and an OK button."
+    }
+  ],
+  "constraints": [
+    "Do not call ALERT from the On Activate or On Deactivate form-event handling code of a form/object method; doing so causes an endless loop."
+  ]
+}

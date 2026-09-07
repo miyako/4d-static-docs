@@ -1,0 +1,31 @@
+{
+  "id": "JSON-PARSE-ARRAY",
+  "displayName": "JSON PARSE ARRAY",
+  "kind": "classic_command",
+  "theme": "JSON",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "jsonString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The JSON PARSE ARRAY command parses the contents of a JSON-formatted string and puts the data extracted into the array parameter."
+    }
+  ]
+}

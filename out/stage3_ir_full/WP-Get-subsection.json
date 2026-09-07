@@ -1,0 +1,53 @@
+{
+  "id": "WP-Get-subsection",
+  "displayName": "WP Get subsection",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Get subsection command returns first subsection intersected by the targetObj range or element, or to the specified subSectionType subsection of the wpSection section."
+    },
+    {
+      "params": [
+        {
+          "name": "wpSection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "subSectionType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Get subsection command returns first subsection intersected by the targetObj range or element, or to the specified subSectionType subsection of the wpSection section."
+    }
+  ]
+}

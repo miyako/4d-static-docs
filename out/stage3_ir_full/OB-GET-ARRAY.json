@@ -1,0 +1,40 @@
+{
+  "id": "OB-GET-ARRAY",
+  "displayName": "OB GET ARRAY",
+  "kind": "classic_command",
+  "theme": "Objects (Language)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OB GET ARRAY command retrieves, in array , the array of values stored in the property of the language object designated by the object parameter.can be an object variable or a 4D object field."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Form-event-code",
+  "displayName": "Form event code",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Form event code returns a numeric value identifying the type of form event that has just occurred."
+    }
+  ]
+}

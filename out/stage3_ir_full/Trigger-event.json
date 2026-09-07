@@ -1,0 +1,12 @@
+{
+  "id": "Trigger-event",
+  "displayName": "Trigger event",
+  "kind": "classic_command",
+  "theme": "Triggers",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Called from within a trigger, the Trigger event command returns a numeric value that denotes the type of the database event, in other words, the reason why the trigger has been invoked."
+    }
+  ]
+}

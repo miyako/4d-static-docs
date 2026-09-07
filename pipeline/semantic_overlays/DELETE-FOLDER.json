@@ -1,0 +1,32 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "deleteOption is documented as two named constants from the 'System Documents' theme, not an arbitrary Integer; added sentinelValues/enum-style meanings and the default-when-omitted behavior.",
+      "params": [
+        {
+          "name": "folder",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "deleteOption",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Deletion mode; if omitted, behaves as 'Delete only if empty' (0).",
+          "sentinelValues": [
+            { "value": 0, "meaning": "Delete only if empty: fails with error -47 if the folder is not empty (this is also the default when the parameter is omitted)" },
+            { "value": 1, "meaning": "Delete with contents: deletes the folder and everything it contains, even if locked/read-only (given sufficient access rights)" }
+          ]
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If the folder does not exist: with deleteOption omitted/0, error -120 is generated; with deleteOption=1, the command does nothing and no error is returned.",
+    "With deleteOption=1, if any contained file cannot be deleted, deletion aborts as soon as the first inaccessible element is found (error -54 on Windows, -45 on macOS), and the folder may be left only partially deleted; use Last errors to find the offending file.",
+    "Errors can be intercepted with a method installed via ON ERR CALL."
+  ]
+}

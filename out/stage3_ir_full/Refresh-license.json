@@ -1,0 +1,12 @@
+{
+  "id": "Refresh-license",
+  "displayName": "Refresh license",
+  "kind": "classic_command",
+  "theme": "Licenses",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Refresh license command updates the current 4D Server license."
+    }
+  ]
+}

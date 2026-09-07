@@ -1,0 +1,31 @@
+{
+  "id": "GET-PASTEBOARD-DATA",
+  "displayName": "GET PASTEBOARD DATA",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "dataType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "data",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET PASTEBOARD DATA command returns, in the BLOB field or in the data variable, the data present in the pasteboard and whose type you pass in dataType ."
+    }
+  ]
+}

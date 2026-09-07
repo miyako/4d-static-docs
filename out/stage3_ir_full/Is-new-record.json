@@ -1,0 +1,26 @@
+{
+  "id": "Is-new-record",
+  "displayName": "Is new record",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is new record command returns True when aTable \u2019s current record is being created and has not yet been saved in the current process.You can obtain the same information by using the existing Record number command, and"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "WEB-Server-list",
+  "displayName": "WEB Server list",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The WEB Server list command returns a collection of all Web server objects available in the 4D application."
+    }
+  ]
+}

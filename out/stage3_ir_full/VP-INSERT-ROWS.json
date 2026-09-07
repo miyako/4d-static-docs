@@ -1,0 +1,22 @@
+{
+  "id": "VP-INSERT-ROWS",
+  "displayName": "VP INSERT ROWS",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP INSERT ROWS command inserts rows defined by the rangeObj ."
+    }
+  ]
+}

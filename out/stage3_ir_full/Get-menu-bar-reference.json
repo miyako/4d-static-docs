@@ -1,0 +1,26 @@
+{
+  "id": "Get-menu-bar-reference",
+  "displayName": "Get menu bar reference",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get menu bar reference command returns the ID of the current menu bar or the menu bar of a specific process."
+    }
+  ]
+}

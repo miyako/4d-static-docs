@@ -1,0 +1,12 @@
+{
+  "id": "Random",
+  "displayName": "Random",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Random returns a random integer value between 0 and 32,767 (inclusive)."
+    }
+  ]
+}

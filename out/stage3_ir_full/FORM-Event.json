@@ -1,0 +1,12 @@
+{
+  "id": "FORM-Event",
+  "displayName": "FORM Event",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "FORM Event returns an object containing information about the form event that has just occurred."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "DISTINCT-ATTRIBUTE-VALUES",
+  "displayName": "DISTINCT ATTRIBUTE VALUES",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "valuesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DISTINCT ATTRIBUTE VALUES command creates and populates the valuesArray with non-repeated (unique) values coming from the path attribute in the objectField field for the current selection of the table to which this f"
+    }
+  ]
+}

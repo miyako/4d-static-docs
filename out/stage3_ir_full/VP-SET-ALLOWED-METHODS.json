@@ -1,0 +1,22 @@
+{
+  "id": "VP-SET-ALLOWED-METHODS",
+  "displayName": "VP SET ALLOWED METHODS",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "methodObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET ALLOWED METHODS command designates the project methods that can be called in 4D View Pro formulas."
+    }
+  ]
+}

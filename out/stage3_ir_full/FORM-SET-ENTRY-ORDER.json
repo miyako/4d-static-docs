@@ -1,0 +1,31 @@
+{
+  "id": "FORM-SET-ENTRY-ORDER",
+  "displayName": "FORM SET ENTRY ORDER",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pageNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The FORM SET ENTRY ORDER command allows to set dynamically the entry order of the current form for the current process based upon the objectNames array."
+    }
+  ]
+}

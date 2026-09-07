@@ -1,0 +1,26 @@
+{
+  "id": "WEB-SERVICE-Get-info",
+  "displayName": "WEB SERVICE Get info",
+  "kind": "classic_command",
+  "theme": "Web Services (Client)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "infoType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The WEB SERVICE Get info command returns information about any error generated during the execution of the last SOAP request sent to a remote Web Service."
+    }
+  ]
+}

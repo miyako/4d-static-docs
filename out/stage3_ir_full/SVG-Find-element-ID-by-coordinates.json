@@ -1,0 +1,97 @@
+{
+  "id": "SVG-Find-element-ID-by-coordinates",
+  "displayName": "SVG Find element ID by coordinates",
+  "kind": "classic_command",
+  "theme": "SVG",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pictureObject",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "x",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "y",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The SVG Find element ID by coordinates command returns the ID (\"id\" or \"xml:id\" attribute) of the XML element found at the location set by the coordinates (x,y) in the SVG picture designated by the pictureObject paramete"
+    },
+    {
+      "params": [
+        {
+          "name": "pictureObject",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "x",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "y",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The SVG Find element ID by coordinates command returns the ID (\"id\" or \"xml:id\" attribute) of the XML element found at the location set by the coordinates (x,y) in the SVG picture designated by the pictureObject paramete"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "Clickcount",
+  "displayName": "Clickcount",
+  "kind": "classic_command",
+  "theme": "Form-Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns the number of consecutive clicks of the same mouse button in the current mouse-click form event (2 for a double-click)."
+    }
+  ],
+  "constraints": [
+    "Must only be called in the context of an On Clicked, On Header Click, or On Footer Click form event handler."
+  ]
+}

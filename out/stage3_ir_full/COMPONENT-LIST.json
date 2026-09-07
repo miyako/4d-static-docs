@@ -1,0 +1,26 @@
+{
+  "id": "COMPONENT-LIST",
+  "displayName": "COMPONENT LIST",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "componentsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the components loaded by the 4D application for the current host project"
+        }
+      ],
+      "semanticRole": "Sizes and fills an array with the names of the components currently loaded for the host project."
+    }
+  ],
+  "constraints": [
+    "Callable from either the host project or a component; returns an empty array if the project uses no components."
+  ]
+}

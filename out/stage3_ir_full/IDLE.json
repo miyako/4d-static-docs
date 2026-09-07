@@ -1,0 +1,12 @@
+{
+  "id": "IDLE",
+  "displayName": "IDLE",
+  "kind": "classic_command",
+  "theme": "Compiler",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The IDLE command is designed only for use with the compiler."
+    }
+  ]
+}

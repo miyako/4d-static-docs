@@ -1,0 +1,12 @@
+{
+  "id": "Form",
+  "displayName": "Form",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Form command returns the object associated with the current form (instantiated from the formData parameter or the user class assigned in the Form editor)."
+    }
+  ]
+}

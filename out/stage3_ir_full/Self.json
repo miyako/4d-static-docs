@@ -1,0 +1,12 @@
+{
+  "id": "Self",
+  "displayName": "Self",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Self command returns a pointer to the object whose object method is currently being executed."
+    }
+  ]
+}

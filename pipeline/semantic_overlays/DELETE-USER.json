@@ -1,0 +1,8 @@
+{
+  "theme": "Users-and-Groups",
+  "constraints": [
+    "Only the Designer and Administrator can delete users; the Administrator cannot delete a user created by the Designer.",
+    "userID must be a valid user ID number as returned by GET USER LIST; if the account does not exist or was already deleted, error -9979 is generated (catchable via a method installed with ON ERR CALL).",
+    "Deleted user names no longer appear in the Users editor (opened via EDIT ACCESS) nor in Design mode; their numbers may be reassigned to new user accounts later."
+  ]
+}

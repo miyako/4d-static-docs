@@ -1,0 +1,26 @@
+{
+  "id": "IMAP-New-transporter",
+  "displayName": "IMAP New transporter",
+  "kind": "classic_command",
+  "theme": "Mail",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "parameter",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.IMAPTransporter"
+      },
+      "semanticRole": "The IMAP New transporter command configures a new IMAP connection according to the parameter parameter and returns a new transporter object."
+    }
+  ]
+}

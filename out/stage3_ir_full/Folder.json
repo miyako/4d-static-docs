@@ -1,0 +1,75 @@
+{
+  "id": "Folder",
+  "displayName": "Folder",
+  "kind": "classic_command",
+  "theme": "File and Folder",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pathType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Folder"
+      },
+      "semanticRole": "The Folder command creates and returns a new object of the 4D.Folder type."
+    },
+    {
+      "params": [
+        {
+          "name": "folderConstant",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Folder"
+      },
+      "semanticRole": "The Folder command creates and returns a new object of the 4D.Folder type."
+    }
+  ]
+}

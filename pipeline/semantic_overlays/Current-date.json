@@ -1,0 +1,12 @@
+{
+  "theme": "Date-and-Time",
+  "constraints": [
+    "The '*' parameter only has an effect on a 4D Client machine, where it fetches the current date from the server instead of the local client machine."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the current system date, or the server's current date (on 4D Client) if '*' is passed."
+    }
+  ]
+}

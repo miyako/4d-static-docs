@@ -1,0 +1,26 @@
+{
+  "id": "Method-called-on-error",
+  "displayName": "Method called on error",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "scope",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Method called on error command returns the name of the method installed by the ON ERR CALL command for the current process or the defined scope ."
+    }
+  ]
+}

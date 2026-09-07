@@ -1,0 +1,22 @@
+{
+  "id": "SEND-RECORD",
+  "displayName": "SEND RECORD",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SEND RECORD sends the current record of aTable to the serial port or document opened by the SET CHANNEL command."
+    }
+  ]
+}

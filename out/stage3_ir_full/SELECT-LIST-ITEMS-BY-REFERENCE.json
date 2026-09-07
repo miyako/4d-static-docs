@@ -1,0 +1,40 @@
+{
+  "id": "SELECT-LIST-ITEMS-BY-REFERENCE",
+  "displayName": "SELECT LIST ITEMS BY REFERENCE",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "refArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SELECT LIST ITEMS BY REFERENCE command selects the item(s) whose item reference number is passed in itemRef and, optionally, in refArray , within the list whose reference number is passed in list ."
+    }
+  ]
+}

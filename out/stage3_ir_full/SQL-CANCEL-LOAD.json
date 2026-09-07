@@ -1,0 +1,12 @@
+{
+  "id": "SQL-CANCEL-LOAD",
+  "displayName": "SQL CANCEL LOAD",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SQL CANCEL LOAD command ends the current SELECT request and initializes the parameters."
+    }
+  ]
+}

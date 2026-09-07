@@ -1,0 +1,40 @@
+{
+  "id": "WEB-LEGACY-GET-SESSION-EXPIRATION",
+  "displayName": "WEB LEGACY GET SESSION EXPIRATION",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "sessionID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "expDate",
+          "type": {
+            "kind": "concrete",
+            "name": "Date"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "expTime",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB LEGACY GET SESSION EXPIRATION command returns the expiration information for the cookie of the session whose UUID you passed in sessionID ."
+    }
+  ]
+}

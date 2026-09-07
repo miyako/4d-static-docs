@@ -1,0 +1,26 @@
+{
+  "id": "VP-Run-offscreen-area",
+  "displayName": "VP Run offscreen area",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "parameters",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Mixed"
+      },
+      "semanticRole": "The VP Run offscreen area command creates an offscreen area in memory which can be used to process 4D View Pro area commands and functions."
+    }
+  ]
+}

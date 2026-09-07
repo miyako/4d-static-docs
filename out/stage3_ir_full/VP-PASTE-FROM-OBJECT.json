@@ -1,0 +1,40 @@
+{
+  "id": "VP-PASTE-FROM-OBJECT",
+  "displayName": "VP PASTE FROM OBJECT",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "dataObject",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP PASTE FROM OBJECT command pastes the contents, style and formulas stored in dataObject to the rangeObj object."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Timestamp",
+  "displayName": "Timestamp",
+  "kind": "classic_command",
+  "theme": "Date and Time",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Timestamp returns the current UTC time in ISO format with milliseconds, i.e."
+    }
+  ]
+}

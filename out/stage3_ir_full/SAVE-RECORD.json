@@ -1,0 +1,22 @@
+{
+  "id": "SAVE-RECORD",
+  "displayName": "SAVE RECORD",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SAVE RECORD saves the current record of aTable in the current process."
+    }
+  ]
+}

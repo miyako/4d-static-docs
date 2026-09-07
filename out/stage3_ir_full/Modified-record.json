@@ -1,0 +1,26 @@
+{
+  "id": "Modified-record",
+  "displayName": "Modified record",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Modified record returns True if the current record of aTable has been modified but not saved; otherwise it returns False."
+    }
+  ]
+}

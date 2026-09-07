@@ -1,0 +1,26 @@
+{
+  "id": "Load-4D-View-document",
+  "displayName": "Load 4D View document",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "4DViewDocument",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Load 4D View document command allows you to convert a 4D View document into a 4D object."
+    }
+  ]
+}

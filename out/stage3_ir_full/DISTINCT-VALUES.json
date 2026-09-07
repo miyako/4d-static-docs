@@ -1,0 +1,40 @@
+{
+  "id": "DISTINCT-VALUES",
+  "displayName": "DISTINCT VALUES",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "countArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The DISTINCT VALUES command creates and populates the array array with non-repeated (unique) values coming from the field aField for the current selection of the table to which the field belongs and, optionally, returns"
+    }
+  ]
+}

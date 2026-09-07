@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Is a keyword, not a callable command with parameters; a block opened with Begin SQL must be closed with a matching End SQL keyword.",
+    "Multiple SQL statements on one line must be separated with a semicolon; the 4D Debugger evaluates SQL code line by line."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Marks the start of an inline block of SQL statements (closed by End SQL) to be interpreted by the process's current SQL data source."
+    }
+  ]
+}

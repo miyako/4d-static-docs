@@ -1,0 +1,12 @@
+{
+  "id": "New-list",
+  "displayName": "New list",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "New list creates a new, empty hierarchical list in memory and returns its unique list reference number."
+    }
+  ]
+}

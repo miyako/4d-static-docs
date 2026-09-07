@@ -1,0 +1,22 @@
+{
+  "id": "SET-PRINT-PREVIEW",
+  "displayName": "SET PRINT PREVIEW",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "preview",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SET PRINT PREVIEW allows you to programmatically check or uncheck the Preview on Screen option of the Print dialog box."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "In-footer",
+  "displayName": "In footer",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "In footer returns True for the In footer execution cycle."
+    }
+  ]
+}

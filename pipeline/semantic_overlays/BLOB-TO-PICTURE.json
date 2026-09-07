@@ -1,0 +1,35 @@
+{
+  "constraints": [
+    "Works regardless of the picture's original stored format inside the BLOB (like READ PICTURE FILE, but from a BLOB instead of a file).",
+    "codec lets you force interpretation of the BLOB's bytes using a specific picture codec ID instead of auto-detecting the format."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "picture is documented/arrow-marked as an output ('<-', the command fills the picture variable/field), not an input, even though the draft parser defaulted every parameter to direction:in.",
+      "params": [
+        {
+          "name": "pictureBlob",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "picture",
+          "type": { "kind": "concrete", "name": "Picture" },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the picture decoded from pictureBlob."
+        },
+        {
+          "name": "codec",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": true,
+          "description": "Picture codec ID to force when decoding pictureBlob."
+        }
+      ],
+      "semanticRole": "Decodes a picture stored (in any native format) inside pictureBlob into the picture variable/field."
+    }
+  ]
+}

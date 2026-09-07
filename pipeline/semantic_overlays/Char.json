@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the character whose UTF-16 code is charCode (1-65535); the inverse of Character code."
+    }
+  ]
+}

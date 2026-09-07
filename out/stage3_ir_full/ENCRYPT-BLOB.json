@@ -1,0 +1,40 @@
+{
+  "id": "ENCRYPT-BLOB",
+  "displayName": "ENCRYPT BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "toEncrypt",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sendPrivKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "recipPubKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The ENCRYPT BLOB command encrypts the content of the toEncrypt BLOB with the sender\u2019s private key sendPrivKey , as well as optionally the recipient\u2019s public key recipPubKey ."
+    }
+  ]
+}

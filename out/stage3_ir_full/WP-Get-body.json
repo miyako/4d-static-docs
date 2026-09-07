@@ -1,0 +1,26 @@
+{
+  "id": "WP-Get-body",
+  "displayName": "WP Get body",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "wpDoc",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Get body command returns the body element of the wpDoc 4D Write Pro document."
+    }
+  ]
+}

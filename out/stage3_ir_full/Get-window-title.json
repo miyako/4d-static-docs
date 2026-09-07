@@ -1,0 +1,26 @@
+{
+  "id": "Get-window-title",
+  "displayName": "Get window title",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get window title command returns the title of the window whose reference number is passed in window ."
+    }
+  ]
+}

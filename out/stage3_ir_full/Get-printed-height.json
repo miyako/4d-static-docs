@@ -1,0 +1,12 @@
+{
+  "id": "Get-printed-height",
+  "displayName": "Get printed height",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Get printed height command returns the overall height (in pixels) of the section printed using the Print form command."
+    }
+  ]
+}

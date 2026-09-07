@@ -1,0 +1,33 @@
+{
+  "id": "SET-DATABASE-LOCALIZATION",
+  "displayName": "SET DATABASE LOCALIZATION",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "languageCode",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET DATABASE LOCALIZATION command is used to modify the current language of the database for the current session."
+    }
+  ]
+}

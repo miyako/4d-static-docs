@@ -1,0 +1,27 @@
+{
+  "id": "CREATE-RECORD",
+  "displayName": "CREATE RECORD",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "Creates a new empty in-memory record for a table (without displaying it), for programmatic field assignment rather than interactive data entry."
+    }
+  ],
+  "constraints": [
+    "The new record becomes the current record, but the current selection is left untouched.",
+    "The record only exists in memory until SAVE RECORD is called for the table; if the current record changes before saving (e.g. via a query), the new record is lost.",
+    "Does not require aTable to be in read/write mode; it can be used even when the table is read-only."
+  ]
+}

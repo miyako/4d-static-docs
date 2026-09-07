@@ -1,0 +1,12 @@
+{
+  "id": "Get-group-access",
+  "displayName": "Get group access",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Get group access command returns the memberships of the 4D user account for the current session."
+    }
+  ]
+}

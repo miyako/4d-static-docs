@@ -1,0 +1,40 @@
+{
+  "id": "SET-DRAG-ICON",
+  "displayName": "SET DRAG ICON",
+  "kind": "classic_command",
+  "theme": "Drag and Drop",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "icon",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "horOffset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "vertOffset",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET DRAG ICON command associates the icon picture with the cursor during drag and drop operations that are managed by programming."
+    }
+  ]
+}

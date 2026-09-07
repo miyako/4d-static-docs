@@ -1,0 +1,28 @@
+{
+  "id": "Screen-height",
+  "displayName": "Screen height",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "On Windows, Screen height returns the height of 4D application window (MDI window)."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Displayed-line-number",
+  "displayName": "Displayed line number",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Displayed line number command only works with the On Display Detail form event."
+    }
+  ]
+}

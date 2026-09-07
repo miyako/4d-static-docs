@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    "Has no effect in project databases opened in single-user mode.",
+    "Resets any alias set for the current user via SET USER ALIAS.",
+    "If called with no parameters, displays the database connection dialog box instead of switching programmatically.",
+    "If the given user account does not exist or was deleted, error -9979 is returned (interceptible via ON ERR CALL)."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Switches the identity of the current database user, either interactively (dialog box, if called without parameters) or programmatically by name/ID and password, discarding the previous user's access privileges."
+    }
+  ]
+}

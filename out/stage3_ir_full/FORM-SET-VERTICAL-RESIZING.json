@@ -1,0 +1,40 @@
+{
+  "id": "FORM-SET-VERTICAL-RESIZING",
+  "displayName": "FORM SET VERTICAL RESIZING",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resize",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "minHeight",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "maxHeight",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The FORM SET VERTICAL RESIZING command allows you to change the vertical resizing properties of the current form through programming."
+    }
+  ]
+}

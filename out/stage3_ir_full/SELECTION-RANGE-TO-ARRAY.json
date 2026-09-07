@@ -1,0 +1,65 @@
+{
+  "id": "SELECTION-RANGE-TO-ARRAY",
+  "displayName": "SELECTION RANGE TO ARRAY",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "start",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "end",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "data",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Field"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Table"
+                }
+              ],
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "array",
+              "type": {
+                "kind": "concrete",
+                "name": "Array"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "SELECTION RANGE TO ARRAY creates one or more arrays and copies data from the fields or record numbers from the current selection into the arrays."
+    }
+  ]
+}

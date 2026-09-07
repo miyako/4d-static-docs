@@ -1,0 +1,22 @@
+{
+  "id": "QUIT-4D",
+  "displayName": "QUIT 4D",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "time",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The QUIT 4D command exits the current 4D application and returns to the Desktop."
+    }
+  ]
+}

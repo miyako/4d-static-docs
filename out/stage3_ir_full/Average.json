@@ -1,0 +1,46 @@
+{
+  "id": "Average",
+  "displayName": "Average",
+  "kind": "classic_command",
+  "theme": "On-a-Series",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "series",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Computes the arithmetic mean of series (an indexed field, an object-field attribute selected via attributePath, or a numeric array)."
+    }
+  ],
+  "constraints": [
+    "If series is an array, it must be a one- or two-dimension Integer/Longint/Real array (not Text/Boolean/etc).",
+    "attributePath only applies when series is an object field; it selects a (possibly nested, dot-notation, case-sensitive) numeric attribute, and non-numeric values along that path are ignored.",
+    "Sets the OK system variable to 1 on normal completion, or 0 if the user interrupts via the progress thermometer's Stop button."
+  ]
+}

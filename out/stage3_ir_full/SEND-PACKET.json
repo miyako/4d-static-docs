@@ -1,0 +1,37 @@
+{
+  "id": "SEND-PACKET",
+  "displayName": "SEND PACKET",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "docRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "packet",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SEND PACKET sends a packet to a serial port or to a document."
+    }
+  ]
+}

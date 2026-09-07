@@ -1,0 +1,22 @@
+{
+  "id": "DOM-CLOSE-XML",
+  "displayName": "DOM CLOSE XML",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DOM CLOSE XML command frees up the memory occupied by the XML object designated by elementRef ."
+    }
+  ]
+}

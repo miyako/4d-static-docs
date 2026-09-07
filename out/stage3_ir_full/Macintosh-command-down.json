@@ -1,0 +1,12 @@
+{
+  "id": "Macintosh-command-down",
+  "displayName": "Macintosh command down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Macintosh command down returns TRUE if the Macintosh command key is pressed.When called on a Windows platform, Macintosh command down returns TRUE if the Windows Ctrl key is pressed."
+    }
+  ]
+}

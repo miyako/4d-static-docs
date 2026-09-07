@@ -1,0 +1,45 @@
+{
+  "id": "WEB-GET-HTTP-HEADER",
+  "displayName": "WEB GET HTTP HEADER",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "header",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB GET HTTP HEADER command returns either a string or two arrays, containing the HTTP header used for the currently processed request."
+    },
+    {
+      "params": [
+        {
+          "name": "fieldArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "valueArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB GET HTTP HEADER command returns either a string or two arrays, containing the HTTP header used for the currently processed request."
+    }
+  ]
+}

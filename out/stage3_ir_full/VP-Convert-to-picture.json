@@ -1,0 +1,35 @@
+{
+  "id": "VP-Convert-to-picture",
+  "displayName": "VP Convert to picture",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpObject",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Picture"
+      },
+      "semanticRole": "The VP Convert to picture command converts the vpObject 4D View Pro object (or the rangeObj range within vpObject ) to a SVG picture."
+    }
+  ]
+}

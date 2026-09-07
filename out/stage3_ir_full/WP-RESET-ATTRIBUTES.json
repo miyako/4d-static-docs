@@ -1,0 +1,120 @@
+{
+  "id": "WP-RESET-ATTRIBUTES",
+  "displayName": "WP RESET ATTRIBUTES",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The WP RESET ATTRIBUTES command allows you to reset the value of one or more attributes in the range, element, or document passed as parameter."
+    },
+    {
+      "params": [
+        {
+          "name": "sectionOrSubsection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "semanticRole": "The WP RESET ATTRIBUTES command allows you to reset the value of one or more attributes in the range, element, or document passed as parameter."
+    },
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribColl",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP RESET ATTRIBUTES command allows you to reset the value of one or more attributes in the range, element, or document passed as parameter."
+    },
+    {
+      "params": [
+        {
+          "name": "sectionOrSubsection",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "attribColl",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WP RESET ATTRIBUTES command allows you to reset the value of one or more attributes in the range, element, or document passed as parameter."
+    }
+  ]
+}

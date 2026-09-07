@@ -1,0 +1,40 @@
+{
+  "id": "FONT-STYLE-LIST",
+  "displayName": "FONT STYLE LIST",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fontFamily",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fontStyleList",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fontNameList",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The FONT STYLE LIST command returns the list of font styles and the list of complete font names supported by the font family defined in the fontFamily parameter."
+    }
+  ]
+}

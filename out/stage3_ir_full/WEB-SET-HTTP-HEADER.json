@@ -1,0 +1,45 @@
+{
+  "id": "WEB-SET-HTTP-HEADER",
+  "displayName": "WEB SET HTTP HEADER",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "header",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB SET HTTP HEADER command allows you to set the fields in the HTTP header of the reply sent to the Web browser by 4D."
+    },
+    {
+      "params": [
+        {
+          "name": "fieldArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "valueArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB SET HTTP HEADER command allows you to set the fields in the HTTP header of the reply sent to the Web browser by 4D."
+    }
+  ]
+}

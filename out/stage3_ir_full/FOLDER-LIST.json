@@ -1,0 +1,31 @@
+{
+  "id": "FOLDER-LIST",
+  "displayName": "FOLDER LIST",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "pathname",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "directories",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The FOLDER LIST command populates the Text or String array directories with the names of the folders located at the pathname you pass in pathname .The pathname parameter only accepts absolute pathnames."
+    }
+  ]
+}

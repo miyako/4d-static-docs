@@ -1,0 +1,63 @@
+{
+  "id": "DOM-Create-XML-element-arrays",
+  "displayName": "DOM Create XML element arrays",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "xPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "attribNamesArray",
+              "type": {
+                "kind": "concrete",
+                "name": "Text array"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attribValuesArray",
+              "type": {
+                "kind": "concrete",
+                "name": "Text array"
+              },
+              "direction": "in",
+              "optional": false
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The DOM Create XML element arrays command is used to add a new element in the elementRef XML element, as well as, optionally, attributes and their values in the form of arrays."
+    }
+  ]
+}

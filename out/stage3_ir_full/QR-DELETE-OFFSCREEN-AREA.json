@@ -1,0 +1,22 @@
+{
+  "id": "QR-DELETE-OFFSCREEN-AREA",
+  "displayName": "QR DELETE OFFSCREEN AREA",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR DELETE OFFSCREEN AREA command deletes in memory the Quick Report offscreen area whose reference was passed as parameter."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "Window-kind",
+  "displayName": "Window kind",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Window kind command returns the 4D type of the window whose reference number is passed in window ."
+    }
+  ]
+}

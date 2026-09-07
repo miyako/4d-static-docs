@@ -1,0 +1,12 @@
+{
+  "id": "SQL-LOGOUT",
+  "displayName": "SQL LOGOUT",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SQL LOGOUT command closes the connection with an ODBC source that is open in the current process (if applicable)."
+    }
+  ]
+}

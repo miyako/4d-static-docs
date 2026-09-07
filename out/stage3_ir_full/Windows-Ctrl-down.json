@@ -1,0 +1,12 @@
+{
+  "id": "Windows-Ctrl-down",
+  "displayName": "Windows Ctrl down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Windows Ctrl down returns TRUE if the Windows Ctrl key is pressed.When called on a Macintosh platform, Windows Ctrl down returns TRUE if the Macintosh Command key is pressed."
+    }
+  ]
+}

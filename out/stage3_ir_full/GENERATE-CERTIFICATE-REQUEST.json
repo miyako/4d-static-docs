@@ -1,0 +1,49 @@
+{
+  "id": "GENERATE-CERTIFICATE-REQUEST",
+  "displayName": "GENERATE CERTIFICATE REQUEST",
+  "kind": "classic_command",
+  "theme": "Secured Protocol",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "privKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "certifRequest",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "codeArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "nameArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GENERATE CERTIFICATE REQUEST command generates a certificate request at the PKCS format which can be directly used by certificate authorities such as Verisign(R) ."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "VP-DELETE-COLUMNS",
+  "displayName": "VP DELETE COLUMNS",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP DELETE COLUMNS command removes the columns in the rangeObj ."
+    }
+  ]
+}

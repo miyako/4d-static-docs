@@ -1,0 +1,26 @@
+{
+  "id": "CREATE-RELATED-ONE",
+  "displayName": "CREATE RELATED ONE",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Loads the existing related (One-side) record for the given Many-side field, or creates a new related record in memory if none matches yet."
+    }
+  ],
+  "constraints": [
+    "If a matching related (One-side) record already exists, this behaves like RELATE ONE and simply loads it into memory; otherwise a new related record is created.",
+    "When a new related record is created, you must assign the One-side field(s) from the Many-side field(s) yourself, then call SAVE RELATED ONE to persist it."
+  ]
+}

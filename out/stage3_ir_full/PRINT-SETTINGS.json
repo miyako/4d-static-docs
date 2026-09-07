@@ -1,0 +1,22 @@
+{
+  "id": "PRINT-SETTINGS",
+  "displayName": "PRINT SETTINGS",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "dialType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "PRINT SETTINGS displays a printing dialog box."
+    }
+  ]
+}

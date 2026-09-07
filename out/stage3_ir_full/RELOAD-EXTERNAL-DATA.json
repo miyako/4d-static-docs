@@ -1,0 +1,36 @@
+{
+  "id": "RELOAD-EXTERNAL-DATA",
+  "displayName": "RELOAD EXTERNAL DATA",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Picture"
+            },
+            {
+              "kind": "concrete",
+              "name": "Object"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The RELOAD EXTERNAL DATA command reloads the contents in memory of an external storage file associated with a BLOB, Picture, or Text type field."
+    }
+  ]
+}

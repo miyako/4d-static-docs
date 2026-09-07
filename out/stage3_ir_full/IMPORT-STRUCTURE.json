@@ -1,0 +1,22 @@
+{
+  "id": "IMPORT-STRUCTURE",
+  "displayName": "IMPORT STRUCTURE",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "xmlStructure",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The IMPORT STRUCTURE command imports, into the current database, the XML definition of the 4D database structure passed in the xmlStructure parameter."
+    }
+  ]
+}

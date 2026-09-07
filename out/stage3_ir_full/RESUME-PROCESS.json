@@ -1,0 +1,22 @@
+{
+  "id": "RESUME-PROCESS",
+  "displayName": "RESUME PROCESS",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "RESUME PROCESS resumes a process whose execution has been paused or delayed."
+    }
+  ]
+}

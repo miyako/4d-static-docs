@@ -1,0 +1,22 @@
+{
+  "id": "SET-TEXT-TO-PASTEBOARD",
+  "displayName": "SET TEXT TO PASTEBOARD",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "text",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SET TEXT TO PASTEBOARD clears the pasteboard and then puts a copy of the text you passed in text into the pasteboard."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Is-editing-text",
+  "displayName": "Is editing text",
+  "kind": "classic_command",
+  "theme": "Entry Control",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Is editing text command returns True if the user is entering values in an input form object, and False in all other cases."
+    }
+  ]
+}

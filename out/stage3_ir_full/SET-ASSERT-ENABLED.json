@@ -1,0 +1,33 @@
+{
+  "id": "SET-ASSERT-ENABLED",
+  "displayName": "SET ASSERT ENABLED",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "assertions",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET ASSERT ENABLED command can be used to disable or re-enable any assertions inserted into the 4D code of the application."
+    }
+  ]
+}

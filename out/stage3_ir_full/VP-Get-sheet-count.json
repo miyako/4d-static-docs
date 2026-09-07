@@ -1,0 +1,26 @@
+{
+  "id": "VP-Get-sheet-count",
+  "displayName": "VP Get sheet count",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The VP Get sheet count command returns the number of sheets in the document loaded in vpAreaName ."
+    }
+  ]
+}

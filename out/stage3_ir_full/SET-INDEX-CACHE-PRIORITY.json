@@ -1,0 +1,31 @@
+{
+  "id": "SET-INDEX-CACHE-PRIORITY",
+  "displayName": "SET INDEX CACHE PRIORITY",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "priority",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET INDEX CACHE PRIORITY command sets a specific priority to the index(es) related to the aField in cache for all processes in the current session."
+    }
+  ]
+}

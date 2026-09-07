@@ -1,0 +1,27 @@
+{
+  "id": "DEFAULT-TABLE",
+  "displayName": "DEFAULT TABLE",
+  "kind": "classic_command",
+  "theme": "Table",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Sets aTable as the default table for the current process, so that subsequent commands omitting their table parameter operate on it instead."
+    }
+  ],
+  "constraints": [
+    "DEFAULT TABLE does not allow omission of the table name when referring to fields directly (e.g. 'My Field:=...' still requires '[My Table]My Field:=...'); it only affects commands that accept an optional table parameter.",
+    "DEFAULT TABLE does not open a table, set a current record/selection, or prepare the table for input/output -- it is purely a convenience for omitting table parameters elsewhere.",
+    "Takes priority over an identically named default table form when a project form is used with commands such as DIALOG."
+  ]
+}

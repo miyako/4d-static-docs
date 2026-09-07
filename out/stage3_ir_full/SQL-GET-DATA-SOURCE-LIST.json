@@ -1,0 +1,40 @@
+{
+  "id": "SQL-GET-DATA-SOURCE-LIST",
+  "displayName": "SQL GET DATA SOURCE LIST",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "sourceType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sourceNamesArr",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "driversArr",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SQL GET DATA SOURCE LIST command returns, in the sourceNamesArr and driversArr arrays, the names and drivers of the sourceType type data sources defined in the ODBC manager of the operating system."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "OB-Is-defined",
+  "displayName": "OB Is defined",
+  "kind": "classic_command",
+  "theme": "Objects (Language)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "property",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The OB Is defined command returns True if object or property is defined, and False otherwise.can be an object varialble or a 4D object field."
+    }
+  ]
+}

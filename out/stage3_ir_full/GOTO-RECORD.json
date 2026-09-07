@@ -1,0 +1,31 @@
+{
+  "id": "GOTO-RECORD",
+  "displayName": "GOTO RECORD",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "record",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "GOTO RECORD selects the specified record of aTable as the current record."
+    }
+  ]
+}

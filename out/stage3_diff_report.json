@@ -38,7 +38,7 @@
     "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
-      "3 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+      "3 overloads share one auto-derived semanticRole; needs a per-overload overlay (overloadPatches/overloadMerges) to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
@@ -66,7 +66,7 @@
     "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
-      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay (overloadPatches/overloadMerges) to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
@@ -94,7 +94,7 @@
     ],
     "schema_errors": [],
     "review_notes": [
-      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay (overloadPatches/overloadMerges) to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
@@ -122,7 +122,7 @@
     "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
-      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay (overloadPatches/overloadMerges) to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
@@ -193,7 +193,7 @@
     ],
     "schema_errors": [],
     "review_notes": [
-      "4 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+      "4 overloads share one auto-derived semanticRole; needs a per-overload overlay (overloadPatches/overloadMerges) to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
@@ -208,7 +208,7 @@
     "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
-      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay (overloadPatches/overloadMerges) to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",

@@ -1,0 +1,12 @@
+{
+  "id": "Get-edited-text",
+  "displayName": "Get edited text",
+  "kind": "classic_command",
+  "theme": "Entry Control",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Get edited text command is mainly to be used with the On After Edit form event to retrieve the text as it is being entered."
+    }
+  ]
+}

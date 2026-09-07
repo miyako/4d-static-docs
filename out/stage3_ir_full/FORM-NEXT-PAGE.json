@@ -1,0 +1,12 @@
+{
+  "id": "FORM-NEXT-PAGE",
+  "displayName": "FORM NEXT PAGE",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "FORM NEXT PAGE changes the currently displayed form page to the next form page."
+    }
+  ]
+}

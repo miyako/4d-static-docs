@@ -1,0 +1,31 @@
+{
+  "id": "OBJECT-GET-SUBFORM-CONTAINER-SIZE",
+  "displayName": "OBJECT GET SUBFORM CONTAINER SIZE",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "width",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "height",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OBJECT GET SUBFORM CONTAINER SIZE command returns the width and height (in pixels) of a \"current\" subform object, displayed in the parent form."
+    }
+  ]
+}

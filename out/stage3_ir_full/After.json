@@ -1,0 +1,16 @@
+{
+  "id": "After",
+  "displayName": "After",
+  "kind": "classic_command",
+  "theme": "Form-Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns True during the After execution cycle (the On Validate form event) following object/form validation."
+    }
+  ],
+  "constraints": [
+    "Requires the On Validate event property to be enabled for the form and/or the object in the Design environment, otherwise the After execution cycle never fires.",
+    "Equivalent to testing whether Form event code returns On Validate."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "OPEN-PRINTING-JOB",
+  "displayName": "OPEN PRINTING JOB",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The OPEN PRINTING JOB command opens a print job and stacks all the subsequent printing orders there until the CLOSE PRINTING JOB command is called."
+    }
+  ]
+}

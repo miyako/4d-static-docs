@@ -1,0 +1,22 @@
+{
+  "id": "SQL-LOAD-RECORD",
+  "displayName": "SQL LOAD RECORD",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "numRecords",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SQL LOAD RECORD command retrieves one or more record(s) in 4D coming from the data source open in the current connection."
+    }
+  ]
+}

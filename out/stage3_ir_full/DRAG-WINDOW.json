@@ -1,0 +1,12 @@
+{
+  "id": "DRAG-WINDOW",
+  "displayName": "DRAG WINDOW",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The DRAG WINDOW command lets users drag the window on which they clicked following the movements of the mouse."
+    }
+  ]
+}

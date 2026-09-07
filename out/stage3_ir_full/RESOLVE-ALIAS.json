@@ -1,0 +1,31 @@
+{
+  "id": "RESOLVE-ALIAS",
+  "displayName": "RESOLVE ALIAS",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aliasPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "targetPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The RESOLVE ALIAS command returns the full path to the target file or folder of the alias (named shortcut under Windows)."
+    }
+  ]
+}

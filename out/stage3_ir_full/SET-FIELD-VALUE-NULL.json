@@ -1,0 +1,22 @@
+{
+  "id": "SET-FIELD-VALUE-NULL",
+  "displayName": "SET FIELD VALUE NULL",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET FIELD VALUE NULL command assigns the NULL value to the field designated by the aField parameter."
+    }
+  ]
+}

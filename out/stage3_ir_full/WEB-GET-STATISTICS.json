@@ -1,0 +1,40 @@
+{
+  "id": "WEB-GET-STATISTICS",
+  "displayName": "WEB GET STATISTICS",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "pages",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "hits",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "usage",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB GET STATISTICS command lets you get information about the most consulted pages loaded in the Web server\u2019s cache."
+    }
+  ]
+}

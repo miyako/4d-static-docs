@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Not needed if the named selection was created with CUT NAMED SELECTION and then consumed by USE NAMED SELECTION, since it no longer exists in memory afterward."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Frees the memory used by a named selection without affecting the underlying table, selection, or records."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "OB-GET-PROPERTY-NAMES",
+  "displayName": "OB GET PROPERTY NAMES",
+  "kind": "classic_command",
+  "theme": "Objects (Language)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrProperties",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrTypes",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The OB GET PROPERTY NAMES command returns, in arrProperties , the names of the properties contained in the language object designated by the object parameter.can be an object varialble or a 4D object field."
+    }
+  ]
+}

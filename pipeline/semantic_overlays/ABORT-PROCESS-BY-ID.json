@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "Only works on 4D Server; does nothing if called from a remote client or 4D single-user.",
+    "Requires the ServerNet network layer.",
+    "Intended only for debugging/administration, not as a regular application procedure."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "SET-ENVIRONMENT-VARIABLE",
+  "displayName": "SET ENVIRONMENT VARIABLE",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "varName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "varValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET ENVIRONMENT VARIABLE command allows you to set the value of an environment variable under macOS and Windows."
+    }
+  ]
+}

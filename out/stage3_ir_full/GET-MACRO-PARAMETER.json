@@ -1,0 +1,31 @@
+{
+  "id": "GET-MACRO-PARAMETER",
+  "displayName": "GET MACRO PARAMETER",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "textParam",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET MACRO PARAMETER command returns, in the paramText parameter, all or part of the text of the method from which it was called."
+    }
+  ]
+}

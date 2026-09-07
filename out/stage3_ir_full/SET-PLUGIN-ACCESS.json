@@ -1,0 +1,31 @@
+{
+  "id": "SET-PLUGIN-ACCESS",
+  "displayName": "SET PLUGIN ACCESS",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "plugIn",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "group",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET PLUGIN ACCESS command sets, by programming, the user group allowed to use each \u201cserialized\u201d plug-in that is installed in the database."
+    }
+  ]
+}

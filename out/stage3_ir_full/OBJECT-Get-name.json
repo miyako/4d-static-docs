@@ -1,0 +1,26 @@
+{
+  "id": "OBJECT-Get-name",
+  "displayName": "OBJECT Get name",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The OBJECT Get name command returns the name of a form object."
+    }
+  ]
+}

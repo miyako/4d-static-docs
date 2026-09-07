@@ -1,0 +1,46 @@
+{
+  "id": "GET-MENU-ITEMS",
+  "displayName": "GET MENU ITEMS",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "menuTitlesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "menuRefsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET MENU ITEMS command returns, in the menuTitlesArray and menuRefsArray arrays, the titles and IDs of all the items of the menu or menu bar designated by the menu parameter."
+    }
+  ]
+}

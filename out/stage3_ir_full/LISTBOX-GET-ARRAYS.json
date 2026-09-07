@@ -1,0 +1,191 @@
+{
+  "id": "LISTBOX-GET-ARRAYS",
+  "displayName": "LISTBOX GET ARRAYS",
+  "kind": "classic_command",
+  "theme": "List Box",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrColNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrHeaderNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrColVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrHeaderVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrColsVisible",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrStyles",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrFooterNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "arrFooterVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The LISTBOX GET ARRAYS command returns a set of synchronized arrays providing information on each column (visible or invisible) in the list box set in the object and * parameters."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrColNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrHeaderNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrColVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrHeaderVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrColsVisible",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrStyles",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrFooterNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "arrFooterVars",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The LISTBOX GET ARRAYS command returns a set of synchronized arrays providing information on each column (visible or invisible) in the list box set in the object and * parameters."
+    }
+  ]
+}

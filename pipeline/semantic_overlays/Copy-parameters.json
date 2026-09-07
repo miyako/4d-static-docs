@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Inside a formula, returns only the parameters passed via apply()/call(), not those passed to the enclosing method/function.",
+    "Returns an empty collection if the calling method/function was not itself called by another method/function, or if no parameters were passed to it."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a new collection of all parameters actually passed to the current method/function, optionally starting from the startFrom index (useful for forwarding a variable-length parameter list to another call)."
+    }
+  ]
+}

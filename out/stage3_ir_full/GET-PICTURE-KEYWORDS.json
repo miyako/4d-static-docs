@@ -1,0 +1,42 @@
+{
+  "id": "GET-PICTURE-KEYWORDS",
+  "displayName": "GET PICTURE KEYWORDS",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrKeywords",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The GET PICTURE KEYWORDS command returns, in the arrKeywords array, the list of keywords associated with the picture passed as parameter."
+    }
+  ]
+}

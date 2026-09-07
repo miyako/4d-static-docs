@@ -1,0 +1,35 @@
+{
+  "id": "Data-file-encryption-status",
+  "displayName": "Data file encryption status",
+  "kind": "classic_command",
+  "theme": "Data Security",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "structurePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "dataPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Data file encryption status command returns an object providing the encryption status for the data file designated by the structurePath and dataPath parameters."
+    }
+  ]
+}

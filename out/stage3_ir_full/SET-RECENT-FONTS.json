@@ -1,0 +1,22 @@
+{
+  "id": "SET-RECENT-FONTS",
+  "displayName": "SET RECENT FONTS",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fontsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET RECENT FONTS command modifies the list of fonts displayed in the context menu of the \"recent fonts\"."
+    }
+  ]
+}

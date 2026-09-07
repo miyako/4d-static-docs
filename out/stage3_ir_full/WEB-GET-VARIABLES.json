@@ -1,0 +1,31 @@
+{
+  "id": "WEB-GET-VARIABLES",
+  "displayName": "WEB GET VARIABLES",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "nameArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "valueArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB GET VARIABLES command fills the text arrays nameArray and valueArray with the variable names and values contained in the Web form \u201csubmitted\u201d (i.e."
+    }
+  ]
+}

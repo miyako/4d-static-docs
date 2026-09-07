@@ -1,0 +1,12 @@
+{
+  "theme": "Hierarchical-Lists",
+  "constraints": [
+    "Call CLEAR LIST on the duplicate once it is no longer needed."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Duplicates the hierarchical list referenced by list and returns the reference number of the new, independent copy."
+    }
+  ]
+}

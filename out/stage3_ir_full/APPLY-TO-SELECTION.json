@@ -1,0 +1,37 @@
+{
+  "id": "APPLY-TO-SELECTION",
+  "displayName": "APPLY TO SELECTION",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "statement",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "APPLY TO SELECTION applies statement to each record in the current selection of aTable ."
+    }
+  ],
+  "constraints": [
+    "statement cannot reference call parameters ($1...$n).",
+    "On 4D Server, statement is not executed on the server: every record in the selection is sent back to the local workstation to be modified there.",
+    "If the current selection is empty, the command has no effect.",
+    "If used within a transaction, all changes made by statement can be rolled back if the transaction is canceled."
+  ]
+}

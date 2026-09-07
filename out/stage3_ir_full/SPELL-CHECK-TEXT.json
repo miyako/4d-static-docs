@@ -1,0 +1,58 @@
+{
+  "id": "SPELL-CHECK-TEXT",
+  "displayName": "SPELL CHECK TEXT",
+  "kind": "classic_command",
+  "theme": "Spell Checker",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "text",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "errPos",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "errLength",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "checkPos",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "arrSuggest",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SPELL CHECK TEXT command checks the contents of the text parameter beginning from the checkPos character and returns the position of the first unknown word it finds (if any)."
+    }
+  ]
+}

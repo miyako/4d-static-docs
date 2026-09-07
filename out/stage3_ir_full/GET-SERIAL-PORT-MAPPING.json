@@ -1,0 +1,31 @@
+{
+  "id": "GET-SERIAL-PORT-MAPPING",
+  "displayName": "GET SERIAL PORT MAPPING",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "numArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "nameArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET SERIAL PORT MAPPING command returns two arrays, numArray and nameArray , containing the serial port numbers and the serial port names of the current machine."
+    }
+  ]
+}

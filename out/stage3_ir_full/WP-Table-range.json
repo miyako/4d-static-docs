@@ -1,0 +1,26 @@
+{
+  "id": "WP-Table-range",
+  "displayName": "WP Table range",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Table range command returns a range object that addresses only the tables that intersect with the targetObj you passed as parameter."
+    }
+  ]
+}

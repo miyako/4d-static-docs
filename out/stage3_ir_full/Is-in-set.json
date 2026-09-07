@@ -1,0 +1,26 @@
+{
+  "id": "Is-in-set",
+  "displayName": "Is in set",
+  "kind": "classic_command",
+  "theme": "Sets",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Is in set tests whether or not the current record for the table is in set ."
+    }
+  ]
+}

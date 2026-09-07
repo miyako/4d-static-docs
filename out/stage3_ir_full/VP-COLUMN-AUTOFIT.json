@@ -1,0 +1,22 @@
+{
+  "id": "VP-COLUMN-AUTOFIT",
+  "displayName": "VP COLUMN AUTOFIT",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP COLUMN AUTOFIT command automatically sizes the column(s) in rangeObj according to their contents."
+    }
+  ]
+}

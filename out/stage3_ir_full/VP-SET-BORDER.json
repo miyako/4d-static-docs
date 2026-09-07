@@ -1,0 +1,40 @@
+{
+  "id": "VP-SET-BORDER",
+  "displayName": "VP SET BORDER",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "borderStyleObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "borderPosObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET BORDER command applies the border style(s) defined in borderStyleObj and borderPosObj to the range defined in the rangeObj ."
+    }
+  ]
+}

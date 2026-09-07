@@ -1,0 +1,42 @@
+{
+  "id": "SET-TABLE-TITLES",
+  "displayName": "SET TABLE TITLES",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableTitles",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "tableNumbers",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SET TABLE TITLES lets you mask, rename, and reorder the tables of your database that appear in standard 4D dialog boxes within the Application environment (i.e."
+    }
+  ]
+}

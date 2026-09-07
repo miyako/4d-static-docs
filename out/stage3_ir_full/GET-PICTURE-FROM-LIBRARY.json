@@ -1,0 +1,54 @@
+{
+  "id": "GET-PICTURE-FROM-LIBRARY",
+  "displayName": "GET PICTURE FROM LIBRARY",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "warning This command cannot be used in projects because the Picture library is only available in binary databases."
+    },
+    {
+      "params": [
+        {
+          "name": "picName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "warning This command cannot be used in projects because the Picture library is only available in binary databases."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "VP-RECOMPUTE-FORMULAS",
+  "displayName": "VP RECOMPUTE FORMULAS",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP RECOMPUTE FORMULAS command immediately evaluates all formulas in vpAreaName ."
+    }
+  ]
+}

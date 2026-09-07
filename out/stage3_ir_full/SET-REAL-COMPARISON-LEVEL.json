@@ -1,0 +1,22 @@
+{
+  "id": "SET-REAL-COMPARISON-LEVEL",
+  "displayName": "SET REAL COMPARISON LEVEL",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "epsilon",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET REAL COMPARISON LEVEL command sets the epsilon value used by 4D to compare real values and expressions for equality."
+    }
+  ]
+}

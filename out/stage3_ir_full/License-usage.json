@@ -1,0 +1,12 @@
+{
+  "id": "License-usage",
+  "displayName": "License usage",
+  "kind": "classic_command",
+  "theme": "Licenses",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The License usage command returns a collection of objects containing information on the retained licenses."
+    }
+  ]
+}

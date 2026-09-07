@@ -1,0 +1,31 @@
+{
+  "id": "QR-EXECUTE-COMMAND",
+  "displayName": "QR EXECUTE COMMAND",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "area",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "command",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR EXECUTE COMMAND command executes the toolbar button command whose reference was passed in command ."
+    }
+  ]
+}

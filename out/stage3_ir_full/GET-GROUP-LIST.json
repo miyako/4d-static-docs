@@ -1,0 +1,31 @@
+{
+  "id": "GET-GROUP-LIST",
+  "displayName": "GET GROUP LIST",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "groupNames",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "groupNumbers",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "GET GROUP LIST populates the arrays groupNames and groupNumbers with the names and unique ID numbers of the groups as they appear in the Password editor window."
+    }
+  ]
+}

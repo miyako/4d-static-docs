@@ -1,0 +1,12 @@
+{
+  "id": "SQL-End-selection",
+  "displayName": "SQL End selection",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SQL End selection command is used to determine if the boundaries of the result set have been reached."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "VP-IMPORT-FROM-BLOB",
+  "displayName": "VP IMPORT FROM BLOB",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "vpBlob",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "paramObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The VP IMPORT FROM BLOB command imports the vpBlob in the 4D View Pro area vpAreaName and replaces its contents."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "id": "DELETE-MENU-ITEM",
+  "displayName": "DELETE MENU ITEM",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            },
+            {
+              "kind": "concrete",
+              "name": "Text"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Menu number, or a MenuRef (reference) created with Create menu."
+        },
+        {
+          "name": "menuItem",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "the last item added to menu"
+            }
+          ]
+        },
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If omitted, applies to the menu bar of the current process. Ignored if menu is a MenuRef."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "If the designated menu item is itself a menu managed by reference (e.g. created with Create menu), only that instance in menu is removed; the referenced submenu itself continues to exist in memory until explicitly released with RELEASE MENU.",
+    "Also works with a menu bar created with Create menu and installed with SET MENU BAR."
+  ]
+}

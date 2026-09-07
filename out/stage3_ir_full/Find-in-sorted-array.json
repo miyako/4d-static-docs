@@ -1,0 +1,65 @@
+{
+  "id": "Find-in-sorted-array",
+  "displayName": "Find in sorted array",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "order",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              ">",
+              "<"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "posFirst",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "posLast",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Find in sorted array command returns true if at least one element in the sorted array matches the value , and optionally returns position(s) of matched element(s)."
+    }
+  ]
+}

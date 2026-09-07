@@ -1,0 +1,31 @@
+{
+  "id": "SAX-ADD-XML-DOCTYPE",
+  "displayName": "SAX ADD XML DOCTYPE",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "docType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SAX ADD XML DOCTYPE command adds a DocType statement set by the docType parameter in the XML document referenced by document ."
+    }
+  ]
+}

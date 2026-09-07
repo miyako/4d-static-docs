@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Fails/does nothing if a file already exists at accessPath (the command checks the path does not already correspond to an existing file before proceeding).",
+    "On 4D Server (since v13), executing this command internally calls QUIT 4D on the server first, which prompts every remote client with a server-quitting dialog."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Creates a new (non-existent) data file on disk and hot-swaps it in as the data file used by the running 4D application, replacing the currently open one."
+    }
+  ]
+}

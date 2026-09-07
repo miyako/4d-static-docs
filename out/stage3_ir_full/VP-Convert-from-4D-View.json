@@ -1,0 +1,26 @@
+{
+  "id": "VP-Convert-from-4D-View",
+  "displayName": "VP Convert from 4D View",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "4DViewDocument",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The VP Convert from 4D View command allows you to convert a legacy 4D View document into a 4D View Pro object."
+    }
+  ]
+}

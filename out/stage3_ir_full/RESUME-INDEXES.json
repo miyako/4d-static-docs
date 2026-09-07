@@ -1,0 +1,33 @@
+{
+  "id": "RESUME-INDEXES",
+  "displayName": "RESUME INDEXES",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The RESUME INDEXES command reactivates all the indexes of aTable when they have been paused previously using the PAUSE INDEXES command."
+    }
+  ]
+}

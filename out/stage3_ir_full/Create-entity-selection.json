@@ -1,0 +1,40 @@
+{
+  "id": "Create-entity-selection",
+  "displayName": "Create entity selection",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "dsTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      },
+      "semanticRole": "Builds and returns a new alterable entity selection for dsTable's dataclass, from that table's current selection."
+    }
+  ],
+  "constraints": [
+    "dsTable must be exposed in ds (the datastore); otherwise an error is returned.",
+    "Cannot be used with a remote datastore.",
+    "The entity selection built preserves the current selection's order (sorted current selection yields an ordered entity selection; unsorted yields an unordered one)."
+  ]
+}

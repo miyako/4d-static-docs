@@ -1,0 +1,53 @@
+{
+  "id": "Field",
+  "displayName": "Field",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "tableNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fieldNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Pointer"
+      },
+      "semanticRole": "The Field command has two forms: If you pass a table number in tableNum and a field number in fieldNum , Field returns a pointer to the field."
+    },
+    {
+      "params": [
+        {
+          "name": "fieldPtr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Field command has two forms: If you pass a table number in tableNum and a field number in fieldNum , Field returns a pointer to the field."
+    }
+  ]
+}

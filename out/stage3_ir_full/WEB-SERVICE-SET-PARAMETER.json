@@ -1,0 +1,40 @@
+{
+  "id": "WEB-SERVICE-SET-PARAMETER",
+  "displayName": "WEB SERVICE SET PARAMETER",
+  "kind": "classic_command",
+  "theme": "Web Services (Client)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "soapType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WEB SERVICE SET PARAMETER command enables the definition of a parameter used for a client SOAP request."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "GET-PICTURE-FROM-PASTEBOARD",
+  "displayName": "GET PICTURE FROM PASTEBOARD",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "GET PICTURE FROM PASTEBOARD returns the picture present in the pasteboard in the picture field or variable."
+    }
+  ]
+}

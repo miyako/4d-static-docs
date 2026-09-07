@@ -1,0 +1,35 @@
+{
+  "id": "WEB-Validate-digest",
+  "displayName": "WEB Validate digest",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "userName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "password",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The WEB Validate digest command checks the validity of the identifying information (name and password) provided by a user connecting to the Web server."
+    }
+  ]
+}

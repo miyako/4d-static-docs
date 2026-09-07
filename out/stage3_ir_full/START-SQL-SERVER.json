@@ -1,0 +1,12 @@
+{
+  "id": "START-SQL-SERVER",
+  "displayName": "START SQL SERVER",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The START SQL SERVER command launches the integrated SQL server in the 4D application where it has been executed."
+    }
+  ]
+}

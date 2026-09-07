@@ -1,0 +1,12 @@
+{
+  "id": "License-info",
+  "displayName": "License info",
+  "kind": "classic_command",
+  "theme": "Licenses",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The License info command returns an object providing detailed information about the active license."
+    }
+  ]
+}

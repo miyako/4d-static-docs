@@ -1,0 +1,31 @@
+{
+  "id": "SET-AUTOMATIC-RELATIONS",
+  "displayName": "SET AUTOMATIC RELATIONS",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "one",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "many",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "SET AUTOMATIC RELATIONS temporarily changes all the manual relations into automatic relations for the entire database in the current process."
+    }
+  ]
+}

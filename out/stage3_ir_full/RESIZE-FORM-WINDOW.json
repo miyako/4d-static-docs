@@ -1,0 +1,31 @@
+{
+  "id": "RESIZE-FORM-WINDOW",
+  "displayName": "RESIZE FORM WINDOW",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "width",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "height",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The RESIZE FORM WINDOW command lets you change the size of the current form window."
+    }
+  ]
+}

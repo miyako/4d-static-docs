@@ -1,0 +1,47 @@
+{
+  "id": "SET-EXTERNAL-DATA-PATH",
+  "displayName": "SET EXTERNAL DATA PATH",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Picture"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "path",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET EXTERNAL DATA PATH command sets or modifies, for the current record, the external storage location for the aField field passed as parameter."
+    }
+  ]
+}

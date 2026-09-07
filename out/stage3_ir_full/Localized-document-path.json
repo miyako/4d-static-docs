@@ -1,0 +1,26 @@
+{
+  "id": "Localized-document-path",
+  "displayName": "Localized document path",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "relativePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Localized document path command returns the complete (absolute) pathname of a document designated by relativePath and located in a xxx.lproj folder."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "SHOW-ON-DISK",
+  "displayName": "SHOW ON DISK",
+  "kind": "classic_command",
+  "theme": "System Documents",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "pathname",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SHOW ON DISK command displays the file or folder whose pathname was passed in the pathname parameter in a standard window of the operating system."
+    }
+  ]
+}

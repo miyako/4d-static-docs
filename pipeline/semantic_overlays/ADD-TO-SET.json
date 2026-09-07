@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "The set named in 'set' must already exist (e.g. created with CREATE SET / CREATE EMPTY SET), otherwise an error occurs -- ADD TO SET does not implicitly create it.",
+    "If aTable has no current record, ADD TO SET silently has no effect."
+  ]
+}

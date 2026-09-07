@@ -1,0 +1,12 @@
+{
+  "id": "New-log-file",
+  "displayName": "New log file",
+  "kind": "classic_command",
+  "theme": "Backup",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Preliminary note: This command only works with 4D Server."
+    }
+  ]
+}

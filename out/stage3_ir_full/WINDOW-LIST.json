@@ -1,0 +1,33 @@
+{
+  "id": "WINDOW-LIST",
+  "displayName": "WINDOW LIST",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "windows",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The WINDOW LIST command populates the array windows with the window reference numbers of the windows currently open in all running processes (kernel or user processes)."
+    }
+  ]
+}

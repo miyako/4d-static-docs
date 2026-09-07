@@ -1,0 +1,8 @@
+{
+  "constraints": [
+    "title and text are each limited to 255 characters.",
+    "Under macOS (10.8+), the notification is only shown while the application is not in the foreground, though it still appears in Notification Center regardless.",
+    "Under Windows, the notification remains displayed until machine activity is detected or the user clicks its close box; duration overrides this default display behavior.",
+    "Actual display of notifications also depends on the OS/system notification configuration."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "WA-REFRESH-CURRENT-URL",
+  "displayName": "WA REFRESH CURRENT URL",
+  "kind": "classic_command",
+  "theme": "Web Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WA REFRESH CURRENT URL command reloads the current URL displayed in the Web area designated by the * and object parameters."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WA REFRESH CURRENT URL command reloads the current URL displayed in the Web area designated by the * and object parameters."
+    }
+  ]
+}

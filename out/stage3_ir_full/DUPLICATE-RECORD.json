@@ -1,0 +1,22 @@
+{
+  "id": "DUPLICATE-RECORD",
+  "displayName": "DUPLICATE RECORD",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "DUPLICATE RECORD creates a new record for aTable that is a duplicate of the current record."
+    }
+  ]
+}

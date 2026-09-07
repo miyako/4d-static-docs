@@ -1,0 +1,8 @@
+{
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the arctangent of number, expressed in radians."
+    }
+  ]
+}

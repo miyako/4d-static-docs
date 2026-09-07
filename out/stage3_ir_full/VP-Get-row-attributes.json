@@ -1,0 +1,26 @@
+{
+  "id": "VP-Get-row-attributes",
+  "displayName": "VP Get row attributes",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The VP Get row attributes command returns a collection of properties for any row in the rangeObj ."
+    }
+  ]
+}

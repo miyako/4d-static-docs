@@ -1,0 +1,22 @@
+{
+  "id": "USE-SET",
+  "displayName": "USE SET",
+  "kind": "classic_command",
+  "theme": "Sets",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "USE SET makes the records in set the current selection for the table to which the set belongs."
+    }
+  ]
+}

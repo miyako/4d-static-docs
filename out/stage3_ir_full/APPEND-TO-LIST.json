@@ -1,0 +1,67 @@
+{
+  "id": "APPEND-TO-LIST",
+  "displayName": "APPEND TO LIST",
+  "kind": "classic_command",
+  "theme": "Hierarchical Lists",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "list",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "itemRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "sublist",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "expanded",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The APPEND TO LIST command appends a new item to the hierarchical list whose list reference number you pass in list .",
+      "jointConstraints": [
+        {
+          "params": [
+            "sublist",
+            "expanded"
+          ],
+          "rule": "Although both are individually optional, sublist and expanded must be passed together (or both omitted); passing only one is invalid. Omit both, or pass sublist as 0, to attach no child list."
+        }
+      ]
+    }
+  ]
+}

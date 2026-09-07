@@ -1,0 +1,36 @@
+{
+  "id": "APPEND-DATA-TO-PASTEBOARD",
+  "displayName": "APPEND DATA TO PASTEBOARD",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "dataType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "data",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The APPEND DATA TO PASTEBOARD command appends to the pasteboard the data contained in the BLOB data under the data type specified in dataType ."
+    }
+  ],
+  "constraints": [
+    "Under Windows, when dataType is a Text data type (\"TEXT\", com.4d.private.text.native, or com.4d.private.text.utf16), the string in the data BLOB must end with a NULL character.",
+    "To append multiple instances of the same data type, or non-text/non-picture data, use APPEND DATA TO PASTEBOARD; to clear the pasteboard and set a single text/picture/file-path value, use SET TEXT TO PASTEBOARD / SET PICTURE TO PASTEBOARD / SET FILE TO PASTEBOARD instead.",
+    "To append fresh data (rather than add to what's already there), call CLEAR PASTEBOARD first."
+  ]
+}

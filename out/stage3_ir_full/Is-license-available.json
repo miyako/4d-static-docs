@@ -1,0 +1,26 @@
+{
+  "id": "Is-license-available",
+  "displayName": "Is license available",
+  "kind": "classic_command",
+  "theme": "Licenses",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "license",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Is license available command lets you find out the availability of a plug-in."
+    }
+  ]
+}

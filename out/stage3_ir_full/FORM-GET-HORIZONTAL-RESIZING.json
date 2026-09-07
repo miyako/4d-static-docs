@@ -1,0 +1,40 @@
+{
+  "id": "FORM-GET-HORIZONTAL-RESIZING",
+  "displayName": "FORM GET HORIZONTAL RESIZING",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resize",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "minWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The FORM GET HORIZONTAL RESIZING command returns the horizontal resizing properties of the current form in the resize , minWidth and maxWidth variables."
+    }
+  ]
+}

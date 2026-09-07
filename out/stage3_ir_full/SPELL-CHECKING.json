@@ -1,0 +1,12 @@
+{
+  "id": "SPELL-CHECKING",
+  "displayName": "SPELL CHECKING",
+  "kind": "classic_command",
+  "theme": "Spell Checker",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SPELL CHECKING command triggers the spell check of the field or variable having the focus in the currently displayed form."
+    }
+  ]
+}

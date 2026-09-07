@@ -1,0 +1,22 @@
+{
+  "id": "VP-SET-ACTIVE-CELL",
+  "displayName": "VP SET ACTIVE CELL",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET ACTIVE CELL command defines a specified cell as active."
+    }
+  ]
+}

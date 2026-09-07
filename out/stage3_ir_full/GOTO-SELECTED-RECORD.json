@@ -1,0 +1,31 @@
+{
+  "id": "GOTO-SELECTED-RECORD",
+  "displayName": "GOTO SELECTED RECORD",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "record",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "GOTO SELECTED RECORD moves to the specified record in the current selection of aTable and makes that record the current record."
+    }
+  ]
+}

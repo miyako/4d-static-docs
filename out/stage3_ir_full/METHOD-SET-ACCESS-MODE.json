@@ -1,0 +1,22 @@
+{
+  "id": "METHOD-SET-ACCESS-MODE",
+  "displayName": "METHOD SET ACCESS MODE",
+  "kind": "classic_command",
+  "theme": "Design Object Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The METHOD SET ACCESS MODE command sets the behavior for 4D when you attempt to write access an object already loaded for modification by another user or process."
+    }
+  ]
+}

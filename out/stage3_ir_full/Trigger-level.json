@@ -1,0 +1,12 @@
+{
+  "id": "Trigger-level",
+  "displayName": "Trigger level",
+  "kind": "classic_command",
+  "theme": "Triggers",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Trigger level command returns the execution level of the trigger."
+    }
+  ]
+}

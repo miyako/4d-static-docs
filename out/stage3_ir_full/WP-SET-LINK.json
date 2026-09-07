@@ -1,0 +1,31 @@
+{
+  "id": "WP-SET-LINK",
+  "displayName": "WP SET LINK",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "linkObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WP SET LINK applies a hyperlink reference to the targetObj ."
+    }
+  ]
+}

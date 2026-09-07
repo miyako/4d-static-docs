@@ -1,0 +1,49 @@
+{
+  "id": "MODIFY-RECORD",
+  "displayName": "MODIFY RECORD",
+  "kind": "classic_command",
+  "theme": "Data Entry",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The MODIFY RECORD command modifies the current record for the table aTable or for the default table if you omit the aTable parameter."
+    },
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The MODIFY RECORD command modifies the current record for the table aTable or for the default table if you omit the aTable parameter."
+    }
+  ]
+}

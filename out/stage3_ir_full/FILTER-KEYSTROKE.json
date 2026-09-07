@@ -1,0 +1,22 @@
+{
+  "id": "FILTER-KEYSTROKE",
+  "displayName": "FILTER KEYSTROKE",
+  "kind": "classic_command",
+  "theme": "Entry Control",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "filteredChar",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "FILTER KEYSTROKE enables you to replace the character entered by the user into a field or an enterable area with the first character of the string filteredChar you pass."
+    }
+  ]
+}

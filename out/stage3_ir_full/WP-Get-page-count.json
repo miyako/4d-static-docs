@@ -1,0 +1,26 @@
+{
+  "id": "WP-Get-page-count",
+  "displayName": "WP Get page count",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The WP Get page count command returns the total number of pages defined in the targetObj you passed in parameter."
+    }
+  ]
+}

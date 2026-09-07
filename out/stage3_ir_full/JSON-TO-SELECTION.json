@@ -1,0 +1,31 @@
+{
+  "id": "JSON-TO-SELECTION",
+  "displayName": "JSON TO SELECTION",
+  "kind": "classic_command",
+  "theme": "JSON",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "jsonArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The JSON TO SELECTION command copies the contents of an array of JSON objects jsonArray to the selection of records of aTable ."
+    }
+  ]
+}

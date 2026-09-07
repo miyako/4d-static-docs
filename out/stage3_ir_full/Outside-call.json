@@ -1,0 +1,12 @@
+{
+  "id": "Outside-call",
+  "displayName": "Outside call",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Outside call returns True for the After execution cycle."
+    }
+  ]
+}

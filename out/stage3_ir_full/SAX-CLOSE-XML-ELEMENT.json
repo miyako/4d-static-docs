@@ -1,0 +1,22 @@
+{
+  "id": "SAX-CLOSE-XML-ELEMENT",
+  "displayName": "SAX CLOSE XML ELEMENT",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SAX CLOSE XML ELEMENT command writes the statements necessary for closing the last element opened using the SAX OPEN XML ELEMENT command in the XML document referenced by document ."
+    }
+  ]
+}

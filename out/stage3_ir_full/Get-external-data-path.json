@@ -1,0 +1,36 @@
+{
+  "id": "Get-external-data-path",
+  "displayName": "Get external data path",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Blob"
+            },
+            {
+              "kind": "concrete",
+              "name": "Picture"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Get external data path command returns the full pathname of the external storage file for the data of the field passed in the aField parameter, for the current record."
+    }
+  ]
+}

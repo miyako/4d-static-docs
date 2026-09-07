@@ -1,0 +1,94 @@
+{
+  "id": "CONVERT-COORDINATES",
+  "displayName": "CONVERT COORDINATES",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "xCoord",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "Horizontal coordinate of the point: initial value in, converted value out"
+        },
+        {
+          "name": "yCoord",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "inout",
+          "optional": false,
+          "description": "Vertical coordinate of the point: initial value in, converted value out"
+        },
+        {
+          "name": "from",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "XY Current form: origin is top left corner of current form"
+            },
+            {
+              "value": 2,
+              "meaning": "XY Current window: origin is top left corner of current window"
+            },
+            {
+              "value": 4,
+              "meaning": "XY Main window: origin is top left corner of main window on Windows; same as XY Screen on macOS"
+            },
+            {
+              "value": 3,
+              "meaning": "XY Screen: origin is top left corner of main screen"
+            }
+          ],
+          "description": "Coordinate system to convert from"
+        },
+        {
+          "name": "to",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "XY Current form: origin is top left corner of current form"
+            },
+            {
+              "value": 2,
+              "meaning": "XY Current window: origin is top left corner of current window"
+            },
+            {
+              "value": 4,
+              "meaning": "XY Main window: origin is top left corner of main window on Windows; same as XY Screen on macOS"
+            },
+            {
+              "value": 3,
+              "meaning": "XY Screen: origin is top left corner of main screen"
+            }
+          ],
+          "description": "Coordinate system to convert to"
+        }
+      ],
+      "semanticRole": "Converts an (x;y) point in place from one coordinate system (form/subform, window, or screen) to another."
+    }
+  ],
+  "constraints": [
+    "When called from a subform (or a subform object) with 'from' = XY Current form, the coordinates are relative to the subform itself, not to its parent form.",
+    "For conversions involving a form window's position (e.g. GET WINDOW RECT results, or values passed to Open form window), use XY Main window, since that is the coordinate system used by window commands on Windows (on macOS it is equivalent to XY Screen).",
+    "If 'from' is XY Current form and the point is in the body of a list form, the result depends on the calling context: inside On Display Detail it is relative to the record currently drawn; otherwise, while a record is being edited, it is relative to that record; otherwise it is relative to the first record."
+  ]
+}

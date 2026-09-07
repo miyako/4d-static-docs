@@ -1,0 +1,26 @@
+{
+  "id": "Table-fragmentation",
+  "displayName": "Table fragmentation",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "The Table fragmentation command returns the percentage of logical fragmentation for the records of the table designated by the aTable parameter."
+    }
+  ]
+}

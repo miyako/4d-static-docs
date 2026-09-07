@@ -1,0 +1,48 @@
+{
+  "theme": "Data-Entry",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "Documented the semantic effect of the trailing '*' parameter (non-modal display) and the priority formData has over an associated form class, neither of which the mechanical draft's generic param entries conveyed.",
+      "semanticRole": "Presents a form (project/table form name, a .json path, or a form-description object) to the user, either modally (blocking until an accept/cancel action), or -- if the trailing '*' is passed -- non-modally in the last-opened window of the current process while execution continues immediately.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": true,
+          "description": "Table owning the form. If omitted, the default table is used, or a project form is expected."
+        },
+        {
+          "name": "form",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Object" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Name of a table/project form, a POSIX path to a .json file describing the form, or an object describing the form."
+        },
+        {
+          "name": "formData",
+          "type": { "kind": "concrete", "name": "Object" },
+          "direction": "in",
+          "optional": true,
+          "description": "Object whose properties become available inside the form via the Form command. Takes priority over an associated form class: if formData is passed (and defined), the form class object is not instantiated. If omitted (or undefined) and no form class is associated, DIALOG creates a new empty object bound to the form."
+        },
+        {
+          "name": "useCurrentProcess",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If passed, the form loads and displays in the last-open window of the current process; DIALOG returns immediately while the form remains active on screen, reacting normally to user actions until CANCEL/ACCEPT (or a standard action) closes it, or the process terminates."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "A dialog is closed by an 'accept' action (ak accept, Enter, or ACCEPT) which sets OK to 1, or a 'cancel' action (ak cancel, Escape, or CANCEL) which sets OK to 0.",
+    "Validation is not saving: if the form includes fields, SAVE RECORD must be called explicitly to persist modified data.",
+    "When the trailing '*' is used, a window must already exist (created beforehand) -- the current dialog window or the default per-process window cannot be reused, otherwise error -9909 is generated. The window is closed automatically by 4D once the form is dismissed."
+  ]
+}

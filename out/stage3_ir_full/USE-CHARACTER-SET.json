@@ -1,0 +1,37 @@
+{
+  "id": "USE-CHARACTER-SET",
+  "displayName": "USE CHARACTER SET",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "map",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "pseudo",
+              "name": "Operator"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "mapInOut",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "USE CHARACTER SET modifies the character set used by 4D during data transfer between the database and a document or a serial port for the current process."
+    }
+  ]
+}

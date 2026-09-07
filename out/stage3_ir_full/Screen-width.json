@@ -1,0 +1,28 @@
+{
+  "id": "Screen-width",
+  "displayName": "Screen width",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "On Windows, Screen width returns the width of 4D application window (MDI window)."
+    }
+  ]
+}

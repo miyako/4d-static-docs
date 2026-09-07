@@ -1,0 +1,40 @@
+{
+  "id": "SAX-GET-XML-ENTITY",
+  "displayName": "SAX GET XML ENTITY",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SAX GET XML ENTITY command allows you to get the name and value of an XML entity that exists in the XML document referenced in the document parameter."
+    }
+  ]
+}

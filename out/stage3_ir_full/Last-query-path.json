@@ -1,0 +1,26 @@
+{
+  "id": "Last-query-path",
+  "displayName": "Last query path",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "descFormat",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The Last query path command returns the detailed internal description of the actual path of the last query carried out on the data."
+    }
+  ]
+}

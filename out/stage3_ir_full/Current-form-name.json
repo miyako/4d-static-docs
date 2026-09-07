@@ -1,0 +1,21 @@
+{
+  "id": "Current-form-name",
+  "displayName": "Current form name",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Current form name command returns the name of the current form defined for the process.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "constraints": [
+    "The current form can be a project form or a table form; if FORM LOAD has not been called in the current process, the current form is simply the one being displayed or printed.",
+    "If FORM LOAD has been called, the current form remains the one it set until FORM UNLOAD (or CLOSE PRINTING JOB) is called.",
+    "Return value depends on how the form was created: the form name, or the filename without extension if created from a .json file, or the object's \"name\" attribute if created from an object, or an empty string if no current form is defined for the process."
+  ]
+}

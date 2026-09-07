@@ -1,0 +1,16 @@
+{
+  "id": "BACKUP",
+  "displayName": "BACKUP",
+  "kind": "classic_command",
+  "theme": "Backup",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Starts a database backup immediately using the current backup settings, without prompting the user for confirmation."
+    }
+  ],
+  "constraints": [
+    "Must not be called from the On Backup Startup or On Backup Shutdown database methods, since BACKUP itself triggers those methods at the start/end of its run (would recurse).",
+    "No confirmation dialog is shown; a progress bar appears. On 4D Server, calling from a client runs as a stored procedure but always executes on the server."
+  ]
+}

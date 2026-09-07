@@ -1,0 +1,22 @@
+{
+  "id": "EXPAND-BLOB",
+  "displayName": "EXPAND BLOB",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The EXPAND BLOB command expands the BLOB blob that was previously compressed using the COMPRESS BLOB command*.* After the call, the OK variable is set to 1 if the BLOB has been expanded."
+    }
+  ]
+}

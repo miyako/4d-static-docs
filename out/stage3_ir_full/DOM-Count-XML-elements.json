@@ -1,0 +1,35 @@
+{
+  "id": "DOM-Count-XML-elements",
+  "displayName": "DOM Count XML elements",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "elementName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The DOM Count XML elements command returns the number of \u201cchild\u201d elements dependent on the elementRef parent element and named elementName .By default, DOM Count XML elements is case sensitive regarding the elementName p"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "RECEIVE-RECORD",
+  "displayName": "RECEIVE RECORD",
+  "kind": "classic_command",
+  "theme": "Communications",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "RECEIVE RECORD receives a record into table from the serial port or document opened by the SET CHANNEL command."
+    }
+  ]
+}

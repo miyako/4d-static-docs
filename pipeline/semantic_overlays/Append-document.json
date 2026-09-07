@@ -1,0 +1,12 @@
+{
+  "theme": "System-Documents",
+  "constraints": [
+    "Identical to Open document except the file position is set to the end of the document instead of the beginning; see Open document for the full parameter/behavior reference."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Opens (or creates) the document on disk exactly like Open document, but positions the file pointer at the document's end instead of its beginning, returning the same document-reference value (typed Time per the classic API) used by other Document commands."
+    }
+  ]
+}

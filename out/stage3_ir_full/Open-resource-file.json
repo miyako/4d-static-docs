@@ -1,0 +1,35 @@
+{
+  "id": "Open-resource-file",
+  "displayName": "Open resource file",
+  "kind": "classic_command",
+  "theme": "Resources",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "resFilename",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "fileType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Time"
+      },
+      "semanticRole": "The Open resource file command opens the resource file whose name or pathname you pass in resFileName ."
+    }
+  ]
+}

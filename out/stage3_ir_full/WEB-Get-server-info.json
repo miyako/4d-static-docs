@@ -1,0 +1,26 @@
+{
+  "id": "WEB-Get-server-info",
+  "displayName": "WEB Get server info",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "withCache",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WEB Get server info command returns an object containing detailed runtine information on the 4D Web server current session."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "HTTP-SET-OPTION",
+  "displayName": "HTTP SET OPTION",
+  "kind": "classic_command",
+  "theme": "HTTP",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The HTTP SET OPTION command sets different options that are used during the next HTTP request triggered by the HTTP Get or HTTP Request commands."
+    }
+  ]
+}

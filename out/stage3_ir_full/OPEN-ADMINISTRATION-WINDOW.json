@@ -1,0 +1,12 @@
+{
+  "id": "OPEN-ADMINISTRATION-WINDOW",
+  "displayName": "OPEN ADMINISTRATION WINDOW",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The OPEN ADMINISTRATION WINDOW command displays the server administration window on the machine that executes it."
+    }
+  ]
+}

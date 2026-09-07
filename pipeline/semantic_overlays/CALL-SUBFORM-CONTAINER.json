@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "Must be placed in the form method of the subform, or in the object method of one of the subform's objects.",
+    "The event is only received in the object method of the subform container.",
+    "For a custom (non-4D) event, pass a negative value to avoid colliding with existing/future 4D event numbers."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Sends an event from a subform instance up to the subform container object so it can be handled in the context of the parent form."
+    }
+  ]
+}

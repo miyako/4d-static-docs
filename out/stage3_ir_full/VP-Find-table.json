@@ -1,0 +1,26 @@
+{
+  "id": "VP-Find-table",
+  "displayName": "VP Find table",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The VP Find table command returns the name of the table to which to the rangeObj cell belongs."
+    }
+  ]
+}

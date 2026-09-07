@@ -1,0 +1,22 @@
+{
+  "id": "SET-PICTURE-TO-PASTEBOARD",
+  "displayName": "SET PICTURE TO PASTEBOARD",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SET PICTURE TO PASTEBOARD clears the pasteboard and puts a copy of the picture passed in picture into it."
+    }
+  ]
+}

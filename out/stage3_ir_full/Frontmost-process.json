@@ -1,0 +1,28 @@
+{
+  "id": "Frontmost-process",
+  "displayName": "Frontmost process",
+  "kind": "classic_command",
+  "theme": "Process (User Interface)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Frontmost process returns the number of the process whose window (or windows) are in the front."
+    }
+  ]
+}

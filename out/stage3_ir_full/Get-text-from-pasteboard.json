@@ -1,0 +1,12 @@
+{
+  "id": "Get-text-from-pasteboard",
+  "displayName": "Get text from pasteboard",
+  "kind": "classic_command",
+  "theme": "Pasteboard",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Get text from pasteboard returns the text present in the pasteboard."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "DROP-REMOTE-USER",
+  "displayName": "DROP REMOTE USER",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "userSession",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The DROP REMOTE USER command disconnects a specific user remotely connected to the 4D Server."
+    }
+  ]
+}

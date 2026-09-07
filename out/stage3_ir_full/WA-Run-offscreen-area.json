@@ -1,0 +1,26 @@
+{
+  "id": "WA-Run-offscreen-area",
+  "displayName": "WA Run offscreen area",
+  "kind": "classic_command",
+  "theme": "Web Area",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "parameters",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      },
+      "semanticRole": "The WA Run offscreen area command creates a web area in memory which can be used to automatically load and parse web pages."
+    }
+  ]
+}

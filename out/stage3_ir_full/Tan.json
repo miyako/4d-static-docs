@@ -1,0 +1,26 @@
+{
+  "id": "Tan",
+  "displayName": "Tan",
+  "kind": "classic_command",
+  "theme": "Math",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "number",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Tan returns the tangent of number , where number is expressed in radians.4D provides the predefined constants Pi, Degree, and Radian."
+    }
+  ]
+}

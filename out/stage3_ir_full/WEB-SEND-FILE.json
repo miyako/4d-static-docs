@@ -1,0 +1,22 @@
+{
+  "id": "WEB-SEND-FILE",
+  "displayName": "WEB SEND FILE",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "htmlFile",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB SEND FILE command sends, to the Web browser, the HTML page or the Web file stored in the document whose pathname you pass in htmlFile ."
+    }
+  ]
+}

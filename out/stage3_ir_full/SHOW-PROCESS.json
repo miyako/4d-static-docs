@@ -1,0 +1,22 @@
+{
+  "id": "SHOW-PROCESS",
+  "displayName": "SHOW PROCESS",
+  "kind": "classic_command",
+  "theme": "Process (User Interface)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "process",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SHOW PROCESS displays all the windows belonging to process ."
+    }
+  ]
+}

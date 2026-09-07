@@ -1,0 +1,22 @@
+{
+  "id": "RELEASE-MENU",
+  "displayName": "RELEASE MENU",
+  "kind": "classic_command",
+  "theme": "Menus",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "menu",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The RELEASE MENU command removes the menu whose ID is passed in menu from memory."
+    }
+  ]
+}

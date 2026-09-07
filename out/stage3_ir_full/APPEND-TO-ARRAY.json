@@ -1,0 +1,35 @@
+{
+  "id": "APPEND-TO-ARRAY",
+  "displayName": "APPEND TO ARRAY",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The APPEND TO ARRAY command adds a new element at the end of array and assigns value to the element."
+    }
+  ],
+  "constraints": [
+    "value's type must be compatible with array's element type or the 4D syntax error 54 (\"Argument types are incompatible\") is raised; a string array (Text/String) accepts Text or String values, and a number array (Integer/Longint/Real) also accepts Time values.",
+    "In interpreted mode, if array does not yet exist, this command creates it with the type of value."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "SET-USER-ALIAS",
+  "displayName": "SET USER ALIAS",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "alias",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET USER ALIAS command defines an alternate, custom name to use in place of the current 4D user account name for the current session."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "WEB-SET-ROOT-FOLDER",
+  "displayName": "WEB SET ROOT FOLDER",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rootFolder",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB SET ROOT FOLDER command is used to modify the default root folder where 4D looks for the HTML files requested of the Web server."
+    }
+  ]
+}

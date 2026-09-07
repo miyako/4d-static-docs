@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "Returns False both when there is no current transaction and when the current transaction has been suspended via SUSPEND TRANSACTION -- callers needing to distinguish 'no transaction' from 'suspended transaction' must track that separately."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns True only if the current process has an active (not suspended) transaction in progress."
+    }
+  ]
+}

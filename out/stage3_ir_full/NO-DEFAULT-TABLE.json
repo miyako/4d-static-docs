@@ -1,0 +1,12 @@
+{
+  "id": "NO-DEFAULT-TABLE",
+  "displayName": "NO DEFAULT TABLE",
+  "kind": "classic_command",
+  "theme": "Table",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The NO DEFAULT TABLE command is used to cancel the effect of the DEFAULT TABLE command."
+    }
+  ]
+}

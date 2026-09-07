@@ -1,0 +1,112 @@
+{
+  "id": "SET-WINDOW-DOCUMENT-ICON",
+  "displayName": "SET WINDOW DOCUMENT ICON",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "winRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET WINDOW DOCUMENT ICON command allows you to define an icon for windows in multi-window applications using either an image and/or file with the window reference winRef ."
+    },
+    {
+      "params": [
+        {
+          "name": "winRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "image",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET WINDOW DOCUMENT ICON command allows you to define an icon for windows in multi-window applications using either an image and/or file with the window reference winRef ."
+    },
+    {
+      "params": [
+        {
+          "name": "winRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "file",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "4D.File"
+            },
+            {
+              "kind": "concrete",
+              "name": "4D.Folder"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET WINDOW DOCUMENT ICON command allows you to define an icon for windows in multi-window applications using either an image and/or file with the window reference winRef ."
+    },
+    {
+      "params": [
+        {
+          "name": "winRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "image",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "file",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "4D.File"
+            },
+            {
+              "kind": "concrete",
+              "name": "4D.Folder"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The SET WINDOW DOCUMENT ICON command allows you to define an icon for windows in multi-window applications using either an image and/or file with the window reference winRef ."
+    }
+  ]
+}

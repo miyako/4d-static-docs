@@ -1,0 +1,33 @@
+{
+  "id": "QUERY-BY-EXAMPLE",
+  "displayName": "QUERY BY EXAMPLE",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "QUERY BY EXAMPLE performs the same action as the Query by Example menu command in the Design environment."
+    }
+  ]
+}

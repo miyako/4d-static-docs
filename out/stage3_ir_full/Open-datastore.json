@@ -1,0 +1,35 @@
+{
+  "id": "Open-datastore",
+  "displayName": "Open datastore",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "connectionInfo",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "localID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.DataStoreImplementation"
+      },
+      "semanticRole": "The Open datastore command connects the application to the remote datastore identified by the connectionInfo parameter and returns a matching 4D.DataStoreImplementation object associated with the localID local alias."
+    }
+  ]
+}

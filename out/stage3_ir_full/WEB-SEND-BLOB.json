@@ -1,0 +1,31 @@
+{
+  "id": "WEB-SEND-BLOB",
+  "displayName": "WEB SEND BLOB",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB SEND BLOB command allows you to send blob to the browser."
+    }
+  ]
+}

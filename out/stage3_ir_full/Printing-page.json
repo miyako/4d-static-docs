@@ -1,0 +1,12 @@
+{
+  "id": "Printing-page",
+  "displayName": "Printing page",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Printing page command returns the printing page number."
+    }
+  ]
+}

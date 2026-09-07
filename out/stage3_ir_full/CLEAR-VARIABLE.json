@@ -1,0 +1,25 @@
+{
+  "id": "CLEAR-VARIABLE",
+  "displayName": "CLEAR VARIABLE",
+  "kind": "classic_command",
+  "theme": "Variables",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "variable",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Resets a local, process, or interprocess variable to its type's default value (e.g. empty string, 0, no elements) without removing it from memory."
+    }
+  ],
+  "constraints": [
+    "Process and local variables are cleared automatically by 4D (when their process ends, or when their defining method returns, respectively), so explicit clearing is mainly useful to reclaim memory early."
+  ]
+}

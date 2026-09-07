@@ -1,0 +1,22 @@
+{
+  "id": "GET-MISSING-TABLE-NAMES",
+  "displayName": "GET MISSING TABLE NAMES",
+  "kind": "classic_command",
+  "theme": "Structure Access",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "missingTables",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET MISSING TABLE NAMES command returns the names of all the missing tables of the current database in the missingTables array."
+    }
+  ]
+}

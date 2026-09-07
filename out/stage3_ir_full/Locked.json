@@ -1,0 +1,26 @@
+{
+  "id": "Locked",
+  "displayName": "Locked",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Locked tests whether or not the current record of aTable is locked."
+    }
+  ]
+}

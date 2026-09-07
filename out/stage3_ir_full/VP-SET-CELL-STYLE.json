@@ -1,0 +1,31 @@
+{
+  "id": "VP-SET-CELL-STYLE",
+  "displayName": "VP SET CELL STYLE",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "styleObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET CELL STYLE command applies the style(s) defined in the styleObj to the cells defined in the rangeObj ."
+    }
+  ]
+}

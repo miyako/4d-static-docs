@@ -1,0 +1,40 @@
+{
+  "id": "Count-in-array",
+  "displayName": "Count in array",
+  "kind": "classic_command",
+  "theme": "Arrays",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "array",
+          "type": {
+            "kind": "concrete",
+            "name": "Array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Counts how many elements of array are equal to value."
+    }
+  ],
+  "constraints": [
+    "array and value must be the same type or a compatible type; supported array element types are Text, number, Date, Pointer, Object, and Boolean.",
+    "For Object arrays, value must itself be an object reference (comparison is by reference, not deep equality).",
+    "Returns 0 if no element matches value."
+  ]
+}

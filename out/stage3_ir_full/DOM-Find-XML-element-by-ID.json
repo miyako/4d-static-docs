@@ -1,0 +1,35 @@
+{
+  "id": "DOM-Find-XML-element-by-ID",
+  "displayName": "DOM Find XML element by ID",
+  "kind": "classic_command",
+  "theme": "XML DOM",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "elementRef",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "id",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      "semanticRole": "The DOM Find XML element by ID command searches within an XML document for the element whose id attribute equals the value passed in the id parameter."
+    }
+  ]
+}

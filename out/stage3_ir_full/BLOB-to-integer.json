@@ -1,0 +1,51 @@
+{
+  "id": "BLOB-to-integer",
+  "displayName": "BLOB to integer",
+  "kind": "classic_command",
+  "theme": "BLOB",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "byteOrder",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "0 = native, 1 = Macintosh, 2 = PC byte ordering."
+        },
+        {
+          "name": "offset",
+          "type": {
+            "kind": "concrete",
+            "name": "Variable"
+          },
+          "direction": "inout",
+          "optional": true,
+          "default": "0 (start of the BLOB)",
+          "description": "Byte offset to read from; on return, updated to the offset immediately following the read 2-byte value."
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Reads a 2-byte Integer from blob at the given (or default) byte offset using byteOrder's byte ordering, advancing offset past the value read."
+    }
+  ],
+  "constraints": [
+    "byteOrder selects how the 2 read bytes are interpreted: 0 = native byte ordering, 1 = Macintosh byte ordering, 2 = PC byte ordering.",
+    "If offset is omitted, reading starts at the beginning of the BLOB (byte 0)."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "Deactivated",
+  "displayName": "Deactivated",
+  "kind": "classic_command",
+  "theme": "Form Events",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Deactivated command returns True in a form or object method when the frontmost window of the frontmost process, containing the form, moves to the back."
+    }
+  ]
+}

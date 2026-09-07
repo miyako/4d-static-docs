@@ -1,0 +1,12 @@
+{
+  "id": "TRACE",
+  "displayName": "TRACE",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "You use TRACE to trace methods during the development of a database."
+    }
+  ]
+}

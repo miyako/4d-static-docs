@@ -1,0 +1,32 @@
+{
+  "id": "Time",
+  "displayName": "Time",
+  "kind": "classic_command",
+  "theme": "Date and Time",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "timeValue",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Integer"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Time"
+      },
+      "semanticRole": "The Time command returns a time expression equivalent to the time specified in the timeValue parameter."
+    }
+  ]
+}

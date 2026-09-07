@@ -1,0 +1,15 @@
+{
+  "id": "Count-user-processes",
+  "displayName": "Count user processes",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Returns the number of live, user-initiated processes (i.e. those whose Process info origin is >= 0), excluding specific internal/system process types."
+    }
+  ],
+  "constraints": [
+    "Excludes processes whose type is Internal Timer Process (-25), Client Manager Process (-31), or Server Interface Process (-15); counts only 'live' processes (neither aborted nor 'does not exist')."
+  ]
+}

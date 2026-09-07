@@ -1,0 +1,12 @@
+{
+  "id": "SPELL-Get-current-dictionary",
+  "displayName": "SPELL Get current dictionary",
+  "kind": "classic_command",
+  "theme": "Spell Checker",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SPELL Get current dictionary command returns the ID number of the dictionary being used."
+    }
+  ]
+}

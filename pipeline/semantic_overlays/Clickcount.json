@@ -1,0 +1,12 @@
+{
+  "theme": "Form-Events",
+  "constraints": [
+    "Must only be called in the context of an On Clicked, On Header Click, or On Footer Click form event handler."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the number of consecutive clicks of the same mouse button in the current mouse-click form event (2 for a double-click)."
+    }
+  ]
+}

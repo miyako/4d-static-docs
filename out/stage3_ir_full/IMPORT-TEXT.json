@@ -1,0 +1,31 @@
+{
+  "id": "IMPORT-TEXT",
+  "displayName": "IMPORT TEXT",
+  "kind": "classic_command",
+  "theme": "Import and Export",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The IMPORT TEXT command reads data from document , a Windows or Macintosh text document, into the table aTable by creating new records for that table."
+    }
+  ]
+}

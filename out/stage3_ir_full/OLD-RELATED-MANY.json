@@ -1,0 +1,22 @@
+{
+  "id": "OLD-RELATED-MANY",
+  "displayName": "OLD RELATED MANY",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "OLD RELATED MANY operates the same way RELATE MANY does, except that OLD RELATED MANY uses the old value in the one field to establish the relation."
+    }
+  ]
+}

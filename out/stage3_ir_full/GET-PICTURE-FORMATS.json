@@ -1,0 +1,31 @@
+{
+  "id": "GET-PICTURE-FORMATS",
+  "displayName": "GET PICTURE FORMATS",
+  "kind": "classic_command",
+  "theme": "Pictures",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "picture",
+          "type": {
+            "kind": "concrete",
+            "name": "Picture"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "codecIDs",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET PICTURE FORMATS command returns an array of all the codec IDs (picture formats) contained in the picture passed as parameter."
+    }
+  ]
+}

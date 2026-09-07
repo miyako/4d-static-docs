@@ -1,0 +1,26 @@
+{
+  "id": "End-selection",
+  "displayName": "End selection",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "End selection returns TRUE when the current record pointer is beyond the last record of the current selection of aTable .is commonly used to check whether or not NEXT RECORD has moved the current record pointer past the"
+    }
+  ]
+}

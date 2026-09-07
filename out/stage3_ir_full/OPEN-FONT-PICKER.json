@@ -1,0 +1,12 @@
+{
+  "id": "OPEN-FONT-PICKER",
+  "displayName": "OPEN FONT PICKER",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The OPEN FONT PICKER command displays the system font picker dialog box."
+    }
+  ]
+}

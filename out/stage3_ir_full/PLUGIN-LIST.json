@@ -1,0 +1,31 @@
+{
+  "id": "PLUGIN-LIST",
+  "displayName": "PLUGIN LIST",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "numbersArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer array"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "namesArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The PLUGIN LIST command fills in the numbersArray and namesArray arrays with the numbers and names of the plug-ins loaded and usable by the 4D application."
+    }
+  ]
+}

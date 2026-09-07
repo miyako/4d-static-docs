@@ -1,0 +1,33 @@
+{
+  "id": "REGISTER-CLIENT",
+  "displayName": "REGISTER CLIENT",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "clientName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The REGISTER CLIENT command \"registers\" a 4D client station with the name specified in clientName on 4D Server, so as to allow other clients or possibly 4D Server (by using stored methods) to execute methods on it by usi"
+    }
+  ]
+}

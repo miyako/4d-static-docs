@@ -1,0 +1,12 @@
+{
+  "id": "New-shared-collection",
+  "displayName": "New shared collection",
+  "kind": "classic_command",
+  "theme": "Collections",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The New shared collection command creates a new empty or prefilled shared collection and returns its reference."
+    }
+  ]
+}

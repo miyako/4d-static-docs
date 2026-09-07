@@ -1,0 +1,22 @@
+{
+  "id": "WEB-SET-HOME-PAGE",
+  "displayName": "WEB SET HOME PAGE",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "homePage",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The WEB SET HOME PAGE command allows you to modify the custom home page for the current Web process."
+    }
+  ]
+}

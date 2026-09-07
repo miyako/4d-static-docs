@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "On a 4D single-user application, always returns 1."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the number of users currently connected to the 4D Server."
+    }
+  ]
+}

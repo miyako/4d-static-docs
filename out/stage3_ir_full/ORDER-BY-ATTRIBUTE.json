@@ -1,0 +1,73 @@
+{
+  "id": "ORDER-BY-ATTRIBUTE",
+  "displayName": "ORDER BY ATTRIBUTE",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "group",
+          "members": [
+            {
+              "name": "objectField",
+              "type": {
+                "kind": "concrete",
+                "name": "Field"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "attributePath",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false
+            },
+            {
+              "name": "order",
+              "type": {
+                "kind": "literal_symbols",
+                "symbols": [
+                  ">",
+                  "<"
+                ]
+              },
+              "direction": "in",
+              "optional": true
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "embedded"
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The ORDER BY ATTRIBUTE command sorts (reorders) the records of the current selection of aTable for the current process based on the contents of the objectField 's attributePath ."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "READ-ONLY",
+  "displayName": "READ ONLY",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "READ ONLY changes the state of aTable to read-only for the process in which it is called."
+    },
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "READ ONLY changes the state of aTable to read-only for the process in which it is called."
+    }
+  ]
+}

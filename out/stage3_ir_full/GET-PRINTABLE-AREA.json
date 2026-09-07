@@ -1,0 +1,31 @@
+{
+  "id": "GET-PRINTABLE-AREA",
+  "displayName": "GET PRINTABLE AREA",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "height",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "width",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The GET PRINTABLE AREA command returns the size, in pixels, of the height and width parameters of the printable area."
+    }
+  ]
+}

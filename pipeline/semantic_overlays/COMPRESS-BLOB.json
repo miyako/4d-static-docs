@@ -1,0 +1,37 @@
+{
+  "constraints": [
+    "Only compresses BLOBs whose size is >= 255 bytes; smaller BLOBs are silently left uncompressed (no error) and the OK variable is set to 0.",
+    "After the call, the OK system variable is set to 1 on success, 0 if compression could not be performed (including the too-small-BLOB case). Error -10600 is only generated if the BLOB itself is damaged.",
+    "A compressed BLOB is still an ordinary BLOB and can still be modified directly; doing so may prevent EXPAND BLOB from decompressing it correctly."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "blob is compressed in place (inout, not read-only 'in'); added sentinelValues for the documented compression constants and the 'any other value/omitted' default.",
+      "params": [
+        {
+          "name": "blob",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB to compress (compressed in place)"
+        },
+        {
+          "name": "compression",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "default": "1 (Compact compression mode) if omitted or an unrecognized value is passed",
+          "sentinelValues": [
+            { "value": 1, "meaning": "Compact compression mode: most compact, slowest to compress/decompress (default)" },
+            { "value": 2, "meaning": "Fast compression mode: fastest to compress/decompress, larger result" },
+            { "value": -1, "meaning": "GZIP best compression mode: most compact GZIP compression" },
+            { "value": -2, "meaning": "GZIP fast compression mode: fastest GZIP compression" }
+          ],
+          "description": "Compression algorithm/mode to use"
+        }
+      ],
+      "semanticRole": "Compresses the contents of a BLOB in place using the selected (or default) compression algorithm, when the BLOB is large enough to be worth compressing."
+    }
+  ]
+}

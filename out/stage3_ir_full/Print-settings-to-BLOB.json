@@ -1,0 +1,26 @@
+{
+  "id": "Print-settings-to-BLOB",
+  "displayName": "Print settings to BLOB",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "printSettings",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Print settings to BLOB command saves the current 4D print settings in the printSettings BLOB."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "constraints": [
+    "compressed's returned value is one of the BLOB theme compression constants (e.g. Compact/Fast/GZIP Best/GZIP Fast, or 0 for not compressed) -- see the BLOB theme constants for the exact value/meaning mapping."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "compressed, expandedSize and currentSize are all documented/arrow-marked as outputs ('<-', filled by the command), not inputs, even though the draft parser defaulted every parameter to direction:in.",
+      "params": [
+        {
+          "name": "blob",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "compressed",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Compression mode/status of the BLOB (a BLOB-theme compression constant, or 0 if not compressed)."
+        },
+        {
+          "name": "expandedSize",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Size of the BLOB in bytes when not compressed."
+        },
+        {
+          "name": "currentSize",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": true,
+          "description": "Current (possibly compressed) size of the BLOB in bytes."
+        }
+      ],
+      "semanticRole": "Fills compressed (and, if requested, expandedSize/currentSize) with information about how blob is currently compressed and its size(s)."
+    }
+  ]
+}

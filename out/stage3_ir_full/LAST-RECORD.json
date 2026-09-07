@@ -1,0 +1,22 @@
+{
+  "id": "LAST-RECORD",
+  "displayName": "LAST RECORD",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "LAST RECORD makes the last record of the current selection of aTable the current record and loads the record from disk."
+    }
+  ]
+}

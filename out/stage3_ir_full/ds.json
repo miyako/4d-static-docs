@@ -1,0 +1,26 @@
+{
+  "id": "ds",
+  "displayName": "ds",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "localID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "cs.DataStore"
+      },
+      "semanticRole": "The ds command returns a reference to the datastore matching the current 4D database or the database designated by localID ."
+    }
+  ]
+}

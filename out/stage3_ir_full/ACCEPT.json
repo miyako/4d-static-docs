@@ -1,0 +1,16 @@
+{
+  "id": "ACCEPT",
+  "displayName": "ACCEPT",
+  "kind": "classic_command",
+  "theme": "Data Entry",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The ACCEPT command is used in form or object methods (or in subroutines) to: accept a new or modified record, for which data entry has been initiated using ADD RECORD or MODIFY RECORD ."
+    }
+  ],
+  "constraints": [
+    "Cannot be queued: executing ACCEPT twice in a row in response to one event has the same effect as executing it once.",
+    "In headless mode, only allowed inside offscreen areas created by VP Run offscreen area or WA Run offscreen area."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "WEB-START-SERVER",
+  "displayName": "WEB START SERVER",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The WEB START SERVER command starts the Web server of the 4D application on which it has been executed (4D or 4D Server)."
+    }
+  ]
+}

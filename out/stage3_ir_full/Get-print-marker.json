@@ -1,0 +1,26 @@
+{
+  "id": "Get-print-marker",
+  "displayName": "Get print marker",
+  "kind": "classic_command",
+  "theme": "Printing",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "markNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Get print marker command enables you to get the current position of a marker during printing."
+    }
+  ]
+}

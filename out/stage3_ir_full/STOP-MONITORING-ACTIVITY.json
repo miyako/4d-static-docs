@@ -1,0 +1,12 @@
+{
+  "id": "STOP-MONITORING-ACTIVITY",
+  "displayName": "STOP MONITORING ACTIVITY",
+  "kind": "classic_command",
+  "theme": "Tools",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The STOP MONITORING ACTIVITY command stops tracking activity started with the START MONITORING ACTIVITY command."
+    }
+  ]
+}

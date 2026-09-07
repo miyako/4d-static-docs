@@ -1,0 +1,12 @@
+{
+  "id": "EDIT-ACCESS",
+  "displayName": "EDIT ACCESS",
+  "kind": "classic_command",
+  "theme": "Users and Groups",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "EDIT ACCESS lets the user edit the password system."
+    }
+  ]
+}

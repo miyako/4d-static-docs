@@ -1,0 +1,12 @@
+{
+  "id": "FORM-FIRST-PAGE",
+  "displayName": "FORM FIRST PAGE",
+  "kind": "classic_command",
+  "theme": "Forms",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "FORM FIRST PAGE changes the currently displayed form page to the first form page."
+    }
+  ]
+}

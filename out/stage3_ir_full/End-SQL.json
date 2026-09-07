@@ -1,0 +1,12 @@
+{
+  "id": "End-SQL",
+  "displayName": "End SQL",
+  "kind": "classic_command",
+  "theme": "SQL",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "End SQL is a keyword indicating the end of a sequence of SQL commands in the Method editor."
+    }
+  ]
+}

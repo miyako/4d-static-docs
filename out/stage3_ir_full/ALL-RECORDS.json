@@ -1,0 +1,22 @@
+{
+  "id": "ALL-RECORDS",
+  "displayName": "ALL RECORDS",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "ALL RECORDS selects all the records of aTable for the current process."
+    }
+  ]
+}

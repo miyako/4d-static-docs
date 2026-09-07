@@ -1,0 +1,98 @@
+{
+  "id": "ZIP-Create-archive",
+  "displayName": "ZIP Create archive",
+  "kind": "classic_command",
+  "theme": "File and Folder",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "fileToZip",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The ZIP Create archive command creates a compressed ZIP archive object and returns the status of the operation."
+    },
+    {
+      "params": [
+        {
+          "name": "folderToZip",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Folder"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The ZIP Create archive command creates a compressed ZIP archive object and returns the status of the operation."
+    },
+    {
+      "params": [
+        {
+          "name": "zipStructure",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "destinationFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The ZIP Create archive command creates a compressed ZIP archive object and returns the status of the operation."
+    }
+  ]
+}

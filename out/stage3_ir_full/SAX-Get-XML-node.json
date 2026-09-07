@@ -1,0 +1,26 @@
+{
+  "id": "SAX-Get-XML-node",
+  "displayName": "SAX Get XML node",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The SAX Get XML node command returns a long integer that indicates the type of SAX event returned while the XML document referenced in document is parsed."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "SAVE-RELATED-ONE",
+  "displayName": "SAVE RELATED ONE",
+  "kind": "classic_command",
+  "theme": "Relations",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aField",
+          "type": {
+            "kind": "concrete",
+            "name": "Field"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "SAVE RELATED ONE saves the record related to aField ."
+    }
+  ]
+}

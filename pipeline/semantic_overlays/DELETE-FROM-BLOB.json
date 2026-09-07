@@ -1,0 +1,32 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "blob is mutated in place (shrunk by len bytes), so marked inout; the draft's param name 'blob' was actually taken from the table's 'Blob' header row, kept as-is for readability.",
+      "params": [
+        {
+          "name": "blob",
+          "type": { "kind": "concrete", "name": "Blob" },
+          "direction": "inout",
+          "optional": false,
+          "description": "BLOB to shrink in place; becomes len bytes smaller."
+        },
+        {
+          "name": "offset",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "len",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Because it alters the BLOB parameter in place, this command does not support 4D.Blob objects, only legacy BLOB variables/fields (see Passing blobs and blob objects to 4D commands)."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "VP-SET-BOOLEAN-VALUE",
+  "displayName": "VP SET BOOLEAN VALUE",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "boolValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET BOOLEAN VALUE command assigns a specified boolean value to a designated cell range."
+    }
+  ]
+}

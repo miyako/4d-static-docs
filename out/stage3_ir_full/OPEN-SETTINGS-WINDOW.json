@@ -1,0 +1,40 @@
+{
+  "id": "OPEN-SETTINGS-WINDOW",
+  "displayName": "OPEN SETTINGS WINDOW",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "selector",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "access",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "settingsType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The OPEN SETTINGS WINDOW command opens the Preferences dialog box of 4D or the Settings of the current 4D application and displays the parameters or the page corresponding to the key passed in selector ."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WP-Paragraph-range",
+  "displayName": "WP Paragraph range",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The WP Paragraph range command returns a specific range object that addresses only the paragraphs that intersect with the targetObj you passed as parameter."
+    }
+  ]
+}

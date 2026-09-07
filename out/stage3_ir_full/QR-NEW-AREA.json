@@ -1,0 +1,22 @@
+{
+  "id": "QR-NEW-AREA",
+  "displayName": "QR NEW AREA",
+  "kind": "classic_command",
+  "theme": "Quick Report",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "ptr",
+          "type": {
+            "kind": "concrete",
+            "name": "Pointer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The QR NEW AREA command creates a new Quick Report area and stores its reference number in the longint variable referenced by the ptr pointer."
+    }
+  ]
+}

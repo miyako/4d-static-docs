@@ -1,0 +1,12 @@
+{
+  "id": "SUSPEND-TRANSACTION",
+  "displayName": "SUSPEND TRANSACTION",
+  "kind": "classic_command",
+  "theme": "Transactions",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The SUSPEND TRANSACTION command pauses the current transaction in the current process."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "POP-RECORD",
+  "displayName": "POP RECORD",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "POP RECORD pops a record belonging to aTable from the table\u2019s record stack, and makes the record the current record."
+    }
+  ]
+}

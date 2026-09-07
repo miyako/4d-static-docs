@@ -1,0 +1,31 @@
+{
+  "id": "SAX-ADD-PROCESSING-INSTRUCTION",
+  "displayName": "SAX ADD PROCESSING INSTRUCTION",
+  "kind": "classic_command",
+  "theme": "XML SAX",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "document",
+          "type": {
+            "kind": "concrete",
+            "name": "Time"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "statement",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "In the XML document referenced by document , the SAX ADD PROCESSING INSTRUCTION command adds an XML processing statement ."
+    }
+  ]
+}

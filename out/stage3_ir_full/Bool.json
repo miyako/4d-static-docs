@@ -1,0 +1,26 @@
+{
+  "id": "Bool",
+  "displayName": "Bool",
+  "kind": "classic_command",
+  "theme": "Boolean",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "expression",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Coerces an arbitrary expression to a Boolean, returning False for Undefined/Null/non-Boolean-non-zero-safe types and the natural Boolean value otherwise (useful when an expression might evaluate to null or undefined but a Boolean is required)."
+    }
+  ]
+}

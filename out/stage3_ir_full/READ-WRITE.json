@@ -1,0 +1,38 @@
+{
+  "id": "READ-WRITE",
+  "displayName": "READ WRITE",
+  "kind": "classic_command",
+  "theme": "Record Locking",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "READ WRITE changes the state of aTable to read/write for the process in which it is called."
+    },
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "READ WRITE changes the state of aTable to read/write for the process in which it is called."
+    }
+  ]
+}

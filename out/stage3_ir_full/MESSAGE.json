@@ -1,0 +1,22 @@
+{
+  "id": "MESSAGE",
+  "displayName": "MESSAGE",
+  "kind": "classic_command",
+  "theme": "Messages",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The MESSAGE command is usually used to inform the user of some activity."
+    }
+  ]
+}

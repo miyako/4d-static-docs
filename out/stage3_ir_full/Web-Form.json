@@ -1,0 +1,12 @@
+{
+  "id": "Web-Form",
+  "displayName": "Web Form",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Web Form command returns a 4D.WebForm proxy object, providing a means to work with and effectively emulates the Page's properties and functions."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "VP-Get-spans",
+  "displayName": "VP Get spans",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The VP Get spans command retrieves the cell spans in the designated rangeObj ."
+    }
+  ]
+}

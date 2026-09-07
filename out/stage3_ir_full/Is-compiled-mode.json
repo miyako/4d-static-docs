@@ -1,0 +1,28 @@
+{
+  "id": "Is-compiled-mode",
+  "displayName": "Is compiled mode",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Is compiled mode tests whether you are running in compiled mode (True) or interpreted mode (False)."
+    }
+  ]
+}

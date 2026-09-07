@@ -1,0 +1,96 @@
+{
+  "id": "Create-deployment-license",
+  "displayName": "Create deployment license",
+  "kind": "classic_command",
+  "theme": "Licenses",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mergedApp",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Folder"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Folder containing the built application in which to embed a license."
+        },
+        {
+          "name": "autoLicenseTarget",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Target platform for automatic license selection.",
+          "sentinelValues": [
+            {
+              "value": 1,
+              "meaning": "4D Volume Desktop -- create a license for a 4D single-user application"
+            },
+            {
+              "value": 5,
+              "meaning": "4D Server -- create a license for a 4D Server application"
+            }
+          ]
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Automatic mode: lets 4D find and embed the most appropriate license for the given autoLicenseTarget platform.",
+      "discriminatedBy": {
+        "param": "second positional parameter",
+        "rule": "Integer (autoLicenseTarget) -- automatic license selection for the named platform target."
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "mergedApp",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Folder"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "buildLicense",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "oemLicense",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Manual mode: embeds the license(s) explicitly designated by buildLicense (and, if an OEM license is required and not already installed, oemLicense).",
+      "discriminatedBy": {
+        "param": "second positional parameter",
+        "rule": "4D.File (buildLicense) -- manual designation of the license file(s) to use."
+      }
+    }
+  ],
+  "constraints": [
+    "The generated license file is only valid for the specific application referenced by mergedApp, and must be regenerated whenever that application is rebuilt.",
+    "If the Licenses folder does not already exist inside mergedApp, it is created by the command.",
+    "In non-automatic mode, if the build requires an OEM license (4D OEM XML Keys) not already installed in the building machine's Licenses folder, it must be supplied via oemLicense."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WP-Get-links",
+  "displayName": "WP Get links",
+  "kind": "classic_command",
+  "theme": "Write Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "targetObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "The WP Get links command returns the collection of all links defined in targetObj ."
+    }
+  ]
+}

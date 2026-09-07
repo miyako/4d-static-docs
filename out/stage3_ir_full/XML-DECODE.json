@@ -1,0 +1,37 @@
+{
+  "id": "XML-DECODE",
+  "displayName": "XML DECODE",
+  "kind": "classic_command",
+  "theme": "XML",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "xmlValue",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "4Dvar",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The XML DECODE command converts a value stored as an XML string into a 4D typed value."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "CREATE-DATA-FILE",
+  "displayName": "CREATE DATA FILE",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "accessPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "Creates a new (non-existent) data file on disk and hot-swaps it in as the data file used by the running 4D application, replacing the currently open one."
+    }
+  ],
+  "constraints": [
+    "Fails/does nothing if a file already exists at accessPath (the command checks the path does not already correspond to an existing file before proceeding).",
+    "On 4D Server (since v13), executing this command internally calls QUIT 4D on the server first, which prompts every remote client with a server-quitting dialog."
+  ]
+}

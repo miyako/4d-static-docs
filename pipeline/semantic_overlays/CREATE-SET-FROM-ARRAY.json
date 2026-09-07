@@ -1,0 +1,45 @@
+{
+  "constraints": [
+    "If setName is omitted or an empty string is passed, the command is applied to the Userset system set instead.",
+    "With a Longint/Integer array, an invalid record number (e.g. a never-created record) generates error -10503.",
+    "With a Boolean array, elements are read from index 0 to N-1; the array length should equal the table's record count, otherwise only the covered records can be in the set."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "recordsArray's multi-type was mechanically split into a bare 'Integer' plus 'Boolean array'; corrected to two proper array TypeRefs and added elementTypeSelectsMode, mirroring the same documented pattern as CREATE SELECTION FROM ARRAY.",
+      "params": [
+        {
+          "name": "aTable",
+          "type": { "kind": "concrete", "name": "Table" },
+          "direction": "in",
+          "optional": false,
+          "description": "Table of the set"
+        },
+        {
+          "name": "recordsArray",
+          "type": [
+            { "kind": "concrete", "name": "Integer array" },
+            { "kind": "concrete", "name": "Boolean array" }
+          ],
+          "direction": "in",
+          "optional": false,
+          "elementTypeSelectsMode": {
+            "Integer array": "each element is an absolute record number to include in the set",
+            "Boolean array": "the Nth element (True/False) indicates whether record N belongs to the set"
+          },
+          "description": "Array of record numbers, or array of booleans indicating per-record membership"
+        },
+        {
+          "name": "setName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": true,
+          "default": "applies to the Userset system set if omitted or an empty string",
+          "description": "Name of the set to create"
+        }
+      ],
+      "semanticRole": "Builds a named set (or the Userset system set) for a table from either an array of record numbers or a parallel array of per-record booleans."
+    }
+  ]
+}

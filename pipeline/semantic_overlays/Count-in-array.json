@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "array and value must be the same type or a compatible type; supported array element types are Text, number, Date, Pointer, Object, and Boolean.",
+    "For Object arrays, value must itself be an object reference (comparison is by reference, not deep equality).",
+    "Returns 0 if no element matches value."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Counts how many elements of array are equal to value."
+    }
+  ]
+}

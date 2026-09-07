@@ -1,0 +1,31 @@
+{
+  "id": "VP-RESIZE-TABLE",
+  "displayName": "VP RESIZE TABLE",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "tableName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP RESIZE TABLE command changes the tableName size with regards to the rangeObj ."
+    }
+  ]
+}

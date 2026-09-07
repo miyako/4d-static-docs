@@ -1,0 +1,12 @@
+{
+  "constraints": [
+    "Can only be used with 4D single-user applications; cannot be called from a component.",
+    "When passwords are enabled, only the Designer or Administrator can execute it effectively; other users get a no-op."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Displays the 4D License Manager dialog box, letting a user activate plug-ins or the Web server license on the local machine."
+    }
+  ]
+}

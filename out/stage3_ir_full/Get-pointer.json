@@ -1,0 +1,26 @@
+{
+  "id": "Get-pointer",
+  "displayName": "Get pointer",
+  "kind": "classic_command",
+  "theme": "Language",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "varName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Pointer"
+      },
+      "semanticRole": "The Get pointer command returns a pointer to the process or interprocess variable whose name you pass in varName ."
+    }
+  ]
+}

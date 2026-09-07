@@ -1,0 +1,12 @@
+{
+  "id": "False",
+  "displayName": "False",
+  "kind": "classic_command",
+  "theme": "Boolean",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "False returns the Boolean value False."
+    }
+  ]
+}

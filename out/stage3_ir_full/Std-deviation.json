@@ -1,0 +1,32 @@
+{
+  "id": "Std-deviation",
+  "displayName": "Std deviation",
+  "kind": "classic_command",
+  "theme": "On a Series",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "series",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Field"
+            },
+            {
+              "kind": "concrete",
+              "name": "Array"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "semanticRole": "Std deviation returns the standard deviation of series ."
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "OBJECT-SET-MAXIMUM-VALUE",
+  "displayName": "OBJECT SET MAXIMUM VALUE",
+  "kind": "classic_command",
+  "theme": "Objects (Forms)",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "object",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "maxValue",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Date"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OBJECT SET MAXIMUM VALUE command modifies the maximum value of the object(s) designated by the object and * parameters for the current process."
+    },
+    {
+      "params": [
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "maxValue",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Date"
+            },
+            {
+              "kind": "concrete",
+              "name": "Time"
+            },
+            {
+              "kind": "concrete",
+              "name": "Real"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The OBJECT SET MAXIMUM VALUE command modifies the maximum value of the object(s) designated by the object and * parameters for the current process."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "Database-measures",
+  "displayName": "Database measures",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The Database measures command allows you to get detailed information about 4D database engine events."
+    }
+  ]
+}

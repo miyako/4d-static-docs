@@ -1,0 +1,12 @@
+{
+  "id": "Version-type",
+  "displayName": "Version type",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The Version type command returns a numeric value that denotes the type of 4D or 4D Server version that you are running."
+    }
+  ]
+}

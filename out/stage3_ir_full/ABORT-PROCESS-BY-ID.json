@@ -1,0 +1,27 @@
+{
+  "id": "ABORT-PROCESS-BY-ID",
+  "displayName": "ABORT PROCESS BY ID",
+  "kind": "classic_command",
+  "theme": "Processes",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "uniqueID",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The ABORT PROCESS BY ID command stops a specific process on the 4D Server."
+    }
+  ],
+  "constraints": [
+    "Only works on 4D Server; does nothing if called from a remote client or 4D single-user.",
+    "Requires the ServerNet network layer.",
+    "Intended only for debugging/administration, not as a regular application procedure."
+  ]
+}

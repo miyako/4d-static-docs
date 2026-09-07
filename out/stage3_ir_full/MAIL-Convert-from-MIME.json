@@ -1,0 +1,44 @@
+{
+  "id": "MAIL-Convert-from-MIME",
+  "displayName": "MAIL Convert from MIME",
+  "kind": "classic_command",
+  "theme": "Mail",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mime",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The MAIL Convert from MIME command converts a MIME document into a valid email object."
+    },
+    {
+      "params": [
+        {
+          "name": "mime",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The MAIL Convert from MIME command converts a MIME document into a valid email object."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "EDIT-FORMULA",
+  "displayName": "EDIT FORMULA",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The EDIT FORMULA command displays the Formula editor in order to let the user write or modify a formula."
+    }
+  ]
+}

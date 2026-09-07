@@ -1,0 +1,67 @@
+{
+  "id": "QUERY",
+  "displayName": "QUERY",
+  "kind": "classic_command",
+  "theme": "Queries",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "queryArgument",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "QUERY looks for records matching the criteria specified in queryArgument and returns a selection of records for aTable .changes the current selection of aTable for the current process and makes the first record of the ne"
+    },
+    {
+      "params": [
+        {
+          "name": "queryArgument",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "QUERY looks for records matching the criteria specified in queryArgument and returns a selection of records for aTable .changes the current selection of aTable for the current process and makes the first record of the ne"
+    }
+  ]
+}

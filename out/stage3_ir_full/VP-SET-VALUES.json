@@ -1,0 +1,31 @@
+{
+  "id": "VP-SET-VALUES",
+  "displayName": "VP SET VALUES",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "valuesCol",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET VALUES command assigns a collection of values starting at the specified cell range."
+    }
+  ]
+}

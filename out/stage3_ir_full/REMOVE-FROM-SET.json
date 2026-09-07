@@ -1,0 +1,31 @@
+{
+  "id": "REMOVE-FROM-SET",
+  "displayName": "REMOVE FROM SET",
+  "kind": "classic_command",
+  "theme": "Sets",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "set",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "REMOVE FROM SET removes the current record of aTable from set ."
+    }
+  ]
+}

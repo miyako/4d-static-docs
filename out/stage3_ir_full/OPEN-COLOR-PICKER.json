@@ -1,0 +1,22 @@
+{
+  "id": "OPEN-COLOR-PICKER",
+  "displayName": "OPEN COLOR PICKER",
+  "kind": "classic_command",
+  "theme": "System Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "textOrBackground",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The OPEN COLOR PICKER command displays the system color picker dialog box."
+    }
+  ]
+}

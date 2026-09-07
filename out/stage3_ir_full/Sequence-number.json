@@ -1,0 +1,26 @@
+{
+  "id": "Sequence-number",
+  "displayName": "Sequence number",
+  "kind": "classic_command",
+  "theme": "Records",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "Sequence number returns the next sequence number for aTable ."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "Next-window",
+  "displayName": "Next window",
+  "kind": "classic_command",
+  "theme": "Windows",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "window",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Next window command returns the window reference number of the window \u201cbehind\u201d the window you pass in window (based on the front-to-back order of the windows)."
+    }
+  ]
+}

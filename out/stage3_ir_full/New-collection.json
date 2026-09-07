@@ -1,0 +1,12 @@
+{
+  "id": "New-collection",
+  "displayName": "New collection",
+  "kind": "classic_command",
+  "theme": "Collections",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The New collection command creates a new empty or prefilled collection and returns its reference."
+    }
+  ]
+}

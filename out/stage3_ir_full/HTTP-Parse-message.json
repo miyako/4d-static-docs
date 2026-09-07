@@ -1,0 +1,44 @@
+{
+  "id": "HTTP-Parse-message",
+  "displayName": "HTTP Parse message",
+  "kind": "classic_command",
+  "theme": "HTTP",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The HTTP Parse message command parses a multipart/form-data text or blob (HTTP \"response\" message) and extracts the content to an object."
+    },
+    {
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The HTTP Parse message command parses a multipart/form-data text or blob (HTTP \"response\" message) and extracts the content to an object."
+    }
+  ]
+}

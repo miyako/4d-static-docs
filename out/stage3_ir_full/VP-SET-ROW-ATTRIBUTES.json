@@ -1,0 +1,31 @@
+{
+  "id": "VP-SET-ROW-ATTRIBUTES",
+  "displayName": "VP SET ROW ATTRIBUTES",
+  "kind": "classic_command",
+  "theme": "View Pro",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "rangeObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "propertyObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The VP SET ROW ATTRIBUTES command applies the attributes defined in the propertyObj to the rows in the rangeObj ."
+    }
+  ]
+}

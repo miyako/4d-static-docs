@@ -1,0 +1,42 @@
+{
+  "constraints": [
+    "If decoded is omitted, the command overwrites toDecode in place with the decoded value instead of writing to a separate parameter.",
+    "See BASE64 ENCODE for details on the Base64 vs. Base64URL format distinction (selected here via the trailing *)."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "toDecode is documented/arrow-marked as inout ('<->': input encoded value, and also the output slot when decoded is omitted); decoded is a pure output. The draft parser had defaulted every parameter to direction:in.",
+      "params": [
+        {
+          "name": "toDecode",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Blob" }
+          ],
+          "direction": "inout",
+          "optional": false,
+          "description": "Base64/Base64URL-encoded value to decode; overwritten in place with the decoded value if decoded is omitted."
+        },
+        {
+          "name": "decoded",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Blob" }
+          ],
+          "direction": "out",
+          "optional": true,
+          "description": "Receives the decoded value, if supplied."
+        },
+        {
+          "name": "*",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true,
+          "description": "If present, decode using the Base64URL variant instead of standard Base64."
+        }
+      ],
+      "semanticRole": "Decodes a Base64/Base64URL-encoded text or blob value from toDecode, either into decoded or back into toDecode itself if decoded is omitted."
+    }
+  ]
+}

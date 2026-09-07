@@ -1,0 +1,13 @@
+{
+  "theme": "System-Documents",
+  "constraints": [
+    "posixPath must be an absolute disk path beginning with \"/\"; network paths (e.g. ftp://...) are not supported.",
+    "The '*' literal-symbol parameter tells the command that posixPath is percent-encoded (special characters escaped); if posixPath is actually encoded but '*' is omitted, the returned system path is invalid. Without '*', the output path is not encoded either."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Converts an absolute POSIX-syntax pathname to the equivalent pathname in the current platform's system syntax."
+    }
+  ]
+}

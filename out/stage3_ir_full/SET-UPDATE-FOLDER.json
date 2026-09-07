@@ -1,0 +1,31 @@
+{
+  "id": "SET-UPDATE-FOLDER",
+  "displayName": "SET UPDATE FOLDER",
+  "kind": "classic_command",
+  "theme": "4D Environment",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "folderPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "silentErrors",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "The SET UPDATE FOLDER command specifies the folder containing the update of the current merged 4D application."
+    }
+  ]
+}

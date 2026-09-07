@@ -1,0 +1,22 @@
+{
+  "id": "ONE-RECORD-SELECT",
+  "displayName": "ONE RECORD SELECT",
+  "kind": "classic_command",
+  "theme": "Selection",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "semanticRole": "ONE RECORD SELECT reduces the current selection of aTable to the current record."
+    }
+  ]
+}

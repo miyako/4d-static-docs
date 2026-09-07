@@ -1,0 +1,41 @@
+{
+  "id": "JSON-Validate",
+  "displayName": "JSON Validate",
+  "kind": "classic_command",
+  "theme": "JSON",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vJson",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Object"
+            },
+            {
+              "kind": "concrete",
+              "name": "Collection"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "vSchema",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "The JSON Validate command checks the compliance of the vJson JSON contents with the rules defined in the vSchema JSON schema."
+    }
+  ]
+}

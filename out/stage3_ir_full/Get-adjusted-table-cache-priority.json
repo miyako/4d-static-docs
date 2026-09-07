@@ -1,0 +1,26 @@
+{
+  "id": "Get-adjusted-table-cache-priority",
+  "displayName": "Get adjusted table cache priority",
+  "kind": "classic_command",
+  "theme": "Cache Management",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      },
+      "semanticRole": "The Get adjusted table cache priority command returns the adjusted cache priority value applied in cache by the cache manager for the aTable scalar data."
+    }
+  ]
+}

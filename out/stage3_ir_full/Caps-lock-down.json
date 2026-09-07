@@ -1,0 +1,12 @@
+{
+  "id": "Caps-lock-down",
+  "displayName": "Caps lock down",
+  "kind": "classic_command",
+  "theme": "User Interface",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "Caps lock down returns TRUE if the Caps Lock key is pressed."
+    }
+  ]
+}

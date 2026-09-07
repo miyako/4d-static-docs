@@ -1,0 +1,12 @@
+{
+  "id": "WEB-STOP-SERVER",
+  "displayName": "WEB STOP SERVER",
+  "kind": "classic_command",
+  "theme": "Web Server",
+  "overloads": [
+    {
+      "params": [],
+      "semanticRole": "The WEB STOP SERVER command stops the Web server of the 4D application on which it has been executed (4D ou 4D Server)."
+    }
+  ]
+}

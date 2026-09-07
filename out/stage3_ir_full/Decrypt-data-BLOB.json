@@ -1,0 +1,98 @@
+{
+  "id": "Decrypt-data-BLOB",
+  "displayName": "Decrypt data BLOB",
+  "kind": "classic_command",
+  "theme": "Data Security",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blobToDecrypt",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "keyObject",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "salt",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "decryptedBLOB",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Decrypt data BLOB command decrypts the blobToDecrypt parameter with the same algorithm as 4D uses to decrypt data (AES-256) and returns the result in decryptedBLOB ."
+    },
+    {
+      "params": [
+        {
+          "name": "blobToDecrypt",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "passPhrase",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "salt",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "decryptedBLOB",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "The Decrypt data BLOB command decrypts the blobToDecrypt parameter with the same algorithm as 4D uses to decrypt data (AES-256) and returns the result in decryptedBLOB ."
+    }
+  ]
+}

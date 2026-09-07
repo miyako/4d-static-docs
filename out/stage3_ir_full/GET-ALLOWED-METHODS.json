@@ -1,0 +1,22 @@
+{
+  "id": "GET-ALLOWED-METHODS",
+  "displayName": "GET ALLOWED METHODS",
+  "kind": "classic_command",
+  "theme": "Formulas",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "methodsArray",
+          "type": {
+            "kind": "concrete",
+            "name": "Text array"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "semanticRole": "The GET ALLOWED METHODS command returns, in methodsArray , the names of methods that can be used to write formulas."
+    }
+  ]
+}
