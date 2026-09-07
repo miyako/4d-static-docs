@@ -6,7 +6,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "offset is documented/arrow-marked in the parameter table as inout ('<->': input starting byte position, output updated to the position just after the value read), even though the draft parser defaulted it to direction:in.",
+      "note": "offset is typed Variable and documented/arrow-marked as inout ('<->': input starting byte position, output updated to the position just after the value read), matching the convention used by all sibling BLOB-to-* commands (BLOB-to-integer, BLOB-to-longint, BLOB-to-real, BLOB-to-text); the draft parser had defaulted it to plain Integer/direction:in.",
       "params": [
         {
           "name": "blob",
@@ -16,7 +16,7 @@
         },
         {
           "name": "offset",
-          "type": { "kind": "concrete", "name": "Integer" },
+          "type": { "kind": "concrete", "name": "Variable" },
           "direction": "inout",
           "optional": true,
           "default": "0 (start of the BLOB)",
@@ -26,8 +26,5 @@
       "returns": { "kind": "concrete", "name": "Integer" },
       "semanticRole": "Creates a new hierarchical list from data stored in blob at the given (or default) byte offset, advancing offset past the data read, and returns the new list's reference number."
     }
-  ],
-  "_needsReview": [
-    "offset is typed plain Integer here (unlike the analogous BLOB to integer command, where the equivalent updated-in-place offset parameter is typed Variable), yet the docs still describe it as updated with 'New offset after reading' -- left as inout per the parameter table's arrow, but this may be a doc inconsistency worth checking against the live command's actual pass-by-reference behavior."
   ]
 }

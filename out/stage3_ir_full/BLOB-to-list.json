@@ -19,7 +19,7 @@
           "name": "offset",
           "type": {
             "kind": "concrete",
-            "name": "Integer"
+            "name": "Variable"
           },
           "direction": "inout",
           "optional": true,
@@ -37,8 +37,5 @@
   "constraints": [
     "If offset is omitted, reading starts at the beginning of the BLOB (byte 0).",
     "The BLOB's data must have previously been produced by LIST TO BLOB for the created list to be well-formed."
-  ],
-  "_needsReview": [
-    "offset is typed plain Integer here (unlike the analogous BLOB to integer command, where the equivalent updated-in-place offset parameter is typed Variable), yet the docs still describe it as updated with 'New offset after reading' -- left as inout per the parameter table's arrow, but this may be a doc inconsistency worth checking against the live command's actual pass-by-reference behavior."
   ]
 }
