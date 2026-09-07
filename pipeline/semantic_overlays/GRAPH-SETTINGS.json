@@ -1,0 +1,7 @@
+{
+  "theme": "Graphs",
+  "deprecated": true,
+  "constraints": [
+    "Must NOT be called if the graph was generated using GRAPH's Object (graphSettings) overload."
+  ]
+}

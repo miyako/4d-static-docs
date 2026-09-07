@@ -2,73 +2,68 @@
   {
     "id": "ORDER-BY-FORMULA",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "missing top-level 'constraints' present in example"
-      ],
-      "difference_count": 1
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "ORDER-BY",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "missing top-level 'constraints' present in example",
-        "missing top-level 'protocolRefs' present in example"
-      ],
-      "difference_count": 2
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "C-LONGINT",
     "status": "no_source_page",
+    "overload_merges": [],
     "note": "not present in Stage 1 raw extraction (e.g. C_LONGINT has no standalone page in this docs snapshot) -- cannot run Stage 3 for this command."
   },
   {
     "id": "TABLE",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
       "3 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "theme: draft='Structure Access' example='Structure-Access'",
-        "missing top-level 'constraints' present in example"
-      ],
-      "difference_count": 2
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "OB-SET",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "theme: draft='Objects (Language)' example='Objects-Language'",
-        "missing top-level 'constraints' present in example"
-      ],
-      "difference_count": 2
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "MULTI-SORT-ARRAY",
     "status": "validated",
     "overlay_applied": false,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
       "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
@@ -82,38 +77,49 @@
   {
     "id": "SET-LIST-ITEM-PROPERTIES",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [
+      {
+        "merged_source_indices": [
+          0,
+          1
+        ],
+        "merged_source_signatures": [
+          "SET LIST ITEM PROPERTIES ( * ; list : Text ; itemRef : Integer, Operator ; enterable : Boolean ; styles : Integer {; icon : Text, Integer {; color : Integer}} )",
+          "SET LIST ITEM PROPERTIES ( list : Integer ; itemRef : Integer, Operator ; enterable : Boolean ; styles : Integer {; icon : Text, Integer {; color : Integer}} )"
+        ],
+        "into_overload_index": 0,
+        "note": "The docs render two syntax lines that differ only in whether a leading '*' is passed (selecting whether 'list' is a name-string vs. a reference-number, and correspondingly Text vs. Integer). That's one semantic overload with an optional literal-symbol discriminator, not two overloads."
+      }
+    ],
     "schema_errors": [],
     "review_notes": [
       "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "theme: draft='Hierarchical Lists' example='Hierarchical-Lists'",
-        "overload count: draft=2 example=1"
-      ],
-      "difference_count": 2
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "SET-LIST-PROPERTIES",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "theme: draft='Hierarchical Lists' example='Hierarchical-Lists'"
-      ],
-      "difference_count": 1
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "GRAPH",
     "status": "validated",
     "overlay_applied": false,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
       "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
@@ -127,37 +133,34 @@
   {
     "id": "GRAPH-SETTINGS",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "missing top-level 'constraints' present in example",
-        "missing top-level 'deprecated' present in example"
-      ],
-      "difference_count": 2
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "QUERY-BY-ATTRIBUTE",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "missing top-level 'constraints' present in example",
-        "missing top-level 'protocolRefs' present in example"
-      ],
-      "difference_count": 2
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "SQL-EXECUTE",
     "status": "validated",
     "overlay_applied": false,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [],
     "diff_vs_example": {
@@ -169,35 +172,48 @@
   {
     "id": "WA-EXECUTE-JAVASCRIPT-FUNCTION",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [
+      {
+        "merged_source_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "merged_source_signatures": [
+          "WA EXECUTE JAVASCRIPT FUNCTION ( * ; object : Text ; jsFunction : Text {; result : Variable} {; ...param : any} )",
+          "WA EXECUTE JAVASCRIPT FUNCTION ( object : Variable, Field ; jsFunction : Text {; result : Variable } {; ...param : any} )",
+          "WA EXECUTE JAVASCRIPT FUNCTION ( * ; object : Text ; jsFunction : Text ; * {; ...param : any} )",
+          "WA EXECUTE JAVASCRIPT FUNCTION ( object : Variable, Field ; jsFunction : Text ; * {; ...param : any} )"
+        ],
+        "into_overload_index": 0,
+        "note": "The docs render 4 syntax lines that vary only by: (a) whether a leading '*' selects object's Text-vs-Variable/Field typing, and (b) whether a second bare '*' marks 'no result variable'. These are optional literal-symbol discriminators on one semantic overload, not 4 distinct overloads."
+      }
+    ],
     "schema_errors": [],
     "review_notes": [
       "4 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "theme: draft='Web Area' example='Web-Area'",
-        "overload count: draft=4 example=1",
-        "missing top-level 'constraints' present in example"
-      ],
-      "difference_count": 3
+      "differences": [],
+      "difference_count": 0
     }
   },
   {
     "id": "WP-SET-ATTRIBUTES",
     "status": "validated",
-    "overlay_applied": false,
+    "overlay_applied": true,
+    "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
       "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
     ],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [
-        "theme: draft='Write Pro' example='WritePro'"
-      ],
-      "difference_count": 1
+      "differences": [],
+      "difference_count": 0
     }
   }
 ]

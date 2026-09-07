@@ -1,0 +1,7 @@
+{
+  "theme": "Queries",
+  "constraints": [
+    "If aTable is omitted, applies to the default table; errors if none is set."
+  ],
+  "protocolRefs": { "multiCallChain": "queryThemeChain" }
+}

@@ -1,0 +1,7 @@
+{
+  "theme": "Queries",
+  "constraints": [
+    "If aField, order, and * are all omitted, ORDER BY displays the interactive Order By editor instead of sorting."
+  ],
+  "protocolRefs": { "multiCallChain": "queryThemeChain" }
+}

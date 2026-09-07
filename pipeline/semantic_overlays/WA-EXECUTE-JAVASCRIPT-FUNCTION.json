@@ -1,0 +1,62 @@
+{
+  "theme": "Web-Area",
+  "constraints": [
+    "Calling a JS function that opens a blocking dialog (alert(), print()) is not recommended; the user cannot interact with the Web area while 4D code runs."
+  ],
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1, 2, 3],
+      "note": "The docs render 4 syntax lines that vary only by: (a) whether a leading '*' selects object's Text-vs-Variable/Field typing, and (b) whether a second bare '*' marks 'no result variable'. These are optional literal-symbol discriminators on one semantic overload, not 4 distinct overloads.",
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": { "kind": "literal_symbols", "symbols": ["*"] },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            { "kind": "concrete", "name": "Text" },
+            { "kind": "concrete", "name": "Variable" },
+            { "kind": "concrete", "name": "Field" }
+          ],
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "jsFunction",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "result",
+          "type": { "kind": "concrete", "name": "Variable" },
+          "direction": "out",
+          "optional": false,
+          "sentinelValues": [
+            { "value": "*", "meaning": "function has no result" }
+          ]
+        },
+        {
+          "name": "param",
+          "members": [
+            {
+              "name": "param",
+              "type": { "kind": "pseudo", "name": "any" },
+              "direction": "in",
+              "optional": false,
+              "silentCoercionDefault": {
+                "toType": "Text",
+                "condition": "If the parameter's type is not explicitly defined, 4D coerces it to Text before passing it to the JavaScript function."
+              }
+            }
+          ],
+          "cardinality": { "min": 0, "max": null },
+          "position": "trailing"
+        }
+      ]
+    }
+  ]
+}

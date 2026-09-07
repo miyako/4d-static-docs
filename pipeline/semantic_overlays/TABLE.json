@@ -1,0 +1,6 @@
+{
+  "theme": "Structure-Access",
+  "constraints": [
+    "Overloads 2 and 3 declare the identical parameter type (Pointer). Which one applies depends on what the pointer actually references at runtime -- not checkable from the call site alone."
+  ]
+}

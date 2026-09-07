@@ -51,6 +51,11 @@
           ],
           "semanticRole": "ORDER BY FORMULA sorts (reorders) the records of the current selection of aTable for the current process."
         }
+      ],
+      "constraints": [
+        "aTable must be explicitly specified; the default table cannot be used.",
+        "Parameters ($1...$n) are not supported inside formula.",
+        "If used with PRINT SELECTION and BREAK LEVEL and a local variable, all three must execute from the same method or an error occurs at reevaluation time."
       ]
     },
     {
@@ -115,13 +120,19 @@
           ],
           "semanticRole": "ORDER BY sorts (reorders) the records of the current selection of aTable for the current process."
         }
-      ]
+      ],
+      "constraints": [
+        "If aField, order, and * are all omitted, ORDER BY displays the interactive Order By editor instead of sorting."
+      ],
+      "protocolRefs": {
+        "multiCallChain": "queryThemeChain"
+      }
     },
     {
       "id": "Table",
       "displayName": "Table",
       "kind": "classic_command",
-      "theme": "Structure Access",
+      "theme": "Structure-Access",
       "overloads": [
         {
           "params": [
@@ -177,13 +188,16 @@
           },
           "semanticRole": "The Table command has three forms: If you pass a table number in tableNum , Table returns a pointer to the table."
         }
+      ],
+      "constraints": [
+        "Overloads 2 and 3 declare the identical parameter type (Pointer). Which one applies depends on what the pointer actually references at runtime -- not checkable from the call site alone."
       ]
     },
     {
       "id": "OB-SET",
       "displayName": "OB SET",
       "kind": "classic_command",
-      "theme": "Objects (Language)",
+      "theme": "Objects-Language",
       "overloads": [
         {
           "params": [
@@ -245,6 +259,9 @@
           ],
           "semanticRole": "The OB SET command creates or modifies one or more property / value pairs in the language object designated by the object parameter.must be an object variable or designate a 4D object field."
         }
+      ],
+      "constraints": [
+        "Pointers are kept as-is (not evaluated); dates/times/objects/collections have their own storage-semantics footnotes."
       ]
     },
     {
@@ -318,12 +335,12 @@
       "id": "SET-LIST-ITEM-PROPERTIES",
       "displayName": "SET LIST ITEM PROPERTIES",
       "kind": "classic_command",
-      "theme": "Hierarchical Lists",
+      "theme": "Hierarchical-Lists",
       "overloads": [
         {
           "params": [
             {
-              "name": "*",
+              "name": "asObjectName",
               "type": {
                 "kind": "literal_symbols",
                 "symbols": [
@@ -331,31 +348,42 @@
                 ]
               },
               "direction": "in",
-              "optional": false
+              "optional": true,
+              "description": "If present, 'list' below is a name string; if omitted, 'list' is a reference number."
             },
             {
               "name": "list",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "itemRef",
               "type": [
                 {
                   "kind": "concrete",
                   "name": "Integer"
                 },
                 {
-                  "kind": "pseudo",
-                  "name": "Operator"
+                  "kind": "concrete",
+                  "name": "Text"
                 }
               ],
               "direction": "in",
               "optional": false
+            },
+            {
+              "name": "itemRef",
+              "type": {
+                "kind": "concrete",
+                "name": "Integer"
+              },
+              "direction": "in",
+              "optional": false,
+              "sentinelValues": [
+                {
+                  "value": 0,
+                  "meaning": "the last item appended to the list"
+                },
+                {
+                  "value": "*",
+                  "meaning": "the current list item"
+                }
+              ]
             },
             {
               "name": "enterable",
@@ -388,7 +416,13 @@
                 }
               ],
               "direction": "in",
-              "optional": true
+              "optional": true,
+              "sentinelValues": [
+                {
+                  "value": "\"\" or 0",
+                  "meaning": "no icon"
+                }
+              ]
             },
             {
               "name": "color",
@@ -397,81 +431,24 @@
                 "name": "Integer"
               },
               "direction": "in",
-              "optional": true
+              "optional": true,
+              "sentinelValues": [
+                {
+                  "value": -1,
+                  "meaning": "reset to original color"
+                }
+              ]
             }
           ],
-          "semanticRole": "The SET LIST ITEM PROPERTIES command modifies the item designated by the itemRef parameter within the list whose reference number or object name is passed in list ."
-        },
-        {
-          "params": [
+          "interactionNotes": [
             {
-              "name": "list",
-              "type": {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "itemRef",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Integer"
-                },
-                {
-                  "kind": "pseudo",
-                  "name": "Operator"
-                }
+              "params": [
+                "asObjectName (leading *)",
+                "itemRef (* sentinel)"
               ],
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "enterable",
-              "type": {
-                "kind": "concrete",
-                "name": "Boolean"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "styles",
-              "type": {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "icon",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Integer"
-                }
-              ],
-              "direction": "in",
-              "optional": true
-            },
-            {
-              "name": "color",
-              "type": {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              "direction": "in",
-              "optional": true
+              "note": "The literal symbol '*' means two unrelated things depending on position: leading = 'list is a name, not a ref number'; in itemRef's slot = 'operate on the current item'."
             }
-          ],
-          "semanticRole": "The SET LIST ITEM PROPERTIES command modifies the item designated by the itemRef parameter within the list whose reference number or object name is passed in list ."
+          ]
         }
       ]
     },
@@ -479,7 +456,7 @@
       "id": "SET-LIST-PROPERTIES",
       "displayName": "SET LIST PROPERTIES",
       "kind": "classic_command",
-      "theme": "Hierarchical Lists",
+      "theme": "Hierarchical-Lists",
       "overloads": [
         {
           "params": [
@@ -792,6 +769,10 @@
           ],
           "semanticRole": "GRAPH SETTINGS changes the graph settings for graph displayed in a form."
         }
+      ],
+      "deprecated": true,
+      "constraints": [
+        "Must NOT be called if the graph was generated using GRAPH's Object (graphSettings) overload."
       ]
     },
     {
@@ -938,7 +919,13 @@
           ],
           "semanticRole": "QUERY BY ATTRIBUTE looks for records matching the query string defined using the objectField , attributePath , queryOp and value parameters, and returns a selection of records for aTable .changes the current selection of"
         }
-      ]
+      ],
+      "constraints": [
+        "If aTable is omitted, applies to the default table; errors if none is set."
+      ],
+      "protocolRefs": {
+        "multiCallChain": "queryThemeChain"
+      }
     },
     {
       "id": "SQL-EXECUTE",
@@ -991,12 +978,12 @@
       "id": "WA-EXECUTE-JAVASCRIPT-FUNCTION",
       "displayName": "WA EXECUTE JAVASCRIPT FUNCTION",
       "kind": "classic_command",
-      "theme": "Web Area",
+      "theme": "Web-Area",
       "overloads": [
         {
           "params": [
             {
-              "name": "*",
+              "name": "asObjectName",
               "type": {
                 "kind": "literal_symbols",
                 "symbols": [
@@ -1004,62 +991,15 @@
                 ]
               },
               "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "object",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "jsFunction",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "result",
-              "type": {
-                "kind": "concrete",
-                "name": "Variable"
-              },
-              "direction": "in",
               "optional": true
             },
             {
-              "name": "group",
-              "members": [
-                {
-                  "name": "param",
-                  "type": {
-                    "kind": "pseudo",
-                    "name": "any"
-                  },
-                  "direction": "in",
-                  "optional": false
-                }
-              ],
-              "cardinality": {
-                "min": 0,
-                "max": null
-              },
-              "position": "trailing"
-            }
-          ],
-          "semanticRole": "The WA EXECUTE JAVASCRIPT FUNCTION command executes, in the Web area designated by the * and object parameters, the JavaScript function jsFunction and optionally returns its result in the result parameter."
-        },
-        {
-          "params": [
-            {
               "name": "object",
               "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Text"
+                },
                 {
                   "kind": "concrete",
                   "name": "Variable"
@@ -1087,11 +1027,17 @@
                 "kind": "concrete",
                 "name": "Variable"
               },
-              "direction": "in",
-              "optional": true
+              "direction": "out",
+              "optional": false,
+              "sentinelValues": [
+                {
+                  "value": "*",
+                  "meaning": "function has no result"
+                }
+              ]
             },
             {
-              "name": "group",
+              "name": "param",
               "members": [
                 {
                   "name": "param",
@@ -1100,7 +1046,11 @@
                     "name": "any"
                   },
                   "direction": "in",
-                  "optional": false
+                  "optional": false,
+                  "silentCoercionDefault": {
+                    "toType": "Text",
+                    "condition": "If the parameter's type is not explicitly defined, 4D coerces it to Text before passing it to the JavaScript function."
+                  }
                 }
               ],
               "cardinality": {
@@ -1109,139 +1059,18 @@
               },
               "position": "trailing"
             }
-          ],
-          "semanticRole": "The WA EXECUTE JAVASCRIPT FUNCTION command executes, in the Web area designated by the * and object parameters, the JavaScript function jsFunction and optionally returns its result in the result parameter."
-        },
-        {
-          "params": [
-            {
-              "name": "*",
-              "type": {
-                "kind": "literal_symbols",
-                "symbols": [
-                  "*"
-                ]
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "object",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "jsFunction",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "*",
-              "type": {
-                "kind": "literal_symbols",
-                "symbols": [
-                  "*"
-                ]
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "group",
-              "members": [
-                {
-                  "name": "param",
-                  "type": {
-                    "kind": "pseudo",
-                    "name": "any"
-                  },
-                  "direction": "in",
-                  "optional": false
-                }
-              ],
-              "cardinality": {
-                "min": 0,
-                "max": null
-              },
-              "position": "trailing"
-            }
-          ],
-          "semanticRole": "The WA EXECUTE JAVASCRIPT FUNCTION command executes, in the Web area designated by the * and object parameters, the JavaScript function jsFunction and optionally returns its result in the result parameter."
-        },
-        {
-          "params": [
-            {
-              "name": "object",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Variable"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Field"
-                }
-              ],
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "jsFunction",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "*",
-              "type": {
-                "kind": "literal_symbols",
-                "symbols": [
-                  "*"
-                ]
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "group",
-              "members": [
-                {
-                  "name": "param",
-                  "type": {
-                    "kind": "pseudo",
-                    "name": "any"
-                  },
-                  "direction": "in",
-                  "optional": false
-                }
-              ],
-              "cardinality": {
-                "min": 0,
-                "max": null
-              },
-              "position": "trailing"
-            }
-          ],
-          "semanticRole": "The WA EXECUTE JAVASCRIPT FUNCTION command executes, in the Web area designated by the * and object parameters, the JavaScript function jsFunction and optionally returns its result in the result parameter."
+          ]
         }
+      ],
+      "constraints": [
+        "Calling a JS function that opens a blocking dialog (alert(), print()) is not recommended; the user cannot interact with the Web area while 4D code runs."
       ]
     },
     {
       "id": "WP-SET-ATTRIBUTES",
       "displayName": "WP SET ATTRIBUTES",
       "kind": "classic_command",
-      "theme": "Write Pro",
+      "theme": "WritePro",
       "overloads": [
         {
           "params": [

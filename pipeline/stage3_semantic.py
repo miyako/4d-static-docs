@@ -67,8 +67,14 @@ def first_sentence(text: str | None) -> str | None:
     return (m.group(1) if m else text[:220]).strip()
 
 
-def build_draft_entry(record: dict) -> tuple[dict, list[str]]:
-    """Build a mechanical draft CommandEntry from a Stage 1 raw record."""
+def build_draft_entry(record: dict) -> tuple[dict, list[str], list[str]]:
+    """Build a mechanical draft CommandEntry from a Stage 1 raw record.
+
+    Returns (entry, review_notes, signature_texts) -- signature_texts is
+    the raw signature line for each draft overload, in the same order, so
+    callers can log which doc syntax variant fed which overload index
+    (needed to report overload merges intelligibly).
+    """
     review_notes: list[str] = []
     description = record.get("sections", {}).get("description", {}).get("text")
     role_guess = first_sentence(description)
@@ -76,6 +82,7 @@ def build_draft_entry(record: dict) -> tuple[dict, list[str]]:
         review_notes.append("no description section found; semanticRole left unset")
 
     overloads = []
+    signature_texts = []
     for sig in record.get("signatureLines", []):
         elements, notes, returns = draft_overload_params(sig["text"])
         for n in notes:
@@ -86,6 +93,7 @@ def build_draft_entry(record: dict) -> tuple[dict, list[str]]:
         if role_guess:
             overload["semanticRole"] = role_guess
         overloads.append(overload)
+        signature_texts.append(sig["text"])
     if len(overloads) > 1:
         review_notes.append(
             f"{len(overloads)} overloads share one auto-derived semanticRole; "
@@ -99,14 +107,54 @@ def build_draft_entry(record: dict) -> tuple[dict, list[str]]:
         "theme": record.get("theme") or "",
         "overloads": overloads,
     }
-    return entry, review_notes
+    return entry, review_notes, signature_texts
 
 
-def apply_overlay(entry: dict, overlay_path: Path) -> dict:
+def apply_overload_merges(overloads: list[dict], signature_texts: list[str], merges: list[dict] | None):
+    """Collapse draft overloads that are really one semantic overload split
+    across multiple doc syntax lines (e.g. an optional leading '*' rendered
+    as its own line). Returns (new_overloads, merge_log).
+    """
+    if not merges:
+        return overloads, []
+
+    consumed: set[int] = set()
+    merged_overloads: list[dict] = []
+    merge_log: list[dict] = []
+    for merge in merges:
+        idxs = merge["sourceIndices"]
+        consumed.update(idxs)
+        replacement = {"params": merge["params"]}
+        for optional_field in ("returns", "semanticRole", "interactionNotes", "mechanism", "discriminatedBy"):
+            if optional_field in merge:
+                replacement[optional_field] = merge[optional_field]
+        merged_overloads.append(replacement)
+        merge_log.append({
+            "merged_source_indices": idxs,
+            "merged_source_signatures": [signature_texts[i] for i in idxs if i < len(signature_texts)],
+            "into_overload_index": len(merged_overloads) - 1,
+            "note": merge.get("note", ""),
+        })
+
+    for i, ov in enumerate(overloads):
+        if i not in consumed:
+            merged_overloads.append(ov)
+
+    return merged_overloads, merge_log
+
+
+def apply_overlay(entry: dict, signature_texts: list[str], overlay_path: Path):
+    """Apply a hand overlay: first collapse any overloadMerges (structural),
+    then deep-merge every other field (data-only corrections/additions).
+    Returns (merged_entry, merge_log).
+    """
     if not overlay_path.exists():
-        return entry
+        return entry, []
     overlay = load_json(overlay_path)
-    return deep_merge(entry, overlay)
+    merges = overlay.pop("overloadMerges", None)
+    merged_overloads, merge_log = apply_overload_merges(entry["overloads"], signature_texts, merges)
+    entry = dict(entry, overloads=merged_overloads)
+    return deep_merge(entry, overlay), merge_log
 
 
 def diff_against_example(entry: dict, example: dict | None) -> dict:
@@ -146,14 +194,15 @@ def main():
             report.append({
                 "id": norm_id,
                 "status": "no_source_page",
+                "overload_merges": [],
                 "note": "not present in Stage 1 raw extraction (e.g. C_LONGINT has no standalone "
                         "page in this docs snapshot) -- cannot run Stage 3 for this command.",
             })
             continue
 
-        draft_entry, review_notes = build_draft_entry(record)
+        draft_entry, review_notes, signature_texts = build_draft_entry(record)
         overlay_path = OVERLAY_DIR / f"{record['id']}.json"
-        entry = apply_overlay(copy.deepcopy(draft_entry), overlay_path)
+        entry, merge_log = apply_overlay(copy.deepcopy(draft_entry), signature_texts, overlay_path)
 
         doc = {"commands": [entry]}
         errors = sorted(validator.iter_errors(doc), key=lambda e: e.path)
@@ -164,6 +213,7 @@ def main():
             "id": norm_id,
             "status": "validated" if valid else "schema_invalid",
             "overlay_applied": overlay_path.exists(),
+            "overload_merges": merge_log,
             "schema_errors": [f"{'/'.join(str(p) for p in e.path)}: {e.message}" for e in errors],
             "review_notes": review_notes,
             "diff_vs_example": diff_against_example(entry, example),
@@ -176,8 +226,16 @@ def main():
     n_valid = sum(1 for r in report if r["status"] == "validated")
     n_invalid = sum(1 for r in report if r["status"] == "schema_invalid")
     n_missing = sum(1 for r in report if r["status"] == "no_source_page")
+    n_merged = sum(1 for r in report if r["overload_merges"])
     print(f"Stage 3 sample run: {len(target_ids)} fixture commands targeted")
-    print(f"  valid: {n_valid}  schema_invalid: {n_invalid}  no_source_page: {n_missing}")
+    print(f"  valid: {n_valid}  schema_invalid: {n_invalid}  no_source_page: {n_missing}  commands_with_overload_merges: {n_merged}")
+    for r in report:
+        if r["overload_merges"]:
+            print(f"  [MERGED] {r['id']}:")
+            for m in r["overload_merges"]:
+                print(f"      indices {m['merged_source_indices']} -> overload #{m['into_overload_index']}: {m['note']}")
+                for s in m["merged_source_signatures"]:
+                    print(f"        - {s}")
     for r in report:
         if r["status"] == "schema_invalid":
             print(f"  [INVALID] {r['id']}: {r['schema_errors']}")
