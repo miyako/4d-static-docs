@@ -162,6 +162,11 @@ Also check whether a removed command appears in:
   longer exists.
 - `pipeline/stage3_bulk.py`'s `FIXTURE_IDS` set, if a removed id happens to
   be a fixture (should not normally happen, but check).
+- Stage 6's artifacts, if that stage is in use — `Project/Sources/Methods/
+  Synth_<id>.4dm` and the id's entries in `out/synth_manifest.json`/
+  `out/lsp_crosscheck_report.json` (see `pipeline/stage6_README.md`, which
+  does not yet document this case explicitly — treat this bullet as the
+  authoritative instruction for it).
 
 ## Step 7 — the 13 hand-authored fixtures
 
@@ -253,15 +258,33 @@ print("in manifest not in IR:", manifest_ids - ir_ids)   # expect: set()
 print("in IR not in manifest:", ir_ids - manifest_ids)   # expect: set() (no more off-mirror fixtures)
 ```
 
-## Step 10 — LSP/compiler cross-check (if provisioned)
+## Step 10 — Stage 6: LSP/compiler cross-check
 
-If the `tool4d`-based compiler cross-check pipeline has been set up (see the
-`stage6_synth_examples.py`-based work — check whether it's been merged to
-`main` yet), re-run it at least for every `added`/`changed` command id
-before considering the update done. This is the only step that actually
-compiles the modeled signatures rather than just schema-validating their
-shape, and it has already caught real IR bugs (missing parameters) that
-schema validation alone could not.
+Stage 6 (`stage6_synth_examples.py`, documented in full in
+`pipeline/stage6_README.md`) is provisioned and merged: it synthesizes real
+4D method calls for every command/overload/variant in
+`out/4d-command-ir.json` and validates them against a real `tool4d`
+compiler. **Always re-run it for every `added`/`changed` command id** before
+considering this update done:
+
+```sh
+python3 pipeline/stage6_synth_examples.py generate --ids ID1,ID2,...
+python3 pipeline/stage6_synth_examples.py validate --ids ID1,ID2,...
+```
+
+This is the only step that actually compiles the modeled signatures rather
+than just schema-validating their shape, and it has already caught real IR
+bugs (missing parameters) that schema validation alone could not.
+
+For `removed` command ids, also delete their stale Stage 6 artifacts —
+`Project/Sources/Methods/Synth_<id>.4dm` and their entries in
+`out/synth_manifest.json`/`out/lsp_crosscheck_report.json` — see
+`pipeline/stage6_README.md`'s cleanup steps.
+
+See `pipeline/stage6_README.md` for everything else: sweep coverage,
+prerequisites (the `tool4d` binary is version-pinned to the docs mirror's 4D
+release), the full-corpus regression baseline to diff against, and the
+bug-triage loop (IR bug vs. synthesizer bug vs. genuine tooling limitation).
 
 ## Step 11 — housekeeping and commit
 
@@ -293,7 +316,7 @@ schema validation alone could not.
 | One of the 13 fixtures changed | Step 7 (hand-edit `4d-command-ir-examples.json` directly) |
 | New enum/callback/foreign-grammar needed | Step 8 (author in the relevant registry file, reference via `*_ref`) |
 | 4D shipped new XLIFF constants exports | Step 8 (`pipeline/tools/parse_xliff_constants.py`) |
-| Any of the above | Always finish with Step 9 (`stage5_assemble.py`) and, if available, Step 10 (LSP cross-check) |
+| Any of the above | Always finish with Step 9 (`stage5_assemble.py`) and Step 10 (`pipeline/stage6_README.md`'s LSP cross-check) |
 
 ## Lessons already learned the hard way (don't repeat these)
 
