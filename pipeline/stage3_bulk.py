@@ -47,7 +47,7 @@ IR_DIR = OUT_DIR / "stage3_ir_full"  # one JSON file per successfully-validated 
 
 # The 13 fixtures (by Stage-1 id) are handled by stage3_semantic.py, not here.
 FIXTURE_IDS = {
-    "ORDER-BY-FORMULA", "ORDER-BY", "C-LONGINT", "Table", "OB-SET",
+    "ORDER-BY-FORMULA", "ORDER-BY", "Table", "OB-SET",
     "MULTI-SORT-ARRAY", "SET-LIST-ITEM-PROPERTIES", "SET-LIST-PROPERTIES",
     "GRAPH", "GRAPH-SETTINGS", "QUERY-BY-ATTRIBUTE", "SQL-EXECUTE",
     "WA-EXECUTE-JAVASCRIPT-FUNCTION", "WP-SET-ATTRIBUTES",

@@ -69,7 +69,7 @@ def main():
         addition = strip_meta(load_json(REFS / filename))
         merge_registry_map(root, key, addition)
 
-    # Commands: 14 fixtures + 1443 bulk-extracted entries.
+    # Commands: 13 fixtures + 1443 bulk-extracted entries.
     fixture_commands = fixtures_doc.get("commands", [])
     bulk_files = sorted(glob.glob(str(OUT_DIR / "*.json")))
     bulk_commands = [load_json(f) for f in bulk_files]

@@ -3,8 +3,8 @@
 Files:
 - `4d-command-ir-schema.json` — the JSON Schema (Draft 2020-12) itself.
 - `4d-command-ir-examples.json` — worked examples covering every worst-case
-  command we stress-tested (`ORDER BY`, `ORDER BY FORMULA`, `C_LONGINT`,
-  `Table`, `OB SET`, `MULTI SORT ARRAY`, `SET LIST ITEM PROPERTIES`,
+  command we stress-tested (`ORDER BY`, `ORDER BY FORMULA`, `Table`,
+  `OB SET`, `MULTI SORT ARRAY`, `SET LIST ITEM PROPERTIES`,
   `SET LIST PROPERTIES`, `GRAPH`/`GRAPH SETTINGS`, `QUERY BY ATTRIBUTE`,
   `SQL EXECUTE`, `WA EXECUTE JAVASCRIPT FUNCTION`, `WP SET ATTRIBUTES`).
   Validates cleanly against the schema (0 errors, checked with `jsonschema`).

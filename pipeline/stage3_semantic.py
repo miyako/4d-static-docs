@@ -81,8 +81,8 @@ def main():
                 "id": norm_id,
                 "status": "no_source_page",
                 "overload_merges": [],
-                "note": "not present in Stage 1 raw extraction (e.g. C_LONGINT has no standalone "
-                        "page in this docs snapshot) -- cannot run Stage 3 for this command.",
+                "note": "not present in Stage 1 raw extraction -- cannot run Stage 3 for "
+                        "this command.",
             })
             continue
 
