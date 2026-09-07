@@ -1,8 +1,8 @@
 // overload 0
 var $v1 : Integer
-var $synthResult_0 : Variant
-$synthResult_0:=Drop position($v1)
+var $synthResult2 : Variant
+$synthResult2:=Drop position($v1)
 // overload 1
-var $v2 : Integer
-var $synthResult_1 : Variant
-$synthResult_1:=Drop position($v2)
+var $v3 : Integer
+var $synthResult4 : Variant
+$synthResult4:=Drop position($v3)

@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Is field value Null([SynthTable]label)
+var $synthResult1 : Variant
+$synthResult1:=Is field value Null([SynthTable]label)

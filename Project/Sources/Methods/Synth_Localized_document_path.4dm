@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Localized document path("synthText")
+var $synthResult1 : Variant
+$synthResult1:=Localized document path("synthText")

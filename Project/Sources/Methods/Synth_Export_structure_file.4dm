@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Export structure file("synthText";New object)
+var $synthResult1 : Variant
+$synthResult1:=Export structure file("synthText";New object)

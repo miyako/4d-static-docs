@@ -7,7 +7,7 @@
         { "name": "Is text", "value": 2, "description": "Text" },
         { "name": "Is picture", "value": 3, "description": "Picture" },
         { "name": "Is date", "value": 4, "description": "Date" },
-        { "name": "Is Boolean", "value": 6, "description": "Boolean" },
+        { "name": "Is boolean", "value": 6, "description": "Boolean" },
         { "name": "Is longint", "value": 9, "description": "Long integer" },
         { "name": "Is time", "value": 11, "description": "Time" },
         { "name": "Is pointer", "value": 23, "description": "Pointer" },

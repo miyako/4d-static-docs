@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Get database localization(1;*)
+var $synthResult1 : Variant
+$synthResult1:=Get database localization(1;*)

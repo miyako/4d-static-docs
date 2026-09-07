@@ -1,9 +1,9 @@
 // overload 0
 var $v1 : Text
-var $synthResult_0 : Variant
-$synthResult_0:=WP Get frame(*;"synthText";$v1)
+var $synthResult2 : Variant
+$synthResult2:=WP Get frame(*;"synthText";$v1)
 // overload 1
-var $v2 : Variant
-var $v3 : Text
-var $synthResult_1 : Variant
-$synthResult_1:=WP Get frame($v2;$v3)
+var $v3 : Variant
+var $v4 : Text
+var $synthResult5 : Variant
+$synthResult5:=WP Get frame($v3;$v4)

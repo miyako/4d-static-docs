@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=DOM Get XML document ref("synthText")
+var $synthResult1 : Variant
+$synthResult1:=DOM Get XML document ref("synthText")

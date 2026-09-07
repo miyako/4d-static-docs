@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=QR Find column(1;"synthText")
+var $synthResult1 : Variant
+$synthResult1:=QR Find column(1;"synthText")

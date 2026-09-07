@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=WEB Get body part count()
+var $synthResult1 : Variant
+$synthResult1:=WEB Get body part count()

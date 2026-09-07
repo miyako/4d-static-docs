@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=OBJECT Get placeholder(*;"synthText")
+var $synthResult1 : Variant
+$synthResult1:=OBJECT Get placeholder(*;"synthText")

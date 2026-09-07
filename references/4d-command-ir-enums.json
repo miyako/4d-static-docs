@@ -19,7 +19,7 @@
       { "name": "Web inactive process timeout", "value": 78, "description": "Integer: inactive-process timeout." },
       { "name": "Web session cookie domain", "value": 81, "description": "Text: domain attribute of the Web session cookie." },
       { "name": "Web session cookie path", "value": 82, "description": "Text: path attribute of the Web session cookie." },
-      { "name": "Web session enable IP address validation", "value": 83, "description": "Boolean: enables IP-address validation for Web sessions. (Doc prose word order differs slightly from the XLIFF constant name 'Web session IP address validation enabled'; same constant, value 83.)" },
+      { "name": "Web session IP address validation enabled", "value": 83, "description": "Boolean: enables IP-address validation for Web sessions. (Constant name matches the XLIFF corpus; developer.4d.com doc prose describes it with slightly different word order, e.g. 'enable IP address validation for sessions'.)" },
       { "name": "Web debug log", "value": 84, "description": "Integer, one of the WebDebugLogLevel enum values (wdl ...): sets the Web server debug log verbosity." },
       { "name": "Web HTTP TRACE", "value": 85, "description": "Boolean/Integer: enables/disables the HTTP TRACE method." },
       { "name": "Web HSTS enabled", "value": 86, "description": "Boolean/Integer: enables HTTP Strict Transport Security." },

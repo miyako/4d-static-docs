@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Get Application color scheme(*)
+var $synthResult1 : Variant
+$synthResult1:=Get Application color scheme(*)

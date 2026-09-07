@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Next window(1)
+var $synthResult1 : Variant
+$synthResult1:=Next window(1)

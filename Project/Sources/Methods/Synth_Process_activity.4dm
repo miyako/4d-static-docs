@@ -1,12 +1,12 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Process activity()
+var $synthResult1 : Variant
+$synthResult1:=Process activity()
 // overload 1
-var $synthResult_1 : Variant
-$synthResult_1:=Process activity(1)
+var $synthResult2 : Variant
+$synthResult2:=Process activity(1)
 // overload 2
-var $synthResult_2 : Variant
-$synthResult_2:=Process activity("synthText")
+var $synthResult3 : Variant
+$synthResult3:=Process activity("synthText")
 // overload 3
-var $synthResult_3 : Variant
-$synthResult_3:=Process activity("synthText";1)
+var $synthResult4 : Variant
+$synthResult4:=Process activity("synthText";1)

@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Pasteboard data size("synthText")
+var $synthResult1 : Variant
+$synthResult1:=Pasteboard data size("synthText")

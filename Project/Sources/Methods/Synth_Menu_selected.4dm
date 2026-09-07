@@ -1,4 +1,4 @@
 // overload 0
 var $v1 : Text
-var $synthResult_0 : Variant
-$synthResult_0:=Menu selected($v1)
+var $synthResult2 : Variant
+$synthResult2:=Menu selected($v1)

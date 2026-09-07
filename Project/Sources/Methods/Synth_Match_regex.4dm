@@ -1,13 +1,13 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Match regex("synthText";"synthText")
+var $synthResult1 : Variant
+$synthResult1:=Match regex("synthText";"synthText")
 // overload 1
-var $v1 : Integer
 var $v2 : Integer
-var $synthResult_1 : Variant
-$synthResult_1:=Match regex("synthText";"synthText";1;$v1;$v2;*)
+var $v3 : Integer
+var $synthResult4 : Variant
+$synthResult4:=Match regex("synthText";"synthText";1;$v2;$v3;*)
 // overload 2
-ARRAY INTEGER($arr3;0)
-ARRAY INTEGER($arr4;0)
-var $synthResult_2 : Variant
-$synthResult_2:=Match regex("synthText";"synthText";1;$arr3;$arr4;*)
+ARRAY INTEGER($arr5;0)
+ARRAY INTEGER($arr6;0)
+var $synthResult7 : Variant
+$synthResult7:=Match regex("synthText";"synthText";1;$arr5;$arr6;*)

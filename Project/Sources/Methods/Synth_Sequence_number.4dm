@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Sequence number([SynthTable])
+var $synthResult1 : Variant
+$synthResult1:=Sequence number([SynthTable])

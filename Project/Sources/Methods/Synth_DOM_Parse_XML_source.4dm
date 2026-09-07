@@ -1,6 +1,6 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=DOM Parse XML source("synthText";True;"synthText")
+var $synthResult1 : Variant
+$synthResult1:=DOM Parse XML source("synthText";True;"synthText")
 // overload 1
-var $synthResult_1 : Variant
-$synthResult_1:=DOM Parse XML source("synthText";True;"synthText")
+var $synthResult2 : Variant
+$synthResult2:=DOM Parse XML source("synthText";True;"synthText")

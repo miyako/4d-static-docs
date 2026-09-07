@@ -1,7 +1,7 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=WP Import document("synthText";1)
+var $synthResult1 : Variant
+$synthResult1:=WP Import document("synthText";1)
 // overload 1
-var $v1 : Variant
-var $synthResult_1 : Variant
-$synthResult_1:=WP Import document($v1;1)
+var $v2 : Variant
+var $synthResult3 : Variant
+$synthResult3:=WP Import document($v2;1)

@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=SOAP Get info(1)
+var $synthResult1 : Variant
+$synthResult1:=SOAP Get info(1)

@@ -1,5 +1,5 @@
 // overload 0
 var $v1 : Variant
 var $v2 : Variant
-var $synthResult_0 : Variant
-$synthResult_0:=BLOB to list($v1;$v2)
+var $synthResult3 : Variant
+$synthResult3:=BLOB to list($v1;$v2)

@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Open datastore(New object;"synthText")
+var $synthResult1 : Variant
+$synthResult1:=Open datastore(New object;"synthText")

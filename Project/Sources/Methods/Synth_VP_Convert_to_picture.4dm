@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=VP Convert to picture(New object;New object)
+var $synthResult1 : Variant
+$synthResult1:=VP Convert to picture(New object;New object)

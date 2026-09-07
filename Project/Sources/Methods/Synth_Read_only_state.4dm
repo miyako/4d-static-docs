@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Read only state([SynthTable])
+var $synthResult1 : Variant
+$synthResult1:=Read only state([SynthTable])

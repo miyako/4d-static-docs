@@ -1,6 +1,6 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Last field number(1)
+var $synthResult1 : Variant
+$synthResult1:=Last field number(1)
 // overload 1
-var $synthResult_1 : Variant
-$synthResult_1:=Last field number(Nil)
+var $synthResult2 : Variant
+$synthResult2:=Last field number(Nil)

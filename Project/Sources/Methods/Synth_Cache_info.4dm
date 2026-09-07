@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Cache info(New object)
+var $synthResult1 : Variant
+$synthResult1:=Cache info(New object)

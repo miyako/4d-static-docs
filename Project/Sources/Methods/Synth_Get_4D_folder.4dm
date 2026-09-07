@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Get 4D folder(1;New object;*)
+var $synthResult1 : Variant
+$synthResult1:=Get 4D folder(1;New object;*)

@@ -1,2 +1,2 @@
 // overload 0
-QUERY SELECTION BY ATTRIBUTE([SynthTable];&;[SynthTable]label;"synthText";>;"synthText";*)
+QUERY SELECTION BY ATTRIBUTE([SynthTable];&;[SynthTable]label;"synthText";"synthText";"synthText";*)

@@ -1,7 +1,7 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Compile project(New object)
+var $synthResult1 : Variant
+$synthResult1:=Compile project(New object)
 // overload 1
-var $v1 : Variant
-var $synthResult_1 : Variant
-$synthResult_1:=Compile project($v1;New object)
+var $v2 : Variant
+var $synthResult3 : Variant
+$synthResult3:=Compile project($v2;New object)

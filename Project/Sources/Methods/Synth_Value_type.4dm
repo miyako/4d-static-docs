@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Value type("synthAny")
+var $synthResult1 : Variant
+$synthResult1:=Value type("synthAny")

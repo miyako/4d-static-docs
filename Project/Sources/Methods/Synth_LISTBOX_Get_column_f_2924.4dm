@@ -1,7 +1,7 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=LISTBOX Get column formula(*;"synthText")
+var $synthResult1 : Variant
+$synthResult1:=LISTBOX Get column formula(*;"synthText")
 // overload 1
-var $v1 : Variant
-var $synthResult_1 : Variant
-$synthResult_1:=LISTBOX Get column formula($v1)
+var $v2 : Variant
+var $synthResult3 : Variant
+$synthResult3:=LISTBOX Get column formula($v2)

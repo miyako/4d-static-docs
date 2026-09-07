@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=LISTBOX Get number of columns(*;"synthText")
+var $synthResult1 : Variant
+$synthResult1:=LISTBOX Get number of columns(*;"synthText")

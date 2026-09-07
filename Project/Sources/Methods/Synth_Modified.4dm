@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Modified([SynthTable]label)
+var $synthResult1 : Variant
+$synthResult1:=Modified([SynthTable]label)

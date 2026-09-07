@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Current form table()
+var $synthResult1 : Variant
+$synthResult1:=Current form table()

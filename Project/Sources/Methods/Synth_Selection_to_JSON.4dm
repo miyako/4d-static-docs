@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Selection to JSON([SynthTable];[SynthTable]label;New object)
+var $synthResult1 : Variant
+$synthResult1:=Selection to JSON([SynthTable];[SynthTable]label;New object)

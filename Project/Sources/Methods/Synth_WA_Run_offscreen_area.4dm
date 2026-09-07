@@ -1,4 +1,4 @@
 // overload 0
 var $v1 : Object
-var $synthResult_0 : Variant
-$synthResult_0:=WA Run offscreen area($v1)
+var $synthResult2 : Variant
+$synthResult2:=WA Run offscreen area($v1)

@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Tool bar height()
+var $synthResult1 : Variant
+$synthResult1:=Tool bar height()

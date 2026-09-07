@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=LISTBOX Get locked columns(*;"synthText")
+var $synthResult1 : Variant
+$synthResult1:=LISTBOX Get locked columns(*;"synthText")

@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Choose(True;"synthAny";"synthAny")
+var $synthResult1 : Variant
+$synthResult1:=Choose(True;"synthAny";"synthAny")

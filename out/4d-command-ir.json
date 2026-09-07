@@ -24,7 +24,7 @@
           "description": "Date"
         },
         {
-          "name": "Is Boolean",
+          "name": "Is boolean",
           "value": 6,
           "description": "Boolean"
         },
@@ -144,9 +144,9 @@
           "description": "Text: path attribute of the Web session cookie."
         },
         {
-          "name": "Web session enable IP address validation",
+          "name": "Web session IP address validation enabled",
           "value": 83,
-          "description": "Boolean: enables IP-address validation for Web sessions. (Doc prose word order differs slightly from the XLIFF constant name 'Web session IP address validation enabled'; same constant, value 83.)"
+          "description": "Boolean: enables IP-address validation for Web sessions. (Constant name matches the XLIFF corpus; developer.4d.com doc prose describes it with slightly different word order, e.g. 'enable IP address validation for sessions'.)"
         },
         {
           "name": "Web debug log",

@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Average([SynthTable]label;"synthText")
+var $synthResult1 : Variant
+$synthResult1:=Average([SynthTable]label;"synthText")

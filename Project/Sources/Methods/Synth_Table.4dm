@@ -1,9 +1,9 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Table(1)
+var $synthResult1 : Variant
+$synthResult1:=Table(1)
 // overload 1
-var $synthResult_1 : Variant
-$synthResult_1:=Table(->[SynthTable])
+var $synthResult2 : Variant
+$synthResult2:=Table(->[SynthTable])
 // overload 2
-var $synthResult_2 : Variant
-$synthResult_2:=Table(->[SynthTable]label)
+var $synthResult3 : Variant
+$synthResult3:=Table(->[SynthTable]label)

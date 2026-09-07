@@ -137,6 +137,13 @@ class SynthContext:
         # or 4D reports "Redefinition of variable ... from ARRAY LONGINT
         # to ARRAY <TYPE>" (the command's own body redeclares it).
         self.self_array_element: str | None = None
+        # Enum-value sweep override: normally an enum_ref param resolves
+        # to enum_literal()'s fixed values[0]; when a specific enum sweep
+        # variant is being synthesized (see ENUM_SWEEP_MAX / synthesize_
+        # command below), this maps enum name -> the value name to use
+        # instead, so every constant name in a modeled enum eventually
+        # gets compiled at least once, not just the first.
+        self.enum_override: dict[str, str] = {}
 
     def fresh_name(self, prefix: str) -> str:
         self.counter += 1
@@ -184,6 +191,18 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         # these shapes". Default: first alternative, EXCEPT the
         # star_operator_dual_signature toggle (see SynthContext docstring):
         # once `*` has been passed, prefer a Text alternative if present.
+        # Enum-value sweep override (see synthesize_command) takes
+        # precedence over every other preference below -- if one of the
+        # union alternatives is an enum_ref this call is actively
+        # sweeping, use it (otherwise the "prefer concrete" rule just
+        # below would always pick a sibling concrete:Text/Integer
+        # alternative instead, e.g. GET-PRINT-OPTION's "option": [enum_ref
+        # PrintOptionSelector, concrete:Text] -- silently defeating the
+        # sweep, since it would never select the enum_ref alternative at
+        # all, in any variant).
+        for t in type_obj:
+            if t.get("kind") == "enum_ref" and t["enum"] in ctx_state.enum_override:
+                return build_arg_for_type(ir, t, ctx, ctx_state, direction)
         if ctx_state.star_active:
             names = [t.get("name") for t in type_obj if t.get("kind") == "concrete"]
             if "Text" in names:
@@ -256,7 +275,10 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         return symbols[0]
 
     if kind == "enum_ref":
-        return enum_literal(ir, type_obj["enum"])
+        enum_name = type_obj["enum"]
+        if enum_name in ctx_state.enum_override:
+            return ctx_state.enum_override[enum_name]
+        return enum_literal(ir, enum_name)
 
     if kind == "subgrammar_ref":
         grammar = ir["subGrammars"][type_obj["grammar"]]
@@ -380,14 +402,38 @@ def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
 
 
 
-def synthesize_command(ir, command) -> list[list[str]]:
-    """Return one list of source lines per overload (any variable-
-    declaration prelude lines its by-reference/Array parameters need,
-    followed by the call-site line), each block starting with a comment
-    recording the overload index (for human debugging; the manifest is
-    authoritative for line->overload attribution). Returning per-overload
-    blocks (rather than one flat list) lets the caller compute exact
-    1-based line ranges even though prelude length now varies per overload."""
+def find_enum_refs_in_params(params) -> list[str]:
+    """Return the distinct enum names referenced (directly, or as one
+    alternative of a union type) by an overload's top-level params --
+    used to drive the enum-value sweep below. Only plain Parameter
+    entries are inspected (none of the enum_ref-bearing commands in this
+    corpus use VariadicGroup/ContentBindingPair params)."""
+    names = []
+    for p in params:
+        if "members" in p or "contentParam" in p:
+            continue
+        t = p.get("type")
+        candidates = t if isinstance(t, list) else [t]
+        for c in candidates:
+            if isinstance(c, dict) and c.get("kind") == "enum_ref" and c["enum"] not in names:
+                names.append(c["enum"])
+    return names
+
+
+def synthesize_command(ir, command) -> list[dict]:
+    """Return one dict per synthesized block: {"overload_index", "variant",
+    "lines"} (any variable-declaration prelude lines its by-reference/
+    Array parameters need, followed by the call-site line). Each block's
+    first line is a comment recording the overload index and variant (for
+    human debugging; the manifest is authoritative for line->block
+    attribution).
+
+    Normally there is exactly one block per overload (variant "default").
+    For overloads with an enum_ref param, ADDITIONAL blocks (variant
+    "enum:<enum_name>=<value_name>") are emitted, one per remaining enum
+    value, so every constant name in a modeled enum -- not just
+    values[0] -- eventually gets compiled and cross-checked against
+    tool4d, not only the first."""
     blocks = []
     # One SynthContext shared across all overloads of this command so that
     # `fresh_name()` never reuses a variable name between overloads -- all
@@ -406,32 +452,74 @@ def synthesize_command(ir, command) -> list[list[str]]:
         ctx_state.self_array_element = m.group(1)
     for oi, overload in enumerate(command.get("overloads", [])):
         params = overload.get("params", [])
-        ctx_state.prelude = []
-        ctx_state.star_active = False
         call_name = command["displayName"]
-        block = [f"// overload {oi}"]
-        if command["id"] in KEYWORD_BLOCK_COMMANDS:
-            # A bare 4D keyword-pair block (e.g. Begin SQL/End SQL), not a
-            # callable command: written unparenthesized with no argument
-            # list, per the IR's own "Is a keyword, not a callable command
-            # with parameters" constraint note. Begin SQL and End SQL only
-            # type-check as a matched pair, so both synthetic methods (one
-            # per command id) emit the full pair -- this is still a valid
-            # cross-check that tool4d recognizes each keyword, even though
-            # it can't isolate "just Begin SQL" from "just End SQL".
-            block.append("Begin SQL")
-            block.append("End SQL")
-            blocks.append(block)
-            continue
-        args = build_call_args(ir, params, ctx_state, command["id"])
-        arg_str = ";".join(args)
-        block.extend(ctx_state.prelude)
-        if overload.get("returns"):
-            block.append(f"var $synthResult_{oi} : Variant")
-            block.append(f"$synthResult_{oi}:={call_name}({arg_str})")
-        else:
-            block.append(f"{call_name}({arg_str})")
-        blocks.append(block)
+
+        def render_block(variant: str, comment_suffix: str, overrides: dict[str, str]):
+            ctx_state.prelude = []
+            ctx_state.star_active = False
+            ctx_state.enum_override = overrides
+            block = [f"// overload {oi}{comment_suffix}"]
+            if command["id"] in KEYWORD_BLOCK_COMMANDS:
+                # A bare 4D keyword-pair block (e.g. Begin SQL/End SQL), not
+                # a callable command: written unparenthesized with no
+                # argument list, per the IR's own "Is a keyword, not a
+                # callable command with parameters" constraint note. Begin
+                # SQL and End SQL only type-check as a matched pair, so
+                # both synthetic methods (one per command id) emit the
+                # full pair -- this is still a valid cross-check that
+                # tool4d recognizes each keyword, even though it can't
+                # isolate "just Begin SQL" from "just End SQL".
+                block.append("Begin SQL")
+                block.append("End SQL")
+                return {"overload_index": oi, "variant": variant, "lines": block}
+            args = build_call_args(ir, params, ctx_state, command["id"])
+            arg_str = ";".join(args)
+            block.extend(ctx_state.prelude)
+            if overload.get("returns"):
+                # A unique name per BLOCK (not just per overload index) --
+                # multiple blocks can share the same overload_index (the
+                # "default" block plus its enum-sweep variants, see
+                # synthesize_command), and reusing $synthResult_{oi} across
+                # them redeclares the same variable in the same method
+                # scope, which tool4d flags as "Redefinition of variable".
+                result_var = ctx_state.fresh_name("synthResult")
+                block.append(f"var {result_var} : Variant")
+                block.append(f"{result_var}:={call_name}({arg_str})")
+            else:
+                block.append(f"{call_name}({arg_str})")
+            return {"overload_index": oi, "variant": variant, "lines": block}
+
+        blocks.append(render_block("default", "", {}))
+
+        # Enum-value sweep: for every enum_ref param this overload has,
+        # emit one additional block per enum value so every constant name
+        # in the referenced enum eventually gets
+        # compiled, not just enum_literal()'s fixed values[0] default used
+        # by the "default" block above. Skipped for KEYWORD_BLOCK_COMMANDS
+        # (no params) and enums with only one value (nothing left to sweep).
+        if command["id"] not in KEYWORD_BLOCK_COMMANDS:
+            for enum_name in find_enum_refs_in_params(params):
+                values = ir["enums"][enum_name]["values"]
+                # Sweep ALL values (not values[1:]) -- for a plain
+                # enum_ref param the "default" block above already covers
+                # values[0], but for a union param like GET-PRINT-OPTION's
+                # "option": [enum_ref, concrete:Text], the "prefer concrete"
+                # rule in build_arg_for_type means the default block never
+                # actually exercises the enum_ref alternative at all (it
+                # picks the sibling Text alternative instead), so relying
+                # on the default block to have covered values[0] would
+                # silently skip it. One harmless duplicate compile of
+                # values[0] for the plain (non-union) commands is a small
+                # price for this guarantee holding uniformly.
+                for v in values:
+                    value_name = v["name"]
+                    blocks.append(
+                        render_block(
+                            f"enum:{enum_name}={value_name}",
+                            f" enum-sweep {enum_name}={value_name}",
+                            {enum_name: value_name},
+                        )
+                    )
     return blocks
 
 
@@ -506,17 +594,27 @@ def cmd_generate(args):
         method_name = sanitize_method_name(cid)
         file_path = METHODS_DIR / f"{method_name}.4dm"
         overload_blocks = synthesize_command(ir, command)
-        source_lines = [line for block in overload_blocks for line in block]
+        source_lines = [line for block in overload_blocks for line in block["lines"]]
         file_path.write_text("\n".join(source_lines) + "\n")
 
-        # Record which source line each overload's call site starts at
+        # Record which source line each block's call site starts at
         # (1-based, matching tool4d-lsp-stdio diagnostic line numbers),
-        # using each block's actual length (prelude length varies).
+        # using each block's actual length (prelude length varies). A
+        # given overload_index may now appear more than once (its
+        # "default" block plus zero or more enum-sweep "variant" blocks,
+        # see synthesize_command) -- diagnostics are attributed positionally
+        # by comment_line range, not by overload_index uniqueness.
         overload_line_starts = []
         cursor = 1
-        for oi, block in enumerate(overload_blocks):
-            overload_line_starts.append({"overload_index": oi, "comment_line": cursor})
-            cursor += len(block)
+        for block in overload_blocks:
+            overload_line_starts.append(
+                {
+                    "overload_index": block["overload_index"],
+                    "variant": block["variant"],
+                    "comment_line": cursor,
+                }
+            )
+            cursor += len(block["lines"])
         manifest["files"][f"Sources/Methods/{method_name}.4dm"] = {
             "command_id": cid,
             "overloads": overload_line_starts,
@@ -608,10 +706,16 @@ def cmd_validate(args):
         # the closest preceding line (convert 0-based LSP lines to the
         # manifest's 1-based comment_line convention).
         starts = file_info["overloads"]
-        for oi_info in starts:
+        for pos, oi_info in enumerate(starts):
             oi = oi_info["overload_index"]
+            variant = oi_info.get("variant", "default")
             start = oi_info["comment_line"]
-            end = starts[oi + 1]["comment_line"] if oi + 1 < len(starts) else float("inf")
+            # Positional (not overload_index-based) lookahead: a given
+            # overload_index may now appear more than once in `starts`
+            # (its "default" block plus enum-sweep variant blocks, see
+            # synthesize_command), so the next block's start is always
+            # starts[pos + 1], never starts[oi + 1].
+            end = starts[pos + 1]["comment_line"] if pos + 1 < len(starts) else float("inf")
             matched = []
             for d in diags:
                 line = d["range"]["start"]["line"] + 1
@@ -632,6 +736,7 @@ def cmd_validate(args):
                 {
                     "id": cid,
                     "overload_index": oi,
+                    "variant": variant,
                     "file": rel_path,
                     "diagnostics": matched,
                     "status": status,
@@ -679,7 +784,9 @@ def cmd_report(args):
 
     for r in report:
         if r["status"] != "clean":
-            print(f"{r['id']} overload {r['overload_index']}: {r['status']}")
+            variant = r.get("variant", "default")
+            suffix = f" [{variant}]" if variant != "default" else ""
+            print(f"{r['id']} overload {r['overload_index']}{suffix}: {r['status']}")
             for d in r["diagnostics"]:
                 print(f"    {d}")
 

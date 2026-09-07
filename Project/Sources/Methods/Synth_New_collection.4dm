@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=New collection("synthAny")
+var $synthResult1 : Variant
+$synthResult1:=New collection("synthAny")

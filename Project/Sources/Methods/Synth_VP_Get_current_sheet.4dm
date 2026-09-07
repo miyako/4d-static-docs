@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=VP Get current sheet("synthText")
+var $synthResult1 : Variant
+$synthResult1:=VP Get current sheet("synthText")

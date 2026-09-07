@@ -1,3 +1,3 @@
 // overload 0
-var $synthResult_0 : Variant
-$synthResult_0:=Verify password hash("synthText";"synthText")
+var $synthResult1 : Variant
+$synthResult1:=Verify password hash("synthText";"synthText")
