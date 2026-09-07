@@ -262,12 +262,71 @@ meaningfully faster.
   catalog can't satisfy (e.g. a second table for cross-table pointer tests),
   extend the catalog rather than working around it in the synthesizer.
 
+## Synthesized variable naming
+
+Every declared/assigned local this stage emits (`var $x : <Type>`,
+`ARRAY <TYPE>($x;...)`, the `$synthResultN` return-capture) is named via
+`SynthContext.fresh_name(prefix)`, which appends a per-file counter to
+`prefix` for uniqueness (e.g. `$v1`, `$v2`, ... — necessary because
+multiple sweep blocks share one generated file, see "Synthesizer
+internals" below).
+
+INPUT-derived locals (anything synthesized for an actual command
+parameter — declared-var params, ARRAY-declared array params, etc.) use
+`SynthContext.fresh_name_for(param_name, fallback_prefix)` instead of
+calling `fresh_name` directly. This prefers a sanitized form of the IR's
+real, doc-derived `params[].name` for that param as the variable-name
+prefix (e.g. `$jsonString1`, `$arrayName1`, `$stringValue1`) over the
+generic type-shape prefix (`v`, `arr`, ...), so a generated example is
+self-documenting about what each local actually represents — compare
+`$jsonString1:="synthText"; $synthResult1:=JSON Parse($jsonString1;...)`
+against the old `$v1`/`$arr1`-everywhere naming. This is a pure cosmetic
+rename: it never changes which 4D type gets declared, which value gets
+passed, or any call shape — only the chosen identifier text.
+
+`sanitize_param_ident(name)` decides whether a param's real name is safe
+to use verbatim as a variable-name prefix; `fresh_name_for` falls back to
+`fresh_name(fallback_prefix)` (the old generic-prefix behavior) whenever
+it returns `None`. Rejected cases:
+
+- Not a bare 4D identifier fragment per `_PARAM_IDENT_RE` (letters,
+  digits, underscore; must start with a letter or underscore) — this
+  rules out `literal_symbols` flag param names like `"*"`/`">"`, names
+  starting with a digit (e.g. `"4Duser"`, `"4Dsignatures"` — real IR
+  param names for `LOCKED-BY`/`GET-PASTEBOARD-DATA-TYPE`), names
+  containing a space, and any non-ASCII name.
+- Empty or non-string names.
+- Listed in `PARAM_NAME_DENYLIST` — a small, currently-empty escape
+  hatch for a param name that passes the syntax check above but is
+  empirically found (via a full-corpus `validate --all` regression) to
+  cause a real tool4d/compiler problem when used as a local's name.
+  Extend it, with a comment recording the empirical finding, if a future
+  IR change ever surfaces such a case — do not guess entries in
+  preemptively.
+
+No length cap is applied in the sanitizer: the longest param name in the
+whole IR is 25 characters, and even with the `$` sigil and a 1-3 digit
+`fresh_name` counter suffix, that stays well under 4D's 31-character
+identifier limit (the same limit `sanitize_method_name` enforces for
+method names above). Because every synthesized local is always
+`$`-prefixed, a param name colliding with a bare 4D command/keyword name
+is not a concern here.
+
+The synthesized RESULT variable (`$synthResultN`, from
+`ctx_state.fresh_name("synthResult")`) is deliberately **not** part of
+this convention and keeps calling `fresh_name` directly — it has no
+source param to borrow a name from (it captures a command's return
+value, which the IR doesn't model as a named param), so the existing
+generic `synthResult` name stays as-is.
+
 ## Synthesizer internals (map for future changes)
 
 - `SynthContext` — per-command state: `prelude` (declared vars), `counter`
   (for `fresh_name`), `star_active`/`star_present` (the `*`
   dual-signature toggle, see below), `self_array_element`, `enum_override`,
-  `union_override`.
+  `union_override`. `fresh_name_for(param_name, fallback_prefix)` is the
+  INPUT-param-aware wrapper around `fresh_name` — see "Synthesized
+  variable naming" above.
 - `build_arg_for_type(ir, type_obj, ctx, ctx_state, direction)` — the core
   per-param value synthesizer. `type_obj` may be a single `TypeRef` dict or
   a `list` (union). All override dicts (`enum_override`, `union_override`)
