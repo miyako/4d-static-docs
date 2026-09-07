@@ -29,12 +29,12 @@
         {
           "name": "valuesArray",
           "type": {
-            "kind": "pseudo",
-            "name": "any"
+            "kind": "concrete",
+            "name": "Array"
           },
           "direction": "out",
           "optional": false,
-          "description": "Receives the non-repeated values; must be the same scalar array type (Text, number, Boolean, Date, or Time) as the values stored at path"
+          "description": "Receives the non-repeated values; must be the same scalar array type (Text, number, Boolean, Date, or Time) as the values stored at path -- confirmed a real array (not a pseudo/any placeholder) by the doc syntax line 'valuesArray : Array' and its example ('ARRAY LONGINT(aLAges;0)' declared before the call)."
         }
       ],
       "semanticRole": "Returns the non-repeated (unique) values found at a given nested attribute path of an Object field, for the current selection."

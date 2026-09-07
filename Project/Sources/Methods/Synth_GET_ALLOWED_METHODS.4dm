@@ -1,3 +1,3 @@
 // overload 0
-var $v1 : Text
-GET ALLOWED METHODS($v1)
+ARRAY TEXT($arr1;0)
+GET ALLOWED METHODS($arr1)

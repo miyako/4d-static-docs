@@ -190,6 +190,17 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
                 return build_arg_for_type(
                     ir, type_obj[names.index("Text")], ctx, ctx_state, direction
                 )
+        # Otherwise prefer the first *concrete* alternative over a leading
+        # pseudo one (e.g. GET LIST ITEM ICON's itemRef: ["pseudo:Operator",
+        # "concrete:Integer"] -- the pseudo alternative there just documents
+        # that the literal '*' sentinel is also accepted, already captured
+        # by sentinelValues; synthesizing a bare pseudo "any" Text literal
+        # for a param whose only non-pseudo alternative is Integer produces
+        # a value tool4d rejects outright, whereas the concrete alternative
+        # always type-checks).
+        for t in type_obj:
+            if t.get("kind") == "concrete":
+                return build_arg_for_type(ir, t, ctx, ctx_state, direction)
         return build_arg_for_type(ir, type_obj[0], ctx, ctx_state, direction)
 
     kind = type_obj.get("kind")
@@ -300,12 +311,30 @@ PSEUDO_REQUIRES_REFERENCE = {
     ("SQL-EXECUTE", "parameter"),
 }
 
+# Curated (command_id -> {frozenset({paramA, paramB}), ...}) trailing
+# optional-param pairs confirmed (via a live tool4d cross-check) to be
+# mutually exclusive alternates of the same call, not independently
+# combinable -- e.g. INTEGER TO BLOB/REAL TO BLOB's own jointConstraints
+# rule: "offset and * are mutually exclusive: pass at most one of them."
+# The synthesizer's default policy (include every optional param) produces
+# an invalid call for these, so once the first member of a pair has been
+# emitted, later members are skipped outright. Safe only because in every
+# entry here the skipped member is the last param in the overload (so
+# omitting it just ends the call one argument early, rather than leaving a
+# hole in the middle of the positional list).
+MUTUALLY_EXCLUSIVE_TRAILING_PARAMS = {
+    "INTEGER-TO-BLOB": {frozenset({"offset", "*"})},
+    "REAL-TO-BLOB": {frozenset({"offset", "*"})},
+}
+
 
 def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
     """Flatten an overload's `params` (Parameter | VariadicGroup |
     ContentBindingPair elements) into a list of argument expressions,
     honoring each VariadicGroup's minimum cardinality."""
     args = []
+    included_names: set[str] = set()
+    exclusive_pairs = MUTUALLY_EXCLUSIVE_TRAILING_PARAMS.get(command_id, set())
     for p in params:
         if "members" in p:
             # VariadicGroup: repeat its members `cardinality.min` times
@@ -335,6 +364,12 @@ def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
             )
         else:
             pname = p.get("name", "arg")
+            if any(pname in pair and included_names & pair for pair in exclusive_pairs):
+                # Some other member of this param's exclusivity pair was
+                # already emitted -- skip this one (see
+                # MUTUALLY_EXCLUSIVE_TRAILING_PARAMS docstring above).
+                continue
+            included_names.add(pname)
             if (command_id, pname) in PSEUDO_REQUIRES_REFERENCE:
                 v = ctx_state.fresh_name("v")
                 ctx_state.prelude.append(f"var {v} : Variant")
@@ -342,6 +377,7 @@ def build_call_args(ir, params, ctx_state: SynthContext, command_id: str):
                 continue
             args.append(build_arg_for_type(ir, p["type"], pname, ctx_state, p.get("direction", "in")))
     return args
+
 
 
 def synthesize_command(ir, command) -> list[list[str]]:

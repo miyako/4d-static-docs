@@ -26,10 +26,10 @@
         },
         {
           "name": "valuesArray",
-          "type": { "kind": "pseudo", "name": "any" },
+          "type": { "kind": "concrete", "name": "Array" },
           "direction": "out",
           "optional": false,
-          "description": "Receives the non-repeated values; must be the same scalar array type (Text, number, Boolean, Date, or Time) as the values stored at path"
+          "description": "Receives the non-repeated values; must be the same scalar array type (Text, number, Boolean, Date, or Time) as the values stored at path -- confirmed a real array (not a pseudo/any placeholder) by the doc syntax line 'valuesArray : Array' and its example ('ARRAY LONGINT(aLAges;0)' declared before the call)."
         }
       ]
     }

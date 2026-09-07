@@ -80,62 +80,56 @@
           "description": "For an array-type list box, the array (matching name required) to display in the column; for a selection list box, the field or variable evaluated per record; a Nil pointer is allowed in a dynamic context."
         },
         {
-          "contentParam": {
-            "name": "headerName",
-            "type": {
-              "kind": "concrete",
-              "name": "Text"
-            },
-            "direction": "in",
-            "optional": false,
-            "description": "Name of the column header object."
+          "name": "headerName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
           },
-          "bindingParam": {
-            "name": "headerVar",
-            "type": [
-              {
-                "kind": "concrete",
-                "name": "Integer"
-              },
-              {
-                "kind": "concrete",
-                "name": "Pointer"
-              }
-            ],
-            "direction": "in",
-            "optional": false,
-            "description": "Column header variable (or a Nil pointer ->[] in a dynamic context)."
-          },
-          "description": "Names and binds the inserted column's header object/variable."
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the column header object."
         },
         {
-          "contentParam": {
-            "name": "footerName",
-            "type": {
+          "name": "headerVar",
+          "type": [
+            {
               "kind": "concrete",
-              "name": "Text"
+              "name": "Integer"
             },
-            "direction": "in",
-            "optional": true,
-            "description": "Column footer object name."
+            {
+              "kind": "concrete",
+              "name": "Pointer"
+            }
+          ],
+          "direction": "in",
+          "optional": false,
+          "description": "Column header variable (or a Nil pointer ->[] in a dynamic context)."
+        },
+        {
+          "name": "footerName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
           },
-          "bindingParam": {
-            "name": "footerVar",
-            "type": [
-              {
-                "kind": "concrete",
-                "name": "Variable"
-              },
-              {
-                "kind": "concrete",
-                "name": "Pointer"
-              }
-            ],
-            "direction": "in",
-            "optional": true,
-            "description": "Column footer variable."
-          },
-          "description": "Optional: names and binds the inserted column's footer object/variable."
+          "direction": "in",
+          "optional": true,
+          "description": "Column footer object name."
+        },
+        {
+          "name": "footerVar",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Pointer"
+            }
+          ],
+          "direction": "in",
+          "optional": true,
+          "description": "Column footer variable."
         }
       ],
       "semanticRole": "Inserts a new column, with its header and optional footer, into the designated list box; does nothing on the first column of a hierarchical-mode list box."
@@ -143,6 +137,7 @@
   ],
   "constraints": [
     "With a selection list box, colVariable must be a field or variable (not an array), and this content type requires the list box's Data Source to be Current Selection or Named Selection.",
-    "Does nothing if applied to the first column of a list box displayed in hierarchical mode."
+    "Does nothing if applied to the first column of a list box displayed in hierarchical mode.",
+    "headerName/headerVar and footerName/footerVar are pairs of two separately-passed, positionally-adjacent parameters (a name string followed by its bound variable/pointer) -- confirmed against tool4d and the doc syntax line, which lists all of '*;object;colPosition;colName;colVariable;headerName;headerVar{;footerName;footerVar}' as distinct positional slots, not two alternatives sharing one slot. A prior overlay revision modeled these as ContentBindingPair (content-or-binding alternatives), which produced a call passing only headerName/footerName and omitting headerVar/footerVar entirely -- tool4d rejected the resulting arg count/types outright."
   ]
 }

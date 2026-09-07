@@ -1,4 +1,4 @@
 // overload 0
-var $v1 : Text
-var $v2 : Integer
-GET GROUP LIST($v1;$v2)
+ARRAY TEXT($arr1;0)
+ARRAY INTEGER($arr2;0)
+GET GROUP LIST($arr1;$arr2)

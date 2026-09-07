@@ -1309,32 +1309,6 @@
     "status": "clean"
   },
   {
-    "id": "DISTINCT-ATTRIBUTE-VALUES",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_DISTINCT_ATTRIBUTE_VALUES.4dm",
-    "diagnostics": [
-      {
-        "message": "Impossible to cast Text to Array<Variant>.",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
-  },
-  {
-    "id": "DISTINCT-VALUES",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_DISTINCT_VALUES.4dm",
-    "diagnostics": [
-      {
-        "message": "Impossible to cast Text to Array<Variant>.",
-        "severity": "error",
-        "line": 3
-      }
-    ],
-    "status": "error"
-  },
-  {
     "id": "DOCUMENT-LIST",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_DOCUMENT_LIST.4dm",
@@ -2273,19 +2247,6 @@
     "status": "clean"
   },
   {
-    "id": "Find-in-list",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_Find_in_list.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"Find in list\".",
-        "severity": "error",
-        "line": 4
-      }
-    ],
-    "status": "error"
-  },
-  {
     "id": "Find-in-sorted-array",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_Find_in_sorted_array.4dm",
@@ -2377,37 +2338,11 @@
     "status": "clean"
   },
   {
-    "id": "GENERATE-CERTIFICATE-REQUEST",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_GENERATE_CERTIFICATE_5d31.4dm",
-    "diagnostics": [
-      {
-        "message": "Impossible to cast Real to ARRAY INTEGER.",
-        "severity": "error",
-        "line": 4
-      }
-    ],
-    "status": "error"
-  },
-  {
     "id": "GENERATE-ENCRYPTION-KEYPAIR",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_GENERATE_ENCRYPTION__4a92.4dm",
     "diagnostics": [],
     "status": "clean"
-  },
-  {
-    "id": "GET-ALLOWED-METHODS",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_GET_ALLOWED_METHODS.4dm",
-    "diagnostics": [
-      {
-        "message": "Impossible to cast Text to ARRAY TEXT.",
-        "severity": "error",
-        "line": 3
-      }
-    ],
-    "status": "error"
   },
   {
     "id": "GET-AUTOMATIC-RELATIONS",
@@ -2466,45 +2401,6 @@
     "status": "clean"
   },
   {
-    "id": "GET-FIELD-TITLES",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_GET_FIELD_TITLES.4dm",
-    "diagnostics": [
-      {
-        "message": "Impossible to cast Text to ARRAY TEXT.",
-        "severity": "error",
-        "line": 4
-      }
-    ],
-    "status": "error"
-  },
-  {
-    "id": "GET-GROUP-LIST",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_GET_GROUP_LIST.4dm",
-    "diagnostics": [
-      {
-        "message": "Impossible to cast Text to ARRAY TEXT.",
-        "severity": "error",
-        "line": 4
-      }
-    ],
-    "status": "error"
-  },
-  {
-    "id": "GET-GROUP-PROPERTIES",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_GET_GROUP_PROPERTIES.4dm",
-    "diagnostics": [
-      {
-        "message": "Impossible to cast Integer to ARRAY INTEGER.",
-        "severity": "error",
-        "line": 5
-      }
-    ],
-    "status": "error"
-  },
-  {
     "id": "GET-HIGHLIGHT",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_GET_HIGHLIGHT.4dm",
@@ -2524,19 +2420,6 @@
     "file": "Sources/Methods/Synth_GET_LIST_ITEM.4dm",
     "diagnostics": [],
     "status": "clean"
-  },
-  {
-    "id": "GET-LIST-ITEM-ICON",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_GET_LIST_ITEM_ICON.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"GET LIST ITEM ICON\".",
-        "severity": "error",
-        "line": 3
-      }
-    ],
-    "status": "error"
   },
   {
     "id": "GET-LIST-ITEM-PARAMETER",
@@ -3372,19 +3255,6 @@
     "status": "clean"
   },
   {
-    "id": "INTEGER-TO-BLOB",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_INTEGER_TO_BLOB.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"INTEGER TO BLOB\".",
-        "severity": "error",
-        "line": 4
-      }
-    ],
-    "status": "error"
-  },
-  {
     "id": "INTEGRATE-MIRROR-LOG-FILE",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_INTEGRATE_MIRROR_LOG_FILE.4dm",
@@ -4048,32 +3918,6 @@
     "file": "Sources/Methods/Synth_LISTBOX_Get_static_c_2b4d.4dm",
     "diagnostics": [],
     "status": "clean"
-  },
-  {
-    "id": "LISTBOX-INSERT-COLUMN",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"LISTBOX INSERT COLUMN\".",
-        "severity": "error",
-        "line": 3
-      }
-    ],
-    "status": "error"
-  },
-  {
-    "id": "LISTBOX-INSERT-COLUMN-FORMULA",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUM_8f17.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"LISTBOX INSERT COLUMN FORMULA\".",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
   },
   {
     "id": "LISTBOX-INSERT-ROWS",
@@ -6120,32 +5964,6 @@
     "status": "clean"
   },
   {
-    "id": "PRINT-RECORD",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_PRINT_RECORD.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"PRINT RECORD\".",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
-  },
-  {
-    "id": "PRINT-SELECTION",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_PRINT_SELECTION.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"PRINT SELECTION\".",
-        "severity": "error",
-        "line": 2
-      }
-    ],
-    "status": "error"
-  },
-  {
     "id": "PRINT-SETTINGS",
     "overload_index": 0,
     "file": "Sources/Methods/Synth_PRINT_SETTINGS.4dm",
@@ -6774,19 +6592,6 @@
     "file": "Sources/Methods/Synth_READ_WRITE.4dm",
     "diagnostics": [],
     "status": "clean"
-  },
-  {
-    "id": "REAL-TO-BLOB",
-    "overload_index": 0,
-    "file": "Sources/Methods/Synth_REAL_TO_BLOB.4dm",
-    "diagnostics": [
-      {
-        "message": "At least one parameter type does not match the prototype(s) of the function \"REAL TO BLOB\".",
-        "severity": "error",
-        "line": 4
-      }
-    ],
-    "status": "error"
   },
   {
     "id": "RECEIVE-BUFFER",
@@ -11945,6 +11750,125 @@
     "id": "throw",
     "overload_index": 1,
     "file": "Sources/Methods/Synth_throw.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISTINCT-ATTRIBUTE-VALUES",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_DISTINCT_ATTRIBUTE_VALUES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DISTINCT-VALUES",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_DISTINCT_VALUES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Find-in-list",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_Find_in_list.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GENERATE-CERTIFICATE-REQUEST",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_GENERATE_CERTIFICATE_5d31.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-ALLOWED-METHODS",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_GET_ALLOWED_METHODS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-FIELD-TITLES",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_GET_FIELD_TITLES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-GROUP-LIST",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_GET_GROUP_LIST.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-GROUP-PROPERTIES",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_GET_GROUP_PROPERTIES.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "GET-LIST-ITEM-ICON",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_GET_LIST_ITEM_ICON.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "INTEGER-TO-BLOB",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_INTEGER_TO_BLOB.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUMN.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "LISTBOX-INSERT-COLUMN-FORMULA",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_LISTBOX_INSERT_COLUM_8f17.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-RECORD",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_PRINT_RECORD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-RECORD",
+    "overload_index": 1,
+    "file": "Sources/Methods/Synth_PRINT_RECORD.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-SELECTION",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_PRINT_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "PRINT-SELECTION",
+    "overload_index": 1,
+    "file": "Sources/Methods/Synth_PRINT_SELECTION.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "REAL-TO-BLOB",
+    "overload_index": 0,
+    "file": "Sources/Methods/Synth_REAL_TO_BLOB.4dm",
     "diagnostics": [],
     "status": "clean"
   }

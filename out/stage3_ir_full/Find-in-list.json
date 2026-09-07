@@ -67,7 +67,7 @@
           "name": "itemsArray",
           "type": {
             "kind": "concrete",
-            "name": "Integer"
+            "name": "Integer array"
           },
           "direction": "out",
           "optional": true,

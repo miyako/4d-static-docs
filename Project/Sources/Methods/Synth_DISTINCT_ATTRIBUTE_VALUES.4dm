@@ -1,2 +1,3 @@
 // overload 0
-DISTINCT ATTRIBUTE VALUES([SynthTable]label;"synthText";"synthAny")
+ARRAY LONGINT($arr1;0)
+DISTINCT ATTRIBUTE VALUES([SynthTable]label;"synthText";$arr1)

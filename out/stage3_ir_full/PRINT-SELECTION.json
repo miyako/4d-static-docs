@@ -27,6 +27,22 @@
           "direction": "in",
           "optional": true,
           "description": "Suppress the printing dialog box, using the current print parameters."
+        }
+      ],
+      "semanticRole": "PRINT SELECTION prints the current selection of aTable .",
+      "note": "tool4d-lsp-stdio rejects 'PRINT SELECTION([T];*;>)' -- confirmed by live cross-check that '*' and '>' are mutually exclusive alternatives (two distinct doc syntax lines, 'PRINT SELECTION({aTable}{;*})' vs 'PRINT SELECTION({aTable}{;>})'), not two independently-combinable flags on one overload. A prior overlay revision incorrectly merged them into a single 3-param overload; reverted to keeping the two doc syntax lines as separate overloads."
+    },
+    {
+      "params": [
+        {
+          "name": "aTable",
+          "type": {
+            "kind": "concrete",
+            "name": "Table"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Table for which to print the selection, or the default table if omitted."
         },
         {
           "name": ">",
@@ -40,7 +56,9 @@
           "optional": true,
           "description": "Do not reinitialize the current print parameters (useful across successive calls, e.g. inside a loop)."
         }
-      ]
+      ],
+      "semanticRole": "PRINT SELECTION prints the current selection of aTable .",
+      "note": "Second doc syntax line ('...{;>}'); autoparse dropped the '>' param here because its name ('>') doesn't match the parser's identifier pattern. Restored it explicitly."
     }
   ],
   "constraints": [

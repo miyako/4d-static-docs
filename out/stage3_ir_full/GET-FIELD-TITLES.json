@@ -20,21 +20,21 @@
           "name": "fieldTitles",
           "type": {
             "kind": "concrete",
-            "name": "Text"
+            "name": "Text array"
           },
           "direction": "out",
           "optional": false,
-          "description": "Filled with the current (visible) field names"
+          "description": "Filled with the current (visible) field names -- confirmed an array (not a scalar Text) by the doc syntax line 'fieldTitles : Text array'."
         },
         {
           "name": "fieldNums",
           "type": {
             "kind": "concrete",
-            "name": "Integer"
+            "name": "Integer array"
           },
           "direction": "out",
           "optional": false,
-          "description": "Filled with the corresponding field numbers, synchronized with fieldTitles"
+          "description": "Filled with the corresponding field numbers, synchronized with fieldTitles -- confirmed an array (not a scalar Integer) by the doc syntax line 'fieldNums : Integer array'."
         }
       ],
       "semanticRole": "Fills fieldTitles and fieldNums, in sync, with the names and numbers of aTable's visible fields."

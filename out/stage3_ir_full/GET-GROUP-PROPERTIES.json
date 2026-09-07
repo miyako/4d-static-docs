@@ -46,11 +46,11 @@
           "name": "members",
           "type": {
             "kind": "concrete",
-            "name": "Integer"
+            "name": "Integer array"
           },
           "direction": "out",
           "optional": true,
-          "description": "Filled with the unique IDs of the users and groups belonging to this group"
+          "description": "Filled with the unique IDs of the users and groups belonging to this group -- confirmed an array (not a scalar Integer) by the doc syntax line '{; members : Integer array}'."
         }
       ],
       "semanticRole": "Returns the name, owner, and (optionally) member IDs of the group identified by groupID."

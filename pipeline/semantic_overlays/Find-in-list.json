@@ -45,7 +45,7 @@
         },
         {
           "name": "itemsArray",
-          "type": { "kind": "concrete", "name": "Integer" },
+          "type": { "kind": "concrete", "name": "Integer array" },
           "direction": "out",
           "optional": true,
           "description": "Filled by the command with the positions (if trailing * omitted) or reference numbers (if trailing * passed) of every matching item; created/resized automatically."

@@ -9143,12 +9143,12 @@
             {
               "name": "valuesArray",
               "type": {
-                "kind": "pseudo",
-                "name": "any"
+                "kind": "concrete",
+                "name": "Array"
               },
               "direction": "out",
               "optional": false,
-              "description": "Receives the non-repeated values; must be the same scalar array type (Text, number, Boolean, Date, or Time) as the values stored at path"
+              "description": "Receives the non-repeated values; must be the same scalar array type (Text, number, Boolean, Date, or Time) as the values stored at path -- confirmed a real array (not a pseudo/any placeholder) by the doc syntax line 'valuesArray : Array' and its example ('ARRAY LONGINT(aLAges;0)' declared before the call)."
             }
           ],
           "semanticRole": "Returns the non-repeated (unique) values found at a given nested attribute path of an Object field, for the current selection."
@@ -9182,12 +9182,12 @@
             {
               "name": "array",
               "type": {
-                "kind": "pseudo",
-                "name": "any"
+                "kind": "concrete",
+                "name": "Array"
               },
               "direction": "out",
               "optional": false,
-              "description": "Receives the distinct field values, sorted ascending using the field's index; must match aField's type (retyped if necessary, except Picture fields with a keyword index, which require a Text array)"
+              "description": "Receives the distinct field values, sorted ascending using the field's index; must match aField's type (retyped if necessary, except Picture fields with a keyword index, which require a Text array) -- confirmed a real array (not a pseudo/any placeholder) by the doc syntax line 'array : Array'."
             },
             {
               "name": "countArray",
@@ -15000,7 +15000,7 @@
               "name": "itemsArray",
               "type": {
                 "kind": "concrete",
-                "name": "Integer"
+                "name": "Integer array"
               },
               "direction": "out",
               "optional": true,
@@ -15545,21 +15545,21 @@
               "name": "codeArray",
               "type": {
                 "kind": "concrete",
-                "name": "Integer"
+                "name": "Integer array"
               },
               "direction": "in",
               "optional": false,
-              "description": "Information code list"
+              "description": "Information code list -- confirmed an array (not a scalar Integer) by the doc syntax line 'codeArray : Integer array', synchronized element-for-element with nameArray."
             },
             {
               "name": "nameArray",
               "type": {
                 "kind": "concrete",
-                "name": "Text"
+                "name": "Text array"
               },
               "direction": "in",
               "optional": false,
-              "description": "Name list"
+              "description": "Name list -- confirmed an array (not a scalar Text) by the doc syntax line 'nameArray : Text array', synchronized element-for-element with codeArray."
             }
           ],
           "semanticRole": "Generates, in certifRequest, a PKCS-format certificate request built from privKey and the code/name identity arrays, for submission to a certificate authority."
@@ -15628,11 +15628,11 @@
               "name": "methodsArray",
               "type": {
                 "kind": "concrete",
-                "name": "Text"
+                "name": "Text array"
               },
               "direction": "out",
               "optional": false,
-              "description": "Filled with the names of methods authorized for use in formulas"
+              "description": "Filled with the names of methods authorized for use in formulas -- confirmed an array (not a scalar Text) by the doc syntax line 'methodsArray : Text array'."
             }
           ],
           "semanticRole": "Returns, in methodsArray, the names (or '@' wildcard groups) of methods currently authorized for use in formulas via SET ALLOWED METHODS."
@@ -16166,21 +16166,21 @@
               "name": "fieldTitles",
               "type": {
                 "kind": "concrete",
-                "name": "Text"
+                "name": "Text array"
               },
               "direction": "out",
               "optional": false,
-              "description": "Filled with the current (visible) field names"
+              "description": "Filled with the current (visible) field names -- confirmed an array (not a scalar Text) by the doc syntax line 'fieldTitles : Text array'."
             },
             {
               "name": "fieldNums",
               "type": {
                 "kind": "concrete",
-                "name": "Integer"
+                "name": "Integer array"
               },
               "direction": "out",
               "optional": false,
-              "description": "Filled with the corresponding field numbers, synchronized with fieldTitles"
+              "description": "Filled with the corresponding field numbers, synchronized with fieldTitles -- confirmed an array (not a scalar Integer) by the doc syntax line 'fieldNums : Integer array'."
             }
           ],
           "semanticRole": "Fills fieldTitles and fieldNums, in sync, with the names and numbers of aTable's visible fields."
@@ -16202,21 +16202,21 @@
               "name": "groupNames",
               "type": {
                 "kind": "concrete",
-                "name": "Text"
+                "name": "Text array"
               },
               "direction": "out",
               "optional": false,
-              "description": "Filled with group names as they appear in the Password editor window"
+              "description": "Filled with group names as they appear in the Password editor window -- confirmed an array (not a scalar Text) by the doc syntax line 'groupNames : Text array'."
             },
             {
               "name": "groupNumbers",
               "type": {
                 "kind": "concrete",
-                "name": "Integer"
+                "name": "Integer array"
               },
               "direction": "out",
               "optional": false,
-              "description": "Filled, in sync with groupNames, with the corresponding unique group ID numbers"
+              "description": "Filled, in sync with groupNames, with the corresponding unique group ID numbers -- confirmed an array (not a scalar Integer) by the doc syntax line 'groupNumbers : Integer array'."
             }
           ],
           "semanticRole": "Fills groupNames and groupNumbers, in sync, with the names and unique IDs of every group in the Password editor."
@@ -16274,11 +16274,11 @@
               "name": "members",
               "type": {
                 "kind": "concrete",
-                "name": "Integer"
+                "name": "Integer array"
               },
               "direction": "out",
               "optional": true,
-              "description": "Filled with the unique IDs of the users and groups belonging to this group"
+              "description": "Filled with the unique IDs of the users and groups belonging to this group -- confirmed an array (not a scalar Integer) by the doc syntax line '{; members : Integer array}'."
             }
           ],
           "semanticRole": "Returns the name, owner, and (optionally) member IDs of the group identified by groupID."
@@ -26502,62 +26502,56 @@
               "description": "Type of the value produced by evaluating formula."
             },
             {
-              "contentParam": {
-                "name": "headerName",
-                "type": {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                "direction": "in",
-                "optional": false,
-                "description": "Name of the column header object."
+              "name": "headerName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
               },
-              "bindingParam": {
-                "name": "headerVar",
-                "type": [
-                  {
-                    "kind": "concrete",
-                    "name": "Integer"
-                  },
-                  {
-                    "kind": "concrete",
-                    "name": "Pointer"
-                  }
-                ],
-                "direction": "in",
-                "optional": false,
-                "description": "Column header variable (or a Nil pointer ->[] in a dynamic context)."
-              },
-              "description": "Names and binds the inserted column's header object/variable."
+              "direction": "in",
+              "optional": false,
+              "description": "Name of the column header object."
             },
             {
-              "contentParam": {
-                "name": "footerName",
-                "type": {
+              "name": "headerVar",
+              "type": [
+                {
                   "kind": "concrete",
-                  "name": "Text"
+                  "name": "Integer"
                 },
-                "direction": "in",
-                "optional": true,
-                "description": "Column footer object name."
+                {
+                  "kind": "concrete",
+                  "name": "Pointer"
+                }
+              ],
+              "direction": "in",
+              "optional": false,
+              "description": "Column header variable (or a Nil pointer ->[] in a dynamic context)."
+            },
+            {
+              "name": "footerName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
               },
-              "bindingParam": {
-                "name": "footerVar",
-                "type": [
-                  {
-                    "kind": "concrete",
-                    "name": "Variable"
-                  },
-                  {
-                    "kind": "concrete",
-                    "name": "Pointer"
-                  }
-                ],
-                "direction": "in",
-                "optional": true,
-                "description": "Column footer variable."
-              },
-              "description": "Optional: names and binds the inserted column's footer object/variable."
+              "direction": "in",
+              "optional": true,
+              "description": "Column footer object name."
+            },
+            {
+              "name": "footerVar",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Variable"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Pointer"
+                }
+              ],
+              "direction": "in",
+              "optional": true,
+              "description": "Column footer variable."
             }
           ],
           "semanticRole": "Inserts a new formula-driven column, with its header and optional footer, into the designated list box."
@@ -26565,7 +26559,8 @@
       ],
       "constraints": [
         "Formula-driven columns require the list box's Data Source to be Current Selection, Named Selection, Collection, or Entity Selection.",
-        "Does nothing if applied to the first column of a list box displayed in hierarchical mode."
+        "Does nothing if applied to the first column of a list box displayed in hierarchical mode.",
+        "headerName/headerVar and footerName/footerVar are pairs of two separately-passed, positionally-adjacent parameters (a name string followed by its bound variable/pointer) -- confirmed against tool4d and the doc syntax line, which lists all of '*;object;colPosition;colName;formula;dataType;headerName;headerVar{;footerName;footerVar}' as distinct positional slots, not two alternatives sharing one slot. A prior overlay revision modeled these as ContentBindingPair (content-or-binding alternatives), which produced a call passing only headerName/footerName and omitting headerVar/footerVar entirely -- tool4d rejected the resulting arg count/types outright."
       ]
     },
     {
@@ -26649,62 +26644,56 @@
               "description": "For an array-type list box, the array (matching name required) to display in the column; for a selection list box, the field or variable evaluated per record; a Nil pointer is allowed in a dynamic context."
             },
             {
-              "contentParam": {
-                "name": "headerName",
-                "type": {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                "direction": "in",
-                "optional": false,
-                "description": "Name of the column header object."
+              "name": "headerName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
               },
-              "bindingParam": {
-                "name": "headerVar",
-                "type": [
-                  {
-                    "kind": "concrete",
-                    "name": "Integer"
-                  },
-                  {
-                    "kind": "concrete",
-                    "name": "Pointer"
-                  }
-                ],
-                "direction": "in",
-                "optional": false,
-                "description": "Column header variable (or a Nil pointer ->[] in a dynamic context)."
-              },
-              "description": "Names and binds the inserted column's header object/variable."
+              "direction": "in",
+              "optional": false,
+              "description": "Name of the column header object."
             },
             {
-              "contentParam": {
-                "name": "footerName",
-                "type": {
+              "name": "headerVar",
+              "type": [
+                {
                   "kind": "concrete",
-                  "name": "Text"
+                  "name": "Integer"
                 },
-                "direction": "in",
-                "optional": true,
-                "description": "Column footer object name."
+                {
+                  "kind": "concrete",
+                  "name": "Pointer"
+                }
+              ],
+              "direction": "in",
+              "optional": false,
+              "description": "Column header variable (or a Nil pointer ->[] in a dynamic context)."
+            },
+            {
+              "name": "footerName",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
               },
-              "bindingParam": {
-                "name": "footerVar",
-                "type": [
-                  {
-                    "kind": "concrete",
-                    "name": "Variable"
-                  },
-                  {
-                    "kind": "concrete",
-                    "name": "Pointer"
-                  }
-                ],
-                "direction": "in",
-                "optional": true,
-                "description": "Column footer variable."
-              },
-              "description": "Optional: names and binds the inserted column's footer object/variable."
+              "direction": "in",
+              "optional": true,
+              "description": "Column footer object name."
+            },
+            {
+              "name": "footerVar",
+              "type": [
+                {
+                  "kind": "concrete",
+                  "name": "Variable"
+                },
+                {
+                  "kind": "concrete",
+                  "name": "Pointer"
+                }
+              ],
+              "direction": "in",
+              "optional": true,
+              "description": "Column footer variable."
             }
           ],
           "semanticRole": "Inserts a new column, with its header and optional footer, into the designated list box; does nothing on the first column of a hierarchical-mode list box."
@@ -26712,7 +26701,8 @@
       ],
       "constraints": [
         "With a selection list box, colVariable must be a field or variable (not an array), and this content type requires the list box's Data Source to be Current Selection or Named Selection.",
-        "Does nothing if applied to the first column of a list box displayed in hierarchical mode."
+        "Does nothing if applied to the first column of a list box displayed in hierarchical mode.",
+        "headerName/headerVar and footerName/footerVar are pairs of two separately-passed, positionally-adjacent parameters (a name string followed by its bound variable/pointer) -- confirmed against tool4d and the doc syntax line, which lists all of '*;object;colPosition;colName;colVariable;headerName;headerVar{;footerName;footerVar}' as distinct positional slots, not two alternatives sharing one slot. A prior overlay revision modeled these as ContentBindingPair (content-or-binding alternatives), which produced a call passing only headerName/footerName and omitting headerVar/footerVar entirely -- tool4d rejected the resulting arg count/types outright."
       ]
     },
     {
@@ -41163,6 +41153,22 @@
               "direction": "in",
               "optional": true,
               "description": "Suppress the printing dialog box, using the current print parameters."
+            }
+          ],
+          "semanticRole": "PRINT RECORD prints the current record of aTable , without modifying the current selection.",
+          "note": "tool4d-lsp-stdio rejects 'PRINT RECORD([T];*;>)' -- confirmed by live cross-check that '*' and '>' are mutually exclusive alternatives (two distinct doc syntax lines, 'PRINT RECORD(aTable{;*})' vs 'PRINT RECORD(aTable{;>})'), not two independently-combinable flags on one overload. A prior overlay revision incorrectly merged them into a single 3-param overload; reverted to keeping the two doc syntax lines as separate overloads, only correcting aTable's optionality (the parameter table documents it as defaulting to the default table when omitted, despite the doc syntax line omitting braces around it)."
+        },
+        {
+          "params": [
+            {
+              "name": "aTable",
+              "type": {
+                "kind": "concrete",
+                "name": "Table"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Table for which to print the current record, or the default table if omitted."
             },
             {
               "name": ">",
@@ -41176,7 +41182,9 @@
               "optional": true,
               "description": "Do not reinitialize the current print parameters (useful across successive calls, e.g. inside a loop)."
             }
-          ]
+          ],
+          "semanticRole": "PRINT RECORD prints the current record of aTable , without modifying the current selection.",
+          "note": "Second doc syntax line ('...{;>}'); autoparse dropped the '>' param here because its name ('>') doesn't match the parser's identifier pattern. Restored it explicitly."
         }
       ],
       "constraints": [
@@ -41215,6 +41223,22 @@
               "direction": "in",
               "optional": true,
               "description": "Suppress the printing dialog box, using the current print parameters."
+            }
+          ],
+          "semanticRole": "PRINT SELECTION prints the current selection of aTable .",
+          "note": "tool4d-lsp-stdio rejects 'PRINT SELECTION([T];*;>)' -- confirmed by live cross-check that '*' and '>' are mutually exclusive alternatives (two distinct doc syntax lines, 'PRINT SELECTION({aTable}{;*})' vs 'PRINT SELECTION({aTable}{;>})'), not two independently-combinable flags on one overload. A prior overlay revision incorrectly merged them into a single 3-param overload; reverted to keeping the two doc syntax lines as separate overloads."
+        },
+        {
+          "params": [
+            {
+              "name": "aTable",
+              "type": {
+                "kind": "concrete",
+                "name": "Table"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Table for which to print the selection, or the default table if omitted."
             },
             {
               "name": ">",
@@ -41228,7 +41252,9 @@
               "optional": true,
               "description": "Do not reinitialize the current print parameters (useful across successive calls, e.g. inside a loop)."
             }
-          ]
+          ],
+          "semanticRole": "PRINT SELECTION prints the current selection of aTable .",
+          "note": "Second doc syntax line ('...{;>}'); autoparse dropped the '>' param here because its name ('>') doesn't match the parser's identifier pattern. Restored it explicitly."
         }
       ],
       "constraints": [
@@ -45775,7 +45801,16 @@
               "description": "If passed, append the Real value at the end of blob instead of writing at the start or at offset."
             }
           ],
-          "semanticRole": "Writes real into blob in the byte format/ordering selected by realFormat, either at the start of the BLOB, at a caller-supplied offset, or appended at the end."
+          "semanticRole": "Writes real into blob in the byte format/ordering selected by realFormat, either at the start of the BLOB, at a caller-supplied offset, or appended at the end.",
+          "jointConstraints": [
+            {
+              "params": [
+                "offset",
+                "*"
+              ],
+              "rule": "offset and '*' are mutually exclusive alternate tails of the call; at most one of them may be passed. If neither is passed, the value is written at the start of blob, overwriting its previous contents."
+            }
+          ]
         }
       ],
       "constraints": [

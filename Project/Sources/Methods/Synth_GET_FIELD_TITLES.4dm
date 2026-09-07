@@ -1,4 +1,4 @@
 // overload 0
-var $v1 : Text
-var $v2 : Integer
-GET FIELD TITLES([SynthTable];$v1;$v2)
+ARRAY TEXT($arr1;0)
+ARRAY INTEGER($arr2;0)
+GET FIELD TITLES([SynthTable];$arr1;$arr2)

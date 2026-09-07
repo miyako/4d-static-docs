@@ -95,7 +95,7 @@ def apply_overload_merges(overloads: list[dict], signature_texts: list[str], mer
         idxs = merge["sourceIndices"]
         consumed.update(idxs)
         replacement = {"params": merge["params"]}
-        for optional_field in ("returns", "semanticRole", "interactionNotes", "mechanism", "discriminatedBy"):
+        for optional_field in ("returns", "semanticRole", "interactionNotes", "mechanism", "discriminatedBy", "jointConstraints"):
             if optional_field in merge:
                 replacement[optional_field] = merge[optional_field]
         merged_overloads.append(replacement)
