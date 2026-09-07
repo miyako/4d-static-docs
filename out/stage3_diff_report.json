@@ -1,0 +1,203 @@
+[
+  {
+    "id": "ORDER-BY-FORMULA",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "missing top-level 'constraints' present in example"
+      ],
+      "difference_count": 1
+    }
+  },
+  {
+    "id": "ORDER-BY",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "missing top-level 'constraints' present in example",
+        "missing top-level 'protocolRefs' present in example"
+      ],
+      "difference_count": 2
+    }
+  },
+  {
+    "id": "C-LONGINT",
+    "status": "no_source_page",
+    "note": "not present in Stage 1 raw extraction (e.g. C_LONGINT has no standalone page in this docs snapshot) -- cannot run Stage 3 for this command."
+  },
+  {
+    "id": "TABLE",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [
+      "3 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+    ],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "theme: draft='Structure Access' example='Structure-Access'",
+        "missing top-level 'constraints' present in example"
+      ],
+      "difference_count": 2
+    }
+  },
+  {
+    "id": "OB-SET",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "theme: draft='Objects (Language)' example='Objects-Language'",
+        "missing top-level 'constraints' present in example"
+      ],
+      "difference_count": 2
+    }
+  },
+  {
+    "id": "MULTI-SORT-ARRAY",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [
+      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+    ],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [],
+      "difference_count": 0
+    }
+  },
+  {
+    "id": "SET-LIST-ITEM-PROPERTIES",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [
+      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+    ],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "theme: draft='Hierarchical Lists' example='Hierarchical-Lists'",
+        "overload count: draft=2 example=1"
+      ],
+      "difference_count": 2
+    }
+  },
+  {
+    "id": "SET-LIST-PROPERTIES",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "theme: draft='Hierarchical Lists' example='Hierarchical-Lists'"
+      ],
+      "difference_count": 1
+    }
+  },
+  {
+    "id": "GRAPH",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [
+      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+    ],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [],
+      "difference_count": 0
+    }
+  },
+  {
+    "id": "GRAPH-SETTINGS",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "missing top-level 'constraints' present in example",
+        "missing top-level 'deprecated' present in example"
+      ],
+      "difference_count": 2
+    }
+  },
+  {
+    "id": "QUERY-BY-ATTRIBUTE",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "missing top-level 'constraints' present in example",
+        "missing top-level 'protocolRefs' present in example"
+      ],
+      "difference_count": 2
+    }
+  },
+  {
+    "id": "SQL-EXECUTE",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [],
+      "difference_count": 0
+    }
+  },
+  {
+    "id": "WA-EXECUTE-JAVASCRIPT-FUNCTION",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [
+      "4 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+    ],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "theme: draft='Web Area' example='Web-Area'",
+        "overload count: draft=4 example=1",
+        "missing top-level 'constraints' present in example"
+      ],
+      "difference_count": 3
+    }
+  },
+  {
+    "id": "WP-SET-ATTRIBUTES",
+    "status": "validated",
+    "overlay_applied": false,
+    "schema_errors": [],
+    "review_notes": [
+      "2 overloads share one auto-derived semanticRole; needs a per-overload overlay to actually discriminate them"
+    ],
+    "diff_vs_example": {
+      "status": "diffed",
+      "differences": [
+        "theme: draft='Write Pro' example='WritePro'"
+      ],
+      "difference_count": 1
+    }
+  }
+]
