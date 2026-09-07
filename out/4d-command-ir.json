@@ -30019,6 +30019,10 @@
               "description": "Email in MIME; pass a BLOB (recommended when the MIME comes from a file, to avoid charset/line-break issues) or Text."
             }
           ],
+          "returns": {
+            "kind": "concrete",
+            "name": "Object"
+          },
           "semanticRole": "Parses a MIME document (from a BLOB or Text) into a valid email object, following the JMAP specification."
         }
       ],
@@ -34709,7 +34713,7 @@
               "name": "tablePtr",
               "type": {
                 "kind": "concrete",
-                "name": "Table"
+                "name": "Pointer"
               },
               "direction": "out",
               "optional": false,

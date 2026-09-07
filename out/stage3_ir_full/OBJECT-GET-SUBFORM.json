@@ -42,7 +42,7 @@
           "name": "tablePtr",
           "type": {
             "kind": "concrete",
-            "name": "Table"
+            "name": "Pointer"
           },
           "direction": "out",
           "optional": false,

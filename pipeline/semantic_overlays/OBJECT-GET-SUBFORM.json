@@ -6,7 +6,7 @@
         0,
         1
       ],
-      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator. Also corrected direction on out-parameters (doc arrow column shows them as command outputs, not inputs) which the mechanical parser had defaulted to 'in'.",
+      "note": "The two doc syntax lines differ only in whether the leading '*' is passed (selecting whether object is a name-string vs. a Variable/Field reference); collapsed into one overload with an optional literal-symbol discriminator. Also corrected direction on out-parameters (doc arrow column shows them as command outputs, not inputs) which the mechanical parser had defaulted to 'in'. tablePtr's own type name was also corrected from 'Table' to 'Pointer' -- its description ('Pointer to table of form') and nil-pointer sentinel value both describe a Pointer variable that the command fills in, not a Table reference itself (tool4d rejected the original 'Table' typing: 'should receive the output param in a pointer not a table').",
       "params": [
         {
           "name": "asObjectName",
@@ -44,7 +44,7 @@
           "name": "tablePtr",
           "type": {
             "kind": "concrete",
-            "name": "Table"
+            "name": "Pointer"
           },
           "direction": "out",
           "optional": false,

@@ -8571,12 +8571,12 @@
         {
           "overload_index": 0,
           "variant": "union:mime=Blob",
-          "comment_line": 4
+          "comment_line": 5
         },
         {
           "overload_index": 0,
           "variant": "union:mime=Text",
-          "comment_line": 7
+          "comment_line": 9
         }
       ]
     },
@@ -9991,7 +9991,7 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-leading-thru:asObjectName",
-          "comment_line": 5
+          "comment_line": 6
         }
       ]
     },
