@@ -8676,27 +8676,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 5
+          "comment_line": 4
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text",
-          "comment_line": 9
+          "variant": "linkedgroup:path=Text,attributes=Object",
+          "comment_line": 7
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text array",
-          "comment_line": 12
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:attributes=Object",
-          "comment_line": 16
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:attributes=Object array",
-          "comment_line": 20
+          "variant": "linkedgroup:path=Text array,attributes=Object array",
+          "comment_line": 10
         }
       ]
     },
@@ -8711,27 +8701,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 5
+          "comment_line": 4
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text",
-          "comment_line": 9
+          "variant": "linkedgroup:path=Text,code=Text",
+          "comment_line": 7
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text array",
-          "comment_line": 12
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:code=Text",
-          "comment_line": 16
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:code=Text array",
-          "comment_line": 20
+          "variant": "linkedgroup:path=Text array,code=Text array",
+          "comment_line": 10
         }
       ]
     },
@@ -8746,27 +8726,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 5
+          "comment_line": 4
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text",
-          "comment_line": 9
+          "variant": "linkedgroup:path=Text,comments=Text",
+          "comment_line": 7
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text array",
-          "comment_line": 12
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:comments=Text",
-          "comment_line": 16
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:comments=Text array",
-          "comment_line": 20
+          "variant": "linkedgroup:path=Text array,comments=Text array",
+          "comment_line": 10
         }
       ]
     },
@@ -8796,37 +8766,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 6
+          "comment_line": 5
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text",
-          "comment_line": 11
+          "variant": "linkedgroup:path=Text,modDate=Date,modTime=Time",
+          "comment_line": 9
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text array",
-          "comment_line": 15
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:modDate=Date",
-          "comment_line": 20
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:modDate=Date array",
-          "comment_line": 25
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:modTime=Time",
-          "comment_line": 30
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:modTime=Integer array",
-          "comment_line": 35
+          "variant": "linkedgroup:path=Text array,modDate=Date array,modTime=Integer array",
+          "comment_line": 13
         }
       ]
     },
@@ -8981,27 +8931,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
-          "comment_line": 4
+          "comment_line": 3
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text",
+          "variant": "linkedgroup:path=Text,attributes=Object",
+          "comment_line": 5
+        },
+        {
+          "overload_index": 0,
+          "variant": "linkedgroup:path=Text array,attributes=Object array",
           "comment_line": 7
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:path=Text array",
-          "comment_line": 9
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:attributes=Object",
-          "comment_line": 12
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:attributes=Object array",
-          "comment_line": 15
         }
       ]
     },
@@ -9016,27 +8956,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
+          "comment_line": 3
+        },
+        {
+          "overload_index": 0,
+          "variant": "linkedgroup:path=Text,code=Text",
           "comment_line": 5
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text",
-          "comment_line": 9
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:path=Text array",
-          "comment_line": 12
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:code=Text",
-          "comment_line": 16
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:code=Text array",
-          "comment_line": 19
+          "variant": "linkedgroup:path=Text array,code=Text array",
+          "comment_line": 7
         }
       ]
     },
@@ -9051,27 +8981,17 @@
         {
           "overload_index": 0,
           "variant": "flag:omit-trailing-from:*",
+          "comment_line": 3
+        },
+        {
+          "overload_index": 0,
+          "variant": "linkedgroup:path=Text,comments=Text",
           "comment_line": 5
         },
         {
           "overload_index": 0,
-          "variant": "union:path=Text",
-          "comment_line": 9
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:path=Text array",
-          "comment_line": 12
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:comments=Text",
-          "comment_line": 16
-        },
-        {
-          "overload_index": 0,
-          "variant": "union:comments=Text array",
-          "comment_line": 19
+          "variant": "linkedgroup:path=Text array,comments=Text array",
+          "comment_line": 7
         }
       ]
     },

@@ -1,39 +1,17 @@
 // overload 0
-ARRAY TEXT($arr1;0)
-var $v2 : Date
-var $v3 : Time
-METHOD GET MODIFICATION DATE($arr1;$v2;$v3;*)
+var $v1 : Date
+var $v2 : Time
+METHOD GET MODIFICATION DATE("synthText";$v1;$v2;*)
 // overload 0 flag-sweep omit-trailing-from:*
-ARRAY TEXT($arr4;0)
+var $v3 : Date
+var $v4 : Time
+METHOD GET MODIFICATION DATE("synthText";$v3;$v4)
+// overload 0 linked-union-sweep path=Text,modDate=Date,modTime=Time
 var $v5 : Date
 var $v6 : Time
-METHOD GET MODIFICATION DATE($arr4;$v5;$v6)
-// overload 0 union-sweep path=Text
-var $v7 : Date
-var $v8 : Time
-METHOD GET MODIFICATION DATE("synthText";$v7;$v8;*)
-// overload 0 union-sweep path=Text array
-ARRAY TEXT($arr9;0)
-var $v10 : Date
-var $v11 : Time
-METHOD GET MODIFICATION DATE($arr9;$v10;$v11;*)
-// overload 0 union-sweep modDate=Date
-ARRAY TEXT($arr12;0)
-var $v13 : Date
-var $v14 : Time
-METHOD GET MODIFICATION DATE($arr12;$v13;$v14;*)
-// overload 0 union-sweep modDate=Date array
-ARRAY TEXT($arr15;0)
-ARRAY DATE($arr16;0)
-var $v17 : Time
-METHOD GET MODIFICATION DATE($arr15;$arr16;$v17;*)
-// overload 0 union-sweep modTime=Time
-ARRAY TEXT($arr18;0)
-var $v19 : Date
-var $v20 : Time
-METHOD GET MODIFICATION DATE($arr18;$v19;$v20;*)
-// overload 0 union-sweep modTime=Integer array
-ARRAY TEXT($arr21;0)
-var $v22 : Date
-ARRAY INTEGER($arr23;0)
-METHOD GET MODIFICATION DATE($arr21;$v22;$arr23;*)
+METHOD GET MODIFICATION DATE("synthText";$v5;$v6;*)
+// overload 0 linked-union-sweep path=Text array,modDate=Date array,modTime=Integer array
+ARRAY TEXT($arr7;0)
+ARRAY DATE($arr8;0)
+ARRAY INTEGER($arr9;0)
+METHOD GET MODIFICATION DATE($arr7;$arr8;$arr9;*)

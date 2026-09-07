@@ -182,6 +182,27 @@ class SynthContext:
         # CONCRETE_REQUIRES_REFERENCE below for why direction/type alone
         # can't capture this.
         self.reference_required: set[str] = set()
+        # Param names (within THIS command only) belonging to a "linked
+        # union group" (see LINKED_UNION_GROUPS) -- two or more params
+        # whose union alternatives must move TOGETHER (e.g. METHOD-SET-
+        # COMMENTS' path/comments: both scalar Text, or both Text array;
+        # never one of each). Consulted by build_arg_for_type's union
+        # branch so the DEFAULT pass resolves every member to the same
+        # index (0, the scalar form) instead of each member
+        # independently falling through to the star_present preference
+        # rule below -- which, for these commands, picks a DIFFERENT
+        # alternative per param name (e.g. "Text array" for path but
+        # scalar "Date" for modDate), producing an invalid mixed-kind
+        # call even in the "default" block. The union-sweep dispatch
+        # (synthesize_command) handles the swept variants separately via
+        # a whole-group union_override, so this only needs to cover the
+        # un-swept default case.
+        self.linked_group_members: set[str] = set()
+        # (within THIS command only) param name -> forced array element
+        # type, from ARRAY_ELEMENT_TYPE_OVERRIDE -- see that table's
+        # docstring for why a handful of array params can't use the
+        # generic LONGINT default.
+        self.array_element_override: dict[str, str] = {}
 
     def fresh_name(self, prefix: str) -> str:
         self.counter += 1
@@ -250,6 +271,15 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
         for t in type_obj:
             if t.get("kind") == "enum_ref" and t["enum"] in ctx_state.enum_override:
                 return build_arg_for_type(ir, t, ctx, ctx_state, direction)
+        if ctx in ctx_state.linked_group_members:
+            # This param is coupled to sibling param(s) that must all
+            # resolve to the SAME alternative index (see
+            # LINKED_UNION_GROUPS / SynthContext.linked_group_members) --
+            # always the scalar (index 0) form here, since the
+            # union-sweep dispatch (synthesize_command) handles every
+            # swept variant of this group via its own whole-group
+            # union_override, which is already caught by the check above.
+            return build_arg_for_type(ir, type_obj[0], ctx, ctx_state, direction)
         if ctx_state.star_active:
             names = [t.get("name") for t in type_obj if t.get("kind") == "concrete"]
             if "Text" in names:
@@ -303,8 +333,24 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
             # type: explicit "<Element> array" names carry it directly;
             # bare "Array" uses the self-declaring-command override (see
             # SynthContext.self_array_element) when set, else LONGINT.
-            element = ARRAY_TYPE_ELEMENT.get(name) or ctx_state.self_array_element or "LONGINT"
+            element = (
+                ctx_state.array_element_override.get(ctx)
+                or ARRAY_TYPE_ELEMENT.get(name)
+                or ctx_state.self_array_element
+                or "LONGINT"
+            )
             arr = ctx_state.fresh_name("arr")
+            if name == "Array" and ctx_state.self_array_element:
+                # This IS a self-declaring "ARRAY <TYPE>" command's own
+                # arrayName param (e.g. ARRAY TIME's own first argument) --
+                # the call under test already performs the declaration
+                # (ARRAY TIME($arr;size;size2)), so emitting an extra
+                # prelude "ARRAY TIME($arr;0)" line first re-declares the
+                # exact same variable with the exact same command a second
+                # time in the same method. tool4d rejected this ("Can't use
+                # the same variable name for overloads"). Skip the prelude
+                # here; the rendered call line is the only declaration.
+                return arr
             ctx_state.prelude.append(f"ARRAY {element}({arr};0)")
             return arr
         if (
@@ -398,6 +444,34 @@ def build_arg_for_type(ir, type_obj, ctx: str, ctx_state: SynthContext, directio
     return f"UNKNOWN_TYPE_KIND_{kind}"
 
 
+# Commands with 2+ params whose union type is a "scalar OR matching array"
+# pair (e.g. path: [Text, Text array]) that must move TOGETHER -- 4D's own
+# METHOD-{GET,SET}-{CODE,COMMENTS,ATTRIBUTES} family documents two mutually
+# exclusive calling syntaxes (act on ONE method by name, or on SEVERAL
+# methods via parallel arrays), never a mix of the two forms in one call.
+# METHOD-SET-ATTRIBUTES/CODE/COMMENTS already carry an explicit IR
+# jointConstraints entry for this ("path and X must be passed as the same
+# kind... the two syntaxes cannot be mixed"); the three GET- siblings need
+# the identical rule but the semantic overlay review never added it for
+# them (a review gap, not a different real rule -- confirmed identical
+# doc syntax pattern). Without this table, build_arg_for_type's per-param
+# preference rules (particularly the star_present heuristic, keyed only
+# on each param's OWN alternatives) can independently pick DIFFERENT
+# alternatives for two linked params -- confirmed via tool4d/real compile
+# feedback for METHOD-SET-COMMENTS' union-sweep variants (sweeping path
+# to scalar Text while comments silently stayed an array): "the type of
+# the 1st and 2nd args must match".
+LINKED_UNION_GROUPS = {
+    "METHOD-GET-ATTRIBUTES": ["path", "attributes"],
+    "METHOD-GET-CODE": ["path", "code"],
+    "METHOD-GET-COMMENTS": ["path", "comments"],
+    "METHOD-GET-MODIFICATION-DATE": ["path", "modDate", "modTime"],
+    "METHOD-SET-ATTRIBUTES": ["path", "attributes"],
+    "METHOD-SET-CODE": ["path", "code"],
+    "METHOD-SET-COMMENTS": ["path", "comments"],
+}
+
+
 CONCRETE_LITERALS = {
     "Text": '"synthText"',
     "String": '"synthText"',
@@ -430,6 +504,21 @@ CONCRETE_LITERALS = {
 # case pending a possible schema addition (see plan.md open questions).
 PSEUDO_REQUIRES_REFERENCE = {
     ("SQL-EXECUTE", "parameter"),
+}
+
+# (command_id, param_name) -> forced array element type, for the narrow
+# set of commands whose doc explicitly requires the array's element type
+# to MATCH some other argument's actual data type rather than accepting
+# the generic default (LONGINT). DISTINCT-VALUES's own param description
+# says "array: ... must match aField's type" -- confirmed via a corpus-
+# wide description-text search for "must match"+"type" that this is the
+# only such case among all bare concrete:"Array" params. The fixture
+# table's only field (besides the numeric ID) is [SynthTable]label, a
+# Text field (see CONCRETE_LITERALS["Field"]), so DISTINCT-VALUES's array
+# must be declared ARRAY TEXT to match it -- tool4d rejected the LONGINT
+# default ("array vs. field type mismatch").
+ARRAY_ELEMENT_TYPE_OVERRIDE = {
+    ("DISTINCT-VALUES", "array"): "TEXT",
 }
 
 # Known CONCRETE-typed "in"-direction params that nonetheless must be an
@@ -896,6 +985,10 @@ def synthesize_command(ir, command) -> list[dict]:
     ctx_state.reference_required = {
         pname for (cid, pname) in CONCRETE_REQUIRES_REFERENCE if cid == command["id"]
     }
+    ctx_state.linked_group_members = set(LINKED_UNION_GROUPS.get(command["id"], []))
+    ctx_state.array_element_override = {
+        pname: elem for (cid, pname), elem in ARRAY_ELEMENT_TYPE_OVERRIDE.items() if cid == command["id"]
+    }
     # Self-declaring "ARRAY <TYPE>" commands (ARRAY TEXT, ARRAY BLOB, ...)
     # redeclare their own generic concrete:"Array" param at that exact
     # element type -- detect this from the displayName so the array
@@ -1030,7 +1123,15 @@ def synthesize_command(ir, command) -> list[dict]:
             # a modeled union (e.g. SET-LIST-ITEM-PROPERTIES's "icon":
             # [concrete:Picture, concrete:Integer, concrete:Text]) was
             # never actually compiled before this sweep.
+            linked_group = LINKED_UNION_GROUPS.get(command["id"], [])
             for pname, alts in find_union_params_in_params(params):
+                if pname in linked_group:
+                    # Handled below as a whole-group sweep instead --
+                    # sweeping this param alone here would leave its
+                    # linked sibling(s) at their own independent default,
+                    # producing an invalid mixed-kind call (see
+                    # LINKED_UNION_GROUPS).
+                    continue
                 for idx, alt in enumerate(alts):
                     blocks.append(
                         render_block(
@@ -1038,6 +1139,29 @@ def synthesize_command(ir, command) -> list[dict]:
                             f" union-sweep {pname}={_alt_label(alt)}",
                             {},
                             union_overrides={pname: idx},
+                        )
+                    )
+
+            # Linked-union-group sweep: every member of a LINKED_UNION_
+            # GROUPS group must move to the SAME alternative index in the
+            # same call (see the table's docstring) -- so sweep the whole
+            # group together, one block per shared index, instead of the
+            # generic per-param loop above (which would desync the group).
+            if linked_group:
+                param_types = {p["name"]: p["type"] for p in params if "name" in p}
+                alt_count = min(
+                    len(param_types[m]) for m in linked_group if isinstance(param_types.get(m), list)
+                )
+                for idx in range(alt_count):
+                    label = ",".join(
+                        f"{m}={_alt_label(param_types[m][idx])}" for m in linked_group
+                    )
+                    blocks.append(
+                        render_block(
+                            f"linkedgroup:{label}",
+                            f" linked-union-sweep {label}",
+                            {},
+                            union_overrides={m: idx for m in linked_group},
                         )
                     )
     return blocks
