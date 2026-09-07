@@ -18,7 +18,7 @@ re-running these stages blindly.
 | 2 | `stage2_candidates.py` | `out/stage1_raw.json` | `out/candidates.json` (category A–S heuristic hits, for human review) |
 | 3 | `stage3_bulk.py` (1443 bulk commands) + `stage3_semantic.py` (13 hand-authored fixtures) | `out/stage1_raw.json` + `pipeline/semantic_overlays/*.json` | `out/stage3_ir_full/*.json`, schema-validated per command |
 | 4 | relationships enrichment | — | explicitly skipped (schema-optional, no consumer need identified yet) |
-| 4.5 / 6 | `stage6_synth_examples.py` (separate follow-on effort) | `out/4d-command-ir.json` | `out/lsp_crosscheck_report.json` (`tool4d-lsp-stdio` compiler cross-check) |
+| 4.5 / 6 | `stage6_synth_examples.py` (separate follow-on effort, see `stage6_README.md`) | `out/4d-command-ir.json` | `out/lsp_crosscheck_report.json` (`tool4d-lsp-stdio` compiler cross-check) |
 | 5 | `stage5_assemble.py` | fixtures + Stage 3 output + Layer-2 registries | `out/4d-command-ir.json` (final root IR document) |
 
 ## Run

@@ -145,6 +145,25 @@ advance which commands a synthesizer-logic change affects, so always run
 `generate --all` + `validate --all` and diff against the last known-good
 baseline before committing.
 
+### 4. A command was removed from the IR
+
+If a command id disappears from `out/4d-command-ir.json` (see
+`pipeline/MAINTENANCE.md`'s Step 6 for the upstream removal process), its
+Stage 6 artifacts become orphaned and must be cleaned up manually — nothing
+in this stage detects or prunes them automatically:
+
+```sh
+rm -f Project/Sources/Methods/Synth_<id>*.4dm
+```
+
+Then remove the id's entries from `out/synth_manifest.json` and
+`out/lsp_crosscheck_report.json` (both are JSON arrays/maps keyed by command
+id — filter the removed id(s) out and rewrite), or simply regenerate both
+from scratch for the full corpus (`generate --all` / `validate --all`),
+which naturally excludes anything no longer in the IR. Prefer the full
+regeneration unless the corpus is large enough that the targeted cleanup is
+meaningfully faster.
+
 ## Prerequisites / environment dependencies
 
 - `tools/tool4d-lsp-stdio` must be provisioned (see `pipeline/README.md`'s
