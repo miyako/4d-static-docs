@@ -1,0 +1,7 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Multiple cell ranges can be passed to create several spans at once; if ranges overlap, only the first range is used.",
+    "Only the upper-left cell's data is displayed; data in the other combined cells is hidden (but still accessible via formulas referencing the upper-left cell) until the span is removed."
+  ]
+}

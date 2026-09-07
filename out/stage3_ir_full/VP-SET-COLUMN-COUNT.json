@@ -2,7 +2,7 @@
   "id": "VP-SET-COLUMN-COUNT",
   "displayName": "VP SET COLUMN COUNT",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "columnCount",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Number of columns; must be greater than 0"
         },
         {
           "name": "sheet",
@@ -31,10 +33,20 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Explicitly target the current spreadsheet."
+            }
+          ]
         }
       ],
       "semanticRole": "The VP SET COLUMN COUNT command defines the total number of columns in vpAreaName ."
     }
+  ],
+  "constraints": [
+    "columnCount must be greater than 0."
   ]
 }

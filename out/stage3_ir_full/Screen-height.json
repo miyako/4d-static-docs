@@ -24,5 +24,8 @@
       },
       "semanticRole": "On Windows, Screen height returns the height of 4D application window (MDI window)."
     }
+  ],
+  "constraints": [
+    "On Macintosh, the optional * parameter has no effect: Screen height always returns the height of the main screen regardless of whether * is passed."
   ]
 }

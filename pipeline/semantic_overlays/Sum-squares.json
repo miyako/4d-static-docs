@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "If series is an array (one- or two-dimensional) rather than an indexed field, the array must be of Integer, Longint, or Real type."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "sheet is 0-based; if omitted, the command applies to the current sheet."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a collection of the names of all tables defined in the designated (or current) sheet."
+    }
+  ]
+}

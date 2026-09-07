@@ -2,7 +2,7 @@
   "id": "VP-Get-value",
   "displayName": "VP Get value",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The VP Get value command retrieves a cell value from a designated cell range."
+      "semanticRole": "Retrieves the value of a single cell from the range designated by rangeObj, returned as an object."
     }
   ]
 }

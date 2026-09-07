@@ -1,0 +1,30 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "dbEvent, tableNum, and recordNum are documented '<-' (filled/returned by the command) in the parameter table; only triggerLevel is '->' (input). Autoparse defaulted all four to direction:in. Also adds sentinelValues for dbEvent's documented constants (Trigger Events theme).",
+      "params": [
+        { "name": "triggerLevel", "type": { "kind": "concrete", "name": "Integer" }, "direction": "in", "optional": false, "description": "Trigger execution cycle level to query (see Trigger level)" },
+        {
+          "name": "dbEvent",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "out",
+          "optional": false,
+          "description": "Filled with the database event that triggered execution at triggerLevel",
+          "sentinelValues": [
+            { "value": 0, "meaning": "triggerLevel does not correspond to an existing trigger execution level (all output params are set to 0 in this case)" },
+            { "value": 1, "meaning": "On Saving New Record Event" },
+            { "value": 2, "meaning": "On Saving Existing Record Event" },
+            { "value": 3, "meaning": "On Deleting Record Event" }
+          ]
+        },
+        { "name": "tableNum", "type": { "kind": "concrete", "name": "Integer" }, "direction": "out", "optional": false, "description": "Filled with the number of the table involved by the database event at triggerLevel" },
+        { "name": "recordNum", "type": { "kind": "concrete", "name": "Integer" }, "direction": "out", "optional": false, "description": "Filled with the number of the record involved by the database event at triggerLevel" }
+      ]
+    }
+  ],
+  "constraints": [
+    "Used together with Trigger level to perform different actions depending on the cascading of trigger execution levels.",
+    "If triggerLevel does not correspond to an existing trigger execution level, the command fills dbEvent, tableNum, and recordNum with 0."
+  ]
+}

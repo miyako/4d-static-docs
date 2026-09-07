@@ -2,7 +2,7 @@
   "id": "VOLUME-LIST",
   "displayName": "VOLUME LIST",
   "kind": "classic_command",
-  "theme": "System Documents",
+  "theme": "System-Documents",
   "overloads": [
     {
       "params": [
@@ -12,11 +12,15 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Names of the volumes currently mounted"
         }
-      ],
-      "semanticRole": "The VOLUME LIST command populates the text array volumes with the names of the volumes currently defined (Windows) or mounted (Macintosh) on your machine."
+      ]
     }
+  ],
+  "constraints": [
+    "On Windows, all currently defined volumes are returned whether or not physically present (e.g. an optical drive letter is returned even with no disc inserted); on Macintosh, only volumes currently visible at the Finder level are returned.",
+    "Volume names are followed by the platform's folder separator character."
   ]
 }

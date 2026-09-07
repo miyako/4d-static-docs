@@ -2,7 +2,7 @@
   "id": "VOLUME-ATTRIBUTES",
   "displayName": "VOLUME ATTRIBUTES",
   "kind": "classic_command",
-  "theme": "System Documents",
+  "theme": "System-Documents",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Volume name"
         },
         {
           "name": "size",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Volume size expressed in bytes"
         },
         {
           "name": "used",
@@ -30,8 +32,9 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Used space expressed in bytes"
         },
         {
           "name": "free",
@@ -39,11 +42,14 @@
             "kind": "concrete",
             "name": "Real"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Free space expressed in bytes"
         }
-      ],
-      "semanticRole": "The VOLUME ATTRIBUTES command returns, expressed in bytes, the size, the used space and the free space for the volume whose name you pass in volume .If volume indicates a non-mounted remote volume, the OK variable is set"
+      ]
     }
+  ],
+  "constraints": [
+    "If volume designates a non-mounted remote volume, the system variable OK is set to 0 and size/used/free are each returned as -1."
   ]
 }

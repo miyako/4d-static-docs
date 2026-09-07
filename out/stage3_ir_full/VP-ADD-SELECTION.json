@@ -2,7 +2,7 @@
   "id": "VP-ADD-SELECTION",
   "displayName": "VP ADD SELECTION",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -18,5 +18,8 @@
       ],
       "semanticRole": "The VP ADD SELECTION command adds the specified cells to the currently selected cells."
     }
+  ],
+  "constraints": [
+    "Adds cells to the currently selected cells without modifying the active cell."
   ]
 }

@@ -33,5 +33,8 @@
       },
       "semanticRole": "Uppercase takes aString and returns the string with all alphabetic characters in uppercase."
     }
+  ],
+  "constraints": [
+    "By default (when * is omitted), accented characters lose their accents after conversion; passing * keeps them as accented uppercase characters."
   ]
 }

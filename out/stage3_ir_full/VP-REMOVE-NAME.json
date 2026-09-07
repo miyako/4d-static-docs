@@ -2,7 +2,7 @@
   "id": "VP-REMOVE-NAME",
   "displayName": "VP REMOVE NAME",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "name",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the named range or named formula to remove"
         },
         {
           "name": "scope",
@@ -31,10 +33,24 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Target scope (default = current sheet); may also be a sheet index (counting begins at 0)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Remove the name from the current sheet's scope."
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Remove the name from the workbook-level scope."
+            }
+          ]
         }
       ],
       "semanticRole": "The VP REMOVE NAME command removes the named range or named formula passed in the name parameter in the defined scope ."
     }
+  ],
+  "constraints": [
+    "An error is returned if vpAreaName does not designate an existing 4D View Pro area."
   ]
 }

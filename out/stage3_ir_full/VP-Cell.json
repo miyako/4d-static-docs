@@ -2,7 +2,7 @@
   "id": "VP-Cell",
   "displayName": "VP Cell",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -49,5 +49,10 @@
       },
       "semanticRole": "The VP Cell command returns a new range object referencing a specific cell."
     }
+  ],
+  "constraints": [
+    "Errors if vpAreaName does not designate an existing 4D View Pro area.",
+    "Intended for single-cell ranges only; use VP Cells for a range spanning multiple cells.",
+    "If sheet is omitted, or vk current sheet is passed, the currently displayed spreadsheet is used."
   ]
 }

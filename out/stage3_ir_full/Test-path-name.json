@@ -22,5 +22,8 @@
       },
       "semanticRole": "The Test path name function checks if a document or folder whose name or pathname you pass in pathname is present on the disk."
     }
+  ],
+  "constraints": [
+    "Return value: 1 if pathname refers to an existing document; 0 if pathname refers to an existing folder/directory; a negative value (an OS file manager error code, e.g. -43 for File not found) if pathname does not exist."
   ]
 }

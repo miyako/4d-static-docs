@@ -6,7 +6,15 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Self command returns a pointer to the object whose object method is currently being executed."
+      "returns": {
+        "kind": "concrete",
+        "name": "Pointer"
+      },
+      "semanticRole": "Returns a pointer to the object whose object method is currently being executed, or a Nil pointer (->[]) if called out of context."
     }
+  ],
+  "constraints": [
+    "Returns a valid pointer only when called from within an object method, or from a project method called directly/indirectly by an object method; otherwise returns a Nil pointer (->[]).",
+    "In the context of a list box, returns a pointer to the list box or to a column of the list box depending on the calling context."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "User-in-group",
   "displayName": "User in group",
   "kind": "classic_command",
-  "theme": "Users and Groups",
+  "theme": "Users-and-Groups",
   "overloads": [
     {
       "params": [
@@ -31,5 +31,8 @@
       },
       "semanticRole": "User in group returns TRUE if user is in group ."
     }
+  ],
+  "constraints": [
+    "user must be an actual user account name; user aliases are not supported. If user aliases are defined, pass the value returned by Current user (rather than the alias) to guarantee an account name."
   ]
 }

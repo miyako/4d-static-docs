@@ -2,7 +2,7 @@
   "id": "VP-Get-table-column-index",
   "displayName": "VP Get table column index",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -40,14 +40,24 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Same as omitting the parameter: applies to the current sheet."
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The VP Get table column index command returns the index of the columnName in the tableName ."
+      "semanticRole": "Returns the index of the column named columnName within tableName, or -1 if not found."
     }
+  ],
+  "constraints": [
+    "sheet is 0-based; if omitted or -1 is passed, the command applies to the current sheet.",
+    "Returns -1 if tableName or columnName is not found."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "VP-Get-cell-style",
   "displayName": "VP Get cell style",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The VP Get cell style command returns a style object for the first cell in the rangeObj ."
+      "semanticRole": "Returns the style object of the first cell in rangeObj."
     }
+  ],
+  "constraints": [
+    "If rangeObj is not itself a cell range, the style of the first cell in the range is returned.",
+    "If rangeObj contains several ranges, only the style of the first cell of the first range is returned."
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "theme": "4D-View-Pro",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1, 2],
+      "note": "The 3 doc syntax lines are the same overload with progressively more trailing optional params (index, then name), not 3 distinct overloads with an identically-worded semanticRole; collapsed into one overload with index and name both optional.",
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "index",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": true,
+          "description": "Index (0-based) at which to insert the new sheet; values <= 0 insert at the beginning, values exceeding the sheet count insert after the existing sheets"
+        },
+        {
+          "name": "name",
+          "type": { "kind": "concrete", "name": "Text" },
+          "direction": "in",
+          "optional": true,
+          "description": "Name for the new sheet; cannot contain *, :, [, ], ?, \\, /"
+        }
+      ],
+      "semanticRole": "Inserts a new sheet into the document loaded in vpAreaName, at an optional 0-based index (defaulting to the end) with an optional name."
+    }
+  ]
+}

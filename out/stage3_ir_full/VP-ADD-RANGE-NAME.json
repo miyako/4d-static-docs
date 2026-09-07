@@ -2,7 +2,7 @@
   "id": "VP-ADD-RANGE-NAME",
   "displayName": "VP ADD RANGE NAME",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -36,5 +36,9 @@
       ],
       "semanticRole": "The VP ADD RANGE NAME command creates or modifies a named range in the open document."
     }
+  ],
+  "constraints": [
+    "If name is already used within the same scope, the new named range replaces the existing one; the same name can be reused across different scopes.",
+    "options.scope selects the sheet index (0-based) the name is local to, or the vk workbook constant to make it global to the whole document; vk current sheet scopes it to whichever sheet is current."
   ]
 }

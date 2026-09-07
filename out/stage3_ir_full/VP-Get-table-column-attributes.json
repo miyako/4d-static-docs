@@ -2,7 +2,7 @@
   "id": "VP-Get-table-column-attributes",
   "displayName": "VP Get table column attributes",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -40,14 +40,25 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": -1,
+              "meaning": "Same as omitting the parameter: applies to the current sheet."
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The VP Get table column attributes command returns the current attributes of the specified column in the tableName ."
+      "semanticRole": "Returns an object describing the current attributes (dataField, name, footerText, footerFormula, filterButtonVisible) of the specified column of tableName."
     }
+  ],
+  "constraints": [
+    "sheet is 0-based; if omitted or -1 is passed, the command applies to the current sheet.",
+    "Returns null if tableName is not found or if column is higher than the number of columns in the table.",
+    "The returned object's dataField property is omitted if the table is displayed automatically (not bound to a data context)."
   ]
 }

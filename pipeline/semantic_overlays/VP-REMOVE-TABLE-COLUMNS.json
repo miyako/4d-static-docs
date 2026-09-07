@@ -1,0 +1,9 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "count must be greater than 0.",
+    "Columns are removed from the tableName table, not from the sheet; the sheet's total column count is unaffected.",
+    "Data to the right of the table (if any) is automatically shifted left by the number of removed columns.",
+    "If tableName does not exist, the command does nothing."
+  ]
+}

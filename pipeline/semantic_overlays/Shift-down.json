@@ -1,0 +1,11 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line has no parenthesized parameter list ('Shift down : Boolean'), so the mechanical parser produced an empty overload with no return type at all; restored the documented Boolean return type.",
+      "params": [],
+      "returns": { "kind": "concrete", "name": "Boolean" },
+      "semanticRole": "Returns TRUE if the Shift key is currently pressed."
+    }
+  ]
+}

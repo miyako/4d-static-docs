@@ -2,7 +2,7 @@
   "id": "VP-Get-names",
   "displayName": "VP Get names",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "scope",
@@ -22,14 +23,28 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Target scope; a sheet index, or a scope constant",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Limit scope to the current sheet"
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Limit scope to the entire workbook"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Collection"
-      },
-      "semanticRole": "The VP Get names command returns a collection of all defined \"names\" in the current sheet or in the scope designated by the scope parameter."
+      }
     }
+  ],
+  "constraints": [
+    "Passing a vpAreaName that does not exist raises an error.",
+    "Returned properties per name (result[].name/formula/comment) depend on the kind of named element (named cell, named range, or named formula)."
   ]
 }

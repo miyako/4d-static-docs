@@ -2,7 +2,7 @@
   "id": "VP-Get-current-sheet",
   "displayName": "VP Get current sheet",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,10 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The VP Get current sheet command returns the index of the current sheet in vpAreaName ."
+      "semanticRole": "Returns the 0-based index of the currently selected (frontmost) sheet in vpAreaName."
     }
+  ],
+  "constraints": [
+    "Sheet indexing starts at 0."
   ]
 }

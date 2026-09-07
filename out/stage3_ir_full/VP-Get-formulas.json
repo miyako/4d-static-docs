@@ -2,7 +2,7 @@
   "id": "VP-Get-formulas",
   "displayName": "VP Get formulas",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,12 @@
         "kind": "concrete",
         "name": "Collection"
       },
-      "semanticRole": "The VP Get formulas command retrieves the formulas from a designated rangeObj ."
+      "semanticRole": "Returns a two-dimensional collection (rows of subcollections of cell formula text) of the formulas within rangeObj."
     }
+  ],
+  "constraints": [
+    "If rangeObj designates multiple ranges, only the formulas of the first range are returned.",
+    "If rangeObj contains no formulas, an empty string is returned instead of a collection (per docs) despite the declared Collection return type.",
+    "The returned collection is two-dimensional: one subcollection per row, each subcollection holding the row's per-cell formula text."
   ]
 }

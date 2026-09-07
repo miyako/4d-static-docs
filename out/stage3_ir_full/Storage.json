@@ -6,7 +6,15 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Storage method returns the catalog of shared objects or shared collections that you have registered in the Storage object on the current machine or component."
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns the catalog of shared objects and shared collections registered in the Storage object of the current machine or component."
     }
+  ],
+  "constraints": [
+    "There is one Storage catalog per machine and per component; the returned object is itself a shared object and can only contain shared objects and shared collections.",
+    "Adding a property to the returned object must be surrounded by Use...End use; reading an attribute outside of Use...End use is possible, but writing without it raises an error."
   ]
 }

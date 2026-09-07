@@ -1,0 +1,13 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj is not itself a cell range, the style of the first cell in the range is returned.",
+    "If rangeObj contains several ranges, only the style of the first cell of the first range is returned."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the style object of the first cell in rangeObj."
+    }
+  ]
+}

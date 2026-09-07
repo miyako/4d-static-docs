@@ -22,5 +22,8 @@
       },
       "semanticRole": "Sequence number returns the next sequence number for aTable ."
     }
+  ],
+  "constraints": [
+    "Numbering starts at 1 by default and only begins incrementing at the first call to Sequence number (or another feature accessing the sequence number) for the table, so the returned value should not be treated as a count of records created."
   ]
 }

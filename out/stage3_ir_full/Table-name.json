@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Table name command returns the name of the table whose number or pointer you pass in tableNum or tablePtr ."
+      "semanticRole": "Returns the name of the table designated by its table number, tableNum.",
+      "discriminatedBy": {
+        "param": "tableNum",
+        "rule": "Used when identifying the table by its numeric table number."
+      }
     },
     {
       "params": [
@@ -38,7 +42,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The Table name command returns the name of the table whose number or pointer you pass in tableNum or tablePtr ."
+      "semanticRole": "Returns the name of the table designated by a pointer to it, tablePtr.",
+      "discriminatedBy": {
+        "param": "tablePtr",
+        "rule": "Used when identifying the table by a pointer to it (e.g. obtained via Table)."
+      }
     }
   ]
 }

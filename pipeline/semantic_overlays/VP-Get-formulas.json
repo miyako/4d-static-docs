@@ -1,0 +1,14 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj designates multiple ranges, only the formulas of the first range are returned.",
+    "If rangeObj contains no formulas, an empty string is returned instead of a collection (per docs) despite the declared Collection return type.",
+    "The returned collection is two-dimensional: one subcollection per row, each subcollection holding the row's per-cell formula text."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a two-dimensional collection (rows of subcollections of cell formula text) of the formulas within rangeObj."
+    }
+  ]
+}

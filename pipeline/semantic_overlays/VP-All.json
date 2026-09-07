@@ -1,0 +1,7 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Errors if vpAreaName does not designate an existing 4D View Pro area.",
+    "If sheet is omitted, or vk current sheet is passed, the currently displayed spreadsheet is used."
+  ]
+}

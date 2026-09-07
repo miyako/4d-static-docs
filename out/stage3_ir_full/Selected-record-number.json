@@ -22,5 +22,8 @@
       },
       "semanticRole": "Selected record number returns the position of the current record within the current selection of aTable ."
     }
+  ],
+  "constraints": [
+    "Returns 0 if the current selection of aTable is empty or there is no current record."
   ]
 }

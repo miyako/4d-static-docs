@@ -6,7 +6,15 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Trigger level command returns the execution level of the trigger."
+      "semanticRole": "The Trigger level command returns the execution level of the trigger.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
     }
+  ],
+  "constraints": [
+    "Returns 0 if called outside any trigger execution cycle; otherwise returns the cascading execution level of the current trigger call (see Cascading Triggers).",
+    "Used together with TRIGGER PROPERTIES to perform different actions depending on the cascading of trigger execution levels."
   ]
 }

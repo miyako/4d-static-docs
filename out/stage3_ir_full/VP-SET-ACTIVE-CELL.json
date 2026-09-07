@@ -2,7 +2,7 @@
   "id": "VP-SET-ACTIVE-CELL",
   "displayName": "VP SET ACTIVE CELL",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -18,5 +18,8 @@
       ],
       "semanticRole": "The VP SET ACTIVE CELL command defines a specified cell as active."
     }
+  ],
+  "constraints": [
+    "If rangeObj is not a single-cell range or contains multiple ranges, only the first cell of the first range is used."
   ]
 }

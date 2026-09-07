@@ -1,0 +1,10 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "tableName must be unique within the sheet, at least 5 characters long, and must not contain spaces or start with a number.",
+    "If source is omitted, an empty table is created with the size defined by rangeObj; if source's data cannot be fully displayed in rangeObj, no table is created.",
+    "source must reference a data context property containing a collection of objects (one per row); the table stays bound and updates when the data context updates.",
+    "options is a cs.ViewPro.TableOptions object; its tableColumns collection length should match the range's column count -- excess range columns become empty, and if tableColumns has more columns than the range, only as many columns as the range allows are shown.",
+    "If source is passed without a tableColumns option, columns are generated automatically: for a collection of objects, property names become column titles; for a collection of subcollections (scalar values), the subcollections' indices become column titles and rangeObj must designate a single-cell anchor rather than a multi-cell range. A collection of scalar data cannot be combined with the tableColumns option."
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Returns a null object if sessionId does not identify a valid session.",
+    "This command returns the .info property of the sessionId session; to get information about the current session, call Session.info directly instead."
+  ]
+}

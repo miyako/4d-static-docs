@@ -2,7 +2,7 @@
   "id": "VP-ADD-SPAN",
   "displayName": "VP ADD SPAN",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -18,5 +18,9 @@
       ],
       "semanticRole": "The VP ADD SPAN command combines the cells in rangeObj as a single span of cells."
     }
+  ],
+  "constraints": [
+    "Multiple cell ranges can be passed to create several spans at once; if ranges overlap, only the first range is used.",
+    "Only the upper-left cell's data is displayed; data in the other combined cells is hidden (but still accessible via formulas referencing the upper-left cell) until the span is removed."
   ]
 }

@@ -6,7 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Shift down returns TRUE if the Shift key is pressed."
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      },
+      "semanticRole": "Returns TRUE if the Shift key is currently pressed."
     }
   ]
 }

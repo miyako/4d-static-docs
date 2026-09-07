@@ -2,7 +2,7 @@
   "id": "VP-Get-column-attributes",
   "displayName": "VP Get column attributes",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,10 @@
         "kind": "concrete",
         "name": "Collection"
       },
-      "semanticRole": "The VP Get column attributes command returns a collection of properties for any column in the rangeObj ."
+      "semanticRole": "Returns a collection of property objects, one per column spanned by rangeObj."
     }
+  ],
+  "constraints": [
+    "The returned collection includes column properties whether or not they were previously set via VP SET COLUMN ATTRIBUTES."
   ]
 }

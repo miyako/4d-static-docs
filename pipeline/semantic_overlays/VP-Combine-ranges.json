@@ -1,0 +1,14 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "All ranges passed (rangeObj, otherRangeObj, and any further otherRangeObjN) must belong to the same 4D View Pro area.",
+    "The command incorporates the passed range objects by reference, not by copy."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns a new range object that combines two or more existing range objects (by reference) from the same 4D View Pro area into a single combined range.",
+      "mechanism": "reference_combination"
+    }
+  ]
+}

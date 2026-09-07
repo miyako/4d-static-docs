@@ -2,7 +2,7 @@
   "id": "VP-Get-show-print-lines",
   "displayName": "VP Get show print lines",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -29,7 +29,10 @@
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The VP Get show print lines command returns True if the print preview lines are visible and False if they are hidden."
+      "semanticRole": "Returns True if print preview lines are visible in the designated (or current) sheet, False otherwise."
     }
+  ],
+  "constraints": [
+    "sheet is 0-based; if omitted, the command applies to the current sheet."
   ]
 }

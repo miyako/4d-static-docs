@@ -1,0 +1,6 @@
+{
+  "constraints": [
+    "Returns Null if no session exists with the given id.",
+    "The returned object is the .storage property of the session (a shared object usable from any preemptive or standard process)."
+  ]
+}

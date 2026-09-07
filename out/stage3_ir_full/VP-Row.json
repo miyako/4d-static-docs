@@ -2,7 +2,7 @@
   "id": "VP-Row",
   "displayName": "VP Row",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "row",
@@ -22,7 +23,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Row index (counting begins at 0) of the first row of the range"
         },
         {
           "name": "rowCount",
@@ -31,7 +33,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Total number of rows of the range (default 1); must be greater than 0"
         },
         {
           "name": "sheet",
@@ -40,7 +43,14 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Explicitly target the current spreadsheet."
+            }
+          ]
         }
       ],
       "returns": {
@@ -49,5 +59,9 @@
       },
       "semanticRole": "The VP Row command returns a new range object referencing a specific row or rows."
     }
+  ],
+  "constraints": [
+    "An error is returned if vpAreaName does not designate an existing 4D View Pro area.",
+    "rowCount must be greater than 0; if omitted, it defaults to 1."
   ]
 }

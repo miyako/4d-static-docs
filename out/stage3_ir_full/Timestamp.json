@@ -6,7 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "Timestamp returns the current UTC time in ISO format with milliseconds, i.e."
+      "semanticRole": "Timestamp returns the current UTC time in ISO format with milliseconds, i.e.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
     }
   ]
 }

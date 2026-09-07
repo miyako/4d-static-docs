@@ -2,7 +2,7 @@
   "id": "VP-Get-tables",
   "displayName": "VP Get tables",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -29,7 +29,10 @@
         "kind": "concrete",
         "name": "Collection"
       },
-      "semanticRole": "The VP Get tables command returns a collection of all table names defined in the sheet ."
+      "semanticRole": "Returns a collection of the names of all tables defined in the designated (or current) sheet."
     }
+  ],
+  "constraints": [
+    "sheet is 0-based; if omitted, the command applies to the current sheet."
   ]
 }

@@ -1,0 +1,7 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Errors if vpAreaName does not designate an existing 4D View Pro area.",
+    "If a style sheet with the same name and index already exists, it is overwritten with the new values; the same name can be reused across different scopes."
+  ]
+}

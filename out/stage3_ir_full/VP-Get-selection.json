@@ -2,7 +2,7 @@
   "id": "VP-Get-selection",
   "displayName": "VP Get selection",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -22,14 +22,24 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet (also the default when sheet is omitted)."
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The VP Get selection command returns a new range object referencing the current selected cells."
+      "semanticRole": "Returns a new range object referencing the currently selected cells in the designated (or current) sheet."
     }
+  ],
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error.",
+    "sheet is 0-based; if omitted or vk current sheet is passed, the current spreadsheet is used."
   ]
 }

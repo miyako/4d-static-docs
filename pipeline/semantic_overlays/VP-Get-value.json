@@ -1,0 +1,9 @@
+{
+  "theme": "4D-View-Pro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Retrieves the value of a single cell from the range designated by rangeObj, returned as an object."
+    }
+  ]
+}

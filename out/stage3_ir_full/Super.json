@@ -25,10 +25,22 @@
           },
           "position": "trailing"
         }
-      ]
+      ],
+      "semanticRole": "Calls the parent (superclass) class constructor from within a subclass's Class constructor, forwarding param(s) to it; must be called before This can be used inside that constructor.",
+      "discriminatedBy": {
+        "rule": "Function-call syntax Super(...param), valid only inside a subclass's Class constructor."
+      }
     },
     {
-      "params": []
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Used as a bare reference (no parentheses) within a subclass class function to access the parent (superclass) implementation, e.g. Super.methodName(...); evaluates to the object's parent.",
+      "discriminatedBy": {
+        "rule": "Bare property-style reference Super (no parentheses), valid inside a subclass class function, not inside the constructor."
+      }
     }
   ]
 }

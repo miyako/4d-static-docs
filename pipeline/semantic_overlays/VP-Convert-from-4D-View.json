@@ -1,0 +1,12 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Does not require the legacy 4D View plug-in to be installed."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Converts a legacy 4D View document (BLOB) into a 4D View Pro object, migrating all information to 4D View Pro attributes."
+    }
+  ]
+}

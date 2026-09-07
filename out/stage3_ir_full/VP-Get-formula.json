@@ -2,7 +2,7 @@
   "id": "VP-Get-formula",
   "displayName": "VP Get formula",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The VP Get formula command retrieves the formula from a designated cell range."
+      "semanticRole": "Returns the formula text of the first cell designated by rangeObj, or an empty string if it has none."
     }
+  ],
+  "constraints": [
+    "If rangeObj designates multiple cells or multiple ranges, the formula of the first cell is returned.",
+    "If the target cell has no formula, an empty string is returned."
   ]
 }

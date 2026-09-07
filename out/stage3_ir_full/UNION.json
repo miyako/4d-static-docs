@@ -36,5 +36,11 @@
       ],
       "semanticRole": "UNION creates a set that contains all records from set1 and set2 ."
     }
+  ],
+  "constraints": [
+    "set1 and set2 must both belong to the same table; resultSet is created on that same table.",
+    "resultSet replaces any existing set with the same name, including reusing the name of set1 or set2.",
+    "The resulting set's current record is the current record of set1.",
+    "In Client/Server mode, all three sets must be visible (interprocess, process, or local, created on the appropriate machine) to the calling process."
   ]
 }

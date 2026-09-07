@@ -1,0 +1,5 @@
+{
+  "constraints": [
+    "By default (when * is omitted), accented characters lose their accents after conversion; passing * keeps them as accented uppercase characters."
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "VP-INSERT-ROWS",
   "displayName": "VP INSERT ROWS",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -16,7 +16,11 @@
           "optional": false
         }
       ],
-      "semanticRole": "The VP INSERT ROWS command inserts rows defined by the rangeObj ."
+      "semanticRole": "Inserts one or more rows into the sheet at the position designated by rangeObj, shifting existing rows down."
     }
+  ],
+  "constraints": [
+    "rangeObj carries both the starting row position and the number of rows to insert; if the count is omitted, a single row is inserted.",
+    "New rows are inserted directly before the first row of rangeObj."
   ]
 }

@@ -7,7 +7,7 @@
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,7 +15,8 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "list below is the object name (string) of a form representation of the list."
         },
         {
           "name": "list",
@@ -32,11 +33,11 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
-          "name": "*",
+          "name": "asReference",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -44,14 +45,19 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, itemsArray/the function result use fixed item references instead of current (expanded/collapsed-dependent) item positions."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Selected list items command returns the position or reference of the selected item in the list whose reference number or object name you pass in list ."
+      "semanticRole": "Returns the position or reference of the selected item(s) in the list identified by its object name (form representation).",
+      "discriminatedBy": {
+        "param": "asObjectName",
+        "rule": "This overload applies when the leading * is passed, meaning list is an object name (Text) rather than a ListRef (Integer)."
+      }
     },
     {
       "params": [
@@ -70,11 +76,11 @@
             "kind": "concrete",
             "name": "Integer array"
           },
-          "direction": "in",
+          "direction": "out",
           "optional": true
         },
         {
-          "name": "*",
+          "name": "asReference",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -82,14 +88,23 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, itemsArray/the function result use fixed item references instead of current (expanded/collapsed-dependent) item positions."
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The Selected list items command returns the position or reference of the selected item in the list whose reference number or object name you pass in list ."
+      "semanticRole": "Returns the position or reference of the selected item(s) in the list identified by its hierarchical list reference number (ListRef).",
+      "discriminatedBy": {
+        "param": "list",
+        "rule": "This overload applies when the leading * is omitted, meaning list is a ListRef (Integer) rather than an object name (Text)."
+      }
     }
+  ],
+  "constraints": [
+    "The mechanical draft left itemsArray with direction 'in', but the doc's arrow column marks it '<-' (out): the command writes the selected item positions/references into it.",
+    "If you use multiple representations of the same list and work with item positions (asReference omitted), only the object-name syntax (leading * passed) is valid, since each representation can have its own expanded/collapsed configuration."
   ]
 }

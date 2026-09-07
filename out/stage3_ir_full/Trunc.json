@@ -29,7 +29,10 @@
         "kind": "concrete",
         "name": "Real"
       },
-      "semanticRole": "Trunc returns number with its decimal part truncated to the number of decimal places specified by places .always truncates toward negative infinity."
+      "semanticRole": "Returns number with its decimal part truncated to the number of decimal places specified by places, always truncating toward negative infinity (not toward zero)."
     }
+  ],
+  "constraints": [
+    "If places is positive, number is truncated to that many decimal places; if places is negative, number is truncated to the left of the decimal point."
   ]
 }

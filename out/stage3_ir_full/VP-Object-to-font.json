@@ -2,7 +2,7 @@
   "id": "VP-Object-to-font",
   "displayName": "VP Object to font",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,11 @@
         "kind": "concrete",
         "name": "Text"
       },
-      "semanticRole": "The VP Object to font command returns a font shorthand string from fontObj ."
+      "semanticRole": "Returns a CSS-style font shorthand string built from the properties of fontObj."
     }
+  ],
+  "constraints": [
+    "fontObj.family is mandatory; fontObj.size, style, variant, and weight are optional.",
+    "fontObj.size accepts a number with a CSS-style unit (em, ex, %, px, cm, mm, in, pt, pc, ch, rem, vh, vw, vmin, vmax), one of the vk font size * constants, or a font-size/line-height pair like \"15pt/20pt\"."
   ]
 }

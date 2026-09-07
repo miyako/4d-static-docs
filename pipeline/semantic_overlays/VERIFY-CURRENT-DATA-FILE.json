@@ -1,0 +1,10 @@
+{
+  "theme": "4D-Environment",
+  "constraints": [
+    "Identical behavior to VERIFY DATA FILE but applied to the currently open database's own data file, so it takes no structurePath/dataPath.",
+    "If called with no parameters at all, defaults are: objects = Verify All (16), options = 0 (log file created, not timestamped), method = \"\", tablesArray/fieldsArray omitted.",
+    "Flushes the data cache and blocks all operations accessing the data for the duration of the verification.",
+    "If a log file is generated, its complete pathname is returned in the Document system variable.",
+    "See VERIFY DATA FILE for the full meaning of objects, options, method, tablesArray and fieldsArray."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj contains several cells, the attribute name linked to the first cell in the range is returned.",
+    "If rangeObj contains several ranges of cells, the attribute name linked to the first cell of the first range is returned."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the name of the data-context attribute bound to a cell (the first cell of rangeObj)."
+    }
+  ]
+}

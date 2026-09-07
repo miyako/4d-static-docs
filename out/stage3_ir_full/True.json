@@ -6,7 +6,11 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "True returns the Boolean value True."
+      "semanticRole": "True returns the Boolean value True.",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
     }
   ]
 }

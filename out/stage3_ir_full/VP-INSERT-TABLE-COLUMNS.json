@@ -2,7 +2,7 @@
   "id": "VP-INSERT-TABLE-COLUMNS",
   "displayName": "VP INSERT TABLE COLUMNS",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -49,7 +49,17 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "vk table insert before: insert column(s) before column (default if omitted)."
+            },
+            {
+              "value": 1,
+              "meaning": "vk table insert after: insert column(s) after column."
+            }
+          ]
         },
         {
           "name": "sheet",
@@ -61,7 +71,12 @@
           "optional": true
         }
       ],
-      "semanticRole": "The VP INSERT TABLE COLUMNS command inserts one or count empty column(s) in the specified tableName at the specified column index."
+      "semanticRole": "Inserts one or count empty column(s) into tableName at the specified column index, before or after it per insertAfter."
     }
+  ],
+  "constraints": [
+    "count must be greater than 0; if omitted, a single column is inserted.",
+    "Inserts columns inside tableName only, not the sheet: the sheet's total column count is unaffected, and data to the right of the table is automatically shifted right.",
+    "If tableName does not exist, or there is not enough room in the sheet, the command does nothing."
   ]
 }

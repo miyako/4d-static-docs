@@ -7,7 +7,7 @@
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,83 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, pictureObject below is an object name (pass a string); if omitted, pictureObject is a Variable/Field reference."
         },
-        {
-          "name": "pictureObject",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "element_ID",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "group",
-          "members": [
-            {
-              "name": "attribName",
-              "type": {
-                "kind": "concrete",
-                "name": "Text"
-              },
-              "direction": "in",
-              "optional": false
-            },
-            {
-              "name": "attribValue",
-              "type": [
-                {
-                  "kind": "concrete",
-                  "name": "Text"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Integer"
-                },
-                {
-                  "kind": "concrete",
-                  "name": "Boolean"
-                }
-              ],
-              "direction": "in",
-              "optional": false
-            }
-          ],
-          "cardinality": {
-            "min": 1,
-            "max": null
-          },
-          "position": "embedded"
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ]
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The SVG SET ATTRIBUTE command is used to modify the value of an existing attribute in the SVG rendering tree of a displayed image or in the internal DOM tree of an image."
-    },
-    {
-      "params": [
         {
           "name": "pictureObject",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -102,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * passed) or Variable/field reference (if * omitted)"
         },
         {
           "name": "element_ID",
@@ -111,7 +45,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "ID of element where one or more attributes are set"
         },
         {
           "name": "group",
@@ -152,7 +87,7 @@
           "position": "embedded"
         },
         {
-          "name": "*",
+          "name": "modifyImageItself",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -160,10 +95,15 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed as the last parameter, modifies the SVG picture itself (all current and future form objects using it), even if no form object currently uses it; otherwise only the rendered image already attached to a matching form object is modified."
         }
       ],
-      "semanticRole": "The SVG SET ATTRIBUTE command is used to modify the value of an existing attribute in the SVG rendering tree of a displayed image or in the internal DOM tree of an image."
+      "semanticRole": "Sets one or more attributes (as attribName/attribValue pairs) of an existing element in the SVG rendering tree of a displayed image, or in the internal DOM tree of an image, identified by element_ID."
     }
+  ],
+  "constraints": [
+    "The rendered image of the object is only created if SVG SET ATTRIBUTE has been called at least once for it.",
+    "The trailing 'modifyImageItself' * is useless (ignored) if pictureObject is an object name; it is only taken into account when pictureObject is a Variable or Field."
   ]
 }

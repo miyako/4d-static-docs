@@ -7,7 +7,7 @@
     {
       "params": [
         {
-          "name": "*",
+          "name": "asObjectName",
           "type": {
             "kind": "literal_symbols",
             "symbols": [
@@ -15,43 +15,16 @@
             ]
           },
           "direction": "in",
-          "optional": false
+          "optional": true,
+          "description": "If present, pictureObject below is an object name (pass a string); if omitted, pictureObject is a Variable/Field reference."
         },
-        {
-          "name": "pictureObject",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "id",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "margin",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "semanticRole": "The SVG SHOW ELEMENT command moves the pictureObject SVG document in order to show the element whose \"id\" attribute is specified by the id parameter."
-    },
-    {
-      "params": [
         {
           "name": "pictureObject",
           "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
             {
               "kind": "concrete",
               "name": "Variable"
@@ -62,7 +35,8 @@
             }
           ],
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Object name (if * passed) or Variable/field reference (if * omitted)"
         },
         {
           "name": "id",
@@ -71,7 +45,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "ID attribute of element to display"
         },
         {
           "name": "margin",
@@ -80,10 +55,15 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Margin of visibility in pixels; defaults to 4 pixels if omitted."
         }
       ],
-      "semanticRole": "The SVG SHOW ELEMENT command moves the pictureObject SVG document in order to show the element whose \"id\" attribute is specified by the id parameter."
+      "semanticRole": "Moves the pictureObject SVG document so the element identified by id becomes visible, expanding its bounding rectangle by margin pixels."
     }
+  ],
+  "constraints": [
+    "This command only takes effect in \"top left\" display mode (with scrollbars).",
+    "If the command is not executed in the context of a form, or an invalid pictureObject is passed, the OK system variable is set to 0; otherwise it is set to 1."
   ]
 }

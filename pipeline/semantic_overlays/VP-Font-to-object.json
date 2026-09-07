@@ -1,0 +1,9 @@
+{
+  "theme": "4D-View-Pro",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Parses a font shorthand string (e.g. \"12 pt Arial\") into an object of font attribute properties, usable with VP Object to font for the round trip."
+    }
+  ]
+}

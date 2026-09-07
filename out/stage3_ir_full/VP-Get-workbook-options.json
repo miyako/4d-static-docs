@@ -2,7 +2,7 @@
   "id": "VP-Get-workbook-options",
   "displayName": "VP Get workbook options",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -20,7 +20,10 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "VP Get workbook options returns an object containing all the workbook options in vpAreaName In vpAreaName , pass the name of the 4D View Pro area."
+      "semanticRole": "Returns an object containing all the workbook options currently applied in vpAreaName."
     }
+  ],
+  "constraints": [
+    "The returned object contains all workbook options (default and modified) currently in effect; see VP SET WORKBOOK OPTIONS for the full option list."
   ]
 }

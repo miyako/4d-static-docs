@@ -2,7 +2,7 @@
   "id": "VP-Get-formula-by-name",
   "displayName": "VP Get formula by name",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "name",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of the named range or named formula"
         },
         {
           "name": "scope",
@@ -31,14 +33,29 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Target scope; a sheet index, or a scope constant",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Limit scope to the current sheet"
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Limit scope to the entire workbook"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
-      },
-      "semanticRole": "The VP Get formula by name command returns the formula and comment corresponding to the named range or named formula passed in the name parameter, or null if it does not exist in the defined scope."
+      }
     }
+  ],
+  "constraints": [
+    "Passing a vpAreaName that does not exist raises an error.",
+    "Returns Null if name does not exist in the designated scope.",
+    "Named ranges are returned as formulas containing absolute cell references (not relative)."
   ]
 }

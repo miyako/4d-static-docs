@@ -2,7 +2,7 @@
   "id": "VP-SET-DATE-TIME-VALUE",
   "displayName": "VP SET DATE TIME VALUE",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -45,5 +45,9 @@
       ],
       "semanticRole": "The VP SET DATE TIME VALUE command assigns a specified date and time value to a designated cell range."
     }
+  ],
+  "constraints": [
+    "If rangeObj includes multiple cells, the same dateValue/timeValue is repeated in every cell.",
+    "timeValue is expressed in seconds."
   ]
 }

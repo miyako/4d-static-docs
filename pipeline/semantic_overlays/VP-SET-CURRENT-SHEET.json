@@ -1,0 +1,6 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If the passed sheet index is less than 0 or exceeds the number of sheets, the command does nothing."
+  ]
+}

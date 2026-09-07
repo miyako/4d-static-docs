@@ -2,7 +2,7 @@
   "id": "UNLOAD-RECORD",
   "displayName": "UNLOAD RECORD",
   "kind": "classic_command",
-  "theme": "Record Locking",
+  "theme": "Record-Locking",
   "overloads": [
     {
       "params": [
@@ -18,5 +18,9 @@
       ],
       "semanticRole": "UNLOAD RECORD unloads the current record of table ."
     }
+  ],
+  "constraints": [
+    "Unloads the record from memory but it remains the current record; the next record made current automatically unloads (and unlocks) the previous current record.",
+    "If the record was locked for other users, unloading it unlocks it for them while keeping it as the local user's current record."
   ]
 }

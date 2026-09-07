@@ -37,5 +37,9 @@
       },
       "semanticRole": "Subtotal returns the subtotal for data for the current or last break level."
     }
+  ],
+  "constraints": [
+    "pageBreak controls page breaks during printing: 0 (or omitted) causes no page break; 1 causes a page break at each level-1 break; 2 causes a page break at each level-1 and level-2 break; and so on for higher levels.",
+    "Must execute BREAK LEVEL and ACCUMULATE before every form report for which subtotals are calculated."
   ]
 }

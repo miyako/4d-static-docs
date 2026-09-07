@@ -2,7 +2,7 @@
   "id": "VP-REMOVE-STYLESHEET",
   "displayName": "VP REMOVE STYLESHEET",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "styleName",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of style to remove"
         },
         {
           "name": "sheet",
@@ -31,10 +33,24 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Sheet index (current sheet if omitted); may also be one of the scope constants",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Remove the style sheet from the current sheet."
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Remove the style sheet from the workbook level."
+            }
+          ]
         }
       ],
       "semanticRole": "The VP REMOVE STYLESHEET command removes the style sheet passed in the styleName from the vpAreaName ."
     }
+  ],
+  "constraints": [
+    "An error is returned if vpAreaName does not designate an existing 4D View Pro area."
   ]
 }

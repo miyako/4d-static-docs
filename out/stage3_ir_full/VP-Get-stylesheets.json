@@ -2,7 +2,7 @@
   "id": "VP-Get-stylesheets",
   "displayName": "VP Get stylesheets",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -22,14 +22,27 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet (default when sheet is omitted)."
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Apply to the whole workbook rather than a single sheet."
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Collection"
       },
-      "semanticRole": "The VP Get stylesheets command returns the collection of defined style sheet objects from the designated sheet ."
+      "semanticRole": "Returns the collection of style sheet objects defined in the designated sheet (or scope)."
     }
+  ],
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error."
   ]
 }

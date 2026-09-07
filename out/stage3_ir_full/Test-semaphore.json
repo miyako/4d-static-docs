@@ -22,5 +22,8 @@
       },
       "semanticRole": "The Test semaphore command tests for the existence of a semaphore."
     }
+  ],
+  "constraints": [
+    "Unlike Semaphore, Test semaphore does not create the semaphore if it doesn't already exist; it only reports whether it currently exists."
   ]
 }

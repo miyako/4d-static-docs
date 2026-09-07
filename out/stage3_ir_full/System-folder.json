@@ -13,14 +13,80 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Type of system folder whose pathname to return; defaults to the active System folder if omitted.",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "System (default if omitted): active System folder"
+            },
+            {
+              "value": 1,
+              "meaning": "Fonts"
+            },
+            {
+              "value": 2,
+              "meaning": "User preferences_all: preferences folder shared by all users"
+            },
+            {
+              "value": 3,
+              "meaning": "User preferences_user: preferences folder customized for the current user"
+            },
+            {
+              "value": 4,
+              "meaning": "Startup Win_all (Windows only; returns an empty string on macOS)"
+            },
+            {
+              "value": 5,
+              "meaning": "Startup Win_user (Windows only; returns an empty string on macOS)"
+            },
+            {
+              "value": 8,
+              "meaning": "Start menu Win_all (Windows only; returns an empty string on macOS)"
+            },
+            {
+              "value": 9,
+              "meaning": "Start menu Win_user (Windows only; returns an empty string on macOS)"
+            },
+            {
+              "value": 12,
+              "meaning": "System Win (Windows only; returns an empty string on macOS)"
+            },
+            {
+              "value": 13,
+              "meaning": "System32 Win (Windows only; returns an empty string on macOS)"
+            },
+            {
+              "value": 14,
+              "meaning": "Favorites Win (Windows only; returns an empty string on macOS)"
+            },
+            {
+              "value": 15,
+              "meaning": "Desktop"
+            },
+            {
+              "value": 16,
+              "meaning": "Applications or program files"
+            },
+            {
+              "value": 17,
+              "meaning": "Documents folder: \"Documents\" folder of user"
+            },
+            {
+              "value": 18,
+              "meaning": "Home folder: current home folder of the user"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Text"
-      },
-      "semanticRole": "The System folder command returns the pathname to a particular folder of the operating system or to the active Windows or macOS System folder itself."
+      }
     }
+  ],
+  "constraints": [
+    "Constants suffixed 'Win' are usable on Windows only; when used on macOS, the command returns an empty string.",
+    "Constants 2-9 come in _all/_user pairs, selecting between a folder shared by all users vs. one customized for the current user."
   ]
 }

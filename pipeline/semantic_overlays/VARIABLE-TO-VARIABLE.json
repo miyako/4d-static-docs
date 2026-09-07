@@ -1,0 +1,9 @@
+{
+  "theme": "Process-Communications",
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Copies the value of each srcVar process variable of the current process into the corresponding dstVar process variable of the destination process whose number is passed in process (srcVar and dstVar may have different names); repeated dstVar/srcVar pairs copy several variables in one call."
+    }
+  ]
+}

@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Original text to be divided"
         },
         {
           "name": "arrText",
@@ -21,8 +22,9 @@
             "kind": "concrete",
             "name": "Text array"
           },
-          "direction": "in",
-          "optional": false
+          "direction": "out",
+          "optional": false,
+          "description": "Array filled with the text divided into words or lines"
         },
         {
           "name": "width",
@@ -31,7 +33,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Maximum width of string (in pixels); mandatory for raw (non-multistyle) text"
         },
         {
           "name": "fontName",
@@ -40,7 +43,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of font; mandatory for raw (non-multistyle) text"
         },
         {
           "name": "fontSize",
@@ -49,7 +53,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Size of font; mandatory for raw (non-multistyle) text"
         },
         {
           "name": "fontStyle",
@@ -58,7 +63,8 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Style of font"
         },
         {
           "name": "*",
@@ -69,10 +75,14 @@
             ]
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "If passed, interpret varText as multistyle text; width/fontName/fontSize/fontStyle are then ignored, since the original per-run styles are used and preserved in arrText's elements instead."
         }
-      ],
-      "semanticRole": "The TEXT TO ARRAY command transforms a text variable into a text array."
+      ]
     }
+  ],
+  "constraints": [
+    "Each arrText element must contain at least one word; if width is too small for a word to fit, the array is filled as close as possible to the requested width and the OK system variable is set to 0.",
+    "For raw (non-multistyle) text, width, fontName, and fontSize are mandatory so the command can measure line lengths."
   ]
 }

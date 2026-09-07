@@ -2,7 +2,7 @@
   "id": "VP-Get-active-cell",
   "displayName": "VP Get active cell",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "sheet",
@@ -22,14 +23,23 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Sheet index (0-based); current sheet if omitted",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet"
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
-      },
-      "semanticRole": "The VP Get active cell command returns a new range object referencing the cell which has the focus and where new data will be entered (the active cell)."
+      }
     }
+  ],
+  "constraints": [
+    "Passing a vpAreaName that does not exist raises an error."
   ]
 }

@@ -1,0 +1,47 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "picture is documented '<->' in the parameter table (in: source picture; out: resulting picture after transformation, modified directly/destructively); autoparse defaulted it to direction:in. Also adds sentinelValues for the operator constants (Picture Transformation theme).",
+      "params": [
+        { "name": "picture", "type": { "kind": "concrete", "name": "Picture" }, "direction": "inout", "optional": false, "description": "In: source picture to be transformed. Out: resulting picture after transformation (the source picture is modified directly)." },
+        {
+          "name": "operator",
+          "type": { "kind": "concrete", "name": "Integer" },
+          "direction": "in",
+          "optional": false,
+          "description": "Type of transformation to perform",
+          "sentinelValues": [
+            { "value": 0, "meaning": "Reset: undoes all matrix operations (scale, flip, translate, ...) carried out on the picture; no param1-4 used" },
+            { "value": 1, "meaning": "Scale: param1/param2 are horizontal/vertical resize factors (e.g. 1.5 to enlarge width by 50%, 0.5 to reduce height by 50%)" },
+            { "value": 2, "meaning": "Translate: param1/param2 are horizontal/vertical pixel offsets (positive = right/down, negative = left/up)" },
+            { "value": 3, "meaning": "Flip horizontally: no param1-4 used; any prior translation is not taken into account" },
+            { "value": 4, "meaning": "Flip vertically: no param1-4 used; any prior translation is not taken into account" },
+            { "value": 100, "meaning": "Crop: param1/param2 are the X/Y origin (pixels) and param3/param4 are the width/height of the cropped picture; not reversible" },
+            { "value": 101, "meaning": "Fade to grey scale: no param1-4 used; not reversible" },
+            { "value": 102, "meaning": "Transparency: param1 is a hexadecimal RGB color (e.g. 0x00FFFFFF for white, the default if param1 is omitted) whose matching pixels become transparent; not reversible" }
+          ]
+        },
+        { "name": "param1", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true, "description": "First transformation parameter; meaning depends on operator (see operator's sentinelValues)" },
+        { "name": "param2", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true, "description": "Second transformation parameter; meaning depends on operator (see operator's sentinelValues)" },
+        { "name": "param3", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true, "description": "Third transformation parameter; meaning depends on operator (see operator's sentinelValues), used only by Crop" },
+        { "name": "param4", "type": { "kind": "concrete", "name": "Real" }, "direction": "in", "optional": true, "description": "Fourth transformation parameter; meaning depends on operator (see operator's sentinelValues), used only by Crop" }
+      ]
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "jointConstraints": [
+        {
+          "params": ["operator", "param1", "param2", "param3", "param4"],
+          "rule": "The number and meaning of param1-param4 actually used depends entirely on operator: Reset/Flip horizontally/Flip vertically/Fade to grey scale use none of them; Scale/Translate use param1-param2; Transparency uses only param1; Crop uses all of param1-param4."
+        }
+      ]
+    }
+  ],
+  "constraints": [
+    "Transformations do not change the picture's underlying type (e.g. a vectorial picture remains vectorial after transformation).",
+    "Scale, Translate, Flip horizontally, and Flip vertically are cancellable (reversible via the opposite operation or Reset); Crop, Fade to grey scale, and Transparency are not."
+  ]
+}

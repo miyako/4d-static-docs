@@ -2,7 +2,7 @@
   "id": "VP-All",
   "displayName": "VP All",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -31,5 +31,9 @@
       },
       "semanticRole": "The VP ALL command returns a new range object referencing all cells."
     }
+  ],
+  "constraints": [
+    "Errors if vpAreaName does not designate an existing 4D View Pro area.",
+    "If sheet is omitted, or vk current sheet is passed, the currently displayed spreadsheet is used."
   ]
 }

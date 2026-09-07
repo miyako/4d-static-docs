@@ -1,0 +1,9 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "If rangeObj is a range with several cells, the attribute is bound only to the first cell of the range; if rangeObj contains several ranges of cells, it is bound to the first cell of each range.",
+    "If dataContextAttribute is an empty string, the command removes the current binding instead of setting one.",
+    "Attributes of type collection are not supported; passing the name of a collection attribute makes the command do nothing.",
+    "A data context must first be set on the sheet with VP SET DATA CONTEXT for the binding to have any effect."
+  ]
+}

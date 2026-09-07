@@ -2,7 +2,7 @@
   "id": "VP-SET-ALLOWED-METHODS",
   "displayName": "VP SET ALLOWED METHODS",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -18,5 +18,14 @@
       ],
       "semanticRole": "The VP SET ALLOWED METHODS command designates the project methods that can be called in 4D View Pro formulas."
     }
+  ],
+  "constraints": [
+    "Applies to all 4D View Pro areas initialized after this call during the session; can be called multiple times in the same session to set up different configurations.",
+    "By default, if this command is never called, no method call is allowed in 4D View Pro areas, unless 4D's generic SET ALLOWED METHODS command was previously used (compatibility fallback).",
+    "Using an unauthorized method in a 4D View Pro formula prints a #NAME? error in the area.",
+    "Each <functionName> key in methodObj must not contain space characters, and its .method property (an existing 4D project method name) is mandatory.",
+    "methodObj.<functionName>.parameters[].type is optional except when at least one parameter is of collection type, in which case declaring type is mandatory for that function.",
+    "When a parameter's type is omitted, the value is sent with its native type, except Date/Time values which are sent as an object; when type is 'Is object', the object is sent in a .value property.",
+    "methodObj.<functionName>.maxParams may be set higher than the length of the parameters collection to declare optional parameters with a default type."
   ]
 }

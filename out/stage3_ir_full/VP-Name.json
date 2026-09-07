@@ -2,7 +2,7 @@
   "id": "VP-Name",
   "displayName": "VP Name",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -31,14 +31,28 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Use the current spreadsheet (default when sheet is omitted)."
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Apply to the whole workbook rather than a single sheet."
+            }
+          ]
         }
       ],
       "returns": {
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The VP Name command returns a new range object referencing a named range."
+      "semanticRole": "Returns a new range object referencing the existing named range rangeName within the designated (or current) sheet/workbook scope."
     }
+  ],
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error.",
+    "rangeName must be an existing named cell range."
   ]
 }

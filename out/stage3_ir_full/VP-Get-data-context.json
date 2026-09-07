@@ -2,7 +2,7 @@
   "id": "VP-Get-data-context",
   "displayName": "VP Get data context",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "4D View Pro area form object name"
         },
         {
           "name": "sheet",
@@ -22,41 +23,19 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Index of the sheet to get the data context from; current sheet if omitted"
         }
       ],
       "returns": {
         "kind": "pseudo",
         "name": "any"
       },
-      "semanticRole": "The VP Get data context command returns the current data context of a worksheet."
-    },
-    {
-      "params": [
-        {
-          "name": "vpAreaName",
-          "type": {
-            "kind": "concrete",
-            "name": "Text"
-          },
-          "direction": "in",
-          "optional": false
-        },
-        {
-          "name": "sheet",
-          "type": {
-            "kind": "concrete",
-            "name": "Integer"
-          },
-          "direction": "in",
-          "optional": true
-        }
-      ],
-      "returns": {
-        "kind": "pseudo",
-        "name": "any"
-      },
-      "semanticRole": "The VP Get data context command returns the current data context of a worksheet."
+      "semanticRole": "Returns the current data context (Object or Collection, or Null if none is set) of a worksheet, including any modifications made to its contents."
     }
+  ],
+  "constraints": [
+    "If there is no data context set for the worksheet (via VP SET DATA CONTEXT), the command returns Null.",
+    "The returned type (Object or Collection) mirrors whatever type was set with VP SET DATA CONTEXT."
   ]
 }

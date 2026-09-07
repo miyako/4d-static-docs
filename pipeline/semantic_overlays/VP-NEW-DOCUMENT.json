@@ -1,0 +1,13 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error.",
+    "The new empty document replaces any data already present in the area."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Loads and displays a new, default (empty) document in the 4D View Pro area vpAreaName."
+    }
+  ]
+}

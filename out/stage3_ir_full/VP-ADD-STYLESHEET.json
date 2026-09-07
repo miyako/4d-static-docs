@@ -2,7 +2,7 @@
   "id": "VP-ADD-STYLESHEET",
   "displayName": "VP ADD STYLESHEET",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -45,5 +45,9 @@
       ],
       "semanticRole": "The VP ADD STYLESHEET command creates or modifies the styleName style sheet based upon the combination of the properties specified in styleObj in the open document."
     }
+  ],
+  "constraints": [
+    "Errors if vpAreaName does not designate an existing 4D View Pro area.",
+    "If a style sheet with the same name and index already exists, it is overwritten with the new values; the same name can be reused across different scopes."
   ]
 }

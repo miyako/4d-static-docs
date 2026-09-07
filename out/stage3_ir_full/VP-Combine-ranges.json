@@ -2,7 +2,7 @@
   "id": "VP-Combine-ranges",
   "displayName": "VP Combine ranges",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -48,7 +48,12 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The VP Combine Ranges command returns a new range object that incorporates two or more existing range objects."
+      "semanticRole": "Returns a new range object that combines two or more existing range objects (by reference) from the same 4D View Pro area into a single combined range.",
+      "mechanism": "reference_combination"
     }
+  ],
+  "constraints": [
+    "All ranges passed (rangeObj, otherRangeObj, and any further otherRangeObjN) must belong to the same 4D View Pro area.",
+    "The command incorporates the passed range objects by reference, not by copy."
   ]
 }

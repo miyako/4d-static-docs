@@ -6,7 +6,14 @@
   "overloads": [
     {
       "params": [],
-      "semanticRole": "The Session command returns the Session object corresponding to the current session."
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Session"
+      },
+      "semanticRole": "Returns the Session object corresponding to the current session (a web session, a remote user session, a stored procedures session, or a standalone session, depending on the calling process)."
     }
+  ],
+  "constraints": [
+    "Returns Null if called in a web process and scalable sessions are disabled on the web server."
   ]
 }

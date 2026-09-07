@@ -1,0 +1,53 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "An error is returned if vpAreaName does not designate an existing 4D View Pro area."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "params": [
+        {
+          "name": "vpAreaName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "4D View Pro area form object name"
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the named range or named formula to remove"
+        },
+        {
+          "name": "scope",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Target scope (default = current sheet); may also be a sheet index (counting begins at 0)",
+          "sentinelValues": [
+            {
+              "value": "vk current sheet",
+              "meaning": "Remove the name from the current sheet's scope."
+            },
+            {
+              "value": "vk workbook",
+              "meaning": "Remove the name from the workbook-level scope."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

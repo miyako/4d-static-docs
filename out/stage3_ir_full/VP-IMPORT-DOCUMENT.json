@@ -2,7 +2,7 @@
   "id": "VP-IMPORT-DOCUMENT",
   "displayName": "VP IMPORT DOCUMENT",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -34,7 +34,15 @@
           "optional": true
         }
       ],
-      "semanticRole": "The VP IMPORT DOCUMENT command imports and displays the document designated by filePath in the 4D View Pro area vpAreaName ."
+      "semanticRole": "Imports and displays the document at filePath into the 4D View Pro area vpAreaName, replacing any existing content."
     }
+  ],
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error.",
+    "The imported document replaces any data already present in the area.",
+    "Supported filePath extensions: .4vp (4D View Pro), .xlsx (Excel), .txt/.csv (UTF-8 text), .sjs (SpreadJS); an unrecognized extension is treated as a text document.",
+    "filePath must be a full path unless the document sits alongside the Project folder, in which case just its name may be passed.",
+    "An error is returned if filePath is invalid or the file is missing or malformed.",
+    "paramObj.formula is an optional 4D.Function callback invoked when the import completes."
   ]
 }

@@ -2,7 +2,7 @@
   "id": "VERIFY-DATA-FILE",
   "displayName": "VERIFY DATA FILE",
   "kind": "classic_command",
-  "theme": "4D Environment",
+  "theme": "4D-Environment",
   "overloads": [
     {
       "params": [
@@ -13,7 +13,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Pathname of 4D structure file to be checked; pass an empty string to show an Open file dialog"
         },
         {
           "name": "dataPath",
@@ -22,7 +23,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Pathname (or file name) of the 4D data file (.4DD) to check; pass an empty string to show an Open file dialog"
         },
         {
           "name": "objects",
@@ -31,7 +33,26 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Which object types to check: sum of Verify Records and/or Verify Indexes bit values, or Verify All",
+          "sentinelValues": [
+            {
+              "value": 16,
+              "meaning": "Verify all (Verify Records + Verify Indexes plus a full internal check)"
+            },
+            {
+              "value": 8,
+              "meaning": "Verify indexes: checks physical index consistency only, cannot detect duplicated keys"
+            },
+            {
+              "value": 4,
+              "meaning": "Verify records"
+            },
+            {
+              "value": 0,
+              "meaning": "Equivalent to Verify Records + Verify Indexes (12)"
+            }
+          ]
         },
         {
           "name": "options",
@@ -40,7 +61,22 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Verification/log options: sum of applicable bit values",
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "Create the (non-timestamped) log file (default behavior)"
+            },
+            {
+              "value": 16384,
+              "meaning": "Do not create a log file"
+            },
+            {
+              "value": 262144,
+              "meaning": "Timestamp the log file name so it does not replace a previous log file"
+            }
+          ]
         },
         {
           "name": "method",
@@ -49,7 +85,8 @@
             "name": "Text"
           },
           "direction": "in",
-          "optional": false
+          "optional": false,
+          "description": "Name of a project method called regularly during verification with progress/error/warning events; an empty string or invalid name disables the callback"
         },
         {
           "name": "tablesArray",
@@ -58,7 +95,8 @@
             "name": "Integer array"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "Table numbers whose records to check; if omitted/empty and objects includes Verify Records, all tables are checked"
         },
         {
           "name": "fieldsArray",
@@ -67,10 +105,16 @@
             "name": "Integer array"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "description": "2D array: for each row, element {0} is a table number and elements {1...x} are indexed field numbers whose indexes to check; if omitted/empty and objects includes Verify Indexes, all indexes are checked"
         }
-      ],
-      "semanticRole": "The VERIFY DATA FILE command carries out a structural check of the objects contained in the 4D data file designated by structurePath and dataPath .For more information about checking data, please refer to the Design Refe"
+      ]
     }
+  ],
+  "constraints": [
+    "The designated data file is opened read-only; no other application should access it in write mode during the check, or results may be distorted.",
+    "The method callback receives up to 5 params ($messageType, $objectType, $messageText, $table, $reserved) and must return an Integer: 0 continues normally, -128 stops without error, any other value stops and is returned as the error number (interceptable by an error-handling method); execution cannot be interrupted after the End of execution event ($messageType=4).",
+    "By default a log file in XML format is written to the database's Logs folder, named after the structure file (e.g. myDB_Verify_Log.xml, or with a timestamp suffix if the Timestamp log file name option is passed); its path is returned in the Document system variable regardless of which options were passed.",
+    "To verify the currently open data file instead, use VERIFY CURRENT DATA FILE."
   ]
 }

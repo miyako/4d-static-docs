@@ -2,7 +2,7 @@
   "id": "VERIFY-CURRENT-DATA-FILE",
   "displayName": "VERIFY CURRENT DATA FILE",
   "kind": "classic_command",
-  "theme": "4D Environment",
+  "theme": "4D-Environment",
   "overloads": [
     {
       "params": [
@@ -54,5 +54,12 @@
       ],
       "semanticRole": "The VERIFY CURRENT DATA FILE command carries out a structural check of the objects found in the data file currently opened by 4D."
     }
+  ],
+  "constraints": [
+    "Identical behavior to VERIFY DATA FILE but applied to the currently open database's own data file, so it takes no structurePath/dataPath.",
+    "If called with no parameters at all, defaults are: objects = Verify All (16), options = 0 (log file created, not timestamped), method = \"\", tablesArray/fieldsArray omitted.",
+    "Flushes the data cache and blocks all operations accessing the data for the duration of the verification.",
+    "If a log file is generated, its complete pathname is returned in the Document system variable.",
+    "See VERIFY DATA FILE for the full meaning of objects, options, method, tablesArray and fieldsArray."
   ]
 }

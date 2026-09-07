@@ -1,0 +1,7 @@
+{
+  "constraints": [
+    "When called from a component: if * is passed, returns the pathname of the host database's structure file; if * is omitted, returns the pathname of the component's own structure file.",
+    "In remote mode, only the name of the structure/project file is returned, not the full pathname.",
+    "For a compiled database merged with 4D Volume Desktop, returns the pathname of the executable application file instead of the structure file (kept for compatibility; use Application file to get the full software package pathname)."
+  ]
+}

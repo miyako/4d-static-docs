@@ -1,0 +1,12 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "The returned object contains all workbook options (default and modified) currently in effect; see VP SET WORKBOOK OPTIONS for the full option list."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns an object containing all the workbook options currently applied in vpAreaName."
+    }
+  ]
+}

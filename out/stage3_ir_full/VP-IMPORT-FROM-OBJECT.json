@@ -2,7 +2,7 @@
   "id": "VP-IMPORT-FROM-OBJECT",
   "displayName": "VP IMPORT FROM OBJECT",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -34,7 +34,13 @@
           "optional": true
         }
       ],
-      "semanticRole": "The VP IMPORT FROM OBJECT command imports and displays the viewPro 4D View Pro object in the vpAreaName 4D View Pro area."
+      "semanticRole": "Imports and displays the 4D View Pro object viewPro into the 4D View Pro area vpAreaName, replacing any existing content."
     }
+  ],
+  "constraints": [
+    "vpAreaName must name an existing 4D View Pro area; an unknown name raises an error.",
+    "viewPro must be a valid 4D View Pro object, typically produced by VP Export to object; an invalid object raises an error.",
+    "The imported object's contents replace any data already present in the area.",
+    "paramObj.formula is an optional callback invoked once the object is loaded and all 4D custom functions have responded; it receives (param1: area name, param2: reserved/empty, param3: the paramObj reference, param4: a status object with a success boolean)."
   ]
 }

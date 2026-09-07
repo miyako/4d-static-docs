@@ -2,7 +2,7 @@
   "id": "VP-RECOMPUTE-FORMULAS",
   "displayName": "VP RECOMPUTE FORMULAS",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -18,5 +18,9 @@
       ],
       "semanticRole": "The VP RECOMPUTE FORMULAS command immediately evaluates all formulas in vpAreaName ."
     }
+  ],
+  "constraints": [
+    "Internally launches VP FLUSH COMMANDS first to execute any stored commands and clear the command buffer, then recomputes all formulas in the workbook.",
+    "Does nothing if VP SUSPEND COMPUTING has been called on this area and VP RESUME COMPUTING has not yet been called to reactivate the calculation service."
   ]
 }

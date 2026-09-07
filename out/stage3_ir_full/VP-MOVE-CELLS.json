@@ -2,7 +2,7 @@
   "id": "VP-MOVE-CELLS",
   "displayName": "VP MOVE CELLS",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -34,7 +34,13 @@
           "optional": false
         }
       ],
-      "semanticRole": "The VP MOVE CELLS command moves or copies the values, style and formulas from originRange to targetRange ."
+      "semanticRole": "Moves or copies the values, styles, and formulas of cells from originRange to targetRange, according to options."
     }
+  ],
+  "constraints": [
+    "originRange and targetRange may refer to different 4D View Pro areas.",
+    "If originRange is a combined range, only its first sub-range is used.",
+    "options.copy defaults to False (source cells are cleared after the move); pass True to keep the source (copy instead of move).",
+    "options.pasteOptions selects what is transferred via the vk clipboard options * constants (all/formatting/formulas/values and combinations thereof); default is vk clipboard options all."
   ]
 }

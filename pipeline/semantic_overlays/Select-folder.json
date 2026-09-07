@@ -1,0 +1,21 @@
+{
+  "overloadMerges": [
+    {
+      "sourceIndices": [0],
+      "note": "The doc syntax line has no parenthesized parameter list ('Select folder : Text'), so the mechanical parser produced an empty overload with no return type at all; restored the documented Text return type.",
+      "params": [],
+      "returns": { "kind": "concrete", "name": "Text" },
+      "semanticRole": "Displays a dialog box (with no custom title or default location) that allows the user to manually select a folder, and returns the complete access path to that folder."
+    }
+  ],
+  "overloadPatches": [
+    {
+      "index": 1,
+      "semanticRole": "Displays a dialog box, with the given message and default location/options, that allows the user to manually select a folder, and returns the complete access path to that folder."
+    }
+  ],
+  "constraints": [
+    "This command does not modify 4D's current folder.",
+    "defaultPath as a memorized-path number (1-32,000) lets 4D remember, per number, the last folder the user browsed to and reuse it as the default on subsequent calls."
+  ]
+}

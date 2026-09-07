@@ -1,0 +1,13 @@
+{
+  "theme": "4D-View-Pro",
+  "constraints": [
+    "Sheet indexing starts at 0.",
+    "Returns an empty string if the passed sheet index does not exist."
+  ],
+  "overloadPatches": [
+    {
+      "index": 0,
+      "semanticRole": "Returns the name of the sheet at 0-based index sheet, or an empty string if the index does not exist."
+    }
+  ]
+}

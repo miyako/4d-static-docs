@@ -2,7 +2,7 @@
   "id": "VP-Get-table-range",
   "displayName": "VP Get table range",
   "kind": "classic_command",
-  "theme": "View Pro",
+  "theme": "4D-View-Pro",
   "overloads": [
     {
       "params": [
@@ -31,7 +31,17 @@
             "name": "Integer"
           },
           "direction": "in",
-          "optional": true
+          "optional": true,
+          "sentinelValues": [
+            {
+              "value": 0,
+              "meaning": "vk table full range: cell range for the table area including footer and header (default)."
+            },
+            {
+              "value": 1,
+              "meaning": "vk table data range: cell range for the table data area only."
+            }
+          ]
         },
         {
           "name": "sheet",
@@ -47,7 +57,11 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The VP Get table range command returns the range of tableName ."
+      "semanticRole": "Returns the range object of tableName, either the full table area (with header/footer) or the data-only area depending on onlyData."
     }
+  ],
+  "constraints": [
+    "sheet is 0-based; if omitted, the command applies to the current sheet.",
+    "Returns null if tableName is not found."
   ]
 }
