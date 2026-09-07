@@ -4,17 +4,22 @@ Reusable, re-runnable pipeline that extracts the 4D Command IR (see
 `references/4d-command-ir-schema.json`) from the local static HTML mirror
 under `mirror/docs/`. No network access; the mirror is the sole source.
 
-## Stages (implemented so far: 0, 1)
+For the initial build, the final assembled output is `out/4d-command-ir.json`
+(see `stage5_assemble.py`). **To update the IR after the docs mirror
+changes** (commands added/updated/removed), see `MAINTENANCE.md` instead of
+re-running these stages blindly.
+
+## Stages (implemented: 0, 1, 2, 3, 5; skipped: 4; separate follow-on: 4.5/6)
 
 | Stage | Script | Input | Output |
 |---|---|---|---|
 | 0 | `stage0_manifest.py` | `mirror/docs/<version>/{commands,WritePro/commands,ViewPro/commands}` | `out/manifest.json` |
 | 1 | `stage1_extract.py` | `out/manifest.json` + source HTML | `out/stage1_raw.json`, cached per-command in `cache/raw/` |
-| 2 | `stage2_candidates.py` (planned) | `out/stage1_raw.json` | `out/candidates.json` (category A–S heuristic hits, for human review) |
-| 3 | `stage3_semantic.py` (planned) | `out/stage1_raw.json` | `cache/ir/*.json`, schema-validated per command |
-| 4 | `stage4_relationships.py` (planned) | Stage 2 + Stage 3 output | `out/relationships.json` |
-| 4.5 | `stage4_5_lsp_check.py` (planned) | Stage 3 output | `out/lsp_report.json` (tool4d-lsp-stdio cross-check) |
-| 5 | `stage5_report.py` (planned) | everything above | `out/ir_corpus.json`, `out/diff_report.json`, `out/sample_report.md` |
+| 2 | `stage2_candidates.py` | `out/stage1_raw.json` | `out/candidates.json` (category A–S heuristic hits, for human review) |
+| 3 | `stage3_bulk.py` (1443 bulk commands) + `stage3_semantic.py` (13 hand-authored fixtures) | `out/stage1_raw.json` + `pipeline/semantic_overlays/*.json` | `out/stage3_ir_full/*.json`, schema-validated per command |
+| 4 | relationships enrichment | — | explicitly skipped (schema-optional, no consumer need identified yet) |
+| 4.5 / 6 | `stage6_synth_examples.py` (separate follow-on effort) | `out/4d-command-ir.json` | `out/lsp_crosscheck_report.json` (`tool4d-lsp-stdio` compiler cross-check) |
+| 5 | `stage5_assemble.py` | fixtures + Stage 3 output + Layer-2 registries | `out/4d-command-ir.json` (final root IR document) |
 
 ## Run
 
@@ -22,6 +27,7 @@ under `mirror/docs/`. No network access; the mirror is the sole source.
 pip install -r pipeline/requirements.txt
 python3 pipeline/stage0_manifest.py      # -> out/manifest.json
 python3 pipeline/stage1_extract.py       # -> out/stage1_raw.json (cached)
+python3 pipeline/stage5_assemble.py      # -> out/4d-command-ir.json (assumes Stage 3 already populated out/stage3_ir_full/)
 ```
 
 Both scripts accept `--repo-root` (default: cwd) and print a summary
