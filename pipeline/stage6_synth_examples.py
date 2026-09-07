@@ -444,6 +444,60 @@ SPECIAL_ARG_LITERALS = {
     ("QUERY-SELECTION", "queryArgument"): '[SynthTable]label="synthAny"',
 }
 
+# Commands using the queryThemeChain protocol's single-expression
+# "queryArgument" calling form (out/4d-command-ir.json's protocols.
+# multiCallChains.queryThemeChain lists QUERY/QUERY-SELECTION alongside
+# QUERY-BY-ATTRIBUTE/ORDER-BY/etc, but only these two share this exact
+# param shape -- see render_query_chain). Confirmed against developer.4d.
+# com's QUERY page (Examples 4, 6-8, 10, 12, 15-17): a real multi-criteria
+# query means calling the command repeatedly, re-passing aTable (if the
+# overload takes one) every time, with the trailing '*' flag on every call
+# except the last, and a leading conjunction ('&'/'|'/'#') on every call
+# after the first. A single one-shot call (what render_block's "default"
+# variant emits) can only ever prove the FIRST call's own shape type-
+# checks -- it never exercises the continuation shape at all, which has
+# an entire extra positional argument (the conjunction) that doesn't
+# appear anywhere in the IR's own params list for this overload, since
+# the conjunction is documented as embedded in queryArgument's own
+# micro-grammar rather than modeled as a distinct param (unlike QUERY-BY-
+# ATTRIBUTE, which already has an explicit conjOp param of its own).
+QUERY_ARG_CHAIN_COMMANDS = {"QUERY", "QUERY-SELECTION"}
+# AND/OR/AND-EXCEPT -- swept across the continuation calls below so every
+# conjunction symbol gets compiled at least once, not just one.
+QUERY_CHAIN_CONJUNCTIONS = ["|", "&", "#"]
+QUERY_CHAIN_PREDICATES = [
+    '[SynthTable]label="synthAny"',
+    '[SynthTable]label="synthOther"',
+    '[SynthTable]label="synthYetAnother"',
+    '[SynthTable]label="synthFourth"',
+]
+
+
+def render_query_chain(call_name: str, oi: int, has_a_table: bool) -> dict:
+    """Build a real multi-criteria call chain for a queryThemeChain
+    command's single-expression overload: an opening call (no
+    conjunction, trailing '*'), one continuation call per
+    QUERY_CHAIN_CONJUNCTIONS symbol (leading conjunction, trailing '*'
+    except on the last), and no separate closing call -- the last
+    continuation simply omits '*' to execute the accumulated query, per
+    the documented "call repeatedly; only the very last call omits '*'"
+    rule. Every call re-passes aTable when the overload has one (see
+    Example 4/6-8 etc: aTable is NOT omitted on continuation calls, only
+    the leading-conjunction rule differs from the first call)."""
+    lines = [f"// overload {oi} multi-query chain"]
+    n = len(QUERY_CHAIN_CONJUNCTIONS) + 1
+    for i in range(n):
+        args = []
+        if has_a_table:
+            args.append("[SynthTable]")
+        if i > 0:
+            args.append(QUERY_CHAIN_CONJUNCTIONS[i - 1])
+        args.append(QUERY_CHAIN_PREDICATES[i])
+        if i < n - 1:
+            args.append("*")
+        lines.append(f"{call_name}({';'.join(args)})")
+    return {"overload_index": oi, "variant": "chain", "lines": lines}
+
 # Curated (command_id -> {frozenset({paramA, paramB}), ...}) trailing
 # optional-param pairs confirmed (via a live tool4d cross-check) to be
 # mutually exclusive alternates of the same call, not independently
@@ -773,7 +827,15 @@ def synthesize_command(ir, command) -> list[dict]:
                 block.append(f"{call_name}({arg_str})")
             return {"overload_index": oi, "variant": variant, "lines": block}
 
-        blocks.append(render_block("default", "", {}))
+        param_names = [p.get("name") for p in params if "members" not in p and "contentParam" not in p]
+        if (
+            command["id"] in QUERY_ARG_CHAIN_COMMANDS
+            and "queryArgument" in param_names
+            and "*" in param_names
+        ):
+            blocks.append(render_query_chain(call_name, oi, param_names[0] == "aTable"))
+        else:
+            blocks.append(render_block("default", "", {}))
 
         # Enum-value sweep: for every enum_ref param this overload has,
         # emit one additional block per enum value so every constant name

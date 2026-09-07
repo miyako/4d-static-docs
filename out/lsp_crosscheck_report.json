@@ -13202,7 +13202,7 @@
   {
     "id": "QUERY",
     "overload_index": 0,
-    "variant": "default",
+    "variant": "chain",
     "file": "Sources/Methods/Synth_QUERY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13218,7 +13218,7 @@
   {
     "id": "QUERY",
     "overload_index": 1,
-    "variant": "default",
+    "variant": "chain",
     "file": "Sources/Methods/Synth_QUERY.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13362,7 +13362,7 @@
   {
     "id": "QUERY-SELECTION",
     "overload_index": 0,
-    "variant": "default",
+    "variant": "chain",
     "file": "Sources/Methods/Synth_QUERY_SELECTION.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -13378,7 +13378,7 @@
   {
     "id": "QUERY-SELECTION",
     "overload_index": 1,
-    "variant": "default",
+    "variant": "chain",
     "file": "Sources/Methods/Synth_QUERY_SELECTION.4dm",
     "diagnostics": [],
     "status": "clean"
