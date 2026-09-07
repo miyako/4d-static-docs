@@ -3,3 +3,6 @@ Extract Text/userPreferences.*
 Extract Text/Project/DerivedData/*
 Extract Text/Data/*
 mcp_console_render.html
+cache/
+__pycache__/
+*.pyc
