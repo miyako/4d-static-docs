@@ -47,8 +47,34 @@ def deep_merge(base: dict, overlay: dict) -> dict:
     return out
 
 
+DOC_BASE_URL = "https://developer.4d.com/docs/API/"
+
+
+def canonical_doc_page(entry: dict) -> dict:
+    """Rewrite the mirror path into the official, version-less permalink.
+
+    The mirror path is what the pipeline parses, but it is meaningless to a
+    consumer of the redistributable IR, which ships without the mirror. It is
+    preserved as `docPageLocal` so re-derivation and provenance still work.
+
+    The URL deliberately omits the version segment: a versioned URL such as
+    /docs/21-R3/API/... stops resolving once that release is superseded, so
+    baking one into a redistributable artifact would rot it on 4D's release
+    schedule rather than ours.
+    """
+    local = entry.get("docPage")
+    if not local:
+        return entry
+    entry = dict(entry)
+    entry["docPageLocal"] = local
+    entry["docPage"] = DOC_BASE_URL + local.rsplit("/", 1)[-1].removesuffix(".html")
+    return entry
+
+
 def strip_internal(entry: dict) -> dict:
-    return {k: v for k, v in entry.items() if k not in INTERNAL_KEYS}
+    return canonical_doc_page(
+        {k: v for k, v in entry.items() if k not in INTERNAL_KEYS}
+    )
 
 
 def see_also_edges(entries: list[dict], ids: set[str]) -> list[dict]:
@@ -162,6 +188,11 @@ def main() -> int:
 
     ids = {entry["id"] for entry in entries}
     relationships = relationships + see_also_edges(entries, ids)
+
+    classes = {
+        class_id: canonical_doc_page(class_def)
+        for class_id, class_def in classes.items()
+    }
 
     document = {
         "enums": enums,

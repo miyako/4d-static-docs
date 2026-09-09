@@ -1008,6 +1008,20 @@
           "items": {
             "type": "string"
           }
+        },
+        "docPage": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Official documentation permalink for the API page, e.g. 'https://developer.4d.com/docs/API/SMTPTransporterClass'. Deliberately version-less: a versioned URL stops resolving once that release is superseded, which would rot a redistributable artifact on 4D's release schedule. Null for an abstract base documented only through its subclasses (e.g. Transporter)."
+        },
+        "docPageLocal": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Path of the API page in the local docs mirror, relative to the repository root, e.g. 'mirror/docs/21-R3/API/SMTPTransporterClass.html'. This is the file the pipeline actually parsed, kept for provenance and re-derivation; consumers of the redistributable IR ship without the mirror and should use docPage instead."
         }
       }
     },
@@ -1199,7 +1213,14 @@
             "string",
             "null"
           ],
-          "description": "Path of the API page documenting this class, relative to the docs version root. Null for an abstract base documented only through its subclasses (e.g. Transporter)."
+          "description": "Official documentation permalink for this class's API page, e.g. 'https://developer.4d.com/docs/API/SMTPTransporterClass'. Deliberately version-less: a versioned URL stops resolving once that release is superseded, which would rot a redistributable artifact on 4D's release schedule. Null for an abstract base documented only through its subclasses (e.g. Transporter)."
+        },
+        "docPageLocal": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Path of the API page in the local docs mirror, relative to the repository root, e.g. 'mirror/docs/21-R3/API/SMTPTransporterClass.html'. This is the file the pipeline actually parsed, kept for provenance and re-derivation; consumers of the redistributable IR ship without the mirror and should use docPage instead."
         },
         "typeName": {
           "type": "string",
