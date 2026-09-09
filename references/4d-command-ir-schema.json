@@ -59,10 +59,21 @@
       "items": { "$ref": "#/$defs/CommandEntry" }
     },
 
+    "classes": {
+      "description": "Layer 2 — per-class metadata for the OOP corpus, keyed by ClassDef.id. Authored once and referenced from OOP member entries via CommandEntry.receiver.classId. Absent from the classic corpus.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/ClassDef" }
+    },
+
     "relationships": {
       "description": "Layer 3 — edges between command/overload entries: supersession, mutual exclusion, near-duplicate deltas, structural equivalence, mechanism families, platform variants.",
       "type": "array",
       "items": { "$ref": "#/$defs/Relationship" }
+    }
+  },
+  "patternProperties": {
+    "^_": {
+      "description": "Underscore-prefixed root keys carry non-schema bookkeeping (e.g. '_source' provenance notes on hand-authored registry files) and are stripped by the assembler. Allowed so those files validate standalone."
     }
   },
   "additionalProperties": false,
@@ -70,11 +81,15 @@
   "$defs": {
 
     "CommandRef": {
-      "description": "Pointer to a command, optionally scoped to a specific overload index (0-based).",
+      "description": "Pointer to a command entry (optionally scoped to a specific overload index, 0-based) or, for OOP Layer-3 edges, to a class in root.classes. Exactly one of `command` / `classId` is used.",
       "type": "object",
-      "required": ["command"],
+      "anyOf": [
+        { "required": ["command"] },
+        { "required": ["classId"] }
+      ],
       "properties": {
         "command": { "type": "string", "description": "CommandEntry.id" },
+        "classId": { "type": "string", "description": "Key into root.classes" },
         "overloadIndex": { "type": "integer", "minimum": 0 }
       },
       "additionalProperties": false
@@ -399,6 +414,16 @@
         "params": { "type": "array", "items": { "$ref": "#/$defs/OverloadElement" } },
         "returns": { "oneOf": [ { "$ref": "#/$defs/TypeRef" }, { "type": "null" } ] },
 
+        "returnsNullable": {
+          "type": "boolean",
+          "default": false,
+          "description": "The return value can be Null or undefined (e.g. Collection.find() with no match). Distinct from `returns: null`, which means the call returns nothing at all."
+        },
+        "rawSyntax": {
+          "type": "string",
+          "description": "OOP only — the source `Syntax` string this overload was parsed from, verbatim. Kept so a consumer can always see exactly what the documentation said, and so the parser's round-trip gate can be re-checked from the IR alone."
+        },
+
         "semanticRole": {
           "type": "string",
           "description": "Category C (part 2) / general — short discriminator of what THIS overload does, distinct from sibling overloads even when types look similar."
@@ -459,13 +484,69 @@
 
     "CommandEntry": {
       "type": "object",
-      "required": ["id", "displayName", "kind", "overloads"],
+      "required": ["id", "displayName", "kind"],
+      "allOf": [
+        {
+          "description": "Every entry carries overloads except OOP properties (which carry an accessor instead) and class entries (which carry no signature at all).",
+          "if": {
+            "required": ["kind"],
+            "properties": { "kind": { "enum": ["oop_property", "oop_class"] } }
+          },
+          "then": true,
+          "else": { "required": ["overloads"] }
+        },
+        {
+          "if": {
+            "required": ["kind"],
+            "properties": { "kind": { "const": "oop_property" } }
+          },
+          "then": { "required": ["accessor"] }
+        }
+      ],
       "properties": {
         "id": { "type": "string" },
         "displayName": { "type": "string" },
         "kind": {
           "type": "string",
-          "enum": ["classic_command", "compiler_directive", "oop_method"]
+          "enum": [
+            "classic_command",
+            "compiler_directive",
+            "oop_method",
+            "oop_function",
+            "oop_property",
+            "oop_constructor",
+            "oop_class"
+          ],
+          "description": "'oop_method' is a deprecated alias retained so pre-existing consumers keep validating; new OOP entries use oop_function / oop_property / oop_constructor / oop_class."
+        },
+        "memberName": {
+          "type": "string",
+          "description": "OOP only — the bare member name as written at a call site, including its leading dot (e.g. '.diff', '.length'). Distinct from `id`, which is receiver-qualified."
+        },
+        "receiver": {
+          "$ref": "#/$defs/Receiver",
+          "description": "OOP only — what this member is called on. Required in practice for every OOP member entry; omitted for classic commands, which have no receiver."
+        },
+        "accessor": {
+          "$ref": "#/$defs/Accessor",
+          "description": "OOP properties only — read/write/computed semantics and the property's type. Properties have no `overloads`."
+        },
+        "dynamicMember": {
+          "description": "OOP only — this member's name is not fixed; it stands for a user-model-derived name (e.g. Entity's .attributeName). `namePattern` describes what a real name looks like.",
+          "type": "object",
+          "required": ["namePattern"],
+          "properties": {
+            "namePattern": { "type": "string" },
+            "note": { "type": "string" }
+          }
+        },
+        "errorModel": {
+          "$ref": "#/$defs/ErrorModel",
+          "description": "How failure is reported. Classic commands set the OK/error system variables; OOP members typically throw or return a status object."
+        },
+        "returnsShape": {
+          "$ref": "#/$defs/ObjectShape",
+          "description": "Structure of a returned Object, when the docs describe its members in prose (e.g. Entity.save() returning {success, status, statusText}). Optional, prose-derived, overlay-correctable."
         },
         "theme": { "type": "string" },
         "sinceVersion": { "type": "string" },
@@ -534,6 +615,206 @@
       }
     },
 
+    "Receiver": {
+      "description": "OOP — what an OOP member is invoked on. `instance` covers `$c.length` (a live object of the class), `class` covers `4D.File.new()` (the class object in a class store), `namespace` covers members of the class store itself (`cs.<Class>`).",
+      "type": "object",
+      "required": ["classId", "kind"],
+      "properties": {
+        "classId": { "type": "string", "description": "Key into root.classes" },
+        "kind": { "type": "string", "enum": ["instance", "class", "namespace"] },
+        "typeRef": { "$ref": "#/$defs/TypeRef" },
+        "inheritedFrom": {
+          "type": "string",
+          "description": "Set when this member is declared on an ancestor class and only re-documented on `classId`'s page. Value is the declaring class's id."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "Accessor": {
+      "description": "OOP properties — the property's type plus its read/write/computed semantics. Replaces `overloads`, which a property does not have.",
+      "type": "object",
+      "required": ["type", "readable", "writable"],
+      "properties": {
+        "type": {
+          "oneOf": [
+            { "$ref": "#/$defs/TypeRef" },
+            { "type": "array", "items": { "$ref": "#/$defs/TypeRef" } }
+          ]
+        },
+        "readable": { "type": "boolean" },
+        "writable": { "type": "boolean" },
+        "computed": {
+          "type": "boolean",
+          "default": false,
+          "description": "Value is derived on each read rather than stored (so reading it may have a cost or may reflect live state)."
+        },
+        "nullable": {
+          "type": "boolean",
+          "default": false,
+          "description": "The property can hold Null or be undefined."
+        },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "ErrorModel": {
+      "description": "How a call reports failure. Classic commands set the OK / error system variables; OOP members throw, populate a status object, or return Null.",
+      "type": "object",
+      "required": ["style"],
+      "properties": {
+        "style": {
+          "type": "string",
+          "enum": ["throws", "status_object", "returns_null", "ok_system_variable", "silent", "unknown"]
+        },
+        "statusObjectRef": {
+          "type": "string",
+          "description": "When style is status_object and the shape is shared, the key of the CommandEntry whose returnsShape describes it."
+        },
+        "catchableWith": {
+          "type": "string",
+          "description": "e.g. 'try/catch', 'ON ERR CALL'."
+        },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "ObjectShape": {
+      "description": "Structure of an object value described in prose rather than by a type name — used for returnsShape (e.g. {success, status, statusText}) and for option-object parameters.",
+      "type": "object",
+      "required": ["properties"],
+      "properties": {
+        "description": { "type": "string" },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": {
+                "oneOf": [
+                  { "$ref": "#/$defs/TypeRef" },
+                  { "type": "array", "items": { "$ref": "#/$defs/TypeRef" } }
+                ]
+              },
+              "description": { "type": "string" },
+              "optional": { "type": "boolean", "default": false },
+              "presentWhen": {
+                "type": "string",
+                "description": "Condition under which this member appears at all (e.g. 'only when success is False')."
+              },
+              "shape": { "$ref": "#/$defs/ObjectShape" }
+            }
+          }
+        },
+        "source": {
+          "type": "string",
+          "description": "Where this shape was derived from — normally the doc page section, since it is prose-derived rather than declared."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "ClassDef": {
+      "description": "Layer 2 — one built-in OOP class. `instantiation` is the field with no classic analogue and the one example synthesis depends on: it answers 'how does a caller obtain one of these?'.",
+      "type": "object",
+      "required": ["id", "displayName", "instantiation"],
+      "properties": {
+        "id": { "type": "string" },
+        "displayName": { "type": "string" },
+        "docPage": {
+          "type": ["string", "null"],
+          "description": "Path of the API page documenting this class, relative to the docs version root. Null for an abstract base documented only through its subclasses (e.g. Transporter)."
+        },
+        "typeName": {
+          "type": "string",
+          "description": "The name used in a type declaration, e.g. '4D.File', 'Collection'."
+        },
+        "instantiation": {
+          "description": "Ordered recipes for obtaining an instance, most idiomatic first. An empty list is only valid together with isAbstract or isStatic, and then `note` must say why.",
+          "type": "object",
+          "required": ["recipes"],
+          "properties": {
+            "recipes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["kind", "expression"],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "constructor",
+                      "classic_command",
+                      "class_function",
+                      "instance_function",
+                      "property_of",
+                      "literal",
+                      "system_object",
+                      "event_callback",
+                      "not_directly_instantiable"
+                    ]
+                  },
+                  "expression": {
+                    "type": "string",
+                    "description": "A 4D expression yielding an instance, using $-prefixed locals for anything it needs (e.g. '$f:=File(\"/PACKAGE/x.txt\")')."
+                  },
+                  "requires": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Preconditions the expression assumes — e.g. 'a datastore with a SynthTable dataclass', 'a running web server'."
+                  },
+                  "producedBy": {
+                    "type": "string",
+                    "description": "Id of the CommandEntry (classic or OOP) that produces the instance, when there is one."
+                  },
+                  "note": { "type": "string" }
+                }
+              }
+            },
+            "note": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "superclass": { "type": ["string", "null"] },
+        "isAbstract": { "type": "boolean", "default": false },
+        "isSingleton": { "type": "boolean", "default": false },
+        "isStatic": {
+          "type": "boolean",
+          "default": false,
+          "description": "The class is only ever used through class-level members (never instantiated), e.g. a class store."
+        },
+        "sharedSemantics": {
+          "description": "Whether instances are shared objects subject to Use/End use, and any related caveats.",
+          "type": "object",
+          "properties": {
+            "shared": { "type": "boolean" },
+            "requiresUseBlockForWrite": { "type": "boolean" },
+            "note": { "type": "string" }
+          }
+        },
+        "members": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Ids of the CommandEntry entries belonging to this class, including inherited ones."
+        },
+        "summary": { "type": "string" },
+        "sinceVersion": { "type": "string" },
+        "deprecated": { "type": "boolean", "default": false },
+        "isTemplate": {
+          "description": "The class is a template/protocol, not a fixed corpus entry — its concrete members depend on the user's data model (the ORDA generated cs.<DataClass> family). Members are described by pattern instead of enumerated.",
+          "type": "object",
+          "properties": {
+            "pattern": { "type": "string" },
+            "note": { "type": "string" }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
     "Relationship": {
       "type": "object",
       "required": ["type", "from", "to"],
@@ -546,7 +827,11 @@
             "diff_from",
             "equivalent_overloads",
             "same_mechanism_family",
-            "platform_variant"
+            "platform_variant",
+            "member_of",
+            "returns_instance_of",
+            "obtained_via",
+            "classic_equivalent"
           ]
         },
         "from": { "$ref": "#/$defs/CommandRef" },

@@ -8,6 +8,43 @@ Files:
   `SET LIST PROPERTIES`, `GRAPH`/`GRAPH SETTINGS`, `QUERY BY ATTRIBUTE`,
   `SQL EXECUTE`, `WA EXECUTE JAVASCRIPT FUNCTION`, `WP SET ATTRIBUTES`).
   Validates cleanly against the schema (0 errors, checked with `jsonschema`).
+- `4d-oop-ir-examples.json` — the OOP counterpart: worked examples for the
+  hardest members of the OOP corpus (`Collection.query`, `Collection.orderBy`,
+  `Entity.save`/`.drop`, `EntitySelection.query`, `File.open`,
+  `SystemWorker.new`, `WebServer`, `Session`, `Signal`, `Function.call`/
+  `.apply`, `Class.me`/`.superclass`), plus the `classes{}` entries they
+  reference. Validates cleanly with `boon`.
+
+## The OOP extension
+
+The same schema describes both corpora. `out/4d-command-ir.json` (classic) and
+`out/4d-oop-ir.json` (OOP) are separate documents that validate against it, and
+`out/4d-ir-crosslinks.json` carries the Layer-3 `classic_equivalent` edges
+between them. See `pipeline/oop/PLAN.md` and `pipeline/oop/SCOPE.md`.
+
+Everything added for OOP is **additive**: the classic corpus validates
+byte-unchanged against the extended schema (a blocking regression gate, checked
+in CI-equivalent form by `pipeline/oop/check_schema_gate.py`).
+
+| OOP concept | Schema construct |
+|---|---|
+| Function / property / constructor / class entry | `CommandEntry.kind` += `oop_function`, `oop_property`, `oop_constructor`, `oop_class` (`oop_method` retained as a deprecated alias) |
+| What a member is called on | `CommandEntry.receiver` = `{classId, kind: instance\|class\|namespace, typeRef, inheritedFrom}` |
+| The bare `.diff` / `.length` name | `CommandEntry.memberName` |
+| A property (which has no overloads) | `CommandEntry.accessor` = `{type, readable, writable, computed, nullable}`; `overloads` is conditionally required, and exempted for `oop_property` / `oop_class` |
+| `.attributeName`-style pseudo-members | `CommandEntry.dynamicMember.namePattern` |
+| Throws vs `OK`/`error` system variables vs status object | `CommandEntry.errorModel.style` |
+| Structure of a returned status object (`{success, status, statusText}`) | `CommandEntry.returnsShape` (an `ObjectShape`) |
+| Return may be Null | `Overload.returnsNullable`, `Accessor.nullable` |
+| The exact documented syntax string an overload came from | `Overload.rawSyntax` |
+| Per-class metadata, and **how a caller obtains an instance** | root `classes{}` → `ClassDef`, whose `instantiation.recipes[]` is the field example synthesis depends on |
+| ORDA generated `cs.<DataClass>` family | `ClassDef.isTemplate` (template/protocol, not enumerated entries) |
+| Class membership, production, provenance, cross-language mapping | Layer-3 relationship kinds += `member_of`, `returns_instance_of`, `obtained_via`, `classic_equivalent`; `CommandRef` may now point at a `classId` instead of a `command` |
+
+OOP ids are receiver-qualified and contain dots (`Collection.length`,
+`4D.Entity.diff`, `4D.Blob.new`). Classic ids are `SCREAMING-KEBAB` /
+`Capitalized-Words` and contain no dots, so the two id spaces cannot collide;
+the OOP assembler asserts this explicitly anyway.
 
 ## Why three layers, not one flat per-command schema
 
