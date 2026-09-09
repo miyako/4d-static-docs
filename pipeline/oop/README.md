@@ -273,3 +273,35 @@ compiles clean, but so does every class-store `.new`, whereas
 checked for arbitrary members and `.new` simply resolves everywhere. Compile
 success there is therefore not evidence of runtime instantiability, and the
 flag continues to follow the documentation.
+
+## `docPage` is an official permalink, not a mirror path
+
+The pipeline parses the local docs mirror, so every stage up to assembly
+carries paths like `mirror/docs/21-R3/API/SMTPTransporterClass.html`. That
+path is meaningless to a consumer of the redistributable IR, which ships
+without the mirror, so stage 5 rewrites it to the official page:
+
+```
+docPage       https://developer.4d.com/docs/API/SMTPTransporterClass
+docPageLocal  mirror/docs/21-R3/API/SMTPTransporterClass.html
+```
+
+The mirror path is preserved as `docPageLocal` rather than discarded,
+because it is the provenance record of the file actually parsed and is
+what makes a re-derivation reproducible.
+
+**The URL deliberately omits the version segment.** `/docs/21-R3/API/...`
+resolves today but stops resolving once 21-R3 is superseded, so embedding
+it in a redistributable artifact would make the artifact rot on 4D's
+release schedule rather than on ours. The version-less form always points
+at the current documentation for the class.
+
+All 45 class pages were checked against the live site rather than assumed
+to follow the naming convention: every one returns 200 at
+`https://developer.4d.com/docs/API/<PageName>`, and a fabricated control
+(`.../API/NotARealClassXyz`) returns a genuine 404 with a "Page Not Found"
+body. The control matters because a Docusaurus site can serve a soft 404
+with a 200 status, in which case a sweep of real names would look
+identical to a sweep that verified nothing.
+
+`Transporter` has no API page, so both fields stay `null`.
