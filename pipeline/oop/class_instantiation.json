@@ -150,9 +150,9 @@
     }
   },
   "Directory": {
-    "typeName": "4D.Folder",
+    "typeName": "4D.Directory",
     "isAbstract": true,
-    "_reason": "syntaxEN records Folder and ZipFolder as _inheritedFrom_ Directory. Directory is a documentation-level base class; callers never name it, they obtain a Folder or a ZipFolder.",
+    "_reason": "Directory is a real, class-store-resolvable 4D type: tool4d check-syntax accepts `var $x : 4D.Directory` and rejects fabricated names such as `4D.DirectoryX` with \"The class ... is unknown\", and accepts assigning a Directory subclass instance to it. It was previously recorded as the type name of one of its two concrete subclasses, which was both arbitrary (Folder vs ZipFolder) and false: callers CAN name this type, and it is the correct declaration type for a value that may be either subclass. isAbstract stays true because the docs present it as a base class obtained via its subclasses.",
     "instantiation": {
       "recipes": [
         {
@@ -165,9 +165,9 @@
     }
   },
   "Document": {
-    "typeName": "4D.File",
+    "typeName": "4D.Document",
     "isAbstract": true,
-    "_reason": "syntaxEN records File and ZipFile as _inheritedFrom_ Document. Same situation as Directory.",
+    "_reason": "Document is a real, class-store-resolvable 4D type: tool4d check-syntax accepts `var $x : 4D.Document` and rejects fabricated names such as `4D.DocumentX` with \"The class ... is unknown\", and accepts assigning a Document subclass instance to it. It was previously recorded as the type name of one of its two concrete subclasses, which was both arbitrary (File vs ZipFile) and false: callers CAN name this type, and it is the correct declaration type for a value that may be either subclass. isAbstract stays true because the docs present it as a base class obtained via its subclasses.",
     "instantiation": {
       "recipes": [
         {
