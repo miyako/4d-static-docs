@@ -15,12 +15,22 @@
   "description": "The .sender property contains the email source addresse(s) of the email.\n\nEach email you send out has both the sender and from addresses:\n\nthe sender domain is what the receiving email server gets when opening the session, the from address is what the recipient(s) will see.\n\nFor better deliverability, it is recommended to use the same from and sender addresses.",
   "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
   "accessor": {
-    "type": {
-      "kind": "concrete",
-      "name": "Text"
-    },
+    "type": [
+      {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    ],
     "readable": true,
     "writable": true,
-    "rawSyntax": "**.sender** : Text"
+    "rawSyntax": "**.sender** : Text<br/>**.sender** : Object<br/>**.sender** : Collection"
   }
 }

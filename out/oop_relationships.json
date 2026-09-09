@@ -1634,6 +1634,15 @@
       "command": "Document.original"
     },
     "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Document.original"
+    },
+    "to": {
       "classId": "File"
     }
   },
@@ -1710,6 +1719,15 @@
     }
   },
   {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.bcc"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
     "type": "member_of",
     "from": {
       "command": "Email.bodyStructure"
@@ -1737,6 +1755,15 @@
     }
   },
   {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.cc"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
     "type": "member_of",
     "from": {
       "command": "Email.comments"
@@ -1752,6 +1779,15 @@
     },
     "to": {
       "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.from"
+    },
+    "to": {
+      "classId": "Collection"
     }
   },
   {
@@ -1854,6 +1890,15 @@
     }
   },
   {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.replyTo"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
     "type": "member_of",
     "from": {
       "command": "Email.sendAt"
@@ -1869,6 +1914,15 @@
     },
     "to": {
       "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.sender"
+    },
+    "to": {
+      "classId": "Collection"
     }
   },
   {
@@ -1905,6 +1959,15 @@
     },
     "to": {
       "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.to"
+    },
+    "to": {
+      "classId": "Collection"
     }
   },
   {
@@ -3966,6 +4029,15 @@
     },
     "to": {
       "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "SystemWorker.response"
+    },
+    "to": {
+      "classId": "Blob"
     }
   },
   {

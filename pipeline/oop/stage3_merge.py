@@ -404,16 +404,36 @@ def build_error_model(section: dict | None, returns_shape: dict | None,
 
 
 def accessor_for(section: dict | None, description: str | None,
-                 type_name: str | None, nullable: bool,
+                 type_names: list[str], nullable: bool,
                  raw_syntax: str | None = None) -> dict:
+    """Build the Accessor for a property.
+
+    `type_names` is a list because a property can be declared with several
+    `<br/>`-separated variants — `.bcc : Text` / `: Object` / `: Collection`.
+    These are the property-side analogue of function overloads, and taking only
+    the first one silently narrows the documented type. Nine properties are
+    multi-variant.
+    """
     lowered = (description or "").lower()
     writable = True
     if any(marker in lowered for marker in READ_ONLY_MARKERS):
         writable = False
     elif any(marker in lowered for marker in WRITABLE_MARKERS):
         writable = True
+    refs = [type_ref(name) for name in type_names]
+    refs = [ref for ref in refs if ref]
+    deduped: list[dict] = []
+    for ref in refs:
+        if ref not in deduped:
+            deduped.append(ref)
+    if not deduped:
+        type_value: dict | list = {"kind": "pseudo", "name": "any"}
+    elif len(deduped) == 1:
+        type_value = deduped[0]
+    else:
+        type_value = deduped
     accessor = {
-        "type": type_ref(type_name) or {"kind": "pseudo", "name": "any"},
+        "type": type_value,
         "readable": True,
         "writable": writable,
     }
@@ -618,18 +638,24 @@ def build_entry(manifest_entry: dict, signature: dict, section: dict | None,
         entry["docPage"] = section.get("docPage")
 
     if kind == "oop_property":
-        return_type = (
-            signature["overloads"][0]["returnType"] if signature["overloads"] else None
-        )
-        raw_syntax = None
-        if signature["overloads"]:
-            raw_syntax = signature["overloads"][0].get("rawSyntax")
+        return_types = [
+            overload["returnType"] for overload in signature["overloads"]
+            if overload.get("returnType")
+        ]
+        # The whole Syntax field, every `<br/>`-joined variant, exactly as the
+        # callable path preserves every overload line.
+        raw_syntax = signature.get("rawSyntax")
         entry["accessor"] = accessor_for(
-            section, description, return_type, entry_id in nullable_returns,
+            section, description, return_types, entry_id in nullable_returns,
             raw_syntax,
         )
+        accessor_type = entry["accessor"]["type"]
+        # A constant table can only describe the property's accepted values
+        # when the property has a single, numeric declared type. A multi-variant
+        # property (Number | Text) is not a constant selector.
         tables = [t for t in constant_tables(section) if t["values"]]
-        if len(tables) == 1 and entry["accessor"]["type"].get("name") in NUMERIC_TYPES:
+        if (len(tables) == 1 and isinstance(accessor_type, dict)
+                and accessor_type.get("name") in NUMERIC_TYPES):
             enum_key = f"{entry_id}.value"
             enums[enum_key] = {
                 "description": f"Values accepted by the {entry_id} property.",

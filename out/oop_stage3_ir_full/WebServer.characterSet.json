@@ -15,12 +15,18 @@
   "description": "The character set that the 4D Web Server should use to communicate with browsers connecting to the application. The default value actually depends on the language of the OS. Can be a MIBEnum integer or a Name string, identifiers defined by IANA. Here is the list of identifiers corresponding to the character sets supported by the 4D Web Server:\n\n4 = ISO-8859-1 12 = ISO-8859-9 13 = ISO-8859-10 17 = Shift-JIS 2024 = Windows-31J 2026 = Big5 38 = euc-kr 106 = UTF-8 2250 = Windows-1250 2251 = Windows-1251 2253 = Windows-1253 2255 = Windows-1255 2256 = Windows-1256",
   "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
   "accessor": {
-    "type": {
-      "kind": "concrete",
-      "name": "Number"
-    },
+    "type": [
+      {
+        "kind": "concrete",
+        "name": "Number"
+      },
+      {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    ],
     "readable": true,
     "writable": true,
-    "rawSyntax": "**.characterSet** : Number"
+    "rawSyntax": "**.characterSet** : Number<br/>**.characterSet** : Text"
   }
 }

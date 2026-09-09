@@ -149,7 +149,12 @@ def main() -> int:
         )
         return_types = []
         if entry["kind"] == "oop_property":
-            return_types.append(entry["accessor"]["type"].get("name"))
+            # Accessor.type is a list when the property is multi-variant
+            # (`.original : 4D.File` / `: 4D.Folder`), which is exactly the
+            # case that must produce two returns_instance_of edges, not one.
+            accessor_type = entry["accessor"]["type"]
+            variants = accessor_type if isinstance(accessor_type, list) else [accessor_type]
+            return_types.extend(variant.get("name") for variant in variants)
         else:
             for overload in entry.get("overloads", []):
                 returns = overload.get("returns")

@@ -1378,6 +1378,42 @@
       "errorModel": {
         "style": "returns_null"
       }
+    },
+    {
+      "id": "Email.bcc",
+      "displayName": "Email.bcc",
+      "kind": "oop_property",
+      "memberName": ".bcc",
+      "receiver": {
+        "classId": "Email",
+        "kind": "instance",
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Email"
+        }
+      },
+      "summary": "Blind carbon-copy recipient(s) of the email",
+      "accessor": {
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          {
+            "kind": "concrete",
+            "name": "Collection"
+          }
+        ],
+        "readable": true,
+        "writable": true,
+        "computed": false,
+        "rawSyntax": "**.bcc** : Text<br/>**.bcc** : Object<br/>**.bcc** : Collection",
+        "note": "Multi-variant: the docs declare three separate `<br/>`-separated variants, so all three are legal to assign. A collection of address objects is the common form for several recipients. Modelling only the first variant (Text) would tell an agent that assigning a collection is invalid — a false negative no compiler check can catch, since the narrowed form still compiles."
+      }
     }
   ],
   "relationships": [

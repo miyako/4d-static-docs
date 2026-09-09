@@ -15,12 +15,18 @@
   "description": "The .response property contains the concatenation of all data returned once the request is terminated, i.e. the full message received from the process output.\n\nThe type of the message is defined according to the dataType attribute.\n\nThis property is read-only.",
   "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
   "accessor": {
-    "type": {
-      "kind": "concrete",
-      "name": "Text"
-    },
+    "type": [
+      {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      {
+        "kind": "concrete",
+        "name": "Blob"
+      }
+    ],
     "readable": true,
     "writable": false,
-    "rawSyntax": "**.response** : Text"
+    "rawSyntax": "**.response** : Text<br/>**.response** : Blob"
   }
 }

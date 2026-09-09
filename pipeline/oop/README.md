@@ -127,6 +127,29 @@ would overstate the accepted set.
 Only an exact `"Added"` History marker marks introduction — `"Added status 7
 and 8"` had back-dated `Entity.save` from 17 to 21.
 
+### Multi-variant properties
+
+Nine properties declare several `<br/>`-separated type variants — `Email.bcc`
+is `Text` **or** `Object` **or** `Collection`, `Document.original` is
+`4D.File` **or** `4D.Folder`. They are the property-side analogue of function
+overloads, and the merge step originally kept only the first, which both
+truncated `accessor.rawSyntax` and, more seriously, **narrowed
+`accessor.type`**: the IR said assigning a collection of recipients to
+`.bcc` was invalid when it is ordinary 4D.
+
+`Accessor.type` therefore takes either a bare `TypeRef` or an array of them
+(`minItems: 2` — a one-element array is rejected rather than accepted as an
+alternative spelling of the single case). The same single-signature assumption
+had to be fixed in four places: the accessor type, the accessor `rawSyntax`,
+the property constant-table enum upgrade (guarded now, since a
+`Number | Text` property is not a constant selector), and O4's
+`returns_instance_of` edges, which must emit one edge per variant.
+
+This class of defect is worth calling out because **no compiler check can
+catch it**. A narrowed type still produces code that compiles; downstream
+`check-syntax` passes go green while the IR quietly misinforms. Only comparison
+against the documented source finds it, which is why the gate asserts equality.
+
 ### O4 — classes (`stage4_classes.py`) → `out/oop_classes.json`, `out/oop_relationships.json`
 
 Builds the root-level `classes{}` Layer-2 table and the Layer-3 `member_of` /
@@ -181,22 +204,29 @@ reviewable rather than a wall of diff. See `pipeline/MAINTENANCE.md`.
 | **G1** | 100% byte-exact syntax round-trip | `stage2_signatures.py` | 591/591 lines, 495/495 fields |
 | **G2** | the bumped schema still validates the classic corpus byte-unchanged | `check_schema_gate.py` | PASSED |
 | **G3** | every in-scope member is in the IR or explicitly skipped | `stage5_assemble.py` | 502/502, 5 logged skips |
-| — | every non-dynamic member carries a verbatim source line | `check_schema_gate.py` | 495/495 (277 + 218) |
+| — | every non-dynamic member reconstructs to its syntaxEN source byte-for-byte | `check_schema_gate.py` | 495/495 (277 + 218) |
 
 `check_schema_gate.py` also validates both example documents and the OOP IR
 itself, and exercises the new conditional requirements with deliberate negative
 cases so they cannot silently rot into decoration.
 
-It additionally asserts the **verbatim-source-line invariant**: every
-non-dynamic member must carry its declaration line exactly as documented —
-functions and constructors on every `overloads[].rawSyntax`, properties on
-`accessor.rawSyntax`, since a property has no overload to hang it off. This
-started out asymmetric (277 callables had one, 0 of 218 properties did), which
-was invisible from inside the pipeline because `out/oop_signatures.json` keeps
-the line either way, but left any consumer reading only the assembled IR unable
-to render a doc-faithful property signature. The check carries its own negative
-test: it strips the line from one property and one function and requires both
-to be caught, because an assertion nobody has seen fail is not yet evidence.
+It additionally asserts the **verbatim-source invariant**: every non-dynamic
+member, reconstructed from the IR alone, must be **byte-identical to its
+`Syntax` field in `syntaxEN.json`** — callables by `<br/>`-joining every
+`overloads[].rawSyntax`, properties by reading `accessor.rawSyntax`, since a
+property has no overload to hang it off.
+
+Equality, not presence, is the assertion, and the difference mattered. The
+first version of this check only asked whether *a* line was present. It passed
+while nine multi-variant properties were silently truncated to their first
+`<br/>` variant, because the merge step assumed a property has exactly one
+signature. Only a byte comparison against the source of truth catches that.
+
+The check carries four negative probes, covering every path the bug could hide
+in: a property with no line, a callable with no line, a multi-variant property
+truncated to its first variant, and a multi-overload function truncated to its
+first overload. It fails the gate if any probe goes undetected — an assertion
+nobody has seen fail is not yet evidence.
 
 JSON Schema validation uses `boon` (provision via the `4dtools` skill), with
 Python `jsonschema` as a cross-check.

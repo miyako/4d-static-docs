@@ -23,6 +23,8 @@ import tempfile
 from pathlib import Path
 
 # Documents that must validate as-is.
+SYNTAX_SEPARATOR = "<br/>"
+
 MUST_VALIDATE = [
     "out/4d-command-ir.json",
     "references/4d-command-ir-examples.json",
@@ -93,33 +95,63 @@ def boon_validate(boon: Path, schema: Path, doc_path: Path) -> bool:
     return result.returncode == 0
 
 
-def verbatim_syntax_violations(document: dict) -> list[str]:
-    """Ids of members carrying no verbatim source line.
+def reconstruct_syntax(entry: dict) -> str | None:
+    """The member's declared source, rebuilt from the IR alone.
 
-    Functions and constructors keep theirs on every `overloads[].rawSyntax`;
-    properties have no overload, so theirs lives on `accessor.rawSyntax`. The
-    two paths existed asymmetrically at first — properties silently had none —
-    which is invisible in the pipeline (out/oop_signatures.json keeps the line
-    either way) but breaks any consumer reading only the assembled IR. This
-    check exists so that asymmetry cannot come back.
+    Callables keep one `rawSyntax` per overload; properties keep the whole
+    field on `accessor.rawSyntax`, because a property has no overload. Both
+    must rebuild to the `Syntax` field byte-for-byte.
+    """
+    if entry.get("kind") == "oop_property":
+        return (entry.get("accessor") or {}).get("rawSyntax")
+    overloads = entry.get("overloads") or []
+    lines = [o.get("rawSyntax") for o in overloads]
+    if not lines or not all(lines):
+        return None
+    return SYNTAX_SEPARATOR.join(lines)
 
-    Dynamic pseudo-members (`.attributeName` and friends) are exempt: they are
-    not declared anywhere, so there is no source line to preserve.
+
+def verbatim_syntax_violations(document: dict, sources: dict[str, str]) -> list[dict]:
+    """Members whose IR-reconstructed source is not byte-identical to syntaxEN.
+
+    This deliberately checks *equality*, not presence. Presence is the weaker
+    oracle and it passed while nine multi-variant properties were silently
+    truncated to their first `<br/>` variant: the merge step assumed a property
+    has exactly one signature. Only a byte comparison against the source of
+    truth catches that, so that is what is asserted here.
+
+    Dynamic pseudo-members are exempt — they are not declared anywhere, so
+    there is no source line to preserve.
     """
     violations = []
     for entry in document.get("commands", []):
         if entry.get("dynamicMember"):
             continue
-        if entry.get("kind") == "oop_property":
-            if not (entry.get("accessor") or {}).get("rawSyntax"):
-                violations.append(entry["id"])
-            continue
         if not entry.get("kind", "").startswith("oop_"):
             continue  # classic corpus predates rawSyntax
-        overloads = entry.get("overloads") or []
-        if not overloads or not all(o.get("rawSyntax") for o in overloads):
-            violations.append(entry["id"])
+        entry_id = entry["id"]
+        expected = sources.get(entry_id)
+        if expected is None:
+            continue
+        actual = reconstruct_syntax(entry)
+        if actual != expected:
+            violations.append(
+                {"id": entry_id, "expected": expected, "actual": actual}
+            )
     return violations
+
+
+def syntax_sources(repo_root: Path, syntax_json: Path) -> dict[str, str]:
+    sys.path.insert(0, str(repo_root / "pipeline" / "oop"))
+    sys.path.insert(0, str(repo_root / "pipeline"))
+    import oopcommon as oop
+
+    syntax = json.loads(syntax_json.read_text(encoding="utf-8"))
+    return {
+        member_id: record["Syntax"]
+        for member_id, _cls, _key, record in oop.iter_syntax_members(syntax)
+        if record.get("Syntax")
+    }
 
 
 def main() -> int:
@@ -170,50 +202,89 @@ def main() -> int:
         print(f"  {rel:<45} {'VALID' if ok else 'INVALID'}{detail}")
         failures += 0 if ok else 1
 
-    print("Verbatim-source-line invariant (every non-dynamic member):")
+    print("Verbatim-source invariant (byte-identical to syntaxEN.json):")
     oop_ir_path = repo_root / "out" / "4d-oop-ir.json"
     if not oop_ir_path.exists():
         print("  out/4d-oop-ir.json not built yet — invariant not checked")
     else:
         oop_ir = json.loads(oop_ir_path.read_text(encoding="utf-8"))
-        violations = verbatim_syntax_violations(oop_ir)
+        sources = syntax_sources(repo_root, repo_root / "references" / "syntaxEN.json")
+        violations = verbatim_syntax_violations(oop_ir, sources)
         members = [e for e in oop_ir["commands"] if not e.get("dynamicMember")]
         props = [e for e in members if e["kind"] == "oop_property"]
         callables = [e for e in members if e["kind"] != "oop_property"]
-        print(f"  {len(callables)} function/constructor entries via overloads[].rawSyntax")
-        print(f"  {len(props)} property entries via accessor.rawSyntax")
+        multi = [e for e in props if isinstance(e["accessor"]["type"], list)]
+        print(f"  {len(callables)} function/constructor entries via "
+              f"'<br/>'-joined overloads[].rawSyntax")
+        print(f"  {len(props)} property entries via accessor.rawSyntax "
+              f"({len(multi)} multi-variant)")
         if violations:
-            print(f"  FAIL — {len(violations)} member(s) carry no verbatim source line: "
-                  f"{violations[:10]}{' ...' if len(violations) > 10 else ''}")
+            print(f"  FAIL — {len(violations)} member(s) do not match syntaxEN:")
+            for item in violations[:10]:
+                print(f"    {item['id']}")
+                print(f"      expected {item['expected']!r}")
+                print(f"      actual   {item['actual']!r}")
             failures += 1
         else:
-            print(f"  OK — all {len(members)} non-dynamic members carry one")
+            print(f"  OK — all {len(members)} non-dynamic members reconstruct exactly")
 
-        # Negative test: an assertion nobody has seen fail is not yet evidence.
-        # Strip the line from one property and one function and require the
-        # check to notice both.
-        probe = json.loads(json.dumps(oop_ir))
-        stripped = []
-        for entry in probe["commands"]:
-            if entry.get("dynamicMember"):
-                continue
-            if entry["kind"] == "oop_property" and entry["id"] not in stripped:
+        # Negative tests. An assertion nobody has seen fail is not yet evidence,
+        # and the probes must cover every code path the real bug could hide in:
+        # the property path, the callable path, and specifically the truncation
+        # of a multi-variant property to its first line — which is the exact
+        # shape of the bug a presence-only check let through.
+        probes = []
+
+        drop_prop = json.loads(json.dumps(oop_ir))
+        for entry in drop_prop["commands"]:
+            if entry["kind"] == "oop_property" and not entry.get("dynamicMember"):
                 entry["accessor"].pop("rawSyntax", None)
-                stripped.append(entry["id"])
+                probes.append(("property missing rawSyntax", drop_prop, entry["id"]))
                 break
-        for entry in probe["commands"]:
-            if entry.get("dynamicMember") or entry["kind"] == "oop_property":
+
+        drop_fn = json.loads(json.dumps(oop_ir))
+        for entry in drop_fn["commands"]:
+            if entry["kind"] == "oop_property" or entry.get("dynamicMember"):
                 continue
             for overload in entry.get("overloads") or []:
                 overload.pop("rawSyntax", None)
-            stripped.append(entry["id"])
+            probes.append(("function missing rawSyntax", drop_fn, entry["id"]))
             break
-        caught = verbatim_syntax_violations(probe)
-        detected = all(item in caught for item in stripped)
-        print(f"  negative test: stripped {stripped} — "
-              f"{'detected both' if detected else 'NOT DETECTED'} "
-              f"— {'OK' if detected else 'FAIL'}")
-        failures += 0 if detected else 1
+
+        truncate = json.loads(json.dumps(oop_ir))
+        for entry in truncate["commands"]:
+            accessor = entry.get("accessor") or {}
+            raw = accessor.get("rawSyntax")
+            if raw and SYNTAX_SEPARATOR in raw:
+                accessor["rawSyntax"] = raw.split(SYNTAX_SEPARATOR)[0]
+                probes.append(
+                    ("multi-variant property truncated to first variant",
+                     truncate, entry["id"])
+                )
+                break
+
+        drop_overload = json.loads(json.dumps(oop_ir))
+        for entry in drop_overload["commands"]:
+            if entry["kind"] == "oop_property" or entry.get("dynamicMember"):
+                continue
+            if len(entry.get("overloads") or []) > 1:
+                entry["overloads"] = entry["overloads"][:1]
+                probes.append(
+                    ("multi-overload function truncated to first overload",
+                     drop_overload, entry["id"])
+                )
+                break
+
+        for label, probe_doc, probe_id in probes:
+            caught = {v["id"] for v in verbatim_syntax_violations(probe_doc, sources)}
+            detected = probe_id in caught
+            print(f"  negative test: {label} ({probe_id}) — "
+                  f"{'detected' if detected else 'NOT DETECTED'} "
+                  f"— {'OK' if detected else 'FAIL'}")
+            failures += 0 if detected else 1
+        if len(probes) < 4:
+            print(f"  FAIL — only {len(probes)}/4 negative probes could be built")
+            failures += 1
 
     print("Conditional-requirement cases:")
     with tempfile.TemporaryDirectory() as tmp:
@@ -235,7 +306,7 @@ def main() -> int:
         return 1
     print("GATE G2: PASSED — the classic corpus still validates, unchanged, "
           "the new conditional requirements are live, and every non-dynamic "
-          "member carries a verbatim source line.")
+          "member reconstructs to its syntaxEN.json source byte-for-byte.")
     return 0
 
 

@@ -11017,13 +11017,19 @@
       "description": "The .original property returns the target element for an alias, a shortcut, or a symbolic link file. The target element can be:\n\na file object a folder object\n\nFor non-alias files, the property returns the same file object as the file.\n\nThis property is read-only.",
       "docPage": "mirror/docs/21-R3/API/Document.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "4D.File"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          {
+            "kind": "concrete",
+            "name": "4D.Folder"
+          }
+        ],
         "readable": true,
         "writable": false,
-        "rawSyntax": "**.original** : 4D.File"
+        "rawSyntax": "**.original** : 4D.File<br/>**.original** : 4D.Folder"
       },
       "sinceVersion": "17-R5"
     },
@@ -11178,13 +11184,23 @@
       "description": "The .bcc property contains the Blind Carbon Copy (BCC) hidden email recipient addresse(s) of the email.",
       "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "Text"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          {
+            "kind": "concrete",
+            "name": "Collection"
+          }
+        ],
         "readable": true,
         "writable": true,
-        "rawSyntax": "**.bcc** : Text"
+        "rawSyntax": "**.bcc** : Text<br/>**.bcc** : Object<br/>**.bcc** : Collection"
       }
     },
     {
@@ -11332,13 +11348,23 @@
       "description": "The .cc property contains the Carbon Copy (CC) additional email recipient addresse(s) of the email.",
       "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "Text"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          {
+            "kind": "concrete",
+            "name": "Collection"
+          }
+        ],
         "readable": true,
         "writable": true,
-        "rawSyntax": "**.cc** : Text"
+        "rawSyntax": "**.cc** : Text<br/>**.cc** : Object<br/>**.cc** : Collection"
       }
     },
     {
@@ -11384,13 +11410,23 @@
       "description": "The .from property contains the Originating address(es) of the email.\n\nEach email you send out has both the sender and from addresses:\n\nthe sender domain is what the receiving email server gets when opening the session, the from address is what the recipient(s) will see.\n\nFor better deliverability, it is recommended to use the same from and sender addresses.",
       "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "Text"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          {
+            "kind": "concrete",
+            "name": "Collection"
+          }
+        ],
         "readable": true,
         "writable": true,
-        "rawSyntax": "**.from** : Text"
+        "rawSyntax": "**.from** : Text<br/>**.from** : Object<br/>**.from** : Collection"
       }
     },
     {
@@ -11635,13 +11671,23 @@
       "description": "The .replyTo property contains the addresse(s) for responses.",
       "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "Text"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          {
+            "kind": "concrete",
+            "name": "Collection"
+          }
+        ],
         "readable": true,
         "writable": true,
-        "rawSyntax": "**.replyTo** : Text"
+        "rawSyntax": "**.replyTo** : Text<br/>**.replyTo** : Object<br/>**.replyTo** : Collection"
       }
     },
     {
@@ -11687,13 +11733,23 @@
       "description": "The .sender property contains the email source addresse(s) of the email.\n\nEach email you send out has both the sender and from addresses:\n\nthe sender domain is what the receiving email server gets when opening the session, the from address is what the recipient(s) will see.\n\nFor better deliverability, it is recommended to use the same from and sender addresses.",
       "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "Text"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          {
+            "kind": "concrete",
+            "name": "Collection"
+          }
+        ],
         "readable": true,
         "writable": true,
-        "rawSyntax": "**.sender** : Text"
+        "rawSyntax": "**.sender** : Text<br/>**.sender** : Object<br/>**.sender** : Collection"
       }
     },
     {
@@ -11791,13 +11847,23 @@
       "description": "The .to property contains the primary recipient addresse(s) of the email.",
       "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "Text"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          {
+            "kind": "concrete",
+            "name": "Collection"
+          }
+        ],
         "readable": true,
         "writable": true,
-        "rawSyntax": "**.to** : Text"
+        "rawSyntax": "**.to** : Text<br/>**.to** : Object<br/>**.to** : Collection"
       }
     },
     {
@@ -20319,13 +20385,19 @@
       "description": "The .response property contains the concatenation of all data returned once the request is terminated, i.e. the full message received from the process output.\n\nThe type of the message is defined according to the dataType attribute.\n\nThis property is read-only.",
       "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "Text"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          {
+            "kind": "concrete",
+            "name": "Blob"
+          }
+        ],
         "readable": true,
         "writable": false,
-        "rawSyntax": "**.response** : Text"
+        "rawSyntax": "**.response** : Text<br/>**.response** : Blob"
       }
     },
     {
@@ -22320,13 +22392,19 @@
       "description": "The character set that the 4D Web Server should use to communicate with browsers connecting to the application. The default value actually depends on the language of the OS. Can be a MIBEnum integer or a Name string, identifiers defined by IANA. Here is the list of identifiers corresponding to the character sets supported by the 4D Web Server:\n\n4 = ISO-8859-1 12 = ISO-8859-9 13 = ISO-8859-10 17 = Shift-JIS 2024 = Windows-31J 2026 = Big5 38 = euc-kr 106 = UTF-8 2250 = Windows-1250 2251 = Windows-1251 2253 = Windows-1253 2255 = Windows-1255 2256 = Windows-1256",
       "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
       "accessor": {
-        "type": {
-          "kind": "concrete",
-          "name": "Number"
-        },
+        "type": [
+          {
+            "kind": "concrete",
+            "name": "Number"
+          },
+          {
+            "kind": "concrete",
+            "name": "Text"
+          }
+        ],
         "readable": true,
         "writable": true,
-        "rawSyntax": "**.characterSet** : Number"
+        "rawSyntax": "**.characterSet** : Number<br/>**.characterSet** : Text"
       }
     },
     {
@@ -25342,6 +25420,15 @@
         "command": "Document.original"
       },
       "to": {
+        "classId": "Folder"
+      }
+    },
+    {
+      "type": "returns_instance_of",
+      "from": {
+        "command": "Document.original"
+      },
+      "to": {
         "classId": "File"
       }
     },
@@ -25418,6 +25505,15 @@
       }
     },
     {
+      "type": "returns_instance_of",
+      "from": {
+        "command": "Email.bcc"
+      },
+      "to": {
+        "classId": "Collection"
+      }
+    },
+    {
       "type": "member_of",
       "from": {
         "command": "Email.bodyStructure"
@@ -25445,6 +25541,15 @@
       }
     },
     {
+      "type": "returns_instance_of",
+      "from": {
+        "command": "Email.cc"
+      },
+      "to": {
+        "classId": "Collection"
+      }
+    },
+    {
       "type": "member_of",
       "from": {
         "command": "Email.comments"
@@ -25460,6 +25565,15 @@
       },
       "to": {
         "classId": "Email"
+      }
+    },
+    {
+      "type": "returns_instance_of",
+      "from": {
+        "command": "Email.from"
+      },
+      "to": {
+        "classId": "Collection"
       }
     },
     {
@@ -25562,6 +25676,15 @@
       }
     },
     {
+      "type": "returns_instance_of",
+      "from": {
+        "command": "Email.replyTo"
+      },
+      "to": {
+        "classId": "Collection"
+      }
+    },
+    {
       "type": "member_of",
       "from": {
         "command": "Email.sendAt"
@@ -25577,6 +25700,15 @@
       },
       "to": {
         "classId": "Email"
+      }
+    },
+    {
+      "type": "returns_instance_of",
+      "from": {
+        "command": "Email.sender"
+      },
+      "to": {
+        "classId": "Collection"
       }
     },
     {
@@ -25613,6 +25745,15 @@
       },
       "to": {
         "classId": "Email"
+      }
+    },
+    {
+      "type": "returns_instance_of",
+      "from": {
+        "command": "Email.to"
+      },
+      "to": {
+        "classId": "Collection"
       }
     },
     {
@@ -27674,6 +27815,15 @@
       },
       "to": {
         "classId": "SystemWorker"
+      }
+    },
+    {
+      "type": "returns_instance_of",
+      "from": {
+        "command": "SystemWorker.response"
+      },
+      "to": {
+        "classId": "Blob"
       }
     },
     {

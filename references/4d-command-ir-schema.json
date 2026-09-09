@@ -1059,9 +1059,12 @@
               "type": "array",
               "items": {
                 "$ref": "#/$defs/TypeRef"
-              }
+              },
+              "minItems": 2,
+              "description": "Two or more variants. A single-variant property uses the bare TypeRef form, so a one-element array is invalid rather than an alternative spelling."
             }
-          ]
+          ],
+          "description": "The property's declared type. A list when the property is multi-variant, i.e. its `Syntax` field declares several `<br/>`-separated variants (`.bcc : Text` / `: Object` / `: Collection`). Multi-variant properties are the property-side analogue of function overloads; collapsing them to a single type silently narrows what a caller may legally assign."
         },
         "readable": {
           "type": "boolean"
