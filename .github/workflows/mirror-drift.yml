@@ -1,0 +1,48 @@
+name: Mirror drift
+
+# AGENTS.md and skills/ are maintained here and in miyako/skills
+# (as 4d-skills/AGENTS.md and 4d-skills/skills/). Nothing but convention
+# kept them in sync, and they had silently drifted across four skills
+# before anyone noticed. This reports drift; it never repairs it, because
+# a checker that edits both copies can corrupt both.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - "AGENTS.md"
+      - "skills/**"
+  workflow_dispatch:
+
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: static-docs
+
+      - uses: actions/checkout@v4
+        with:
+          repository: miyako/skills
+          path: skills
+
+      - name: Compare the mirrored copies
+        run: |
+          diff -r --brief \
+            static-docs/AGENTS.md skills/4d-skills/AGENTS.md > drift.txt 2>&1 || true
+          diff -r --brief \
+            static-docs/skills skills/4d-skills/skills >> drift.txt 2>&1 || true
+
+          if [ -s drift.txt ]; then
+            echo "::error::AGENTS.md / skills/ have drifted from miyako/skills."
+            cat drift.txt
+            echo
+            echo "Update both copies in the same change. Do not resolve this"
+            echo "by copying one over the other without reading the diff --"
+            echo "either side may hold the newer edit."
+            exit 1
+          fi
+
+          echo "In sync with miyako/skills."
