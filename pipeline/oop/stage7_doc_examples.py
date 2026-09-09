@@ -60,6 +60,21 @@ STAGE1_PATH = REPO_ROOT / "out" / "oop_stage1_raw.json"
 EXAMPLE_HEADING_RE = re.compile(r"^examples?\b", re.I)
 
 
+DOC_BASE_URL = "https://developer.4d.com/docs/API/"
+
+
+def canonical_doc_url(local: str | None) -> str | None:
+    """Mirror path -> official version-less permalink.
+
+    Version-less on purpose: a /docs/21-R3/API/... URL stops resolving once
+    that release is superseded, which would rot the redistributable artifact
+    on 4D's release schedule.
+    """
+    if not local:
+        return None
+    return DOC_BASE_URL + local.rsplit("/", 1)[-1].removesuffix(".html")
+
+
 def load_json(path: Path):
     with open(path) as f:
         return json.load(f)
@@ -328,7 +343,12 @@ def main() -> int:
         if not code.strip():
             continue
         record = {
-            "docPage": ex["docPage"],
+            # Same rewrite as stage 5: the emitted artifact must name the
+            # official page, not a file in a mirror that is never shipped.
+            # The mirror path stays the internal join key and is preserved
+            # here as `docPageLocal`.
+            "docPage": canonical_doc_url(ex["docPage"]),
+            "docPageLocal": ex["docPage"],
             "attributedClassId": ex["classId"],
             "title": ex["title"],
             "caption": ex["caption"],

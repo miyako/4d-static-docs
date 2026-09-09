@@ -305,3 +305,16 @@ with a 200 status, in which case a sweep of real names would look
 identical to a sweep that verified nothing.
 
 `Transporter` has no API page, so both fields stay `null`.
+
+The same rewrite applies to `oop_doc_examples.json`, where each harvested
+example records the page it came from. There the mirror path is also the
+internal join key used to attribute a snippet to a member, so it is rewritten
+only at the point the record is emitted, not where it is matched.
+
+Note that this artifact is enriched in place by stages O8 and O10, so it is
+the one file where re-running stage O7 alone is *not* how the change was
+applied -- doing so would have discarded the compiler-verification verdicts
+and required a full tool4d pass to rebuild them. The committed artifact was
+migrated directly, then cross-checked against a fresh stage O7 run: the two
+agree on every key stage O7 emits, and every other key is byte-equal to the
+pre-change file.
