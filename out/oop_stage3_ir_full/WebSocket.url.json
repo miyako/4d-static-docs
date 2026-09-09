@@ -1,0 +1,25 @@
+{
+  "id": "WebSocket.url",
+  "displayName": "WebSocket.url",
+  "kind": "oop_property",
+  "memberName": ".url",
+  "receiver": {
+    "classId": "WebSocket",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocket"
+    }
+  },
+  "summary": "The URL to which the WebSocket has connected",
+  "description": "The .url property contains the URL to which the WebSocket has connected. It is the URL you passed to the new() function.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "OutgoingMessage.status",
+  "displayName": "OutgoingMessage.status",
+  "kind": "oop_property",
+  "memberName": ".status",
+  "receiver": {
+    "classId": "OutgoingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "OutgoingMessage"
+    }
+  },
+  "summary": "The current status of the outgoing message",
+  "description": "The .status property contains the current status of the outgoing message. This property can be set using the setStatus() function.",
+  "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "Transporter.checkConnection",
+  "displayName": "Transporter.checkConnection",
+  "kind": "oop_function",
+  "memberName": ".checkConnection",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "Checks the connection using information stored in the transporter object",
+  "description": "The .checkConnection() function checks the connection using information stored in the transporter object, recreates the connection if necessary, and returns the status. This function allows you to verify that the values provided by the user are valid and consistent.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.checkConnection()** : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the check is successful, False otherwise"
+      },
+      "status": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "(SMTP only) Status code returned by the mail server (0 in case of an issue unrelated to the mail processing)"
+      },
+      "statusText": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Status message returned by the mail server, or last error returned in the 4D error stack"
+      },
+      "errors": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "4D error stack (not returned if a mail server response is received)"
+      }
+    },
+    "source": "Returned object"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  },
+  "sinceVersion": "17-R4"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "Email.keywords",
+  "displayName": "Email.keywords",
+  "kind": "oop_property",
+  "memberName": ".keywords",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Set of keywords as an object, where each property name is a keyword and each value is true",
+  "description": "The .keywords property contains a set of keywords as an object, where each property name is a keyword and each value is true.\n\nThis property is the \"keywords\" header (see RFC#4021).\n\nReserved keywords:\n\n$draft - Indicates a message is a draft $seen - Indicates a message has been read $flagged - Indicates a message needs special attention (e.g., Urgent) $answered - Indicates a message has been replied to $deleted - Indicates a message to delete",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

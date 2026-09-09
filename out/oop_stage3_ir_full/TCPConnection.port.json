@@ -1,0 +1,25 @@
+{
+  "id": "TCPConnection.port",
+  "displayName": "TCPConnection.port",
+  "kind": "oop_property",
+  "memberName": ".port",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "The port number of the remote machine",
+  "description": "The .port property contains the port number of the remote machine. This property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Number"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

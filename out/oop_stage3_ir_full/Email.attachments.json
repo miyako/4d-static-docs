@@ -1,0 +1,25 @@
+{
+  "id": "Email.attachments",
+  "displayName": "Email.attachments",
+  "kind": "oop_property",
+  "memberName": ".attachments",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Collection of `4D.MailAttachment` object(s)",
+  "description": "The .attachments property contains a collection of 4D.MailAttachment object(s).\n\nAttachment objects are defined through the MAIL New attachment command. Attachment objects have specific properties and functions.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Collection"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

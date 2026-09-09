@@ -1,0 +1,102 @@
+{
+  "id": "File.setText",
+  "displayName": "File.setText",
+  "kind": "oop_function",
+  "memberName": ".setText",
+  "receiver": {
+    "classId": "File",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "File"
+    }
+  },
+  "summary": "Writes *text* as the new contents of the file",
+  "description": "The .setText() function writes text as the new contents of the file.\n\nIf the file referenced in the File object does not exist on the disk, it is created by the function. When the file already exists on the disk, its prior contents are erased, except if it is already open, in which case, its contents are locked and an error is generated.\n\nIn text, pass the text to write to the file. It can be a literal (\"my text\"), or a 4D text field or variable.\n\nOptionally, you can designate the character set to be used for writing the contents. You can pass either:\n\nin charSetName, a string containing the standard set name (for example \"ISO-8859-1\" or \"UTF-8\"), or in charSetNum, the MIBEnum ID (number) of the standard set name.\n\nFor the list of character sets supported by 4D, refer to the description of the CONVERT FROM TEXT command.\n\nIf a Byte Order Mark (BOM) exists for the character set, 4D inserts it into the file unless the character set used contains the suffix \"-no-bom\" (e.g. \"UTF-8-no-bom\"). If you do not specify a character set, by default 4D uses the \"UTF-8\" character set without BOM.\n\nIn breakMode, you can pass a number indicating the processing to apply to end-of-line characters before saving them in the file. The following constants, found in the System Documents theme, are available:\n\nBy default, when you omit the breakMode parameter, line breaks are processed in native mode (1).\n\nCompatibility Note: Compatibility options are available for EOL and BOM management. See Compatibility page on doc.4d.com.",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "text",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Text to store in the file"
+        },
+        {
+          "name": "charSetName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of character set"
+        },
+        {
+          "name": "breakMode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Processing mode for line breaks"
+        }
+      ],
+      "rawSyntax": "**.setText** ( *text* : Text {; *charSetName* : Text { ; *breakMode* : Integer } } )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "text",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Text to store in the file"
+        },
+        {
+          "name": "charSetNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of character set"
+        },
+        {
+          "name": "breakMode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Processing mode for line breaks"
+        }
+      ],
+      "rawSyntax": "**.setText** ( *text* : Text {; *charSetNum* : Integer { ; *breakMode* : Integer } } )",
+      "returns": null
+    }
+  ],
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "17-R5",
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R3",
+      "change": "Default for new projects: no BOM and (macOS) LF for EOL"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "Entity.save",
+  "displayName": "Entity.save",
+  "kind": "oop_function",
+  "memberName": ".save",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Saves the changes made to the entity",
+  "description": "The .save() function saves the changes made to the entity in the table related to its dataClass. You must call this method after creating or modifying an entity if you want to save the changes made to it.\n\nThe save operation is executed only if at least one entity attribute has been \"touched\" (see the .touched() and .touchedAttributes() functions). Otherwise, the function does nothing (the trigger is not called).\n\nIn a multi-user or multi-process application, the .save() function is executed under an \"optimistic lock\" mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved.\n\nBy default, if the mode parameter is omitted, the method will return an error (see below) whenever the same entity has been modified by another process or user in the meantime, no matter the modified attribute(s).\n\nOtherwise, you can pass the dk auto merge option in the mode parameter: when the automatic merge mode is enabled, a modification done concurrently by another process/user on the same entity but on a different attribute will not result in an error. The resulting data saved in the entity will be the combination (the \"merge\") of all non-concurrent modifications (if modifications were applied to the same attribute, the save fails and an error is returned, even with the auto merge mode).\n\nThe automatic merge mode is not available for attributes of Picture, Object, and Text type when stored outside of the record. Concurrent changes in these attributes will result in a dk status stamp has changed error.\n\nResult\n\nThe object returned by .save() contains the following properties:",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mode",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Entity.save.mode"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk auto merge`: Enables the automatic merge mode"
+        }
+      ],
+      "rawSyntax": "**.save**( { *mode* : Integer } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the save action is successful, False otherwise."
+      },
+      "autoMerged": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if an auto merge was done, False otherwise.",
+        "presentWhen": "Available only if dk auto merge option is used",
+        "optional": true
+      },
+      "status": {
+        "type": {
+          "kind": "enum_ref",
+          "enum": "Entity.save.returns.status"
+        },
+        "description": "Error code, see below",
+        "presentWhen": "Available only in case of error",
+        "optional": true
+      },
+      "statusText": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Description of the error, see below",
+        "presentWhen": "Available only in case of error",
+        "optional": true
+      },
+      "lockKindText": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "\"Locked by record\"",
+        "presentWhen": "Available only in case of pessimistic lock error",
+        "optional": true
+      },
+      "lockInfo": {
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
+        "description": "Information about the lock origin",
+        "presentWhen": "Available only in case of pessimistic lock error",
+        "optional": true
+      },
+      "errors": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "presentWhen": "Available only in case of serious error (serious error - can be trying to duplicate a primary key, disk full...)",
+        "optional": true
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  },
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "21",
+      "change": "Added status 7 and 8"
+    }
+  ]
+}

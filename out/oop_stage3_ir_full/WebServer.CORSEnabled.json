@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.CORSEnabled",
+  "displayName": "WebServer.CORSEnabled",
+  "kind": "oop_property",
+  "memberName": ".CORSEnabled",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "CORS (*Cross-origin resource sharing*) service status for the web server",
+  "description": "The CORS (Cross-origin resource sharing) service status for the web server. For security reasons, \"cross-domain\" requests are forbidden at the browser level by default. When enabled (True), XHR calls (e.g. REST requests) from Web pages outside the domain can be allowed in your application (you need to define the list of allowed addresses in the CORS domain list, see CORSSettings below). When disabled (False, default), all cross site requests sent with CORS are ignored. When enabled (True) and a non-allowed domain or method sends a cross site request, it is rejected with a \"403 - forbidden\" error response.\n\nDefault: False (disabled)\n\nFor more information about CORS, please refer to the Cross-origin resource sharing page on Wikipedia.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

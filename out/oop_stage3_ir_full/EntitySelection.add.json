@@ -1,0 +1,68 @@
+{
+  "id": "EntitySelection.add",
+  "displayName": "EntitySelection.add",
+  "kind": "oop_function",
+  "memberName": ".add",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Adds the specified *entity* or *entitySelection* to the original entity selection and returns the modified entity selection",
+  "description": "The .add() function adds the specified entity or entitySelection to the original entity selection and returns the modified entity selection.\n\nThis function modifies the original entity selection.\n\nAdding an entity\n\nIf the entity selection is ordered, entity is added at the end of the selection. If a reference to the same entity already belongs to the entity selection, it is duplicated and a new reference is added. If the entity selection is unordered, entity is added anywhere in the selection, with no specific order.\n\nAdding an entity selection\n\nIf the entity selection is ordered, its order is kept and entitySelection is added at the end of the selection. If references to the same entities of entitySelection already belong to the entity selection, they are duplicated and new references are added. If the entity selection is unordered, it becomes ordered.\n\nFor more information, please refer to the Ordered or unordered entity selection section.\n\nThe modified entity selection is returned by the function, so that function calls can be chained.\n\nAn error occurs if entity and the entity selection are not related to the same Dataclass. If entity is Null, no error is raised.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "entity",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Entity"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Entity to be added to the entity selection"
+        }
+      ],
+      "rawSyntax": "**.add**( *entity* : 4D.Entity ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "entitySelection",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.EntitySelection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Entity selection to be added to the original entity selection"
+        }
+      ],
+      "rawSyntax": "**.add**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R7",
+      "change": "Support of entitySelection parameter"
+    },
+    {
+      "release": "18-R5",
+      "change": "Only supports alterable entity selections"
+    }
+  ]
+}

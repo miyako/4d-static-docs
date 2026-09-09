@@ -1,0 +1,49 @@
+{
+  "id": "Session.promote",
+  "displayName": "Session.promote",
+  "kind": "oop_function",
+  "memberName": ".promote",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Adds the privilege defined in the *privilege* parameter to the current process during the execution of the calling function and returns the id of the promoted privilege",
+  "description": "The .promote() function adds the privilege defined in the privilege parameter to the current process during the execution of the calling function and returns the id of the promoted privilege.\n\nDynamically adding privileges is useful when access rights depend on the execution context, which cannot be fully defined in the \"roles.json\" file. This is particularly relevant when the same function can be executed by users with different access levels. The use of .promote() ensures that only the current process is granted the necessary privileges, without affecting others.\n\nThe function does nothing and returns 0 if:\n\nthe privilege does not exist in the roles.json file, the privilege is already assigned to the current process (using .promote() or through a static promote action declared for the calling function in the roles.json file).\n\nYou can call the promote() function several times in the same process to add different privileges.\n\nThe returned id is incremented each time a privilege is dynamically added to the process.\n\nTo remove a privilege dynamically, call the demote() function with the appropriate id.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "privilege",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Privilege name"
+        }
+      ],
+      "rawSyntax": "**.promote**( *privilege* : Text ) : Integer",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ],
+  "sinceVersion": "20-R10",
+  "_seeAlso": [
+    {
+      "text": ".demote()",
+      "href": "SessionClass.html#demote"
+    },
+    {
+      "text": "hasPrivilege()",
+      "href": "SessionClass.html#hasprivilege"
+    }
+  ]
+}

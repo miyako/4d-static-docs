@@ -1,0 +1,26 @@
+{
+  "id": "Transporter.acceptUnsecureConnection",
+  "displayName": "Transporter.acceptUnsecureConnection",
+  "kind": "oop_property",
+  "memberName": ".acceptUnsecureConnection",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "**True** if 4D is allowed to establish an unencrypted connection",
+  "description": "The .acceptUnsecureConnection property contains True if 4D is allowed to establish an unencrypted connection when encrypted connection is not possible.\n\nIt contains False if unencrypted connections are unallowed, in which case an error in returned when encrypted connection is not possible.\n\nAvailable secured ports are:\n\nSMTP 465: SMTPS 587 or 25: SMTP with STARTTLS upgrade if supported by the server. IMAP 143: IMAP non-encrypted port 993: IMAP with STARTTLS upgrade if supported by the server POP3 110: POP3 non-encrypted port 995: POP3 with STARTTLS upgrade if supported by the server.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17-R4"
+}

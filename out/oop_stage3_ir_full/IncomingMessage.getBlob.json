@@ -1,0 +1,27 @@
+{
+  "id": "IncomingMessage.getBlob",
+  "displayName": "IncomingMessage.getBlob",
+  "kind": "oop_function",
+  "memberName": ".getBlob",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "Returns the body of the request as a Blob",
+  "description": "The .getBlob() function returns the body of the request as a Blob.\n\nIf the body has not been given as a binary content, the function tries to convert the value but it can give unexpected results.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getBlob**() : Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "Blob"
+      }
+    }
+  ]
+}

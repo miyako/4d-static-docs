@@ -1,0 +1,28 @@
+{
+  "id": "Session.isGuest",
+  "displayName": "Session.isGuest",
+  "kind": "oop_function",
+  "memberName": ".isGuest",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Returns True as long as `setPrivileges()` is not called in the session or after a Qodly logout has been executed in the session",
+  "description": "The .isGuest() function returns True as long as setPrivileges() is not called in the session or after a Qodly logout has been executed in the session.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.isGuest()** : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6"
+}

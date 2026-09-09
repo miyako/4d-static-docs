@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.exitCode",
+  "displayName": "SystemWorker.exitCode",
+  "kind": "oop_property",
+  "memberName": ".exitCode",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the exit code returned by the external process",
+  "description": "The .exitCode property contains the exit code returned by the external process. If the process did not terminate normaly, exitCode is undefined.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

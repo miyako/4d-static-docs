@@ -1,0 +1,26 @@
+{
+  "id": "CryptoKey.curve",
+  "displayName": "CryptoKey.curve",
+  "kind": "oop_property",
+  "memberName": ".curve",
+  "receiver": {
+    "classId": "CryptoKey",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "CryptoKey"
+    }
+  },
+  "summary": "Normalised curve name of the key",
+  "description": "Defined only for ECDSA keys: the normalised curve name of the key. Usually \"prime256v1\" for ES256 (default), \"secp384r1\" for ES384, \"secp521r1\" for ES512.",
+  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "18-R4"
+}

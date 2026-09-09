@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.timeout",
+  "displayName": "SystemWorker.timeout",
+  "kind": "oop_property",
+  "memberName": ".timeout",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the duration in seconds before the external process will be killed if it is still alive",
+  "description": "The .timeout property contains the duration in seconds before the external process will be killed if it is still alive.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

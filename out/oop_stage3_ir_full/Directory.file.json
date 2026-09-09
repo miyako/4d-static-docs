@@ -1,0 +1,39 @@
+{
+  "id": "Directory.file",
+  "displayName": "Directory.file",
+  "kind": "oop_function",
+  "memberName": ".file",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "A `File` object inside the `Folder` object and returns its reference",
+  "description": "The .file() function creates a File object inside the Folder object and returns its reference.\n\nIn path, pass a relative POSIX path to designate the file to return. The path will be evaluated from the parent folder as root.\n\nReturned value\n\nA File object or null if path is invalid.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Relative POSIX file pathname"
+        }
+      ],
+      "rawSyntax": "**.file**( *path* : Text ) : 4D.File",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.File"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

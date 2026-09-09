@@ -1,0 +1,26 @@
+{
+  "id": "FileHandle.breakModeRead",
+  "displayName": "FileHandle.breakModeRead",
+  "kind": "oop_property",
+  "memberName": ".breakModeRead",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "The processing mode for line breaks used when reading the file",
+  "description": "The .breakModeRead property returns the processing mode for line breaks used when reading the file.\n\nThe .breakModeRead property can be defined at the handle creation with the file.open() function (see the .open() function for more information). Default is \"native\".\n\nThe .breakModeRead property always contains a text value, even if the .open() option was set using a number (constant).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "19-R7"
+}

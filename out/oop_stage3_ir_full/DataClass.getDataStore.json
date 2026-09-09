@@ -1,0 +1,28 @@
+{
+  "id": "DataClass.getDataStore",
+  "displayName": "DataClass.getDataStore",
+  "kind": "oop_function",
+  "memberName": ".getDataStore",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Returns the datastore for the specified dataclass",
+  "description": "The .getDataStore() function returns the datastore for the specified dataclass.\n\nThe datastore can be:\n\nthe main datastore, as returned by the ds command. a remote datastore, opened using the Open datastore command.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getDataStore()** : cs.DataStore",
+      "returns": {
+        "kind": "concrete",
+        "name": "cs.DataStore"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

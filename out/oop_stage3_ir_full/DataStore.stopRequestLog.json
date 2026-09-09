@@ -1,0 +1,31 @@
+{
+  "id": "DataStore.stopRequestLog",
+  "displayName": "DataStore.stopRequestLog",
+  "kind": "oop_function",
+  "memberName": ".stopRequestLog",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Stops any logging of ORDA requests on the machine it is called (client or server)",
+  "description": "The .stopRequestLog() function stops any logging of ORDA requests on the machine it is called (client or server).\n\nIt actually closes the opened document on disk. On the client side, if the log was started in memory, it is stopped.\n\nThis function does nothing if logging of ORDA requests was not started on the machine.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.stopRequestLog()**",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "17-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "20",
+      "change": "Server side support"
+    }
+  ]
+}

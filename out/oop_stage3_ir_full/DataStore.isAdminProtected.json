@@ -1,0 +1,34 @@
+{
+  "id": "DataStore.isAdminProtected",
+  "displayName": "DataStore.isAdminProtected",
+  "kind": "oop_function",
+  "memberName": ".isAdminProtected",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Returns `True` if Data Explorer access has been disabled for the working session",
+  "description": "The .isAdminProtected() function returns True if Data Explorer access has been disabled for the working session.\n\nBy default, the Data Explorer access is granted for webAdmin sessions, but it can be disabled to prevent any data access from administrators (see the .setAdminProtection() function).",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.isAdminProtected()** : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6",
+  "_seeAlso": [
+    {
+      "text": ".setAdminProtection()",
+      "href": "DataStoreClass.html#setadminprotection"
+    }
+  ]
+}

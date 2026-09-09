@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.rootFolder",
+  "displayName": "WebServer.rootFolder",
+  "kind": "oop_property",
+  "memberName": ".rootFolder",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Path of web server root folder",
+  "description": "The path of web server root folder. The path is formatted in POSIX full path using filesystems. When using this property in the settings parameter, it can be a Folder object.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

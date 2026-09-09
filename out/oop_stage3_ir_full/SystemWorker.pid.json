@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.pid",
+  "displayName": "SystemWorker.pid",
+  "kind": "oop_property",
+  "memberName": ".pid",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the process unique identifier of the external process at the system level",
+  "description": "The .pid property contains the process unique identifier of the external process at the system level.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "IMAPTransporter.getBoxList",
+  "displayName": "IMAPTransporter.getBoxList",
+  "kind": "oop_function",
+  "memberName": ".getBoxList",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Returns a collection of mailboxes describing all of the available mailboxes",
+  "description": "The .getBoxList() function returns a collection of mailboxes describing all of the available mailboxes. This function allows you to locally manage the list of messages located on the IMAP mail server.\n\nIn the optional parameters parameter, pass an object containing values to filter the returned mailboxes. You can pass:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "parameters",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter object"
+        }
+      ],
+      "rawSyntax": "**.getBoxList**( { *parameters* : Object } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "[].name": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Name of the mailbox. Returned if withBoxProperties=true or withBoxInfo=true"
+      },
+      "[].selectable": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "Indicates whether or not the access rights allow the mailbox to be selected: true - the mailbox can be selectedfalse - the mailbox can not be selected Returned if withBoxProperties=true"
+      },
+      "[].inferior": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "Indicates whether or not the access rights allow creating a lower hierachy in the mailbox: true - a lower level can be createdfalse - a lower level can not be created Returned if withBoxProperties=true"
+      },
+      "[].interesting": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "Indicates if the mailbox has been marked \"interesting\" by the server: true - The mailbox has been marked \"interesting\" by the server. For example, it may contain new messages.false - The mailbox has not been marked \"interesting\" by the server. Returned if withBoxProperties=true"
+      },
+      "[].mailCount": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Number of messages in inbox. Returned if withBoxInfo=true"
+      },
+      "[].mailRecent": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Number of messages marked \"recent\" (indicating new messages). Returned if withBoxInfo=true"
+      },
+      "[].mailUnseen": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Number of messages marked \"unseen\". Returned if withBoxInfo=true"
+      },
+      "[].id": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Unique mailbox identifier. Returned if withBoxInfo=true"
+      }
+    },
+    "source": "Result"
+  },
+  "sinceVersion": "18-R4",
+  "versionBehaviorChanges": [
+    {
+      "release": "19",
+      "change": "Add isSubscribed parameter"
+    }
+  ]
+}

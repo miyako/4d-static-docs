@@ -1,0 +1,26 @@
+{
+  "id": "Class.isSessionSingleton",
+  "displayName": "Class.isSessionSingleton",
+  "kind": "oop_property",
+  "memberName": ".isSessionSingleton",
+  "receiver": {
+    "classId": "Class",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Class"
+    }
+  },
+  "summary": "Returns `true` if the user class has been defined as a session singleton class",
+  "description": "The .isSessionSingleton property returns true if the user class has been defined as a session singleton class, and false otherwise.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/ClassClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "20-R7"
+}

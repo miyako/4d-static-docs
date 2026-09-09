@@ -1,0 +1,26 @@
+{
+  "id": "Directory.isAlias",
+  "displayName": "Directory.isAlias",
+  "kind": "oop_property",
+  "memberName": ".isAlias",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "Always **false** for a `Folder` object",
+  "description": "The .isAlias property returns always false for a Folder object.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

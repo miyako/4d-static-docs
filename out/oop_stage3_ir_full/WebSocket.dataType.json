@@ -1,0 +1,25 @@
+{
+  "id": "WebSocket.dataType",
+  "displayName": "WebSocket.dataType",
+  "kind": "oop_property",
+  "memberName": ".dataType",
+  "receiver": {
+    "classId": "WebSocket",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocket"
+    }
+  },
+  "summary": "The type of the response body content",
+  "description": "The .dataType property contains the type of the response body content. It can be \"text\", \"blob\", or \"object\".\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "Document.creationTime",
+  "displayName": "Document.creationTime",
+  "kind": "oop_property",
+  "memberName": ".creationTime",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The creation  time of the file",
+  "description": "The .creationTime property returns the creation time of the file (expressed as a number of seconds beginning at 00:00).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Time"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

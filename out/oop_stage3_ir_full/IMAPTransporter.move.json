@@ -1,0 +1,78 @@
+{
+  "id": "IMAPTransporter.move",
+  "displayName": "IMAPTransporter.move",
+  "kind": "oop_function",
+  "memberName": ".move",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Moves the messages defined by *msgsIDs* or *allMsgs* to the *destinationBox* on the IMAP server",
+  "description": "The .move() function moves the messages defined by msgsIDs or allMsgs to the destinationBox on the IMAP server.\n\nYou can pass:\n\nin the msgsIDs parameter, a collection containing the unique IDs of the specific messages to move, or in the allMsgs parameter, the IMAP all constant (integer) to move all messages in the selected mailbox.\n\nThe destinationBox parameter allows you to pass a text value with the name of the mailbox where the messages will be moved.\n\nThis function is only supported by IMAP servers compliant with RFC 8474.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msgsIDs",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of message unique IDs (strings)"
+        },
+        {
+          "name": "destinationBox",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Mailbox to receive moved messages"
+        }
+      ],
+      "rawSyntax": "**.move**( *msgsIDs* : Collection ; *destinationBox* : Text ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "allMsgs",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "IMAPTransporter.move.allMsgs"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "`IMAP all`: All messages in the selected mailbox"
+        },
+        {
+          "name": "destinationBox",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Mailbox to receive moved messages"
+        }
+      ],
+      "rawSyntax": "**.move**( *allMsgs* : Integer ; *destinationBox* : Text ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "18-R5"
+}

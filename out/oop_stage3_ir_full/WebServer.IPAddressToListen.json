@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.IPAddressToListen",
+  "displayName": "WebServer.IPAddressToListen",
+  "kind": "oop_property",
+  "memberName": ".IPAddressToListen",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "IP address on which the 4D Web Server will receive HTTP requests",
+  "description": "The IP address on which the 4D Web Server will receive HTTP requests. By default, no specific address is defined. Both IPv6 string formats and IPv4 string formats are supported.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

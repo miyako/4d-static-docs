@@ -1,0 +1,28 @@
+{
+  "id": "Entity.unlock",
+  "displayName": "Entity.unlock",
+  "kind": "oop_function",
+  "memberName": ".unlock",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Removes the pessimistic lock on the record matching the entity",
+  "description": "The .unlock() function removes the pessimistic lock on the record matching the entity in the datastore and table related to its dataclass.\n\nFor more information, please refer to Entity locking section.\n\nA record is automatically unlocked when it is no longer referenced by any entities in the locking process (for example: if the lock is put only on one local reference of an entity, the entity and thus the record is unlocked when the process ends).\n\nWhen a record is locked, it must be unlocked from the locking process and on the entity reference which put the lock. For example:\n\nResult\n\nThe object returned by .unlock() contains the following property:",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.unlock()** : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

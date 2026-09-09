@@ -1,0 +1,29 @@
+{
+  "id": "File.delete",
+  "displayName": "File.delete",
+  "kind": "oop_function",
+  "memberName": ".delete",
+  "receiver": {
+    "classId": "File",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "File"
+    }
+  },
+  "summary": "Deletes the file",
+  "description": "The .delete() function deletes the file.\n\nIf the file does not exist on disk, the function does nothing (no error is generated).\n\nIf the file is currently open, the result depends on the OS:\n\non Windows, an error is generated, on macOS, no error is generated and the file is deleted.",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.delete**()",
+      "returns": null
+    }
+  ],
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "17-R5"
+}

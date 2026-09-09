@@ -1,0 +1,25 @@
+{
+  "id": "TCPConnection.errors",
+  "displayName": "TCPConnection.errors",
+  "kind": "oop_property",
+  "memberName": ".errors",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "A collection of error objects associated with the connection",
+  "description": "The .errors property contains a collection of error objects associated with the connection. Each error object includes the error code, a description, and the signature of the component that caused the error.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Collection"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

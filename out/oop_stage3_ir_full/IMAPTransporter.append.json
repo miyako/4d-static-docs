@@ -1,0 +1,59 @@
+{
+  "id": "IMAPTransporter.append",
+  "displayName": "IMAPTransporter.append",
+  "kind": "oop_function",
+  "memberName": ".append",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Appends a `mailObj` to the `destinationBox`",
+  "description": "The .append() function appends a mailObj to the destinationBox.\n\nIn the mailObj parameter, pass an Email object. For a comprehensive description of mail properties, see Email object. The .append() function supports keyword tags in the Email object's keywords attribute.\n\nThe optional destinationBox parameter lets you pass the name of a mailbox where the mailObj will be appended. If omitted, the current mailbox is used.\n\nIn the optional options parameter, you can pass an object to define the charset and encoding for specific parts of the email. Available properties:\n\nPossible charsets:\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mailObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Email object"
+        },
+        {
+          "name": "destinationBox",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Mailbox to receive Email object"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object containing charset info"
+        }
+      ],
+      "rawSyntax": "**.append**( *mailObj* : Object ; *destinationBox* : Text ; *options* : Object ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6"
+}

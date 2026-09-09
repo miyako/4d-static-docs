@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.defaultHomepage",
+  "displayName": "WebServer.defaultHomepage",
+  "kind": "oop_property",
+  "memberName": ".defaultHomepage",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Name of the default home page",
+  "description": "The name of the default home page or \"\" to not send the custom home page.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

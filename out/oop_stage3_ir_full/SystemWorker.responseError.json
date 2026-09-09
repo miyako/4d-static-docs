@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.responseError",
+  "displayName": "SystemWorker.responseError",
+  "kind": "oop_property",
+  "memberName": ".responseError",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the concatenation of all the errors returned, once the request is terminated",
+  "description": "The .responseError property contains the concatenation of all the errors returned, once the request is terminated.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

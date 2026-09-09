@@ -1,0 +1,39 @@
+{
+  "id": "Entity.getKey",
+  "displayName": "Entity.getKey",
+  "kind": "oop_function",
+  "memberName": ".getKey",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns the primary key value of the entity",
+  "description": "The .getKey() function returns the primary key value of the entity.\n\nPrimary keys can be numbers (Integer) or strings. You can \"force\" the returned primary key value to be a string, no matter the actual primary key type, by passing the dk key as string option in the mode parameter.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mode",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Entity.getKey.mode"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk key as string`: primary key is returned as a string, no matter the primary key type"
+        }
+      ],
+      "rawSyntax": "**.getKey**( { *mode* : Integer } ) : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

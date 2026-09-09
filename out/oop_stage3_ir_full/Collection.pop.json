@@ -1,0 +1,31 @@
+{
+  "id": "Collection.pop",
+  "displayName": "Collection.pop",
+  "kind": "oop_function",
+  "memberName": ".pop",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Removes the last element from the collection and returns it as the function result",
+  "description": "The .pop() function removes the last element from the collection and returns it as the function result.\n\nThis function modifies the original collection.\n\nWhen applied to an empty collection, .pop() returns undefined.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.pop()** : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "16-R6"
+}

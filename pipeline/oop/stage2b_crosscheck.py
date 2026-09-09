@@ -167,7 +167,9 @@ def section_for(raw_index: dict, syntax: dict, entry_id: str, class_name: str,
     models them once on the declaring class, so the declaring class's own page
     is tried first and subclass pages are only a fallback.
     """
-    if class_name == oop.CLASS_STORE_KEY:
+    if class_name == oop.CLASS_STORE_KEY and member_key.startswith(
+        oop.CLASS_STORE_KEY + "."
+    ):
         # "4D.Blob.new()" is documented on BlobClass.html, not on the class
         # store page.
         target = member_key.split(".")[1]

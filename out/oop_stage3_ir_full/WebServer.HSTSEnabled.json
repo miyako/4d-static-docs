@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.HSTSEnabled",
+  "displayName": "WebServer.HSTSEnabled",
+  "kind": "oop_property",
+  "memberName": ".HSTSEnabled",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "HTTP Strict Transport Security (HSTS) status",
+  "description": "The HTTP Strict Transport Security (HSTS) status. HSTS allows the Web server to declare that browsers should only interact with it via secure HTTPS connections. Browsers will record the HSTS information the first time they receive a response from the web server, then any future HTTP requests will automatically be transformed into HTTPS requests. The length of time this information is stored by the browser is specified with the HSTSMaxAge property. HSTS requires that HTTPS is enabled on the server. HTTP must also be enabled to allow initial client connections.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

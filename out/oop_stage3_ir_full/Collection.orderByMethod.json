@@ -1,0 +1,104 @@
+{
+  "id": "Collection.orderByMethod",
+  "displayName": "Collection.orderByMethod",
+  "kind": "oop_function",
+  "memberName": ".orderByMethod",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns a new collection containing all elements of the collection in the order defined through the *formula* 4D function or *methodName* method",
+  "description": "The .orderByMethod() function returns a new collection containing all elements of the collection in the order defined through the formula 4D function or methodName method.\n\nThis function returns a shallow copy, which means that objects or collections in both collections share the same reference. If the original collection is a shared collection, the returned collection is also a shared collection.\n\nThis function does not modify the original collection.\n\nYou designate the callback to be executed to evaluate collection elements using either:\n\nformula (recommended syntax), a Formula object that can encapsulate any executable expressions, including functions and project methods; or methodName, the name of a project method (text).\n\nIn the callback, pass some code that compares two values and returns true if the first value is lower than the second value. You can provide extraParam parameters to the callback if necessary.\n\nThe callback receives the following parameters:\n\n$1 (object), where: $1.value (any type): first element value to be compared $1.value2 (any type): second element value to be compared $2...$N (any type): extra parameters\n\nIf you used a method, it must set the following parameter:\n\n$1.result (boolean): true if $1.value < $1.value2, false otherwise",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Function"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object"
+        },
+        {
+          "name": "extraParam",
+          "members": [
+            {
+              "name": "extraParam",
+              "type": {
+                "kind": "pseudo",
+                "name": "Expression"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Parameter(s) to pass"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.orderByMethod**( *formula* : 4D.Function { ; *...extraParam* : Expression } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of a method"
+        },
+        {
+          "name": "extraParam",
+          "members": [
+            {
+              "name": "extraParam",
+              "type": {
+                "kind": "pseudo",
+                "name": "Expression"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Parameter(s) to pass"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.orderByMethod**( *methodName* : Text { ; *...extraParam* : Expression } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R6",
+      "change": "Support of formula"
+    }
+  ]
+}

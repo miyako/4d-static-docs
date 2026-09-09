@@ -1,0 +1,26 @@
+{
+  "id": "Transporter.headerCharset",
+  "displayName": "Transporter.headerCharset",
+  "kind": "oop_property",
+  "memberName": ".headerCharset",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The charset and encoding used for the email header",
+  "description": "The .headerCharset property contains the charset and encoding used for the email header. The header includes the following parts of the email:\n\nsubject, attachment filename(s), email name.\n\nPossible values:",
+  "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17-R5"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "POP3Transporter.getMailInfoList",
+  "displayName": "POP3Transporter.getMailInfoList",
+  "kind": "oop_function",
+  "memberName": ".getMailInfoList",
+  "receiver": {
+    "classId": "POP3Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "POP3Transporter"
+    }
+  },
+  "summary": "Returns a collection of `mailInfo` objects describing all messages in the mailbox designated by the `POP3 transporter`",
+  "description": "The .getMailInfoList() function returns a collection of mailInfo objects describing all messages in the mailbox designated by the POP3 transporter. This function allows you to locally manage the list of messages located on the POP3 mail server.\n\nEach mailInfo object in the returned collection contains the following properties:\n\nIf the mailbox does not contain a message, an empty collection is returned.",
+  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getMailInfoList()** : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "[ ].size": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Message size in bytes"
+      },
+      "[ ].number": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Message number"
+      },
+      "[ ].id": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Unique ID of the message (useful if you store the message locally)"
+      }
+    },
+    "source": "Description"
+  },
+  "sinceVersion": "18-R2"
+}

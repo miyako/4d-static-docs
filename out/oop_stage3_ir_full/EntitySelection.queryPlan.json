@@ -1,0 +1,26 @@
+{
+  "id": "EntitySelection.queryPlan",
+  "displayName": "EntitySelection.queryPlan",
+  "kind": "oop_property",
+  "memberName": ".queryPlan",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Contains a detailed description of the query just before it is executed (i.e., the planned query)",
+  "description": "The .queryPlan property contains a detailed description of the query just before it is executed (i.e., the planned query). This property is available for EntitySelection objects generated through queries if the \"queryPlan\":true property was passed in the querySettings parameter of the .query() function.\n\nFor more information, refer to the querySettings parameter paragraph in the Dataclass.query() page.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17"
+}

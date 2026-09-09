@@ -1,0 +1,25 @@
+{
+  "id": "WebSocketServer.dataType",
+  "displayName": "WebSocketServer.dataType",
+  "kind": "oop_property",
+  "memberName": ".dataType",
+  "receiver": {
+    "classId": "WebSocketServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketServer"
+    }
+  },
+  "summary": "The type of the data received or sent",
+  "description": "The .dataType property contains the type of the data received or sent.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

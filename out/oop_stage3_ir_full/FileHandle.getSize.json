@@ -1,0 +1,38 @@
+{
+  "id": "FileHandle.getSize",
+  "displayName": "FileHandle.getSize",
+  "kind": "oop_function",
+  "memberName": ".getSize",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "Returns the current size of the document, expressed in bytes",
+  "description": "The .getSize() function returns the current size of the document, expressed in bytes.\n\nThis function returns the same value as the (.size) property of the File class.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getSize()** : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      }
+    }
+  ],
+  "sinceVersion": "19-R7",
+  "_seeAlso": [
+    {
+      "text": ".setSize()",
+      "href": "FileHandleClass.html#setsize"
+    },
+    {
+      "text": "file.size",
+      "href": "FileClass.html#size"
+    }
+  ]
+}

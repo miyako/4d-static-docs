@@ -1,0 +1,59 @@
+{
+  "id": "Collection.concat",
+  "displayName": "Collection.concat",
+  "kind": "oop_function",
+  "memberName": ".concat",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns a new collection containing the elements of the original collection with all elements of the *value* parameter added to the end",
+  "description": "The .concat() function returns a new collection containing the elements of the original collection with all elements of the value parameter added to the end.\n\nThis function does not modify the original collection.\n\nIf value is a collection, all its elements are added as new elements at the end of the original collection. If value is not a collection, it is added itself as a new element.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Value(s) to concatenate. If *value* is a collection, all collection elements are added to the original collection"
+        },
+        {
+          "name": "valueN",
+          "members": [
+            {
+              "name": "valueN",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Value(s) to concatenate. If *value* is a collection, all collection elements are added to the original collection"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.concat**( *value* : any { ; *...valueN* : any } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

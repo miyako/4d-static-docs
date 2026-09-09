@@ -1,0 +1,48 @@
+{
+  "id": "4D.TCPListener.new",
+  "displayName": "4D.TCPListener.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "TCPListener",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.TCPListener"
+    }
+  },
+  "summary": "Creates a new TCP server listening to the specified *port* using the defined *options*, and returns a `4D.TCPListener` object",
+  "description": "The 4D.TCPListener.new() function creates a new TCP server listening to the specified port using the defined options, and returns a 4D.TCPListener object.",
+  "docPage": "mirror/docs/21-R3/API/TCPListenerClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "port",
+          "type": {
+            "kind": "concrete",
+            "name": "Number"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "TCP port to listen"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Configuration options for the listener"
+        }
+      ],
+      "rawSyntax": "**4D.TCPListener.new**( *port* : Number ; *options* : Object  ) : 4D.TCPListener",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.TCPListener"
+      }
+    }
+  ]
+}

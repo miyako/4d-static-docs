@@ -1,0 +1,76 @@
+{
+  "id": "Blob.slice",
+  "displayName": "Blob.slice",
+  "kind": "oop_function",
+  "memberName": ".slice",
+  "receiver": {
+    "classId": "Blob",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Blob"
+    }
+  },
+  "summary": "Creates and returns a `4D.Blob ` that references data from a subset of the blob on which it's called. The original blob is not altered.",
+  "description": ".slice() creates and returns a 4D.Blob that references data from a subset of the blob on which it's called. The original blob is not altered.\n\nThe start parameter is an index into the blob indicating the first byte to include in the new 4D.Blob. If you specify a negative value, 4D treats it as an offset from the end of the blob toward the beginning. For example, -10 would be the 10th from last byte in the blob. The default value is 0. If you specify a value for start that is larger than the size of the source blob, the returned 4D.Blob's size is 0, and it contains no data.\n\nThe end parameter is an index into the blob indicating the first byte that will not be included in the new 4D.Blob (i.e. the byte exactly at this index is not included). If you specify a negative value, 4D treats it as an offset from the end of the blob toward the beginning. For example, -10 would be the 10th from last byte in the blob. The default value is the size of the blob.",
+  "docPage": "mirror/docs/21-R3/API/BlobClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.slice()** : 4D.Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Blob"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "start",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "index of the first byte to include in the new `4D.Blob`."
+        }
+      ],
+      "rawSyntax": "**.slice**( *start* : Real ) : 4D.Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Blob"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "start",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "index of the first byte to include in the new `4D.Blob`."
+        },
+        {
+          "name": "end",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "index of the first byte that will not be included in the new `4D.Blob`"
+        }
+      ],
+      "rawSyntax": "**.slice**( *start* : Real; *end* : Real ) : 4D.Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Blob"
+      }
+    }
+  ],
+  "sinceVersion": "19-R2"
+}

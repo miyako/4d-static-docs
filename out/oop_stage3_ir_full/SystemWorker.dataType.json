@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.dataType",
+  "displayName": "SystemWorker.dataType",
+  "kind": "oop_property",
+  "memberName": ".dataType",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the type of the response body content",
+  "description": "The .dataType property contains the type of the response body content. Possible values : \"text\" or \"blob\".\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

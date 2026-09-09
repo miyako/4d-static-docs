@@ -1,0 +1,28 @@
+{
+  "id": "CryptoKey.getPrivateKey",
+  "displayName": "CryptoKey.getPrivateKey",
+  "kind": "oop_function",
+  "memberName": ".getPrivateKey",
+  "receiver": {
+    "classId": "CryptoKey",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "CryptoKey"
+    }
+  },
+  "summary": "Returns the private key of the `CryptoKey` object",
+  "description": "The .getPrivateKey() function returns the private key of the CryptoKey object in PEM format, or an empty string if none is available.",
+  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getPrivateKey()** : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "18-R4"
+}

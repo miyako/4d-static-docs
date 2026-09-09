@@ -1,0 +1,89 @@
+{
+  "id": "DataStore.startRequestLog",
+  "displayName": "DataStore.startRequestLog",
+  "kind": "oop_function",
+  "memberName": ".startRequestLog",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Starts the logging of ORDA requests on the client side or on the server side",
+  "description": "The .startRequestLog() function starts the logging of ORDA requests on the client side or on the server side. It is designed for debugging purposes in client/server configurations.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.startRequestLog**()",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "file",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "File object"
+        }
+      ],
+      "rawSyntax": "**.startRequestLog**( *file* : 4D.File )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "file",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "File object"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Log response option (server only)"
+        }
+      ],
+      "rawSyntax": "**.startRequestLog**( *file* : 4D.File ; *options* : Integer )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "reqNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of requests to keep in memory (client only)"
+        }
+      ],
+      "rawSyntax": "**.startRequestLog**( *reqNum* : Integer )",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "17-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "20",
+      "change": "Server side support, new options parameter"
+    }
+  ]
+}

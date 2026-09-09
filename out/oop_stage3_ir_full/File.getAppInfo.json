@@ -1,0 +1,97 @@
+{
+  "id": "File.getAppInfo",
+  "displayName": "File.getAppInfo",
+  "kind": "oop_function",
+  "memberName": ".getAppInfo",
+  "receiver": {
+    "classId": "File",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "File"
+    }
+  },
+  "summary": "Returns the contents of an application file information as an object",
+  "description": "The .getAppInfo() function returns the contents of an application file information as an object.\n\nThe function must be used with an existing, supported file: .plist (all platforms), .exe/.dll (Windows), or macOS executable. If the file does not exist on disk or is not a supported file, the function returns an empty object (no error is generated).\n\nReturned object with a .plist file (all platforms)\n\nThe xml file contents is parsed and keys are returned as properties of the object, preserving their types (text, boolean, number). .plist dict is returned as a JSON object and .plist array is returned as a JSON array.\n\nReturned object with a .exe or .dll file (Windows only)\n\nAll property values are Text.\n\nReturned object with a macOS executable file (macOS only)\n\nThe function returns an archs object that contains a collection of objects describing every architecture found in the executable (a fat executable can embed several architectures). Every object of the collection contains the following properties:",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getAppInfo**() : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "InternalName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "ProductName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "CompanyName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "LegalCopyright": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "ProductVersion": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "FileDescription": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "FileVersion": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "OriginalFilename": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "19",
+  "versionBehaviorChanges": [
+    {
+      "release": "20-R9",
+      "change": "Read UUIDs in macOS executables"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": ".setAppInfo()",
+      "href": "FileClass.html#setappinfo"
+    }
+  ]
+}

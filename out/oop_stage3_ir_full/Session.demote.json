@@ -1,0 +1,42 @@
+{
+  "id": "Session.demote",
+  "displayName": "Session.demote",
+  "kind": "oop_function",
+  "memberName": ".demote",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Removes the promoted privilege whose id you passed in *promoteId* from the web process, if it was previously added by the `.promote()` function",
+  "description": "The .demote() function removes the promoted privilege whose id you passed in promoteId from the web process, if it was previously added by the .promote() function.\n\nIf no privilege with promoteId was promoted using .promote() in the web process, the function does nothing.\n\nIf several privileges have been added to the web process, the demote() function must be called for each one with the appropriate promoteId. Privileges are stacked in the order they have been added to the process, it is recommended to unstack privileges in a LIFO (Last In, First Out) order.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "promoteId",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Id returned by the `promote()` function"
+        }
+      ],
+      "rawSyntax": "**.demote**( *promoteId* : Integer )",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "20-R10",
+  "_seeAlso": [
+    {
+      "text": ".promote()",
+      "href": "SessionClass.html#promote"
+    }
+  ]
+}

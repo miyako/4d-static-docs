@@ -1,0 +1,74 @@
+{
+  "id": "DataClass.getRemoteCache",
+  "displayName": "DataClass.getRemoteCache",
+  "kind": "oop_function",
+  "memberName": ".getRemoteCache",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Returns an object that holds the contents of the ORDA cache for a dataclass.",
+  "description": "Advanced mode: This function is intended for developers who need to customize ORDA default features for specific configurations. In most cases, you will not need to use it.\n\nThe .getRemoteCache() function returns an object that holds the contents of the ORDA cache for a dataclass..\n\nCalling this function from a 4D single-user application returns Null.\n\nThe returned object has the following properties:\n\nEach entry object in the entries collection has the following properties:\n\nThe data object in each entry contains the following properties:\n\nData concerning related entities is stored in the cache of the data object.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getRemoteCache**() : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "maxEntries": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "Maximum number of entries collection."
+      },
+      "stamp": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "Stamp of the cache."
+      },
+      "timeout": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "Time remaining before the new entries in the cache are marked as expired."
+      },
+      "entries": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "Contains an entry object for each entity in the cache."
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "19-R5",
+  "_seeAlso": [
+    {
+      "text": ".setRemoteCacheSettings()",
+      "href": "DataClassClass.html#setremotecachesettings"
+    },
+    {
+      "text": ".clearRemoteCache()",
+      "href": "DataClassClass.html#clearremotecache"
+    }
+  ]
+}

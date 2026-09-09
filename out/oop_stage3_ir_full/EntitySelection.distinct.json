@@ -1,0 +1,55 @@
+{
+  "id": "EntitySelection.distinct",
+  "displayName": "EntitySelection.distinct",
+  "kind": "oop_function",
+  "memberName": ".distinct",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns a collection containing only distinct (different) values from the *attributePath* in the entity selection",
+  "description": "The .distinct() function returns a collection containing only distinct (different) values from the attributePath in the entity selection.\n\nThe returned collection is automatically sorted. Null values are not returned.\n\nIn the attributePath parameter, pass the entity attribute whose distinct values you want to get. Only scalar values (text, number, boolean, or date) can be handled. If the attributePath leads to an object property that contains values of different types, they are first grouped by type and sorted afterwards. Types are returned in the following order:\n\nbooleans strings numbers dates\n\nYou can use the [] notation to designate a collection when attributePath is a path within an object (see examples).\n\nIn the options parameter, you can pass one or a combination of the following constants:\n\nAn error is returned if:\n\nattributePath is a related attribute, attributePath is not found in the entity selection dataclass.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Path of attribute whose distinct values you want to get"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.distinct.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk diacritical`, `dk count values`"
+        }
+      ],
+      "rawSyntax": "**.distinct**( *attributePath* : Text { ; *options* : Integer } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "20",
+      "change": "Support of dk count values"
+    }
+  ]
+}

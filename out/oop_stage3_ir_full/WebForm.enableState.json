@@ -1,0 +1,35 @@
+{
+  "id": "WebForm.enableState",
+  "displayName": "WebForm.enableState",
+  "kind": "oop_function",
+  "memberName": ".enableState",
+  "receiver": {
+    "classId": "WebForm",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebForm"
+    }
+  },
+  "summary": "Enables the rendering of the *state* in the current web page",
+  "description": "The .enableState() function enables the rendering of the state in the current web page.\n\nThis function does nothing if:\n\nthe state has already been enabled on the web page, the state does not exist for the web page.\n\nIf you enable or disable several states within the same user function, all modifications are sent at the same time to the client once the function ends.\n\nFor more information on web page states, please refer to the States section in the Qodly documentation.",
+  "docPage": "mirror/docs/21-R3/API/WebFormClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "state",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of state to enable on the web form"
+        }
+      ],
+      "rawSyntax": "**.enableState**( *state* : Text )",
+      "returns": null
+    }
+  ]
+}

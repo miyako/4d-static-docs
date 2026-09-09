@@ -1,0 +1,35 @@
+{
+  "id": "OutgoingMessage.setBody",
+  "displayName": "OutgoingMessage.setBody",
+  "kind": "oop_function",
+  "memberName": ".setBody",
+  "receiver": {
+    "classId": "OutgoingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "OutgoingMessage"
+    }
+  },
+  "summary": "Sets the outgoing message *body*",
+  "description": "The .setBody() function sets the outgoing message body.\n\nThe following data types are supported in the body:\n\nText Blob Object Image\n\nWhen this function is used, the content-type header is automatically set depending on the body type:\n\nContent-Type:text/plain if the body is a Text Content-Type:application/octet-stream if body is a Blob Content-Type:application/json if body is an Object Content-Type:image/jpeg, image/gif... if body is an Image\n\nIf body is not of a supported value type, an error is returned.",
+  "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "body",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Body of the outgoing message"
+        }
+      ],
+      "rawSyntax": "**.setBody**( *body* : any )",
+      "returns": null
+    }
+  ]
+}

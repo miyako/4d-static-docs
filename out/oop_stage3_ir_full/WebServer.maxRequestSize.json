@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.maxRequestSize",
+  "displayName": "WebServer.maxRequestSize",
+  "kind": "oop_property",
+  "memberName": ".maxRequestSize",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Maximum size (in bytes) of incoming HTTP requests (POST) that the web server is allowed to process",
+  "description": "Contains the maximum size (in bytes) of incoming HTTP requests (POST) that the web server is allowed to process. Passing the maximum value (2147483647) means that, in practice, no limit is set. This limit is used to avoid web server saturation due to incoming requests that are too large. If a request reaches this limit, the web server rejects it.\n\nPossible values: 500000 - 2147483647",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "4D.Folder.new",
+  "displayName": "4D.Folder.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "Folder",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.Folder"
+    }
+  },
+  "summary": "Creates and returns a new object of the `4D.Folder` type",
+  "description": "The 4D.Folder.new() function creates and returns a new object of the 4D.Folder type. It is identical to the Folder command (shortcut).\n\nIt is recommended to use the Folder shortcut command instead of 4D.Folder.new().",
+  "docPage": "mirror/docs/21-R3/API/FolderClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pathType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ],
+            "meanings": {
+              "*": "positional marker literal, passed as written"
+            }
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "rawSyntax": "**4D.Folder.new** ( *path* : Text { ; *pathType* : Integer }{ ; * } ) : 4D.Folder",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Folder"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "folderConstant",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "*",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ],
+            "meanings": {
+              "*": "positional marker literal, passed as written"
+            }
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "rawSyntax": "**4D.Folder.new** ( *folderConstant* : Integer { ; * } ) : 4D.Folder",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Folder"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6"
+}

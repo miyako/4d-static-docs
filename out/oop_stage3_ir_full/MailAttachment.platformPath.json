@@ -1,0 +1,26 @@
+{
+  "id": "MailAttachment.platformPath",
+  "displayName": "MailAttachment.platformPath",
+  "kind": "oop_property",
+  "memberName": ".platformPath",
+  "receiver": {
+    "classId": "MailAttachment",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "MailAttachment"
+    }
+  },
+  "summary": "The path of the attachment file expressed with the current platform syntax",
+  "description": "The .platformPath property returns the path of the attachment file expressed with the current platform syntax.",
+  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "19"
+}

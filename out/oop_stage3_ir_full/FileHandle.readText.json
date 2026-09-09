@@ -1,0 +1,49 @@
+{
+  "id": "FileHandle.readText",
+  "displayName": "FileHandle.readText",
+  "kind": "oop_function",
+  "memberName": ".readText",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "Returns text from the file, starting from the current position until the first *stopChar* string is encountered (if passed) or the end of file is reached",
+  "description": "The .readText() function returns text from the file, starting from the current position until the first stopChar string is encountered (if passed) or the end of file is reached.\n\nThe stopChar character string is not included in the returned text. If you omit the stopChar parameter, the whole document text is returned.\n\nWhen this function is executed, the (.offset) is placed just after the stopChar string.\n\nIf the stopChar parameter is passed and not found, .readText() returns an empty string and the .offset is left untouched.\n\nWhen this function is executed for the first time on a file handle, the whole document contents is loaded in a buffer.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "stopChar",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Character(s) at which to stop reading"
+        }
+      ],
+      "rawSyntax": "**.readText**( { *stopChar* : Text } ) : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "19-R7",
+  "_seeAlso": [
+    {
+      "text": ".readLine()",
+      "href": "FileHandleClass.html#readline"
+    },
+    {
+      "text": ".writeText()",
+      "href": "FileHandleClass.html#writetext"
+    }
+  ]
+}

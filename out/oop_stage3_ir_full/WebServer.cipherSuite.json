@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.cipherSuite",
+  "displayName": "WebServer.cipherSuite",
+  "kind": "oop_property",
+  "memberName": ".cipherSuite",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Cipher list used for the secure protocol",
+  "description": "The cipher list used for the secure protocol. Sets the priority of ciphering algorithms implemented by the 4D web server. Can be a sequence of strings separated by colons (for example \"ECDHE-RSA-AES128-...\"). See the ciphers page on the OpenSSL site.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

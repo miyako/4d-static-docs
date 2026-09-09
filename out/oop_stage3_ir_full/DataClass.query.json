@@ -1,0 +1,144 @@
+{
+  "id": "DataClass.query",
+  "displayName": "DataClass.query",
+  "kind": "oop_function",
+  "memberName": ".query",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s)",
+  "description": "The .query() function searches for entities that meet the search criteria specified in queryString or formula and (optionally) value(s), for all the entities in the dataclass, and returns a new object of type EntitySelection containing all the entities that are found. Lazy loading is applied.\n\nIf no matching entities are found, an empty EntitySelection is returned.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "queryString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Search criteria as string"
+        },
+        {
+          "name": "value",
+          "members": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Value(s) to use for indexed placeholder(s)"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        },
+        {
+          "name": "querySettings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan"
+        }
+      ],
+      "rawSyntax": "**.query**( *queryString* : Text { ; *...value* : any } { ; *querySettings* : Object } ) : 4D.EntitySelection ",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Search criteria as formula object"
+        },
+        {
+          "name": "querySettings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan"
+        }
+      ],
+      "rawSyntax": "**.query**( *formula* : Object { ; *querySettings* : Object } ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "vector": {
+        "type": {
+          "kind": "concrete",
+          "name": "4D.Vector"
+        },
+        "description": "Mandatory. The vector to be compared"
+      },
+      "metric": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Optional. Vector computation to use for the query. You can use one of the following (Text) constants:mk cosine (default if omitted): calculates the cosine similarity between vectors.mk dot: calculates the dot similarity of vectors.mk euclidean: calculates the Euclidean distance between vectors."
+      },
+      "threshold": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Optional (default: 0.5). A threshold value used to filter vector comparisons based on their cosine, dot or euclidean similarity score according to the selected \"metric\". It is highly recommended to choose a similarity that best fits your specific use case for optimal results."
+      }
+    },
+    "source": "Query by vector similarity"
+  },
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "21",
+      "change": "Support 4D.Vector objects"
+    },
+    {
+      "release": "17-R6",
+      "change": "Support of Formula parameters"
+    },
+    {
+      "release": "17-R5",
+      "change": "Support of placeholders for values"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": ".query()",
+      "href": "EntitySelectionClass.html#query"
+    }
+  ]
+}

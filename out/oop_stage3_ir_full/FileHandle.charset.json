@@ -1,0 +1,26 @@
+{
+  "id": "FileHandle.charset",
+  "displayName": "FileHandle.charset",
+  "kind": "oop_property",
+  "memberName": ".charset",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "The charset used when reading from or writing to the file",
+  "description": "The .charset property returns the charset used when reading from or writing to the file.\n\nThe charset can be defined at the handle creation with the file.open() function. Default is \"UTF-8\".\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "19-R7"
+}

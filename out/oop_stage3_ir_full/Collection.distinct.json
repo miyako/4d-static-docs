@@ -1,0 +1,74 @@
+{
+  "id": "Collection.distinct",
+  "displayName": "Collection.distinct",
+  "kind": "oop_function",
+  "memberName": ".distinct",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns a collection containing only distinct (different) values from the original collection",
+  "description": "The .distinct() function returns a collection containing only distinct (different) values from the original collection.\n\nThis function does not modify the original collection.\n\nThe returned collection is automatically sorted. Null values are not returned.\n\nIf the collection contains objects, you can pass the propertyPath parameter to indicate the object property whose distinct values you want to get.\n\nIn the options parameter, you can pass one or a combination of the following constants:",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.distinct.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`ck diacritical`, `ck count values`"
+        }
+      ],
+      "rawSyntax": "**.distinct**( {*options* : Integer} ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "propertyPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Path of attribute whose distinct values you want to get"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.distinct.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`ck diacritical`, `ck count values`"
+        }
+      ],
+      "rawSyntax": "**.distinct**( *propertyPath* : Text {; *options* : Integer } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "20",
+      "change": "Support of ck count values"
+    }
+  ]
+}

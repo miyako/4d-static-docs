@@ -1,0 +1,25 @@
+{
+  "id": "Email.subject",
+  "displayName": "Email.subject",
+  "kind": "oop_property",
+  "memberName": ".subject",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Description of topic",
+  "description": "The .subject property contains the description of topic.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

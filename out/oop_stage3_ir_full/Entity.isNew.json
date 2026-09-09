@@ -1,0 +1,28 @@
+{
+  "id": "Entity.isNew",
+  "displayName": "Entity.isNew",
+  "kind": "oop_function",
+  "memberName": ".isNew",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns True if the entity to which it is applied has just been created and has not yet been saved in the datastore",
+  "description": "The .isNew() function returns True if the entity to which it is applied has just been created and has not yet been saved in the datastore. Otherwise, it returns False.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.isNew()** : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

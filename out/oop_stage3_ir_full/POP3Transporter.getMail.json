@@ -1,0 +1,58 @@
+{
+  "id": "POP3Transporter.getMail",
+  "displayName": "POP3Transporter.getMail",
+  "kind": "oop_function",
+  "memberName": ".getMail",
+  "receiver": {
+    "classId": "POP3Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "POP3Transporter"
+    }
+  },
+  "summary": "Returns the `Email` object corresponding to the *msgNumber* in the mailbox designated by the `POP3 transporter`",
+  "description": "The .getMail() function returns the Email object corresponding to the msgNumber in the mailbox designated by the POP3 transporter. This function allows you to locally handle the email contents.\n\nPass in msgNumber the number of the message to retrieve. This number is returned in the number property by the .getMailInfoList() function.\n\nOptionally, you can pass true in the headerOnly parameter to exclude the body parts from the returned Email object. Only headers properties (headers, to, from...) are then returned. This option allows you to optimize the downloading step when a lot of emails are on the server.\n\nThe method returns Null if:\n\nmsgNumber designates a non-existing message, the message was marked for deletion using .delete().\n\nReturned object\n\n.getMail() returns an Email object.",
+  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msgNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the message in the list"
+        },
+        {
+          "name": "headerOnly",
+          "type": {
+            "kind": "concrete",
+            "name": "Boolean"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "True to download only the email headers (default is False)"
+        }
+      ],
+      "rawSyntax": "**.getMail**( *msgNumber* : Integer { ; *headerOnly* : Boolean } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "18-R2",
+  "versionBehaviorChanges": [
+    {
+      "release": "20",
+      "change": "Support of headerOnly parameter"
+    }
+  ]
+}

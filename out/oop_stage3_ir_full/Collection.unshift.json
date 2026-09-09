@@ -1,0 +1,59 @@
+{
+  "id": "Collection.unshift",
+  "displayName": "Collection.unshift",
+  "kind": "oop_function",
+  "memberName": ".unshift",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Inserts the given *value*(s) at the beginning of the collection",
+  "description": "The .unshift() function inserts the given value(s) at the beginning of the collection and returns the modified collection.\n\nThis function modifies the original collection.\n\nIf several values are passed, they are inserted all at once, which means that they appear in the resulting collection in the same order as in the argument list.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Value(s) to insert at the beginning of the collection"
+        },
+        {
+          "name": "valueN",
+          "members": [
+            {
+              "name": "valueN",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Value(s) to insert at the beginning of the collection"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.unshift**( *value* : any { ;...*valueN* : any } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "4D.IMAPTransporter.new",
+  "displayName": "4D.IMAPTransporter.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.IMAPTransporter"
+    }
+  },
+  "summary": "Creates and returns a new object of the `4D.IMAPTransporter` type",
+  "description": "The 4D.IMAPTransporter.new() function creates and returns a new object of the 4D.IMAPTransporter type. It is identical to the IMAP New transporter command (shortcut).",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "parameter",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Mail server configuration"
+        }
+      ],
+      "rawSyntax": "**4D.IMAPTransporter.new**( *parameter* : Object ) : 4D.IMAPTransporter",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.IMAPTransporter"
+      }
+    }
+  ]
+}

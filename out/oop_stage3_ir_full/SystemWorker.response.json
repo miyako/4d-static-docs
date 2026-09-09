@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.response",
+  "displayName": "SystemWorker.response",
+  "kind": "oop_property",
+  "memberName": ".response",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the concatenation of all data returned once the request is terminated",
+  "description": "The .response property contains the concatenation of all data returned once the request is terminated, i.e. the full message received from the process output.\n\nThe type of the message is defined according to the dataType attribute.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "Document.getContent",
+  "displayName": "Document.getContent",
+  "kind": "oop_function",
+  "memberName": ".getContent",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "Returns a `4D.Blob` object containing the entire content of a file",
+  "description": "The .getContent() function returns a 4D.Blob object containing the entire content of a file. For information on BLOBs, please refer to the BLOB section.\n\nReturned value\n\nA 4D.Blob object.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getContent( )** : 4D.Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Blob"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5",
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R2",
+      "change": "Returns 4D.Blob"
+    }
+  ]
+}

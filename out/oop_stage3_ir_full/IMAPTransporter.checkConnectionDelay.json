@@ -1,0 +1,26 @@
+{
+  "id": "IMAPTransporter.checkConnectionDelay",
+  "displayName": "IMAPTransporter.checkConnectionDelay",
+  "kind": "oop_property",
+  "memberName": ".checkConnectionDelay",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "The maximum time (in seconds) allowed prior to checking the connection to the server",
+  "description": "The .checkConnectionDelay property contains the maximum time (in seconds) allowed prior to checking the connection to the server. If this time is exceeded between two method calls, the connection to the server will be checked. By default, if the property has not been set in the server object, the value is 300.\n\nWarning: Make sure the defined timeout is lower than the server timeout, otherwise the client timeout will be useless.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "18-R4"
+}

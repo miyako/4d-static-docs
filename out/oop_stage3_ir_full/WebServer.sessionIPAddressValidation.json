@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.sessionIPAddressValidation",
+  "displayName": "WebServer.sessionIPAddressValidation",
+  "kind": "oop_property",
+  "memberName": ".sessionIPAddressValidation",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "IP address validation for session cookies",
+  "description": "This property is not used in scalable sessions mode (there is no IP address validation).\n\nThe IP address validation for session cookies. For security reasons, by default the web server checks the IP address of each request containing a session cookie and rejects it if this address does not match the IP address used to create the cookie. In some specific applications, you may want to disable this validation and accept session cookies, even when their IP addresses do not match. For example when mobile devices switch between WiFi and 3G/4G networks, their IP address will change. In this case, you can allow clients to be able to continue using their web sessions even when the IP addresses change (this setting lowers the security level of your application).",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

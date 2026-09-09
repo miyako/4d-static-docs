@@ -1,0 +1,50 @@
+{
+  "id": "Entity.getRemoteContextAttributes",
+  "displayName": "Entity.getRemoteContextAttributes",
+  "kind": "oop_function",
+  "memberName": ".getRemoteContextAttributes",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns information about the optimization context used by the entity",
+  "description": "Advanced mode: This function is intended for developers who need to customize ORDA default features for specific configurations. In most cases, you will not need to use it.\n\nThe .getRemoteContextAttributes() function returns information about the optimization context used by the entity .\n\nIf there is no optimization context for the entity, the function returns an empty Text.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getRemoteContextAttributes()** : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "19R5",
+  "_seeAlso": [
+    {
+      "text": "EntitySelection.getRemoteContextAttributes()",
+      "href": "EntitySelectionClass.html#getremotecontextattributes"
+    },
+    {
+      "text": ".clearAllRemoteContexts()",
+      "href": "DataStoreClass.html#clearallremotecontexts"
+    },
+    {
+      "text": ".getRemoteContextInfo()",
+      "href": "DataStoreClass.html#getremotecontextinfo"
+    },
+    {
+      "text": ".getAllRemoteContexts()",
+      "href": "DataStoreClass.html#getallremotecontexts"
+    },
+    {
+      "text": ".setRemoteContextInfo()",
+      "href": "DataStoreClass.html#setremotecontextinfo"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "Document.modificationDate",
+  "displayName": "Document.modificationDate",
+  "kind": "oop_property",
+  "memberName": ".modificationDate",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The date of the file's last modification",
+  "description": "The .modificationDate property returns the date of the file's last modification.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Date"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

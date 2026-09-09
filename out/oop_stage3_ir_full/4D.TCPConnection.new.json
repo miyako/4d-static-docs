@@ -1,0 +1,119 @@
+{
+  "id": "4D.TCPConnection.new",
+  "displayName": "4D.TCPConnection.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.TCPConnection"
+    }
+  },
+  "summary": "Creates a new TCP connection to the specified *serverAddress* and *serverPort*, using the defined *options*, and returns a `4D.TCPConnection` object",
+  "description": "The 4D.TCPConnection.new() function creates a new TCP connection to the specified serverAddress and serverPort, using the defined options, and returns a 4D.TCPConnection object.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "serverAddress",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Domain name or IP address of the server"
+        },
+        {
+          "name": "serverPort",
+          "type": {
+            "kind": "concrete",
+            "name": "Number"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Port number of the server"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Configuration options for the connection"
+        }
+      ],
+      "rawSyntax": "**4D.TCPConnection.new**( *serverAddress* : Text ; *serverPort* : Number ; *options* : Object  ) : 4D.TCPConnection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.TCPConnection"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "onConnection": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback triggered when the connection is established."
+      },
+      "onData": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback triggered when data is received"
+      },
+      "onShutdown": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback triggered when the connection is properly closed"
+      },
+      "onError": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback triggered in case of an error"
+      },
+      "onTerminate": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback triggered just before the TCPConnection is released"
+      },
+      "noDelay": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "Read-only Disables Nagle's algorithm if true"
+      },
+      "connectionTimeout": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Maximum time (in seconds) to establish the connection. If exceeded, the connection attempt is aborted"
+      },
+      "TLS": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "Enables TLS encryption for connections"
+      }
+    },
+    "source": "options parameter"
+  }
+}

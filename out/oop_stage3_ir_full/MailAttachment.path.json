@@ -1,0 +1,25 @@
+{
+  "id": "MailAttachment.path",
+  "displayName": "MailAttachment.path",
+  "kind": "oop_property",
+  "memberName": ".path",
+  "receiver": {
+    "classId": "MailAttachment",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "MailAttachment"
+    }
+  },
+  "summary": "The POSIX path of the attachment file, if it exists",
+  "description": "The .path property contains the POSIX path of the attachment file, if it exists.",
+  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

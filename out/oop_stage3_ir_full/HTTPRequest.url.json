@@ -1,0 +1,25 @@
+{
+  "id": "HTTPRequest.url",
+  "displayName": "HTTPRequest.url",
+  "kind": "oop_property",
+  "memberName": ".url",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "The URL of the HTTP request",
+  "description": "The .url property contains the URL of the HTTP request.",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

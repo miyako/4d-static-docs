@@ -1,0 +1,42 @@
+{
+  "id": "Collection.at",
+  "displayName": "Collection.at",
+  "kind": "oop_function",
+  "memberName": ".at",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns the item at position *index*, allowing for positive and negative integers",
+  "description": "The .at() function returns the item at position index, allowing for positive and negative integers.\n\nThis function does not modify the original collection.\n\nNegative integers count back from the last item in the collection.\n\nThe function returns Undefined if index is beyond collection limits.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "index",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Index of element to return"
+        }
+      ],
+      "rawSyntax": "**.at**( *index* : Integer ) : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "20"
+}

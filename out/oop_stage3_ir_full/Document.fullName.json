@@ -1,0 +1,26 @@
+{
+  "id": "Document.fullName",
+  "displayName": "Document.fullName",
+  "kind": "oop_property",
+  "memberName": ".fullName",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The full name of the file, including its extension (if any)",
+  "description": "The .fullName property returns the full name of the file, including its extension (if any).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

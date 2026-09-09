@@ -1,0 +1,35 @@
+{
+  "id": "DataStore.unlock",
+  "displayName": "DataStore.unlock",
+  "kind": "oop_function",
+  "memberName": ".unlock",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Removes the current lock on write operations in the datastore, if it has been set in the same process",
+  "description": "The .unlock() function removes the current lock on write operations in the datastore, if it has been set in the same process. Write operations can be locked in the local datastore using the .flushAndLock() function.\n\nIf the current lock was the only lock on the datastore, write operations are immediately enabled. If the .flushAndLock() function was called several times in the process, the same number of .unlock() must be called to actually unlock the datastore.\n\nThe .unlock() function must be called from the process that called the corresponding .flushAndLock(), otherwise the function does nothing and the lock is not removed.\n\nIf the .unlock() function is called in an unlocked datastore, it does nothing.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.unlock()**",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "20",
+  "_seeAlso": [
+    {
+      "text": ".flushAndLock()",
+      "href": "DataStoreClass.html#flushandlock"
+    },
+    {
+      "text": ".locked()",
+      "href": "DataStoreClass.html#locked"
+    }
+  ]
+}

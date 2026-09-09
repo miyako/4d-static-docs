@@ -1,0 +1,26 @@
+{
+  "id": "Signal.signaled",
+  "displayName": "Signal.signaled",
+  "kind": "oop_property",
+  "memberName": ".signaled",
+  "receiver": {
+    "classId": "Signal",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Signal"
+    }
+  },
+  "summary": "Contains the current state of the `Signal` object",
+  "description": "The .signaled property contains the current state of the Signal object. When the signal is created, .signaled is False. It becomes True when the .trigger( ) is called on the object.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SignalClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R4"
+}

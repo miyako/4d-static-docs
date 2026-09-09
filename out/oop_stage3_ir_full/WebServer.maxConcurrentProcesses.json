@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.maxConcurrentProcesses",
+  "displayName": "WebServer.maxConcurrentProcesses",
+  "kind": "oop_property",
+  "memberName": ".maxConcurrentProcesses",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Maximum number of concurrent web processes supported by the web server",
+  "description": "The maximum number of concurrent web processes supported by the web server. When this number (minus one) is reached, 4D will not create any other processes and returns the HTTP status 503 - Service Unavailable to all new requests.\n\nPossible values: 10 - 32000\n\nDefault = 100",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

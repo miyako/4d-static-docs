@@ -1,0 +1,26 @@
+{
+  "id": "Transporter.sendTimeOut",
+  "displayName": "Transporter.sendTimeOut",
+  "kind": "oop_property",
+  "memberName": ".sendTimeOut",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The maximum wait time (in seconds) of a call to `.send( )` before a timeout occurs",
+  "description": "The .sendTimeOut property contains the maximum wait time (in seconds) of a call to .send( ) before a timeout occurs. By default, if the .sendTimeOut property has not been set in the server object, the value 100 is used.",
+  "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17-R4"
+}

@@ -1,0 +1,124 @@
+{
+  "id": "Collection.some",
+  "displayName": "Collection.some",
+  "kind": "oop_function",
+  "memberName": ".some",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns true if at least one element in the collection successfully passed a test implemented in the provided *formula* or *methodName* code",
+  "description": "The .some() function returns true if at least one element in the collection successfully passed a test implemented in the provided formula or methodName code.\n\nYou designate the 4D code (callback) to be executed to evaluate collection elements using either:\n\nformula (recommended syntax), a Formula object that can encapsulate any executable expressions, including functions and project methods; or methodName, the name of a project method (text).\n\nThe callback is called with the parameter(s) passed in param (optional). The callback can perform any test, with or without the parameter(s) and must return true for every element fulfilling the test. It receives an Object in first parameter ($1).\n\nThe callback receives the following parameters:\n\nin $1.value: element value to be processed in $2: param in $N...: paramN...\n\nIt can set the following parameter(s):\n\n(mandatory if you used a method) $1.result (boolean): true if the element value evaluation is successful, false otherwise. $1.stop (boolean, optional): true to stop the method callback. The returned value is the last calculated.\n\nIn any case, at the point where .some() function encounters the first collection element returning true, it stops calling the callback and returns true.\n\nBy default, .some() tests the whole collection. Optionally, you can pass the index of an element from which to start the test in startFrom.\n\nIf startFrom >= the collection's length, False is returned, which means the collection is not tested. If startFrom < 0, it is considered as the offset from the end of the collection. If startFrom = 0, the whole collection is searched (default).",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "startFrom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Index to start the test at"
+        },
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Function"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object"
+        },
+        {
+          "name": "param",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Parameter(s) to pass"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.some**( { *startFrom* : Integer ; } *formula* : 4D.Function { ; *...param* : any } ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "startFrom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Index to start the test at"
+        },
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of a method"
+        },
+        {
+          "name": "param",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Parameter(s) to pass"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.some**( { *startFrom* : Integer ; } *methodName* : Text { ; *...param* : any } ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R6",
+      "change": "Support of formula"
+    }
+  ]
+}

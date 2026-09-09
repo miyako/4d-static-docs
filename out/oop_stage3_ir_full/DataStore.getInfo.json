@@ -1,0 +1,28 @@
+{
+  "id": "DataStore.getInfo",
+  "displayName": "DataStore.getInfo",
+  "kind": "oop_function",
+  "memberName": ".getInfo",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Returns an object providing information about the datastore",
+  "description": "The .getInfo() function returns an object providing information about the datastore. This function is useful for setting up generic code.\n\nReturned object\n\nIf the .getInfo() function is executed on a 4D Server or 4D single-user, networked is False. If the .getInfo() function is executed on a remote 4D, networked is True",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getInfo()**: Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

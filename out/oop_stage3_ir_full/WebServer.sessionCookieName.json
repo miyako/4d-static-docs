@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.sessionCookieName",
+  "displayName": "WebServer.sessionCookieName",
+  "kind": "oop_property",
+  "memberName": ".sessionCookieName",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Name of the cookie used for storing the session ID",
+  "description": "The name of the cookie used for storing the session ID.\n\nRead-only property",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

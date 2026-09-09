@@ -1,0 +1,27 @@
+{
+  "id": "IncomingMessage.getJSON",
+  "displayName": "IncomingMessage.getJSON",
+  "kind": "oop_function",
+  "memberName": ".getJSON",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "Returns the body of the request as a JSON resolution",
+  "description": "The .getJSON() function returns the body of the request as a JSON resolution.\n\nIf the body has not been given as JSON valid content, an error is raised.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getJSON**() : Variant",
+      "returns": {
+        "kind": "pseudo",
+        "name": "Variant"
+      }
+    }
+  ]
+}

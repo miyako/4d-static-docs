@@ -1,0 +1,26 @@
+{
+  "id": "Directory.exists",
+  "displayName": "Directory.exists",
+  "kind": "oop_property",
+  "memberName": ".exists",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "True if the folder exists on disk",
+  "description": "The .exists property returns true if the folder exists on disk, and false otherwise.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

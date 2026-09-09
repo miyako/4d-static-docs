@@ -1,0 +1,49 @@
+{
+  "id": "Collection.equal",
+  "displayName": "Collection.equal",
+  "kind": "oop_function",
+  "memberName": ".equal",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Recursively compares the contents of the collection and *collection2* (deep comparison)",
+  "description": "The .equal() function recursively compares the contents of the collection and collection2 (deep comparison)and returns true if they are identical.\n\nBy default, a non-diacritical evaluation is performed. If you want the evaluation to be case sensitive or to differentiate accented characters, pass the ck diacritical constant in the option parameter.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "collection2",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection to compare"
+        },
+        {
+          "name": "option",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.equal.option"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`ck diacritical`: diacritical evaluation (\"A\" # \"a\" for example)"
+        }
+      ],
+      "rawSyntax": "**.equal**( *collection2* : Collection {; *option* : Integer } ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

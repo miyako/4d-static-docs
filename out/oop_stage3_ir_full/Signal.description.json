@@ -1,0 +1,26 @@
+{
+  "id": "Signal.description",
+  "displayName": "Signal.description",
+  "kind": "oop_property",
+  "memberName": ".description",
+  "receiver": {
+    "classId": "Signal",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Signal"
+    }
+  },
+  "summary": "Contains a custom description for the `Signal` object.",
+  "description": "The .description property contains a custom description for the Signal object..\n\n.description can be set at the creation of the signal object or at any moment. Note that since the Signal object is a shared object, any write-mode access to the .description property must be surrounded by a Use...End use structure.\n\nThis property is read-write.",
+  "docPage": "mirror/docs/21-R3/API/SignalClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17-R4"
+}

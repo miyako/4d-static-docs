@@ -1,0 +1,38 @@
+{
+  "id": "FileHandle.readLine",
+  "displayName": "FileHandle.readLine",
+  "kind": "oop_function",
+  "memberName": ".readLine",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "Returns a line of text from the current position until an end-of-line delimiter is encountered or the end of the document is reached",
+  "description": "The .readLine() function returns a line of text from the current position until an end-of-line delimiter is encountered or the end of the document is reached.\n\nWhen this function is executed, the current position (.offset) is updated.\n\nWhen this function is executed for the first time on a file handle, the whole document contents is loaded in a buffer.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.readLine()** : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "19-R7",
+  "_seeAlso": [
+    {
+      "text": ".readText()",
+      "href": "FileHandleClass.html#readtext"
+    },
+    {
+      "text": ".writeLine()",
+      "href": "FileHandleClass.html#writeline"
+    }
+  ]
+}

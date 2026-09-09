@@ -1,0 +1,49 @@
+{
+  "id": "IMAPTransporter.numToID",
+  "displayName": "IMAPTransporter.numToID",
+  "kind": "oop_function",
+  "memberName": ".numToID",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Converts the sequence numbers to IMAP unique IDs for the messages in the sequential range designated by *startMsg* and *endMsg*",
+  "description": "The .numToID() function converts the sequence numbers to IMAP unique IDs for the messages in the sequential range designated by startMsg and endMsg in the currently selected mailbox.\n\nIn the startMsg parameter, pass an integer value corresponding to the number of the first message in a sequential range. If you pass a negative number (startMsg <= 0), the first message of the mailbox will be used as the beginning of the sequence.\n\nIn the endMsg parameter, pass an integer value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (endMsg <= 0), the last message of the mailbox will be used as the end of the sequence.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "startMsg",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Sequence number of the first message"
+        },
+        {
+          "name": "endMsg",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Sequence number of the last message"
+        }
+      ],
+      "rawSyntax": "**.numToID**( *startMsg* : Integer ; *endMsg* : Integer ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "18-R5"
+}

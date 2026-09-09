@@ -1,0 +1,29 @@
+{
+  "id": "4D.classClassName",
+  "displayName": "4D.classClassName",
+  "kind": "oop_property",
+  "memberName": ".classClassName",
+  "receiver": {
+    "classId": "4D",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D"
+    }
+  },
+  "summary": "Each exposed 4D.Class class in the class store is available as a property of the class store.",
+  "description": "Each exposed 4D.Class class in the class store is available as a property of the class store.",
+  "docPage": "mirror/docs/21-R3/API/ClassStoreClass.html",
+  "accessor": {
+    "type": {
+      "kind": "pseudo",
+      "name": "any"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "dynamicMember": {
+    "namePattern": "<classClassName>",
+    "note": "names a user or built-in class inside a class store"
+  }
+}

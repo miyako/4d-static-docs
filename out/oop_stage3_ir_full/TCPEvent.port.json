@@ -1,0 +1,25 @@
+{
+  "id": "TCPEvent.port",
+  "displayName": "TCPEvent.port",
+  "kind": "oop_property",
+  "memberName": ".port",
+  "receiver": {
+    "classId": "TCPEvent",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPEvent"
+    }
+  },
+  "summary": "The port number of the remote machine",
+  "description": "The .port property contains the port number of the remote machine.",
+  "docPage": "mirror/docs/21-R3/API/TCPEventClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Number"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

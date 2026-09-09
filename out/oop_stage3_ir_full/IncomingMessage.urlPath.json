@@ -1,0 +1,25 @@
+{
+  "id": "IncomingMessage.urlPath",
+  "displayName": "IncomingMessage.urlPath",
+  "kind": "oop_property",
+  "memberName": ".urlPath",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "The URL of the request without the *IP:port* part and as a collection of strings",
+  "description": "The .urlPath property contains the URL of the request without the IP:port part and as a collection of strings.\n\nFor example, if the request is addressed to: \"http://127.0.0.1:80/docs/invoices/today\", the .urlPath property is [\"docs\", \"invoices\" ,\"today\"].\n\nThe .urlPath property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Collection"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

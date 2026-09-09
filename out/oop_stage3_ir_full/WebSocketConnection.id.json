@@ -1,0 +1,25 @@
+{
+  "id": "WebSocketConnection.id",
+  "displayName": "WebSocketConnection.id",
+  "kind": "oop_property",
+  "memberName": ".id",
+  "receiver": {
+    "classId": "WebSocketConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketConnection"
+    }
+  },
+  "summary": "The unique identifier of the connection",
+  "description": "The .id property contains the unique identifier of the connection.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

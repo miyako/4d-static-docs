@@ -1,0 +1,26 @@
+{
+  "id": "Directory.fullName",
+  "displayName": "Directory.fullName",
+  "kind": "oop_property",
+  "memberName": ".fullName",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "Returns the full name of the folder, including its extension (if any)",
+  "description": "The .fullName property returns the full name of the folder, including its extension (if any).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.openSSLVersion",
+  "displayName": "WebServer.openSSLVersion",
+  "kind": "oop_property",
+  "memberName": ".openSSLVersion",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Version of the OpenSSL library used",
+  "description": "Read-only property\n\nThe version of the OpenSSL library used.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

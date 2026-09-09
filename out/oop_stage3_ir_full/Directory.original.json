@@ -1,0 +1,26 @@
+{
+  "id": "Directory.original",
+  "displayName": "Directory.original",
+  "kind": "oop_property",
+  "memberName": ".original",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "The same Folder object as the folder",
+  "description": "The .original property returns the same Folder object as the folder.\n\nThis property is read-only.\n\nThis property is available on folders to allow generic code to process folders or files.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.Folder"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

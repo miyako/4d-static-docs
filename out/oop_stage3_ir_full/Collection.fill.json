@@ -1,0 +1,78 @@
+{
+  "id": "Collection.fill",
+  "displayName": "Collection.fill",
+  "kind": "oop_function",
+  "memberName": ".fill",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Fills the collection with the specified *value*, optionally from *startFrom* index to *end* index, and returns the resulting collection",
+  "description": "The .fill() function fills the collection with the specified value, optionally from startFrom index to end index, and returns the resulting collection.\n\nThis function modifies the original collection.\n\nIf the startFrom parameter is omitted, value is set to all collection elements (startFrom=0). If the startFrom parameter is passed and end omitted, value is set to collection elements starting at startFrom to the last element of the collection (end=length). If both the startFrom parameter and end are passed, value is set to collection elements starting at startFrom to the element end.\n\nIn case of inconsistency, the following rules apply:\n\nIf startFrom < 0, it is recalculated as startFrom:=startFrom+length (it is considered as the offset from the end of the collection). If the calculated value is negative, startFrom is set to 0. If end < 0 , it is recalculated as end:=end+length. If end < startFrom (passed or calculated values), the method does nothing.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Filling value"
+        }
+      ],
+      "rawSyntax": "**.fill**( *value* : any ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Filling value"
+        },
+        {
+          "name": "startFrom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Start index (included)"
+        },
+        {
+          "name": "end",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "End index (not included)"
+        }
+      ],
+      "rawSyntax": "**.fill**( *value* : any ;  *startFrom*  : Integer { ; *end* : Integer } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

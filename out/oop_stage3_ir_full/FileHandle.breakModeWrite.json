@@ -1,0 +1,26 @@
+{
+  "id": "FileHandle.breakModeWrite",
+  "displayName": "FileHandle.breakModeWrite",
+  "kind": "oop_property",
+  "memberName": ".breakModeWrite",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "The processing mode for line breaks used when writing to the file",
+  "description": "The .breakModeWrite property returns the processing mode for line breaks used when writing to the file.\n\nThe .breakModeWrite property can be defined at the handle creation with the file.open() function (see the .open() function for more information). Default is \"native\".\n\nThe .breakModeWrite property always contains a text value, even if the .open() option was set using a number (constant).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "19-R7"
+}

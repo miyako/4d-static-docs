@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.terminated",
+  "displayName": "SystemWorker.terminated",
+  "kind": "oop_property",
+  "memberName": ".terminated",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains **true** if the external process is terminated",
+  "description": "The .terminated property contains true if the external process is terminated.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

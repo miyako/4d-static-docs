@@ -1,0 +1,31 @@
+{
+  "id": "Entity.next",
+  "displayName": "Entity.next",
+  "kind": "oop_function",
+  "memberName": ".next",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns a reference to the next entity in the entity selection which the entity belongs to",
+  "description": "The .next() function returns a reference to the next entity in the entity selection which the entity belongs to.\n\nIf the entity does not belong to any existing entity selection (i.e. .getSelection() returns Null), the function returns a Null value.\n\nIf there is no valid next entity in the entity selection (i.e. you are on the last entity of the selection), the function returns Null. If the next entity has been dropped, the function returns the next valid entity (and eventually Null).",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.next()** : 4D.Entity",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Entity"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "17"
+}

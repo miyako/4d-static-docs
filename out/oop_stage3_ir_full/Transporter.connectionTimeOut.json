@@ -1,0 +1,26 @@
+{
+  "id": "Transporter.connectionTimeOut",
+  "displayName": "Transporter.connectionTimeOut",
+  "kind": "oop_property",
+  "memberName": ".connectionTimeOut",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The maximum wait time (in seconds) allowed to establish a connection to the server",
+  "description": "The .connectionTimeOut property contains the maximum wait time (in seconds) allowed to establish a connection to the server. By default, if the property has not been set in the server object (used to create the transporter object with SMTP New transporter, POP3 New transporter, or IMAP New transporter), the value is 30.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17-R5"
+}

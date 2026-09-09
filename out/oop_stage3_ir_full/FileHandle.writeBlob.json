@@ -1,0 +1,42 @@
+{
+  "id": "FileHandle.writeBlob",
+  "displayName": "FileHandle.writeBlob",
+  "kind": "oop_function",
+  "memberName": ".writeBlob",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "Writes *blob* into the file, starting from the current position",
+  "description": "The .writeBlob() function writes blob into the file, starting from the current position .\n\nWhen this function is executed, the current position (.offset) is updated after the last byte written.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Blob to write in the file"
+        }
+      ],
+      "rawSyntax": "**.writeBlob**( *blob* : 4D.Blob )",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "19-R7",
+  "_seeAlso": [
+    {
+      "text": ".readBlob()",
+      "href": "FileHandleClass.html#readblob"
+    }
+  ]
+}

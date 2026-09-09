@@ -1,0 +1,26 @@
+{
+  "id": "Directory.modificationTime",
+  "displayName": "Directory.modificationTime",
+  "kind": "oop_property",
+  "memberName": ".modificationTime",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "The time of the folder's last modification",
+  "description": "The .modificationTime property returns the time of the folder's last modification (expressed as a number of seconds beginning at 00:00).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Time"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "EntitySelection.queryPath",
+  "displayName": "EntitySelection.queryPath",
+  "kind": "oop_property",
+  "memberName": ".queryPath",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Contains a detailed description of the query as it was actually performed by 4D",
+  "description": "The .queryPath property contains a detailed description of the query as it was actually performed by 4D. This property is available for EntitySelection objects generated through queries if the \"queryPath\":true property was passed in the querySettings parameter of the .query() function.\n\nFor more information, refer to the querySettings parameter paragraph in the Dataclass.query() page.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17"
+}

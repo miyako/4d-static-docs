@@ -1,0 +1,25 @@
+{
+  "id": "OutgoingMessage.headers",
+  "displayName": "OutgoingMessage.headers",
+  "kind": "oop_property",
+  "memberName": ".headers",
+  "receiver": {
+    "classId": "OutgoingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "OutgoingMessage"
+    }
+  },
+  "summary": "The current headers of the outgoing message as key/value pairs",
+  "description": "The .headers property contains the current headers of the outgoing message as key/value pairs.\n\nThe .headers property is read-only. To set a header, use the setHeader() function.",
+  "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

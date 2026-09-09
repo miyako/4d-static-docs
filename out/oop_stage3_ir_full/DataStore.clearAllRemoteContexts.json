@@ -1,0 +1,39 @@
+{
+  "id": "DataStore.clearAllRemoteContexts",
+  "displayName": "DataStore.clearAllRemoteContexts",
+  "kind": "oop_function",
+  "memberName": ".clearAllRemoteContexts",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Clears all the attributes for all the active contexts in the datastore",
+  "description": "The .clearAllRemoteContexts() function clears all the attributes for all the active contexts in the datastore.\n\nThis function is mainly used in the context of debugging. One thing to keep in mind is that when you open the debugger, it sends requests to the server and queries all the dataclass attributes to display them. This can overload your contexts with unnecessary data.\n\nIn such cases, you can use .clearAllRemoteContexts() to clear your contexts and keep them clean.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.clearAllRemoteContexts()**",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "19-R5",
+  "_seeAlso": [
+    {
+      "text": ".getRemoteContextInfo()",
+      "href": "DataStoreClass.html#getremotecontextinfo"
+    },
+    {
+      "text": ".getAllRemoteContexts()",
+      "href": "DataStoreClass.html#getallremotecontexts"
+    },
+    {
+      "text": ".setRemoteContextInfo()",
+      "href": "DataStoreClass.html#setremotecontextinfo"
+    }
+  ]
+}

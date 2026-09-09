@@ -1,0 +1,261 @@
+{
+  "id": "4D.MailAttachment.new",
+  "displayName": "4D.MailAttachment.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "MailAttachment",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.MailAttachment"
+    }
+  },
+  "summary": "Creates and returns a new object of the `4D.MailAttachment` type",
+  "description": "The 4D.MailAttachment.new() function creates and returns a new object of the 4D.MailAttachment type. It is identical to the MAIL New attachment command (shortcut).",
+  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "file",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.File"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attachment file"
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name + extension used by the mail client to designate the attachment"
+        },
+        {
+          "name": "cid",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "ID of attachment (HTML messages only), or \" \" if no cid is required"
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Value of the content-type header"
+        },
+        {
+          "name": "disposition",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Value of the content-disposition header: \"inline\" or \"attachment\"."
+        }
+      ],
+      "rawSyntax": "**4D.MailAttachment.new**( *file* : 4D.File { ; *name* : Text {; *cid* : Text{ ; *type* : Text { ; *disposition* :Text } } } } ) : 4D.MailAttachment",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.MailAttachment"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "zipFile",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.ZipFile"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attachment Zipfile"
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name + extension used by the mail client to designate the attachment"
+        },
+        {
+          "name": "cid",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "ID of attachment (HTML messages only), or \" \" if no cid is required"
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Value of the content-type header"
+        },
+        {
+          "name": "disposition",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Value of the content-disposition header: \"inline\" or \"attachment\"."
+        }
+      ],
+      "rawSyntax": "**4D.MailAttachment.new**( *zipFile* : 4D.ZipFile { ; *name* : Text {; *cid* : Text{ ; *type* : Text { ; *disposition* :Text } } } } ) : 4D.MailAttachment",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.MailAttachment"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "blob",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Blob containing the attachment"
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name + extension used by the mail client to designate the attachment"
+        },
+        {
+          "name": "cid",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "ID of attachment (HTML messages only), or \" \" if no cid is required"
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Value of the content-type header"
+        },
+        {
+          "name": "disposition",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Value of the content-disposition header: \"inline\" or \"attachment\"."
+        }
+      ],
+      "rawSyntax": "**4D.MailAttachment.new**( *blob* : 4D.Blob { ; *name* : Text {; *cid* : Text{ ; *type* : Text { ; *disposition* :Text } } } } ) : 4D.MailAttachment",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.MailAttachment"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Path of the attachment file"
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name + extension used by the mail client to designate the attachment"
+        },
+        {
+          "name": "cid",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "ID of attachment (HTML messages only), or \" \" if no cid is required"
+        },
+        {
+          "name": "type",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Value of the content-type header"
+        },
+        {
+          "name": "disposition",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Value of the content-disposition header: \"inline\" or \"attachment\"."
+        }
+      ],
+      "rawSyntax": "**4D.MailAttachment.new**( *path* : Text { ; *name* : Text {; *cid* : Text{ ; *type* : Text { ; *disposition* :Text } } } } ) : 4D.MailAttachment",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.MailAttachment"
+      }
+    }
+  ],
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R2",
+      "change": "Accepts 4D.File, 4D.ZipFile, 4D.Blob"
+    }
+  ]
+}

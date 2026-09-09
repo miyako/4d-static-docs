@@ -1,0 +1,25 @@
+{
+  "id": "UDPEvent.data",
+  "displayName": "UDPEvent.data",
+  "kind": "oop_property",
+  "memberName": ".data",
+  "receiver": {
+    "classId": "UDPEvent",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "UDPEvent"
+    }
+  },
+  "summary": "The data associated with the event",
+  "description": "The .data property contains the data associated with the event. It is only valid for events of type \"data\".",
+  "docPage": "mirror/docs/21-R3/API/UDPEventClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Blob"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

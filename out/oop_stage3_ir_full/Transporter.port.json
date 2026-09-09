@@ -1,0 +1,26 @@
+{
+  "id": "Transporter.port",
+  "displayName": "Transporter.port",
+  "kind": "oop_property",
+  "memberName": ".port",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The port number used for mail transactions",
+  "description": "The .port property contains the port number used for mail transactions. By default, if the port property has not been set in the server object (used to create the transporter object with SMTP New transporter, POP3 New transporter, IMAP New transporter), the port used is:\n\nSMTP - 587 POP3 - 995 IMAP - 993",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17-R4"
+}

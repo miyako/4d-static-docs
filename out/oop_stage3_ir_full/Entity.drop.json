@@ -1,0 +1,105 @@
+{
+  "id": "Entity.drop",
+  "displayName": "Entity.drop",
+  "kind": "oop_function",
+  "memberName": ".drop",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Deletes the data contained in the entity from the datastore",
+  "description": "The .drop() function deletes the data contained in the entity from the datastore, from the table related to its Dataclass. Note that the entity remains in memory.\n\nIn a multi-user or multi-process application, the .drop() function is executed under an \"optimistic lock\" mechanism, wherein an internal locking stamp is automatically incremented each time the record is saved.\n\nBy default, if the mode parameter is omitted, the function will return an error (see below) if the same entity was modified (i.e. the stamp has changed) by another process or user in the meantime.\n\nOtherwise, you can pass the dk force drop if stamp changed option in the mode parameter: in this case, the entity is dropped even if the stamp has changed (and the primary key is still the same).\n\nResult\n\nThe object returned by .drop() contains the following properties:\n\n(*) The following values can be returned in the status and statusText properties of Result object in case of error:",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mode",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Entity.drop.mode"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk force drop if stamp changed`: Forces the drop even if the stamp has changed"
+        }
+      ],
+      "rawSyntax": "**.drop**( {*mode* : Integer} ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "true if the drop action is successful, false otherwise."
+      },
+      "status(*)": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Error code, see below",
+        "presentWhen": "Available only in case of error",
+        "optional": true
+      },
+      "statusText(*)": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Description of the error, see below",
+        "presentWhen": "Available only in case of error",
+        "optional": true
+      },
+      "LockKindText": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "\"Locked by record\"",
+        "presentWhen": "Available only in case of pessimistic lock error",
+        "optional": true
+      },
+      "lockInfo": {
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
+        "description": "Information about the lock origin",
+        "presentWhen": "Available only in case of pessimistic lock error",
+        "optional": true
+      },
+      "errors": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "presentWhen": "Available only in case of serious error (serious error can be trying to duplicate a primary key, disk full...)",
+        "optional": true
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  },
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "21",
+      "change": "Added status 7 and 8"
+    }
+  ]
+}

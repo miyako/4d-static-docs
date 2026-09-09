@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.debugLog",
+  "displayName": "WebServer.debugLog",
+  "kind": "oop_property",
+  "memberName": ".debugLog",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Status of the HTTP request log file",
+  "description": "The status of the HTTP request log file (HTTPDebugLog_nn.txt, stored in the \"Logs\" folder of the application -- nn is the file number).\n\n0 = disabled 1 = enabled without body parts (body size is provided in this case) 3 = enabled with body parts in response only 5 = enabled with body parts in request only 7 = enabled with body parts in response and request",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

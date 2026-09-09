@@ -1,0 +1,84 @@
+{
+  "id": "Email.bodyStructure",
+  "displayName": "Email.bodyStructure",
+  "kind": "oop_property",
+  "memberName": ".bodyStructure",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "*EmailBodyPart* object, i.e. the full MIME structure of the message body (optional)",
+  "description": "The .bodyStructure property contains the EmailBodyPart object, i.e. the full MIME structure of the message body (optional). See Handling body part section.\n\nThe .bodyStructure object contains the following properties:",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "returnsShape": {
+    "properties": {
+      "partID": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "type": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "charset": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "encoding": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "disposition": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "language": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        }
+      },
+      "location": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "subParts": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        }
+      },
+      "headers": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        }
+      }
+    },
+    "source": "Description"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "CryptoKey.size",
+  "displayName": "CryptoKey.size",
+  "kind": "oop_property",
+  "memberName": ".size",
+  "receiver": {
+    "classId": "CryptoKey",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "CryptoKey"
+    }
+  },
+  "summary": "The size of the key in bits",
+  "description": "Defined only for RSA keys: the size of the key in bits. Typically 2048 (default).",
+  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "18-R4"
+}

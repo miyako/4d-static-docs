@@ -1,0 +1,225 @@
+{
+  "id": "4D.HTTPRequest.new",
+  "displayName": "4D.HTTPRequest.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.HTTPRequest"
+    }
+  },
+  "summary": "Creates and sends a HTTP request to the HTTP server defined in *url* with the defined *options*, and returns a `4D.HTTPRequest` object",
+  "description": "The 4D.HTTPRequest.new() function creates and sends a HTTP request to the HTTP server defined in url with the defined options, and returns a 4D.HTTPRequest object.\n\nThe returned HTTPRequest object is used to process responses from the HTTP server and call methods.\n\nIn url, pass the URL where you want to send the request. The syntax to use is:\n\nIf you omit the scheme part (http:// or https://), a https request is sent.\n\nFor example, you can pass the following strings:",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "url",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "URL to which to send the request"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Request configuration properties"
+        }
+      ],
+      "rawSyntax": "**4D.HTTPRequest.new**( *url* : Text { ; *options* : Object } ) : 4D.HTTPRequest",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.HTTPRequest"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "agent": {
+        "type": {
+          "kind": "concrete",
+          "name": "4D.HTTPAgent"
+        },
+        "description": "HTTPAgent to use for the HTTPRequest. Agent options will be merged with request options (request options take precedence). If no specific agent is defined, a global agent with default values is used."
+      },
+      "automaticRedirections": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "If true, redirections are performed automatically (up to 5 redirections are handled, the 6th redirection response is returned if any)"
+      },
+      "body": {
+        "type": {
+          "kind": "pseudo",
+          "name": "Variant"
+        },
+        "description": "Body of the request (required in case of post or put requests). Can be a text, a blob, or an object. The content-type is determined from the type of this property unless it is set inside the headers"
+      },
+      "certificatesFolder": {
+        "type": {
+          "kind": "concrete",
+          "name": "Folder"
+        },
+        "description": "Sets the active client certificates folder. Can be overriden by \"storeCertificateName\" (see below)."
+      },
+      "dataType": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Type of the response body attribute. Values: \"text\", \"blob\", \"object\", or \"auto\". If \"auto\", the type of the body content will be deduced from its MIME type (object for JSON, text for text, javascript, xml, http message and url encoded form, blob otherwise)"
+      },
+      "decodeData": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "If true, the data received in the onData callback is uncompressed"
+      },
+      "encoding": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Used only in case of requests with a body (post or put methods). Encoding of the request body content if it's a text, ignored if content-type is set inside the headers"
+      },
+      "headers": {
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
+        "description": "Headers of the request. Syntax: headers.key=value (value can be a Collection if the same key must appear multiple times)"
+      },
+      "method": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "\"POST\", \"GET\", or other method"
+      },
+      "minTLSVersion": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Sets the minimum version of TLS: \"TLSv1_0\", \"TLSv1_1\", \"TLSv1_2\", \"TLSv1_3\""
+      },
+      "onData": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "Callback when data from the body is received. It receives two objects as parameters (see below)"
+      },
+      "onError": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "Callback when an error occurs. It receives two objects as parameters (see below)"
+      },
+      "onHeaders": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "Callback when the headers are received. It receives two objects as parameters (see below)"
+      },
+      "onResponse": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "Callback when a response is received. It receives two objects as parameters (see below)"
+      },
+      "onTerminate": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "Callback when the request is over. It receives two objects as parameters (see below)"
+      },
+      "protocol": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "\"auto\" or \"HTTP1\". \"auto\" means HTTP1 in the current implementation"
+      },
+      "proxyAuthentication": {
+        "type": {
+          "kind": "concrete",
+          "name": "authentication object"
+        },
+        "description": "Object handling proxy authentication"
+      },
+      "returnResponseBody": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "If false, the response body is not returned in the response object. Returns an error if false and onData is undefined"
+      },
+      "serverAuthentication": {
+        "type": {
+          "kind": "concrete",
+          "name": "authentication object"
+        },
+        "description": "Object handling server authentication"
+      },
+      "storeCertificateName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Name of a certificate stored in the Certificate Store (Windows) or in the keychain (macOS) to use instead of one saved in the certificates folder. If the certificate is not found in the store, an error is returned. For more information, see this blog post for Windows and this blog post for macOS."
+      },
+      "timeout": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Timeout in seconds. undefined = no timeout"
+      },
+      "validateTLSCertificate": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "If false, 4D does not validate the TLS certificate and does not return an error if it is invalid (i.e. expired, self-signed...). Important: In the current implementation, the Certification Authority itself is not verified."
+      }
+    },
+    "source": "options parameter"
+  },
+  "versionBehaviorChanges": [
+    {
+      "release": "21-R3",
+      "change": "Support of storeCertificateName property on macOS"
+    },
+    {
+      "release": "21",
+      "change": "Support of storeCertificateName property on Windows"
+    },
+    {
+      "release": "20",
+      "change": "TLS validation by default"
+    },
+    {
+      "release": "19-R7",
+      "change": "Support of automaticRedirections and decodeData properties"
+    }
+  ]
+}

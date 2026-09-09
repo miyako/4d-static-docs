@@ -1,0 +1,25 @@
+{
+  "id": "FileHandle.file",
+  "displayName": "FileHandle.file",
+  "kind": "oop_property",
+  "memberName": ".file",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "The 4D.File object on which the handle has been created",
+  "description": "The .file property returns the 4D.File object on which the handle has been created.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.File"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

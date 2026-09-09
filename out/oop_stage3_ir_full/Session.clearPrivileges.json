@@ -1,0 +1,34 @@
+{
+  "id": "Session.clearPrivileges",
+  "displayName": "Session.clearPrivileges",
+  "kind": "oop_function",
+  "memberName": ".clearPrivileges",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Removes all the privileges associated to the session (excluding promoted privileges) and returns **True** if the execution was successful",
+  "description": "The .clearPrivileges() function removes all the privileges associated to the session (excluding promoted privileges) and returns True if the execution was successful.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.clearPrivileges()** : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "21",
+      "change": "Support of remote and standalone sessions"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "EntitySelection.or",
+  "displayName": "EntitySelection.or",
+  "kind": "oop_function",
+  "memberName": ".or",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Combines the entity selection with the *entity* or *entitySelection* parameter using the logical (not exclusive) OR operator",
+  "description": "The .or() function combines the entity selection with the entity or entitySelection parameter using the logical (not exclusive) OR operator; it returns a new, unordered entity selection that contains all the entities from the entity selection and the parameter.\n\nIf you pass entity as parameter, you compare this entity with the entity selection. If the entity belongs to the entity selection, a new reference to the entity selection is returned. Otherwise, a new entity selection containing the original entity selection and the entity is returned. If you pass entitySelection as parameter, you compare entity selections. A new entity selection containing the entities belonging to the original entity selection or entitySelection is returned (or is not exclusive, entities referenced in both selections are not duplicated in the resulting selection).\n\nYou can compare ordered and/or unordered entity selections. The resulting selection is always unordered.\n\nIf the original entity selection and the entitySelection parameter are empty, an empty entity selection is returned. If the original entity selection is empty, a reference to entitySelection or an entity selection containing only entity is returned.\n\nIf entitySelection is empty or if entity is Null, a new reference to the original entity selection is returned.\n\nIf the original entity selection and the parameter are not related to the same dataclass, an error is raised.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "entity",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Entity"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Entity to intersect with"
+        }
+      ],
+      "rawSyntax": "**.or**( *entity* : 4D.Entity ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "entitySelection",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.EntitySelection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Entity selection to intersect with"
+        }
+      ],
+      "rawSyntax": "**.or**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

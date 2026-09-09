@@ -1,0 +1,25 @@
+{
+  "id": "WebSocketServer.path",
+  "displayName": "WebSocketServer.path",
+  "kind": "oop_property",
+  "memberName": ".path",
+  "receiver": {
+    "classId": "WebSocketServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketServer"
+    }
+  },
+  "summary": "The pattern of the path to access the WebSocket server",
+  "description": "The .path property contains the pattern of the path to access the WebSocket server. If no path was defined, the WebSocket server manages all connections.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

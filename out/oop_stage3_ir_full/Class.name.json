@@ -1,0 +1,26 @@
+{
+  "id": "Class.name",
+  "displayName": "Class.name",
+  "kind": "oop_property",
+  "memberName": ".name",
+  "receiver": {
+    "classId": "Class",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Class"
+    }
+  },
+  "summary": "Contains the name of the `4D.Class` object",
+  "description": "The .name property contains the name of the 4D.Class object. Class names are case sensitive.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/ClassClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "18-R3"
+}

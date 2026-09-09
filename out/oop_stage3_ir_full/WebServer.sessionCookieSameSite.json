@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.sessionCookieSameSite",
+  "displayName": "WebServer.sessionCookieSameSite",
+  "kind": "oop_property",
+  "memberName": ".sessionCookieSameSite",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "\"SameSite\" session cookie value",
+  "description": "The \"SameSite\" session cookie value. Possible values (using constants):\n\nSee the Session Cookie SameSite description for detailed information.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "19"
+}

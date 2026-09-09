@@ -1,0 +1,46 @@
+{
+  "id": "FileHandle.setSize",
+  "displayName": "FileHandle.setSize",
+  "kind": "oop_function",
+  "memberName": ".setSize",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "Sets a new *size* in bytes for the document",
+  "description": "The .setSize() function sets a new size in bytes for the document.\n\nIf the size value is less than the current document size, the document content is truncated from the beginning to get the new size .",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New size of the document in bytes"
+        }
+      ],
+      "rawSyntax": "**.setSize**( *size* : Real )",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "19-R7",
+  "_seeAlso": [
+    {
+      "text": ".getSize()",
+      "href": "FileHandleClass.html#getsize"
+    },
+    {
+      "text": "file.size",
+      "href": "FileClass.html#size"
+    }
+  ]
+}

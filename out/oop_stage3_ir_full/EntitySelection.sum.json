@@ -1,0 +1,39 @@
+{
+  "id": "EntitySelection.sum",
+  "displayName": "EntitySelection.sum",
+  "kind": "oop_function",
+  "memberName": ".sum",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns the sum for all *attributePath* values in the entity selection",
+  "description": "The .sum() function returns the sum for all attributePath values in the entity selection.\n\n.sum() returns 0 if the entity selection is empty.\n\nThe sum can only be done on values of number type. If the attributePath is an object property, only numerical values are taken into account for the calculation (other value types are ignored). In this case, if attributePath leads to a property that does not exist in the object or does not contain any numeric values, .sum() returns 0.\n\nAn error is returned if:\n\nattributePath is not a numerical or an object attribute, attributePath is a related attribute, attributePath is not found in the entity selection dataclass.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Path of the attribute to be used for calculation"
+        }
+      ],
+      "rawSyntax": "**.sum**( *attributePath* : Text ) : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

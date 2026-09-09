@@ -1,0 +1,125 @@
+{
+  "id": "File.setAppInfo",
+  "displayName": "File.setAppInfo",
+  "kind": "oop_function",
+  "memberName": ".setAppInfo",
+  "receiver": {
+    "classId": "File",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "File"
+    }
+  },
+  "summary": "Writes the *info* properties as information contents of an application file",
+  "description": "The .setAppInfo() function writes the info properties as information contents of an application file. It is designed for developers who want to customize their 4D application building chain.\n\nThe function can only be used with the following file types: .plist (all platforms), existing .exe/.dll (Windows), or macOS executable. If used with another file type or with a .exe/.dll file that does not already exist on disk, the function does nothing (no error is generated).\n\ninfo parameter object with a .plist file (all platforms)\n\nIf the .plist file already exists on the disk, it is updated. Otherwise, it is created.\n\nEach valid property set in the info object parameter is written in the .plist file as a key. Any key name is accepted. Value types are preserved when possible.\n\nIf a key set in the info parameter is already defined in the .plist file, its value is updated while keeping its original type. Other existing keys in the .plist file are left untouched.\n\ninfo parameter object with a .exe or .dll file (Windows only)\n\nEach valid property set in the info object parameter is written in the version resource of the .exe or .dll file. Available properties are (any other property will be ignored):\n\nFor all properties except WinIcon, if you pass a null or empty text as value, an empty string is written in the property. If you pass a value type different from text, it is stringified.\n\nFor the WinIcon property, if the icon file does not exist or has an incorrect format, an error is generated.\n\ninfo parameter object with a macOS executable file (macOS only)\n\ninfo must be an object with a single property named archs that is a collection of objects in the format returned by getAppInfo(). Each object must contain at least the type and uuid properties (name is not used).\n\nEvery object in the info.archs collection must contain the following properties:",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "info",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Properties to write in an application file information"
+        }
+      ],
+      "rawSyntax": "**.setAppInfo**( *info* : Object )",
+      "returns": null
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "CompanyName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "FileDescription": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "FileVersion": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "InternalName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "LegalCopyright": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "OriginalFilename": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "ProductName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "ProductVersion": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      },
+      "removeFluentUI": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        }
+      },
+      "WinIcon": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        }
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "19",
+  "versionBehaviorChanges": [
+    {
+      "release": "21-R2",
+      "change": "support of removeFluentUI"
+    },
+    {
+      "release": "20-R9",
+      "change": "Read UUIDs in macOS executables"
+    },
+    {
+      "release": "20",
+      "change": "Support of WinIcon"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": ".getAppInfo()",
+      "href": "FileClass.html#getappinfo"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "Directory.getIcon",
+  "displayName": "Directory.getIcon",
+  "kind": "oop_function",
+  "memberName": ".getIcon",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "Returns the icon of the folder",
+  "description": "The .getIcon() function returns the icon of the folder.\n\nThe optional size parameter specifies the dimensions in pixels of the returned icon. This value actually represents the length of the side of the square containing the icon. Icons are usually defined in 32x32 pixels (\"large icons\") or 16x16 pixels (\"small icons\"). If you pass 0 or omit this parameter, the \"large icon\" version is returned.\n\nIf the folder does not exist on disk, a default blank icon is returned.\n\nReturned value\n\nFolder icon picture.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Side length for the returned picture (pixels)"
+        }
+      ],
+      "rawSyntax": "**.getIcon**( { *size* : Integer } ) : Picture",
+      "returns": {
+        "kind": "concrete",
+        "name": "Picture"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

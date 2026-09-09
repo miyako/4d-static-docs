@@ -1,0 +1,122 @@
+{
+  "id": "EntitySelection.query",
+  "displayName": "EntitySelection.query",
+  "kind": "oop_function",
+  "memberName": ".query",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s) among all the entities in the entity selection",
+  "description": "The .query() function searches for entities that meet the search criteria specified in queryString or formula and (optionally) value(s) among all the entities in the entity selection, and returns a new object of type EntitySelection containing all the entities that are found. Lazy loading is applied.\n\nThis function does not modify the original entity selection.\n\nIf no matching entities are found, an empty EntitySelection is returned.\n\nFor detailed information on how to build a query using queryString, value, and querySettings parameters, please refer to the DataClass .query() function description.\n\nBy default if you omit the order by statement in the queryString, the returned entity selection is not ordered. Note however that, in Client/Server mode, it behaves like an ordered entity selection (entities are added at the end of the selection).",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "queryString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Search criteria as string"
+        },
+        {
+          "name": "value",
+          "members": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Value(s) to use for indexed placeholder(s)"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        },
+        {
+          "name": "querySettings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan"
+        }
+      ],
+      "rawSyntax": "**.query**( *queryString* : Text { ; *...value* : any } { ; *querySettings* : Object } ) : 4D.EntitySelection ",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Search criteria as formula object"
+        },
+        {
+          "name": "querySettings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan"
+        }
+      ],
+      "rawSyntax": "**.query**( *formula* : Object { ; *querySettings* : Object } ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "21-R2",
+      "change": "Support of order by with 4D.Vector searches"
+    },
+    {
+      "release": "21",
+      "change": "Support 4D.Vector objects"
+    },
+    {
+      "release": "17-R6",
+      "change": "Support of Formula parameters"
+    },
+    {
+      "release": "17-R5",
+      "change": "Support of placeholders for values"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": ".query()",
+      "href": "DataClassClass.html#query"
+    }
+  ]
+}

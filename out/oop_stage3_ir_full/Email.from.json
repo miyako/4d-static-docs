@@ -1,0 +1,25 @@
+{
+  "id": "Email.from",
+  "displayName": "Email.from",
+  "kind": "oop_property",
+  "memberName": ".from",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Originating address(es) of the email",
+  "description": "The .from property contains the Originating address(es) of the email.\n\nEach email you send out has both the sender and from addresses:\n\nthe sender domain is what the receiving email server gets when opening the session, the from address is what the recipient(s) will see.\n\nFor better deliverability, it is recommended to use the same from and sender addresses.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

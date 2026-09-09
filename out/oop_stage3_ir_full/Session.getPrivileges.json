@@ -1,0 +1,44 @@
+{
+  "id": "Session.getPrivileges",
+  "displayName": "Session.getPrivileges",
+  "kind": "oop_function",
+  "memberName": ".getPrivileges",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Returns a collection of all the privilege names associated to the session",
+  "description": "The .getPrivileges() function returns a collection of all the privilege names associated to the session.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getPrivileges**() : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "20-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "21",
+      "change": "Support of remote and standalone sessions"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": ".setPrivileges()",
+      "href": "SessionClass.html#setprivileges"
+    },
+    {
+      "text": "Permissions – Inspect the privileges in the session for an easy debugging (blog post)",
+      "href": "https://blog.4d.com/permissions-inspect-the-privileges-in-the-session-for-an-easy-debugging"
+    }
+  ]
+}

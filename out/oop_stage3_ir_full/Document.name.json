@@ -1,0 +1,26 @@
+{
+  "id": "Document.name",
+  "displayName": "Document.name",
+  "kind": "oop_property",
+  "memberName": ".name",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The name of the file without extension (if any)",
+  "description": "The .name property returns the name of the file without extension (if any).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

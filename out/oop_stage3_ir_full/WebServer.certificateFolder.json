@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.certificateFolder",
+  "displayName": "WebServer.certificateFolder",
+  "kind": "oop_property",
+  "memberName": ".certificateFolder",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Folder where the certificate files are located",
+  "description": "Path of the folder where the certificate files are located. The path is formatted in POSIX full path using filesystems. When using this property in the settings parameter of the .start() function, it can be a Folder object.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

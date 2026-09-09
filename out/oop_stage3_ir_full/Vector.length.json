@@ -1,0 +1,25 @@
+{
+  "id": "Vector.length",
+  "displayName": "Vector.length",
+  "kind": "oop_property",
+  "memberName": ".length",
+  "receiver": {
+    "classId": "Vector",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Vector"
+    }
+  },
+  "summary": "The number of vector components",
+  "description": "The .length property contains the number of vector components.",
+  "docPage": "mirror/docs/21-R3/API/VectorClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "Class.superclass",
+  "displayName": "Class.superclass",
+  "kind": "oop_property",
+  "memberName": ".superclass",
+  "receiver": {
+    "classId": "Class",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Class"
+    }
+  },
+  "summary": "Returns the parent class of the class",
+  "description": "The .superclass property returns the parent class of the class. A superclass can be a 4D.Class object, or a cs.className object. If the class does not have a parent class, the property returns null.\n\nTo define a superclass for a user class, use the extends keyword like: Class extends <superclass>.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/ClassClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.Class"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "18-R3"
+}

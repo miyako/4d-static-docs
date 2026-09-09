@@ -1,0 +1,49 @@
+{
+  "id": "Collection.includes",
+  "displayName": "Collection.includes",
+  "kind": "oop_function",
+  "memberName": ".includes",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns True if the *toSearch* expression is found among collection elements, otherwise False",
+  "description": "The .includes() function returns True if the toSearch expression is found among collection elements, otherwise False.\n\nThis function does not modify the original collection.\n\nIn toSearch, pass the expression to find in the collection. You can pass:\n\na scalar value (text, number, boolean, date), the null value, an object or a collection reference.\n\ntoSearch must match exactly the element to find (the same rules as for the equality operator of the data type are applied).\n\nOptionally, you can pass the index of collection from which to start the search in startFrom.\n\nIf startFrom >= collection's length, False is returned, which means the collection is not searched. If startFrom < 0, it is considered as the offset from the end of the collection (startFrom:=startFrom+length). Note that even if startFrom is negative, the collection is still searched from left to right. If startFrom = 0, the whole collection is searched (default).",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "toSearch",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Expression to search in the collection"
+        },
+        {
+          "name": "startFrom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Index to start the search at"
+        }
+      ],
+      "rawSyntax": "**.includes**( *toSearch* : expression { ; *startFrom* : Integer } ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "20"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "HTTPAgent.requestsCount",
+  "displayName": "HTTPAgent.requestsCount",
+  "kind": "oop_property",
+  "memberName": ".requestsCount",
+  "receiver": {
+    "classId": "HTTPAgent",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPAgent"
+    }
+  },
+  "summary": "The number of requests currently handled by the HTTPAgent",
+  "description": "The .requestsCount property contains the number of requests currently handled by the HTTPAgent.",
+  "docPage": "mirror/docs/21-R3/API/HTTPAgentClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

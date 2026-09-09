@@ -1,0 +1,26 @@
+{
+  "id": "Transporter.authenticationMode",
+  "displayName": "Transporter.authenticationMode",
+  "kind": "oop_property",
+  "memberName": ".authenticationMode",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The authentication mode used to open the session on the mail server",
+  "description": "The .authenticationMode property contains the authentication mode used to open the session on the mail server.\n\nBy default, the most secured mode supported by the server is used.\n\nPossible values are:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "17-R4"
+}

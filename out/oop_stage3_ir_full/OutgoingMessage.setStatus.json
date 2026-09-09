@@ -1,0 +1,35 @@
+{
+  "id": "OutgoingMessage.setStatus",
+  "displayName": "OutgoingMessage.setStatus",
+  "kind": "oop_function",
+  "memberName": ".setStatus",
+  "receiver": {
+    "classId": "OutgoingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "OutgoingMessage"
+    }
+  },
+  "summary": "Sets the `status` property with the given *status*",
+  "description": "The .setStatus() function sets the status property with the given status.\n\nIf status is not an integer value, an error is raised.\n\nFor a list of HTTP status codes, please refer the HTTP status code list on Wikipedia.",
+  "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "status",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Status to set"
+        }
+      ],
+      "rawSyntax": "**.setStatus**( *status* : Integer )",
+      "returns": null
+    }
+  ]
+}

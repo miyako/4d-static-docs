@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.HTTPTrace",
+  "displayName": "WebServer.HTTPTrace",
+  "kind": "oop_property",
+  "memberName": ".HTTPTrace",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Activation of `HTTP TRACE`",
+  "description": "The activation of HTTP TRACE. For security reasons, by default the Web server rejects HTTP TRACE requests with an error 405. When enabled, the web server replies to HTTP TRACE requests with the request line, header, and body.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

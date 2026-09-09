@@ -1,0 +1,153 @@
+{
+  "id": "DataClass.attributeName",
+  "displayName": "DataClass.attributeName",
+  "kind": "oop_property",
+  "memberName": ".attributeName",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "The attributes of dataclasses are objects that are available directly as properties of these classes.",
+  "description": "The attributes of dataclasses are objects that are available directly as properties of these classes.\n\nThe returned objects have properties that you can read to get information about your dataclass attributes.\n\nDataclass attribute objects can be modified, but the underlying database structure will not be altered.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "accessor": {
+    "type": {
+      "kind": "pseudo",
+      "name": "any"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "returnsShape": {
+    "properties": {
+      "autoFilled": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the attribute value is automatically filled by 4D. Corresponds to the following 4D field properties: \"Autoincrement\" for numeric type fields and \"Auto UUID\" for UUID (alpha) fields. Not returned if .kind = \"relatedEntity\" or \"relatedEntities\"."
+      },
+      "exposed": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the attribute is exposed in REST"
+      },
+      "fieldNumber": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "Internal 4D field number of the attribute. Not returned if .kind = \"relatedEntity\" or \"relatedEntities\"."
+      },
+      "fieldType": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "4D database field type of the attribute. Depends on the attribute kind. Possible values: if .kind = \"storage\": corresponding 4D field type, see Value typeif .kind = \"relatedEntity\": 38 (is object)if .kind = \"relatedEntities\": 42 (is collection)if .kind = \"calculated\" or \"alias\" = same as above, depending on the resulting value (field type, relatedEntity or relatedEntities)"
+      },
+      "indexed": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if there is a B-tree or a Cluster B-tree index on the attribute. Not returned if .kind = \"relatedEntity\" or \"relatedEntities\"."
+      },
+      "inverseName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Name of the attribute which is at the other side of the relation. Returned only when .kind = \"relatedEntity\" or \"relatedEntities\"."
+      },
+      "keywordIndexed": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if there is a keyword index on the attribute. Not returned if .kind = \"relatedEntity\" or \"relatedEntities\"."
+      },
+      "kind": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Category of the attribute. Possible values:\"storage\": storage (or scalar) attribute, i.e. attribute storing a value, not a reference to another attribute\"calculated\": computed attribute, i.e. defined through a get function\"alias\": attribute built upon another attribute\"relatedEntity\": N -> 1 relation attribute (reference to an entity)\"relatedEntities\": 1 -> N relation attribute (reference to an entity selection)"
+      },
+      "mandatory": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if null value input is rejected for the attribute. Not returned if .kind = \"relatedEntity\" or \"relatedEntities\". Note: This property corresponds to the \"Reject NULL value input\" field property at the 4D database level. It is unrelated to the existing \"Mandatory\" property which is a data entry control option for a table."
+      },
+      "name": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Name of the attribute as string"
+      },
+      "path": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Path of an alias attribute based upon a relation"
+      },
+      "readOnly": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the attribute is read-only. For example, computed attributes without set function are read-only."
+      },
+      "relatedDataClass": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Name of the dataclass related to the attribute. Returned only when .kind = \"relatedEntity\" or \"relatedEntities\"."
+      },
+      "type": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Conceptual value type of the attribute, useful for generic programming. Depends on the attribute kind. Possible values: if .kind = \"storage\": \"blob\", \"bool\", \"date\", \"image\", \"number\", \"object\", or \"string\". \"number\" is returned for any numeric types including duration; \"string\" is returned for uuid, alpha and text attribute types; \"blob\" attributes are blob objects.if .kind = \"relatedEntity\": related dataClass nameif .kind = \"relatedEntities\": related dataClass name + \"Selection\" suffixif .kind = \"calculated\" or \"alias\": same as above, depending on the result"
+      },
+      "unique": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the attribute value must be unique. Not returned if .kind = \"relatedEntity\" or \"relatedEntities\"."
+      },
+      "classID": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Available only if .type = \"object\" and a class has been specified in the structure editor. Returns the name of the class used to instantiate the object."
+      }
+    },
+    "source": "Returned object"
+  },
+  "dynamicMember": {
+    "namePattern": "<attributeName>",
+    "note": "attribute name comes from the user's data model"
+  },
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R3",
+      "change": "Added .exposed attribute"
+    }
+  ]
+}

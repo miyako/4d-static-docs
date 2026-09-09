@@ -1,0 +1,61 @@
+{
+  "id": "UDPSocket.send",
+  "displayName": "UDPSocket.send",
+  "kind": "oop_function",
+  "memberName": ".send",
+  "receiver": {
+    "classId": "UDPSocket",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "UDPSocket"
+    }
+  },
+  "summary": "Sends *data* to the remote *hostName* server on the specified *remotePort*",
+  "description": "The send() function sends data to the remote hostName server on the specified remotePort.\n\nhostName is the name or IP address of the server where the data will be sent.\n\nremotePort is the number of the port to be connected to. If you pass 0, any available port will be used.",
+  "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Data to be sent"
+        },
+        {
+          "name": "hostName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name or IP address of server"
+        },
+        {
+          "name": "remotePort",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Remote port to connect to (0=any)"
+        }
+      ],
+      "rawSyntax": "**.send**( *data* : Blob ; *hostName* : Text ; *remotePort* : Integer )",
+      "returns": null
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": "UDPEvent",
+      "href": "UDPEventClass.html"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "DataClass.getInfo",
+  "displayName": "DataClass.getInfo",
+  "kind": "oop_function",
+  "memberName": ".getInfo",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Returns an object providing information about the dataclass",
+  "description": "The .getInfo() function returns an object providing information about the dataclass. This function is useful for setting up generic code.\n\nReturned object",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getInfo()** : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5",
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R3",
+      "change": "Added exposed property"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.closeInput",
+  "displayName": "SystemWorker.closeInput",
+  "kind": "oop_function",
+  "memberName": ".closeInput",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Closes the input stream (*stdin*) of the external process",
+  "description": "The .closeInput() function closes the input stream (stdin) of the external process.\n\nWhen the executable waits for all data to be received through postMessage(), .closeInput() is useful to indicate to the executable that data sending is finished and that it can proceed.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.closeInput**()",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "19-R4"
+}

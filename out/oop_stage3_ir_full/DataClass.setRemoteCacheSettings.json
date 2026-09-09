@@ -1,0 +1,65 @@
+{
+  "id": "DataClass.setRemoteCacheSettings",
+  "displayName": "DataClass.setRemoteCacheSettings",
+  "kind": "oop_function",
+  "memberName": ".setRemoteCacheSettings",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Sets the timeout and maximum size of the ORDA cache for a dataclass.",
+  "description": "Advanced mode: This function is intended for developers who need to customize ORDA default features for specific configurations. In most cases, you will not need to use it.\n\nThe .setRemoteCacheSettings() function sets the timeout and maximum size of the ORDA cache for a dataclass..\n\nIn the settings parameter, pass an object with the following properties:\n\ntimeout sets the timeout of the ORDA cache for the dataclass (default is 30 seconds). Once the timeout has passed, the entities of the dataclass in the cache are considered as expired. This means that:\n\nthe data is still there the next time the data is needed, it will be asked to the server 4D automatically removes expired data when the maximum number of entities is reached\n\nSetting a timeout property sets a new timeout for the entities already present in the cache. It is useful when working with data that does not change very frequently, and thus when new requests to the server are not necessary.\n\nmaxEntries sets the max number of entities in the ORDA cache. Default is 30 000.\n\nThe minimum number of entries is 300, so the value of maxEntries must be equal to or higher than 300. Otherwise it is ignored and the maximum number of entries is set to 300.\n\nIf no valid properties are passed as timeout and maxEntries, the cache remains unchanged, with its default or previously set values.\n\nWhen an entity is saved, it is updated in the cache and expires once the timeout is reached.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object that sets the timeout and maximum size of the ORDA cache for the dataclass."
+        }
+      ],
+      "rawSyntax": "**.setRemoteCacheSettings**(*settings* : Object)",
+      "returns": null
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "timeout": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "Timeout in seconds."
+      },
+      "maxEntries": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "Maximum number of entities."
+      }
+    },
+    "source": "Description"
+  },
+  "sinceVersion": "19-R5",
+  "_seeAlso": [
+    {
+      "text": ".clearRemoteCache()",
+      "href": "DataClassClass.html#clearremotecache"
+    },
+    {
+      "text": ".getRemoteCache()",
+      "href": "DataClassClass.html#clearremotecache"
+    }
+  ]
+}

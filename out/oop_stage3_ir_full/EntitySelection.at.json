@@ -1,0 +1,42 @@
+{
+  "id": "EntitySelection.at",
+  "displayName": "EntitySelection.at",
+  "kind": "oop_function",
+  "memberName": ".at",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns the entity at position *index*, allowing for positive and negative integer",
+  "description": "The .at() function returns the entity at position index, allowing for positive and negative integer.\n\nIf index is negative (from -1 to -n with n : length of the entity selection), the returned entity will be based on the reverse order of the entity selection.\n\nThe function returns Null if index is beyond entity selection limits.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "index",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Index of entity to return"
+        }
+      ],
+      "rawSyntax": "**.at**( *index* : Integer ) : 4D.Entity",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Entity"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "20"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "IMAPNotifier.start",
+  "displayName": "IMAPNotifier.start",
+  "kind": "oop_function",
+  "memberName": ".start",
+  "receiver": {
+    "classId": "IMAPNotifier",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPNotifier"
+    }
+  },
+  "summary": "Starts the subscription to server notifications and activates IMAP listener callbacks",
+  "description": "The .start() function starts the subscription to server notifications and activates IMAP listener callbacks.\n\nA mailbox must be selected using selectBox() before calling .start().\n\nCallback functions are executed in the worker where .start() is called.",
+  "docPage": "mirror/docs/21-R3/API/IMAPNotifierClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.start**() : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the operation is successful, False otherwise"
+      },
+      "statusText": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Status message returned by the IMAP server, or last error returned in the 4D error stack"
+      },
+      "errors": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "4D error stack (not returned if a server response is received)"
+      }
+    },
+    "source": "Returned object"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  }
+}

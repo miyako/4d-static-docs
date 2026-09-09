@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.hideWindow",
+  "displayName": "SystemWorker.hideWindow",
+  "kind": "oop_property",
+  "memberName": ".hideWindow",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Can be used to hide the window of the DOS console or the window of the launched executable (**Windows only**)",
+  "description": "The .hideWindow property can be used to hide the window of the DOS console or the window of the launched executable (Windows only).\n\nThis property is read-write.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

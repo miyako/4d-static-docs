@@ -1,0 +1,54 @@
+{
+  "id": "DataStore.encryptionStatus",
+  "displayName": "DataStore.encryptionStatus",
+  "kind": "oop_function",
+  "memberName": ".encryptionStatus",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Returns an object providing the encryption status for the current data file",
+  "description": "The .encryptionStatus() function returns an object providing the encryption status for the current data file (i.e., the data file of the ds datastore). The status for each table is also provided.\n\nUse the Data file encryption status command to determine the encryption status of any other data file.\n\nReturned value\n\nThe returned object contains the following properties:\n\n(*) The encryption key can be provided:\n\nwith the .provideDataKey() command, at the root of a connected device before opening the datastore, with the Discover data key command.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.encryptionStatus()**: Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "isEncrypted": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the data file is encrypted"
+      },
+      "keyProvided": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the encryption key matching the encrypted data file is provided(*)."
+      },
+      "tables": {
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
+        "description": "Object containing as many properties as there are encryptable or encrypted tables."
+      }
+    },
+    "source": "Description"
+  },
+  "sinceVersion": "17-R5"
+}

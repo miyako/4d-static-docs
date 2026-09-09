@@ -1,0 +1,45 @@
+{
+  "id": "WebSocketConnection.terminate",
+  "displayName": "WebSocketConnection.terminate",
+  "kind": "oop_function",
+  "memberName": ".terminate",
+  "receiver": {
+    "classId": "WebSocketConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketConnection"
+    }
+  },
+  "summary": "Forces the connection to close",
+  "description": "The .terminate() function forces the connection to close.\n\nA code and message can be sent to the client during the closure to indicate the reason of the termination.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketConnectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "code",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Error code sent to the client (must be > 3000, otherwise the message is not sent)"
+        },
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Error message sent to the client"
+        }
+      ],
+      "rawSyntax": "**.terminate**( { *code* : Integer ; *message* : Text } )",
+      "returns": null
+    }
+  ]
+}

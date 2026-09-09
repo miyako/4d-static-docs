@@ -1,0 +1,25 @@
+{
+  "id": "Email.messageId",
+  "displayName": "Email.messageId",
+  "kind": "oop_property",
+  "memberName": ".messageId",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Message identifier header (\"message-id\")",
+  "description": "The .messageId property contains a message identifier header (\"message-id\").\n\nThis header is usually \"lettersOrNumbers@domainname\", e.g. \"abcdef.123456@4d.com\". This unique ID is used in particular on forums or public mailing lists. In general, mail servers automatically add this header to the messages they send.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

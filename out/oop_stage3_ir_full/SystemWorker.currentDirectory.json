@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.currentDirectory",
+  "displayName": "SystemWorker.currentDirectory",
+  "kind": "oop_property",
+  "memberName": ".currentDirectory",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the working directory in which the external process is executed",
+  "description": "The .currentDirectory property contains the working directory in which the external process is executed.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.Folder"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

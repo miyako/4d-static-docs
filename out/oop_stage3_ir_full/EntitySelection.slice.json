@@ -1,0 +1,49 @@
+{
+  "id": "EntitySelection.slice",
+  "displayName": "EntitySelection.slice",
+  "kind": "oop_function",
+  "memberName": ".slice",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns a portion of an entity selection into a new entity selection",
+  "description": "The .slice() function returns a portion of an entity selection into a new entity selection, selected from the startFrom index to the end index (end is not included) or to the last entity of the entity selection. This method returns a shallow copy of the entity selection (it uses the same entity references).\n\nThis function does not modify the original entity selection.\n\nThe returned entity selection contains the entities specified by startFrom and all subsequent entities up to, but not including, the entity specified by end. If only the startFrom parameter is specified, the returned entity selection contains all entities from startFrom to the last entity of the original entity selection.\n\nIf startFrom < 0, it is recalculated as startFrom:=startFrom+length (it is considered as the offset from the end of the entity selection). If the calculated value < 0, startFrom is set to 0. If startFrom >= length, the function returns an empty entity selection. If end < 0, it is recalculated as end:=end+length. If end < startFrom (passed or calculated values), the method does nothing.\n\nIf the entity selection contains entities that were dropped in the meantime, they are also returned.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "startFrom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Index to start the operation at (included)"
+        },
+        {
+          "name": "end",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "End index (not included)"
+        }
+      ],
+      "rawSyntax": "**.slice**( *startFrom* : Integer { ; *end* : Integer } ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

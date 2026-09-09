@@ -1,0 +1,38 @@
+{
+  "id": "HTTPRequest.wait",
+  "displayName": "HTTPRequest.wait",
+  "kind": "oop_function",
+  "memberName": ".wait",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "Waits waits for a response from the server or until the specified `timeout` is reached",
+  "description": "This function is thread-safe.\n\nThe wait() function waits waits for a response from the server or until the specified timeout is reached.\n\nIf a timeout is provided, the function waits for the specified duration in this parameter. Decimals are accepted.\n\nIf the response from the server has already arrived, the function returns immediately.",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "timeout",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Maximum wait time in seconds"
+        }
+      ],
+      "rawSyntax": "**.wait**( { *timeout* : Real } ) : 4D.HTTPRequest",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.HTTPRequest"
+      }
+    }
+  ]
+}

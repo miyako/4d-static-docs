@@ -1,0 +1,25 @@
+{
+  "id": "HTTPRequest.returnResponseBody",
+  "displayName": "HTTPRequest.returnResponseBody",
+  "kind": "oop_property",
+  "memberName": ".returnResponseBody",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "The `returnResponseBody` passed in the `options` object when calling new()",
+  "description": "The .returnResponseBody property contains the returnResponseBody passed in the options object when calling new(). If it was omitted, contains True.",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

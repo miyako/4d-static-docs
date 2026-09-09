@@ -1,0 +1,26 @@
+{
+  "id": "Document.parent",
+  "displayName": "Document.parent",
+  "kind": "oop_property",
+  "memberName": ".parent",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The parent folder object of the file",
+  "description": "The .parent property returns the parent folder object of the file. If the path represents a system path (e.g., \"/DATA/\"), the system path is returned.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.Folder"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

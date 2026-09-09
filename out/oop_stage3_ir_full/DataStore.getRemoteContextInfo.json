@@ -1,0 +1,86 @@
+{
+  "id": "DataStore.getRemoteContextInfo",
+  "displayName": "DataStore.getRemoteContextInfo",
+  "kind": "oop_function",
+  "memberName": ".getRemoteContextInfo",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Returns an object that holds information on the *contextName* optimization context in the datastore.",
+  "description": "Advanced mode: This function is intended for developers who need to customize ORDA default features for specific configurations. In most cases, you will not need to use it.\n\nThe .getRemoteContextInfo() function returns an object that holds information on the contextName optimization context in the datastore..\n\nFor more information on how optimization contexts can be created, see client/server optimization.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "contextName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the context"
+        }
+      ],
+      "rawSyntax": "**.getRemoteContextInfo**(*contextName* : Text) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "name": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Name of the context"
+      },
+      "main": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Attribute(s) associated to the context (attribute names are separated by a comma)"
+      },
+      "dataclass": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Dataclass name"
+      },
+      "currentItem (optional)": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "The attributes of the page mode if the context is linked to a list box. Returned as Null or empty text element if the context name is not used for a list box, or if there is no context for the currentItem"
+      }
+    },
+    "source": "Returned object"
+  },
+  "sinceVersion": "19-R5",
+  "_seeAlso": [
+    {
+      "text": ".setRemoteContextInfo()",
+      "href": "DataStoreClass.html#setremotecontextinfo"
+    },
+    {
+      "text": ".getAllRemoteContexts()",
+      "href": "DataStoreClass.html#getallremotecontexts"
+    },
+    {
+      "text": ".clearAllRemoteContexts()",
+      "href": "DataStoreClass.html#clearallremotecontexts"
+    }
+  ]
+}

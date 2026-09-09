@@ -1,0 +1,25 @@
+{
+  "id": "TCPEvent.type",
+  "displayName": "TCPEvent.type",
+  "kind": "oop_property",
+  "memberName": ".type",
+  "receiver": {
+    "classId": "TCPEvent",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPEvent"
+    }
+  },
+  "summary": "The type of the event",
+  "description": "The .type property contains the type of the event. Possible values are:\n\n\"connection\": Indicates that a TCPConnection was successfully established. \"data\": Indicates that data has been received. \"error\": Indicates that an error occurred during the TCPConnection. \"close\": Indicates that the TCPConnection has been properly closed. \"terminate\": Indicates that the TCPConnection is about to be released.",
+  "docPage": "mirror/docs/21-R3/API/TCPEventClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

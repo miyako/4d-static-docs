@@ -1,0 +1,25 @@
+{
+  "id": "Blob.size",
+  "displayName": "Blob.size",
+  "kind": "oop_property",
+  "memberName": ".size",
+  "receiver": {
+    "classId": "Blob",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Blob"
+    }
+  },
+  "summary": "Returns the size of a `4D.Blob`, expressed in bytes.",
+  "description": "The .size property returns the size of a 4D.Blob, expressed in bytes.",
+  "docPage": "mirror/docs/21-R3/API/BlobClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Real"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

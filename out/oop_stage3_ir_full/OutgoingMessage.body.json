@@ -1,0 +1,25 @@
+{
+  "id": "OutgoingMessage.body",
+  "displayName": "OutgoingMessage.body",
+  "kind": "oop_property",
+  "memberName": ".body",
+  "receiver": {
+    "classId": "OutgoingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "OutgoingMessage"
+    }
+  },
+  "summary": "The outgoing message body",
+  "description": "The .body property contains the outgoing message body. The following data types are supported in the .body property:\n\ntext blob object image\n\nThe .body property is read-write.\n\nYou can also set the .body property using the setBody() function, in which case the content-type header is automatically set.",
+  "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
+  "accessor": {
+    "type": {
+      "kind": "pseudo",
+      "name": "any"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

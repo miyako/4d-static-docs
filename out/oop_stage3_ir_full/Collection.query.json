@@ -1,0 +1,117 @@
+{
+  "id": "Collection.query",
+  "displayName": "Collection.query",
+  "kind": "oop_function",
+  "memberName": ".query",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns all elements of a collection of objects that match the search conditions",
+  "description": "The .query() function returns all elements of a collection of objects that match the search conditions defined by queryString and (optionally) value or querySettings. If the original collection is a shared collection, the returned collection is also a shared collection.\n\nAn empty collection is returned if the collection in which the query is executed does not contain the searched value.\n\nThis function does not modify the original collection.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "queryString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Search criteria"
+        }
+      ],
+      "rawSyntax": "**.query**( *queryString* : Text ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "queryString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Search criteria"
+        },
+        {
+          "name": "value",
+          "members": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": false,
+              "description": "Value(s) to compare when using placeholder(s)"
+            }
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.query**( *queryString* : Text ; *...value* : any ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "queryString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Search criteria"
+        },
+        {
+          "name": "querySettings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Query options: parameters, attributes"
+        }
+      ],
+      "rawSyntax": "**.query**( *queryString* : Text ; *querySettings* : Object ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "20-R6",
+      "change": "Support of queries using object or collection references"
+    },
+    {
+      "release": "17-R5",
+      "change": "Support of querySettings"
+    }
+  ]
+}

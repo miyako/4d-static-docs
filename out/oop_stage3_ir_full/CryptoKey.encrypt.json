@@ -1,0 +1,49 @@
+{
+  "id": "CryptoKey.encrypt",
+  "displayName": "CryptoKey.encrypt",
+  "kind": "oop_function",
+  "memberName": ".encrypt",
+  "receiver": {
+    "classId": "CryptoKey",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "CryptoKey"
+    }
+  },
+  "summary": "Encrypts the *message* parameter using the **public** key",
+  "description": "The .encrypt() function encrypts the message parameter using the public key. The algorithm used depends on the type of the key.\n\nThe key must be a RSA key, the algorithm is RSA-OAEP (see RFC 3447).",
+  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Message string to be encoded using `options.encodingDecrypted` and encrypted."
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Encoding options"
+        }
+      ],
+      "rawSyntax": "**.encrypt**( *message* : Text ; *options* : Object ) : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "18-R4"
+}

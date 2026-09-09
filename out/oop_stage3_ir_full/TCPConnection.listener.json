@@ -1,0 +1,25 @@
+{
+  "id": "TCPConnection.listener",
+  "displayName": "TCPConnection.listener",
+  "kind": "oop_property",
+  "memberName": ".listener",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "The `TCPListener` object that created the `TCPConnection`, if any",
+  "description": "The .listener property contains the TCPListener object that created the TCPConnection, if any. This property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

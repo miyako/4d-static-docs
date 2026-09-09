@@ -1,0 +1,25 @@
+{
+  "id": "SystemWorker.encoding",
+  "displayName": "SystemWorker.encoding",
+  "kind": "oop_property",
+  "memberName": ".encoding",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the encoding of the response body content",
+  "description": "The .encoding property contains the encoding of the response body content. This property is only available if the dataType is \"text\".\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

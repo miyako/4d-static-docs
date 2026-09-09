@@ -1,0 +1,131 @@
+{
+  "id": "Collection.sort",
+  "displayName": "Collection.sort",
+  "kind": "oop_function",
+  "memberName": ".sort",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Sorts the elements of the original collection and also returns the sorted collection",
+  "description": "The .sort() function sorts the elements of the original collection and also returns the sorted collection .\n\nThis function modifies the original collection.\n\nIf .sort() is called with no parameters, only scalar values (number, text, date, booleans) are sorted. Elements are sorted by default in ascending order, according to their type. You can also pass one of the following constants in the ascOrDesc parameter:\n\nThis syntax orders scalar values in the collection only (other element types such as objects or collections are returned unordered).\n\nIf the collection contains elements of different types, they will be sorted according to the 4D ordering principles.\n\nIf you want to sort the collection elements in some other order or sort any type of element, you must supply in formula (Formula object) or methodName (Text) a callback that defines the sort order. The return value should be a boolean that indicates the relative order of the two elements: True if $1.value is less than $1.value2, False if $1.value is greater than $1.value2. You can provide additional parameters to the callback if necessary.\n\nThe callback receives the following parameters:\n\n$1 (object), where: $1.value (any type): first element value to be compared $1.value2 (any type): second element value to be compared $2...$N (any type): extra parameters\n\nIf you used a method, you must set the folllowing parameter:\n\n$1.result (boolean): true if $1.value < $1.value2, false otherwise.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.sort**() : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "ascOrDesc",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.sort.ascOrDesc"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "`ck ascending` or `ck descending` (scalar values)"
+        }
+      ],
+      "rawSyntax": "**.sort**( *ascOrDesc* : Integer ) : Collection ",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Function"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object"
+        },
+        {
+          "name": "extraParam",
+          "members": [
+            {
+              "name": "extraParam",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Parameter(s) for the method"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.sort**( *formula* : 4D.Function { ; *...extraParam* : any } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of a method"
+        },
+        {
+          "name": "extraParam",
+          "members": [
+            {
+              "name": "extraParam",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Parameter(s) for the method"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.sort**( *methodName* : Text { ; *...extraParam* : any } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R6",
+      "change": "Support of formula"
+    }
+  ]
+}

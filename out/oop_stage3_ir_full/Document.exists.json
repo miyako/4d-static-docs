@@ -1,0 +1,26 @@
+{
+  "id": "Document.exists",
+  "displayName": "Document.exists",
+  "kind": "oop_property",
+  "memberName": ".exists",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "True if the file exists on disk",
+  "description": "The .exists property returns true if the file exists on disk, and false otherwise.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

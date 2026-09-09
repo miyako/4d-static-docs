@@ -1,0 +1,25 @@
+{
+  "id": "Email.sendAt",
+  "displayName": "Email.sendAt",
+  "kind": "oop_property",
+  "memberName": ".sendAt",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Email timestamp in ISO 8601 UTC format",
+  "description": "The .sendAt property contains the Email timestamp in ISO 8601 UTC format.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

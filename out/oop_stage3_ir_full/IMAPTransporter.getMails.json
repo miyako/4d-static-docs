@@ -1,0 +1,111 @@
+{
+  "id": "IMAPTransporter.getMails",
+  "displayName": "IMAPTransporter.getMails",
+  "kind": "oop_function",
+  "memberName": ".getMails",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Returns an object containing a collection of `Email` objects",
+  "description": "The .getMails() function returns an object containing a collection of Email objects.\n\nFirst Syntax:\n\n.getMails( ids { ; options } ) -> result\n\nThe first syntax allows you to retrieve messages based on their IDs.\n\nIn the ids parameter, pass a collection of IDs for the messages to return. You can get the IDs with .getMail().\n\nThe optional options parameter allows you to define the parts of the messages to be returned. See the Options table below for a description of the available properties.\n\nSecond syntax:\n\n.getMails( startMsg ; endMsg { ; options } ) -> result\n\nThe second syntax allows you to retrieve messages based on a sequential range. The values passed represent the position of the messages in the mailbox.\n\nIn the startMsg parameter, pass an integer value corresponding to the number of the first message in a sequential range. If you pass a negative number (startMsg <= 0), the first message of the mailbox will be used as the beginning of the sequence.\n\nIn the endMsg parameter, pass an integer value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (endMsg <= 0), the last message of the mailbox will be used as the end of the sequence.\n\nThe optional options parameter allows you to define the parts of the messages to be returned.\n\nOptions\n\nIf no mailbox is selected with the .selectBox() command, an error is generated. If there is no open connection, .getMails() will open a connection the last mailbox specified with .selectBox().",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "ids",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of message ID"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Message handling instructions"
+        }
+      ],
+      "rawSyntax": "**.getMails**( *ids* : Collection { ; *options* : Object } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "startMsg",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Sequence number of the first message"
+        },
+        {
+          "name": "endMsg",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Sequence number of the last message"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Message handling instructions"
+        }
+      ],
+      "rawSyntax": "**.getMails**( *startMsg* : Integer ; *endMsg* : Integer { ; *options* : Object } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "list": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "Collection of Email objects. If no Email objects are found, an empty collection is returned."
+      },
+      "notFound": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "Collection of:first syntax - previously passed message IDs that do not existsecond syntax - sequence numbers of messages between startMsg and endMsg that do not existAn empty collection is returned if all messages are found."
+      }
+    },
+    "source": "Result"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "18-R5"
+}

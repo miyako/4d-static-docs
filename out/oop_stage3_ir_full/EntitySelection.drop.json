@@ -1,0 +1,39 @@
+{
+  "id": "EntitySelection.drop",
+  "displayName": "EntitySelection.drop",
+  "kind": "oop_function",
+  "memberName": ".drop",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Removes the entities belonging to the entity selection from the table related to its dataclass within the datastore",
+  "description": "The .drop() function removes the entities belonging to the entity selection from the table related to its dataclass within the datastore. The entity selection remains in memory.\n\nRemoving entities is permanent and cannot be undone. It is recommended to call this action in a transaction in order to have a rollback option.\n\nIf a locked entity is encountered during the execution of .drop(), it is not removed. By default, the method processes all entities of the entity selection and returns non-droppable entities in the entity selection. If you want the method to stop execution at the first encountered non-droppable entity, pass the dk stop dropping on first error constant in the mode parameter.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mode",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.drop.mode"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk stop dropping on first error`: stops method execution on first non-droppable entity"
+        }
+      ],
+      "rawSyntax": "**.drop**( { *mode* : Integer } ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

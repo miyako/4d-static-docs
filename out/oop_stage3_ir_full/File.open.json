@@ -1,0 +1,58 @@
+{
+  "id": "File.open",
+  "displayName": "File.open",
+  "kind": "oop_function",
+  "memberName": ".open",
+  "receiver": {
+    "classId": "File",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "File"
+    }
+  },
+  "summary": "Creates and returns a new 4D.FileHandle object on the file, in the specified *mode* or with the specified *options*",
+  "description": "The .open() function creates and returns a new 4D.FileHandle object on the file, in the specified mode or with the specified options. You can use functions and properties of the 4D.FileHandle class to write, read, or append contents to the file.\n\nIf you use the mode (text) parameter, pass the opening mode for the file handle:\n\nThe mode value is case sensitive.\n\nIf you use the options (object) parameter, you can pass more options for the file handle through the following properties (these properties can be read afterwards from the opened file handle object):\n\nThe function replaces all original end-of-line delimiters. By default, the native delimiter is used, but you can define another delimiter. The .breakModeRead and .breakModeWrite indicate the processing to apply to end-of-line characters in the document. You can use one of the following values (text or number):\n\nThe break mode as text value is case sensitive.",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mode",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Opening mode: \"read\", \"write\", \"append\""
+        }
+      ],
+      "rawSyntax": "**.open**( { *mode* : Text } ) : 4D.FileHandle",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.FileHandle"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Opening options"
+        }
+      ],
+      "rawSyntax": "**.open**( { *options* : Object } ) : 4D.FileHandle",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.FileHandle"
+      }
+    }
+  ],
+  "sinceVersion": "19-R7"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "POP3Transporter.undeleteAll",
+  "displayName": "POP3Transporter.undeleteAll",
+  "kind": "oop_function",
+  "memberName": ".undeleteAll",
+  "receiver": {
+    "classId": "POP3Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "POP3Transporter"
+    }
+  },
+  "summary": "Removes all delete flags set on the emails in the `POP3_transporter`",
+  "description": "The .undeleteAll() function removes all delete flags set on the emails in the POP3_transporter.",
+  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.undeleteAll()**",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "18-R2"
+}

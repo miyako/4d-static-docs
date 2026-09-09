@@ -1,0 +1,26 @@
+{
+  "id": "Document.platformPath",
+  "displayName": "Document.platformPath",
+  "kind": "oop_property",
+  "memberName": ".platformPath",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The path of the file expressed with the current platform syntax",
+  "description": "The .platformPath property returns the path of the file expressed with the current platform syntax.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

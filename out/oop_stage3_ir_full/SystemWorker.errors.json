@@ -1,0 +1,51 @@
+{
+  "id": "SystemWorker.errors",
+  "displayName": "SystemWorker.errors",
+  "kind": "oop_property",
+  "memberName": ".errors",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains a collection of 4D errors in case of execution error(s) if any",
+  "description": "The .errors property contains a collection of 4D errors in case of execution error(s) if any.\n\nEach element of the collection is an object with the following properties:\n\nIf no error occured, .errors is undefined.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Collection"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "returnsShape": {
+    "properties": {
+      "[].errorCode": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "4D error code"
+      },
+      "[].message": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Description of the 4D error"
+      },
+      "[ ].componentSignature": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Signature of the internal component which returned the error"
+      }
+    },
+    "source": "Description"
+  }
+}

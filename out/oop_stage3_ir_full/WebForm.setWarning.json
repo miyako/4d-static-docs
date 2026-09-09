@@ -1,0 +1,35 @@
+{
+  "id": "WebForm.setWarning",
+  "displayName": "WebForm.setWarning",
+  "kind": "oop_function",
+  "memberName": ".setWarning",
+  "receiver": {
+    "classId": "WebForm",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebForm"
+    }
+  },
+  "summary": "Sends *msg* as a warning message to the web page",
+  "description": "The .setWarning() function sends msg as a warning message to the web page.\n\nThe function returns a response with a 200 OK status and a __WEBFORM object in the body with a __NOTIFICATION.message property set to msg and a __NOTIFICATION.type set to \"warning\".",
+  "docPage": "mirror/docs/21-R3/API/WebFormClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msg",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Warning message to display in the web form"
+        }
+      ],
+      "rawSyntax": "**.setWarning**( *msg* : Text)",
+      "returns": null
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "WebForm.componentName",
+  "displayName": "WebForm.componentName",
+  "kind": "oop_property",
+  "memberName": ".componentName",
+  "receiver": {
+    "classId": "WebForm",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebForm"
+    }
+  },
+  "summary": "The components of web pages are objects that are available directly as properties of these web pages.",
+  "description": "The components of web pages are objects that are available directly as properties of these web pages.\n\nThe returned objects are of the 4D.WebFormItem class. These objects have functions that you can use to manage your components dynamically.",
+  "docPage": "mirror/docs/21-R3/API/WebFormClass.html",
+  "accessor": {
+    "type": {
+      "kind": "pseudo",
+      "name": "any"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "dynamicMember": {
+    "namePattern": "<componentName>",
+    "note": "names a component in the web form, not a fixed member"
+  }
+}

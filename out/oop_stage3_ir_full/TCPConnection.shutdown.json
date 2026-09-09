@@ -1,0 +1,24 @@
+{
+  "id": "TCPConnection.shutdown",
+  "displayName": "TCPConnection.shutdown",
+  "kind": "oop_function",
+  "memberName": ".shutdown",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "Closes the *write* channel of the connection (client to server stream)",
+  "description": "The shutdown() function closes the write channel of the connection (client to server stream) while keeping the read channel (server to client stream) open, allowing you to continue receiving data until the connection is fully closed by the server or an error occurs.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.shutdown**()",
+      "returns": null
+    }
+  ]
+}

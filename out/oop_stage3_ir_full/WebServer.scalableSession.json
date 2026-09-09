@@ -1,0 +1,31 @@
+{
+  "id": "WebServer.scalableSession",
+  "displayName": "WebServer.scalableSession",
+  "kind": "oop_property",
+  "memberName": ".scalableSession",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "`True` if scalable sessions are used in the web server, and `False` otherwise",
+  "description": "Contains True if scalable sessions are used in the web server, and False otherwise.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "_seeAlso": [
+    {
+      "text": ".keepSession",
+      "href": "WebServerClass.html#keepsession"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "FileHandle.mode",
+  "displayName": "FileHandle.mode",
+  "kind": "oop_property",
+  "memberName": ".mode",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "The mode in which the file handle was created: \"read\", \"write\", or \"append\"",
+  "description": "The .mode property returns the mode in which the file handle was created: \"read\", \"write\", or \"append\".\n\nThe mode can be defined at the handle creation with the file.open() function. Default is \"read\".\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "19-R7"
+}

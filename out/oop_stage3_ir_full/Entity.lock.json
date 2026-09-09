@@ -1,0 +1,108 @@
+{
+  "id": "Entity.lock",
+  "displayName": "Entity.lock",
+  "kind": "oop_function",
+  "memberName": ".lock",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Puts a pessimistic lock on the record referenced by the entity",
+  "description": "The .lock() function puts a pessimistic lock on the record referenced by the entity. The lock is set for a record and all the references of the entity in the current process.\n\nOther processes will see this record as locked (the result.success property will contain False if they try to lock the same entity using this function). Only functions executed in the \"locking\" session are allowed to edit and save the attributes of the entity. The entity can be loaded as read-only by other sessions, but they will not be able to enter and save values.\n\nA record locked by .lock() is unlocked:\n\nwhen the unlock() function is called on a matching entity in the same process automatically, when it is no longer referenced by any entities in memory. For example, if the lock is put only on one local reference of an entity, the entity is unlocked when the function ends. As long as there are references to the entity in memory, the record remains locked.\n\nBy default, if the mode parameter is omitted, the function will return an error (see below) if the same entity was modified (i.e. the stamp has changed) by another process or user in the meantime.\n\nOtherwise, you can pass the dk reload if stamp changed option in the mode parameter: in this case, no error is returned and the entity is reloaded when the stamp has changed (if the entity still exists and the primary key is still the same).\n\nResult\n\nThe object returned by .lock() contains the following properties:\n\n(*) The following values can be returned in the status and statusText properties of the Result object in case of error:",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "mode",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Entity.lock.mode"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk reload if stamp changed`: Reload before locking if stamp changed"
+        }
+      ],
+      "rawSyntax": "**.lock**( { *mode* : Integer } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "true if the lock action is successful (or if the entity is already locked in the current process), false otherwise."
+      },
+      "wasReloaded": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "true if the entity was reloaded with success, false otherwise.",
+        "presentWhen": "Available only if dk reload if stamp changed option is used",
+        "optional": true
+      },
+      "status(*)": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Error code, see below",
+        "presentWhen": "Available only in case of error",
+        "optional": true
+      },
+      "statusText(*)": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Description of the error, see below",
+        "presentWhen": "Available only in case of error",
+        "optional": true
+      },
+      "lockKindText": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "\"Locked by record\" if locked by a 4D process, \"Locked by session\" if locked by a REST session",
+        "presentWhen": "Available only in case of pessimistic lock error",
+        "optional": true
+      },
+      "lockInfo": {
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
+        "description": "Information about the lock origin. Returned properties depend on the lock origin (4D process or REST session).",
+        "presentWhen": "Available only in case of pessimistic lock error",
+        "optional": true
+      },
+      "errors": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "presentWhen": "Available only in case of serious error (primary key already exists, disk full...)",
+        "optional": true
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  },
+  "sinceVersion": "17"
+}

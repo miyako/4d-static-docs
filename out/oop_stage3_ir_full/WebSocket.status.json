@@ -1,0 +1,25 @@
+{
+  "id": "WebSocket.status",
+  "displayName": "WebSocket.status",
+  "kind": "oop_property",
+  "memberName": ".status",
+  "receiver": {
+    "classId": "WebSocket",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocket"
+    }
+  },
+  "summary": "The current connection status (can be \"Connecting\", \"Closing\", \"Closed\", or \"Connected\")",
+  "description": "The .status property contains the current connection status (can be \"Connecting\", \"Closing\", \"Closed\", or \"Connected\").\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

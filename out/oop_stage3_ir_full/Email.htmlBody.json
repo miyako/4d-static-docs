@@ -1,0 +1,25 @@
+{
+  "id": "Email.htmlBody",
+  "displayName": "Email.htmlBody",
+  "kind": "oop_property",
+  "memberName": ".htmlBody",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "HTML representation of the email message (default charset is UTF-8) (optional, SMTP only)",
+  "description": "The .htmlBody property contains the HTML representation of the email message (default charset is UTF-8) (optional, SMTP only). See Handling body part section.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

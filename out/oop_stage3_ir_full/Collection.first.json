@@ -1,0 +1,31 @@
+{
+  "id": "Collection.first",
+  "displayName": "Collection.first",
+  "kind": "oop_function",
+  "memberName": ".first",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns the first element of the collection",
+  "description": "The .first() function returns the first element of the collection.\n\nThis function does not modify the original collection.\n\nThe function returns Undefined if the collection is empty.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.first**() : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "20"
+}

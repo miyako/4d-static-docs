@@ -1,0 +1,36 @@
+{
+  "id": "POP3Transporter.delete",
+  "displayName": "POP3Transporter.delete",
+  "kind": "oop_function",
+  "memberName": ".delete",
+  "receiver": {
+    "classId": "POP3Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "POP3Transporter"
+    }
+  },
+  "summary": "Flags the *msgNumber* email for deletion from the POP3 server",
+  "description": "The .delete( ) function flags the msgNumber email for deletion from the POP3 server.\n\nIn the msgNumber parameter, pass the number of the email to delete. This number is returned in the number property by the .getMailInfoList() method.\n\nExecuting this method does not actually remove any email. The flagged email will be deleted from the POP3 server only when the POP3_transporter object (created with POP3 New transporter) is destroyed. The flag could be also be removed using the .undeleteAll() method.\n\nIf the current session unexpectedly terminates and the connection is closed (e.g., timeout, network failure, etc.), an error message is generated and messages marked for deletion will remain on the POP3 server.",
+  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msgNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the message to delete"
+        }
+      ],
+      "rawSyntax": "**.delete**( *msgNumber* : Integer )",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "18-R2"
+}

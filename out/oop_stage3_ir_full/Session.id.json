@@ -1,0 +1,26 @@
+{
+  "id": "Session.id",
+  "displayName": "Session.id",
+  "kind": "oop_property",
+  "memberName": ".id",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "The unique identifier (UUID) of the user session",
+  "description": "The .id property contains the unique identifier (UUID) of the user session.\n\nWith 4D Server, this unique string is automatically assigned by the server for each session and allows you to identify its processes. It is available in both the Session on the server side and on the client side.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "sinceVersion": "20-R5"
+}

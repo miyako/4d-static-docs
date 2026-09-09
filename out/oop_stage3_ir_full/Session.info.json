@@ -1,0 +1,101 @@
+{
+  "id": "Session.info",
+  "displayName": "Session.info",
+  "kind": "oop_property",
+  "memberName": ".info",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Describes the session",
+  "description": "The .info property describes the session.\n\nRemote user sessions and Stored procedure sessions: The .info object is the same object as the one returned in the \"session\" property by the Process activity command. Standalone sessions: The .info object is the same object as the one returned by the Session info command. Web user sessions: The .info object contains properties available for web user sessions.\n\nThe .info object contains the following properties:",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "returnsShape": {
+    "properties": {
+      "type": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Session type: \"remote\", \"storedProcedure\", \"standalone\", \"rest\", \"web\""
+      },
+      "userName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "4D user name (same value as .userName)"
+      },
+      "machineName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Remote sessions: name of the remote machine.Client sessions: name of the local machine.Stored procedures session: name of the server machine. Standalone session: name of the machine"
+      },
+      "systemUserName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Remote sessions: name of the system session opened on the remote machine.Client sessions: name of the local system session"
+      },
+      "IPAddress": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Remote sessions: IP address of the remote machine.Client sessions: IP address of the local machine.Standalone session: \"localhost\""
+      },
+      "hostType": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Host type: \"windows\", \"mac\", or \"browser\""
+      },
+      "creationDateTime": {
+        "type": {
+          "kind": "concrete",
+          "name": "Date ISO 8601"
+        },
+        "description": "Date and time of session creation (standalone session: date and time of application startup)"
+      },
+      "state": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Session state: \"active\", \"postponed\", \"sleeping\""
+      },
+      "ID": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Session UUID (same value as .id)"
+      },
+      "persistentID": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Remote/client sessions: Session's persistent ID"
+      }
+    },
+    "source": "Description"
+  },
+  "sinceVersion": "20-R5"
+}

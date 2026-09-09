@@ -1,0 +1,86 @@
+{
+  "id": "Entity.toObject",
+  "displayName": "Entity.toObject",
+  "kind": "oop_function",
+  "memberName": ".toObject",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns an object which has been built from the entity",
+  "description": "The .toObject() function returns an object which has been built from the entity. Property names in the object match attribute names of the entity.\n\nIf no filter is specified, or if the filterString parameter contains an empty string or \"*\", the returned object will contain:\n\nall storage entity attributes attributes of the relatedEntity kind: you get a property with the same name as the related entity (name of the many-to-one link). Attribute is extracted with the simple form. attributes of the relatedEntities kind: attribute is not returned.\n\nIn the first parameter, you pass the entity attribute(s) to extract. You can pass:\n\nfilterString: a string with property paths separated with commas: \"propertyPath1, propertyPath2, ...\", or filterCol: a collection of strings: [\"propertyPath1\",\"propertyPath2\";...]\n\nIf a filter is specified for attributes of the relatedEntity kind:\n\npropertyPath = \"relatedEntity\" -> it is extracted with simple form: an object with property __KEY (primary key). propertyPath = \"relatedEntity.*\" -> all the properties are extracted propertyPath = \"relatedEntity.propertyName1; relatedEntity.propertyName2; ...\" -> only those properties are extracted\n\nIf a filter is specified for attributes of the relatedEntities kind:\n\npropertyPath = \"relatedEntities.*\" -> all the properties are extracted propertyPath = \"relatedEntities.propertyName1; relatedEntities.propertyName2; ...\" -> only those properties are extracted\n\nIn the options parameter, you can pass the dk with primary key and/ordk with stamp selector(s) to add the entity's primary keys and/or stamps in extracted objects.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.toObject**() : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "filterString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attribute(s) to extract (comma-separated string)"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Entity.toObject.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk with primary key`: adds the \\_\\_KEY property;<br/>`dk with stamp`: adds the \\_STAMP property dk with primary key: adds the __KEY property;dk with stamp: adds the _STAMP property"
+        }
+      ],
+      "rawSyntax": "**.toObject**( *filterString* : Text { ; *options* : Integer}  ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "filterCol",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of attribute(s) to extract"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Entity.toObject.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk with primary key`: adds the \\_\\_KEY property;<br/>`dk with stamp`: adds the \\_STAMP property dk with primary key: adds the __KEY property;dk with stamp: adds the _STAMP property"
+        }
+      ],
+      "rawSyntax": "**.toObject**( *filterCol* : Collection { ; *options* : Integer } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

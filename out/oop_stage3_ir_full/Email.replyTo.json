@@ -1,0 +1,25 @@
+{
+  "id": "Email.replyTo",
+  "displayName": "Email.replyTo",
+  "kind": "oop_property",
+  "memberName": ".replyTo",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Addresse(s) for responses",
+  "description": "The .replyTo property contains the addresse(s) for responses.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

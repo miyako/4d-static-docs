@@ -1,0 +1,26 @@
+{
+  "id": "Document.modificationTime",
+  "displayName": "Document.modificationTime",
+  "kind": "oop_property",
+  "memberName": ".modificationTime",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The time of the file's last modification",
+  "description": "The .modificationTime property returns the time of the file's last modification (expressed as a number of seconds beginning at 00:00).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Time"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

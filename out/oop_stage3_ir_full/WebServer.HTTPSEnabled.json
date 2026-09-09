@@ -1,0 +1,25 @@
+{
+  "id": "WebServer.HTTPSEnabled",
+  "displayName": "WebServer.HTTPSEnabled",
+  "kind": "oop_property",
+  "memberName": ".HTTPSEnabled",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "HTTPS protocol state",
+  "description": "The HTTPS protocol state.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

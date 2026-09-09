@@ -1,0 +1,32 @@
+{
+  "id": "Session.storage",
+  "displayName": "Session.storage",
+  "kind": "oop_property",
+  "memberName": ".storage",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "A shared object that can be used to store information available to all processes of the session",
+  "description": "The .storage property contains a shared object that can be used to store information available to all processes of the session.\n\nWhen a Session object is created, the .storage property is empty. This property is read only itself but it returns a read-write object.\n\n::: note Notes\n\nSince it is a shared object, this property will be available in the Storage object of the machine (server or client). Like the Storage object of the machine, the .storage property is always \"single\": adding a shared object or a shared collection to .storage does not create a shared group.\n\n:::\n\nIn client/server, the .storage object of the remote user session is not the same on the server and on the client.\n\nWhen a remote user session and a web session are shared using an OTP, they also share the same .storage object on the server, even if the OTP was created from the session on the client side.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "18-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "20-R5",
+      "change": "Support of desktop sessions"
+    }
+  ]
+}

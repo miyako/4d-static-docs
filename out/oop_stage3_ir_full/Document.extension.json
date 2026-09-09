@@ -1,0 +1,26 @@
+{
+  "id": "Document.extension",
+  "displayName": "Document.extension",
+  "kind": "oop_property",
+  "memberName": ".extension",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The extension of the file name (if any)",
+  "description": "The .extension property returns the extension of the file name (if any). An extension always starts with \".\". The property returns an empty string if the file name does not have an extension.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}

@@ -1,0 +1,572 @@
+{
+  "entriesWritten": 502,
+  "enumsGenerated": 33,
+  "paramsUpgradedToEnumRef": 42,
+  "missingSignature": [],
+  "upgrades": [
+    {
+      "id": "Collection.copy",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "Collection.copy.option",
+      "constants": [
+        "ck resolve pointers",
+        "ck shared"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.copy",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "Collection.copy.option",
+      "constants": [
+        "ck resolve pointers",
+        "ck shared"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.copy",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "Collection.copy.option",
+      "constants": [
+        "ck resolve pointers",
+        "ck shared"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.distinct",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "Collection.distinct.options",
+      "constants": [
+        "ck diacritical",
+        "ck count values"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.distinct",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "Collection.distinct.options",
+      "constants": [
+        "ck diacritical",
+        "ck count values"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.equal",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "Collection.equal.option",
+      "constants": [
+        "ck diacritical"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.extract",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "Collection.extract.option",
+      "constants": [
+        "ck keep null"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.join",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "Collection.join.option",
+      "constants": [
+        "ck ignore null or empty"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.multiSort",
+      "param": "colsToSort",
+      "wasType": "Collection",
+      "enum": "Collection.multiSort.colsToSort",
+      "constants": [
+        "ck ascending",
+        "ck descending"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.multiSort",
+      "param": "colsToSort",
+      "wasType": "Collection",
+      "enum": "Collection.multiSort.colsToSort",
+      "constants": [
+        "ck ascending",
+        "ck descending"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.orderBy",
+      "param": "ascOrDesc",
+      "wasType": "Integer",
+      "enum": "Collection.orderBy.ascOrDesc",
+      "constants": [
+        "ck ascending",
+        "ck descending"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Collection.sort",
+      "param": "ascOrDesc",
+      "wasType": "Integer",
+      "enum": "Collection.sort.ascOrDesc",
+      "constants": [
+        "ck ascending",
+        "ck descending"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "DataClass.newSelection",
+      "param": "keepOrder",
+      "wasType": "Integer",
+      "enum": "DataClass.newSelection.keepOrder",
+      "constants": [
+        "dk keep ordered",
+        "dk non ordered"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Directory.copyTo",
+      "param": "overwrite",
+      "wasType": "Integer",
+      "enum": "Directory.copyTo.overwrite",
+      "constants": [
+        "fk overwrite"
+      ],
+      "themes": [
+        "File and Folder"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Directory.files",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "Directory.files.options",
+      "constants": [
+        "fk recursive",
+        "fk ignore invisible"
+      ],
+      "themes": [],
+      "source": "constant table on the API page"
+    },
+    {
+      "id": "Directory.folders",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "Directory.folders.options",
+      "constants": [
+        "fk recursive",
+        "fk ignore invisible"
+      ],
+      "themes": [],
+      "source": "constant table on the API page"
+    },
+    {
+      "id": "Document.copyTo",
+      "param": "overwrite",
+      "wasType": "Integer",
+      "enum": "Document.copyTo.overwrite",
+      "constants": [
+        "fk overwrite"
+      ],
+      "themes": [
+        "File and Folder"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Entity.drop",
+      "param": "mode",
+      "wasType": "Integer",
+      "enum": "Entity.drop.mode",
+      "constants": [
+        "dk force drop if stamp changed"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Entity.getKey",
+      "param": "mode",
+      "wasType": "Integer",
+      "enum": "Entity.getKey.mode",
+      "constants": [
+        "dk key as string"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Entity.lock",
+      "param": "mode",
+      "wasType": "Integer",
+      "enum": "Entity.lock.mode",
+      "constants": [
+        "dk reload if stamp changed"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Entity.save",
+      "param": "mode",
+      "wasType": "Integer",
+      "enum": "Entity.save.mode",
+      "constants": [
+        "dk auto merge"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Entity.save",
+      "param": "(returnsShape).status",
+      "wasType": "Real",
+      "enum": "Entity.save.returns.status",
+      "constants": [
+        "dk status automerge failed",
+        "dk status entity does not exist anymore",
+        "dk status locked",
+        "dk status validation failed",
+        "dk status serious error",
+        "dk status serious validation error",
+        "dk status stamp has changed",
+        "dk status wrong permission"
+      ],
+      "themes": [],
+      "source": "constant table on the API page"
+    },
+    {
+      "id": "Entity.toObject",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "Entity.toObject.options",
+      "constants": [
+        "dk with primary key",
+        "dk with stamp"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "Entity.toObject",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "Entity.toObject.options",
+      "constants": [
+        "dk with primary key",
+        "dk with stamp"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.copy",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "EntitySelection.copy.option",
+      "constants": [
+        "ck shared"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.distinct",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "EntitySelection.distinct.options",
+      "constants": [
+        "dk diacritical",
+        "dk count values"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.drop",
+      "param": "mode",
+      "wasType": "Integer",
+      "enum": "EntitySelection.drop.mode",
+      "constants": [
+        "dk stop dropping on first error"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.extract",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "EntitySelection.extract.option",
+      "constants": [
+        "ck keep null"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.minus",
+      "param": "keepOrder",
+      "wasType": "Integer",
+      "enum": "EntitySelection.minus.keepOrder",
+      "constants": [
+        "dk keep ordered"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.minus",
+      "param": "keepOrder",
+      "wasType": "Integer",
+      "enum": "EntitySelection.minus.keepOrder",
+      "constants": [
+        "dk keep ordered"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.orderByFormula",
+      "param": "sortOrder",
+      "wasType": "Integer",
+      "enum": "EntitySelection.orderByFormula.sortOrder",
+      "constants": [
+        "dk ascending",
+        "dk descending"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.orderByFormula",
+      "param": "sortOrder",
+      "wasType": "Integer",
+      "enum": "EntitySelection.orderByFormula.sortOrder",
+      "constants": [
+        "dk ascending",
+        "dk descending"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.toCollection",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "EntitySelection.toCollection.options",
+      "constants": [
+        "dk with primary key",
+        "dk with stamp"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.toCollection",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "EntitySelection.toCollection.options",
+      "constants": [
+        "dk with primary key",
+        "dk with stamp"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "EntitySelection.toCollection",
+      "param": "options",
+      "wasType": "Integer",
+      "enum": "EntitySelection.toCollection.options",
+      "constants": [
+        "dk with primary key",
+        "dk with stamp"
+      ],
+      "themes": [
+        "Objects and collections"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "File.createAlias",
+      "param": "aliasType",
+      "wasType": "Integer",
+      "enum": "File.createAlias.aliasType",
+      "constants": [
+        "fk alias link",
+        "fk symbolic link"
+      ],
+      "themes": [],
+      "source": "constant table on the API page"
+    },
+    {
+      "id": "Folder.createAlias",
+      "param": "aliasType",
+      "wasType": "Integer",
+      "enum": "Folder.createAlias.aliasType",
+      "constants": [
+        "fk alias link",
+        "fk symbolic link"
+      ],
+      "themes": [],
+      "source": "constant table on the API page"
+    },
+    {
+      "id": "Folder.delete",
+      "param": "option",
+      "wasType": "Integer",
+      "enum": "Folder.delete.option",
+      "constants": [
+        "Delete only if empty"
+      ],
+      "themes": [
+        "System Documents"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "IMAPTransporter.copy",
+      "param": "allMsgs",
+      "wasType": "Integer",
+      "enum": "IMAPTransporter.copy.allMsgs",
+      "constants": [
+        "IMAP all"
+      ],
+      "themes": [
+        "Mail"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "IMAPTransporter.delete",
+      "param": "allMsgs",
+      "wasType": "Integer",
+      "enum": "IMAPTransporter.delete.allMsgs",
+      "constants": [
+        "IMAP all"
+      ],
+      "themes": [
+        "Mail"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "IMAPTransporter.move",
+      "param": "allMsgs",
+      "wasType": "Integer",
+      "enum": "IMAPTransporter.move.allMsgs",
+      "constants": [
+        "IMAP all"
+      ],
+      "themes": [
+        "Mail"
+      ],
+      "source": "constant names in the parameter description"
+    },
+    {
+      "id": "IMAPTransporter.selectBox",
+      "param": "state",
+      "wasType": "Integer",
+      "enum": "IMAPTransporter.selectBox.state",
+      "constants": [
+        "IMAP read only state",
+        "IMAP read write state"
+      ],
+      "themes": [],
+      "source": "constant table on the API page"
+    }
+  ]
+}

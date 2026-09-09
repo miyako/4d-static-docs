@@ -1,0 +1,28 @@
+{
+  "id": "File.create",
+  "displayName": "File.create",
+  "kind": "oop_function",
+  "memberName": ".create",
+  "receiver": {
+    "classId": "File",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "File"
+    }
+  },
+  "summary": "Creates a file on disk according to the properties of the `File` object",
+  "description": "Not available for ZIP archives\n\nThe .create() function creates a file on disk according to the properties of the File object.\n\nIf necessary, the function creates the folder hierachy as described in the platformPath or path properties. If the file already exists on disk, the function does nothing (no error is thrown) and returns false.\n\nReturned value\n\nTrue if the file is created successfully; False if a file with the same name already exists or if an error occured.",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.create()** : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

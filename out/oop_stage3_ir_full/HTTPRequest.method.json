@@ -1,0 +1,25 @@
+{
+  "id": "HTTPRequest.method",
+  "displayName": "HTTPRequest.method",
+  "kind": "oop_property",
+  "memberName": ".method",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "The `method` passed in the `options` object when calling new()",
+  "description": "The .method property contains the method passed in the options object when calling new(). If it was omitted, contains \"GET\".",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "FileHandle.writeLine",
+  "displayName": "FileHandle.writeLine",
+  "kind": "oop_function",
+  "memberName": ".writeLine",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "Writes *lineOfText* content at the current position and inserts an end-of-line delimiter",
+  "description": "The .writeLine() function writes lineOfText content at the current position and inserts an end-of-line delimiter (unlike the .writeText() function). By default, a native end-of-line delimiter is used, but you can define another delimiter when opening the file handle by setting the .breakModeWrite property.\n\nWhen this function is executed, the current position (.offset) is updated after the end-of-line delimiter.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "lineOfText",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Text to write"
+        }
+      ],
+      "rawSyntax": "**.writeLine**( *lineOfText* : Text )",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "19-R7",
+  "_seeAlso": [
+    {
+      "text": ".breakModeWrite",
+      "href": "FileHandleClass.html#breakmodewrite"
+    },
+    {
+      "text": ".readLine()",
+      "href": "FileHandleClass.html#readline"
+    },
+    {
+      "text": ".writeText()",
+      "href": "FileHandleClass.html#writetext"
+    }
+  ]
+}

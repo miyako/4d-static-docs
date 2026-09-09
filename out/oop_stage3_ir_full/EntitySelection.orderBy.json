@@ -1,0 +1,58 @@
+{
+  "id": "EntitySelection.orderBy",
+  "displayName": "EntitySelection.orderBy",
+  "kind": "oop_function",
+  "memberName": ".orderBy",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns a new ordered entity selection containing all entities of the entity selection in the order specified by *pathString* or *pathObjects* criteria",
+  "description": "The .orderBy() function returns a new ordered entity selection containing all entities of the entity selection in the order specified by pathString or pathObjects criteria.\n\nThis method does not modify the original entity selection. For more information on ordered entity selections, please refer to the Ordered or unordered entity selection section.\n\nYou must use a criteria parameter to define how the entities must be sorted. Two different parameters are supported:\n\npathString (Text) : This parameter contains a formula made of 1 to x attribute paths and (optionally) sort orders, separated by commas. The syntax is:\n\nThe order in which the attributes are passed determines the sorting priority of the entities. By default, attributes are sorted in ascending order. You can set the sort order of a property in the criteria string, separated from the property path by a single space: pass \"asc\" to sort in ascending order or \"desc\" in descending order.\n\npathObjects (collection): each element of the collection contains an object structured in the following way:\n\nBy default, attributes are sorted in ascending order (\"descending\" is false).\n\nYou can add as many objects in the criteria collection as necessary.\n\nIf the entity selection attributes contain values of different types, they will be sorted according to the 4D ordering principles.\n\nIf you pass an invalid attribute path in pathString or pathObject, the function returns an empty entity selection.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "pathString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attribute path(s) and sorting instruction(s) for the entity selection"
+        }
+      ],
+      "rawSyntax": "**.orderBy**( *pathString* : Text ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "pathObjects",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of criteria objects"
+        }
+      ],
+      "rawSyntax": "**.orderBy**( *pathObjects* : Collection ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

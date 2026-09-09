@@ -1,0 +1,25 @@
+{
+  "id": "IMAPTransporter.notifier",
+  "displayName": "IMAPTransporter.notifier",
+  "kind": "oop_property",
+  "memberName": ".notifier",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Contains the IMAPNotifier object associated with the transporter",
+  "description": "The .notifier property contains the IMAPNotifier object associated with the transporter. This property is read-only.\n\nSee IMAPNotifier.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.IMAPNotifier"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

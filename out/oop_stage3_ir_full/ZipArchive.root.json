@@ -1,0 +1,25 @@
+{
+  "id": "ZipArchive.root",
+  "displayName": "ZipArchive.root",
+  "kind": "oop_property",
+  "memberName": ".root",
+  "receiver": {
+    "classId": "ZipArchive",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "ZipArchive"
+    }
+  },
+  "summary": "A virtual folder providing access to the contents of the ZIP archive",
+  "description": "The .root property contains a virtual folder providing access to the contents of the ZIP archive.\n\nThe root folder and its contents can be manipulated with the ZipFile and ZipFolder functions and properties.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/ZipArchiveClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.ZipFolder"
+    },
+    "readable": true,
+    "writable": false
+  }
+}

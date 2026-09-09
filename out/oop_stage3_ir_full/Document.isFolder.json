@@ -1,0 +1,26 @@
+{
+  "id": "Document.isFolder",
+  "displayName": "Document.isFolder",
+  "kind": "oop_property",
+  "memberName": ".isFolder",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "Always false for a file",
+  "description": "The .isFolder property returns always false for a file.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false
+  },
+  "sinceVersion": "17-R5"
+}
