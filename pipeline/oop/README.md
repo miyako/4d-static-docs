@@ -306,6 +306,29 @@ identical to a sweep that verified nothing.
 
 `Transporter` has no API page, so both fields stay `null`.
 
+### Members deep-link to their own section
+
+A member's `docPage` carries the anchor of its section on the class page, so
+`Document.exists` links to `.../API/Document#exists` rather than the top of a
+page listing dozens of members. Class cards stay page-level, which is already
+the right target for them.
+
+Two anchor forms exist and both are needed. A regular member anchors on its
+bare name (`#exists`), but a **constructor anchors on its fully-qualified
+name** (`4D.IMAPNotifier.new` -> `#4dimapnotifiernew`), because otherwise
+every constructor in the corpus would collapse to `#new`.
+
+`verify_doc_anchors.py` checks the emitted URLs against the live site: all
+502 resolve to an anchor whose heading names that member. It cannot run
+offline -- the mirror's HTML has no `id` attributes at all, so a mirror-based
+check reports a confident 0% while measuring nothing.
+
+The check requires the anchor's **heading to name the member**, not merely
+that the anchor exists. Existence alone would accept an anchor that shares a
+name with an unrelated section and quietly send readers to the wrong place;
+the script's own negative control confirms it rejects both a fabricated
+anchor and a real anchor belonging to a different member.
+
 The same rewrite applies to `oop_doc_examples.json`, where each harvested
 example records the page it came from. There the mirror path is also the
 internal join key used to attribute a snippet to a member, so it is rewritten

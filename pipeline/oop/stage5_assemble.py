@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -50,6 +51,28 @@ def deep_merge(base: dict, overlay: dict) -> dict:
 DOC_BASE_URL = "https://developer.4d.com/docs/API/"
 
 
+def doc_anchor(entry: dict) -> str | None:
+    """The member's own section anchor on its class's API page.
+
+    Two forms exist and both are load-bearing. A regular member anchors on
+    its bare name (`File.exists` -> `#exists`), but a constructor anchors on
+    its fully-qualified name (`4D.IMAPNotifier.new` -> `#4dimapnotifiernew`),
+    because every constructor would otherwise collapse to `#new`.
+
+    Applied to members only. A class card links to the page itself, which is
+    already the right target.
+    """
+    name = entry.get("displayName")
+    if not name:
+        return None
+    if entry.get("kind") == "oop_constructor":
+        slug = name
+    else:
+        slug = name.rsplit(".", 1)[-1]
+    slug = re.sub(r"[^a-z0-9]", "", slug.lower())
+    return slug or None
+
+
 def canonical_doc_page(entry: dict) -> dict:
     """Rewrite the mirror path into the official, version-less permalink.
 
@@ -67,7 +90,9 @@ def canonical_doc_page(entry: dict) -> dict:
         return entry
     entry = dict(entry)
     entry["docPageLocal"] = local
-    entry["docPage"] = DOC_BASE_URL + local.rsplit("/", 1)[-1].removesuffix(".html")
+    page = DOC_BASE_URL + local.rsplit("/", 1)[-1].removesuffix(".html")
+    anchor = doc_anchor(entry) if entry.get("kind") else None
+    entry["docPage"] = f"{page}#{anchor}" if anchor else page
     return entry
 
 
