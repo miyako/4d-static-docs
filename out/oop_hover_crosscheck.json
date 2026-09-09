@@ -1,0 +1,3642 @@
+{
+  "gate": "G5",
+  "summary": {
+    "members": 502,
+    "agrees": 485,
+    "disagreements": 0,
+    "explainedDisagreements": 1,
+    "unknownToCompiler": 0,
+    "skippedDynamic": 7,
+    "noHoverMultivariantProperty": 9
+  },
+  "noHoverMultivariantProperty": [
+    "Document.original",
+    "Email.bcc",
+    "Email.cc",
+    "Email.from",
+    "Email.replyTo",
+    "Email.sender",
+    "Email.to",
+    "SystemWorker.response",
+    "WebServer.characterSet"
+  ],
+  "unknownToCompiler": [],
+  "results": [
+    {
+      "id": "4D.Blob.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.Blob.new() : 4D.Blob",
+        "4D.Blob.new( blobScal : Blob ) : 4D.Blob",
+        "4D.Blob.new( blobObj : 4D.Blob ) : 4D.Blob"
+      ]
+    },
+    {
+      "id": "4D.CryptoKey.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.CryptoKey.new( settings : Object ) : 4D.CryptoKey"
+      ]
+    },
+    {
+      "id": "4D.File.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.File.new ( path : Text { ; pathType : Integer } ) : 4D.File",
+        "4D.File.new ( fileConstant : Integer ) : 4D.File"
+      ]
+    },
+    {
+      "id": "4D.Folder.new",
+      "status": "explained-disagreement",
+      "hoverSignatures": [
+        "4D.Folder.new ( path : Text { ; pathType : Integer }{ ; * } ) : 4D.Folder",
+        "4D.Folder.new ( folderConstant : Integer { ; * } ) : 4D.Folder"
+      ],
+      "findings": [
+        {
+          "kind": "arity_set",
+          "ir": [
+            1,
+            2
+          ],
+          "hover": [
+            2,
+            3
+          ],
+          "hoverSignatures": [
+            "4D.Folder.new ( path : Text { ; pathType : Integer }{ ; * } ) : 4D.Folder",
+            "4D.Folder.new ( folderConstant : Integer { ; * } ) : 4D.Folder"
+          ]
+        }
+      ],
+      "reason": "Hover still shows the `{ ; * }` that FolderClass.html documents, because hover renders the doc string. The parser disagrees with the doc: tool4d accepts `Folder(\"/tmp\"; fk posix path; *)` but rejects `4D.Folder.new(\"/tmp\"; fk posix path; *)` with a bare \"Syntax error\", and the sibling 4D.File.new documents no `*` at all. The IR follows the parser via pipeline/oop/semantic_overlays/4D.Folder.new.json, so this arity difference is expected and is not an IR bug."
+    },
+    {
+      "id": "4D.HTTPAgent.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.HTTPAgent.new( { options : Object } ) : 4D.HTTPAgent"
+      ]
+    },
+    {
+      "id": "4D.HTTPRequest.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.HTTPRequest.new( url : Text { ; options : Object } ) : 4D.HTTPRequest"
+      ]
+    },
+    {
+      "id": "4D.IMAPNotifier.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.IMAPNotifier.new() : 4D.IMAPNotifier"
+      ]
+    },
+    {
+      "id": "4D.IMAPTransporter.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.IMAPTransporter.new( parameter : Object ) : 4D.IMAPTransporter"
+      ]
+    },
+    {
+      "id": "4D.MailAttachment.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.MailAttachment.new( file : 4D.File { ; name : Text {; cid : Text{ ; type : Text { ; disposition :Text } } } } ) : 4D.MailAttachment",
+        "4D.MailAttachment.new( zipFile : 4D.ZipFile { ; name : Text {; cid : Text{ ; type : Text { ; disposition :Text } } } } ) : 4D.MailAttachment",
+        "4D.MailAttachment.new( blob : 4D.Blob { ; name : Text {; cid : Text{ ; type : Text { ; disposition :Text } } } } ) : 4D.MailAttachment",
+        "4D.MailAttachment.new( path : Text { ; name : Text {; cid : Text{ ; type : Text { ; disposition :Text } } } } ) : 4D.MailAttachment"
+      ]
+    },
+    {
+      "id": "4D.Method.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.Method.new( source : Text {; name : Text } ) : 4D.Method"
+      ]
+    },
+    {
+      "id": "4D.POP3Transporter.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.POP3Transporter.new( server : Object ) : 4D.POP3Transporter"
+      ]
+    },
+    {
+      "id": "4D.SMTPTransporter.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.SMTPTransporter.new( server : Object ) : 4D.SMTPTransporter"
+      ]
+    },
+    {
+      "id": "4D.SystemWorker.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.SystemWorker.new ( commandLine : Text { ; options : Object } ) : 4D.SystemWorker"
+      ]
+    },
+    {
+      "id": "4D.TCPConnection.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.TCPConnection.new( serverAddress : Text ; serverPort : Number ; options : Object  ) : 4D.TCPConnection"
+      ]
+    },
+    {
+      "id": "4D.TCPListener.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.TCPListener.new( port : Number ; options : Object  ) : 4D.TCPListener"
+      ]
+    },
+    {
+      "id": "4D.UDPSocket.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.UDPSocket.new() : 4D.UDPSocket",
+        "4D.UDPSocket.new( options : Object ) : 4D.UDPSocket",
+        "4D.UDPSocket.new( port : Integer ) : 4D.UDPSocket",
+        "4D.UDPSocket.new( port : Integer ; options : Object ) : 4D.UDPSocket"
+      ]
+    },
+    {
+      "id": "4D.Vector.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.Vector.new ( parameter : Collection ) : 4D.Vector"
+      ]
+    },
+    {
+      "id": "4D.WebSocketServer.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.WebSocketServer.new( WSSHandler : Object { ; options : Object } ) : 4D.WebSocketServer"
+      ]
+    },
+    {
+      "id": "4D.WebSocket.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        "4D.WebSocket.new( url : Text { ; connectionHandler : Object } ) : 4D.WebSocket"
+      ]
+    },
+    {
+      "id": "4D.classClassName",
+      "status": "skipped-dynamic"
+    },
+    {
+      "id": "4D.classStoreName",
+      "status": "skipped-dynamic"
+    },
+    {
+      "id": "Blob.size",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".size : Real"
+      ]
+    },
+    {
+      "id": "Blob.slice",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".slice() : 4D.Blob",
+        ".slice( start : Real ) : 4D.Blob",
+        ".slice( start : Real; end : Real ) : 4D.Blob"
+      ]
+    },
+    {
+      "id": "Class.isSessionSingleton",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isSessionSingleton : Boolean"
+      ]
+    },
+    {
+      "id": "Class.isShared",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isShared : Boolean"
+      ]
+    },
+    {
+      "id": "Class.isSingleton",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isSingleton : Boolean"
+      ]
+    },
+    {
+      "id": "Class.me",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".me : 4D.Object"
+      ]
+    },
+    {
+      "id": "Class.name",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".name : Text"
+      ]
+    },
+    {
+      "id": "Class.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".new( { ...param : any } ) : 4D.Object"
+      ]
+    },
+    {
+      "id": "Class.superclass",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".superclass : 4D.Class"
+      ]
+    },
+    {
+      "id": "Collection.at",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".at( index : Integer ) : any"
+      ]
+    },
+    {
+      "id": "Collection.average",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".average( {propertyPath : Text } ) : Real"
+      ]
+    },
+    {
+      "id": "Collection.clear",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".clear() : Collection"
+      ]
+    },
+    {
+      "id": "Collection.combine",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".combine( col2 : Collection {; index : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.concat",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".concat( value : any { ; ...valueN : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.copy",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".copy() : Collection",
+        ".copy( option : Integer ) : Collection",
+        ".copy( option : Integer ; groupWithCol : Collection ) : Collection",
+        ".copy( option : Integer ; groupWithObj : Object ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.count",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".count( { propertyPath : Text } ) : Real"
+      ]
+    },
+    {
+      "id": "Collection.countValues",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".countValues( value : any {; propertyPath : Text } ) : Real"
+      ]
+    },
+    {
+      "id": "Collection.distinct",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".distinct( {options : Integer} ) : Collection",
+        ".distinct( propertyPath : Text {; options : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.equal",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".equal( collection2 : Collection {; option : Integer } ) : Boolean"
+      ]
+    },
+    {
+      "id": "Collection.every",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".every( { startFrom : Integer ; } formula : 4D.Function { ;...param : any } ) : Boolean",
+        ".every( { startFrom : Integer ; } methodName : Text { ;...param : any } ) : Boolean"
+      ]
+    },
+    {
+      "id": "Collection.extract",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".extract( propertyPath : Text { ; option : Integer } ) : Collection",
+        ".extract( propertyPath : Text ;  targetPath : Text  { ;...propertyPathOrTargetPathN : Text } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.fill",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".fill( value : any ) : Collection",
+        ".fill( value : any ;  startFrom  : Integer { ; end : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.filter",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".filter( formula : 4D.Function { ; ...param : any } ) : Collection",
+        ".filter( methodName : Text { ; ...param : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.find",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".find( { startFrom : Integer ; }  formula : 4D.Function { ; ...param : any } ) : any",
+        ".find( { startFrom : Integer ; }  methodName : Text { ; ...param : any } ) : any"
+      ]
+    },
+    {
+      "id": "Collection.findIndex",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".findIndex( { startFrom : Integer ; }  formula : 4D.Function { ; ...param : any } ) : Integer",
+        ".findIndex( { startFrom : Integer ; }  methodName : Text { ; ...param : any } ) : Integer"
+      ]
+    },
+    {
+      "id": "Collection.first",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".first() : any"
+      ]
+    },
+    {
+      "id": "Collection.flat",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".flat( { depth : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.flatMap",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".flatMap( formula : 4D.Function { ; ...param : any } ) : Collection",
+        ".flatMap( methodName : Text { ; ...param : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.includes",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".includes( toSearch : expression { ; startFrom : Integer } ) : Boolean"
+      ]
+    },
+    {
+      "id": "Collection.indexOf",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".indexOf(  toSearch : expression { ; startFrom : Integer } ) : Integer"
+      ]
+    },
+    {
+      "id": "Collection.indices",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".indices(  queryString : Text { ; ...value : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.insert",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".insert( index : Integer ; element : any ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.join",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".join( delimiter : Text { ; option : Integer } ) : Text"
+      ]
+    },
+    {
+      "id": "Collection.last",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".last() : any"
+      ]
+    },
+    {
+      "id": "Collection.lastIndexOf",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".lastIndexOf( toSearch : expression { ; startFrom : Integer } ) : Integer"
+      ]
+    },
+    {
+      "id": "Collection.length",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".length : Integer"
+      ]
+    },
+    {
+      "id": "Collection.map",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".map( formula : 4D.Function { ; ...param : any } ) : Collection",
+        ".map( methodName : Text { ; ...param : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.max",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".max( { propertyPath : Text } ) : any"
+      ]
+    },
+    {
+      "id": "Collection.min",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".min( { propertyPath : Text } ) : any"
+      ]
+    },
+    {
+      "id": "Collection.multiSort",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".multiSort() : Collection",
+        ".multiSort( colsToSort : Collection ) : Collection",
+        ".multiSort( formula : 4D.Function ; colsToSort : Collection ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.orderByMethod",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".orderByMethod( formula : 4D.Function { ; ...extraParam : Expression } ) : Collection",
+        ".orderByMethod( methodName : Text { ; ...extraParam : Expression } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.orderBy",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".orderBy( ) : Collection",
+        ".orderBy( pathStrings : Text ) : Collection",
+        ".orderBy( pathObjects : Collection ) : Collection",
+        ".orderBy( ascOrDesc : Integer ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.pop",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".pop() : any"
+      ]
+    },
+    {
+      "id": "Collection.push",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".push( element : any { ;...elementN : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.query",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".query( queryString : Text ) : Collection",
+        ".query( queryString : Text ; ...value : any ) : Collection",
+        ".query( queryString : Text ; querySettings : Object ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.reduce",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".reduce( formula : 4D.Function { ; initValue : any { ; ...param : expression }} ) : any",
+        ".reduce( methodName : Text { ; initValue : any { ; ...param : expression }} ) : any"
+      ]
+    },
+    {
+      "id": "Collection.reduceRight",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".reduceRight( formula : 4D.Function { ; initValue : any { ; ...param : Expression }} ) : any",
+        ".reduceRight( methodName : Text { ; initValue : any { ; ...param : Expression }} ) : any"
+      ]
+    },
+    {
+      "id": "Collection.remove",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".remove( index : Integer { ; howMany : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.resize",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".resize( size : Integer { ; defaultValue : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.reverse",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".reverse() : Collection"
+      ]
+    },
+    {
+      "id": "Collection.shift",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".shift() : any"
+      ]
+    },
+    {
+      "id": "Collection.slice",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".slice( startFrom : Integer { ; end : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.some",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".some( { startFrom : Integer ; } formula : 4D.Function { ; ...param : any } ) : Boolean",
+        ".some( { startFrom : Integer ; } methodName : Text { ; ...param : any } ) : Boolean"
+      ]
+    },
+    {
+      "id": "Collection.sort",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sort() : Collection",
+        ".sort( ascOrDesc : Integer ) : Collection",
+        ".sort( formula : 4D.Function { ; ...extraParam : any } ) : Collection",
+        ".sort( methodName : Text { ; ...extraParam : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "Collection.sum",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sum( { propertyPath : Text } ) : Real"
+      ]
+    },
+    {
+      "id": "Collection.unshift",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".unshift( value : any { ;...valueN : any } ) : Collection"
+      ]
+    },
+    {
+      "id": "CryptoKey.curve",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".curve : Text"
+      ]
+    },
+    {
+      "id": "CryptoKey.decrypt",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".decrypt( message : Text ; options : Object ) : Object"
+      ]
+    },
+    {
+      "id": "CryptoKey.encrypt",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".encrypt( message : Text ; options : Object ) : Text"
+      ]
+    },
+    {
+      "id": "CryptoKey.getPrivateKey",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getPrivateKey() : Text"
+      ]
+    },
+    {
+      "id": "CryptoKey.getPublicKey",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getPublicKey() : Text"
+      ]
+    },
+    {
+      "id": "CryptoKey.pem",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".pem : Text"
+      ]
+    },
+    {
+      "id": "CryptoKey.sign",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sign (message : Text ; options : Object) : Text",
+        ".sign (message : Blob ; options : Object) : Text"
+      ]
+    },
+    {
+      "id": "CryptoKey.size",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".size : Integer"
+      ]
+    },
+    {
+      "id": "CryptoKey.type",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".type : Text"
+      ]
+    },
+    {
+      "id": "CryptoKey.verify",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".verify( message : Text ; signature : Text ; options : Object) : Object",
+        ".verify*( message : Blob ; signature : Text ; options : Object) : Object"
+      ]
+    },
+    {
+      "id": "DataClass.all",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".all ( { settings : Object } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "DataClass.attributeName",
+      "status": "skipped-dynamic"
+    },
+    {
+      "id": "DataClass.clearRemoteCache",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".clearRemoteCache()"
+      ]
+    },
+    {
+      "id": "DataClass.fromCollection",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".fromCollection( objectCol : Collection { ; settings : Object } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "DataClass.get",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".get( primaryKey : Integer { ; settings : Object } ) : 4D.Entity",
+        ".get( primaryKey : Text { ; settings : Object } ) : 4D.Entity"
+      ]
+    },
+    {
+      "id": "DataClass.getCount",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getCount() : Integer"
+      ]
+    },
+    {
+      "id": "DataClass.getDataStore",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getDataStore() : cs.DataStore"
+      ]
+    },
+    {
+      "id": "DataClass.getInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getInfo() : Object"
+      ]
+    },
+    {
+      "id": "DataClass.getRemoteCache",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getRemoteCache() : Object"
+      ]
+    },
+    {
+      "id": "DataClass.new",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".new() : 4D.Entity"
+      ]
+    },
+    {
+      "id": "DataClass.newSelection",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".newSelection( { keepOrder : Integer } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "DataClass.query",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".query( queryString : Text { ; ...value : any } { ; querySettings : Object } ) : 4D.EntitySelection",
+        ".query( formula : Object { ; querySettings : Object } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "DataClass.setRemoteCacheSettings",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setRemoteCacheSettings(settings : Object)"
+      ]
+    },
+    {
+      "id": "DataStore.cancelTransaction",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".cancelTransaction()"
+      ]
+    },
+    {
+      "id": "DataStore.clearAllRemoteContexts",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".clearAllRemoteContexts()"
+      ]
+    },
+    {
+      "id": "DataStore.dataclassName",
+      "status": "skipped-dynamic"
+    },
+    {
+      "id": "DataStore.encryptionStatus",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".encryptionStatus(): Object"
+      ]
+    },
+    {
+      "id": "DataStore.flushAndLock",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".flushAndLock()"
+      ]
+    },
+    {
+      "id": "DataStore.getAllRemoteContexts",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getAllRemoteContexts() : Collection"
+      ]
+    },
+    {
+      "id": "DataStore.getGlobalStamp",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getGlobalStamp() : Real"
+      ]
+    },
+    {
+      "id": "DataStore.getInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getInfo(): Object"
+      ]
+    },
+    {
+      "id": "DataStore.getRemoteContextInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getRemoteContextInfo(contextName : Text) : Object"
+      ]
+    },
+    {
+      "id": "DataStore.getRequestLog",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getRequestLog() : Collection"
+      ]
+    },
+    {
+      "id": "DataStore.isAdminProtected",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isAdminProtected() : Boolean"
+      ]
+    },
+    {
+      "id": "DataStore.locked",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".locked() : Boolean"
+      ]
+    },
+    {
+      "id": "DataStore.makeSelectionsAlterable",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".makeSelectionsAlterable()"
+      ]
+    },
+    {
+      "id": "DataStore.provideDataKey",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".provideDataKey( curPassPhrase : Text ) : Object",
+        ".provideDataKey( curDataKey : Object ) : Object"
+      ]
+    },
+    {
+      "id": "DataStore.setAdminProtection",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setAdminProtection( status : Boolean )"
+      ]
+    },
+    {
+      "id": "DataStore.setGlobalStamp",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setGlobalStamp( newStamp : Real)"
+      ]
+    },
+    {
+      "id": "DataStore.setRemoteContextInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setRemoteContextInfo( contextName : Text ; dataClassName : Text ; attributes : Text {; contextType : Text { ; pageLength : Integer}})",
+        ".setRemoteContextInfo( contextName : Text ; dataClassName : Text; attributesColl : Collection {; contextType : Text { ; pageLength : Integer }} )",
+        ".setRemoteContextInfo( contextName : Text ; dataClassObject : 4D.DataClass ; attributes : Text {; contextType : Text { ; pageLength : Integer }})",
+        ".setRemoteContextInfo( contextName : Text ; dataClassObject : 4D.DataClass ; attributesColl : Collection {; contextType : Text { ; pageLength : Integer }} )"
+      ]
+    },
+    {
+      "id": "DataStore.startRequestLog",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".startRequestLog()",
+        ".startRequestLog( file : 4D.File )",
+        ".startRequestLog( file : 4D.File ; options : Integer )",
+        ".startRequestLog( reqNum : Integer )"
+      ]
+    },
+    {
+      "id": "DataStore.startTransaction",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".startTransaction()"
+      ]
+    },
+    {
+      "id": "DataStore.stopRequestLog",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".stopRequestLog()"
+      ]
+    },
+    {
+      "id": "DataStore.unlock",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".unlock()"
+      ]
+    },
+    {
+      "id": "DataStore.validateTransaction",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".validateTransaction()"
+      ]
+    },
+    {
+      "id": "Directory.copyTo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".copyTo( destinationFolder : 4D.Folder { ; newName : Text } { ; overwrite : Integer } ) : 4D.Folder"
+      ]
+    },
+    {
+      "id": "Directory.creationDate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".creationDate : Date"
+      ]
+    },
+    {
+      "id": "Directory.creationTime",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".creationTime : Time"
+      ]
+    },
+    {
+      "id": "Directory.exists",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".exists : Boolean"
+      ]
+    },
+    {
+      "id": "Directory.extension",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".extension : Text"
+      ]
+    },
+    {
+      "id": "Directory.file",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".file( path : Text ) : 4D.File"
+      ]
+    },
+    {
+      "id": "Directory.files",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".files( { options : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "Directory.folder",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".folder( path : Text ) : 4D.Folder"
+      ]
+    },
+    {
+      "id": "Directory.folders",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".folders( { options : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "Directory.fullName",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".fullName : Text"
+      ]
+    },
+    {
+      "id": "Directory.getIcon",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getIcon( { size : Integer } ) : Picture"
+      ]
+    },
+    {
+      "id": "Directory.hidden",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".hidden : Boolean"
+      ]
+    },
+    {
+      "id": "Directory.isAlias",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isAlias : Boolean"
+      ]
+    },
+    {
+      "id": "Directory.isFile",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isFile : Boolean"
+      ]
+    },
+    {
+      "id": "Directory.isFolder",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isFolder : Boolean"
+      ]
+    },
+    {
+      "id": "Directory.isPackage",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isPackage : Boolean"
+      ]
+    },
+    {
+      "id": "Directory.modificationDate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".modificationDate : Date"
+      ]
+    },
+    {
+      "id": "Directory.modificationTime",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".modificationTime : Time"
+      ]
+    },
+    {
+      "id": "Directory.name",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".name : Text"
+      ]
+    },
+    {
+      "id": "Directory.original",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".original : 4D.Folder"
+      ]
+    },
+    {
+      "id": "Directory.parent",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".parent : 4D.Folder"
+      ]
+    },
+    {
+      "id": "Directory.path",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".path : Text"
+      ]
+    },
+    {
+      "id": "Directory.platformPath",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".platformPath : Text"
+      ]
+    },
+    {
+      "id": "Document.copyTo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".copyTo( destinationFolder : 4D.Folder { ; newName : Text } { ; overwrite : Integer } ) : 4D.File"
+      ]
+    },
+    {
+      "id": "Document.creationDate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".creationDate : Date"
+      ]
+    },
+    {
+      "id": "Document.creationTime",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".creationTime : Time"
+      ]
+    },
+    {
+      "id": "Document.exists",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".exists : Boolean"
+      ]
+    },
+    {
+      "id": "Document.extension",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".extension : Text"
+      ]
+    },
+    {
+      "id": "Document.fullName",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".fullName : Text"
+      ]
+    },
+    {
+      "id": "Document.getContent",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getContent( ) : 4D.Blob"
+      ]
+    },
+    {
+      "id": "Document.getIcon",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getIcon( { size : Integer } ) : Picture"
+      ]
+    },
+    {
+      "id": "Document.getText",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getText( { charSetName : Text { ; breakMode : Integer } } ) : Text",
+        ".getText( { charSetNum : Integer { ; breakMode : Integer } } ) : Text"
+      ]
+    },
+    {
+      "id": "Document.hidden",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".hidden : Boolean"
+      ]
+    },
+    {
+      "id": "Document.isAlias",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isAlias : Boolean"
+      ]
+    },
+    {
+      "id": "Document.isFile",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isFile : Boolean"
+      ]
+    },
+    {
+      "id": "Document.isFolder",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isFolder : Boolean"
+      ]
+    },
+    {
+      "id": "Document.isWritable",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isWritable : Boolean"
+      ]
+    },
+    {
+      "id": "Document.modificationTime",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".modificationTime : Time"
+      ]
+    },
+    {
+      "id": "Document.modificationDate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".modificationDate : Date"
+      ]
+    },
+    {
+      "id": "Document.name",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".name : Text"
+      ]
+    },
+    {
+      "id": "Document.original",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "4D.File",
+        "4D.Folder"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "Document.parent",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".parent : 4D.Folder"
+      ]
+    },
+    {
+      "id": "Document.path",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".path : Text"
+      ]
+    },
+    {
+      "id": "Document.platformPath",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".platformPath : Text"
+      ]
+    },
+    {
+      "id": "Document.size",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".size : Real"
+      ]
+    },
+    {
+      "id": "Email.attachments",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".attachments : Collection"
+      ]
+    },
+    {
+      "id": "Email.bcc",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "Text",
+        "Object",
+        "Collection"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "Email.bodyStructure",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".bodyStructure : Object"
+      ]
+    },
+    {
+      "id": "Email.bodyValues",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".bodyValues : Object"
+      ]
+    },
+    {
+      "id": "Email.cc",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "Text",
+        "Object",
+        "Collection"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "Email.comments",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".comments : Text"
+      ]
+    },
+    {
+      "id": "Email.from",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "Text",
+        "Object",
+        "Collection"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "Email.headers",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".headers : Collection"
+      ]
+    },
+    {
+      "id": "Email.htmlBody",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".htmlBody : Text"
+      ]
+    },
+    {
+      "id": "Email.id",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".id : Text"
+      ]
+    },
+    {
+      "id": "Email.inReplyTo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".inReplyTo : Text"
+      ]
+    },
+    {
+      "id": "Email.keywords",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".keywords : Object"
+      ]
+    },
+    {
+      "id": "Email.messageId",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".messageId : Text"
+      ]
+    },
+    {
+      "id": "Email.receivedAt",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".receivedAt : Text"
+      ]
+    },
+    {
+      "id": "Email.references",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".references : Collection"
+      ]
+    },
+    {
+      "id": "Email.replyTo",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "Text",
+        "Object",
+        "Collection"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "Email.sendAt",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sendAt : Text"
+      ]
+    },
+    {
+      "id": "Email.sender",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "Text",
+        "Object",
+        "Collection"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "Email.size",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".size : Integer"
+      ]
+    },
+    {
+      "id": "Email.subject",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".subject : Text"
+      ]
+    },
+    {
+      "id": "Email.textBody",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".textBody : Text"
+      ]
+    },
+    {
+      "id": "Email.to",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "Text",
+        "Object",
+        "Collection"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "EntitySelection.attributeName",
+      "status": "skipped-dynamic"
+    },
+    {
+      "id": "EntitySelection.average",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".average( attributePath : Text ) : Real"
+      ]
+    },
+    {
+      "id": "EntitySelection.add",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".add( entity : 4D.Entity ) : 4D.EntitySelection",
+        ".add( entitySelection : 4D.EntitySelection ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.and",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".and( entity : 4D.Entity ) : 4D.EntitySelection",
+        ".and( entitySelection : 4D.EntitySelection ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.at",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".at( index : Integer ) : 4D.Entity"
+      ]
+    },
+    {
+      "id": "EntitySelection.contains",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".contains( entity : 4D.Entity ) : Boolean"
+      ]
+    },
+    {
+      "id": "EntitySelection.clean",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".clean() : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.copy",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".copy( { option : Integer } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.count",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".count( attributePath : Text ) : Real"
+      ]
+    },
+    {
+      "id": "EntitySelection.distinct",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".distinct( attributePath : Text { ; options : Integer } ) : Collection"
+      ]
+    },
+    {
+      "id": "EntitySelection.distinctPaths",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".distinctPaths( attribute : Text ) : Collection"
+      ]
+    },
+    {
+      "id": "EntitySelection.drop",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".drop( { mode : Integer } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.extract",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".extract( attributePath : Text { ; option : Integer } ) : Collection",
+        ".extract( ...attributePath : Text ; ...targetPath : Text ) : Collection"
+      ]
+    },
+    {
+      "id": "EntitySelection.first",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".first() : 4D.Entity"
+      ]
+    },
+    {
+      "id": "EntitySelection.getDataClass",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getDataClass() : 4D.DataClass"
+      ]
+    },
+    {
+      "id": "EntitySelection.getRemoteContextAttributes",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getRemoteContextAttributes() : Text"
+      ]
+    },
+    {
+      "id": "EntitySelection.isAlterable",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isAlterable() : Boolean"
+      ]
+    },
+    {
+      "id": "EntitySelection.isOrdered",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isOrdered() : Boolean"
+      ]
+    },
+    {
+      "id": "EntitySelection.last",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".last() : 4D.Entity"
+      ]
+    },
+    {
+      "id": "EntitySelection.length",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".length : Integer"
+      ]
+    },
+    {
+      "id": "EntitySelection.max",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".max( attributePath : Text ) : any"
+      ]
+    },
+    {
+      "id": "EntitySelection.min",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".min( attributePath : Text ) : any"
+      ]
+    },
+    {
+      "id": "EntitySelection.minus",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".minus( entity : 4D.Entity { ; keepOrder : Integer } ) : 4D.EntitySelection",
+        ".minus( entitySelection : 4D.EntitySelection { ; keepOrder : Integer } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.orderBy",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".orderBy( pathString : Text ) : 4D.EntitySelection",
+        ".orderBy( pathObjects : Collection ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.orderByFormula",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".orderByFormula( formulaString : Text { ; sortOrder : Integer } { ; settings : Object} ) : 4D.EntitySelection",
+        ".orderByFormula( formulaObj : Object { ; sortOrder : Integer } { ; settings : Object} ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.or",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".or( entity : 4D.Entity ) : 4D.EntitySelection",
+        ".or( entitySelection : 4D.EntitySelection ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.queryPath",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".queryPath : Text"
+      ]
+    },
+    {
+      "id": "EntitySelection.queryPlan",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".queryPlan : Text"
+      ]
+    },
+    {
+      "id": "EntitySelection.query",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".query( queryString : Text { ; ...value : any } { ; querySettings : Object } ) : 4D.EntitySelection",
+        ".query( formula : Object { ; querySettings : Object } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.refresh",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".refresh()"
+      ]
+    },
+    {
+      "id": "EntitySelection.selected",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".selected( selectedEntities : 4D.EntitySelection ) : Object"
+      ]
+    },
+    {
+      "id": "EntitySelection.slice",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".slice( startFrom : Integer { ; end : Integer } ) : 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "EntitySelection.sum",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sum( attributePath : Text ) : Real"
+      ]
+    },
+    {
+      "id": "EntitySelection.toCollection",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".toCollection( { options : Integer { ; begin : Integer { ; howMany : Integer } } } ) : Collection",
+        ".toCollection( filterString : Text {; options : Integer { ; begin : Integer { ; howMany : Integer }}} ) : Collection",
+        ".toCollection( filterCol : Collection {; options : Integer { ; begin : Integer { ; howMany : Integer }}} ) : Collection"
+      ]
+    },
+    {
+      "id": "Entity.attributeName",
+      "status": "skipped-dynamic"
+    },
+    {
+      "id": "Entity.clone",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".clone() : 4D.Entity"
+      ]
+    },
+    {
+      "id": "Entity.diff",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".diff( entityToCompare : 4D.Entity { ; attributesToCompare : Collection } ) : Collection"
+      ]
+    },
+    {
+      "id": "Entity.drop",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".drop( {mode : Integer} ) : Object"
+      ]
+    },
+    {
+      "id": "Entity.first",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".first(): 4D.Entity"
+      ]
+    },
+    {
+      "id": "Entity.fromObject",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".fromObject( filler : Object )"
+      ]
+    },
+    {
+      "id": "Entity.getDataClass",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getDataClass() : 4D.DataClass"
+      ]
+    },
+    {
+      "id": "Entity.getKey",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getKey( { mode : Integer } ) : any"
+      ]
+    },
+    {
+      "id": "Entity.getRemoteContextAttributes",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getRemoteContextAttributes() : Text"
+      ]
+    },
+    {
+      "id": "Entity.getSelection",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getSelection(): 4D.EntitySelection"
+      ]
+    },
+    {
+      "id": "Entity.getStamp",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getStamp() : Integer"
+      ]
+    },
+    {
+      "id": "Entity.indexOf",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".indexOf( { entitySelection : 4D.EntitySelection } ) : Integer"
+      ]
+    },
+    {
+      "id": "Entity.isNew",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isNew() : Boolean"
+      ]
+    },
+    {
+      "id": "Entity.last",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".last() : 4D.Entity"
+      ]
+    },
+    {
+      "id": "Entity.lock",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".lock( { mode : Integer } ) : Object"
+      ]
+    },
+    {
+      "id": "Entity.next",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".next() : 4D.Entity"
+      ]
+    },
+    {
+      "id": "Entity.previous",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".previous()  : 4D.Entity"
+      ]
+    },
+    {
+      "id": "Entity.reload",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".reload() : Object"
+      ]
+    },
+    {
+      "id": "Entity.save",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".save( { mode : Integer } ) : Object"
+      ]
+    },
+    {
+      "id": "Entity.toObject",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".toObject() : Object",
+        ".toObject( filterString : Text { ; options : Integer}  ) : Object",
+        ".toObject( filterCol : Collection { ; options : Integer } ) : Object"
+      ]
+    },
+    {
+      "id": "Entity.touched",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".touched() : Boolean"
+      ]
+    },
+    {
+      "id": "Entity.touchedAttributes",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".touchedAttributes() : Collection"
+      ]
+    },
+    {
+      "id": "Entity.unlock",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".unlock() : Object"
+      ]
+    },
+    {
+      "id": "FileHandle.breakModeWrite",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".breakModeWrite : Text"
+      ]
+    },
+    {
+      "id": "FileHandle.breakModeRead",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".breakModeRead : Text"
+      ]
+    },
+    {
+      "id": "FileHandle.charset",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".charset : Text"
+      ]
+    },
+    {
+      "id": "FileHandle.eof",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".eof : Boolean"
+      ]
+    },
+    {
+      "id": "FileHandle.file",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".file : 4D.File"
+      ]
+    },
+    {
+      "id": "FileHandle.getSize",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getSize() : Real"
+      ]
+    },
+    {
+      "id": "FileHandle.mode",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".mode : Text"
+      ]
+    },
+    {
+      "id": "FileHandle.offset",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".offset : Real"
+      ]
+    },
+    {
+      "id": "FileHandle.readBlob",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".readBlob( bytes : Real ) : 4D.Blob"
+      ]
+    },
+    {
+      "id": "FileHandle.readLine",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".readLine() : Text"
+      ]
+    },
+    {
+      "id": "FileHandle.readText",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".readText( { stopChar : Text } ) : Text"
+      ]
+    },
+    {
+      "id": "FileHandle.setSize",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setSize( size : Real )"
+      ]
+    },
+    {
+      "id": "FileHandle.writeBlob",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".writeBlob( blob : 4D.Blob )"
+      ]
+    },
+    {
+      "id": "FileHandle.writeLine",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".writeLine( lineOfText : Text )"
+      ]
+    },
+    {
+      "id": "FileHandle.writeText",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".writeText( textToWrite : Text )"
+      ]
+    },
+    {
+      "id": "File.create",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".create() : Boolean"
+      ]
+    },
+    {
+      "id": "File.createAlias",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".createAlias( destinationFolder : 4D.Folder ; aliasName : Text { ; aliasType : Integer } ) : 4D.File"
+      ]
+    },
+    {
+      "id": "File.delete",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".delete()"
+      ]
+    },
+    {
+      "id": "File.getAppInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getAppInfo() : Object"
+      ]
+    },
+    {
+      "id": "File.moveTo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".moveTo( destinationFolder : 4D.Folder { ; newName : Text } ) : 4D.File"
+      ]
+    },
+    {
+      "id": "File.open",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".open( { mode : Text } ) : 4D.FileHandle",
+        ".open( { options : Object } ) : 4D.FileHandle"
+      ]
+    },
+    {
+      "id": "File.rename",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".rename( newName : Text ) : 4D.File"
+      ]
+    },
+    {
+      "id": "File.setAppInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setAppInfo( info : Object )"
+      ]
+    },
+    {
+      "id": "File.setContent",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setContent ( content : Blob )"
+      ]
+    },
+    {
+      "id": "File.setText",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setText ( text : Text {; charSetName : Text { ; breakMode : Integer } } )",
+        ".setText ( text : Text {; charSetNum : Integer { ; breakMode : Integer } } )"
+      ]
+    },
+    {
+      "id": "Folder.create",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".create() : Boolean"
+      ]
+    },
+    {
+      "id": "Folder.createAlias",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".createAlias( destinationFolder : 4D.Folder ; aliasName : Text { ; aliasType : Integer } ) : 4D.File"
+      ]
+    },
+    {
+      "id": "Folder.delete",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".delete( { option : Integer } )"
+      ]
+    },
+    {
+      "id": "Folder.moveTo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".moveTo( destinationFolder : 4D.Folder { ; newName : Text } ) : 4D.Folder"
+      ]
+    },
+    {
+      "id": "Folder.rename",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".rename( newName : Text ) : 4D.Folder"
+      ]
+    },
+    {
+      "id": "Function.apply",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".apply() : any",
+        ".apply( thisObj : Object { ; params : Collection } ) : any"
+      ]
+    },
+    {
+      "id": "Function.call",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".call() : any",
+        ".call( thisObj : Object { ; ...params : any } ) : any"
+      ]
+    },
+    {
+      "id": "Function.source",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".source : Text"
+      ]
+    },
+    {
+      "id": "HTTPAgent.freeSocketsCount",
+      "status": "agrees",
+      "hoverSignatures": [
+        "freeSocketsCount : Integer"
+      ]
+    },
+    {
+      "id": "HTTPAgent.params",
+      "status": "agrees",
+      "hoverSignatures": [
+        "options : Object"
+      ]
+    },
+    {
+      "id": "HTTPAgent.requestsCount",
+      "status": "agrees",
+      "hoverSignatures": [
+        "requestsCount : Integer"
+      ]
+    },
+    {
+      "id": "HTTPRequest.agent",
+      "status": "agrees",
+      "hoverSignatures": [
+        "agent : 4D.HTTPAgent"
+      ]
+    },
+    {
+      "id": "HTTPRequest.dataType",
+      "status": "agrees",
+      "hoverSignatures": [
+        "dataType : Text"
+      ]
+    },
+    {
+      "id": "HTTPRequest.encoding",
+      "status": "agrees",
+      "hoverSignatures": [
+        "encoding : Text"
+      ]
+    },
+    {
+      "id": "HTTPRequest.errors",
+      "status": "agrees",
+      "hoverSignatures": [
+        "errors : Collection"
+      ]
+    },
+    {
+      "id": "HTTPRequest.headers",
+      "status": "agrees",
+      "hoverSignatures": [
+        "headers : Object"
+      ]
+    },
+    {
+      "id": "HTTPRequest.method",
+      "status": "agrees",
+      "hoverSignatures": [
+        "method : Text"
+      ]
+    },
+    {
+      "id": "HTTPRequest.protocol",
+      "status": "agrees",
+      "hoverSignatures": [
+        "protocol : Text"
+      ]
+    },
+    {
+      "id": "HTTPRequest.response",
+      "status": "agrees",
+      "hoverSignatures": [
+        "response : Object"
+      ]
+    },
+    {
+      "id": "HTTPRequest.returnResponseBody",
+      "status": "agrees",
+      "hoverSignatures": [
+        "returnResponseBody : Boolean"
+      ]
+    },
+    {
+      "id": "HTTPRequest.terminate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".terminate()"
+      ]
+    },
+    {
+      "id": "HTTPRequest.terminated",
+      "status": "agrees",
+      "hoverSignatures": [
+        "terminated : Boolean"
+      ]
+    },
+    {
+      "id": "HTTPRequest.timeout",
+      "status": "agrees",
+      "hoverSignatures": [
+        "timeout : Real"
+      ]
+    },
+    {
+      "id": "HTTPRequest.url",
+      "status": "agrees",
+      "hoverSignatures": [
+        "url : Text"
+      ]
+    },
+    {
+      "id": "HTTPRequest.wait",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".wait( { timeout : Real } ) : 4D.HTTPRequest"
+      ]
+    },
+    {
+      "id": "IMAPNotifier.isStarted",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isStarted : Boolean"
+      ]
+    },
+    {
+      "id": "IMAPNotifier.start",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".start() : Object"
+      ]
+    },
+    {
+      "id": "IMAPNotifier.stop",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".stop() : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.addFlags",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".addFlags( msgIDs : any ; keywords :  Object ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.append",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".append( mailObj : Object ; destinationBox : Text ; options : Object ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.checkConnectionDelay",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".checkConnectionDelay : Integer"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.createBox",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".createBox( name :  Text ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.copy",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".copy( msgsIDs : Collection ; destinationBox : Text ) : Object",
+        ".copy( allMsgs : Integer ; destinationBox : Text ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.deleteBox",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".deleteBox( name : Text ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.delete",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".delete( msgsIDs : Collection ) : Object",
+        ".delete( allMsgs : Integer ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.expunge",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".expunge() : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.getMIMEAsBlob",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getMIMEAsBlob( msgNumber : Integer { ; updateSeen : Boolean } ) : Blob",
+        ".getMIMEAsBlob( msgID : Text { ; updateSeen : Boolean } ) : Blob"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.getMails",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getMails( ids : Collection { ; options : Object } ) : Object",
+        ".getMails( startMsg : Integer ; endMsg : Integer { ; options : Object } ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.getMail",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getMail( msgNumber: Integer { ; options : Object } ) : Object",
+        ".getMail( msgID: Text { ; options : Object } ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.getBoxList",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getBoxList( { parameters : Object } ) : Collection"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.getDelimiter",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getDelimiter() : Text"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.getBoxInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getBoxInfo( { name : Text }) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.move",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".move( msgsIDs : Collection ; destinationBox : Text ) : Object",
+        ".move( allMsgs : Integer ; destinationBox : Text ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.numToID",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".numToID( startMsg : Integer ; endMsg : Integer ) : Collection"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.notifier",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".notifier : 4D.IMAPNotifier"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.removeFlags",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".removeFlags( msgIDs : any ; keywords :  Object ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.renameBox",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".renameBox( currentName : Text ; newName : Text ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.selectBox",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".selectBox( name : Text { ; state : Integer } ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.subscribe",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".subscribe( name : Text ) : Object"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.searchMails",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".searchMails( searchCriteria : Text ) : Collection"
+      ]
+    },
+    {
+      "id": "IMAPTransporter.unsubscribe",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".unsubscribe( name : Text ) : Object"
+      ]
+    },
+    {
+      "id": "IncomingMessage.getJSON",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getJSON() : Variant"
+      ]
+    },
+    {
+      "id": "IncomingMessage.getHeader",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getHeader( key : Text ) : Text"
+      ]
+    },
+    {
+      "id": "IncomingMessage.getPicture",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getPicture() : Picture"
+      ]
+    },
+    {
+      "id": "IncomingMessage.getBlob",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getBlob() : Blob"
+      ]
+    },
+    {
+      "id": "IncomingMessage.getText",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getText() : Text"
+      ]
+    },
+    {
+      "id": "IncomingMessage.headers",
+      "status": "agrees",
+      "hoverSignatures": [
+        "headers : Object"
+      ]
+    },
+    {
+      "id": "IncomingMessage.urlQuery",
+      "status": "agrees",
+      "hoverSignatures": [
+        "urlQuery : Object"
+      ]
+    },
+    {
+      "id": "IncomingMessage.urlPath",
+      "status": "agrees",
+      "hoverSignatures": [
+        "urlPath : Collection"
+      ]
+    },
+    {
+      "id": "IncomingMessage.url",
+      "status": "agrees",
+      "hoverSignatures": [
+        "url : Text"
+      ]
+    },
+    {
+      "id": "IncomingMessage.verb",
+      "status": "agrees",
+      "hoverSignatures": [
+        "verb : Text"
+      ]
+    },
+    {
+      "id": "MailAttachment.cid",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".cid : Text"
+      ]
+    },
+    {
+      "id": "MailAttachment.disposition",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".disposition : Text"
+      ]
+    },
+    {
+      "id": "MailAttachment.getContent",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getContent() : 4D.Blob"
+      ]
+    },
+    {
+      "id": "MailAttachment.name",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".name : Text"
+      ]
+    },
+    {
+      "id": "MailAttachment.path",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".path : Text"
+      ]
+    },
+    {
+      "id": "MailAttachment.platformPath",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".platformPath : Text"
+      ]
+    },
+    {
+      "id": "MailAttachment.size",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".size : Integer"
+      ]
+    },
+    {
+      "id": "MailAttachment.type",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".type : Text"
+      ]
+    },
+    {
+      "id": "Method.checkSyntax",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".checkSyntax() : Object"
+      ]
+    },
+    {
+      "id": "Method.name",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".name : Text"
+      ]
+    },
+    {
+      "id": "OutgoingMessage.body",
+      "status": "agrees",
+      "hoverSignatures": [
+        "body : any"
+      ]
+    },
+    {
+      "id": "OutgoingMessage.headers",
+      "status": "agrees",
+      "hoverSignatures": [
+        "headers : Object"
+      ]
+    },
+    {
+      "id": "OutgoingMessage.setHeader",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setHeader( key : Text ; value : Text )"
+      ]
+    },
+    {
+      "id": "OutgoingMessage.setBody",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setBody( body : any )"
+      ]
+    },
+    {
+      "id": "OutgoingMessage.setStatus",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setStatus( status : Integer )"
+      ]
+    },
+    {
+      "id": "OutgoingMessage.status",
+      "status": "agrees",
+      "hoverSignatures": [
+        "status : Integer"
+      ]
+    },
+    {
+      "id": "POP3Transporter.delete",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".delete( msgNumber : Integer )"
+      ]
+    },
+    {
+      "id": "POP3Transporter.getMailInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getMailInfo( msgNumber : Integer ) : Object"
+      ]
+    },
+    {
+      "id": "POP3Transporter.getMailInfoList",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getMailInfoList() : Collection"
+      ]
+    },
+    {
+      "id": "POP3Transporter.getMail",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getMail( msgNumber : Integer { ; headerOnly : Boolean } ) : Object"
+      ]
+    },
+    {
+      "id": "POP3Transporter.getBoxInfo",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getBoxInfo() : Object"
+      ]
+    },
+    {
+      "id": "POP3Transporter.getMIMEAsBlob",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getMIMEAsBlob( msgNumber : Integer ) : Blob"
+      ]
+    },
+    {
+      "id": "POP3Transporter.undeleteAll",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".undeleteAll()"
+      ]
+    },
+    {
+      "id": "SMTPTransporter.keepAlive",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".keepAlive : Boolean"
+      ]
+    },
+    {
+      "id": "SMTPTransporter.send",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".send( mail : Object ) : Object"
+      ]
+    },
+    {
+      "id": "Session.clearPrivileges",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".clearPrivileges() : Boolean"
+      ]
+    },
+    {
+      "id": "Session.createOTP",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".createOTP ( { lifespan : Integer } ) : Text"
+      ]
+    },
+    {
+      "id": "Session.demote",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".demote( promoteId : Integer )"
+      ]
+    },
+    {
+      "id": "Session.expirationDate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".expirationDate : Text"
+      ]
+    },
+    {
+      "id": "Session.getPrivileges",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getPrivileges() : Collection"
+      ]
+    },
+    {
+      "id": "Session.hasPrivilege",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".hasPrivilege( privilege : Text ) : Boolean"
+      ]
+    },
+    {
+      "id": "Session.id",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".id : Text"
+      ]
+    },
+    {
+      "id": "Session.idleTimeout",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".idleTimeout : Integer"
+      ]
+    },
+    {
+      "id": "Session.info",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".info : Object"
+      ]
+    },
+    {
+      "id": "Session.isGuest",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isGuest() : Boolean"
+      ]
+    },
+    {
+      "id": "Session.promote",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".promote( privilege : Text ) : Integer"
+      ]
+    },
+    {
+      "id": "Session.restore",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".restore ( token : Text ) : Boolean"
+      ]
+    },
+    {
+      "id": "Session.setPrivileges",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setPrivileges( privilege : Text ) : Boolean",
+        ".setPrivileges( privileges : Collection )",
+        ".setPrivileges( settings : Object ) : Boolean"
+      ]
+    },
+    {
+      "id": "Session.storage",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".storage : Object"
+      ]
+    },
+    {
+      "id": "Session.userName",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".userName : Text"
+      ]
+    },
+    {
+      "id": "Signal.description",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".description : Text"
+      ]
+    },
+    {
+      "id": "Signal.signaled",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".signaled : Boolean"
+      ]
+    },
+    {
+      "id": "Signal.trigger",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".trigger( )"
+      ]
+    },
+    {
+      "id": "Signal.wait",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".wait( { timeout : Real } ) : Boolean"
+      ]
+    },
+    {
+      "id": "SystemWorker.closeInput",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".closeInput()"
+      ]
+    },
+    {
+      "id": "SystemWorker.commandLine",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".commandLine : Text"
+      ]
+    },
+    {
+      "id": "SystemWorker.currentDirectory",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".currentDirectory : 4D.Folder"
+      ]
+    },
+    {
+      "id": "SystemWorker.dataType",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".dataType : Text"
+      ]
+    },
+    {
+      "id": "SystemWorker.encoding",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".encoding : Text"
+      ]
+    },
+    {
+      "id": "SystemWorker.errors",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".errors : Collection"
+      ]
+    },
+    {
+      "id": "SystemWorker.exitCode",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".exitCode : Integer"
+      ]
+    },
+    {
+      "id": "SystemWorker.hideWindow",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".hideWindow : Boolean"
+      ]
+    },
+    {
+      "id": "SystemWorker.pid",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".pid : Integer"
+      ]
+    },
+    {
+      "id": "SystemWorker.postMessage",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".postMessage( message : Text)",
+        ".postMessage( messageBLOB : Blob)"
+      ]
+    },
+    {
+      "id": "SystemWorker.responseError",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".responseError : Text"
+      ]
+    },
+    {
+      "id": "SystemWorker.response",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "Text",
+        "Blob"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "SystemWorker.terminated",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".terminated : Boolean"
+      ]
+    },
+    {
+      "id": "SystemWorker.terminate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".terminate()"
+      ]
+    },
+    {
+      "id": "SystemWorker.timeout",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".timeout : Integer"
+      ]
+    },
+    {
+      "id": "SystemWorker.wait",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".wait( {timeout : Real} ) : 4D.SystemWorker"
+      ]
+    },
+    {
+      "id": "TCPConnection.address",
+      "status": "agrees",
+      "hoverSignatures": [
+        "address : Text"
+      ]
+    },
+    {
+      "id": "TCPConnection.closed",
+      "status": "agrees",
+      "hoverSignatures": [
+        "closed : Boolean"
+      ]
+    },
+    {
+      "id": "TCPConnection.errors",
+      "status": "agrees",
+      "hoverSignatures": [
+        "errors : Collection"
+      ]
+    },
+    {
+      "id": "TCPConnection.listener",
+      "status": "agrees",
+      "hoverSignatures": [
+        "listener : Object"
+      ]
+    },
+    {
+      "id": "TCPConnection.noDelay",
+      "status": "agrees",
+      "hoverSignatures": [
+        "noDelay : Boolean"
+      ]
+    },
+    {
+      "id": "TCPConnection.port",
+      "status": "agrees",
+      "hoverSignatures": [
+        "port : Number"
+      ]
+    },
+    {
+      "id": "TCPConnection.send",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".send( data : Blob )"
+      ]
+    },
+    {
+      "id": "TCPConnection.shutdown",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".shutdown()"
+      ]
+    },
+    {
+      "id": "TCPConnection.wait",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".wait( { timeout : Real } )"
+      ]
+    },
+    {
+      "id": "TCPEvent.address",
+      "status": "agrees",
+      "hoverSignatures": [
+        "address : Text"
+      ]
+    },
+    {
+      "id": "TCPEvent.data",
+      "status": "agrees",
+      "hoverSignatures": [
+        "data : Blob"
+      ]
+    },
+    {
+      "id": "TCPEvent.port",
+      "status": "agrees",
+      "hoverSignatures": [
+        "port : Number"
+      ]
+    },
+    {
+      "id": "TCPEvent.type",
+      "status": "agrees",
+      "hoverSignatures": [
+        "type : Text"
+      ]
+    },
+    {
+      "id": "TCPListener.errors",
+      "status": "agrees",
+      "hoverSignatures": [
+        "errors : Collection"
+      ]
+    },
+    {
+      "id": "TCPListener.port",
+      "status": "agrees",
+      "hoverSignatures": [
+        "port : Number"
+      ]
+    },
+    {
+      "id": "TCPListener.terminate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".terminate()"
+      ]
+    },
+    {
+      "id": "Transporter.acceptUnsecureConnection",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".acceptUnsecureConnection : Boolean"
+      ]
+    },
+    {
+      "id": "Transporter.authenticationMode",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".authenticationMode : Text"
+      ]
+    },
+    {
+      "id": "Transporter.bodyCharset",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".bodyCharset : Text"
+      ]
+    },
+    {
+      "id": "Transporter.checkConnection",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".checkConnection() : Object"
+      ]
+    },
+    {
+      "id": "Transporter.connectionTimeOut",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".connectionTimeOut : Integer"
+      ]
+    },
+    {
+      "id": "Transporter.headerCharset",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".headerCharset : Text"
+      ]
+    },
+    {
+      "id": "Transporter.host",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".host : Text"
+      ]
+    },
+    {
+      "id": "Transporter.logFile",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".logFile : Text"
+      ]
+    },
+    {
+      "id": "Transporter.port",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".port : Integer"
+      ]
+    },
+    {
+      "id": "Transporter.sendTimeOut",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sendTimeOut : Integer"
+      ]
+    },
+    {
+      "id": "Transporter.user",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".user : Text"
+      ]
+    },
+    {
+      "id": "UDPEvent.address",
+      "status": "agrees",
+      "hoverSignatures": [
+        "address : Text"
+      ]
+    },
+    {
+      "id": "UDPEvent.data",
+      "status": "agrees",
+      "hoverSignatures": [
+        "data : Blob"
+      ]
+    },
+    {
+      "id": "UDPEvent.port",
+      "status": "agrees",
+      "hoverSignatures": [
+        "port : Number"
+      ]
+    },
+    {
+      "id": "UDPEvent.type",
+      "status": "agrees",
+      "hoverSignatures": [
+        "type : Text"
+      ]
+    },
+    {
+      "id": "UDPSocket.errors",
+      "status": "agrees",
+      "hoverSignatures": [
+        "errors : Collection"
+      ]
+    },
+    {
+      "id": "UDPSocket.port",
+      "status": "agrees",
+      "hoverSignatures": [
+        "port : Number"
+      ]
+    },
+    {
+      "id": "UDPSocket.send",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".send( data : Blob ; hostName : Text ; remotePort : Integer )"
+      ]
+    },
+    {
+      "id": "Vector.cosineSimilarity",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".cosineSimilarity( vector : 4D.Vector ) : Real"
+      ]
+    },
+    {
+      "id": "Vector.dotSimilarity",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".dotSimilarity( vector : 4D.Vector ) : Real"
+      ]
+    },
+    {
+      "id": "Vector.euclideanDistance",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".euclideanDistance( vector : 4D.Vector ) : Real"
+      ]
+    },
+    {
+      "id": "Vector.length",
+      "status": "agrees",
+      "hoverSignatures": [
+        "length : Integer"
+      ]
+    },
+    {
+      "id": "Vector.toCollection",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".toCollection() : Collection"
+      ]
+    },
+    {
+      "id": "WebFormItem.addCSSClass",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".addCSSClass(className : Text)"
+      ]
+    },
+    {
+      "id": "WebFormItem.hide",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".hide()"
+      ]
+    },
+    {
+      "id": "WebFormItem.removeCSSClass",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".removeCSSClass(className: Text)"
+      ]
+    },
+    {
+      "id": "WebFormItem.show",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".show()"
+      ]
+    },
+    {
+      "id": "WebForm.componentName",
+      "status": "skipped-dynamic"
+    },
+    {
+      "id": "WebForm.disableState",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".disableState( state : Text)"
+      ]
+    },
+    {
+      "id": "WebForm.enableState",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".enableState( state : Text )"
+      ]
+    },
+    {
+      "id": "WebForm.setError",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setError( msg : Text)"
+      ]
+    },
+    {
+      "id": "WebForm.setMessage",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setMessage( msg : Text)"
+      ]
+    },
+    {
+      "id": "WebForm.setWarning",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".setWarning( msg : Text)"
+      ]
+    },
+    {
+      "id": "WebServer.CORSEnabled",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".CORSEnabled : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.CORSSettings",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".CORSSettings : Collection"
+      ]
+    },
+    {
+      "id": "WebServer.HSTSEnabled",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HSTSEnabled : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.HSTSMaxAge",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HSTSMaxAge : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.HTTPCompressionLevel",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HTTPCompressionLevel : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.HTTPCompressionThreshold",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HTTPCompressionThreshold : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.HTTPEnabled",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HTTPEnabled : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.HTTPPort",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HTTPPort : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.HTTPSEnabled",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HTTPSEnabled : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.HTTPSPort",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HTTPSPort : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.HTTPTrace",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".HTTPTrace : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.IPAddressToListen",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".IPAddressToListen : Text"
+      ]
+    },
+    {
+      "id": "WebServer.accessKeyDefined",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".accessKeyDefined : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.certificateFolder",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".certificateFolder : Text"
+      ]
+    },
+    {
+      "id": "WebServer.characterSet",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "Number",
+        "Text"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
+      "id": "WebServer.cipherSuite",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".cipherSuite : Text"
+      ]
+    },
+    {
+      "id": "WebServer.debugLog",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".debugLog : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.defaultHomepage",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".defaultHomepage : Text"
+      ]
+    },
+    {
+      "id": "WebServer.handlers",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".handlers : Collection"
+      ]
+    },
+    {
+      "id": "WebServer.inactiveSessionTimeout",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".inactiveSessionTimeout : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.inactiveProcessTimeout",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".inactiveProcessTimeout : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.isRunning",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".isRunning : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.keepSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".keepSession : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.logRecording",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".logRecording : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.maxConcurrentProcesses",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".maxConcurrentProcesses : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.maxRequestSize",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".maxRequestSize : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.maxSessions",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".maxSessions : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.minTLSVersion",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".minTLSVersion : Integer"
+      ]
+    },
+    {
+      "id": "WebServer.name",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".name : Text"
+      ]
+    },
+    {
+      "id": "WebServer.openSSLVersion",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".openSSLVersion : Text"
+      ]
+    },
+    {
+      "id": "WebServer.perfectForwardSecrecy",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".perfectForwardSecrecy : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.rootFolder",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".rootFolder : Text"
+      ]
+    },
+    {
+      "id": "WebServer.rules",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".rules : Collection"
+      ]
+    },
+    {
+      "id": "WebServer.scalableSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".scalableSession : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.sessionCookieDomain",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sessionCookieDomain : Text"
+      ]
+    },
+    {
+      "id": "WebServer.sessionCookieName",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sessionCookieName : Text"
+      ]
+    },
+    {
+      "id": "WebServer.sessionIPAddressValidation",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sessionIPAddressValidation : Boolean"
+      ]
+    },
+    {
+      "id": "WebServer.sessionCookieSameSite",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sessionCookieSameSite : Text"
+      ]
+    },
+    {
+      "id": "WebServer.sessionCookiePath",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".sessionCookiePath : Text"
+      ]
+    },
+    {
+      "id": "WebServer.start",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".start() : Object",
+        ".start( settings : Object ) : Object"
+      ]
+    },
+    {
+      "id": "WebServer.stop",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".stop()"
+      ]
+    },
+    {
+      "id": "WebSocketConnection.terminate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".terminate( { code : Integer ; message : Text } )"
+      ]
+    },
+    {
+      "id": "WebSocketConnection.status",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".status : Text"
+      ]
+    },
+    {
+      "id": "WebSocketConnection.send",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".send( message : Text )",
+        ".send( message : Blob )",
+        ".send( message : Object )"
+      ]
+    },
+    {
+      "id": "WebSocketConnection.handler",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".handler : Object"
+      ]
+    },
+    {
+      "id": "WebSocketConnection.wss",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".wss : 4D.WebSocketServer"
+      ]
+    },
+    {
+      "id": "WebSocketConnection.id",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".id : Integer"
+      ]
+    },
+    {
+      "id": "WebSocketServer.connections",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".connections : Collection"
+      ]
+    },
+    {
+      "id": "WebSocketServer.dataType",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".dataType : Text"
+      ]
+    },
+    {
+      "id": "WebSocketServer.handler",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".handler : Object"
+      ]
+    },
+    {
+      "id": "WebSocketServer.path",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".path : Text"
+      ]
+    },
+    {
+      "id": "WebSocketServer.terminated",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".terminated : Boolean"
+      ]
+    },
+    {
+      "id": "WebSocketServer.terminate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".terminate()",
+        ".terminate( timeout : Integer )"
+      ]
+    },
+    {
+      "id": "WebSocket.dataType",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".dataType : Text"
+      ]
+    },
+    {
+      "id": "WebSocket.handler",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".handler : Object"
+      ]
+    },
+    {
+      "id": "WebSocket.id",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".id : Integer"
+      ]
+    },
+    {
+      "id": "WebSocket.send",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".send( message : Text )",
+        ".send( message : Blob )",
+        ".send( message : Object )"
+      ]
+    },
+    {
+      "id": "WebSocket.status",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".status : Text"
+      ]
+    },
+    {
+      "id": "WebSocket.terminate",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".terminate( { code : Integer { ; reason : Text } } )"
+      ]
+    },
+    {
+      "id": "WebSocket.url",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".url : Text"
+      ]
+    },
+    {
+      "id": "ZipArchive.root",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".root : 4D.ZipFolder"
+      ]
+    }
+  ]
+}
