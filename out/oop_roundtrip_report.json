@@ -1,0 +1,41 @@
+{
+  "syntaxJson": "references/syntaxEN.json",
+  "members": 495,
+  "overloadLines": 591,
+  "roundTripped": 591,
+  "failures": [],
+  "documentedNormalizations": [
+    {
+      "id": "CryptoKey.sign",
+      "overloadIndex": 0,
+      "line": ".**sign** (*message* : Text ; *options* : Object) : Text",
+      "semanticMemberName": ".sign",
+      "notes": [
+        "markdown emphasis is malformed in the source; the member name was recovered by stripping all '*' characters"
+      ],
+      "roundTrip": "byte-exact — the malformed emphasis is preserved verbatim; only the semantic member name is normalized"
+    },
+    {
+      "id": "CryptoKey.sign",
+      "overloadIndex": 1,
+      "line": ".**sign** (*message* : Blob ; *options* : Object) : Text",
+      "semanticMemberName": ".sign",
+      "notes": [
+        "markdown emphasis is malformed in the source; the member name was recovered by stripping all '*' characters"
+      ],
+      "roundTrip": "byte-exact — the malformed emphasis is preserved verbatim; only the semantic member name is normalized"
+    },
+    {
+      "id": "CryptoKey.verify",
+      "overloadIndex": 1,
+      "line": "*.verify**( *message* : Blob ; *signature* : Text ; *options* : Object) : Object",
+      "semanticMemberName": ".verify",
+      "notes": [
+        "markdown emphasis is malformed in the source; the member name was recovered by stripping all '*' characters"
+      ],
+      "roundTrip": "byte-exact — the malformed emphasis is preserved verbatim; only the semantic member name is normalized"
+    }
+  ],
+  "gate": "G1",
+  "passed": true
+}

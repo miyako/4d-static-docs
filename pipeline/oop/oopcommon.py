@@ -202,3 +202,42 @@ def load_api_page(path: Path):
     if article is None:
         raise ValueError(f"no <article> element in {path}")
     return article
+
+
+def member_kind(class_name: str, member_key: str) -> str:
+    """Map a syntaxEN member key to the IR `CommandEntry.kind` value."""
+    if class_name == CLASS_STORE_KEY:
+        return "oop_constructor"
+    return "oop_function" if member_key.endswith(")") else "oop_property"
+
+
+def member_id(class_name: str, member_key: str) -> str:
+    """Receiver-qualified IR id.
+
+    Constructors are already fully qualified in the class store
+    ("4D.Blob.new()"). Instance/class members become "<Class>.<member>" with
+    the trailing "()" dropped: "Collection.length", "Collection.query".
+
+    Classic ids are SCREAMING-KEBAB / Capitalized-Words and contain no dots, so
+    these two id spaces cannot collide; the assembler asserts it anyway.
+    """
+    bare = member_key[:-2] if member_key.endswith("()") else member_key
+    return bare if class_name == CLASS_STORE_KEY else f"{class_name}.{bare}"
+
+
+def iter_syntax_members(syntax: dict):
+    """Yield (id, class, memberKey, record) for every syntaxEN OOP member.
+
+    Covers the 45 built-in classes plus the 19 class-store constructors, and
+    excludes the classic `_command_` corpus and the `_inheritedFrom_`
+    sentinels.
+    """
+    for class_name in oop_class_names(syntax):
+        for member_key, record in class_members(syntax, class_name).items():
+            yield member_id(class_name, member_key), class_name, member_key, record
+    for target_class, members in syntax.get(CLASS_STORE_KEY, {}).items():
+        if not isinstance(members, dict):
+            continue
+        for member_key, record in members.items():
+            key = f"{CLASS_STORE_KEY}.{target_class}.{member_key}"
+            yield member_id(CLASS_STORE_KEY, key), CLASS_STORE_KEY, key, record
