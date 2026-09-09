@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="4DOOPIRSynthCheck" uuid="B0000000000000000000000000000000" collation_locale="en-gb">
+  <schema name="DEFAULT_SCHEMA"/>
+
+  <table name="SynthTable" uuid="A0010000000000000000000000000000" id="1">
+    <field name="ID" uuid="F0010001000000000000000000000000" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+    <field name="boolValue" uuid="F0010002000000000000000000000000" type="1" id="2"/>
+    <field name="intValue" uuid="F0010003000000000000000000000000" type="3" id="3"/>
+    <field name="longValue" uuid="F0010004000000000000000000000000" type="4" id="4"/>
+    <field name="realValue" uuid="F0010005000000000000000000000000" type="6" id="5"/>
+    <field name="dateValue" uuid="F0010006000000000000000000000000" type="8" id="6"/>
+    <field name="timeValue" uuid="F0010007000000000000000000000000" type="9" id="7"/>
+    <field name="alphaValue" uuid="F0010008000000000000000000000000" type="10" limiting_length="255" id="8"/>
+    <field name="pictureValue" uuid="F0010009000000000000000000000000" type="12" id="9"/>
+    <field name="textValue" uuid="F0010010000000000000000000000000" type="14" id="10"/>
+    <field name="blobValue" uuid="F0010011000000000000000000000000" type="18" id="11"/>
+    <field name="objectValue" uuid="F0010012000000000000000000000000" type="21" id="12"/>
+    <field name="relatedID" uuid="F0010013000000000000000000000000" type="4" id="13"/>
+    <primary_key field_name="ID" field_uuid="F0010001000000000000000000000000"/>
+  </table>
+
+  <table name="SynthRelated" uuid="A0020000000000000000000000000000" id="2">
+    <field name="ID" uuid="F0020001000000000000000000000000" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+    <field name="labelText" uuid="F0020002000000000000000000000000" type="14" id="2"/>
+    <primary_key field_name="ID" field_uuid="F0020001000000000000000000000000"/>
+  </table>
+
+  <relation name_Nto1="relatedRow" name_1toN="synthRows" uuid="D0010001000000000000000000000000"
+    auto_load_Nto1="false" auto_load_1toN="false" integrity="none" state="1">
+    <related_field kind="source">
+      <field_ref uuid="F0010013000000000000000000000000" name="relatedID">
+        <table_ref uuid="A0010000000000000000000000000000" name="SynthTable"/>
+      </field_ref>
+    </related_field>
+    <related_field kind="destination">
+      <field_ref uuid="F0020001000000000000000000000000" name="ID">
+        <table_ref uuid="A0020000000000000000000000000000" name="SynthRelated"/>
+      </field_ref>
+    </related_field>
+  </relation>
+
+  <index kind="regular" unique_keys="true" uuid="C0010001000000000000000000000000" type="7">
+    <field_ref uuid="F0010001000000000000000000000000" name="ID">
+      <table_ref uuid="A0010000000000000000000000000000" name="SynthTable"/>
+    </field_ref>
+  </index>
+
+  <index kind="regular" unique_keys="true" uuid="C0020001000000000000000000000000" type="7">
+    <field_ref uuid="F0020001000000000000000000000000" name="ID">
+      <table_ref uuid="A0020000000000000000000000000000" name="SynthRelated"/>
+    </field_ref>
+  </index>
+
+  <index kind="regular" unique_keys="false" uuid="C0010013000000000000000000000000" type="3">
+    <field_ref uuid="F0010013000000000000000000000000" name="relatedID">
+      <table_ref uuid="A0010000000000000000000000000000" name="SynthTable"/>
+    </field_ref>
+  </index>
+
+  <base_extra>
+    <journal_file journal_file_enabled="true"/>
+  </base_extra>
+</base>
