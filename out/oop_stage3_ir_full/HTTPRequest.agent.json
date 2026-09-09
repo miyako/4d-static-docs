@@ -20,6 +20,7 @@
       "name": "4D.HTTPAgent"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**agent** : 4D.HTTPAgent"
   }
 }

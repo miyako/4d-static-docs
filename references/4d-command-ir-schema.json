@@ -1081,6 +1081,10 @@
         },
         "note": {
           "type": "string"
+        },
+        "rawSyntax": {
+          "type": "string",
+          "description": "The property's declaration line, verbatim from the documentation (e.g. `**.size** : Real`). The Overload-level `rawSyntax` covers functions and constructors; this covers properties, which have no overload, so every non-dynamic member carries a verbatim source line somewhere."
         }
       },
       "additionalProperties": false

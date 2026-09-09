@@ -20,6 +20,7 @@
       "name": "Number"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**port** : Number"
   }
 }

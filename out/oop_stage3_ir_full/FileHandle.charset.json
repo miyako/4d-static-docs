@@ -20,7 +20,8 @@
       "name": "Text"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.charset** : Text"
   },
   "sinceVersion": "19-R7"
 }

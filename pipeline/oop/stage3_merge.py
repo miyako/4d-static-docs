@@ -404,7 +404,8 @@ def build_error_model(section: dict | None, returns_shape: dict | None,
 
 
 def accessor_for(section: dict | None, description: str | None,
-                 type_name: str | None, nullable: bool) -> dict:
+                 type_name: str | None, nullable: bool,
+                 raw_syntax: str | None = None) -> dict:
     lowered = (description or "").lower()
     writable = True
     if any(marker in lowered for marker in READ_ONLY_MARKERS):
@@ -418,6 +419,12 @@ def accessor_for(section: dict | None, description: str | None,
     }
     if nullable:
         accessor["nullable"] = True
+    if raw_syntax:
+        # Properties have no Overload to hang `rawSyntax` off, so the verbatim
+        # declaration line lives here instead. Without it a consumer reading
+        # only the assembled IR could not render a doc-faithful signature for
+        # a property, and would have to reconstruct one.
+        accessor["rawSyntax"] = raw_syntax
     return accessor
 
 
@@ -614,8 +621,12 @@ def build_entry(manifest_entry: dict, signature: dict, section: dict | None,
         return_type = (
             signature["overloads"][0]["returnType"] if signature["overloads"] else None
         )
+        raw_syntax = None
+        if signature["overloads"]:
+            raw_syntax = signature["overloads"][0].get("rawSyntax")
         entry["accessor"] = accessor_for(
-            section, description, return_type, entry_id in nullable_returns
+            section, description, return_type, entry_id in nullable_returns,
+            raw_syntax,
         )
         tables = [t for t in constant_tables(section) if t["values"]]
         if len(tables) == 1 and entry["accessor"]["type"].get("name") in NUMERIC_TYPES:

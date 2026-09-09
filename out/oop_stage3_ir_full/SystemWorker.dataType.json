@@ -20,6 +20,7 @@
       "name": "Text"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.dataType** : Text"
   }
 }

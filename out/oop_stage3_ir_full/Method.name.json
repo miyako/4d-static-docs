@@ -20,7 +20,8 @@
       "name": "Text"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.name** : Text"
   },
   "sinceVersion": "21-R3"
 }

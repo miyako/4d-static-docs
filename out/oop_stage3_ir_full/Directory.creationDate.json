@@ -20,7 +20,8 @@
       "name": "Date"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.creationDate** : Date"
   },
   "sinceVersion": "17-R5"
 }

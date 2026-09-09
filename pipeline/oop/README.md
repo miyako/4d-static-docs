@@ -181,10 +181,22 @@ reviewable rather than a wall of diff. See `pipeline/MAINTENANCE.md`.
 | **G1** | 100% byte-exact syntax round-trip | `stage2_signatures.py` | 591/591 lines, 495/495 fields |
 | **G2** | the bumped schema still validates the classic corpus byte-unchanged | `check_schema_gate.py` | PASSED |
 | **G3** | every in-scope member is in the IR or explicitly skipped | `stage5_assemble.py` | 502/502, 5 logged skips |
+| — | every non-dynamic member carries a verbatim source line | `check_schema_gate.py` | 495/495 (277 + 218) |
 
 `check_schema_gate.py` also validates both example documents and the OOP IR
 itself, and exercises the new conditional requirements with deliberate negative
 cases so they cannot silently rot into decoration.
+
+It additionally asserts the **verbatim-source-line invariant**: every
+non-dynamic member must carry its declaration line exactly as documented —
+functions and constructors on every `overloads[].rawSyntax`, properties on
+`accessor.rawSyntax`, since a property has no overload to hang it off. This
+started out asymmetric (277 callables had one, 0 of 218 properties did), which
+was invisible from inside the pipeline because `out/oop_signatures.json` keeps
+the line either way, but left any consumer reading only the assembled IR unable
+to render a doc-faithful property signature. The check carries its own negative
+test: it strips the line from one property and one function and requires both
+to be caught, because an assertion nobody has seen fail is not yet evidence.
 
 JSON Schema validation uses `boon` (provision via the `4dtools` skill), with
 Python `jsonschema` as a cross-check.

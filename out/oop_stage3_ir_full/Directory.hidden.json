@@ -20,7 +20,8 @@
       "name": "Boolean"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.hidden** : Boolean"
   },
   "sinceVersion": "17-R5"
 }

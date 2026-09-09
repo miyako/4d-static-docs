@@ -20,6 +20,7 @@
       "name": "4D.File"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.file** : 4D.File"
   }
 }

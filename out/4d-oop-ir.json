@@ -3964,7 +3964,8 @@
           "name": "Real"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.size** : Real"
       }
     },
     {
@@ -4065,7 +4066,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isSessionSingleton** : Boolean"
       },
       "sinceVersion": "20-R7"
     },
@@ -4091,7 +4093,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isShared** : Boolean"
       },
       "sinceVersion": "20-R5"
     },
@@ -4117,7 +4120,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isSingleton** : Boolean"
       },
       "sinceVersion": "20-R5"
     },
@@ -4143,7 +4147,8 @@
           "name": "4D.Object"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.me** : 4D.Object"
       },
       "sinceVersion": "20-R5"
     },
@@ -4169,7 +4174,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.name** : Text"
       },
       "sinceVersion": "18-R3"
     },
@@ -4244,7 +4250,8 @@
           "name": "4D.Class"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.superclass** : 4D.Class"
       },
       "errorModel": {
         "style": "returns_null"
@@ -5970,7 +5977,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.length** : Integer"
       },
       "sinceVersion": "16-R5"
     },
@@ -7458,7 +7466,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.curve** : Text"
       },
       "sinceVersion": "18-R4"
     },
@@ -7668,7 +7677,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.pem** : Text"
       },
       "sinceVersion": "18-R4"
     },
@@ -7778,7 +7788,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.size** : Integer"
       },
       "sinceVersion": "18-R4"
     },
@@ -7804,7 +7815,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.type** : Text"
       },
       "sinceVersion": "18-R4"
     },
@@ -9791,7 +9803,8 @@
           "name": "Date"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.creationDate** : Date"
       },
       "sinceVersion": "17-R5"
     },
@@ -9817,7 +9830,8 @@
           "name": "Time"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.creationTime** : Time"
       },
       "sinceVersion": "17-R5"
     },
@@ -9843,7 +9857,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.exists** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -9869,7 +9884,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.extension** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -10051,7 +10067,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.fullName** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -10116,7 +10133,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.hidden** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10142,7 +10160,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isAlias** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10168,7 +10187,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isFile** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10194,7 +10214,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isFolder** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10220,7 +10241,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isPackage** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10246,7 +10268,8 @@
           "name": "Date"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.modificationDate** : Date"
       },
       "sinceVersion": "17-R5"
     },
@@ -10272,7 +10295,8 @@
           "name": "Time"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.modificationTime** : Time"
       },
       "sinceVersion": "17-R5"
     },
@@ -10298,7 +10322,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.name** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -10324,7 +10349,8 @@
           "name": "4D.Folder"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.original** : 4D.Folder"
       },
       "sinceVersion": "17-R5"
     },
@@ -10350,7 +10376,8 @@
           "name": "4D.Folder"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.parent** : 4D.Folder"
       },
       "sinceVersion": "17-R5"
     },
@@ -10376,7 +10403,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.path** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -10402,7 +10430,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.platformPath** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -10491,7 +10520,8 @@
           "name": "Date"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.creationDate** : Date"
       },
       "sinceVersion": "17-R5"
     },
@@ -10517,7 +10547,8 @@
           "name": "Time"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.creationTime** : Time"
       },
       "sinceVersion": "17-R5"
     },
@@ -10543,7 +10574,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.exists** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10569,7 +10601,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.extension** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -10595,7 +10628,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.fullName** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -10772,7 +10806,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.hidden** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10798,7 +10833,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isAlias** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10824,7 +10860,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isFile** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10850,7 +10887,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isFolder** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10876,7 +10914,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isWritable** : Boolean"
       },
       "sinceVersion": "17-R5"
     },
@@ -10902,7 +10941,8 @@
           "name": "Date"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.modificationDate** : Date"
       },
       "sinceVersion": "17-R5"
     },
@@ -10928,7 +10968,8 @@
           "name": "Time"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.modificationTime** : Time"
       },
       "sinceVersion": "17-R5"
     },
@@ -10954,7 +10995,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.name** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -10980,7 +11022,8 @@
           "name": "4D.File"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.original** : 4D.File"
       },
       "sinceVersion": "17-R5"
     },
@@ -11006,7 +11049,8 @@
           "name": "4D.Folder"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.parent** : 4D.Folder"
       },
       "sinceVersion": "17-R5"
     },
@@ -11032,7 +11076,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.path** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -11058,7 +11103,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.platformPath** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -11084,7 +11130,8 @@
           "name": "Real"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.size** : Real"
       },
       "sinceVersion": "17-R5"
     },
@@ -11110,7 +11157,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.attachments** : Collection"
       }
     },
     {
@@ -11135,7 +11183,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.bcc** : Text"
       }
     },
     {
@@ -11160,7 +11209,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.bodyStructure** : Object"
       },
       "returnsShape": {
         "properties": {
@@ -11244,7 +11294,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.bodyValues** : Object"
       },
       "returnsShape": {
         "properties": {
@@ -11286,7 +11337,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.cc** : Text"
       }
     },
     {
@@ -11311,7 +11363,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.comments** : Text"
       }
     },
     {
@@ -11336,7 +11389,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.from** : Text"
       }
     },
     {
@@ -11361,7 +11415,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.headers** : Collection"
       },
       "returnsShape": {
         "properties": {
@@ -11403,7 +11458,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.htmlBody** : Text"
       }
     },
     {
@@ -11428,7 +11484,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.id** : Text"
       }
     },
     {
@@ -11453,7 +11510,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.inReplyTo** : Text"
       }
     },
     {
@@ -11478,7 +11536,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.keywords** : Object"
       }
     },
     {
@@ -11503,7 +11562,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.messageId** : Text"
       }
     },
     {
@@ -11528,7 +11588,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.receivedAt** : Text"
       }
     },
     {
@@ -11553,7 +11614,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.references** : Collection"
       }
     },
     {
@@ -11578,7 +11640,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.replyTo** : Text"
       }
     },
     {
@@ -11603,7 +11666,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.sendAt** : Text"
       }
     },
     {
@@ -11628,7 +11692,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.sender** : Text"
       }
     },
     {
@@ -11653,7 +11718,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.size** : Integer"
       }
     },
     {
@@ -11678,7 +11744,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.subject** : Text"
       }
     },
     {
@@ -11703,7 +11770,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.textBody** : Text"
       }
     },
     {
@@ -11728,7 +11796,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.to** : Text"
       }
     },
     {
@@ -13593,7 +13662,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.length** : Integer"
       },
       "sinceVersion": "17"
     },
@@ -14129,7 +14199,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.queryPath** : Text"
       },
       "sinceVersion": "17"
     },
@@ -14155,7 +14226,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.queryPlan** : Text"
       },
       "sinceVersion": "17"
     },
@@ -15130,7 +15202,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.breakModeRead** : Text"
       },
       "sinceVersion": "19-R7"
     },
@@ -15156,7 +15229,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.breakModeWrite** : Text"
       },
       "sinceVersion": "19-R7"
     },
@@ -15182,7 +15256,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.charset** : Text"
       },
       "sinceVersion": "19-R7"
     },
@@ -15208,7 +15283,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.eof** : Boolean"
       },
       "sinceVersion": "19-R7"
     },
@@ -15234,7 +15310,8 @@
           "name": "4D.File"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.file** : 4D.File"
       }
     },
     {
@@ -15287,7 +15364,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.mode** : Text"
       },
       "sinceVersion": "19-R7"
     },
@@ -15313,7 +15391,8 @@
           "name": "Real"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.offset** : Real"
       },
       "sinceVersion": "19-R7"
     },
@@ -15940,7 +16019,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.source** : Text"
       },
       "sinceVersion": "18-R2",
       "versionBehaviorChanges": [
@@ -15972,7 +16052,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**freeSocketsCount** : Integer"
       }
     },
     {
@@ -15997,7 +16078,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**options** : Object"
       }
     },
     {
@@ -16022,7 +16104,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**requestsCount** : Integer"
       }
     },
     {
@@ -16047,7 +16130,8 @@
           "name": "4D.HTTPAgent"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**agent** : 4D.HTTPAgent"
       }
     },
     {
@@ -16072,7 +16156,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**dataType** : Text"
       }
     },
     {
@@ -16097,7 +16182,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**encoding** : Text"
       }
     },
     {
@@ -16122,7 +16208,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**errors** : Collection"
       }
     },
     {
@@ -16147,7 +16234,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**headers** : Object"
       }
     },
     {
@@ -16172,7 +16260,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**method** : Text"
       }
     },
     {
@@ -16197,7 +16286,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**protocol** : Text"
       }
     },
     {
@@ -16222,7 +16312,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**response** : Object"
       },
       "returnsShape": {
         "properties": {
@@ -16293,7 +16384,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**returnResponseBody** : Boolean"
       }
     },
     {
@@ -16342,7 +16434,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**terminated** : Boolean"
       }
     },
     {
@@ -16367,7 +16460,8 @@
           "name": "Real"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**timeout** : Real"
       }
     },
     {
@@ -16392,7 +16486,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**url** : Text"
       }
     },
     {
@@ -16455,7 +16550,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isStarted** : Boolean"
       }
     },
     {
@@ -16708,7 +16804,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.checkConnectionDelay** : Integer"
       },
       "sinceVersion": "18-R4"
     },
@@ -17556,7 +17653,8 @@
           "name": "4D.IMAPNotifier"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.notifier** : 4D.IMAPNotifier"
       }
     },
     {
@@ -18106,7 +18204,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**headers** : Object"
       }
     },
     {
@@ -18131,7 +18230,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**url** : Text"
       }
     },
     {
@@ -18156,7 +18256,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**urlPath** : Collection"
       }
     },
     {
@@ -18181,7 +18282,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**urlQuery** : Object"
       }
     },
     {
@@ -18206,7 +18308,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**verb** : Text"
       }
     },
     {
@@ -18231,7 +18334,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.cid** : Text"
       }
     },
     {
@@ -18256,7 +18360,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.disposition** : Text"
       }
     },
     {
@@ -18308,7 +18413,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.name** : Text"
       }
     },
     {
@@ -18333,7 +18439,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.path** : Text"
       }
     },
     {
@@ -18358,7 +18465,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.platformPath** : Text"
       },
       "sinceVersion": "19"
     },
@@ -18384,7 +18492,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.size** : Integer"
       }
     },
     {
@@ -18409,7 +18518,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.type** : Text"
       }
     },
     {
@@ -18485,7 +18595,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.name** : Text"
       },
       "sinceVersion": "21-R3"
     },
@@ -18511,7 +18622,8 @@
           "name": "any"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**body** : any"
       }
     },
     {
@@ -18536,7 +18648,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**headers** : Object"
       }
     },
     {
@@ -18676,7 +18789,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**status** : Integer"
       }
     },
     {
@@ -19021,7 +19135,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.keepAlive** : Boolean"
       },
       "sinceVersion": "17-R4"
     },
@@ -19237,7 +19352,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.expirationDate** : Text"
       },
       "sinceVersion": "18-R6"
     },
@@ -19342,7 +19458,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.id** : Text"
       },
       "sinceVersion": "20-R5"
     },
@@ -19368,7 +19485,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.idleTimeout** : Integer"
       },
       "sinceVersion": "18-R6"
     },
@@ -19394,7 +19512,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.info** : Object"
       },
       "returnsShape": {
         "properties": {
@@ -19711,7 +19830,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.storage** : Object"
       },
       "sinceVersion": "18-R6",
       "versionBehaviorChanges": [
@@ -19743,7 +19863,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.userName** : Text"
       },
       "sinceVersion": "18-R6",
       "versionBehaviorChanges": [
@@ -19775,7 +19896,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.description** : Text"
       },
       "sinceVersion": "17-R4"
     },
@@ -19801,7 +19923,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.signaled** : Boolean"
       },
       "sinceVersion": "17-R4"
     },
@@ -19916,7 +20039,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.commandLine** : Text"
       }
     },
     {
@@ -19941,7 +20065,8 @@
           "name": "4D.Folder"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.currentDirectory** : 4D.Folder"
       }
     },
     {
@@ -19966,7 +20091,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.dataType** : Text"
       }
     },
     {
@@ -19991,7 +20117,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.encoding** : Text"
       }
     },
     {
@@ -20016,7 +20143,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.errors** : Collection"
       },
       "returnsShape": {
         "properties": {
@@ -20067,7 +20195,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.exitCode** : Integer"
       }
     },
     {
@@ -20092,7 +20221,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.hideWindow** : Boolean"
       }
     },
     {
@@ -20117,7 +20247,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.pid** : Integer"
       }
     },
     {
@@ -20193,7 +20324,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.response** : Text"
       }
     },
     {
@@ -20218,7 +20350,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.responseError** : Text"
       }
     },
     {
@@ -20267,7 +20400,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.terminated** : Boolean"
       }
     },
     {
@@ -20292,7 +20426,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.timeout** : Integer"
       }
     },
     {
@@ -20355,7 +20490,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**address** : Text"
       }
     },
     {
@@ -20380,7 +20516,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**closed** : Boolean"
       }
     },
     {
@@ -20405,7 +20542,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**errors** : Collection"
       }
     },
     {
@@ -20430,7 +20568,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**listener** : Object"
       }
     },
     {
@@ -20455,7 +20594,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**noDelay** : Boolean"
       }
     },
     {
@@ -20480,7 +20620,8 @@
           "name": "Number"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**port** : Number"
       }
     },
     {
@@ -20599,7 +20740,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**address** : Text"
       }
     },
     {
@@ -20624,7 +20766,8 @@
           "name": "Blob"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**data** : Blob"
       }
     },
     {
@@ -20649,7 +20792,8 @@
           "name": "Number"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**port** : Number"
       }
     },
     {
@@ -20674,7 +20818,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**type** : Text"
       }
     },
     {
@@ -20699,7 +20844,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**errors** : Collection"
       }
     },
     {
@@ -20724,7 +20870,8 @@
           "name": "Number"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**port** : Number"
       }
     },
     {
@@ -20773,7 +20920,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.acceptUnsecureConnection** : Boolean"
       },
       "sinceVersion": "17-R4"
     },
@@ -20799,7 +20947,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.authenticationMode** : Text"
       },
       "sinceVersion": "17-R4"
     },
@@ -20825,7 +20974,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.bodyCharset** : Text"
       },
       "sinceVersion": "17-R5",
       "versionBehaviorChanges": [
@@ -20922,7 +21072,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.connectionTimeOut** : Integer"
       },
       "sinceVersion": "17-R5"
     },
@@ -20948,7 +21099,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.headerCharset** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -20974,7 +21126,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.host** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -21000,7 +21153,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.logFile** : Text"
       },
       "sinceVersion": "17-R5"
     },
@@ -21026,7 +21180,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.port** : Integer"
       },
       "sinceVersion": "17-R4"
     },
@@ -21052,7 +21207,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.sendTimeOut** : Integer"
       },
       "sinceVersion": "17-R4"
     },
@@ -21078,7 +21234,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.user** : Text"
       },
       "sinceVersion": "17-R4"
     },
@@ -21104,7 +21261,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**address** : Text"
       }
     },
     {
@@ -21129,7 +21287,8 @@
           "name": "Blob"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**data** : Blob"
       }
     },
     {
@@ -21154,7 +21313,8 @@
           "name": "Number"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**port** : Number"
       }
     },
     {
@@ -21179,7 +21339,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**type** : Text"
       }
     },
     {
@@ -21204,7 +21365,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**errors** : Collection"
       }
     },
     {
@@ -21229,7 +21391,8 @@
           "name": "Number"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**port** : Number"
       }
     },
     {
@@ -21423,7 +21586,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**length** : Integer"
       }
     },
     {
@@ -21797,7 +21961,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.CORSEnabled** : Boolean"
       }
     },
     {
@@ -21822,7 +21987,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.CORSSettings** : Collection"
       }
     },
     {
@@ -21847,7 +22013,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HSTSEnabled** : Boolean"
       }
     },
     {
@@ -21872,7 +22039,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HSTSMaxAge** : Integer"
       }
     },
     {
@@ -21897,7 +22065,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HTTPCompressionLevel** : Integer"
       }
     },
     {
@@ -21922,7 +22091,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HTTPCompressionThreshold** : Integer"
       }
     },
     {
@@ -21947,7 +22117,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HTTPEnabled** : Boolean"
       }
     },
     {
@@ -21972,7 +22143,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HTTPPort** : Integer"
       }
     },
     {
@@ -21997,7 +22169,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HTTPSEnabled** : Boolean"
       }
     },
     {
@@ -22022,7 +22195,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HTTPSPort** : Integer"
       }
     },
     {
@@ -22047,7 +22221,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.HTTPTrace** : Boolean"
       }
     },
     {
@@ -22072,7 +22247,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.IPAddressToListen** : Text"
       }
     },
     {
@@ -22097,7 +22273,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.accessKeyDefined** : Boolean"
       }
     },
     {
@@ -22122,7 +22299,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.certificateFolder** : Text"
       }
     },
     {
@@ -22147,7 +22325,8 @@
           "name": "Number"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.characterSet** : Number"
       }
     },
     {
@@ -22172,7 +22351,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.cipherSuite** : Text"
       }
     },
     {
@@ -22197,7 +22377,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.debugLog** : Integer"
       }
     },
     {
@@ -22222,7 +22403,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.defaultHomepage** : Text"
       }
     },
     {
@@ -22247,7 +22429,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.handlers** : Collection"
       },
       "sinceVersion": "21"
     },
@@ -22273,7 +22456,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.inactiveProcessTimeout** : Integer"
       }
     },
     {
@@ -22298,7 +22482,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.inactiveSessionTimeout** : Integer"
       }
     },
     {
@@ -22323,7 +22508,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.isRunning** : Boolean"
       }
     },
     {
@@ -22348,7 +22534,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.keepSession** : Boolean"
       }
     },
     {
@@ -22373,7 +22560,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.logRecording** : Integer"
       }
     },
     {
@@ -22398,7 +22586,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.maxConcurrentProcesses** : Integer"
       }
     },
     {
@@ -22423,7 +22612,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.maxRequestSize** : Integer"
       }
     },
     {
@@ -22448,7 +22638,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.maxSessions** : Integer"
       }
     },
     {
@@ -22473,7 +22664,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.minTLSVersion** : Integer"
       }
     },
     {
@@ -22498,7 +22690,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.name** : Text"
       }
     },
     {
@@ -22523,7 +22716,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.openSSLVersion** : Text"
       }
     },
     {
@@ -22548,7 +22742,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.perfectForwardSecrecy** : Boolean"
       }
     },
     {
@@ -22573,7 +22768,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.rootFolder** : Text"
       }
     },
     {
@@ -22598,7 +22794,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.rules** : Collection"
       },
       "sinceVersion": "21"
     },
@@ -22624,7 +22821,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.scalableSession** : Boolean"
       }
     },
     {
@@ -22649,7 +22847,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.sessionCookieDomain** : Text"
       }
     },
     {
@@ -22674,7 +22873,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.sessionCookieName** : Text"
       }
     },
     {
@@ -22699,7 +22899,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.sessionCookiePath** : Text"
       }
     },
     {
@@ -22724,7 +22925,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.sessionCookieSameSite** : Text"
       },
       "sinceVersion": "19"
     },
@@ -22750,7 +22952,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.sessionIPAddressValidation** : Boolean"
       }
     },
     {
@@ -22870,7 +23073,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.dataType** : Text"
       }
     },
     {
@@ -22895,7 +23099,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.handler** : Object"
       }
     },
     {
@@ -22920,7 +23125,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.id** : Integer"
       }
     },
     {
@@ -23012,7 +23218,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.status** : Text"
       }
     },
     {
@@ -23082,7 +23289,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.url** : Text"
       }
     },
     {
@@ -23107,7 +23315,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.handler** : Object"
       }
     },
     {
@@ -23132,7 +23341,8 @@
           "name": "Integer"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.id** : Integer"
       }
     },
     {
@@ -23224,7 +23434,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.status** : Text"
       }
     },
     {
@@ -23294,7 +23505,8 @@
           "name": "4D.WebSocketServer"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.wss** : 4D.WebSocketServer"
       }
     },
     {
@@ -23319,7 +23531,8 @@
           "name": "Collection"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.connections** : Collection"
       }
     },
     {
@@ -23344,7 +23557,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.dataType** : Text"
       }
     },
     {
@@ -23369,7 +23583,8 @@
           "name": "Object"
         },
         "readable": true,
-        "writable": true
+        "writable": true,
+        "rawSyntax": "**.handler** : Object"
       }
     },
     {
@@ -23394,7 +23609,8 @@
           "name": "Text"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.path** : Text"
       }
     },
     {
@@ -23459,7 +23675,8 @@
           "name": "Boolean"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.terminated** : Boolean"
       }
     },
     {
@@ -23484,7 +23701,8 @@
           "name": "4D.ZipFolder"
         },
         "readable": true,
-        "writable": false
+        "writable": false,
+        "rawSyntax": "**.root** : 4D.ZipFolder"
       }
     }
   ],

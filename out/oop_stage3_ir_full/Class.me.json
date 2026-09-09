@@ -20,7 +20,8 @@
       "name": "4D.Object"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.me** : 4D.Object"
   },
   "sinceVersion": "20-R5"
 }

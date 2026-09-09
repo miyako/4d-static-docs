@@ -20,6 +20,7 @@
       "name": "Real"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**.size** : Real"
   }
 }

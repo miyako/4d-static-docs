@@ -20,7 +20,8 @@
       "name": "Integer"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**.connectionTimeOut** : Integer"
   },
   "sinceVersion": "17-R5"
 }

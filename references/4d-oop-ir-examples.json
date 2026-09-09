@@ -1,28 +1,42 @@
 {
   "_source": "Hand-authored worked examples for the OOP extension of the 4D Command IR schema. Chosen to stress every construct added in Phase 2 (receiver, memberName, accessor, errorModel, returnsShape, classes{}, the new Layer-3 edge kinds) against the hardest real members in the corpus. Validated against references/4d-command-ir-schema.json with boon. Not machine-generated: this file is the schema's regression fixture, the OOP counterpart of 4d-command-ir-examples.json.",
-
   "enums": {
     "Collection Order Direction": {
       "description": "Sort direction constants accepted by Collection ordering functions.",
       "values": [
-        { "name": "ck ascending", "value": 0, "description": "Ascending order" },
-        { "name": "ck descending", "value": 1, "description": "Descending order" }
+        {
+          "name": "ck ascending",
+          "value": 0,
+          "description": "Ascending order"
+        },
+        {
+          "name": "ck descending",
+          "value": 1,
+          "description": "Descending order"
+        }
       ]
     },
     "Entity Save Mode": {
       "description": "Mode constant accepted by Entity.save().",
       "values": [
-        { "name": "dk auto merge", "value": 1, "description": "Enables the automatic merge mode" }
+        {
+          "name": "dk auto merge",
+          "value": 1,
+          "description": "Enables the automatic merge mode"
+        }
       ]
     },
     "Entity Drop Mode": {
       "description": "Mode constant accepted by Entity.drop().",
       "values": [
-        { "name": "dk force drop if stamp changed", "value": 2, "description": "Forces the drop even if the stamp has changed" }
+        {
+          "name": "dk force drop if stamp changed",
+          "value": 2,
+          "description": "Forces the drop even if the stamp has changed"
+        }
       ]
     }
   },
-
   "subGrammars": {
     "ORDA query string": {
       "description": "4D's own query grammar used by EntitySelection.query() and DataClass.query(): comparison expressions over attribute paths, joined with logical operators, with :N indexed placeholders and :paramName named placeholders standing in for values supplied separately.",
@@ -52,11 +66,12 @@
       ]
     }
   },
-
   "handleTypes": {
     "4D.FileHandle": {
       "description": "An open handle on a file, produced by File.open(), used for sequential read/write, and released when the handle object is no longer referenced (there is no explicit close command).",
-      "producedBy": ["4D.File.open"],
+      "producedBy": [
+        "4D.File.open"
+      ],
       "consumedBy": [
         "4D.FileHandle.readLine",
         "4D.FileHandle.readText",
@@ -66,7 +81,6 @@
       "destroyedBy": []
     }
   },
-
   "callbackContracts": {
     "SystemWorker event handlers": {
       "description": "The options object passed to 4D.SystemWorker.new() carries formula/method properties that 4D invokes as the external process runs. Each receives the worker object plus an event-specific payload.",
@@ -74,20 +88,25 @@
       "expectedParams": [
         {
           "name": "systemWorker",
-          "type": { "kind": "concrete", "name": "4D.SystemWorker" },
+          "type": {
+            "kind": "concrete",
+            "name": "4D.SystemWorker"
+          },
           "direction": "in",
           "description": "The worker that raised the event."
         },
         {
           "name": "event",
-          "type": { "kind": "concrete", "name": "Object" },
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
           "direction": "in",
           "description": "Event payload; its shape depends on which handler is invoked (onData, onError, onTerminate, ...)."
         }
       ]
     }
   },
-
   "classes": {
     "Collection": {
       "id": "Collection",
@@ -121,10 +140,13 @@
         "requiresUseBlockForWrite": false,
         "note": "Only collections created with New shared collection are shared; those require Use/End use around any modification."
       },
-      "members": ["Collection.length", "Collection.query", "Collection.orderBy"],
+      "members": [
+        "Collection.length",
+        "Collection.query",
+        "Collection.orderBy"
+      ],
       "summary": "An ordered list of values of any type."
     },
-
     "Entity": {
       "id": "Entity",
       "displayName": "Entity",
@@ -135,31 +157,41 @@
           {
             "kind": "class_function",
             "expression": "$e:=ds.SynthTable.new()",
-            "requires": ["a datastore exposing a SynthTable dataclass"],
+            "requires": [
+              "a datastore exposing a SynthTable dataclass"
+            ],
             "producedBy": "4D.DataClass.new",
             "note": "A brand-new, unsaved entity."
           },
           {
             "kind": "class_function",
             "expression": "$e:=ds.SynthTable.get(1)",
-            "requires": ["a datastore exposing a SynthTable dataclass", "at least one stored record"],
+            "requires": [
+              "a datastore exposing a SynthTable dataclass",
+              "at least one stored record"
+            ],
             "producedBy": "4D.DataClass.get",
             "note": "An existing entity by primary key; returns Null when the key does not exist."
           },
           {
             "kind": "instance_function",
             "expression": "$e:=ds.SynthTable.all().first()",
-            "requires": ["a datastore exposing a SynthTable dataclass", "a non-empty selection"],
+            "requires": [
+              "a datastore exposing a SynthTable dataclass",
+              "a non-empty selection"
+            ],
             "producedBy": "4D.EntitySelection.first"
           }
         ],
         "note": "Every Entity recipe needs a real data model. Example synthesis must provision a SynthTable dataclass before any Entity member can be exercised."
       },
       "superclass": null,
-      "members": ["4D.Entity.save", "4D.Entity.drop"],
+      "members": [
+        "4D.Entity.save",
+        "4D.Entity.drop"
+      ],
       "summary": "A reference to a single record of a dataclass."
     },
-
     "File": {
       "id": "File",
       "displayName": "File",
@@ -186,10 +218,11 @@
         ]
       },
       "superclass": "Document",
-      "members": ["4D.File.open"],
+      "members": [
+        "4D.File.open"
+      ],
       "summary": "A reference to a file on disk, whether or not it exists."
     },
-
     "FileHandle": {
       "id": "FileHandle",
       "displayName": "FileHandle",
@@ -209,7 +242,6 @@
       "members": [],
       "summary": "An open handle on a file, used for sequential reading and writing."
     },
-
     "SystemWorker": {
       "id": "SystemWorker",
       "displayName": "SystemWorker",
@@ -232,10 +264,11 @@
         ]
       },
       "superclass": null,
-      "members": ["4D.SystemWorker.new"],
+      "members": [
+        "4D.SystemWorker.new"
+      ],
       "summary": "An asynchronous wrapper around an external process."
     },
-
     "WebServer": {
       "id": "WebServer",
       "displayName": "WebServer",
@@ -259,10 +292,11 @@
       },
       "superclass": null,
       "isSingleton": true,
-      "members": ["4D.WebServer.isRunning"],
+      "members": [
+        "4D.WebServer.isRunning"
+      ],
       "summary": "The web server object; 41 members, overwhelmingly configuration properties."
     },
-
     "Session": {
       "id": "Session",
       "displayName": "Session",
@@ -285,10 +319,11 @@
         "requiresUseBlockForWrite": true,
         "note": ".storage is a shared object: any write must be wrapped in Use/End use."
       },
-      "members": ["4D.Session.storage"],
+      "members": [
+        "4D.Session.storage"
+      ],
       "summary": "A user or web session, shared across the processes that belong to it."
     },
-
     "Signal": {
       "id": "Signal",
       "displayName": "Signal",
@@ -309,10 +344,11 @@
         "requiresUseBlockForWrite": true,
         "note": "A Signal is a shared object; adding custom properties to it requires Use/End use."
       },
-      "members": ["4D.Signal.wait"],
+      "members": [
+        "4D.Signal.wait"
+      ],
       "summary": "A shared object used to synchronize 4D processes."
     },
-
     "Function": {
       "id": "Function",
       "displayName": "Function",
@@ -335,10 +371,12 @@
       },
       "superclass": null,
       "isAbstract": true,
-      "members": ["4D.Function.call", "4D.Function.apply"],
+      "members": [
+        "4D.Function.call",
+        "4D.Function.apply"
+      ],
       "summary": "An executable formula or method object. Base class of Formula and Method."
     },
-
     "Class": {
       "id": "Class",
       "displayName": "Class",
@@ -360,10 +398,12 @@
         ]
       },
       "superclass": null,
-      "members": ["4D.Class.me", "4D.Class.superclass"],
+      "members": [
+        "4D.Class.me",
+        "4D.Class.superclass"
+      ],
       "summary": "A class object, obtained from a class store or by reflection over an instance."
     },
-
     "cs.<DataClass>": {
       "id": "cs.<DataClass>",
       "displayName": "cs.<DataClass>",
@@ -388,7 +428,6 @@
       "summary": "Template for the ORDA generated dataclass family."
     }
   },
-
   "commands": [
     {
       "id": "Collection.length",
@@ -398,22 +437,30 @@
       "receiver": {
         "classId": "Collection",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "Collection" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "Collection"
+        }
       },
       "accessor": {
-        "type": { "kind": "concrete", "name": "Integer" },
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
         "readable": true,
         "writable": true,
         "computed": true,
-        "note": "Writable: assigning a larger value pads the collection with null elements; assigning a smaller one truncates it."
+        "note": "Writable: assigning a larger value pads the collection with null elements; assigning a smaller one truncates it.",
+        "rawSyntax": "**.length** : Integer"
       },
       "summary": "returns the number of elements in the collection",
-      "errorModel": { "style": "silent" },
+      "errorModel": {
+        "style": "silent"
+      },
       "constraints": [
         "Returns 0 for an empty collection; reading .length on a Null collection raises an error."
       ]
     },
-
     {
       "id": "Collection.query",
       "displayName": ".query",
@@ -422,7 +469,10 @@
       "receiver": {
         "classId": "Collection",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "Collection" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "Collection"
+        }
       },
       "summary": "returns all elements of a collection of objects that match the search conditions",
       "errorModel": {
@@ -437,12 +487,18 @@
           "params": [
             {
               "name": "queryString",
-              "type": { "kind": "subgrammar_ref", "grammar": "Collection query string" },
+              "type": {
+                "kind": "subgrammar_ref",
+                "grammar": "Collection query string"
+              },
               "direction": "in",
               "description": "Search criteria"
             }
           ],
-          "returns": { "kind": "concrete", "name": "Collection" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          }
         },
         {
           "rawSyntax": "**.query**( *queryString* : Text ; *...value* : any ) : Collection",
@@ -454,7 +510,10 @@
           "params": [
             {
               "name": "queryString",
-              "type": { "kind": "subgrammar_ref", "grammar": "Collection query string" },
+              "type": {
+                "kind": "subgrammar_ref",
+                "grammar": "Collection query string"
+              },
               "direction": "in",
               "description": "Search criteria containing :N placeholders"
             },
@@ -463,19 +522,31 @@
               "members": [
                 {
                   "name": "value",
-                  "type": { "kind": "pseudo", "name": "any" },
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "any"
+                  },
                   "direction": "in",
                   "description": "Value(s) to compare when using placeholder(s)"
                 }
               ],
-              "cardinality": { "min": 1, "max": null },
+              "cardinality": {
+                "min": 1,
+                "max": null
+              },
               "position": "trailing"
             }
           ],
-          "returns": { "kind": "concrete", "name": "Collection" },
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
           "jointConstraints": [
             {
-              "params": ["queryString", "value"],
+              "params": [
+                "queryString",
+                "value"
+              ],
               "rule": "The number of trailing values must equal the highest :N placeholder index used in queryString."
             }
           ]
@@ -491,22 +562,30 @@
           "params": [
             {
               "name": "queryString",
-              "type": { "kind": "subgrammar_ref", "grammar": "Collection query string" },
+              "type": {
+                "kind": "subgrammar_ref",
+                "grammar": "Collection query string"
+              },
               "direction": "in",
               "description": "Search criteria containing :name placeholders"
             },
             {
               "name": "querySettings",
-              "type": { "kind": "concrete", "name": "Object" },
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
               "direction": "in",
               "description": "Query options: parameters, attributes"
             }
           ],
-          "returns": { "kind": "concrete", "name": "Collection" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          }
         }
       ]
     },
-
     {
       "id": "Collection.orderBy",
       "displayName": ".orderBy",
@@ -515,16 +594,25 @@
       "receiver": {
         "classId": "Collection",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "Collection" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "Collection"
+        }
       },
       "summary": "returns a new collection containing all elements of the collection in the specified order",
-      "errorModel": { "style": "throws", "catchableWith": "try/catch" },
+      "errorModel": {
+        "style": "throws",
+        "catchableWith": "try/catch"
+      },
       "overloads": [
         {
           "rawSyntax": "**.orderBy**( ) : Collection",
           "semanticRole": "order a collection of scalars ascending",
           "params": [],
-          "returns": { "kind": "concrete", "name": "Collection" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          }
         },
         {
           "rawSyntax": "**.orderBy**( *pathStrings* : Text ) : Collection",
@@ -533,12 +621,18 @@
           "params": [
             {
               "name": "pathStrings",
-              "type": { "kind": "subgrammar_ref", "grammar": "Collection order-by string" },
+              "type": {
+                "kind": "subgrammar_ref",
+                "grammar": "Collection order-by string"
+              },
               "direction": "in",
               "description": "Property path(s) on which to order the collection"
             }
           ],
-          "returns": { "kind": "concrete", "name": "Collection" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          }
         },
         {
           "rawSyntax": "**.orderBy**( *pathObjects* : Collection ) : Collection",
@@ -547,12 +641,18 @@
           "params": [
             {
               "name": "pathObjects",
-              "type": { "kind": "concrete", "name": "Collection" },
+              "type": {
+                "kind": "concrete",
+                "name": "Collection"
+              },
               "direction": "in",
               "description": "Collection of criteria objects, each {propertyPath; descending}"
             }
           ],
-          "returns": { "kind": "concrete", "name": "Collection" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          }
         },
         {
           "rawSyntax": "**.orderBy**( *ascOrDesc* : Integer ) : Collection",
@@ -560,19 +660,24 @@
           "params": [
             {
               "name": "ascOrDesc",
-              "type": { "kind": "enum_ref", "enum": "Collection Order Direction" },
+              "type": {
+                "kind": "enum_ref",
+                "enum": "Collection Order Direction"
+              },
               "direction": "in",
               "description": "`ck ascending` or `ck descending` (scalar values)"
             }
           ],
-          "returns": { "kind": "concrete", "name": "Collection" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Collection"
+          }
         }
       ],
       "constraints": [
         "Returns a shallow copy: the returned collection shares element references with the original."
       ]
     },
-
     {
       "id": "4D.Entity.save",
       "displayName": ".save",
@@ -581,7 +686,10 @@
       "receiver": {
         "classId": "Entity",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.Entity" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Entity"
+        }
       },
       "summary": "saves the changes made to the entity",
       "errorModel": {
@@ -594,17 +702,26 @@
         "source": "API/EntityClass.html — .save() Description section",
         "properties": {
           "success": {
-            "type": { "kind": "concrete", "name": "Boolean" },
+            "type": {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
             "description": "True if the save succeeded."
           },
           "status": {
-            "type": { "kind": "concrete", "name": "Integer" },
+            "type": {
+              "kind": "concrete",
+              "name": "Integer"
+            },
             "description": "Error code; present only on failure.",
             "optional": true,
             "presentWhen": "success is False"
           },
           "statusText": {
-            "type": { "kind": "concrete", "name": "Text" },
+            "type": {
+              "kind": "concrete",
+              "name": "Text"
+            },
             "description": "Human-readable error message; present only on failure.",
             "optional": true,
             "presentWhen": "success is False"
@@ -617,17 +734,22 @@
           "params": [
             {
               "name": "mode",
-              "type": { "kind": "enum_ref", "enum": "Entity Save Mode" },
+              "type": {
+                "kind": "enum_ref",
+                "enum": "Entity Save Mode"
+              },
               "direction": "in",
               "optional": true,
               "description": "`dk auto merge`: Enables the automatic merge mode"
             }
           ],
-          "returns": { "kind": "concrete", "name": "Object" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Object"
+          }
         }
       ]
     },
-
     {
       "id": "4D.Entity.drop",
       "displayName": ".drop",
@@ -636,7 +758,10 @@
       "receiver": {
         "classId": "Entity",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.Entity" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Entity"
+        }
       },
       "summary": "deletes the data contained in the entity from the datastore",
       "errorModel": {
@@ -649,17 +774,26 @@
         "source": "API/EntityClass.html — .drop() Description section",
         "properties": {
           "success": {
-            "type": { "kind": "concrete", "name": "Boolean" },
+            "type": {
+              "kind": "concrete",
+              "name": "Boolean"
+            },
             "description": "True if the drop succeeded."
           },
           "status": {
-            "type": { "kind": "concrete", "name": "Integer" },
+            "type": {
+              "kind": "concrete",
+              "name": "Integer"
+            },
             "description": "Error code; present only on failure.",
             "optional": true,
             "presentWhen": "success is False"
           },
           "statusText": {
-            "type": { "kind": "concrete", "name": "Text" },
+            "type": {
+              "kind": "concrete",
+              "name": "Text"
+            },
             "description": "Human-readable error message; present only on failure.",
             "optional": true,
             "presentWhen": "success is False"
@@ -672,17 +806,22 @@
           "params": [
             {
               "name": "mode",
-              "type": { "kind": "enum_ref", "enum": "Entity Drop Mode" },
+              "type": {
+                "kind": "enum_ref",
+                "enum": "Entity Drop Mode"
+              },
               "direction": "in",
               "optional": true,
               "description": "`dk force drop if stamp changed`: Forces the drop even if the stamp has changed"
             }
           ],
-          "returns": { "kind": "concrete", "name": "Object" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Object"
+          }
         }
       ]
     },
-
     {
       "id": "4D.EntitySelection.query",
       "displayName": ".query",
@@ -691,10 +830,16 @@
       "receiver": {
         "classId": "EntitySelection",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.EntitySelection" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.EntitySelection"
+        }
       },
       "summary": "searches for entities that meet the search criteria among all the entities in the entity selection",
-      "errorModel": { "style": "throws", "catchableWith": "try/catch" },
+      "errorModel": {
+        "style": "throws",
+        "catchableWith": "try/catch"
+      },
       "overloads": [
         {
           "rawSyntax": "**.query**( *queryString* : Text { ; *...value* : any } { ; *querySettings* : Object } ) : 4D.EntitySelection ",
@@ -702,7 +847,10 @@
           "params": [
             {
               "name": "queryString",
-              "type": { "kind": "subgrammar_ref", "grammar": "ORDA query string" },
+              "type": {
+                "kind": "subgrammar_ref",
+                "grammar": "ORDA query string"
+              },
               "direction": "in",
               "description": "Search criteria as string"
             },
@@ -711,32 +859,50 @@
               "members": [
                 {
                   "name": "value",
-                  "type": { "kind": "pseudo", "name": "any" },
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "any"
+                  },
                   "direction": "in",
                   "description": "Value(s) to use for indexed placeholder(s)"
                 }
               ],
-              "cardinality": { "min": 0, "max": null },
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
               "position": "embedded"
             },
             {
               "name": "querySettings",
-              "type": { "kind": "concrete", "name": "Object" },
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
               "direction": "in",
               "optional": true,
               "description": "Query options: parameters, attributes, args, allowFormulas, context, queryPath, queryPlan"
             }
           ],
-          "returns": { "kind": "concrete", "name": "4D.EntitySelection" },
+          "returns": {
+            "kind": "concrete",
+            "name": "4D.EntitySelection"
+          },
           "jointConstraints": [
             {
-              "params": ["queryString", "value"],
+              "params": [
+                "queryString",
+                "value"
+              ],
               "rule": "Positional values fill the :N placeholders in order; named :name placeholders are resolved from querySettings.parameters instead."
             }
           ],
           "interactionNotes": [
             {
-              "params": ["queryString", "querySettings"],
+              "params": [
+                "queryString",
+                "querySettings"
+              ],
               "note": "querySettings.allowFormulas: False rejects a queryString containing a formula, which is the safe default for a query string built from user input."
             }
           ]
@@ -751,23 +917,31 @@
           "params": [
             {
               "name": "formula",
-              "type": { "kind": "concrete", "name": "4D.Function" },
+              "type": {
+                "kind": "concrete",
+                "name": "4D.Function"
+              },
               "direction": "in",
               "description": "Search criteria as formula object"
             },
             {
               "name": "querySettings",
-              "type": { "kind": "concrete", "name": "Object" },
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
               "direction": "in",
               "optional": true,
               "description": "Query options: args, context, queryPath, queryPlan"
             }
           ],
-          "returns": { "kind": "concrete", "name": "4D.EntitySelection" }
+          "returns": {
+            "kind": "concrete",
+            "name": "4D.EntitySelection"
+          }
         }
       ]
     },
-
     {
       "id": "4D.File.open",
       "displayName": ".open",
@@ -776,7 +950,10 @@
       "receiver": {
         "classId": "File",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.File" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.File"
+        }
       },
       "summary": "creates and returns a new 4D.FileHandle object on the file",
       "errorModel": {
@@ -784,7 +961,12 @@
         "catchableWith": "try/catch",
         "note": "Raises an error if the file does not exist and the mode is not one that creates it."
       },
-      "handleRoles": [{ "handleType": "4D.FileHandle", "role": "produces" }],
+      "handleRoles": [
+        {
+          "handleType": "4D.FileHandle",
+          "role": "produces"
+        }
+      ],
       "overloads": [
         {
           "rawSyntax": "**.open**( { *mode* : Text } ) : 4D.FileHandle",
@@ -794,7 +976,11 @@
               "name": "mode",
               "type": {
                 "kind": "literal_symbols",
-                "symbols": ["read", "write", "append"],
+                "symbols": [
+                  "read",
+                  "write",
+                  "append"
+                ],
                 "meanings": {
                   "read": "Read-only; the file must exist.",
                   "write": "Write; truncates existing content, creates the file if absent.",
@@ -807,7 +993,10 @@
               "description": "Opening mode"
             }
           ],
-          "returns": { "kind": "concrete", "name": "4D.FileHandle" }
+          "returns": {
+            "kind": "concrete",
+            "name": "4D.FileHandle"
+          }
         },
         {
           "rawSyntax": "**.open**( { *options* : Object } ) : 4D.FileHandle",
@@ -820,17 +1009,22 @@
           "params": [
             {
               "name": "options",
-              "type": { "kind": "concrete", "name": "Object" },
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
               "direction": "in",
               "optional": true,
               "description": "Opening options (mode, charset, breakModeRead, breakModeWrite)"
             }
           ],
-          "returns": { "kind": "concrete", "name": "4D.FileHandle" }
+          "returns": {
+            "kind": "concrete",
+            "name": "4D.FileHandle"
+          }
         }
       ]
     },
-
     {
       "id": "4D.SystemWorker.new",
       "displayName": "4D.SystemWorker.new",
@@ -839,7 +1033,10 @@
       "receiver": {
         "classId": "SystemWorker",
         "kind": "class",
-        "typeRef": { "kind": "concrete", "name": "4D.SystemWorker" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.SystemWorker"
+        }
       },
       "summary": "creates and returns a 4D.SystemWorker object that will execute the commandLine passed as parameter",
       "errorModel": {
@@ -853,19 +1050,28 @@
           "params": [
             {
               "name": "commandLine",
-              "type": { "kind": "concrete", "name": "Text" },
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
               "direction": "in",
               "description": "Command line to execute"
             },
             {
               "name": "options",
-              "type": { "kind": "concrete", "name": "Object" },
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
               "direction": "in",
               "optional": true,
               "description": "Worker parameters, including the onData / onError / onTerminate callbacks"
             }
           ],
-          "returns": { "kind": "concrete", "name": "4D.SystemWorker" },
+          "returns": {
+            "kind": "concrete",
+            "name": "4D.SystemWorker"
+          },
           "returnsNullable": true
         }
       ],
@@ -873,7 +1079,6 @@
         "The `options` parameter is written without markdown italics in the source Syntax string — a documentation formatting artifact, not a different parameter kind."
       ]
     },
-
     {
       "id": "4D.WebServer.isRunning",
       "displayName": ".isRunning",
@@ -882,19 +1087,27 @@
       "receiver": {
         "classId": "WebServer",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.WebServer" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.WebServer"
+        }
       },
       "accessor": {
-        "type": { "kind": "concrete", "name": "Boolean" },
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
         "readable": true,
         "writable": false,
         "computed": true,
-        "note": "Read-only live state. Most of WebServer's other 40 members are read/write configuration properties, settable only while the server is stopped."
+        "note": "Read-only live state. Most of WebServer's other 40 members are read/write configuration properties, settable only while the server is stopped.",
+        "rawSyntax": "**.isRunning** : Boolean"
       },
       "summary": "True if the web server is running",
-      "errorModel": { "style": "silent" }
+      "errorModel": {
+        "style": "silent"
+      }
     },
-
     {
       "id": "4D.Session.storage",
       "displayName": ".storage",
@@ -903,14 +1116,21 @@
       "receiver": {
         "classId": "Session",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.Session" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Session"
+        }
       },
       "accessor": {
-        "type": { "kind": "concrete", "name": "Object" },
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
         "readable": true,
         "writable": false,
         "computed": false,
-        "note": "The property itself cannot be reassigned; its contents are mutated inside a Use/End use block because the object is shared."
+        "note": "The property itself cannot be reassigned; its contents are mutated inside a Use/End use block because the object is shared.",
+        "rawSyntax": "**.storage** : Object"
       },
       "summary": "a shared object that can be used to store information available to all processes of the session",
       "errorModel": {
@@ -921,7 +1141,6 @@
         "Every write to a property of .storage must be wrapped in Use(Session.storage) ... End use."
       ]
     },
-
     {
       "id": "4D.Signal.wait",
       "displayName": ".wait",
@@ -930,24 +1149,35 @@
       "receiver": {
         "classId": "Signal",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.Signal" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Signal"
+        }
       },
       "summary": "waits until the .signaled property becomes true or the timeout is reached",
-      "errorModel": { "style": "silent" },
+      "errorModel": {
+        "style": "silent"
+      },
       "overloads": [
         {
           "rawSyntax": "**.wait**( { *timeout* : Real } ) : Boolean",
           "params": [
             {
               "name": "timeout",
-              "type": { "kind": "concrete", "name": "Real" },
+              "type": {
+                "kind": "concrete",
+                "name": "Real"
+              },
               "direction": "in",
               "optional": true,
               "description": "Maximum wait time in seconds",
               "blocksOnOmission": true
             }
           ],
-          "returns": { "kind": "concrete", "name": "Boolean" }
+          "returns": {
+            "kind": "concrete",
+            "name": "Boolean"
+          }
         }
       ],
       "constraints": [
@@ -955,7 +1185,6 @@
         "Must not be called from the main process of a 4D application, which would freeze the UI."
       ]
     },
-
     {
       "id": "4D.Function.call",
       "displayName": ".call",
@@ -964,7 +1193,10 @@
       "receiver": {
         "classId": "Function",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.Function" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Function"
+        }
       },
       "summary": "executes the function object with parameters passed directly, and returns the resulting value",
       "errorModel": {
@@ -977,7 +1209,10 @@
           "rawSyntax": "**.call**() : any",
           "semanticRole": "call with no This object and no parameters",
           "params": [],
-          "returns": { "kind": "pseudo", "name": "any" }
+          "returns": {
+            "kind": "pseudo",
+            "name": "any"
+          }
         },
         {
           "rawSyntax": "**.call**( *thisObj* : Object { ; *...params* : any } ) : any",
@@ -985,7 +1220,10 @@
           "params": [
             {
               "name": "thisObj",
-              "type": { "kind": "concrete", "name": "Object" },
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
               "direction": "in",
               "description": "Object to be returned by the `This` command in the function"
             },
@@ -994,21 +1232,29 @@
               "members": [
                 {
                   "name": "param",
-                  "type": { "kind": "pseudo", "name": "any" },
+                  "type": {
+                    "kind": "pseudo",
+                    "name": "any"
+                  },
                   "direction": "in",
                   "description": "Value passed as a parameter to the function"
                 }
               ],
-              "cardinality": { "min": 0, "max": null },
+              "cardinality": {
+                "min": 0,
+                "max": null
+              },
               "position": "trailing"
             }
           ],
-          "returns": { "kind": "pseudo", "name": "any" },
+          "returns": {
+            "kind": "pseudo",
+            "name": "any"
+          },
           "returnsNullable": true
         }
       ]
     },
-
     {
       "id": "4D.Function.apply",
       "displayName": ".apply",
@@ -1017,16 +1263,25 @@
       "receiver": {
         "classId": "Function",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.Function" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Function"
+        }
       },
       "summary": "executes the function object, passing parameters as a collection, and returns the resulting value",
-      "errorModel": { "style": "throws", "catchableWith": "try/catch" },
+      "errorModel": {
+        "style": "throws",
+        "catchableWith": "try/catch"
+      },
       "overloads": [
         {
           "rawSyntax": "**.apply**() : any",
           "semanticRole": "call with no This object and no parameters",
           "params": [],
-          "returns": { "kind": "pseudo", "name": "any" }
+          "returns": {
+            "kind": "pseudo",
+            "name": "any"
+          }
         },
         {
           "rawSyntax": "**.apply**( *thisObj* : Object { ; *params* : Collection } ) : any",
@@ -1035,24 +1290,32 @@
           "params": [
             {
               "name": "thisObj",
-              "type": { "kind": "concrete", "name": "Object" },
+              "type": {
+                "kind": "concrete",
+                "name": "Object"
+              },
               "direction": "in",
               "description": "Object to be returned by the `This` command in the function"
             },
             {
               "name": "params",
-              "type": { "kind": "concrete", "name": "Collection" },
+              "type": {
+                "kind": "concrete",
+                "name": "Collection"
+              },
               "direction": "in",
               "optional": true,
               "description": "Collection of values to be passed as parameters to the function"
             }
           ],
-          "returns": { "kind": "pseudo", "name": "any" },
+          "returns": {
+            "kind": "pseudo",
+            "name": "any"
+          },
           "returnsNullable": true
         }
       ]
     },
-
     {
       "id": "4D.Class.me",
       "displayName": ".me",
@@ -1061,23 +1324,31 @@
       "receiver": {
         "classId": "Class",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.Class" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Class"
+        }
       },
       "accessor": {
-        "type": { "kind": "concrete", "name": "4D.Object" },
+        "type": {
+          "kind": "concrete",
+          "name": "4D.Object"
+        },
         "readable": true,
         "writable": false,
         "computed": true,
         "nullable": true,
-        "note": "Instantiates the singleton on first access. Null when the class is not declared as a singleton."
+        "note": "Instantiates the singleton on first access. Null when the class is not declared as a singleton.",
+        "rawSyntax": "**.me** : 4D.Object"
       },
       "summary": "returns the singleton instance of the cs.className singleton class",
-      "errorModel": { "style": "returns_null" },
+      "errorModel": {
+        "style": "returns_null"
+      },
       "constraints": [
         "Only meaningful on a class declared with the `singleton` keyword; reading it on a non-singleton class returns Null."
       ]
     },
-
     {
       "id": "4D.Class.superclass",
       "displayName": ".superclass",
@@ -1086,76 +1357,128 @@
       "receiver": {
         "classId": "Class",
         "kind": "instance",
-        "typeRef": { "kind": "concrete", "name": "4D.Class" }
+        "typeRef": {
+          "kind": "concrete",
+          "name": "4D.Class"
+        }
       },
       "accessor": {
-        "type": { "kind": "concrete", "name": "4D.Class" },
+        "type": {
+          "kind": "concrete",
+          "name": "4D.Class"
+        },
         "readable": true,
         "writable": false,
         "computed": true,
         "nullable": true,
-        "note": "Null for a class with no declared parent."
+        "note": "Null for a class with no declared parent.",
+        "rawSyntax": "**.superclass** : 4D.Class"
       },
       "summary": "returns the parent class of the class",
-      "errorModel": { "style": "returns_null" }
+      "errorModel": {
+        "style": "returns_null"
+      }
     }
   ],
-
   "relationships": [
     {
       "type": "member_of",
-      "from": { "command": "Collection.query" },
-      "to": { "classId": "Collection" }
+      "from": {
+        "command": "Collection.query"
+      },
+      "to": {
+        "classId": "Collection"
+      }
     },
     {
       "type": "member_of",
-      "from": { "command": "4D.Entity.save" },
-      "to": { "classId": "Entity" }
+      "from": {
+        "command": "4D.Entity.save"
+      },
+      "to": {
+        "classId": "Entity"
+      }
     },
     {
       "type": "obtained_via",
-      "from": { "classId": "FileHandle" },
-      "to": { "command": "4D.File.open" },
+      "from": {
+        "classId": "FileHandle"
+      },
+      "to": {
+        "command": "4D.File.open"
+      },
       "note": "A 4D.FileHandle can only be obtained by calling .open() on a 4D.File."
     },
     {
       "type": "returns_instance_of",
-      "from": { "command": "4D.File.open" },
-      "to": { "classId": "FileHandle" }
+      "from": {
+        "command": "4D.File.open"
+      },
+      "to": {
+        "classId": "FileHandle"
+      }
     },
     {
       "type": "returns_instance_of",
-      "from": { "command": "4D.SystemWorker.new" },
-      "to": { "classId": "SystemWorker" }
+      "from": {
+        "command": "4D.SystemWorker.new"
+      },
+      "to": {
+        "classId": "SystemWorker"
+      }
     },
     {
       "type": "equivalent_overloads",
-      "from": { "command": "Collection.orderBy", "overloadIndex": 1 },
-      "to": { "command": "Collection.orderBy", "overloadIndex": 2 },
+      "from": {
+        "command": "Collection.orderBy",
+        "overloadIndex": 1
+      },
+      "to": {
+        "command": "Collection.orderBy",
+        "overloadIndex": 2
+      },
       "note": "The compact string DSL and the collection-of-criteria-objects form express the same ordering intent."
     },
     {
       "type": "equivalent_overloads",
-      "from": { "command": "4D.File.open", "overloadIndex": 0 },
-      "to": { "command": "4D.File.open", "overloadIndex": 1 },
+      "from": {
+        "command": "4D.File.open",
+        "overloadIndex": 0
+      },
+      "to": {
+        "command": "4D.File.open",
+        "overloadIndex": 1
+      },
       "note": "The mode keyword is the shorthand for an options object carrying only `mode`."
     },
     {
       "type": "same_mechanism_family",
-      "from": { "command": "Collection.query" },
-      "to": { "command": "4D.EntitySelection.query" },
+      "from": {
+        "command": "Collection.query"
+      },
+      "to": {
+        "command": "4D.EntitySelection.query"
+      },
       "note": "Both use 4D's placeholder query grammar, over collection elements and over entities respectively."
     },
     {
       "type": "diff_from",
-      "from": { "command": "4D.Function.apply" },
-      "to": { "command": "4D.Function.call" },
+      "from": {
+        "command": "4D.Function.apply"
+      },
+      "to": {
+        "command": "4D.Function.call"
+      },
       "note": ".apply() takes its parameters gathered in a Collection; .call() takes them positionally. Otherwise identical."
     },
     {
       "type": "classic_equivalent",
-      "from": { "command": "4D.File.open" },
-      "to": { "command": "Open-document" },
+      "from": {
+        "command": "4D.File.open"
+      },
+      "to": {
+        "command": "Open-document"
+      },
       "note": "The OOP file-handle mechanism supersedes the classic document-reference commands for new code."
     }
   ]

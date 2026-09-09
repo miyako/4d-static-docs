@@ -20,6 +20,7 @@
       "name": "4D.Folder"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**.currentDirectory** : 4D.Folder"
   }
 }

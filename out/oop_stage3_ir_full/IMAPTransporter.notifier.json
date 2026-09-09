@@ -20,6 +20,7 @@
       "name": "4D.IMAPNotifier"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.notifier** : 4D.IMAPNotifier"
   }
 }

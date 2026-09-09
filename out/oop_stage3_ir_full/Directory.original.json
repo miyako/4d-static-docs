@@ -20,7 +20,8 @@
       "name": "4D.Folder"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.original** : 4D.Folder"
   },
   "sinceVersion": "17-R5"
 }

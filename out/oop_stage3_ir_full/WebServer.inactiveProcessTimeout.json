@@ -20,6 +20,7 @@
       "name": "Integer"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**.inactiveProcessTimeout** : Integer"
   }
 }

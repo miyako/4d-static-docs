@@ -20,7 +20,8 @@
       "name": "4D.Class"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.superclass** : 4D.Class"
   },
   "errorModel": {
     "style": "returns_null"

@@ -20,6 +20,7 @@
       "name": "Blob"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**data** : Blob"
   }
 }

@@ -20,6 +20,7 @@
       "name": "Boolean"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**returnResponseBody** : Boolean"
   }
 }

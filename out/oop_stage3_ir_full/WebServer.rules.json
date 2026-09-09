@@ -20,7 +20,8 @@
       "name": "Collection"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.rules** : Collection"
   },
   "sinceVersion": "21"
 }

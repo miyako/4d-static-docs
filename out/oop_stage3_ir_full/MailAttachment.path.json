@@ -20,6 +20,7 @@
       "name": "Text"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**.path** : Text"
   }
 }

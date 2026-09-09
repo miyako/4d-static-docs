@@ -20,7 +20,8 @@
       "name": "Real"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**.offset** : Real"
   },
   "sinceVersion": "19-R7"
 }

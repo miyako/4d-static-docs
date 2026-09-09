@@ -20,6 +20,7 @@
       "name": "Object"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**headers** : Object"
   }
 }

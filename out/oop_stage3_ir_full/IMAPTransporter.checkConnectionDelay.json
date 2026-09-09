@@ -20,7 +20,8 @@
       "name": "Integer"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**.checkConnectionDelay** : Integer"
   },
   "sinceVersion": "18-R4"
 }

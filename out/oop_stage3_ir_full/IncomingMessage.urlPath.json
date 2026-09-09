@@ -20,6 +20,7 @@
       "name": "Collection"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**urlPath** : Collection"
   }
 }

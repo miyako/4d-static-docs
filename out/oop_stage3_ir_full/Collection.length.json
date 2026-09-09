@@ -20,7 +20,8 @@
       "name": "Integer"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.length** : Integer"
   },
   "sinceVersion": "16-R5"
 }

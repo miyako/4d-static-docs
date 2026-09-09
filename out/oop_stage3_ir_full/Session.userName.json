@@ -20,7 +20,8 @@
       "name": "Text"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.userName** : Text"
   },
   "sinceVersion": "18-R6",
   "versionBehaviorChanges": [

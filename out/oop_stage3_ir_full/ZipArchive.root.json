@@ -20,6 +20,7 @@
       "name": "4D.ZipFolder"
     },
     "readable": true,
-    "writable": false
+    "writable": false,
+    "rawSyntax": "**.root** : 4D.ZipFolder"
   }
 }

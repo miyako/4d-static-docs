@@ -20,7 +20,8 @@
       "name": "Text"
     },
     "readable": true,
-    "writable": true
+    "writable": true,
+    "rawSyntax": "**.platformPath** : Text"
   },
   "sinceVersion": "19"
 }
