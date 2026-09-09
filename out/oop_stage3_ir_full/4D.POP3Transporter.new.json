@@ -1,0 +1,38 @@
+{
+  "id": "4D.POP3Transporter.new",
+  "displayName": "4D.POP3Transporter.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "POP3Transporter",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.POP3Transporter"
+    }
+  },
+  "summary": "Creates and returns a new object of the `4D.POP3Transporter` type",
+  "description": "The 4D.POP3Transporter.new() function creates and returns a new object of the 4D.POP3Transporter type. It is identical to the POP3 New transporter command (shortcut).",
+  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "server",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Mail server information"
+        }
+      ],
+      "rawSyntax": "**4D.POP3Transporter.new**( *server* : Object ) : 4D.POP3Transporter",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.POP3Transporter"
+      }
+    }
+  ]
+}

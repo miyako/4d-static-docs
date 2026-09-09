@@ -1,0 +1,27 @@
+{
+  "id": "Method.name",
+  "displayName": "Method.name",
+  "kind": "oop_property",
+  "memberName": ".name",
+  "receiver": {
+    "classId": "Method",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Method"
+    }
+  },
+  "summary": "Contains the name of the `4D.Method` object, if it was declared in the *name* parameter of the `new()` constructor",
+  "description": "The .name property contains the name of the 4D.Method object, if it was declared in the name parameter of the new() constructor. Otherwise, the property is not returned.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/MethodClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.name** : Text"
+  },
+  "sinceVersion": "21-R3"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "Entity.getSelection",
+  "displayName": "Entity.getSelection",
+  "kind": "oop_function",
+  "memberName": ".getSelection",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns the entity selection which the entity belongs to",
+  "description": "The .getSelection() function returns the entity selection which the entity belongs to.\n\nIf the entity does not belong to an entity selection, the function returns Null.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getSelection()**: 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "17"
+}

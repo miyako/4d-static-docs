@@ -1,0 +1,36 @@
+{
+  "id": "Email.cc",
+  "displayName": "Email.cc",
+  "kind": "oop_property",
+  "memberName": ".cc",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Carbon Copy (CC) additional email recipient addresse(s) of the email",
+  "description": "The .cc property contains the Carbon Copy (CC) additional email recipient addresse(s) of the email.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": [
+      {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    ],
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.cc** : Text<br/>**.cc** : Object<br/>**.cc** : Collection"
+  }
+}

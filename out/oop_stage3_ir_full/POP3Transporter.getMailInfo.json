@@ -1,0 +1,61 @@
+{
+  "id": "POP3Transporter.getMailInfo",
+  "displayName": "POP3Transporter.getMailInfo",
+  "kind": "oop_function",
+  "memberName": ".getMailInfo",
+  "receiver": {
+    "classId": "POP3Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "POP3Transporter"
+    }
+  },
+  "summary": "Returns a `mailInfo` object corresponding  corresponding to the *msgNumber* in the mailbox designated by the `POP3 transporter`",
+  "description": "The .getMailInfo() function returns a mailInfo object corresponding corresponding to the msgNumber in the mailbox designated by the POP3 transporter. This function allows you to retrieve information about the email.\n\nIn msgNumber, pass the number of the message to retrieve. This number is returned in the number property by the .getMailInfoList() method.\n\nThe mailInfo object returned contains the following properties:\n\nThe method returns Null if:\n\nmsgNumber designates a non-existing message, the message was marked for deletion using .delete( ).",
+  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msgNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the message in the list"
+        }
+      ],
+      "rawSyntax": "**.getMailInfo**( *msgNumber* : Integer ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "size": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Message size in bytes"
+      },
+      "id": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Unique ID of the message"
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "18-R2"
+}

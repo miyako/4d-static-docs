@@ -1,0 +1,39 @@
+{
+  "id": "Collection.count",
+  "displayName": "Collection.count",
+  "kind": "oop_function",
+  "memberName": ".count",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns the number of non-null elements in the collection",
+  "description": "The .count() function returns the number of non-null elements in the collection.\n\nIf the collection contains objects, you can pass the propertyPath parameter. In this case, only elements that contain the propertyPath are taken into account.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "propertyPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Object property path to be used for calculation"
+        }
+      ],
+      "rawSyntax": "**.count**( { *propertyPath* : Text } ) : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

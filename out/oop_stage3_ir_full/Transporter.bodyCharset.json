@@ -1,0 +1,33 @@
+{
+  "id": "Transporter.bodyCharset",
+  "displayName": "Transporter.bodyCharset",
+  "kind": "oop_property",
+  "memberName": ".bodyCharset",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The charset and encoding used for the body part of the email",
+  "description": "The .bodyCharset property contains the charset and encoding used for the body part of the email.\n\nPossible values:",
+  "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.bodyCharset** : Text"
+  },
+  "sinceVersion": "17-R5",
+  "versionBehaviorChanges": [
+    {
+      "release": "18",
+      "change": "Support for UTF8 base64"
+    }
+  ]
+}

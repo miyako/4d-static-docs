@@ -1,0 +1,26 @@
+{
+  "id": "HTTPAgent.freeSocketsCount",
+  "displayName": "HTTPAgent.freeSocketsCount",
+  "kind": "oop_property",
+  "memberName": ".freeSocketsCount",
+  "receiver": {
+    "classId": "HTTPAgent",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPAgent"
+    }
+  },
+  "summary": "The number of free sockets from `maxSockets` associated with the HTTPAgent",
+  "description": "The .freeSocketsCount property contains the number of free sockets from maxSockets associated with the HTTPAgent.",
+  "docPage": "mirror/docs/21-R3/API/HTTPAgentClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**freeSocketsCount** : Integer"
+  }
+}

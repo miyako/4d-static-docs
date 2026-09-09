@@ -1,0 +1,27 @@
+{
+  "id": "Directory.isFile",
+  "displayName": "Directory.isFile",
+  "kind": "oop_property",
+  "memberName": ".isFile",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "Always **false** for a folder",
+  "description": "The .isFile property returns always false for a folder.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.isFile** : Boolean"
+  },
+  "sinceVersion": "17-R5"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "WebFormItem.show",
+  "displayName": "WebFormItem.show",
+  "kind": "oop_function",
+  "memberName": ".show",
+  "receiver": {
+    "classId": "WebFormItem",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebFormItem"
+    }
+  },
+  "summary": "Makes the component visible",
+  "description": "The .show() function makes the component visible.If the component was already visible, the function does nothing.\n\nWeb Form Web Event WebForm class",
+  "docPage": "mirror/docs/21-R3/API/WebFormItemClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.show**()",
+      "returns": null
+    }
+  ]
+}

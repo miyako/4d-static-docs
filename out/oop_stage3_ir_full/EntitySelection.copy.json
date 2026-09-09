@@ -1,0 +1,39 @@
+{
+  "id": "EntitySelection.copy",
+  "displayName": "EntitySelection.copy",
+  "kind": "oop_function",
+  "memberName": ".copy",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns a copy of the original entity selection",
+  "description": "The .copy() function returns a copy of the original entity selection.\n\nThis function does not modify the original entity selection.\n\nBy default, if the option parameter is omitted, the function returns a new, alterable entity selection (even if the function is applied to a shareable entity selection). Pass the ck shared constant in the option parameter if you want to create a shareable entity selection.\n\nFor information on the shareable property of entity selections, please refer to the Shareable or alterable entity selections section.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.copy.option"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`ck shared`: return a shareable entity selection"
+        }
+      ],
+      "rawSyntax": "**.copy**( { *option* : Integer } ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "18-R5"
+}

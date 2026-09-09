@@ -1,0 +1,26 @@
+{
+  "id": "WebSocket.handler",
+  "displayName": "WebSocket.handler",
+  "kind": "oop_property",
+  "memberName": ".handler",
+  "receiver": {
+    "classId": "WebSocket",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocket"
+    }
+  },
+  "summary": "The accessor that gets the `connectionHandler` object used to initiate the connection",
+  "description": "The .handler property contains the accessor that gets the connectionHandler object used to initiate the connection.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.handler** : Object"
+  }
+}

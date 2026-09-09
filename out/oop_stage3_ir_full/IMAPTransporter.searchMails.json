@@ -1,0 +1,39 @@
+{
+  "id": "IMAPTransporter.searchMails",
+  "displayName": "IMAPTransporter.searchMails",
+  "kind": "oop_function",
+  "memberName": ".searchMails",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Searches for messages that match the given *searchCriteria* in the current mailbox",
+  "description": "This function is based upon the specification for the IMAP protocol.\n\nThe .searchMails() function searches for messages that match the given searchCriteria in the current mailbox. searchCriteria consists of one or more search keys.\n\nsearchCriteria is a text parameter listing one or more search keys (see Authorized search-keys below) associated or not with values to look for. A search key may be a single or multiple items. For example:\n\nMatching is usually not case-sensitive\n\nIf the searchCriteria is a null string, the search will be equivalent to a “select all”. If the searchCriteria includes multiple search keys, the result is the intersection (AND function) of all the messages that match those keys.\n\n... returns all messages with \\Flagged flag set AND sent by Smith.\n\nYou can use the OR or NOT operators as follows:\n\n... returns all messages with \\Seen flag set OR \\Flagged flag set\n\n... returns all messages with \\Seen flag not set.\n\n... returns message whose content-type header contains “Mixed” and does not contain “Text”.\n\n... returns message whose content-type header contains “ e ” and whose Subject header does not contain “ o ” and whose content-type header is not “ Mixed ”.\n\nAs concerns the last two examples, notice that the result of the search is different when you remove the parentheses of the first search key list.\n\nThe searchCriteria may include the optional [CHARSET] specification. This consists of the \"CHARSET\" word followed by a registered [CHARSET] (US ASCII, ISO-8859). It indicates the charset of the searchCriteria string. Therefore, you must convert the searchCriteria string into the specified charset if you use the [CHARSET] specification (see the CONVERT FROM TEXT or Convert to text commands). By default, 4D encodes in Quotable Printable the searchCriteria string if it contains extended characters.\n\n... means the search criteria uses the charset iso-8859 and the server will have to convert the search criteria before searching, if necessary.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "searchCriteria",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Search criteria"
+        }
+      ],
+      "rawSyntax": "**.searchMails**( *searchCriteria* : Text ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "18-R5"
+}

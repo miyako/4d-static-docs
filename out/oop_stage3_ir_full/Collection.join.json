@@ -1,0 +1,49 @@
+{
+  "id": "Collection.join",
+  "displayName": "Collection.join",
+  "kind": "oop_function",
+  "memberName": ".join",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Converts all elements of the collection to strings and concatenates them using the specified *delimiter* string as separator",
+  "description": "The .join() function converts all elements of the collection to strings and concatenates them using the specified delimiter string as separator.The function returns the resulting string.\n\nThis function does not modify the original collection.\n\nBy default, null or empty elements of the collection are returned in the resulting string. Pass the ck ignore null or empty constant in the option parameter if you want to remove them from the resulting string.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "delimiter",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Separator to use between elements"
+        },
+        {
+          "name": "option",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.join.option"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`ck ignore null or empty`: ignore null and empty strings in the result"
+        }
+      ],
+      "rawSyntax": "**.join**( *delimiter* : Text { ; *option* : Integer } ) : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

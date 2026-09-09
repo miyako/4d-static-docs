@@ -1,0 +1,26 @@
+{
+  "id": "IncomingMessage.urlQuery",
+  "displayName": "IncomingMessage.urlQuery",
+  "kind": "oop_property",
+  "memberName": ".urlQuery",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "The parameters of the request when they have been given in the URL as key/value pairs",
+  "description": "The .urlQuery property contains the parameters of the request when they have been given in the URL as key/value pairs.\n\nThe .urlQuery property is read-only.\n\nParameters can be passed in the URL of requests directly or as JSON contents.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**urlQuery** : Object"
+  }
+}

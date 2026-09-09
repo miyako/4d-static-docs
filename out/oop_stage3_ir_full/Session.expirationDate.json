@@ -1,0 +1,27 @@
+{
+  "id": "Session.expirationDate",
+  "displayName": "Session.expirationDate",
+  "kind": "oop_property",
+  "memberName": ".expirationDate",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "The expiration date and time of the session cookie",
+  "description": "The .expirationDate property contains the expiration date and time of the session cookie. The value is expressed as text in the ISO 8601 format: YYYY-MM-DDTHH:MM:SS.mmmZ.\n\nThis property is read-only. It is automatically recomputed if the .idleTimeout property value is modified.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.expirationDate** : Text"
+  },
+  "sinceVersion": "18-R6"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "HTTPRequest.errors",
+  "displayName": "HTTPRequest.errors",
+  "kind": "oop_property",
+  "memberName": ".errors",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "The collection of all the errors if at least one error has been triggered",
+  "description": "The .errors property contains the collection of all the errors if at least one error has been triggered.\n\nHere is the contents of the .errors property:",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Collection"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**errors** : Collection"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "IMAPTransporter.getBoxInfo",
+  "displayName": "IMAPTransporter.getBoxInfo",
+  "kind": "oop_function",
+  "memberName": ".getBoxInfo",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Returns a `boxInfo` object corresponding to the current maibox, or the mailbox *name*",
+  "description": "The .getBoxInfo() function returns a boxInfo object corresponding to the current maibox, or the mailbox name. This function returns the same information as .selectBox() without changing the current mailbox.\n\nIn the optional name parameter, pass the name of the mailbox to access. The name represents an unambiguous left-to-right hierarchy with levels separated by a specific delimiter character. The delimiter can be found with the .getDelimiter() function.\n\nIf the mailbox name is not selectable or does not exist, the function generates an error and returns null.\n\nReturned object\n\nThe boxInfo object returned contains the following properties:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the mailbox"
+        }
+      ],
+      "rawSyntax": "**.getBoxInfo**( { *name* : Text }) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "name": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Name of the mailbox"
+      },
+      "mailCount": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Number of messages in the mailbox"
+      },
+      "mailRecent": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Number of messages with the \"recent\" flag (indicating new messages)"
+      },
+      "id": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Unique id of the mailbox"
+      },
+      "mailUnseen": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Number of messages marked \"unseen\""
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "18-R4",
+  "versionBehaviorChanges": [
+    {
+      "release": "20",
+      "change": "id is returned"
+    },
+    {
+      "release": "18-R5",
+      "change": "name is optional"
+    }
+  ]
+}

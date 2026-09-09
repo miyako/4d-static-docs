@@ -1,0 +1,67 @@
+{
+  "id": "WebSocketConnection.send",
+  "displayName": "WebSocketConnection.send",
+  "kind": "oop_function",
+  "memberName": ".send",
+  "receiver": {
+    "classId": "WebSocketConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketConnection"
+    }
+  },
+  "summary": "Sends a *message* to the client",
+  "description": "The .send() function sends a message to the client.\n\nThe following contents are sent depending on the message type:",
+  "docPage": "mirror/docs/21-R3/API/WebSocketConnectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "The message to send"
+        }
+      ],
+      "rawSyntax": "**.send**( *message* : Text )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "The message to send"
+        }
+      ],
+      "rawSyntax": "**.send**( *message* : Blob )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "The message to send"
+        }
+      ],
+      "rawSyntax": "**.send**( *message* : Object )",
+      "returns": null
+    }
+  ]
+}

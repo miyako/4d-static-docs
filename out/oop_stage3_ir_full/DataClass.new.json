@@ -1,0 +1,28 @@
+{
+  "id": "DataClass.new",
+  "displayName": "DataClass.new",
+  "kind": "oop_function",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Creates in memory and returns a new blank entity related to the Dataclass",
+  "description": "The .new() function creates in memory and returns a new blank entity related to the Dataclass.\n\nThe entity object is created in memory and is not saved in the database until the .save( ) function is called. If the entity is deleted before being saved, it cannot be recovered.\n\n4D Server: In client-server, if the primary key of the corresponding table is auto-incremented, it will be calculated when the entity is saved on the server.\n\nAll attributes of the entity are initialized with the null value.\n\nAttributes can be initialized with default values if the Map NULL values to blank values option is selected at the 4D database structure level.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.new()** : 4D.Entity",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Entity"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.HTTPCompressionThreshold",
+  "displayName": "WebServer.HTTPCompressionThreshold",
+  "kind": "oop_property",
+  "memberName": ".HTTPCompressionThreshold",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Size threshold (bytes) for requests below which exchanges should not be compressed",
+  "description": "The size threshold (bytes) for requests below which exchanges should not be compressed. This setting is useful in order to avoid losing machine time by compressing small exchanges.\n\nDefault compression threshold = 1024 bytes",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.HTTPCompressionThreshold** : Integer"
+  }
+}

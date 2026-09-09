@@ -1,0 +1,27 @@
+{
+  "id": "Collection.length",
+  "displayName": "Collection.length",
+  "kind": "oop_property",
+  "memberName": ".length",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns the number of elements in the collection",
+  "description": "The .length property returns the number of elements in the collection.\n\nThe .length property is initialized when the collection is created. Adding or removing elements updates the length, if necessary. This property is read-only (you cannot use it to set the size of the collection).",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.length** : Integer"
+  },
+  "sinceVersion": "16-R5"
+}

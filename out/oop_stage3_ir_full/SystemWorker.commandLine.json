@@ -1,0 +1,26 @@
+{
+  "id": "SystemWorker.commandLine",
+  "displayName": "SystemWorker.commandLine",
+  "kind": "oop_property",
+  "memberName": ".commandLine",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Contains the command line passed as parameter to the `new()` function",
+  "description": "The .commandLine property contains the command line passed as parameter to the new() function.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.commandLine** : Text"
+  }
+}

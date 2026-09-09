@@ -1,0 +1,61 @@
+{
+  "id": "IMAPTransporter.addFlags",
+  "displayName": "IMAPTransporter.addFlags",
+  "kind": "oop_function",
+  "memberName": ".addFlags",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Adds flags to the `msgIDs` for the specified `keywords`",
+  "description": "The .addFlags() function adds flags to the msgIDs for the specified keywords.\n\nIn the msgIDs parameter, you can pass either:\n\na collection containing the unique IDs of specific messages or the unique ID (text) of a single message or the following constant (longint) for all messages in the selected mailbox:\n\nThe keywords parameter lets you define the flags to add to msgIDs. You can use the following standard flags as well as custom flags (custom flags support depends on the server implementation):\n\nThe custom flags names must respect this rule: the keyword must be a case-insensitive string excluding control chars and space and can not include any of these characters: ( ) { ] % * \" \\\n\nFor a keyword to be taken into account it has to be true. The interpretation of keyword flags may vary per mail client.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msgIDs",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of strings: Message unique IDs (text)<br/>Text: Unique ID of a message<br/>Longint (IMAP all): All messages in the selected mailbox Collection of strings: Message unique IDs (text)Text: Unique ID of a messageLongint (IMAP all): All messages in the selected mailbox"
+        },
+        {
+          "name": "keywords",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Keyword flags to add"
+        }
+      ],
+      "rawSyntax": "**.addFlags**( *msgIDs* : any ; *keywords* :  Object ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "20",
+      "change": "Supports custom keywords"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": ".removeFlags()",
+      "href": "IMAPTransporterClass.html#removeflags"
+    }
+  ]
+}

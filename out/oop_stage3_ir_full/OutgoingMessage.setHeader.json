@@ -1,0 +1,45 @@
+{
+  "id": "OutgoingMessage.setHeader",
+  "displayName": "OutgoingMessage.setHeader",
+  "kind": "oop_function",
+  "memberName": ".setHeader",
+  "receiver": {
+    "classId": "OutgoingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "OutgoingMessage"
+    }
+  },
+  "summary": "Sets the outgoing message header *key* with the provided *value*",
+  "description": "The .setHeader() function sets the outgoing message header key with the provided value. If both parameters are not Text values, an error is raised.\n\nWhen returning a 4D.OutgoingMessage object instance, 4D automatically sets some headers (e.g. Set-Cookie with 4DSID__ProjectName_=....).",
+  "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "key",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Header property to set"
+        },
+        {
+          "name": "value",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Value of the header property"
+        }
+      ],
+      "rawSyntax": "**.setHeader**( *key* : Text ; *value* : Text )",
+      "returns": null
+    }
+  ]
+}

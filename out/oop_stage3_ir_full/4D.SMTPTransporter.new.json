@@ -1,0 +1,38 @@
+{
+  "id": "4D.SMTPTransporter.new",
+  "displayName": "4D.SMTPTransporter.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "SMTPTransporter",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.SMTPTransporter"
+    }
+  },
+  "summary": "Creates and returns a new object of the `4D.SMTPTransporter` type",
+  "description": "The 4D.SMTPTransporter.new() function creates and returns a new object of the 4D.SMTPTransporter type. It is identical to the SMTP New transporter command (shortcut).",
+  "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "server",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Mail server information"
+        }
+      ],
+      "rawSyntax": "**4D.SMTPTransporter.new**( *server* : Object ) : 4D.SMTPTransporter",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.SMTPTransporter"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "POP3Transporter.getMIMEAsBlob",
+  "displayName": "POP3Transporter.getMIMEAsBlob",
+  "kind": "oop_function",
+  "memberName": ".getMIMEAsBlob",
+  "receiver": {
+    "classId": "POP3Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "POP3Transporter"
+    }
+  },
+  "summary": "Returns a BLOB containing the MIME contents for the message corresponding to the *msgNumber* in the mailbox designated by the `POP3_transporter`",
+  "description": "The .getMIMEAsBlob() function returns a BLOB containing the MIME contents for the message corresponding to the msgNumber in the mailbox designated by the POP3_transporter.\n\nIn msgNumber, pass the number of the message to retrieve. This number is returned in the number property by the .getMailInfoList() method.\n\nThe method returns an empty BLOB if:\n\nmsgNumber designates a non-existing message, the message was marked for deletion using .delete().\n\nReturned BLOB\n\n.getMIMEAsBlob() returns a BLOB which can be archived in a database or converted to an Email object with the MAIL Convert from MIME command.",
+  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msgNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Number of the message in the list"
+        }
+      ],
+      "rawSyntax": "**.getMIMEAsBlob**( *msgNumber* : Integer ) : Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "Blob"
+      }
+    }
+  ],
+  "sinceVersion": "18-R3"
+}

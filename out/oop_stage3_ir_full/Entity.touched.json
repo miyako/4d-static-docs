@@ -1,0 +1,28 @@
+{
+  "id": "Entity.touched",
+  "displayName": "Entity.touched",
+  "kind": "oop_function",
+  "memberName": ".touched",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns True if at least one entity attribute has been modified since the entity was loaded into memory or saved",
+  "description": "The .touched() function returns True if at least one entity attribute has been modified since the entity was loaded into memory or saved. You can use this function to determine if you need to save the entity.\n\nThis only applies to attributes of kind \"storage\" or \"relatedEntity\".\n\nFor a new entity that has just been created (with .new()), the function returns False. However in this context, if you access an attribute whose autoFilled property is True, the .touched() function will then return True. For example, after you execute $id:=ds.Employee.ID for a new entity (assuming the ID attribute has the \"Autoincrement\" property), .touched() returns True.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.touched()** : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

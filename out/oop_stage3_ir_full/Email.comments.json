@@ -1,0 +1,26 @@
+{
+  "id": "Email.comments",
+  "displayName": "Email.comments",
+  "kind": "oop_property",
+  "memberName": ".comments",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Additional comments header",
+  "description": "The .comments property contains an additional comments header.\n\nComments only appear within the header section of the message (keeping the message's body untouched).\n\nFor specific formatting requirements, please consult the RFC#5322.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.comments** : Text"
+  }
+}

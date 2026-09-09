@@ -1,0 +1,36 @@
+{
+  "id": "Email.bcc",
+  "displayName": "Email.bcc",
+  "kind": "oop_property",
+  "memberName": ".bcc",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Blind Carbon Copy (BCC) hidden email recipient addresse(s) of the email",
+  "description": "The .bcc property contains the Blind Carbon Copy (BCC) hidden email recipient addresse(s) of the email.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": [
+      {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    ],
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.bcc** : Text<br/>**.bcc** : Object<br/>**.bcc** : Collection"
+  }
+}

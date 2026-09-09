@@ -1,0 +1,106 @@
+{
+  "id": "IMAPTransporter.selectBox",
+  "displayName": "IMAPTransporter.selectBox",
+  "kind": "oop_function",
+  "memberName": ".selectBox",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Selects the *name* mailbox as the current mailbox",
+  "description": "The .selectBox() function selects the name mailbox as the current mailbox. This function allows you to retrieve information about the mailbox.\n\nTo get the information from a mailbox without changing the current mailbox, use .getBoxInfo().\n\nIn the name parameter, pass the name of the mailbox to access. The name represents an unambiguous left-to-right hierarchy with levels separated by a specific delimiter character. The delimiter can be found with the .getDelimiter() function.\n\nThe optional state parameter defines the type of access to the mailbox. The possible values are:\n\nThe function generates an error and returns Null if name designates a non-existing mailbox. If there is no open connection, .selectBox() will open a connection. If the connection has not been used since the designated connection delay (see IMAP New transporter), the .checkConnection() function is automatically called.\n\nReturned object\n\nThe boxInfo object returned contains the following properties:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the mailbox"
+        },
+        {
+          "name": "state",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "IMAPTransporter.selectBox.state"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Mailbox access status"
+        }
+      ],
+      "rawSyntax": "**.selectBox**( *name* : Text { ; *state* : Integer } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "name": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Name of the mailbox"
+      },
+      "mailCount": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Number of messages in the mailbox"
+      },
+      "mailRecent": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Number of messages with the \"recent\" flag"
+      },
+      "id": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Unique id of the mailbox"
+      },
+      "flags": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "List of flags currently used for the mailbox, separated by spaces"
+      },
+      "permanentFlags": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "List of flags that the client can change permanently (except for the \\Recent flag, which is managed by the IMAP server), separated by spaces"
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "18-R4",
+  "versionBehaviorChanges": [
+    {
+      "release": "20",
+      "change": "id, flags, permanentFlags are returned"
+    }
+  ]
+}

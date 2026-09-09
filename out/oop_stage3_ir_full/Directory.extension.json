@@ -1,0 +1,27 @@
+{
+  "id": "Directory.extension",
+  "displayName": "Directory.extension",
+  "kind": "oop_property",
+  "memberName": ".extension",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "Returns the extension of the folder name (if any)",
+  "description": "The .extension property returns the extension of the folder name (if any). An extension always starts with \".\". The property returns an empty string if the folder name does not have an extension.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.extension** : Text"
+  },
+  "sinceVersion": "17-R5"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "Transporter.user",
+  "displayName": "Transporter.user",
+  "kind": "oop_property",
+  "memberName": ".user",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The user name used for authentication on the mail server",
+  "description": "The .user property contains the user name used for authentication on the mail server.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.user** : Text"
+  },
+  "sinceVersion": "17-R4"
+}

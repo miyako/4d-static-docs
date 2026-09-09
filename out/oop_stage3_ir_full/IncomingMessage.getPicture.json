@@ -1,0 +1,30 @@
+{
+  "id": "IncomingMessage.getPicture",
+  "displayName": "IncomingMessage.getPicture",
+  "kind": "oop_function",
+  "memberName": ".getPicture",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "Returns the body of the request as a picture (in case of a body sent as a picture)",
+  "description": "The .getPicture() function returns the body of the request as a picture (in case of a body sent as a picture).\n\nThe content-type must be given in the headers to indicate that the body is a picture.\n\nIf the body is not received as a valid picture, the function returns null.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getPicture**() : Picture",
+      "returns": {
+        "kind": "concrete",
+        "name": "Picture"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  }
+}

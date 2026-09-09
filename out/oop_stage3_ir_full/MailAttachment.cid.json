@@ -1,0 +1,26 @@
+{
+  "id": "MailAttachment.cid",
+  "displayName": "MailAttachment.cid",
+  "kind": "oop_property",
+  "memberName": ".cid",
+  "receiver": {
+    "classId": "MailAttachment",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "MailAttachment"
+    }
+  },
+  "summary": "The ID of the attachment",
+  "description": "The .cid property contains the ID of the attachment. This property is used in HTML messages only. If this property is missing, the file is handled as a simple attachment (link).",
+  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.cid** : Text"
+  }
+}

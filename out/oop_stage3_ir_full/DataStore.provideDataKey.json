@@ -1,0 +1,62 @@
+{
+  "id": "DataStore.provideDataKey",
+  "displayName": "DataStore.provideDataKey",
+  "kind": "oop_function",
+  "memberName": ".provideDataKey",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Allows providing a data encryption key for the current data file of the datastore and detects if the key matches the encrypted data",
+  "description": "The .provideDataKey() function allows providing a data encryption key for the current data file of the datastore and detects if the key matches the encrypted data. This function can be used when opening an encrypted database, or when executing any encryption operation that requires the encryption key, such as re-encrypting the data file.\n\nThe .provideDataKey() function must be called in an encrypted database. If it is called in a non-encrypted database, the error 2003 (the encryption key does not match the data.) is returned. Use the Data file encryption status command to determine if the database is encrypted. The .provideDataKey() function cannot be called from a remote 4D or an encrypted remote datastore.\n\nIf you use the curPassPhrase parameter, pass the string used to generate the data encryption key. When you use this parameter, an encryption key is generated.\n\nIf you use the curDataKey parameter, pass an object (with encodedKey property) that contains the data encryption key. This key may have been generated with the New data key command.\n\nIf a valid data encryption key is provided, it is added to the keyChain in memory and the encryption mode is enabled:\n\nall data modifications in encryptable tables are encrypted on disk (.4DD, .journal. 4Dindx files) all data loaded from encryptable tables is decrypted in memory\n\nResult\n\nThe result of the command is described in the returned object:\n\nIf no curPassphrase or curDataKey is given, .provideDataKey() returns null (no error is generated).",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "curPassPhrase",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Current encryption passphrase"
+        }
+      ],
+      "rawSyntax": "**.provideDataKey**( *curPassPhrase* : Text ) : Object ",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "curDataKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Current data encryption key"
+        }
+      ],
+      "rawSyntax": "**.provideDataKey**( *curDataKey* : Object ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "17-R5"
+}

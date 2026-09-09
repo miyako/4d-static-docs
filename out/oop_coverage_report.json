@@ -1,0 +1,40 @@
+{
+  "gate": "G3",
+  "inScope": 502,
+  "present": 502,
+  "missing": [],
+  "unexpected": [],
+  "skippedWithReason": [
+    {
+      "what": "aikit/",
+      "reason": "4D AIKit is a component, not the base language; it also cannot be provisioned in the throwaway check project, so its entries could never be compiler-verified.",
+      "inScope": false
+    },
+    {
+      "what": "Concepts/",
+      "reason": "Language grammar (class declaration, Function/property keywords, #DECLARE), not member signatures. Captured as a Layer-2 sub-grammar where needed for call synthesis.",
+      "inScope": false
+    },
+    {
+      "what": "ORDA/",
+      "reason": "Narrative guide pages; the ORDA class reference itself lives in API/ and is in scope.",
+      "inScope": false
+    },
+    {
+      "what": "_command_",
+      "reason": "The 1353 classic commands — already covered by out/4d-command-ir.json.",
+      "inScope": false
+    },
+    {
+      "what": "Transporter",
+      "reason": "no API page of its own; members are documented on its subclasses' pages. Kept in scope, enriched from those pages via the inheritance edge.",
+      "inScope": true
+    }
+  ],
+  "byKind": {
+    "oop_constructor": 19,
+    "oop_function": 258,
+    "oop_property": 225
+  },
+  "passed": true
+}

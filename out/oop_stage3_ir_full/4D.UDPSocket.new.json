@@ -1,0 +1,120 @@
+{
+  "id": "4D.UDPSocket.new",
+  "displayName": "4D.UDPSocket.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "UDPSocket",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.UDPSocket"
+    }
+  },
+  "summary": "Creates a new UDP socket using the defined *options* (if any) on the specified *port* (if any) or on a random unused port, and returns a `4D.UDPSocket` object",
+  "description": "The 4D.UDPSocket.new() function creates a new UDP socket using the defined options (if any) on the specified port (if any) or on a random unused port, and returns a 4D.UDPSocket object.",
+  "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**4D.UDPSocket.new**() : 4D.UDPSocket",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.UDPSocket"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Configuration options for the socket"
+        }
+      ],
+      "rawSyntax": "**4D.UDPSocket.new**( *options* : Object ) : 4D.UDPSocket",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.UDPSocket"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "port",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Local port used for UDP socket (0 or omitted = find any unused port to use)"
+        }
+      ],
+      "rawSyntax": "**4D.UDPSocket.new**( *port* : Integer ) : 4D.UDPSocket",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.UDPSocket"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "port",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Local port used for UDP socket (0 or omitted = find any unused port to use)"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Configuration options for the socket"
+        }
+      ],
+      "rawSyntax": "**4D.UDPSocket.new**( *port* : Integer ; *options* : Object ) : 4D.UDPSocket",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.UDPSocket"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "onData": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback triggered when data is received"
+      },
+      "onError": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback triggered in case of an error"
+      },
+      "onTerminate": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback triggered when the port is released"
+      }
+    },
+    "source": "options parameter"
+  }
+}

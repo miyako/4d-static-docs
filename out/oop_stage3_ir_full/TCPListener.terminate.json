@@ -1,0 +1,24 @@
+{
+  "id": "TCPListener.terminate",
+  "displayName": "TCPListener.terminate",
+  "kind": "oop_function",
+  "memberName": ".terminate",
+  "receiver": {
+    "classId": "TCPListener",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPListener"
+    }
+  },
+  "summary": "Closes the listener and releases the port",
+  "description": "The terminate() function closes the listener and releases the port.",
+  "docPage": "mirror/docs/21-R3/API/TCPListenerClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.terminate**()",
+      "returns": null
+    }
+  ]
+}

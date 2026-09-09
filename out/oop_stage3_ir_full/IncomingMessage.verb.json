@@ -1,0 +1,26 @@
+{
+  "id": "IncomingMessage.verb",
+  "displayName": "IncomingMessage.verb",
+  "kind": "oop_property",
+  "memberName": ".verb",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "The verb used by the request",
+  "description": "The .verb property contains the verb used by the request.\n\nHTTP and HTTPS request verbs include for example \"get\", \"post\", \"put\", etc.\n\nThe .verb property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**verb** : Text"
+  }
+}

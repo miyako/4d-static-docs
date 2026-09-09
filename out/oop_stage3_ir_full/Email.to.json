@@ -1,0 +1,36 @@
+{
+  "id": "Email.to",
+  "displayName": "Email.to",
+  "kind": "oop_property",
+  "memberName": ".to",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Primary recipient addresse(s) of the email",
+  "description": "The .to property contains the primary recipient addresse(s) of the email.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": [
+      {
+        "kind": "concrete",
+        "name": "Text"
+      },
+      {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    ],
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.to** : Text<br/>**.to** : Object<br/>**.to** : Collection"
+  }
+}

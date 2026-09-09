@@ -1,0 +1,38 @@
+{
+  "id": "Vector.euclideanDistance",
+  "displayName": "Vector.euclideanDistance",
+  "kind": "oop_function",
+  "memberName": ".euclideanDistance",
+  "receiver": {
+    "classId": "Vector",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Vector"
+    }
+  },
+  "summary": "Calculates the Euclidean distance between the current 4D vector and the one you passed in the *vector* parameter",
+  "description": "The .euclideanDistance() function calculates the Euclidean distance between the current 4D vector and the one you passed in the vector parameter. Both vectors must have the same size.\n\nThis measures the straight-line distance in the vector space. It is recommended for numeric or structured data embeddings, or when using models where proximity in raw space directly correlates with similarity.\n\nReturned value\n\nreturned value >= 0 The lower the returned value is, more similar vectors are.",
+  "docPage": "mirror/docs/21-R3/API/VectorClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "vector",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Vector"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Vector to compare with"
+        }
+      ],
+      "rawSyntax": "**.euclideanDistance**( *vector* : 4D.Vector ) : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      }
+    }
+  ]
+}

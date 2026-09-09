@@ -1,0 +1,26 @@
+{
+  "id": "WebSocketServer.handler",
+  "displayName": "WebSocketServer.handler",
+  "kind": "oop_property",
+  "memberName": ".handler",
+  "receiver": {
+    "classId": "WebSocketServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketServer"
+    }
+  },
+  "summary": "The accessor that gets the `WSSHandler` object used to initiate the WebSocket server",
+  "description": "The .handler property contains the accessor that gets the WSSHandler object used to initiate the WebSocket server.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.handler** : Object"
+  }
+}

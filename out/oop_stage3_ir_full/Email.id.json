@@ -1,0 +1,26 @@
+{
+  "id": "Email.id",
+  "displayName": "Email.id",
+  "kind": "oop_property",
+  "memberName": ".id",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Unique ID from the IMAP server",
+  "description": "IMAP transporter only.\n\nThe .id property contains the unique ID from the IMAP server.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.id** : Text"
+  }
+}

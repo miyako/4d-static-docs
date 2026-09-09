@@ -1,0 +1,28 @@
+{
+  "id": "Folder.create",
+  "displayName": "Folder.create",
+  "kind": "oop_function",
+  "memberName": ".create",
+  "receiver": {
+    "classId": "Folder",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Folder"
+    }
+  },
+  "summary": "Creates a folder on disk according to the properties of the `Folder` object",
+  "description": "The .create() function creates a folder on disk according to the properties of the Folder object.\n\nIf necessary, the function creates the folder hierachy as described in the platformPath or path properties. If the folder already exists on disk, the function does nothing (no error is thrown) and returns false.\n\nReturned value\n\nTrue if the folder is created successfully; False if a folder with the same name already exists or if an error occured.",
+  "docPage": "mirror/docs/21-R3/API/FolderClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.create()** : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

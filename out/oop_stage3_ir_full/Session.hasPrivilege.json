@@ -1,0 +1,51 @@
+{
+  "id": "Session.hasPrivilege",
+  "displayName": "Session.hasPrivilege",
+  "kind": "oop_function",
+  "memberName": ".hasPrivilege",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Returns True if the *privilege* is associated to the session, and False otherwise",
+  "description": "The .hasPrivilege() function returns True if the privilege is associated to the session, and False otherwise.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "privilege",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the privilege to verify"
+        }
+      ],
+      "rawSyntax": "**.hasPrivilege**( *privilege* : Text ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "21",
+      "change": "Returns True for promoted privileges, Support of remote and standalone sessions"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": "Restrict data according to privileges or information saved in session storage (blog post)",
+      "href": "https://blog.4d.com/?s=hasPrivilege"
+    }
+  ]
+}

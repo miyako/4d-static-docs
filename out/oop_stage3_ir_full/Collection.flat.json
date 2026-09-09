@@ -1,0 +1,39 @@
+{
+  "id": "Collection.flat",
+  "displayName": "Collection.flat",
+  "kind": "oop_function",
+  "memberName": ".flat",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Creates a new collection with all sub-collection elements concatenated into it recursively up to the specified *depth*",
+  "description": "The .flat() function creates a new collection with all sub-collection elements concatenated into it recursively up to the specified depth.\n\nBy default, if the depth parameter is omitted, only the first level of the nested collection structure will be flattened.\n\nThis function does not modify the original collection.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "depth",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "How deep a nested collection structure should be flattened. Default=1"
+        }
+      ],
+      "rawSyntax": "**.flat**( { *depth* : Integer } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "20"
+}

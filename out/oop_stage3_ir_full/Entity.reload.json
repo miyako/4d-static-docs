@@ -1,0 +1,58 @@
+{
+  "id": "Entity.reload",
+  "displayName": "Entity.reload",
+  "kind": "oop_function",
+  "memberName": ".reload",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Reloads the content of the entity in memory",
+  "description": "The .reload() function reloads the content of the entity in memory, according to information stored in the table related to the dataclass in the datastore. The reload is done only if the entity still exists with the same primary key.\n\nResult\n\nThe object returned by .reload( ) contains the following properties:\n\n(*) The following values can be returned in the status and statusText properties of Result object in case of error:",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.reload()** : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the reload action is successful, False otherwise.Available only in case of error:"
+      },
+      "status(*)": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Error code, see below"
+      },
+      "statusText(*)": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Description of the error, see below"
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  },
+  "sinceVersion": "17"
+}

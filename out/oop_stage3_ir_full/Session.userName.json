@@ -1,0 +1,33 @@
+{
+  "id": "Session.userName",
+  "displayName": "Session.userName",
+  "kind": "oop_property",
+  "memberName": ".userName",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "The user name associated to the session",
+  "description": "The .userName property contains the user name associated to the session. You can use it to identify the user within your code.\n\nWeb sessions: This property is an empty string by default. It can be set using the privileges property of the setPrivileges() function. Remote/Stored procedure sessions: This property returns the same user name as the Current user command. Standalone sessions: This property contains \"designer\" or the name set with the SET USER ALIAS command.\n\nThis property is read only for desktop sessions.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.userName** : Text"
+  },
+  "sinceVersion": "18-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "20-R5",
+      "change": "Support of desktop sessions"
+    }
+  ]
+}

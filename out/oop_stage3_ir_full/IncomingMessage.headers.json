@@ -1,0 +1,26 @@
+{
+  "id": "IncomingMessage.headers",
+  "displayName": "IncomingMessage.headers",
+  "kind": "oop_property",
+  "memberName": ".headers",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "The current headers of the incoming message as key/value pairs (strings)",
+  "description": "The .headers property contains the current headers of the incoming message as key/value pairs (strings).\n\nThe .headers property is read-only.\n\nHeader names (keys) are lowercased. Note header names are case sensitive.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**headers** : Object"
+  }
+}

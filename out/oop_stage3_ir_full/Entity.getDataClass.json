@@ -1,0 +1,28 @@
+{
+  "id": "Entity.getDataClass",
+  "displayName": "Entity.getDataClass",
+  "kind": "oop_function",
+  "memberName": ".getDataClass",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns the dataclass of the entity",
+  "description": "The .getDataClass() function returns the dataclass of the entity. This function is useful when writing generic code.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getDataClass()** : 4D.DataClass",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.DataClass"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

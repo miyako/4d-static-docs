@@ -1,0 +1,30 @@
+{
+  "id": "Entity.attributeName",
+  "displayName": "Entity.attributeName",
+  "kind": "oop_property",
+  "memberName": ".attributeName",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Any dataclass attribute is available as a property of an entity, which stores the attribute value for the entity.",
+  "description": "Any dataclass attribute is available as a property of an entity, which stores the attribute value for the entity.\n\nDataclass attributes can also be reached using the alternate syntax with [ ].\n\nThe attribute value type depends on the attribute kind (relation or storage):\n\nIf attributeName kind is storage: .attributeName returns a value of the same type as attributeName. If attributeName kind is relatedEntity: .attributeName returns the related entity. Values of the related entity are directly available through cascading properties, for example \"myEntity.employer.employees[0].lastname\". If attributeName kind is relatedEntities: .attributeName returns a new entity selection of related entities. Duplications are removed (an unordered entity selection is returned).",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "accessor": {
+    "type": {
+      "kind": "pseudo",
+      "name": "any"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "dynamicMember": {
+    "namePattern": "<attributeName>",
+    "note": "attribute name comes from the user's data model"
+  },
+  "sinceVersion": "17"
+}

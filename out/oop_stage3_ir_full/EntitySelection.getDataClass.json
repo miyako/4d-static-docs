@@ -1,0 +1,28 @@
+{
+  "id": "EntitySelection.getDataClass",
+  "displayName": "EntitySelection.getDataClass",
+  "kind": "oop_function",
+  "memberName": ".getDataClass",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns the dataclass of the entity selection",
+  "description": "The .getDataClass() function returns the dataclass of the entity selection.\n\nThis function is mainly useful in the context of generic code.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getDataClass**() : 4D.DataClass",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.DataClass"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

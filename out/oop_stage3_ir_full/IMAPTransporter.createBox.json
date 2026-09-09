@@ -1,0 +1,39 @@
+{
+  "id": "IMAPTransporter.createBox",
+  "displayName": "IMAPTransporter.createBox",
+  "kind": "oop_function",
+  "memberName": ".createBox",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Creates a mailbox with the given `name`",
+  "description": "The .createBox() function creates a mailbox with the given name. If the IMAP server’s hierarchy separator character appears elsewhere in the mailbox name, the IMAP server will create any parent names needed to create the given mailbox.\n\nIn other words, an attempt to create \"Projects/IMAP/Doc\" on a server in which \"/\" is the hierarchy separator character will create:\n\nOnly the \"Doc\" mailbox if \"Projects\" & \"IMAP\" already exist. \"IMAP\" & \"Doc\" mailboxes if only “Projects” already exists. \"Projects\" & “IMAP” & \"Doc\" mailboxes, if they do not already exist.\n\nIn the name parameter, pass the name of the new mailbox.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the new mailbox"
+        }
+      ],
+      "rawSyntax": "**.createBox**( *name* :  Text ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "19"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "Collection.reverse",
+  "displayName": "Collection.reverse",
+  "kind": "oop_function",
+  "memberName": ".reverse",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns a new collection with all elements of the original collection in reverse order",
+  "description": "The .reverse() function returns a new collection with all elements of the original collection in reverse order. If the original collection is a shared collection, the returned collection is also a shared collection.\n\nThis function does not modify the original collection.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.reverse()** : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.HSTSMaxAge",
+  "displayName": "WebServer.HSTSMaxAge",
+  "kind": "oop_property",
+  "memberName": ".HSTSMaxAge",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Maximum length of time (in seconds) that HSTS is active for each new client connection",
+  "description": "The maximum length of time (in seconds) that HSTS is active for each new client connection. This information is stored on the client side for the specified duration.\n\nDefault value: 63072000 (2 years).",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.HSTSMaxAge** : Integer"
+  }
+}

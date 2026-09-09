@@ -1,0 +1,27 @@
+{
+  "id": "Document.creationDate",
+  "displayName": "Document.creationDate",
+  "kind": "oop_property",
+  "memberName": ".creationDate",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The creation date of the file",
+  "description": "The .creationDate property returns the creation date of the file.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Date"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.creationDate** : Date"
+  },
+  "sinceVersion": "17-R5"
+}

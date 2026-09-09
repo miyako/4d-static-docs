@@ -1,0 +1,27 @@
+{
+  "id": "EntitySelection.length",
+  "displayName": "EntitySelection.length",
+  "kind": "oop_property",
+  "memberName": ".length",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns the number of entities in the entity selection",
+  "description": "The .length property returns the number of entities in the entity selection. If the entity selection is empty, it returns 0.\n\nEntity selections always have a .length property.\n\nTo know the total number of entities in a dataclass, it is recommended to use the getCount() function which is more optimized than the ds.myClass.all().length expression.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.length** : Integer"
+  },
+  "sinceVersion": "17"
+}

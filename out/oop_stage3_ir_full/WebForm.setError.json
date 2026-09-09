@@ -1,0 +1,35 @@
+{
+  "id": "WebForm.setError",
+  "displayName": "WebForm.setError",
+  "kind": "oop_function",
+  "memberName": ".setError",
+  "receiver": {
+    "classId": "WebForm",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebForm"
+    }
+  },
+  "summary": "Sends *msg* as an error message to the web page",
+  "description": "The .setError() function sends msg as an error message to the web page.\n\nThe function returns a response with a 200 OK status and a __WEBFORM object in the body with a __NOTIFICATION.message property set to msg and a __NOTIFICATION.type set to \"error\".",
+  "docPage": "mirror/docs/21-R3/API/WebFormClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msg",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Error message to display in the web form"
+        }
+      ],
+      "rawSyntax": "**.setError**( *msg* : Text)",
+      "returns": null
+    }
+  ]
+}

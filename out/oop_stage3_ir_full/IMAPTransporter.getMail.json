@@ -1,0 +1,82 @@
+{
+  "id": "IMAPTransporter.getMail",
+  "displayName": "IMAPTransporter.getMail",
+  "kind": "oop_function",
+  "memberName": ".getMail",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Returns the `Email` object corresponding to the *msgNumber* or *msgID* in the mailbox designated by the `IMAP_transporter`",
+  "description": "The .getMail() function returns the Email object corresponding to the msgNumber or msgID in the mailbox designated by the IMAP_transporter. This function allows you to locally handle the email contents.\n\nIn the first parameter, you can pass either:\n\nmsgNumber, an integer value indicating the sequence number of the message to retrieve or msgID, a text value indicating the unique ID of the message to retrieve.\n\nThe optional options parameter allows you pass an object defining additional instructions for handling the message. The following properties are available:\n\nThe function generates an error and returns Null if msgID designates a non-existing message, If no mailbox is selected with the .selectBox() function, an error is generated, If there is no open connection, .getMail() will open a connection the last mailbox specified with .selectBox()`.",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "msgNumber",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Sequence number of the message"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Message handling instructions"
+        }
+      ],
+      "rawSyntax": "**.getMail**( *msgNumber*: Integer { ; *options* : Object } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "msgID",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Unique ID of the message"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Message handling instructions"
+        }
+      ],
+      "rawSyntax": "**.getMail**( *msgID*: Text { ; *options* : Object } ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "18-R4"
+}

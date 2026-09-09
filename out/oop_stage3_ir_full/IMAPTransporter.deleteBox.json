@@ -1,0 +1,39 @@
+{
+  "id": "IMAPTransporter.deleteBox",
+  "displayName": "IMAPTransporter.deleteBox",
+  "kind": "oop_function",
+  "memberName": ".deleteBox",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Permanently removes the mailbox with the given `name` from the IMAP server",
+  "description": "The .deleteBox() function permanently removes the mailbox with the given name from the IMAP server. Attempting to delete an INBOX or a mailbox that does not exist will generate an error.\n\nIn the name parameter, pass the name of the mailbox to delete.\n\nThe function cannot delete a mailbox that has child mailboxes if the parent mailbox has the \"\\Noselect\" attribute. All messages in the deleted mailbox will also be deleted. The ability to delete a mailbox depends on the mail server.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the mailbox to delete"
+        }
+      ],
+      "rawSyntax": "**.deleteBox**( *name* : Text ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "19"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "TCPListener.port",
+  "displayName": "TCPListener.port",
+  "kind": "oop_property",
+  "memberName": ".port",
+  "receiver": {
+    "classId": "TCPListener",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPListener"
+    }
+  },
+  "summary": "The port number of the machine",
+  "description": "The .port property contains the port number of the machine. This property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/TCPListenerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Number"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**port** : Number"
+  }
+}

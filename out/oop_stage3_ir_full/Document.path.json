@@ -1,0 +1,27 @@
+{
+  "id": "Document.path",
+  "displayName": "Document.path",
+  "kind": "oop_property",
+  "memberName": ".path",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The POSIX path of the file",
+  "description": "The .path property returns the POSIX path of the file. If the path represents a filesystem (e.g., \"/DATA/\"), the filesystem is returned.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.path** : Text"
+  },
+  "sinceVersion": "17-R5"
+}

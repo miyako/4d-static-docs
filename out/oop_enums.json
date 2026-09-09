@@ -1,0 +1,405 @@
+{
+  "Collection.copy.option": {
+    "description": "Constants accepted by the `option` parameter of Collection.copy, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck resolve pointers",
+        "value": 1
+      },
+      {
+        "name": "ck shared",
+        "value": 16
+      }
+    ]
+  },
+  "Collection.distinct.options": {
+    "description": "Constants accepted by the `options` parameter of Collection.distinct, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck diacritical",
+        "value": 8
+      },
+      {
+        "name": "ck count values",
+        "value": 32
+      }
+    ]
+  },
+  "Collection.equal.option": {
+    "description": "Constants accepted by the `option` parameter of Collection.equal, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck diacritical",
+        "value": 8
+      }
+    ]
+  },
+  "Collection.extract.option": {
+    "description": "Constants accepted by the `option` parameter of Collection.extract, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck keep null",
+        "value": 2
+      }
+    ]
+  },
+  "Collection.join.option": {
+    "description": "Constants accepted by the `option` parameter of Collection.join, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck ignore null or empty",
+        "value": 1
+      }
+    ]
+  },
+  "Collection.multiSort.colsToSort": {
+    "description": "Constants accepted by the `colsToSort` parameter of Collection.multiSort, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck ascending",
+        "value": 0
+      },
+      {
+        "name": "ck descending",
+        "value": 1
+      }
+    ]
+  },
+  "Collection.orderBy.ascOrDesc": {
+    "description": "Constants accepted by the `ascOrDesc` parameter of Collection.orderBy, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck ascending",
+        "value": 0
+      },
+      {
+        "name": "ck descending",
+        "value": 1
+      }
+    ]
+  },
+  "Collection.sort.ascOrDesc": {
+    "description": "Constants accepted by the `ascOrDesc` parameter of Collection.sort, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck ascending",
+        "value": 0
+      },
+      {
+        "name": "ck descending",
+        "value": 1
+      }
+    ]
+  },
+  "DataClass.newSelection.keepOrder": {
+    "description": "Constants accepted by the `keepOrder` parameter of DataClass.newSelection, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk keep ordered",
+        "value": 1
+      },
+      {
+        "name": "dk non ordered",
+        "value": 0
+      }
+    ]
+  },
+  "Directory.copyTo.overwrite": {
+    "description": "Constants accepted by the `overwrite` parameter of Directory.copyTo, from the 'File and Folder' theme.",
+    "values": [
+      {
+        "name": "fk overwrite",
+        "value": 4
+      }
+    ]
+  },
+  "Directory.files.options": {
+    "description": "Constants accepted by the `options` parameter of Directory.files.",
+    "values": [
+      {
+        "name": "fk recursive",
+        "value": 1,
+        "description": "The collection contains files of the specified folder and its subfolders"
+      },
+      {
+        "name": "fk ignore invisible",
+        "value": 8,
+        "description": "Invisible files are not listed"
+      }
+    ]
+  },
+  "Directory.folders.options": {
+    "description": "Constants accepted by the `options` parameter of Directory.folders.",
+    "values": [
+      {
+        "name": "fk recursive",
+        "value": 1,
+        "description": "The collection contains folders of the specified folder and its subfolders"
+      },
+      {
+        "name": "fk ignore invisible",
+        "value": 8,
+        "description": "Invisible folders are not listed"
+      }
+    ]
+  },
+  "Document.copyTo.overwrite": {
+    "description": "Constants accepted by the `overwrite` parameter of Document.copyTo, from the 'File and Folder' theme.",
+    "values": [
+      {
+        "name": "fk overwrite",
+        "value": 4
+      }
+    ]
+  },
+  "Entity.drop.mode": {
+    "description": "Constants accepted by the `mode` parameter of Entity.drop, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk force drop if stamp changed",
+        "value": 2
+      }
+    ]
+  },
+  "Entity.getKey.mode": {
+    "description": "Constants accepted by the `mode` parameter of Entity.getKey, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk key as string",
+        "value": 1
+      }
+    ]
+  },
+  "Entity.lock.mode": {
+    "description": "Constants accepted by the `mode` parameter of Entity.lock, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk reload if stamp changed",
+        "value": 1
+      }
+    ]
+  },
+  "Entity.save.mode": {
+    "description": "Constants accepted by the `mode` parameter of Entity.save, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk auto merge",
+        "value": 32
+      }
+    ]
+  },
+  "Entity.save.returns.status": {
+    "description": "Values of the `status` property of the object returned by Entity.save.",
+    "values": [
+      {
+        "name": "dk status automerge failed",
+        "value": 6,
+        "description": "(Only if the dk auto merge option is used) The automatic merge option failed when saving the entity. Associated statusText: \"Auto merge failed\""
+      },
+      {
+        "name": "dk status entity does not exist anymore",
+        "value": 5,
+        "description": "The entity no longer exists in the data. This error can occur in the following cases:the entity has been dropped (the stamp has changed and the memory space is now free)the entity has been dropped and replaced by another one with another primary key (the stamp has changed and a new entity now uses the memory space). When using .drop(), this error can be returned when dk force drop if stamp changed option is used. When using .lock(), this error can be returned when dk reload if stamp changed option is usedAssociated statusText: \"Entity does not exist anymore\""
+      },
+      {
+        "name": "dk status locked",
+        "value": 3,
+        "description": "The entity is locked by a pessimistic lock. Associated statusText: \"Already locked\""
+      },
+      {
+        "name": "dk status validation failed",
+        "value": 7,
+        "description": "Non fatal error sent by the developer for a validate event. Associated statusText: \"Mild Validation Error\""
+      },
+      {
+        "name": "dk status serious error",
+        "value": 4,
+        "description": "A serious error is a low-level database error (e.g. duplicated key), a hardware error, etc. Associated statusText: \"Other error\""
+      },
+      {
+        "name": "dk status serious validation error",
+        "value": 8,
+        "description": "Fatal error sent by the developer for a validate event. Associated statusText: \"Serious Validation Error\""
+      },
+      {
+        "name": "dk status stamp has changed",
+        "value": 2,
+        "description": "The internal stamp value of the entity does not match the one of the entity stored in the data (optimistic lock).with .save(): error only if the dk auto merge option is not usedwith .drop(): error only if the dk force drop if stamp changed option is not usedwith .lock(): error only if the dk reload if stamp changed option is not usedAssociated statusText: \"Stamp has changed\""
+      },
+      {
+        "name": "dk status wrong permission",
+        "value": 1,
+        "description": "The current privileges do not allow the save of the entity. Associated statusText: \"Permission Error\""
+      }
+    ]
+  },
+  "Entity.toObject.options": {
+    "description": "Constants accepted by the `options` parameter of Entity.toObject, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk with primary key",
+        "value": 1
+      },
+      {
+        "name": "dk with stamp",
+        "value": 2
+      }
+    ]
+  },
+  "EntitySelection.copy.option": {
+    "description": "Constants accepted by the `option` parameter of EntitySelection.copy, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck shared",
+        "value": 16
+      }
+    ]
+  },
+  "EntitySelection.distinct.options": {
+    "description": "Constants accepted by the `options` parameter of EntitySelection.distinct, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk diacritical",
+        "value": 8
+      },
+      {
+        "name": "dk count values",
+        "value": 32
+      }
+    ]
+  },
+  "EntitySelection.drop.mode": {
+    "description": "Constants accepted by the `mode` parameter of EntitySelection.drop, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk stop dropping on first error",
+        "value": 8
+      }
+    ]
+  },
+  "EntitySelection.extract.option": {
+    "description": "Constants accepted by the `option` parameter of EntitySelection.extract, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "ck keep null",
+        "value": 2
+      }
+    ]
+  },
+  "EntitySelection.minus.keepOrder": {
+    "description": "Constants accepted by the `keepOrder` parameter of EntitySelection.minus, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk keep ordered",
+        "value": 1
+      }
+    ]
+  },
+  "EntitySelection.orderByFormula.sortOrder": {
+    "description": "Constants accepted by the `sortOrder` parameter of EntitySelection.orderByFormula, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk ascending",
+        "value": 0
+      },
+      {
+        "name": "dk descending",
+        "value": 1
+      }
+    ]
+  },
+  "EntitySelection.toCollection.options": {
+    "description": "Constants accepted by the `options` parameter of EntitySelection.toCollection, from the 'Objects and collections' theme.",
+    "values": [
+      {
+        "name": "dk with primary key",
+        "value": 1
+      },
+      {
+        "name": "dk with stamp",
+        "value": 2
+      }
+    ]
+  },
+  "File.createAlias.aliasType": {
+    "description": "Constants accepted by the `aliasType` parameter of File.createAlias.",
+    "values": [
+      {
+        "name": "fk alias link",
+        "value": 0,
+        "description": "Alias link (default)"
+      },
+      {
+        "name": "fk symbolic link",
+        "value": 1,
+        "description": "Symbolic link (macOS only)"
+      }
+    ]
+  },
+  "Folder.createAlias.aliasType": {
+    "description": "Constants accepted by the `aliasType` parameter of Folder.createAlias.",
+    "values": [
+      {
+        "name": "fk alias link",
+        "value": 0,
+        "description": "Alias link (default)"
+      },
+      {
+        "name": "fk symbolic link",
+        "value": 1,
+        "description": "Symbolic link (macOS only)"
+      }
+    ]
+  },
+  "Folder.delete.option": {
+    "description": "Constants accepted by the `option` parameter of Folder.delete, from the 'System Documents' theme.",
+    "values": [
+      {
+        "name": "Delete only if empty",
+        "value": 0
+      }
+    ]
+  },
+  "IMAPTransporter.copy.allMsgs": {
+    "description": "Constants accepted by the `allMsgs` parameter of IMAPTransporter.copy, from the 'Mail' theme.",
+    "values": [
+      {
+        "name": "IMAP all",
+        "value": 1
+      }
+    ]
+  },
+  "IMAPTransporter.delete.allMsgs": {
+    "description": "Constants accepted by the `allMsgs` parameter of IMAPTransporter.delete, from the 'Mail' theme.",
+    "values": [
+      {
+        "name": "IMAP all",
+        "value": 1
+      }
+    ]
+  },
+  "IMAPTransporter.move.allMsgs": {
+    "description": "Constants accepted by the `allMsgs` parameter of IMAPTransporter.move, from the 'Mail' theme.",
+    "values": [
+      {
+        "name": "IMAP all",
+        "value": 1
+      }
+    ]
+  },
+  "IMAPTransporter.selectBox.state": {
+    "description": "Constants accepted by the `state` parameter of IMAPTransporter.selectBox.",
+    "values": [
+      {
+        "name": "IMAP read only state",
+        "value": 1,
+        "description": "The selected mailbox is accessed with read only privileges. Messages with a \"recent\" flag (indicating new messages) remain unchanged."
+      },
+      {
+        "name": "IMAP read write state",
+        "value": 0,
+        "description": "The selected mailbox is accessed with read and write privileges. Messages are considered \"seen\" and lose the \"recent\" flag (indicating new messages). (Default value)"
+      }
+    ]
+  }
+}

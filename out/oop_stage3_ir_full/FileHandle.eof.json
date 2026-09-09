@@ -1,0 +1,27 @@
+{
+  "id": "FileHandle.eof",
+  "displayName": "FileHandle.eof",
+  "kind": "oop_property",
+  "memberName": ".eof",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "True is the `offset` has reached the end of the file, and False otherwise",
+  "description": "The .eof property returns True is the offset has reached the end of the file, and False otherwise.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.eof** : Boolean"
+  },
+  "sinceVersion": "19-R7"
+}

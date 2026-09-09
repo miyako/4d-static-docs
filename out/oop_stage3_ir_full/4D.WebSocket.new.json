@@ -1,0 +1,58 @@
+{
+  "id": "4D.WebSocket.new",
+  "displayName": "4D.WebSocket.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "WebSocket",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.WebSocket"
+    }
+  },
+  "summary": "Creates and returns a new `4D.WebSocket` object connected to the WebSocket server at the address you passed in *url*",
+  "description": "The 4D.WebSocket.new() function creates and returns a new 4D.WebSocket object connected to the WebSocket server at the address you passed in url. The 4D.WebSocket object provides an API for creating and managing a WebSocket connection to a server, as well as sending and receiving data to and from the server.\n\nIn url, pass the URL to which the WebSocket server will respond. The following URL patterns can be used:\n\nws://host[:port]path[?query] for standard connections wss://host[:port]path[?query] for TLS secured connections\n\nIf the connection is not possible, a null object is returned and an error is generated (that you can intercept using a method installed with ON ERR CALL).",
+  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "url",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "URL to which to connect"
+        },
+        {
+          "name": "connectionHandler",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Object declaring WebSocket callbacks"
+        }
+      ],
+      "rawSyntax": "**4D.WebSocket.new**( *url* : Text { ; *connectionHandler* : Object } ) : 4D.WebSocket",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.WebSocket"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "versionBehaviorChanges": [
+    {
+      "release": "20-R3",
+      "change": "Support of headers property in connectionHandler"
+    }
+  ]
+}

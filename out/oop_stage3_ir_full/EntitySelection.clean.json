@@ -1,0 +1,34 @@
+{
+  "id": "EntitySelection.clean",
+  "displayName": "EntitySelection.clean",
+  "kind": "oop_function",
+  "memberName": ".clean",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns a new entity selection based upon the original entity selection but without deleted entities, if any",
+  "description": "The .clean() function returns a new entity selection based upon the original entity selection but without deleted entities, if any.\n\nBy default, when an entity is dropped, its reference(s) in existing entity selection(s) become undefined but are not removed from the entity selection object(s). Deleted entities are still included in the .length property and are displayed as blank lines if the entity selection is bound to an interface object such as a list. In this case, calling the .clean() function on the entity selection allows you to get a new, up-to-date entity selection, not containing undefined entity references.\n\nThe resulting entity selection keeps the same order criteria and the same alterable/shareable property as the original entity selection.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.clean**() : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "20-R6",
+  "_seeAlso": [
+    {
+      "text": ".refresh()",
+      "href": "EntitySelectionClass.html#refresh"
+    }
+  ]
+}

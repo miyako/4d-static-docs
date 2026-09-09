@@ -1,0 +1,39 @@
+{
+  "id": "4D.CryptoKey.new",
+  "displayName": "4D.CryptoKey.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "CryptoKey",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.CryptoKey"
+    }
+  },
+  "summary": "Creates a new `4D.CryptoKey` object encapsulating an encryption key pair",
+  "description": "The 4D.CryptoKey.new() function creates a new 4D.CryptoKey object encapsulating an encryption key pair, based upon the settings object parameter. It allows to generate a new RSA or ECDSA key, or to load an existing key pair from a PEM definition.",
+  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Settings to generate or load a key pair"
+        }
+      ],
+      "rawSyntax": "**4D.CryptoKey.new**( *settings* : Object ) : 4D.CryptoKey",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.CryptoKey"
+      }
+    }
+  ],
+  "sinceVersion": "18-R4"
+}

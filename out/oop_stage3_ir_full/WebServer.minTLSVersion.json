@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.minTLSVersion",
+  "displayName": "WebServer.minTLSVersion",
+  "kind": "oop_property",
+  "memberName": ".minTLSVersion",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Minimum TLS version accepted for connections",
+  "description": "The minimum TLS version accepted for connections. Connection attempts from clients supporting only versions below the minimum will be rejected.\n\nPossible values:\n\n1 = TLSv1_0 2 = TLSv1_1 3 = TLSv1_2 (default) 4 = TLSv1_3\n\nIf modified, the server must be restarted to use the new value.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.minTLSVersion** : Integer"
+  }
+}

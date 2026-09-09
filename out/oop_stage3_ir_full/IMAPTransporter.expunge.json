@@ -1,0 +1,28 @@
+{
+  "id": "IMAPTransporter.expunge",
+  "displayName": "IMAPTransporter.expunge",
+  "kind": "oop_function",
+  "memberName": ".expunge",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Removes all messages with the \"deleted\" flag from the IMAP mail server.",
+  "description": "The .expunge() function removes all messages with the \"deleted\" flag from the IMAP mail server. The \"deleted\" flag can be set with the .delete() or .addFlags() methods.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.expunge()** : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6"
+}

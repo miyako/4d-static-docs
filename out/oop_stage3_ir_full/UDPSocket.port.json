@@ -1,0 +1,26 @@
+{
+  "id": "UDPSocket.port",
+  "displayName": "UDPSocket.port",
+  "kind": "oop_property",
+  "memberName": ".port",
+  "receiver": {
+    "classId": "UDPSocket",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "UDPSocket"
+    }
+  },
+  "summary": "The port number to listen to",
+  "description": "The .port property contains the port number to listen to. This property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Number"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**port** : Number"
+  }
+}

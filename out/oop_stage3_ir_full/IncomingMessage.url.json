@@ -1,0 +1,26 @@
+{
+  "id": "IncomingMessage.url",
+  "displayName": "IncomingMessage.url",
+  "kind": "oop_property",
+  "memberName": ".url",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "The URL of the request without the *IP:port* part and as a string",
+  "description": "The .url property contains the URL of the request without the IP:port part and as a string.\n\nFor example, if the request is addressed to: \"http://127.0.0.1:80/docs/invoices/today\", the .url property is \"/docs/invoices/today\".\n\nThe .url property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**url** : Text"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "id": "Collection.flatMap",
+  "displayName": "Collection.flatMap",
+  "kind": "oop_function",
+  "memberName": ".flatMap",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection and flattened by a depth of 1",
+  "description": "The .flatMap() function creates a new collection based upon the result of the call of the formula 4D function or methodName method on each element of the original collection and flattened by a depth of 1. Optionally, you can pass parameters to formula or methodName using the param parameter(s).\n\nThis function is identical to a map() call followed by a flat() call of depth 1.\n\nThis function does not modify the original collection.\n\nYou designate the callback to be executed to evaluate collection elements using either:\n\nformula (recommended syntax), a Formula object that can encapsulate any executable expressions, including functions and project methods; or methodName, the name of a project method (text).\n\nThe callback is called with the parameter(s) passed in param (optional). The callback can perform any operation, with or without the parameter(s) and must return new transformed value to add to the resulting collection. It receives an Object in first parameter ($1).\n\nThe callback receives the following parameters:\n\nin $1.value: element value to be evaluated in $2: param in $N...: paramN...\n\nIt can set the following parameter(s):\n\n(mandatory if you used a method) $1.result (any type): new transformed value to add to the resulting collection $1.stop (Boolean, optional): true to stop the method callback. The returned value is the last calculated.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Function"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object"
+        },
+        {
+          "name": "param",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Parameter(s) to pass to *formula* or *methodName*"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.flatMap**( *formula* : 4D.Function { ; *...param* : any } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "methodName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of a method"
+        },
+        {
+          "name": "param",
+          "members": [
+            {
+              "name": "param",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Parameter(s) to pass to *formula* or *methodName*"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.flatMap**( *methodName* : Text { ; *...param* : any } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "20"
+}

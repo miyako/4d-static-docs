@@ -1,0 +1,49 @@
+{
+  "id": "Entity.diff",
+  "displayName": "Entity.diff",
+  "kind": "oop_function",
+  "memberName": ".diff",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Compares the contents of two entities and returns their differences",
+  "description": "The .diff() function compares the contents of two entities and returns their differences.\n\nIn entityToCompare, pass the entity to be compared to the original entity.\n\nIn attributesToCompare, you can designate specific attributes to compare. If provided, the comparison is done only on the specified attributes. If not provided, all differences between the entities are returned.\n\nThe differences are returned as a collection of objects whose properties are:\n\nOnly attributes with different values are included in the collection. If no differences are found, .diff() returns an empty collection.\n\nThe function applies for properties whose kind is storage or relatedEntity. In case a related entity has been updated (meaning the foreign key), the name of the related entity and its primary key name are returned as attributeName properties (value and otherValue are empty for the related entity name).\n\nIf one of the compared entities is Null, an error is raised.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "entityToCompare",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Entity"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Entity to be compared with the original entity"
+        },
+        {
+          "name": "attributesToCompare",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of attributes to be compared"
+        }
+      ],
+      "rawSyntax": "**.diff**( *entityToCompare* : 4D.Entity { ; *attributesToCompare* : Collection } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

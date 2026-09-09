@@ -1,0 +1,28 @@
+{
+  "id": "EntitySelection.isOrdered",
+  "displayName": "EntitySelection.isOrdered",
+  "kind": "oop_function",
+  "memberName": ".isOrdered",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns True if the entity selection is ordered",
+  "description": "The .isOrdered() function returns True if the entity selection is ordered, and False if it is unordered.\n\nThis function always returns True when the entity selection comes from a remote datastore.\n\nFor more information, please refer to Ordered or unordered entity selection.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.isOrdered**() : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

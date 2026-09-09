@@ -1,0 +1,43 @@
+{
+  "id": "Collection.average",
+  "displayName": "Collection.average",
+  "kind": "oop_function",
+  "memberName": ".average",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns the arithmetic mean (average) of defined values in the collection instance",
+  "description": "The .average() function returns the arithmetic mean (average) of defined values in the collection instance.\n\nOnly numerical elements are taken into account for the calculation (other element types are ignored).\n\nIf the collection contains objects, pass the propertyPath parameter to indicate the object property to take into account.\n\n.average() returns undefined if:\n\nthe collection is empty, the collection does not contain numerical elements, propertyPath is not found in the collection.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "propertyPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Object property path to be used for calculation"
+        }
+      ],
+      "rawSyntax": "**.average**( {*propertyPath* : Text } ) : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      },
+      "returnsNullable": true
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "16-R6"
+}

@@ -1,0 +1,98 @@
+{
+  "id": "EntitySelection.orderByFormula",
+  "displayName": "EntitySelection.orderByFormula",
+  "kind": "oop_function",
+  "memberName": ".orderByFormula",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns a new, ordered entity selection",
+  "description": "The .orderByFormula() function returns a new, ordered entity selection containing all entities of the entity selection in the order defined through the formulaString or formulaObj and, optionally, sortOrder and settings parameters.\n\nThis function does not modify the original entity selection.\n\nYou can use either a formulaString or a formulaObj parameter:\n\nformulaString: you pass a 4D expression such as \"Year of(this.birthDate)\". formulaObj: pass a valid formula object created using the Formula or Formula from string command.\n\nThe formulaString or formulaObj is executed for each entity of the entity selection and its result is used to define the position of the entity in the returned entity selection. The result must be of a sortable type (boolean, date, number, text, time, null).\n\nA null result is always the smallest value.\n\nBy default if you omit the sortOrder parameter, the resulting entity selection is sorted in ascending order. Optionnally, you can pass one of the following values in the sortOrder parameter:\n\nWithin the formulaString or formulaObj, the processed entity and thus its attributes are available through the This command (for example, This.lastName).\n\nYou can pass parameter(s) to the formula using the args property (object) of the settings parameter: the formula receives the settings.args object in $1.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "formulaString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Formula string"
+        },
+        {
+          "name": "sortOrder",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.orderByFormula.sortOrder"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk ascending` (default) or `dk descending`"
+        },
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) for the formula"
+        }
+      ],
+      "rawSyntax": "**.orderByFormula**( *formulaString* : Text { ; *sortOrder* : Integer } { ; *settings* : Object} ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "formulaObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object"
+        },
+        {
+          "name": "sortOrder",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.orderByFormula.sortOrder"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk ascending` (default) or `dk descending`"
+        },
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Parameter(s) for the formula"
+        }
+      ],
+      "rawSyntax": "**.orderByFormula**( *formulaObj* : Object { ; *sortOrder* : Integer } { ; *settings* : Object} ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17-R6"
+}

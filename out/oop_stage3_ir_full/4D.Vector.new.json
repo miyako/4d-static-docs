@@ -1,0 +1,39 @@
+{
+  "id": "4D.Vector.new",
+  "displayName": "4D.Vector.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "Vector",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.Vector"
+    }
+  },
+  "summary": "Creates and returns a new object of the `4D.Vector` type",
+  "description": "The 4D.Vector.new() function creates and returns a new object of the 4D.Vector type.\n\nIn parameter, pass a collection of real numbers representing the vector to create. These values are provided by artifical intelligences and represent mathematically objects like words or data.",
+  "docPage": "mirror/docs/21-R3/API/VectorClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "parameter",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of real numbers representing a vector"
+        }
+      ],
+      "rawSyntax": "**4D.Vector.new** ( *parameter* : Collection ) : 4D.Vector",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Vector"
+      }
+    }
+  ],
+  "sinceVersion": "20-R10"
+}

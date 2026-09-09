@@ -1,0 +1,58 @@
+{
+  "id": "EntitySelection.and",
+  "displayName": "EntitySelection.and",
+  "kind": "oop_function",
+  "memberName": ".and",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Combines the entity selection with an *entity* or *entitySelection* parameter using the logical AND operator",
+  "description": "The .and() function combines the entity selection with an entity or entitySelection parameter using the logical AND operator; it returns a new, unordered entity selection that contains only the entities that are referenced in both the entity selection and the parameter.\n\nIf you pass entity as parameter, you combine this entity with the entity selection. If the entity belongs to the entity selection, a new entity selection containing only the entity is returned. Otherwise, an empty entity selection is returned. If you pass entitySelection as parameter, you combine both entity selections. A new entity selection that contains only the entities that are referenced in both selections is returned. If there is no intersecting entity, an empty entity selection is returned.\n\nYou can compare ordered and/or unordered entity selections. The resulting selection is always unordered.\n\nIf the original entity selection or the entitySelection parameter is empty, or if the entity is Null, an empty entity selection is returned.\n\nIf the original entity selection and the parameter are not related to the same dataclass, an error is raised.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "entity",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Entity"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Entity to intersect with"
+        }
+      ],
+      "rawSyntax": "**.and**( *entity* : 4D.Entity ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "entitySelection",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.EntitySelection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Entity selection to intersect with"
+        }
+      ],
+      "rawSyntax": "**.and**( *entitySelection* : 4D.EntitySelection ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

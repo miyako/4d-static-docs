@@ -1,0 +1,49 @@
+{
+  "id": "Collection.indexOf",
+  "displayName": "Collection.indexOf",
+  "kind": "oop_function",
+  "memberName": ".indexOf",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Searches the *toSearch* expression among collection elements and returns the index of the first found occurrence, or -1 if it was not found",
+  "description": "The .indexOf() function searches the toSearch expression among collection elements and returns the index of the first found occurrence, or -1 if it was not found.\n\nThis function does not modify the original collection.\n\nIn toSearch, pass the expression to find in the collection. You can pass:\n\na scalar value (text, number, boolean, date), the null value, an object or a collection reference.\n\ntoSearch must match exactly the element to find (the same rules as for the equality operator of the data type are applied).\n\nOptionally, you can pass the index of collection from which to start the search in startFrom.\n\nIf startFrom >= the collection's length, -1 is returned, which means the collection is not searched. If startFrom < 0, it is considered as the offset from the end of the collection (startFrom:=startFrom+length). Note: Even if startFrom is negative, the collection is still searched from left to right. If startFrom = 0, the whole collection is searched (default).",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "toSearch",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Expression to search in the collection"
+        },
+        {
+          "name": "startFrom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Index to start the search at"
+        }
+      ],
+      "rawSyntax": "**.indexOf**(  *toSearch* : expression { ; *startFrom* : Integer } ) : Integer",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

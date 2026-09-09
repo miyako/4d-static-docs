@@ -1,0 +1,35 @@
+{
+  "id": "WebFormItem.removeCSSClass",
+  "displayName": "WebFormItem.removeCSSClass",
+  "kind": "oop_function",
+  "memberName": ".removeCSSClass",
+  "receiver": {
+    "classId": "WebFormItem",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebFormItem"
+    }
+  },
+  "summary": "Removes the class specified in *className* from the component",
+  "description": "The .removeCSSClass() function removes the class specified in className from the component.",
+  "docPage": "mirror/docs/21-R3/API/WebFormItemClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "className",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the CSS class to remove from the component"
+        }
+      ],
+      "rawSyntax": "**.removeCSSClass**(*className*: Text)",
+      "returns": null
+    }
+  ]
+}

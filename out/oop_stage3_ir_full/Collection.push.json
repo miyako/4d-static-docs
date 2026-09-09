@@ -1,0 +1,59 @@
+{
+  "id": "Collection.push",
+  "displayName": "Collection.push",
+  "kind": "oop_function",
+  "memberName": ".push",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Appends one or more *element*(s) to the end of the collection instance and returns the edited collection",
+  "description": "The .push() function appends one or more element(s) to the end of the collection instance and returns the edited collection.\n\nThis function modifies the original collection.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "element",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Element(s) to add to the collection"
+        },
+        {
+          "name": "elementN",
+          "members": [
+            {
+              "name": "elementN",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Element(s) to add to the collection"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.push**( *element* : any { ;...*elementN* : any } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

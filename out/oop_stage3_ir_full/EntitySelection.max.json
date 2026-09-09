@@ -1,0 +1,48 @@
+{
+  "id": "EntitySelection.max",
+  "displayName": "EntitySelection.max",
+  "kind": "oop_function",
+  "memberName": ".max",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns the highest (or maximum) value among all the values of *attributePath* in the entity selection",
+  "description": "The .max() function returns the highest (or maximum) value among all the values of attributePath in the entity selection. It actually returns the value of the last entity of the entity selection as it would be sorted in ascending order using the .orderBy() function.\n\nIf you pass in attributePath a path to an object property containing different types of values, the .max() function will return the maximum value within the first scalar type according to the 4D ordering principles.\n\n.max() returns undefined if the entity selection is empty or attributePath is not found in the object attribute.\n\nAn error is returned if:\n\nattributePath is a related attribute, attributePath designates an attribute that does not exist in the entity selection dataclass.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Path of the attribute to be used for calculation"
+        }
+      ],
+      "rawSyntax": "**.max**( *attributePath* : Text ) : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "18-R6",
+      "change": "Returns undefined if empty entity selection"
+    }
+  ]
+}

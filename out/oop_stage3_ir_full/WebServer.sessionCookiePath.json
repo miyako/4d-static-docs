@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.sessionCookiePath",
+  "displayName": "WebServer.sessionCookiePath",
+  "kind": "oop_property",
+  "memberName": ".sessionCookiePath",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "\"path\" field of the session cookie",
+  "description": "The \"path\" field of the session cookie. Used to control the scope of the session cookies. If you set, for example, the value \"/4DACTION\" for this selector, the client will only send a cookie for dynamic requests beginning with 4DACTION, and not for pictures, static pages, etc.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.sessionCookiePath** : Text"
+  }
+}

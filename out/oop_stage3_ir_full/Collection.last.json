@@ -1,0 +1,31 @@
+{
+  "id": "Collection.last",
+  "displayName": "Collection.last",
+  "kind": "oop_function",
+  "memberName": ".last",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns the last element of the collection",
+  "description": "The .last() function returns the last element of the collection.\n\nThis function does not modify the original collection.\n\nThe function returns Undefined if the collection is empty.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.last**() : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "20"
+}

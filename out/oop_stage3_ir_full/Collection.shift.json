@@ -1,0 +1,28 @@
+{
+  "id": "Collection.shift",
+  "displayName": "Collection.shift",
+  "kind": "oop_function",
+  "memberName": ".shift",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Removes the first element of the collection and returns it as the function result",
+  "description": "The .shift() function removes the first element of the collection and returns it as the function result.\n\nThis function modifies the original collection.\n\nIf the collection is empty, this method does nothing.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.shift()** : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

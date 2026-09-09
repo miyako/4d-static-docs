@@ -1,0 +1,27 @@
+{
+  "id": "FileHandle.offset",
+  "displayName": "FileHandle.offset",
+  "kind": "oop_property",
+  "memberName": ".offset",
+  "receiver": {
+    "classId": "FileHandle",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "FileHandle"
+    }
+  },
+  "summary": "The current offset of the data stream (position inside the document)",
+  "description": "The .offset property returns the current offset of the data stream (position inside the document). The offset value is automatically updated after read and write operations.\n\nSetting the .offset will change its current value at the moment of the next read or write operation.\n\nIf the passed value is negative, the .offset is set to the start of the file (zero). If the passed value is higher than the size of the file, the .offset is set to the end of the file (size of file).\n\nThis property is read/write.",
+  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Real"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.offset** : Real"
+  },
+  "sinceVersion": "19-R7"
+}

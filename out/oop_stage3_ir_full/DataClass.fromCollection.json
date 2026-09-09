@@ -1,0 +1,61 @@
+{
+  "id": "DataClass.fromCollection",
+  "displayName": "DataClass.fromCollection",
+  "kind": "oop_function",
+  "memberName": ".fromCollection",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Updates or creates entities in the dataclass according to the *objectCol* collection of objects, and returns the corresponding entity selection",
+  "description": "The .fromCollection() function updates or creates entities in the dataclass according to the objectCol collection of objects, and returns the corresponding entity selection.\n\nIn the objectCol parameter, pass a collection of objects to create new or update existing entities of the dataclass. The property names must be the same as attribute names in the dataclass. If a property name does not exist in the dataclass, it is ignored. If an attribute value is not defined in the collection, its value is null.\n\nThe mapping between the objects of the collection and the entities is done on the attribute names and matching types. If an object's property has the same name as an entity's attribute but their types do not match, the entity's attribute is not filled.\n\nCreate or update mode\n\nFor each object of objectCol:\n\nIf the object contains a boolean property \"__NEW\" set to false (or does not contain a boolean \"__NEW\" property), the entity is updated or created with the corresponding values of the properties from the object. No check is performed in regards to the primary key: If the primary key is given and exists, the entity is updated. In this case, the primary key can be given as is or with a \"__KEY\" property (filled with the primary key value). If the primary key is given (as is) and does not exist, the entity is created If the primary key is not given, the entity is created and the primary key value is assigned with respect to standard database rules. If the object contains a boolean property \"__NEW\" set to true, the entity is created with the corresponding values of the attributes from the object. A check is performed in regards to the primary key: If the primary key is given (as is) and exists, an error is sent If the primary key is given (as is) and does not exist, the entity is created If the primary is not given, the entity is created and the primary key value is assigned with respect to standard database rules.\n\nThe \"__KEY\" property containing a value is taken into account only when the \"__NEW\" property is set to false (or is omitted) and a corresponding entity exists. In all other cases, the \"__KEY\" property value is ignored, primary key value must be passed \"as is\".\n\nRelated entities\n\nThe objects of objectCol may contain one or more nested object(s) featuring one or more related entities, which can be useful to create or update links between entities.\n\nThe nested objects featuring related entities must contain a \"__KEY\" property (filled with the primary key value of the related entity) or the primary key attribute of the related entity itself. The use of a __KEY property allows independence from the primary key attribute name.\n\nThe content of the related entities cannot be created / updated through this mechanism.\n\nStamp\n\nIf a __STAMP attribute is given, a check is performed with the stamp in the datastore and an error can be returned (\"Given stamp does not match current one for record# XX of table XXXX\"). For more information, see Entity locking.\n\nsettings\n\nIn the optional settings parameter, you can pass an object containing additional options. The following property is supported:",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "objectCol",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of objects to be mapped with entities"
+        },
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Build option: context"
+        }
+      ],
+      "rawSyntax": "**.fromCollection**( *objectCol* : Collection { ; *settings* : Object } ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "17-R5",
+      "change": "Support of the settings parameter"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": ".toCollection()",
+      "href": "EntitySelectionClass.html#tocollection"
+    }
+  ]
+}

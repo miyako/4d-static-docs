@@ -1,0 +1,27 @@
+{
+  "id": "Directory.hidden",
+  "displayName": "Directory.hidden",
+  "kind": "oop_property",
+  "memberName": ".hidden",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "True if the folder is set as \"hidden\" at the system level",
+  "description": "The .hidden property returns true if the folder is set as \"hidden\" at the system level, and false otherwise.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.hidden** : Boolean"
+  },
+  "sinceVersion": "17-R5"
+}

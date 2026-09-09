@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.name",
+  "displayName": "WebServer.name",
+  "kind": "oop_property",
+  "memberName": ".name",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Name of the web server application",
+  "description": "Read-only property\n\nThe name of the web server application.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.name** : Text"
+  }
+}

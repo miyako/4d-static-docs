@@ -1,0 +1,27 @@
+{
+  "id": "Directory.parent",
+  "displayName": "Directory.parent",
+  "kind": "oop_property",
+  "memberName": ".parent",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "The parent folder object of the folder",
+  "description": "The .parent property returns the parent folder object of the folder. If the path represents a system path (e.g., \"/DATA/\"), the system path is returned.\n\nIf the folder does not have a parent (root), the null value is returned.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.Folder"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.parent** : 4D.Folder"
+  },
+  "sinceVersion": "17-R5"
+}

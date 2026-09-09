@@ -1,0 +1,26 @@
+{
+  "id": "MailAttachment.type",
+  "displayName": "MailAttachment.type",
+  "kind": "oop_property",
+  "memberName": ".type",
+  "receiver": {
+    "classId": "MailAttachment",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "MailAttachment"
+    }
+  },
+  "summary": "The `content-type` of the attachment file",
+  "description": "The .type property contains the content-type of the attachment file. If this type is not explicitly passed to the MAIL New attachment command, the content-type is based on its file extension.",
+  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.type** : Text"
+  }
+}

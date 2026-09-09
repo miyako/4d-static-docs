@@ -1,0 +1,39 @@
+{
+  "id": "Signal.wait",
+  "displayName": "Signal.wait",
+  "kind": "oop_function",
+  "memberName": ".wait",
+  "receiver": {
+    "classId": "Signal",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Signal"
+    }
+  },
+  "summary": "Waits until the `.signaled` property of the Signal object becomes **true** or the specified `timeout` is reached",
+  "description": "The .wait( ) function waits until the .signaled property of the Signal object becomes true or the specified timeout is reached.\n\nTo prevent blocking code, you can pass a maximum waiting time in seconds in the timeout parameter. Decimals are accepted.\n\nIf the signal is already in the signaled state (i.e. the .signaled property is already true), the function returns immediately, without waiting.\n\nThe function returns the value of the .signaled property:\n\ntrue if the signal was triggered (.trigger() was called). false if the timeout expired before the signal was triggered.\n\nThe state of a process that waits for a signal is Waiting for internal flag.",
+  "docPage": "mirror/docs/21-R3/API/SignalClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "timeout",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Maximum wait time in seconds"
+        }
+      ],
+      "rawSyntax": "**.wait**( { *timeout* : Real } ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "17-R4"
+}

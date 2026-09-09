@@ -1,0 +1,25 @@
+{
+  "id": "DataStore.validateTransaction",
+  "displayName": "DataStore.validateTransaction",
+  "kind": "oop_function",
+  "memberName": ".validateTransaction",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Accepts the transaction",
+  "description": "The .validateTransaction() function accepts the transaction that was started with .startTransaction() at the corresponding level on the specified datastore.\n\nThe function saves the changes to the data on the datastore that occurred during the transaction.\n\nYou can nest several transactions (sub-transactions). If the main transaction is cancelled, all of its sub-transactions are also cancelled, even if they were validated individually using this function.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.validateTransaction()**",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "18"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "HTTPRequest.dataType",
+  "displayName": "HTTPRequest.dataType",
+  "kind": "oop_property",
+  "memberName": ".dataType",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "The `dataType` passed in the `options` object when calling new(), \"auto\" if it was omitted",
+  "description": "The .dataType property contains the dataType passed in the options object when calling new(), \"auto\" if it was omitted.",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**dataType** : Text"
+  }
+}

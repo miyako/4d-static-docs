@@ -1,0 +1,27 @@
+{
+  "id": "SMTPTransporter.keepAlive",
+  "displayName": "SMTPTransporter.keepAlive",
+  "kind": "oop_property",
+  "memberName": ".keepAlive",
+  "receiver": {
+    "classId": "SMTPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SMTPTransporter"
+    }
+  },
+  "summary": "**True** if the SMTP connection must be kept alive until the `transporter` object is destroyed",
+  "description": "The .keepAlive property contains True if the SMTP connection must be kept alive until the transporter object is destroyed, and False otherwise. By default, if the keepAlive property has not been set in the server object (used to create the transporter object with SMTP New transporter), it is True.\n\nThe SMTP connection is automatically closed:\n\nwhen the transporter object is destroyed if the .keepAlive property is true, after each .send( ) function execution if the .keepAlive property is set to false.",
+  "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.keepAlive** : Boolean"
+  },
+  "sinceVersion": "17-R4"
+}

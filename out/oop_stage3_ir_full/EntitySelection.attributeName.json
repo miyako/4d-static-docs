@@ -1,0 +1,30 @@
+{
+  "id": "EntitySelection.attributeName",
+  "displayName": "EntitySelection.attributeName",
+  "kind": "oop_property",
+  "memberName": ".attributeName",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Any dataclass attribute can be used as a property of an entity selection to return a \"projection\" of values for the attribute in the entity selection. Projected values can be a collection or a new entity selection, depending on the kind (storage or relation) of the attribute.",
+  "description": "Any dataclass attribute can be used as a property of an entity selection to return a \"projection\" of values for the attribute in the entity selection. Projected values can be a collection or a new entity selection, depending on the kind (storage or relation) of the attribute.\n\nIf attributeName kind is storage: .attributeName returns a collection of values of the same type as attributeName. If attributeName kind is relatedEntity: .attributeName returns a new entity selection of related values of the same type as attributeName. Duplications are removed (an unordered entity selection is returned). If attributeName kind is relatedEntities: .attributeName returns a new entity selection of related values of the same type as attributeName. Duplications are removed (an unordered entity selection is returned).\n\nWhen a relation attribute is used as a property of an entity selection, the result is always another entity selection, even if only one entity is returned. In this case, if no entities are returned, the result is an empty entity selection.\n\nIf the attribute does not exist in the entity selection, an error is returned.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "pseudo",
+      "name": "any"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "dynamicMember": {
+    "namePattern": "<attributeName>",
+    "note": "attribute name comes from the user's data model"
+  },
+  "sinceVersion": "17"
+}

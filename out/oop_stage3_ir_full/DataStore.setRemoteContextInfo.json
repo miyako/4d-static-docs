@@ -1,0 +1,262 @@
+{
+  "id": "DataStore.setRemoteContextInfo",
+  "displayName": "DataStore.setRemoteContextInfo",
+  "kind": "oop_function",
+  "memberName": ".setRemoteContextInfo",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Links the specified dataclass attributes to the *contextName* optimization context",
+  "description": "Advanced mode: This function is intended for developers who need to customize ORDA default features for specific configurations. In most cases, you will not need to use it.\n\nThe .setRemoteContextInfo() function links the specified dataclass attributes to the contextName optimization context. If an optimization context already exists for the specified attributes, this command replaces it.\n\nWhen you pass a context to the ORDA class functions, the REST request optimization is triggered immediately:\n\nthe first entity is not fully loaded as done in automatic mode pages of 80 entities (or pageLength entities) are immediately asked to the server with only the attributes in the context\n\nFor more information on how optimization contexts are built, refer to the client/server optimization paragraph\n\nIn contextName, pass the name of the optimization context to link to the dataclass attributes.\n\nTo designate the dataclass that will receive the context, you can pass a dataClassName or a dataClassObject.\n\nTo designate the attributes to link to the context, pass either a list of attributes separated by a comma in attributes (Text), or a collection of attribute names in attributesColl (collection of text).\n\nIf attributes is an empty Text, or attributesColl is an empty collection, all the scalar attributes of the dataclass are put in the optimization context. If you pass an attribute that does not exist in the dataclass, the function ignores it and an error is thrown.\n\nYou can pass a contextType to specify if the context is a standard context or the context of the current entity selection item displayed in a list box:\n\nIf set to \"main\" (default), the contextName designates a standard context. If set to \"currentItem\", the attributes passed are put in the context of the current item. See Entity selection-based list box.\n\nIn pageLength, specify the number of dataclass entities to request from the server.\n\nYou can pass a pageLength for a relation attribute which is an entity selection (one to many). The syntax is relationAttributeName:pageLength (e.g employees:20).",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "contextName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the context"
+        },
+        {
+          "name": "dataClassName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the dataclass"
+        },
+        {
+          "name": "attributes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attribute list separated by a comma"
+        },
+        {
+          "name": "contextType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If provided, value must be \"main\" or \"currentItem\""
+        },
+        {
+          "name": "pageLength",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Page length of the entity selection linked to the context (default is 80)"
+        }
+      ],
+      "rawSyntax": "**.setRemoteContextInfo**( *contextName* : Text ; *dataClassName* : Text ; *attributes* : Text {; *contextType* : Text { ; *pageLength* : Integer}})",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "contextName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the context"
+        },
+        {
+          "name": "dataClassName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the dataclass"
+        },
+        {
+          "name": "attributesColl",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of attribute names (text)"
+        },
+        {
+          "name": "contextType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If provided, value must be \"main\" or \"currentItem\""
+        },
+        {
+          "name": "pageLength",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Page length of the entity selection linked to the context (default is 80)"
+        }
+      ],
+      "rawSyntax": "**.setRemoteContextInfo**( *contextName* : Text ; *dataClassName* : Text; *attributesColl* : Collection {; *contextType* : Text { ; *pageLength* : Integer }} )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "contextName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the context"
+        },
+        {
+          "name": "dataClassObject",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.DataClass"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "dataclass object (e.g datastore.Employee)"
+        },
+        {
+          "name": "attributes",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attribute list separated by a comma"
+        },
+        {
+          "name": "contextType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If provided, value must be \"main\" or \"currentItem\""
+        },
+        {
+          "name": "pageLength",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Page length of the entity selection linked to the context (default is 80)"
+        }
+      ],
+      "rawSyntax": "**.setRemoteContextInfo**( *contextName* : Text ; *dataClassObject* : 4D.DataClass ; *attributes* : Text {; *contextType* : Text { ; *pageLength* : Integer }})",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "contextName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the context"
+        },
+        {
+          "name": "dataClassObject",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.DataClass"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "dataclass object (e.g datastore.Employee)"
+        },
+        {
+          "name": "attributesColl",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of attribute names (text)"
+        },
+        {
+          "name": "contextType",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "If provided, value must be \"main\" or \"currentItem\""
+        },
+        {
+          "name": "pageLength",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Page length of the entity selection linked to the context (default is 80)"
+        }
+      ],
+      "rawSyntax": "**.setRemoteContextInfo**( *contextName* : Text ; *dataClassObject* : 4D.DataClass ; *attributesColl* : Collection {; *contextType* : Text { ; *pageLength* : Integer }} )",
+      "returns": null
+    }
+  ],
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "19-R5",
+  "_seeAlso": [
+    {
+      "text": ".getRemoteContextInfo()",
+      "href": "DataStoreClass.html#getremotecontextinfo"
+    },
+    {
+      "text": ".getAllRemoteContexts()",
+      "href": "DataStoreClass.html#getallremotecontexts"
+    },
+    {
+      "text": ".clearAllRemoteContexts()",
+      "href": "DataStoreClass.html#clearallremotecontexts"
+    }
+  ]
+}

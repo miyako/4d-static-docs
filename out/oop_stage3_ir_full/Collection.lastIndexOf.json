@@ -1,0 +1,49 @@
+{
+  "id": "Collection.lastIndexOf",
+  "displayName": "Collection.lastIndexOf",
+  "kind": "oop_function",
+  "memberName": ".lastIndexOf",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Searches the *toSearch* expression among collection elements and returns the index of the last occurrence",
+  "description": "The .lastIndexOf() function searches the toSearch expression among collection elements and returns the index of the last occurrence, or -1 if it was not found.\n\nThis function does not modify the original collection.\n\nIn toSearch, pass the expression to find in the collection. You can pass:\n\na scalar value (text, number, boolean, date), the null value, an object or a collection reference.\n\ntoSearch must match exactly the element to find (the same rules as for the equality operator are applied).\n\nOptionally, you can pass the index of collection from which to start a reverse search in startFrom.\n\nIf startFrom >= the collection's length minus one (coll.length-1), the whole collection is searched (default). If startFrom < 0, it is recalculated as startFrom:=startFrom+length (it is considered as the offset from the end of the collection). If the calculated value is negative, -1 is returned (the collection is not searched). Note: Even if startFrom is negative, the collection is still searched from right to left. If startFrom = 0, -1 is returned, which means the collection is not searched.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "toSearch",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "The element that is to be searched for within the collection"
+        },
+        {
+          "name": "startFrom",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Index to start the search at"
+        }
+      ],
+      "rawSyntax": "**.lastIndexOf**( *toSearch* : expression { ; *startFrom* : Integer } ) : Integer",
+      "returns": {
+        "kind": "concrete",
+        "name": "Integer"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

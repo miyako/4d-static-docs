@@ -1,0 +1,28 @@
+{
+  "id": "EntitySelection.isAlterable",
+  "displayName": "EntitySelection.isAlterable",
+  "kind": "oop_function",
+  "memberName": ".isAlterable",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns True if the entity selection is alterable",
+  "description": "The .isAlterable() function returns True if the entity selection is alterable, and False if the entity selection is not alterable.\n\nFor more information, please refer to Shareable or alterable entity selections.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.isAlterable**() : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "18-R5"
+}

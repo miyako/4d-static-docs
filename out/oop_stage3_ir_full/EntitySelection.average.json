@@ -1,0 +1,48 @@
+{
+  "id": "EntitySelection.average",
+  "displayName": "EntitySelection.average",
+  "kind": "oop_function",
+  "memberName": ".average",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns the arithmetic mean (average) of all the non-null values of *attributePath* in the entity selection",
+  "description": "The .average() function returns the arithmetic mean (average) of all the non-null values of attributePath in the entity selection.\n\nPass in the attributePath parameter the attribute path to evaluate.\n\nOnly numerical values are taken into account for the calculation. Note however that, if the attributePath of the entity selection contains mixed value types, .average() takes all scalar elements into account to calculate the average value.\n\nDate values are converted to numerical values (seconds) and used to calculate the average.\n\n.average() returns undefined if the entity selection is empty or attributePath does not contain numerical values.\n\nAn error is returned if:\n\nattributePath is a related attribute, attributePath designates an attribute that does not exist in the entity selection dataclass.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attribute path to be used for calculation"
+        }
+      ],
+      "rawSyntax": "**.average**( *attributePath* : Text ) : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "18-R6",
+      "change": "Returns undefined if empty entity selection"
+    }
+  ]
+}

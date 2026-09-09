@@ -1,0 +1,27 @@
+{
+  "id": "Directory.path",
+  "displayName": "Directory.path",
+  "kind": "oop_property",
+  "memberName": ".path",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "The POSIX path of the folder",
+  "description": "The .path property returns the POSIX path of the folder. If the path represents a filesystem (e.g., \"/DATA/\"), the filesystem is returned.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.path** : Text"
+  },
+  "sinceVersion": "17-R5"
+}

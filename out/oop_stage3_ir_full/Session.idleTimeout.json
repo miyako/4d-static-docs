@@ -1,0 +1,27 @@
+{
+  "id": "Session.idleTimeout",
+  "displayName": "Session.idleTimeout",
+  "kind": "oop_property",
+  "memberName": ".idleTimeout",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "The inactivity session timeout (in minutes), after which the session is automatically closed by 4D",
+  "description": "The .idleTimeout property contains the inactivity session timeout (in minutes), after which the session is automatically closed by 4D.\n\nIf this property is not set, the default value is 60 (1h).\n\nWhen this property is set, the .expirationDate property is updated accordingly.\n\nThe value cannot be less than 60: if a lower value is set, the timeout is raised up to 60.\n\nThis property is read write.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.idleTimeout** : Integer"
+  },
+  "sinceVersion": "18-R6"
+}

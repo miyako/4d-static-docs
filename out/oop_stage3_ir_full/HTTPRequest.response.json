@@ -1,0 +1,72 @@
+{
+  "id": "HTTPRequest.response",
+  "displayName": "HTTPRequest.response",
+  "kind": "oop_property",
+  "memberName": ".response",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "The response to the request if it has received at least the status code, undefined otherwise",
+  "description": "The .response property contains the response to the request if it has received at least the status code, undefined otherwise.\n\nA response object is a non-sharable object. It provides the following properties:",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**response** : Object"
+  },
+  "returnsShape": {
+    "properties": {
+      ".body": {
+        "type": {
+          "kind": "pseudo",
+          "name": "Variant"
+        },
+        "description": "Body of the response. The type of the message is defined according to the dataType property. Undefined if the body has not been received yet"
+      },
+      ".headers": {
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
+        "description": "Headers of the response. Header names are returned in lowercase. <headername>.key = value (value can be a collection if the same key appears multiple times). Undefined if the headers have not been received yet."
+      },
+      ".status": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Status code of the response"
+      },
+      ".statusText": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Message explaining the status code"
+      },
+      ".rawHeaders": {
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
+        "description": "Headers of the response. Header names are returned untouched (with their original case). <headerName>.key = value (value can be a collection if the same key appears multiple times). Undefined if the headers have not been received yet."
+      }
+    },
+    "source": "Description"
+  },
+  "versionBehaviorChanges": [
+    {
+      "release": "19-R8",
+      "change": ".headers returns lowercase names. New .rawHeaders property"
+    }
+  ]
+}

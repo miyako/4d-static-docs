@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.maxSessions",
+  "displayName": "WebServer.maxSessions",
+  "kind": "oop_property",
+  "memberName": ".maxSessions",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Maximum number of simultaneous legacy sessions",
+  "description": "This property is not returned in scalable sessions mode.\n\nContains the maximum number of simultaneous legacy sessions. When you reach the limit, the oldest legacy session is closed (and On Web Legacy Close Session database method is called) if the web server needs to create a new one. The number of simultaneous legacy sessions cannot exceed the total number of web processes (maxConcurrentProcesses property, 100 by default)",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.maxSessions** : Integer"
+  }
+}

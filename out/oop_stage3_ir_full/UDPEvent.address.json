@@ -1,0 +1,26 @@
+{
+  "id": "UDPEvent.address",
+  "displayName": "UDPEvent.address",
+  "kind": "oop_property",
+  "memberName": ".address",
+  "receiver": {
+    "classId": "UDPEvent",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "UDPEvent"
+    }
+  },
+  "summary": "The IP address of the remote machine",
+  "description": "The .address property contains the IP address of the remote machine.",
+  "docPage": "mirror/docs/21-R3/API/TCPEventClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**address** : Text"
+  }
+}

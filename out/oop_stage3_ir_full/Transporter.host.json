@@ -1,0 +1,27 @@
+{
+  "id": "Transporter.host",
+  "displayName": "Transporter.host",
+  "kind": "oop_property",
+  "memberName": ".host",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The name or the IP address of the host server",
+  "description": "The .host property contains the name or the IP address of the host server. Used for mail transactions (SMTP, POP3, IMAP).",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.host** : Text"
+  },
+  "sinceVersion": "17-R5"
+}

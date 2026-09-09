@@ -1,0 +1,84 @@
+{
+  "id": "CryptoKey.sign",
+  "displayName": "CryptoKey.sign",
+  "kind": "oop_function",
+  "memberName": ".sign",
+  "receiver": {
+    "classId": "CryptoKey",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "CryptoKey"
+    }
+  },
+  "summary": "Signs the utf8 representation of a *message* string or Blob",
+  "description": "The .sign() function signs the utf8 representation of a message string or Blob using the CryptoKey object keys and provided options. It returns its signature in base64 or base64URL format, depending on the value of the options.encoding attribute you passed.\n\nThe CryptoKey must contain a valid private key.",
+  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Message to sign"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Signing options"
+        }
+      ],
+      "rawSyntax": ".**sign** (*message* : Text ; *options* : Object) : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Message to sign"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Signing options"
+        }
+      ],
+      "rawSyntax": ".**sign** (*message* : Blob ; *options* : Object) : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "18-R4",
+  "versionBehaviorChanges": [
+    {
+      "release": "20-R8",
+      "change": "Support of message as Blob"
+    }
+  ]
+}

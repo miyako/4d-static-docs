@@ -1,0 +1,53 @@
+{
+  "id": "File.moveTo",
+  "displayName": "File.moveTo",
+  "kind": "oop_function",
+  "memberName": ".moveTo",
+  "receiver": {
+    "classId": "File",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "File"
+    }
+  },
+  "summary": "Moves or renames the `File` object into the specified *destinationFolder*",
+  "description": "The .moveTo() function moves or renames the File object into the specified destinationFolder.\n\nThe destinationFolder must exist on disk, otherwise an error is generated.\n\nBy default, the file retains its name when moved. If you want to rename the moved file, pass the new full name in the newName parameter. The new name must comply with naming rules (e.g., it must not contain characters such as \":\", \"/\", etc.), otherwise an error is returned.\n\nReturned object\n\nThe moved File object.",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "destinationFolder",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Folder"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Destination folder"
+        },
+        {
+          "name": "newName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Full name for the moved file"
+        }
+      ],
+      "rawSyntax": "**.moveTo**( *destinationFolder* : 4D.Folder { ; *newName* : Text } ) : 4D.File",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.File"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "17-R5"
+}

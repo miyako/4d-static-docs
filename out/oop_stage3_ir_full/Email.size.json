@@ -1,0 +1,26 @@
+{
+  "id": "Email.size",
+  "displayName": "Email.size",
+  "kind": "oop_property",
+  "memberName": ".size",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Size (expressed in bytes) of the Email object returned by the IMAP server",
+  "description": "IMAP transporter only.\n\nThe .size property contains the size (expressed in bytes) of the Email object returned by the IMAP server.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.size** : Integer"
+  }
+}

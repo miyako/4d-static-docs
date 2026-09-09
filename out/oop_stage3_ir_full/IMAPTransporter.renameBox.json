@@ -1,0 +1,49 @@
+{
+  "id": "IMAPTransporter.renameBox",
+  "displayName": "IMAPTransporter.renameBox",
+  "kind": "oop_function",
+  "memberName": ".renameBox",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Changes the name of a mailbox on the IMAP server",
+  "description": "The .renameBox() function changes the name of a mailbox on the IMAP server. Attempting to rename a mailbox from a mailbox name that does not exist or to a mailbox name that already exists will generate an error.\n\nIn the currentName parameter, pass the name of the mailbox to be renamed.\n\nPass the new name for the mailbox in the newName parameter.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "currentName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the current mailbox"
+        },
+        {
+          "name": "newName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New mailbox name"
+        }
+      ],
+      "rawSyntax": "**.renameBox**( *currentName* : Text ; *newName* : Text ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "sinceVersion": "19"
+}

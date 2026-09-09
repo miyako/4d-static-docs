@@ -1,0 +1,27 @@
+{
+  "id": "Document.hidden",
+  "displayName": "Document.hidden",
+  "kind": "oop_property",
+  "memberName": ".hidden",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "True if the file is set as \"hidden\" at the system level",
+  "description": "The .hidden property returns true if the file is set as \"hidden\" at the system level, and false otherwise.\n\nThis property is read/write.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.hidden** : Boolean"
+  },
+  "sinceVersion": "17-R5"
+}

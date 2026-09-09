@@ -1,0 +1,26 @@
+{
+  "id": "HTTPRequest.terminated",
+  "displayName": "HTTPRequest.terminated",
+  "kind": "oop_property",
+  "memberName": ".terminated",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "True if the request is terminated (after the call to `onTerminate`), false otherwise",
+  "description": "The .terminated property contains True if the request is terminated (after the call to onTerminate), false otherwise.",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**terminated** : Boolean"
+  }
+}

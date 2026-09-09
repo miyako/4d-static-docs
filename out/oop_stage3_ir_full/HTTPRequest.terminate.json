@@ -1,0 +1,24 @@
+{
+  "id": "HTTPRequest.terminate",
+  "displayName": "HTTPRequest.terminate",
+  "kind": "oop_function",
+  "memberName": ".terminate",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "Aborts the HTTP request",
+  "description": "This function is thread-safe.\n\nThe .terminate() function aborts the HTTP request. It triggers the onTerminate event.",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.terminate()**",
+      "returns": null
+    }
+  ]
+}

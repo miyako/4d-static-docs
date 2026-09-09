@@ -1,0 +1,157 @@
+{
+  "id": "EntitySelection.toCollection",
+  "displayName": "EntitySelection.toCollection",
+  "kind": "oop_function",
+  "memberName": ".toCollection",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Creates and returns a collection where each element is an object containing a set of properties and values",
+  "description": "The .toCollection() function creates and returns a collection where each element is an object containing a set of properties and values corresponding to the attribute names and values for the entity selection.\n\nIf no filter parameter is passed or the first parameter contains an empty string or \"*\", all the attributes are extracted. Attributes with kind property as \"relatedEntity\" are extracted with the simple form: an object with property __KEY (primary key). Attributes with kind property as \"relatedEntities\" are not extracted.\n\nOr, you can designate the entity attributes to extract using a filter parameter. You can use one of these two filters:\n\nfilterString --a string with property paths separated with commas: \"propertyPath1, propertyPath2, ...\". filterCol --a collection of strings containing property paths: [\"propertyPath1\",\"propertyPath2\",...]\n\nIf a filter is specified for an attribute of the relatedEntity kind:\n\npropertyPath = \"relatedEntity\" -> it is extracted with simple form propertyPath = \"relatedEntity.*\" -> all the properties are extracted propertyPath = \"relatedEntity.propertyName1, relatedEntity.propertyName2, ...\" -> only those properties are extracted\n\nIf a filter is specified for an attribute of the relatedEntities kind:\n\npropertyPath = \"relatedEntities.*\" -> all the properties are extracted propertyPath = \"relatedEntities.propertyName1, relatedEntities.propertyName2, ...\" -> only those properties are extracted\n\nIn the options parameter, you can pass the dk with primary key and/or dk with stamp selector(s) to add the entity's primary keys and/or stamps in extracted objects.\n\nThe begin parameter allows you to indicate the starting index of the entities to extract. You can pass any value between 0 and entity selection length-1.\n\nThe howMany parameter lets you specify the number of entities to extract, starting with the one specified in begin. Dropped entities are not returned but are taken into account according to howMany. For example, if howMany= 3 and there is 1 dropped entity, only 2 entities are extracted.\n\nIf howMany > length of the entity selection, the method returns (length - begin) objects.\n\nAn empty collection is returned if:\n\nthe entity selection is empty, or begin is greater than the length of the entity selection.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.toCollection.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk with primary key`: adds the primary key<br/>`dk with stamp`: adds the stamp dk with primary key: adds the primary keydk with stamp: adds the stamp"
+        },
+        {
+          "name": "begin",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Designates the starting index"
+        },
+        {
+          "name": "howMany",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of entities to extract"
+        }
+      ],
+      "rawSyntax": "**.toCollection**( { *options* : Integer { ; *begin* : Integer { ; *howMany* : Integer } } } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "filterString",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "String with entity attribute path(s) to extract"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.toCollection.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk with primary key`: adds the primary key<br/>`dk with stamp`: adds the stamp dk with primary key: adds the primary keydk with stamp: adds the stamp"
+        },
+        {
+          "name": "begin",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Designates the starting index"
+        },
+        {
+          "name": "howMany",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of entities to extract"
+        }
+      ],
+      "rawSyntax": "**.toCollection**( *filterString* : Text {; *options* : Integer { ; *begin* : Integer { ; *howMany* : Integer }}} ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "filterCol",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of entity attribute path(s) to extract"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.toCollection.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk with primary key`: adds the primary key<br/>`dk with stamp`: adds the stamp dk with primary key: adds the primary keydk with stamp: adds the stamp"
+        },
+        {
+          "name": "begin",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Designates the starting index"
+        },
+        {
+          "name": "howMany",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of entities to extract"
+        }
+      ],
+      "rawSyntax": "**.toCollection**( *filterCol* : Collection {; *options* : Integer { ; *begin* : Integer { ; *howMany* : Integer }}} ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

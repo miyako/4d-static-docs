@@ -1,0 +1,26 @@
+{
+  "id": "TCPEvent.data",
+  "displayName": "TCPEvent.data",
+  "kind": "oop_property",
+  "memberName": ".data",
+  "receiver": {
+    "classId": "TCPEvent",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPEvent"
+    }
+  },
+  "summary": "The data associated with the event",
+  "description": "The .data property contains the data associated with the event. It is only valid for events of type \"data\".",
+  "docPage": "mirror/docs/21-R3/API/TCPEventClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Blob"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**data** : Blob"
+  }
+}

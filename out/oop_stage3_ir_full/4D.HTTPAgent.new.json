@@ -1,0 +1,48 @@
+{
+  "id": "4D.HTTPAgent.new",
+  "displayName": "4D.HTTPAgent.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "HTTPAgent",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.HTTPAgent"
+    }
+  },
+  "summary": "Creates a shareable HTTPAgent object with the defined *options*, and returns a `4D.HTTPAgent` object",
+  "description": "The 4D.HTTPAgent.new() function creates a shareable HTTPAgent object with the defined options, and returns a 4D.HTTPAgent object.\n\nThe returned HTTPAgent object is used to customize connections to HTTP servers.",
+  "docPage": "mirror/docs/21-R3/API/HTTPAgentClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "default options for the HTTPAgent"
+        }
+      ],
+      "rawSyntax": "**4D.HTTPAgent.new**( { *options* : Object } ) : 4D.HTTPAgent",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.HTTPAgent"
+      }
+    }
+  ],
+  "versionBehaviorChanges": [
+    {
+      "release": "21-R3",
+      "change": "Support of storeCertificateName property on macOS"
+    },
+    {
+      "release": "21",
+      "change": "Support of storeCertificateName property on Windows"
+    }
+  ]
+}

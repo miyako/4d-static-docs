@@ -1,0 +1,98 @@
+{
+  "id": "EntitySelection.extract",
+  "displayName": "EntitySelection.extract",
+  "kind": "oop_function",
+  "memberName": ".extract",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns a collection containing *attributePath* values extracted from the entity selection",
+  "description": "The .extract() function returns a collection containing attributePath values extracted from the entity selection.\n\nattributePath can refer to:\n\na scalar dataclass attribute, related entity, related entities.\n\nIf attributePath is invalid, an empty collection is returned.\n\nThis function accepts two syntaxes.\n\n.extract( attributePath : Text { ; option : Integer } ) : Collection\n\nWith this syntax, .extract() populates the returned collection with the attributePath values of the entity selection.\n\nBy default, entities for which attributePath is null or undefined are ignored in the resulting collection. You can pass the ck keep null constant in the option parameter to include these values as null elements in the returned collection.\n\nDataclass attributes with .kind = \"relatedEntity\" are extracted as a collection of entities (duplications are kept). Dataclass attributes with .kind = \"relatedEntities\" are extracted as a collection of entity selections.\n\n.extract ( attributePath ; targetPath { ; ...attributePathN ; ... targetPathN}) : Collection\n\nWith this syntax, .extract() populates the returned collection with the attributePath properties. Each element of the returned collection is an object with targetPath properties filled with the corresponding attributePath properties. Null values are kept (option parameter is ignored with this syntax).\n\nIf several attributePath are given, a targetPath must be given for each. Only valid pairs [attributePath, targetPath] are extracted.\n\nDataclass attributes with .kind = \"relatedEntity\" are extracted as an entity. Dataclass attributes with .kind = \"relatedEntities\" are extracted as an entity selection.\n\nEntities of a collection of entities accessed by [ ] are not reloaded from the database.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "attributePath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Attribute path whose values must be extracted to the new collection"
+        },
+        {
+          "name": "option",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "EntitySelection.extract.option"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`ck keep null`: include null attributes in the returned collection (ignored by default)"
+        }
+      ],
+      "rawSyntax": "**.extract**( *attributePath* : Text { ; *option* : Integer } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "attributePath",
+          "members": [
+            {
+              "name": "attributePath",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false,
+              "description": "Attribute path whose values must be extracted to the new collection"
+            }
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": null
+          },
+          "position": "trailing"
+        },
+        {
+          "name": "targetPath",
+          "members": [
+            {
+              "name": "targetPath",
+              "type": {
+                "kind": "concrete",
+                "name": "Text"
+              },
+              "direction": "in",
+              "optional": false,
+              "description": "Target attribute path or attribute name"
+            }
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.extract**( *...attributePath* : Text ; *...targetPath* : Text ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "18-R3"
+}

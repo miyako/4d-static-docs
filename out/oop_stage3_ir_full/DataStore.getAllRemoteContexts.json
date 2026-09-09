@@ -1,0 +1,42 @@
+{
+  "id": "DataStore.getAllRemoteContexts",
+  "displayName": "DataStore.getAllRemoteContexts",
+  "kind": "oop_function",
+  "memberName": ".getAllRemoteContexts",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Returns a collection of objects containing information on all the active optimization contexts in the datastore",
+  "description": "Advanced mode: This function is intended for developers who need to customize ORDA default features for specific configurations. In most cases, you will not need to use it.\n\nThe .getAllRemoteContexts() function returns a collection of objects containing information on all the active optimization contexts in the datastore.\n\nFor more information on how contexts can be created, see client/server optimization.\n\nEach object in the returned collection has the properties listed in the .getRemoteContextInfo() section.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getAllRemoteContexts()** : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "19-R5",
+  "_seeAlso": [
+    {
+      "text": ".getRemoteContextInfo()",
+      "href": "DataStoreClass.html#getremotecontextinfo"
+    },
+    {
+      "text": ".setRemoteContextInfo()",
+      "href": "DataStoreClass.html#setremotecontextinfo"
+    },
+    {
+      "text": ".clearAllRemoteContexts()",
+      "href": "DataStoreClass.html#clearallremotecontexts"
+    }
+  ]
+}

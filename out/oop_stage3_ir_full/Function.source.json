@@ -1,0 +1,33 @@
+{
+  "id": "Function.source",
+  "displayName": "Function.source",
+  "kind": "oop_property",
+  "memberName": ".source",
+  "receiver": {
+    "classId": "Function",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Function"
+    }
+  },
+  "summary": "Contains the source code of the function as text",
+  "description": "The .source property contains the source code of the function as text.\n\nThe returned value is the original text used to create the 4D.Formula or 4D.Method object but reformatted.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/FunctionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.source** : Text"
+  },
+  "sinceVersion": "18-R2",
+  "versionBehaviorChanges": [
+    {
+      "release": "21-R3",
+      "change": "Support of 4D.Methods objects"
+    }
+  ]
+}

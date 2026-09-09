@@ -1,0 +1,39 @@
+{
+  "id": "DataClass.newSelection",
+  "displayName": "DataClass.newSelection",
+  "kind": "oop_function",
+  "memberName": ".newSelection",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Creates a new, blank, non-shareable entity selection, related to the dataclass, in memory",
+  "description": "The .newSelection() function creates a new, blank, non-shareable entity selection, related to the dataclass, in memory.\n\nFor information on non-shareable entity selections, please refer to this section.\n\nIf you want to create an ordered entity selection, pass the dk keep ordered selector in the keepOrder parameter. By default if you omit this parameter, or if you pass the dk non ordered selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see Ordered vs Unordered entity selections.\n\nWhen created, the entity selection does not contain any entities (mySelection.length returns 0). This method lets you build entity selections gradually by making subsequent calls to the add() function.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "keepOrder",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "DataClass.newSelection.keepOrder"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "`dk keep ordered`: creates an ordered entity selection,<br/>`dk non ordered`: creates an unordered entity selection (default if omitted) dk keep ordered: creates an ordered entity selection,dk non ordered: creates an unordered entity selection (default if omitted)"
+        }
+      ],
+      "rawSyntax": "**.newSelection**( { *keepOrder* : Integer } ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

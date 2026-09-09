@@ -1,0 +1,24 @@
+{
+  "id": "SystemWorker.terminate",
+  "displayName": "SystemWorker.terminate",
+  "kind": "oop_function",
+  "memberName": ".terminate",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Forces the `SystemWorker` to terminate its execution",
+  "description": "The .terminate() function forces the SystemWorker to terminate its execution.\n\nThis function sends the instruction to terminate and give control back to the executing script.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.terminate**()",
+      "returns": null
+    }
+  ]
+}

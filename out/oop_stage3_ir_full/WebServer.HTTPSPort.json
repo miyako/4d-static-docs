@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.HTTPSPort",
+  "displayName": "WebServer.HTTPSPort",
+  "kind": "oop_property",
+  "memberName": ".HTTPSPort",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Listening IP port number for HTTPS",
+  "description": "The listening IP port number for HTTPS.\n\nDefault = 443",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.HTTPSPort** : Integer"
+  }
+}

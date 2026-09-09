@@ -1,0 +1,35 @@
+{
+  "id": "WebFormItem.addCSSClass",
+  "displayName": "WebFormItem.addCSSClass",
+  "kind": "oop_function",
+  "memberName": ".addCSSClass",
+  "receiver": {
+    "classId": "WebFormItem",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebFormItem"
+    }
+  },
+  "summary": "Adds the class specified in *className* to the component",
+  "description": "The .addCSSClass function adds the class specified in className to the component.",
+  "docPage": "mirror/docs/21-R3/API/WebFormItemClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "className",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the CSS class to add to the component"
+        }
+      ],
+      "rawSyntax": "**.addCSSClass**(*className* : Text)",
+      "returns": null
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "TCPConnection.closed",
+  "displayName": "TCPConnection.closed",
+  "kind": "oop_property",
+  "memberName": ".closed",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "Whether the connection is closed",
+  "description": "The .closed property contains whether the connection is closed. Returns true if the connection is closed, either due to an error, a call to shutdown(), or closure by the server.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**closed** : Boolean"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WebSocketConnection.wss",
+  "displayName": "WebSocketConnection.wss",
+  "kind": "oop_property",
+  "memberName": ".wss",
+  "receiver": {
+    "classId": "WebSocketConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketConnection"
+    }
+  },
+  "summary": "The `WebSocketServer` parent object of the connection",
+  "description": "The .wss property contains the WebSocketServer parent object of the connection.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketConnectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.WebSocketServer"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.wss** : 4D.WebSocketServer"
+  }
+}

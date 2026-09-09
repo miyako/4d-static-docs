@@ -1,0 +1,45 @@
+{
+  "id": "DataClass.all",
+  "displayName": "DataClass.all",
+  "kind": "oop_function",
+  "memberName": ".all",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Queries the datastore to find all the entities related to the dataclass and returns them as an entity selection",
+  "description": "The .all() function queries the datastore to find all the entities related to the dataclass and returns them as an entity selection.\n\nThe entities are returned in the default order, which is initially the order in which they were created. Note however that, if entities have been deleted and new ones added, the default order does not reflect the creation order anymore.\n\nIf no corresponding entity is found, an empty entity selection is returned.\n\nLazy loading is applied.\n\nsettings\n\nIn the optional settings parameter, you can pass an object containing additional options. The following property is supported:\n\nTo know the total number of entities in a dataclass, it is recommended to use the getCount() function which is more optimized than the ds.myClass.all().length expression.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Build option: context"
+        }
+      ],
+      "rawSyntax": "**.all** ( { *settings* : Object } ) : 4D.EntitySelection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.EntitySelection"
+      }
+    }
+  ],
+  "sinceVersion": "17",
+  "versionBehaviorChanges": [
+    {
+      "release": "17-R5",
+      "change": "Support of the settings parameter"
+    }
+  ]
+}

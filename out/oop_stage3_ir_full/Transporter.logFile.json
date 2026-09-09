@@ -1,0 +1,27 @@
+{
+  "id": "Transporter.logFile",
+  "displayName": "Transporter.logFile",
+  "kind": "oop_property",
+  "memberName": ".logFile",
+  "receiver": {
+    "classId": "Transporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Transporter"
+    }
+  },
+  "summary": "The path of the extended log file defined (if any) for the mail connection",
+  "description": "The .logFile property contains the path of the extended log file defined (if any) for the mail connection. It can be relative (to the current Logs folder) or absolute.\n\nUnlike regular log files (enabled via the SET DATABASE PARAMETER command), extended log files store MIME contents of all sent mails and do not have any size limit. For more information about extended log files, refer to:\n\nSMTP connections - 4DSMTPLog.txt POP3 connections - 4DPOP3Log.txt IMAP connections - 4DIMAPLog.txt",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.logFile** : Text"
+  },
+  "sinceVersion": "17-R5"
+}

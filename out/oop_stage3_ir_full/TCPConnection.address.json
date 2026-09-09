@@ -1,0 +1,26 @@
+{
+  "id": "TCPConnection.address",
+  "displayName": "TCPConnection.address",
+  "kind": "oop_property",
+  "memberName": ".address",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "The IP addess or domain name of the remote machine",
+  "description": "The .address property contains the IP addess or domain name of the remote machine.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**address** : Text"
+  }
+}

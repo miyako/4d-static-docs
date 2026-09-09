@@ -1,0 +1,26 @@
+{
+  "id": "HTTPRequest.protocol",
+  "displayName": "HTTPRequest.protocol",
+  "kind": "oop_property",
+  "memberName": ".protocol",
+  "receiver": {
+    "classId": "HTTPRequest",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPRequest"
+    }
+  },
+  "summary": "The `protocol` passed in the `options` object when calling new()",
+  "description": "The .protocol property contains the protocol passed in the options object when calling new(). If it was omitted or if \"auto\" was used, contains the version of the protocol used.",
+  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**protocol** : Text"
+  }
+}

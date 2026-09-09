@@ -1,0 +1,24 @@
+{
+  "id": "WebFormItem.hide",
+  "displayName": "WebFormItem.hide",
+  "kind": "oop_function",
+  "memberName": ".hide",
+  "receiver": {
+    "classId": "WebFormItem",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebFormItem"
+    }
+  },
+  "summary": "Hides the component",
+  "description": "The .hide() function hides the component.",
+  "docPage": "mirror/docs/21-R3/API/WebFormItemClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.hide**()",
+      "returns": null
+    }
+  ]
+}

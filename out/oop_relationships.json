@@ -1,0 +1,5735 @@
+[
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.Blob.new"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.CryptoKey.new"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.File.new"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.Folder.new"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.HTTPAgent.new"
+    },
+    "to": {
+      "classId": "HTTPAgent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.HTTPRequest.new"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.IMAPNotifier.new"
+    },
+    "to": {
+      "classId": "IMAPNotifier"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.IMAPTransporter.new"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.MailAttachment.new"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.Method.new"
+    },
+    "to": {
+      "classId": "Method"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.POP3Transporter.new"
+    },
+    "to": {
+      "classId": "POP3Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.SMTPTransporter.new"
+    },
+    "to": {
+      "classId": "SMTPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.SystemWorker.new"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.TCPConnection.new"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.TCPListener.new"
+    },
+    "to": {
+      "classId": "TCPListener"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.UDPSocket.new"
+    },
+    "to": {
+      "classId": "UDPSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.Vector.new"
+    },
+    "to": {
+      "classId": "Vector"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.WebSocket.new"
+    },
+    "to": {
+      "classId": "WebSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.WebSocketServer.new"
+    },
+    "to": {
+      "classId": "WebSocketServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.classClassName"
+    },
+    "to": {
+      "classId": "4D"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "4D.classStoreName"
+    },
+    "to": {
+      "classId": "4D"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Blob.size"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Blob.slice"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Class.isSessionSingleton"
+    },
+    "to": {
+      "classId": "Class"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Class.isShared"
+    },
+    "to": {
+      "classId": "Class"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Class.isSingleton"
+    },
+    "to": {
+      "classId": "Class"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Class.me"
+    },
+    "to": {
+      "classId": "Class"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Class.name"
+    },
+    "to": {
+      "classId": "Class"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Class.new"
+    },
+    "to": {
+      "classId": "Class"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Class.superclass"
+    },
+    "to": {
+      "classId": "Class"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.at"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.average"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.clear"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.combine"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.concat"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.copy"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.count"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.countValues"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.distinct"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.equal"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.every"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.extract"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.fill"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.filter"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.find"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.findIndex"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.first"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.flat"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.flatMap"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.includes"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.indexOf"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.indices"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.insert"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.join"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.last"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.lastIndexOf"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.length"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.map"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.max"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.min"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.multiSort"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.orderBy"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.orderByMethod"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.pop"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.push"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.query"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.reduce"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.reduceRight"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.remove"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.resize"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.reverse"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.shift"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.slice"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.some"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.sort"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.sum"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Collection.unshift"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.curve"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.decrypt"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.encrypt"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.getPrivateKey"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.getPublicKey"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.pem"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.sign"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.size"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.type"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "CryptoKey.verify"
+    },
+    "to": {
+      "classId": "CryptoKey"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.all"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataClass.all"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.attributeName"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.clearRemoteCache"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.fromCollection"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataClass.fromCollection"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.get"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataClass.get"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.getCount"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.getDataStore"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataClass.getDataStore"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.getInfo"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.getRemoteCache"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.new"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataClass.new"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.newSelection"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataClass.newSelection"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.query"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataClass.query"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataClass.setRemoteCacheSettings"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.cancelTransaction"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.clearAllRemoteContexts"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.dataclassName"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.encryptionStatus"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.flushAndLock"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.getAllRemoteContexts"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataStore.getAllRemoteContexts"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.getGlobalStamp"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.getInfo"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.getRemoteContextInfo"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.getRequestLog"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataStore.getRequestLog"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.isAdminProtected"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.locked"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.makeSelectionsAlterable"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.provideDataKey"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.setAdminProtection"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.setGlobalStamp"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.setRemoteContextInfo"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.startRequestLog"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.startTransaction"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.stopRequestLog"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.unlock"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "DataStore.validateTransaction"
+    },
+    "to": {
+      "classId": "DataStore"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.copyTo"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Directory.copyTo"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.creationDate"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.creationTime"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.exists"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.extension"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.file"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Directory.file"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.files"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Directory.files"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.folder"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Directory.folder"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.folders"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Directory.folders"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.fullName"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.getIcon"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.hidden"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.isAlias"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.isFile"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.isFolder"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.isPackage"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.modificationDate"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.modificationTime"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.name"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.original"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Directory.original"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.parent"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Directory.parent"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.path"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Directory.platformPath"
+    },
+    "to": {
+      "classId": "Directory"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.copyTo"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Document.copyTo"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.creationDate"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.creationTime"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.exists"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.extension"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.fullName"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.getContent"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Document.getContent"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.getIcon"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.getText"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.hidden"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.isAlias"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.isFile"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.isFolder"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.isWritable"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.modificationDate"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.modificationTime"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.name"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.original"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Document.original"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Document.original"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.parent"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Document.parent"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.path"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.platformPath"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Document.size"
+    },
+    "to": {
+      "classId": "Document"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.attachments"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.attachments"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.bcc"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.bcc"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.bodyStructure"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.bodyValues"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.cc"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.cc"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.comments"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.from"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.from"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.headers"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.headers"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.htmlBody"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.id"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.inReplyTo"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.keywords"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.messageId"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.receivedAt"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.references"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.references"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.replyTo"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.replyTo"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.sendAt"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.sender"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.sender"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.size"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.subject"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.textBody"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Email.to"
+    },
+    "to": {
+      "classId": "Email"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Email.to"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.attributeName"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.clone"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.diff"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Entity.diff"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.drop"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.first"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.fromObject"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.getDataClass"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Entity.getDataClass"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.getKey"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.getRemoteContextAttributes"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.getSelection"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Entity.getSelection"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.getStamp"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.indexOf"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.isNew"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.last"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.lock"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.next"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.previous"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.reload"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.save"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.toObject"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.touched"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.touchedAttributes"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Entity.touchedAttributes"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Entity.unlock"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.add"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.and"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.at"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "EntitySelection.at"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.attributeName"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.average"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.clean"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.contains"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.copy"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.count"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.distinct"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "EntitySelection.distinct"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.distinctPaths"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "EntitySelection.distinctPaths"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.drop"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.extract"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "EntitySelection.extract"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.first"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "EntitySelection.first"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.getDataClass"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "EntitySelection.getDataClass"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.getRemoteContextAttributes"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.isAlterable"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.isOrdered"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.last"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "EntitySelection.last"
+    },
+    "to": {
+      "classId": "Entity"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.length"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.max"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.min"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.minus"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.or"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.orderBy"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.orderByFormula"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.query"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.queryPath"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.queryPlan"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.refresh"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.selected"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.slice"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.sum"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "EntitySelection.toCollection"
+    },
+    "to": {
+      "classId": "EntitySelection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "EntitySelection.toCollection"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.create"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.createAlias"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.delete"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.getAppInfo"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.moveTo"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.open"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "File.open"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.rename"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.setAppInfo"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.setContent"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "File.setText"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.breakModeRead"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.breakModeWrite"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.charset"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.eof"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.file"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "FileHandle.file"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.getSize"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.mode"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.offset"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.readBlob"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "FileHandle.readBlob"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.readLine"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.readText"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.setSize"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.writeBlob"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.writeLine"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "FileHandle.writeText"
+    },
+    "to": {
+      "classId": "FileHandle"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Folder.create"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Folder.createAlias"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Folder.createAlias"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Folder.delete"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Folder.moveTo"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Folder.rename"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Function.apply"
+    },
+    "to": {
+      "classId": "Function"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Function.call"
+    },
+    "to": {
+      "classId": "Function"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Function.source"
+    },
+    "to": {
+      "classId": "Function"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPAgent.freeSocketsCount"
+    },
+    "to": {
+      "classId": "HTTPAgent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPAgent.params"
+    },
+    "to": {
+      "classId": "HTTPAgent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPAgent.requestsCount"
+    },
+    "to": {
+      "classId": "HTTPAgent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.agent"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "HTTPRequest.agent"
+    },
+    "to": {
+      "classId": "HTTPAgent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.dataType"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.encoding"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.errors"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "HTTPRequest.errors"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.headers"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.method"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.protocol"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.response"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.returnResponseBody"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.terminate"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.terminated"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.timeout"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.url"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "HTTPRequest.wait"
+    },
+    "to": {
+      "classId": "HTTPRequest"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPNotifier.isStarted"
+    },
+    "to": {
+      "classId": "IMAPNotifier"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPNotifier.start"
+    },
+    "to": {
+      "classId": "IMAPNotifier"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPNotifier.stop"
+    },
+    "to": {
+      "classId": "IMAPNotifier"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.addFlags"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.append"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.checkConnectionDelay"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.copy"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.createBox"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.delete"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.deleteBox"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.expunge"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.getBoxInfo"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.getBoxList"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "IMAPTransporter.getBoxList"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.getDelimiter"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.getMIMEAsBlob"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "IMAPTransporter.getMIMEAsBlob"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.getMail"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.getMails"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.move"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.notifier"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "IMAPTransporter.notifier"
+    },
+    "to": {
+      "classId": "IMAPNotifier"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.numToID"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "IMAPTransporter.numToID"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.removeFlags"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.renameBox"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.searchMails"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "IMAPTransporter.searchMails"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.selectBox"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.subscribe"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IMAPTransporter.unsubscribe"
+    },
+    "to": {
+      "classId": "IMAPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.getBlob"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "IncomingMessage.getBlob"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.getHeader"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.getJSON"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.getPicture"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.getText"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.headers"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.url"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.urlPath"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "IncomingMessage.urlPath"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.urlQuery"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "IncomingMessage.verb"
+    },
+    "to": {
+      "classId": "IncomingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "MailAttachment.cid"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "MailAttachment.disposition"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "MailAttachment.getContent"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "MailAttachment.getContent"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "MailAttachment.name"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "MailAttachment.path"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "MailAttachment.platformPath"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "MailAttachment.size"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "MailAttachment.type"
+    },
+    "to": {
+      "classId": "MailAttachment"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Method.checkSyntax"
+    },
+    "to": {
+      "classId": "Method"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Method.name"
+    },
+    "to": {
+      "classId": "Method"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "OutgoingMessage.body"
+    },
+    "to": {
+      "classId": "OutgoingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "OutgoingMessage.headers"
+    },
+    "to": {
+      "classId": "OutgoingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "OutgoingMessage.setBody"
+    },
+    "to": {
+      "classId": "OutgoingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "OutgoingMessage.setHeader"
+    },
+    "to": {
+      "classId": "OutgoingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "OutgoingMessage.setStatus"
+    },
+    "to": {
+      "classId": "OutgoingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "OutgoingMessage.status"
+    },
+    "to": {
+      "classId": "OutgoingMessage"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "POP3Transporter.delete"
+    },
+    "to": {
+      "classId": "POP3Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "POP3Transporter.getBoxInfo"
+    },
+    "to": {
+      "classId": "POP3Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "POP3Transporter.getMIMEAsBlob"
+    },
+    "to": {
+      "classId": "POP3Transporter"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "POP3Transporter.getMIMEAsBlob"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "POP3Transporter.getMail"
+    },
+    "to": {
+      "classId": "POP3Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "POP3Transporter.getMailInfo"
+    },
+    "to": {
+      "classId": "POP3Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "POP3Transporter.getMailInfoList"
+    },
+    "to": {
+      "classId": "POP3Transporter"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "POP3Transporter.getMailInfoList"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "POP3Transporter.undeleteAll"
+    },
+    "to": {
+      "classId": "POP3Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SMTPTransporter.keepAlive"
+    },
+    "to": {
+      "classId": "SMTPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SMTPTransporter.send"
+    },
+    "to": {
+      "classId": "SMTPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.clearPrivileges"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.createOTP"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.demote"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.expirationDate"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.getPrivileges"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Session.getPrivileges"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.hasPrivilege"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.id"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.idleTimeout"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.info"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.isGuest"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.promote"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.restore"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.setPrivileges"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.storage"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.userName"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Signal.description"
+    },
+    "to": {
+      "classId": "Signal"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Signal.signaled"
+    },
+    "to": {
+      "classId": "Signal"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Signal.trigger"
+    },
+    "to": {
+      "classId": "Signal"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Signal.wait"
+    },
+    "to": {
+      "classId": "Signal"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.closeInput"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.commandLine"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.currentDirectory"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "SystemWorker.currentDirectory"
+    },
+    "to": {
+      "classId": "Folder"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.dataType"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.encoding"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.errors"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "SystemWorker.errors"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.exitCode"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.hideWindow"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.pid"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.postMessage"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.response"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "SystemWorker.response"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.responseError"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.terminate"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.terminated"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.timeout"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SystemWorker.wait"
+    },
+    "to": {
+      "classId": "SystemWorker"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.address"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.closed"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.errors"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "TCPConnection.errors"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.listener"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.noDelay"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.port"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.send"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.shutdown"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPConnection.wait"
+    },
+    "to": {
+      "classId": "TCPConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPEvent.address"
+    },
+    "to": {
+      "classId": "TCPEvent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPEvent.data"
+    },
+    "to": {
+      "classId": "TCPEvent"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "TCPEvent.data"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPEvent.port"
+    },
+    "to": {
+      "classId": "TCPEvent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPEvent.type"
+    },
+    "to": {
+      "classId": "TCPEvent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPListener.errors"
+    },
+    "to": {
+      "classId": "TCPListener"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "TCPListener.errors"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPListener.port"
+    },
+    "to": {
+      "classId": "TCPListener"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "TCPListener.terminate"
+    },
+    "to": {
+      "classId": "TCPListener"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.acceptUnsecureConnection"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.authenticationMode"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.bodyCharset"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.checkConnection"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.connectionTimeOut"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.headerCharset"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.host"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.logFile"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.port"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.sendTimeOut"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Transporter.user"
+    },
+    "to": {
+      "classId": "Transporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "UDPEvent.address"
+    },
+    "to": {
+      "classId": "UDPEvent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "UDPEvent.data"
+    },
+    "to": {
+      "classId": "UDPEvent"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "UDPEvent.data"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "UDPEvent.port"
+    },
+    "to": {
+      "classId": "UDPEvent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "UDPEvent.type"
+    },
+    "to": {
+      "classId": "UDPEvent"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "UDPSocket.errors"
+    },
+    "to": {
+      "classId": "UDPSocket"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "UDPSocket.errors"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "UDPSocket.port"
+    },
+    "to": {
+      "classId": "UDPSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "UDPSocket.send"
+    },
+    "to": {
+      "classId": "UDPSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Vector.cosineSimilarity"
+    },
+    "to": {
+      "classId": "Vector"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Vector.dotSimilarity"
+    },
+    "to": {
+      "classId": "Vector"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Vector.euclideanDistance"
+    },
+    "to": {
+      "classId": "Vector"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Vector.length"
+    },
+    "to": {
+      "classId": "Vector"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Vector.toCollection"
+    },
+    "to": {
+      "classId": "Vector"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Vector.toCollection"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebForm.componentName"
+    },
+    "to": {
+      "classId": "WebForm"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebForm.disableState"
+    },
+    "to": {
+      "classId": "WebForm"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebForm.enableState"
+    },
+    "to": {
+      "classId": "WebForm"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebForm.setError"
+    },
+    "to": {
+      "classId": "WebForm"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebForm.setMessage"
+    },
+    "to": {
+      "classId": "WebForm"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebForm.setWarning"
+    },
+    "to": {
+      "classId": "WebForm"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebFormItem.addCSSClass"
+    },
+    "to": {
+      "classId": "WebFormItem"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebFormItem.hide"
+    },
+    "to": {
+      "classId": "WebFormItem"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebFormItem.removeCSSClass"
+    },
+    "to": {
+      "classId": "WebFormItem"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebFormItem.show"
+    },
+    "to": {
+      "classId": "WebFormItem"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.CORSEnabled"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.CORSSettings"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "WebServer.CORSSettings"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HSTSEnabled"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HSTSMaxAge"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HTTPCompressionLevel"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HTTPCompressionThreshold"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HTTPEnabled"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HTTPPort"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HTTPSEnabled"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HTTPSPort"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.HTTPTrace"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.IPAddressToListen"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.accessKeyDefined"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.certificateFolder"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.characterSet"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.cipherSuite"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.debugLog"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.defaultHomepage"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.handlers"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "WebServer.handlers"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.inactiveProcessTimeout"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.inactiveSessionTimeout"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.isRunning"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.keepSession"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.logRecording"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.maxConcurrentProcesses"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.maxRequestSize"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.maxSessions"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.minTLSVersion"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.name"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.openSSLVersion"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.perfectForwardSecrecy"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.rootFolder"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.rules"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "WebServer.rules"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.scalableSession"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.sessionCookieDomain"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.sessionCookieName"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.sessionCookiePath"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.sessionCookieSameSite"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.sessionIPAddressValidation"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.start"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.stop"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocket.dataType"
+    },
+    "to": {
+      "classId": "WebSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocket.handler"
+    },
+    "to": {
+      "classId": "WebSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocket.id"
+    },
+    "to": {
+      "classId": "WebSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocket.send"
+    },
+    "to": {
+      "classId": "WebSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocket.status"
+    },
+    "to": {
+      "classId": "WebSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocket.terminate"
+    },
+    "to": {
+      "classId": "WebSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocket.url"
+    },
+    "to": {
+      "classId": "WebSocket"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketConnection.handler"
+    },
+    "to": {
+      "classId": "WebSocketConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketConnection.id"
+    },
+    "to": {
+      "classId": "WebSocketConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketConnection.send"
+    },
+    "to": {
+      "classId": "WebSocketConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketConnection.status"
+    },
+    "to": {
+      "classId": "WebSocketConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketConnection.terminate"
+    },
+    "to": {
+      "classId": "WebSocketConnection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketConnection.wss"
+    },
+    "to": {
+      "classId": "WebSocketConnection"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "WebSocketConnection.wss"
+    },
+    "to": {
+      "classId": "WebSocketServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketServer.connections"
+    },
+    "to": {
+      "classId": "WebSocketServer"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "WebSocketServer.connections"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketServer.dataType"
+    },
+    "to": {
+      "classId": "WebSocketServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketServer.handler"
+    },
+    "to": {
+      "classId": "WebSocketServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketServer.path"
+    },
+    "to": {
+      "classId": "WebSocketServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketServer.terminate"
+    },
+    "to": {
+      "classId": "WebSocketServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebSocketServer.terminated"
+    },
+    "to": {
+      "classId": "WebSocketServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "ZipArchive.root"
+    },
+    "to": {
+      "classId": "ZipArchive"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "ZipArchive.root"
+    },
+    "to": {
+      "classId": "ZipFolder"
+    }
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Blob"
+    },
+    "to": {
+      "command": "4D.Blob.new"
+    },
+    "note": "$blob:=4D.Blob.new()"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Blob"
+    },
+    "to": {
+      "command": "4D.Blob.new"
+    },
+    "note": "$blob:=4D.Blob.new($scalarBlob)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Class"
+    },
+    "to": {
+      "command": "OB Class",
+      "corpus": "classic"
+    },
+    "note": "$class:=OB Class($object)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Collection"
+    },
+    "to": {
+      "command": "New collection",
+      "corpus": "classic"
+    },
+    "note": "$c:=New collection(1; 2; 3)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Collection"
+    },
+    "to": {
+      "command": "New shared collection",
+      "corpus": "classic"
+    },
+    "note": "$c:=New shared collection()"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "CryptoKey"
+    },
+    "to": {
+      "command": "4D.CryptoKey.new"
+    },
+    "note": "$key:=4D.CryptoKey.new(New object(\"type\"; \"RSA\"; \"size\"; 2048))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "DataStore"
+    },
+    "to": {
+      "command": "Open datastore",
+      "corpus": "classic"
+    },
+    "note": "$ds:=Open datastore(New object(\"hostname\"; \"192.168.1.1:8044\"); \"myRemote\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Directory"
+    },
+    "to": {
+      "command": "Folder",
+      "corpus": "classic"
+    },
+    "note": "$folder:=Folder(fk database folder)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Document"
+    },
+    "to": {
+      "command": "File",
+      "corpus": "classic"
+    },
+    "note": "$file:=File(\"/PACKAGE/README.md\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Email"
+    },
+    "to": {
+      "command": "IMAPTransporter.getMail"
+    },
+    "note": "$email:=$imap.getMail($msgNumber)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Entity"
+    },
+    "to": {
+      "command": "DataClass.new"
+    },
+    "note": "$entity:=ds.Employee.new()"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Entity"
+    },
+    "to": {
+      "command": "DataClass.get"
+    },
+    "note": "$entity:=ds.Employee.get(1)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Entity"
+    },
+    "to": {
+      "command": "EntitySelection.first"
+    },
+    "note": "$entity:=$entitySelection.first()"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "EntitySelection"
+    },
+    "to": {
+      "command": "DataClass.all"
+    },
+    "note": "$sel:=ds.Employee.all()"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "EntitySelection"
+    },
+    "to": {
+      "command": "DataClass.query"
+    },
+    "note": "$sel:=ds.Employee.query(\"lastName = :1\"; \"Smith\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "EntitySelection"
+    },
+    "to": {
+      "command": "DataClass.newSelection"
+    },
+    "note": "$sel:=ds.Employee.newSelection()"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "File"
+    },
+    "to": {
+      "command": "File",
+      "corpus": "classic"
+    },
+    "note": "$file:=File(\"/PACKAGE/README.md\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "File"
+    },
+    "to": {
+      "command": "4D.File.new"
+    },
+    "note": "$file:=4D.File.new(\"/PACKAGE/README.md\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "File"
+    },
+    "to": {
+      "command": "Directory.file"
+    },
+    "note": "$file:=$folder.file(\"README.md\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "FileHandle"
+    },
+    "to": {
+      "command": "File.open"
+    },
+    "note": "$handle:=File(\"/PACKAGE/data.txt\").open(\"write\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Folder"
+    },
+    "to": {
+      "command": "Folder",
+      "corpus": "classic"
+    },
+    "note": "$folder:=Folder(fk database folder)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Folder"
+    },
+    "to": {
+      "command": "4D.Folder.new"
+    },
+    "note": "$folder:=4D.Folder.new(\"/PACKAGE/Resources\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Folder"
+    },
+    "to": {
+      "command": "Directory.folder"
+    },
+    "note": "$folder:=$parent.folder(\"Resources\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Formula"
+    },
+    "to": {
+      "command": "Formula",
+      "corpus": "classic"
+    },
+    "note": "$formula:=Formula($1+$2)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Formula"
+    },
+    "to": {
+      "command": "Formula from string",
+      "corpus": "classic"
+    },
+    "note": "$formula:=Formula from string(\"Current date\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Function"
+    },
+    "to": {
+      "command": "Formula",
+      "corpus": "classic"
+    },
+    "note": "$fn:=Formula($1+$2)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "HTTPAgent"
+    },
+    "to": {
+      "command": "4D.HTTPAgent.new"
+    },
+    "note": "$agent:=4D.HTTPAgent.new(New object(\"keepAlive\"; True))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "HTTPRequest"
+    },
+    "to": {
+      "command": "4D.HTTPRequest.new"
+    },
+    "note": "$request:=4D.HTTPRequest.new(\"https://example.com\").wait()"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "IMAPNotifier"
+    },
+    "to": {
+      "command": "4D.IMAPNotifier.new"
+    },
+    "note": "$notifier:=4D.IMAPNotifier.new($imap; Formula(OnNotification))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "IMAPTransporter"
+    },
+    "to": {
+      "command": "4D.IMAPTransporter.new"
+    },
+    "note": "$imap:=4D.IMAPTransporter.new(New object(\"host\"; \"imap.example.com\"; \"user\"; \"u\"; \"password\"; \"p\"))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "MailAttachment"
+    },
+    "to": {
+      "command": "MAIL New attachment",
+      "corpus": "classic"
+    },
+    "note": "$attachment:=MAIL New attachment(File(\"/PACKAGE/report.pdf\"))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "MailAttachment"
+    },
+    "to": {
+      "command": "4D.MailAttachment.new"
+    },
+    "note": "$attachment:=4D.MailAttachment.new(File(\"/PACKAGE/report.pdf\"))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Method"
+    },
+    "to": {
+      "command": "4D.Method.new"
+    },
+    "note": "$method:=4D.Method.new(\"MyProjectMethod\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "POP3Transporter"
+    },
+    "to": {
+      "command": "4D.POP3Transporter.new"
+    },
+    "note": "$pop3:=4D.POP3Transporter.new(New object(\"host\"; \"pop.example.com\"; \"user\"; \"u\"; \"password\"; \"p\"))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "SMTPTransporter"
+    },
+    "to": {
+      "command": "4D.SMTPTransporter.new"
+    },
+    "note": "$smtp:=4D.SMTPTransporter.new(New object(\"host\"; \"smtp.example.com\"; \"user\"; \"u\"; \"password\"; \"p\"))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Session"
+    },
+    "to": {
+      "command": "Session",
+      "corpus": "classic"
+    },
+    "note": "$session:=Session"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Session"
+    },
+    "to": {
+      "command": "Session storage",
+      "corpus": "classic"
+    },
+    "note": "$session:=Session storage"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Signal"
+    },
+    "to": {
+      "command": "New signal",
+      "corpus": "classic"
+    },
+    "note": "$signal:=New signal(\"my signal\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "SystemWorker"
+    },
+    "to": {
+      "command": "4D.SystemWorker.new"
+    },
+    "note": "$worker:=4D.SystemWorker.new(\"ls -l\")"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "TCPConnection"
+    },
+    "to": {
+      "command": "4D.TCPConnection.new"
+    },
+    "note": "$connection:=4D.TCPConnection.new(\"127.0.0.1\"; 10000; New object(\"onData\"; Formula(OnData)))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "TCPListener"
+    },
+    "to": {
+      "command": "4D.TCPListener.new"
+    },
+    "note": "$listener:=4D.TCPListener.new(10000; New object(\"onConnection\"; Formula(OnConnection)))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Transporter"
+    },
+    "to": {
+      "command": "4D.SMTPTransporter.new"
+    },
+    "note": "$transporter:=4D.SMTPTransporter.new($settings)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "UDPSocket"
+    },
+    "to": {
+      "command": "4D.UDPSocket.new"
+    },
+    "note": "$socket:=4D.UDPSocket.new(New object(\"port\"; 10000; \"onData\"; Formula(OnData)))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "Vector"
+    },
+    "to": {
+      "command": "4D.Vector.new"
+    },
+    "note": "$vector:=4D.Vector.new([0.1; 0.2; 0.3])"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "WebForm"
+    },
+    "to": {
+      "command": "Web Form",
+      "corpus": "classic"
+    },
+    "note": "$form:=Web Form"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "WebServer"
+    },
+    "to": {
+      "command": "WEB Server",
+      "corpus": "classic"
+    },
+    "note": "$server:=WEB Server"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "WebServer"
+    },
+    "to": {
+      "command": "WEB Server",
+      "corpus": "classic"
+    },
+    "note": "$server:=WEB Server(Web server database)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "WebSocket"
+    },
+    "to": {
+      "command": "4D.WebSocket.new"
+    },
+    "note": "$ws:=4D.WebSocket.new(\"wss://example.com/socket\"; New object(\"onMessage\"; Formula(OnMessage)))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "WebSocketServer"
+    },
+    "to": {
+      "command": "4D.WebSocketServer.new"
+    },
+    "note": "$server:=4D.WebSocketServer.new(cs.MyHandler.new())"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "ZipArchive"
+    },
+    "to": {
+      "command": "ZIP Read archive",
+      "corpus": "classic"
+    },
+    "note": "$archive:=ZIP Read archive(File(\"/PACKAGE/data.zip\"))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "cs.<DataClass>Entity"
+    },
+    "to": {
+      "command": "DataClass.new"
+    },
+    "note": "$entity:=ds.Employee.new()"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "cs.<DataClass>Entity"
+    },
+    "to": {
+      "command": "DataClass.get"
+    },
+    "note": "$entity:=ds.Employee.get($primaryKey)"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "cs.<DataClass>Selection"
+    },
+    "to": {
+      "command": "DataClass.all"
+    },
+    "note": "$sel:=ds.Employee.all()"
+  }
+]

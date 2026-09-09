@@ -1,0 +1,49 @@
+{
+  "id": "Collection.countValues",
+  "displayName": "Collection.countValues",
+  "kind": "oop_function",
+  "memberName": ".countValues",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns the number of times value is found in the collection",
+  "description": "The .countValues() function returns the number of times value is found in the collection.\n\nYou can pass in value:\n\na scalar value (text, number, boolean, date), an object or a collection reference.\n\nFor an element to be found, the type of value must be equivalent to the type of the element; the method uses the equality operator.\n\nThe optional propertyPath parameter allows you to count values inside a collection of objects: pass in propertyPath the path of the property whose values you want to count.\n\nThis function does not modify the original collection.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "value",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Value to count"
+        },
+        {
+          "name": "propertyPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Object property path to be used for calculation"
+        }
+      ],
+      "rawSyntax": "**.countValues**( *value* : any {; *propertyPath* : Text } ) : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

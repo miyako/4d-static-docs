@@ -1,0 +1,39 @@
+{
+  "id": "EntitySelection.contains",
+  "displayName": "EntitySelection.contains",
+  "kind": "oop_function",
+  "memberName": ".contains",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns true if entity reference belongs to the entity selection",
+  "description": "The .contains() function returns true if entity reference belongs to the entity selection, and false otherwise.\n\nIn entity, specify the entity to search for in the entity selection. If entity is Null, the function will return false.\n\nIf entity and the entity selection do not belong to the same dataclass, an error is raised.",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "entity",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Entity"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Entity to evaluate"
+        }
+      ],
+      "rawSyntax": "**.contains**( *entity* : 4D.Entity ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

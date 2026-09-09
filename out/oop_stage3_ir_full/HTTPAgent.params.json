@@ -1,0 +1,26 @@
+{
+  "id": "HTTPAgent.params",
+  "displayName": "HTTPAgent.params",
+  "kind": "oop_property",
+  "memberName": ".params",
+  "receiver": {
+    "classId": "HTTPAgent",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "HTTPAgent"
+    }
+  },
+  "summary": "The current used options of the HTTPAgent",
+  "description": "options : Object\n\nThe .params property object contains the current used options of the HTTPAgent.",
+  "docPage": "mirror/docs/21-R3/API/HTTPAgentClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**options** : Object"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "MailAttachment.getContent",
+  "displayName": "MailAttachment.getContent",
+  "kind": "oop_function",
+  "memberName": ".getContent",
+  "receiver": {
+    "classId": "MailAttachment",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "MailAttachment"
+    }
+  },
+  "summary": "Returns the contents of the attachment object in a `4D.Blob` object",
+  "description": "The .getContent() function returns the contents of the attachment object in a 4D.Blob object. You can use this method with attachment objects received by the MAIL Convert from MIME command.",
+  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getContent()** : 4D.Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Blob"
+      }
+    }
+  ]
+}

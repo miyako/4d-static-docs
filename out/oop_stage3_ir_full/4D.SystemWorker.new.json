@@ -1,0 +1,135 @@
+{
+  "id": "4D.SystemWorker.new",
+  "displayName": "4D.SystemWorker.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.SystemWorker"
+    }
+  },
+  "summary": "Creates and returns a `4D.SystemWorker` object that will execute the *commandLine* you passed as parameter to launch an external process",
+  "description": "The 4D.SystemWorker.new() function creates and returns a 4D.SystemWorker object that will execute the commandLine you passed as parameter to launch an external process.\n\nThe returned system worker object can be used to post messages to the worker and get the worker output.\n\nIf an error occurs during the creation of the proxy object, the function returns a null object and an error is thrown.\n\nIn the commandLine parameter, pass the full path of the application's file to be executed (posix syntax), as well as any required arguments, if necessary. If you pass only the application name, 4D will use the PATH environment variable to locate the executable.\n\nWarning: This function can only launch executable applications; it cannot execute instructions that are part of the shell (command interpreter). For example, under Windows it is not possible to use this command to execute the dir instruction.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "commandLine",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Command line to execute"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Worker parameters"
+        }
+      ],
+      "rawSyntax": "**4D.SystemWorker.new** ( *commandLine* : Text { ; options : Object } ) : 4D.SystemWorker",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.SystemWorker"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "onResponse": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback for system worker messages. This callback is called once the complete response is received. It receives two objects as parameters (see below)"
+      },
+      "onData": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback for system worker data. This callback is called each time the system worker receives data. It receives two objects as parameters (see below)"
+      },
+      "onDataError": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback for the external process errors (stderr of the external process). It receives two objects as parameters (see below)"
+      },
+      "onError": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback for execution errors, returned by the system worker in case of unusual runtime conditions (system errors). It receives two objects as parameters (see below)"
+      },
+      "onTerminate": {
+        "type": {
+          "kind": "concrete",
+          "name": "Formula"
+        },
+        "description": "Callback when the external process is terminated. It receives two objects as parameters (see below)"
+      },
+      "timeout": {
+        "type": {
+          "kind": "concrete",
+          "name": "Real"
+        },
+        "description": "Time in seconds before the process is killed if it is still alive"
+      },
+      "dataType": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Type of the response body content. Possible values: \"text\" (default), \"blob\"."
+      },
+      "encoding": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Only if dataType=\"text\". Encoding of the response body content. For the list of available values, see the CONVERT FROM TEXT command description"
+      },
+      "variables": {
+        "type": {
+          "kind": "concrete",
+          "name": "Object"
+        },
+        "description": "Sets custom environment variables for the system worker. Syntax: variables.key=value, where key is the variable name and value its value. Values are converted into strings when possible. The value cannot contain a '='. If not defined, the system worker inherits from the 4D environment."
+      },
+      "currentDirectory": {
+        "type": {
+          "kind": "concrete",
+          "name": "Folder"
+        },
+        "description": "Working directory in which the process is executed"
+      },
+      "hideWindow": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "(Windows) Hide the application window (if possible) or the Windows console"
+      }
+    },
+    "source": "options Object"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  },
+  "sinceVersion": "19-R4"
+}

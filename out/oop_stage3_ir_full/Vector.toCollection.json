@@ -1,0 +1,27 @@
+{
+  "id": "Vector.toCollection",
+  "displayName": "Vector.toCollection",
+  "kind": "oop_function",
+  "memberName": ".toCollection",
+  "receiver": {
+    "classId": "Vector",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Vector"
+    }
+  },
+  "summary": "Returns the vector components as a collection of reals",
+  "description": "The .toCollection() function returns the vector components as a collection of reals.",
+  "docPage": "mirror/docs/21-R3/API/VectorClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.toCollection**() : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ]
+}

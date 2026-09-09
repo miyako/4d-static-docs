@@ -1,0 +1,27 @@
+{
+  "id": "Directory.isPackage",
+  "displayName": "Directory.isPackage",
+  "kind": "oop_property",
+  "memberName": ".isPackage",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "True if the folder is a package on macOS  (and exists on disk)",
+  "description": "The .isPackage property returns true if the folder is a package on macOS (and exists on disk). Otherwise, it returns false.\n\nOn Windows, .isPackage always returns false.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.isPackage** : Boolean"
+  },
+  "sinceVersion": "17-R5"
+}

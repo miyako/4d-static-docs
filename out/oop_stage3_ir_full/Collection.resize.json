@@ -1,0 +1,49 @@
+{
+  "id": "Collection.resize",
+  "displayName": "Collection.resize",
+  "kind": "oop_function",
+  "memberName": ".resize",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Sets the collection length to the specified new size and returns the resized collection",
+  "description": "The .resize() function sets the collection length to the specified new size and returns the resized collection.\n\nThis function modifies the original collection.\n\nIf size < collection length, exceeding elements are removed from the collection. If size > collection length, the collection length is increased to size.\n\nBy default, new elements are filled will null values. You can specify the value to fill in added elements using the defaultValue parameter.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "size",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New size of the collection"
+        },
+        {
+          "name": "defaultValue",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Default value to fill new elements"
+        }
+      ],
+      "rawSyntax": "**.resize**( *size* : Integer { ; *defaultValue* : any } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

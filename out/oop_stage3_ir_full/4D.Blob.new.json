@@ -1,0 +1,66 @@
+{
+  "id": "4D.Blob.new",
+  "displayName": "4D.Blob.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "Blob",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.Blob"
+    }
+  },
+  "summary": "Creates a new `4D.Blob` object optionally encapsulating a copy of the data from another blob (scalar blob or `4D.Blob`)",
+  "description": "4D.Blob.new creates a new 4D.Blob object optionally encapsulating a copy of the data from another blob (scalar blob or 4D.Blob).\n\nIf the blob parameter is omitted, the method returns an empty 4D.Blob.",
+  "docPage": "mirror/docs/21-R3/API/BlobClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**4D.Blob.new()** : 4D.Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Blob"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "blobScal",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Blob to copy"
+        }
+      ],
+      "rawSyntax": "**4D.Blob.new**( *blobScal* : Blob ) : 4D.Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Blob"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "blobObj",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Blob to copy"
+        }
+      ],
+      "rawSyntax": "**4D.Blob.new**( *blobObj* : 4D.Blob ) : 4D.Blob",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Blob"
+      }
+    }
+  ],
+  "sinceVersion": "19-R2"
+}

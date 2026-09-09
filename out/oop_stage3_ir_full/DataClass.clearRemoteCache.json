@@ -1,0 +1,31 @@
+{
+  "id": "DataClass.clearRemoteCache",
+  "displayName": "DataClass.clearRemoteCache",
+  "kind": "oop_function",
+  "memberName": ".clearRemoteCache",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Empties the ORDA cache of a dataclass",
+  "description": "The .clearRemoteCache() function empties the ORDA cache of a dataclass.\n\nThis function does not reset the timeout and maxEntries values.",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.clearRemoteCache()**",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "19-R5",
+  "_seeAlso": [
+    {
+      "text": "entitySelection.refresh()",
+      "href": "EntitySelectionClass.html#refresh"
+    }
+  ]
+}

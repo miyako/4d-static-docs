@@ -1,0 +1,70 @@
+{
+  "id": "WebServer.start",
+  "displayName": "WebServer.start",
+  "kind": "oop_function",
+  "memberName": ".start",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Starts the web server on which it is applied",
+  "description": "The .start() function starts the web server on which it is applied, using properties set in the optional settings object parameter.\n\nThe web server starts with default settings defined in the settings file of the project or (host database only) using the WEB SET OPTION command. However, using the settings parameter, you can define customized properties for the web server session.\n\nAll settings of Web Server objects can be customized, except read-only properties (.isRunning, .name, .openSSLVersion, .perfectForwardSecrecy, and .sessionCookieName).\n\nCustomized session settings will be reset when the .stop() function is called.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.start**() : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Web server settings to set at startup"
+        }
+      ],
+      "rawSyntax": "**.start**( *settings* : Object ) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the web server was correctly started, False otherwise"
+      },
+      "errors": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "4D error stack (not returned if the web server started successfully)"
+      }
+    },
+    "source": "Returned object"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  },
+  "sinceVersion": "18-R3"
+}

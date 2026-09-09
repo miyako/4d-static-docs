@@ -1,0 +1,39 @@
+{
+  "id": "Collection.sum",
+  "displayName": "Collection.sum",
+  "kind": "oop_function",
+  "memberName": ".sum",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns the sum for all values in the collection instance",
+  "description": "The .sum() function returns the sum for all values in the collection instance.\n\nOnly numerical elements are taken into account for the calculation (other element types are ignored).\n\nIf the collection contains objects, pass the propertyPath parameter to indicate the object property to take into account.\n\n.sum() returns 0 if:\n\nthe collection is empty, the collection does not contain numerical elements, propertyPath is not found in the collection.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "propertyPath",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Object property path to be used for calculation"
+        }
+      ],
+      "rawSyntax": "**.sum**( { *propertyPath* : Text } ) : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

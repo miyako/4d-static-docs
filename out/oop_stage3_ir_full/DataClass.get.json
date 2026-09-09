@@ -1,0 +1,78 @@
+{
+  "id": "DataClass.get",
+  "displayName": "DataClass.get",
+  "kind": "oop_function",
+  "memberName": ".get",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Queries the dataclass to retrieve the entity matching the *primaryKey* parameter",
+  "description": "The .get() function queries the dataclass to retrieve the entity matching the primaryKey parameter.\n\nIn primaryKey, pass the primary key value of the entity to retrieve. The value type must match the primary key type set in the datastore (Integer or Text). You can also make sure that the primary key value is always returned as Text by using the .getKey() function with the dk key as string parameter.\n\nIf no entity is found with primaryKey, a Null entity is returned.\n\nLazy loading is applied, which means that related data is loaded from disk only when it is required.\n\nsettings\n\nIn the optional settings parameter, you can pass an object containing additional options. The following property is supported:",
+  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "primaryKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Primary key value of the entity to retrieve"
+        },
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Build option: context"
+        }
+      ],
+      "rawSyntax": "**.get**( *primaryKey* : Integer { ; *settings* : Object } ) : 4D.Entity",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Entity"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "primaryKey",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Primary key value of the entity to retrieve"
+        },
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Build option: context"
+        }
+      ],
+      "rawSyntax": "**.get**( *primaryKey* : Text { ; *settings* : Object } ) : 4D.Entity",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Entity"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

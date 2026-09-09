@@ -1,0 +1,40 @@
+{
+  "id": "WebSocketServer.terminate",
+  "displayName": "WebSocketServer.terminate",
+  "kind": "oop_function",
+  "memberName": ".terminate",
+  "receiver": {
+    "classId": "WebSocketServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketServer"
+    }
+  },
+  "summary": "Closes the WebSocket server",
+  "description": "The .terminate() function closes the WebSocket server.\n\nBy default, if no timeout value is set, the function initializes close handshake and waits to receive close frame from the peer, after that sending FIN packet in attempt to perform a clean socket close. When answer received, the socket is destroyed.\n\nIf a timeout value is set:\n\nwhen the waiting time is reached, forcibly destroys the socket. if timeout = 0, forcibly destroys the socket without closing frames or fin packets exchange, and does it instantly without waiting time.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.terminate**()",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "timeout",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Waiting time in seconds before terminating the WebSocket server"
+        }
+      ],
+      "rawSyntax": "**.terminate**( *timeout* : Integer )",
+      "returns": null
+    }
+  ]
+}

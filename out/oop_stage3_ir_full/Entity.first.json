@@ -1,0 +1,31 @@
+{
+  "id": "Entity.first",
+  "displayName": "Entity.first",
+  "kind": "oop_function",
+  "memberName": ".first",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns a reference to the entity in first position of the entity selection which the entity belongs to",
+  "description": "The .first() function returns a reference to the entity in first position of the entity selection which the entity belongs to.\n\nIf the entity does not belong to any existing entity selection (i.e. .getSelection( ) returns Null), the function returns a Null value.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.first()**: 4D.Entity",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Entity"
+      }
+    }
+  ],
+  "errorModel": {
+    "style": "returns_null"
+  },
+  "sinceVersion": "17"
+}

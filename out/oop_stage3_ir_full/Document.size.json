@@ -1,0 +1,27 @@
+{
+  "id": "Document.size",
+  "displayName": "Document.size",
+  "kind": "oop_property",
+  "memberName": ".size",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "The size of the file expressed in bytes",
+  "description": "The .size property returns the size of the file expressed in bytes. If the file does not exist on disk, the size is 0.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Real"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.size** : Real"
+  },
+  "sinceVersion": "17-R5"
+}

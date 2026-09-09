@@ -1,0 +1,27 @@
+{
+  "id": "Directory.creationDate",
+  "displayName": "Directory.creationDate",
+  "kind": "oop_property",
+  "memberName": ".creationDate",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "The creation date of the folder",
+  "description": "The .creationDate property returns the creation date of the folder.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Date"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.creationDate** : Date"
+  },
+  "sinceVersion": "17-R5"
+}

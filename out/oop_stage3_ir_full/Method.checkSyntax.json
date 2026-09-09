@@ -1,0 +1,51 @@
+{
+  "id": "Method.checkSyntax",
+  "displayName": "Method.checkSyntax",
+  "kind": "oop_function",
+  "memberName": ".checkSyntax",
+  "receiver": {
+    "classId": "Method",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Method"
+    }
+  },
+  "summary": "Checks the syntax of the source code of the `4D.Method` object and returns a result object",
+  "description": "The .checkSyntax() function checks the syntax of the source code of the 4D.Method object and returns a result object.\n\nThe Result object contains the following properties:",
+  "docPage": "mirror/docs/21-R3/API/MethodClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.checkSyntax**() : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if no syntax error was detected, false otherwise"
+      },
+      "errors": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "Available only in case of error or warning. Collection of objects describing errors or warnings"
+      }
+    },
+    "source": "Description"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  },
+  "sinceVersion": "21-R3"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "IMAPTransporter.getDelimiter",
+  "displayName": "IMAPTransporter.getDelimiter",
+  "kind": "oop_function",
+  "memberName": ".getDelimiter",
+  "receiver": {
+    "classId": "IMAPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPTransporter"
+    }
+  },
+  "summary": "Returns the character used to delimit levels of hierarchy in the mailbox name",
+  "description": "The .getDelimiter() function returns the character used to delimit levels of hierarchy in the mailbox name.\n\nThe delimiter is a character which can be used to:\n\ncreate lower level (inferior) mailboxes search higher or lower within the mailbox hierarchy",
+  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getDelimiter()** : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "18-R4"
+}

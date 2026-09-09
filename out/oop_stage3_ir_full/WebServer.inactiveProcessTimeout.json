@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.inactiveProcessTimeout",
+  "displayName": "WebServer.inactiveProcessTimeout",
+  "kind": "oop_property",
+  "memberName": ".inactiveProcessTimeout",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Life duration (in minutes) of the inactive legacy session processes",
+  "description": "This property is not returned in scalable sessions mode.\n\nThe life duration (in minutes) of the inactive legacy session processes. At the end of the timeout, the process is killed on the server, the On Web Legacy Close Session database method is called, then the legacy session context is destroyed.\n\nDefault = 480 minutes",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.inactiveProcessTimeout** : Integer"
+  }
+}

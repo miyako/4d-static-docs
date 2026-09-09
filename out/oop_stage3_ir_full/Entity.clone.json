@@ -1,0 +1,28 @@
+{
+  "id": "Entity.clone",
+  "displayName": "Entity.clone",
+  "kind": "oop_function",
+  "memberName": ".clone",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Creates in memory a new entity referencing the same record as the original entity",
+  "description": "The .clone() function creates in memory a new entity referencing the same record as the original entity.\n\nThis function allows you to update entities separately. Note however that, for performance reasons, the new entity shares the same reference of object attributes as the cloned entity.\n\nKeep in mind that any modifications done to entities will be saved in the referenced record only when the .save() function is executed.\n\nThis function can only be used with entities already saved in the database. It cannot be called on a newly created entity (for which .isNew() returns True).",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.clone()** : 4D.Entity",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Entity"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

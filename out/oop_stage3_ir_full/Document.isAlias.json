@@ -1,0 +1,27 @@
+{
+  "id": "Document.isAlias",
+  "displayName": "Document.isAlias",
+  "kind": "oop_property",
+  "memberName": ".isAlias",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "True if the file is an alias, a shortcut, or a symbolic link",
+  "description": "The .isAlias property returns true if the file is an alias, a shortcut, or a symbolic link, and false otherwise.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.isAlias** : Boolean"
+  },
+  "sinceVersion": "17-R5"
+}

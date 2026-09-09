@@ -1,0 +1,27 @@
+{
+  "id": "4D.IMAPNotifier.new",
+  "displayName": "4D.IMAPNotifier.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "IMAPNotifier",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.IMAPNotifier"
+    }
+  },
+  "summary": "Creates a new IMAPNotifier object",
+  "description": "The 4D.IMAPNotifier.new() function creates a new IMAPNotifier object.",
+  "docPage": "mirror/docs/21-R3/API/IMAPNotifierClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**4D.IMAPNotifier.new**() : 4D.IMAPNotifier",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.IMAPNotifier"
+      }
+    }
+  ]
+}

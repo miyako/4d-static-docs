@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.inactiveSessionTimeout",
+  "displayName": "WebServer.inactiveSessionTimeout",
+  "kind": "oop_property",
+  "memberName": ".inactiveSessionTimeout",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "Life duration (in minutes) of inactive legacy sessions (duration set in cookie)",
+  "description": "This property is not returned in scalable sessions mode.\n\nThe life duration (in minutes) of inactive legacy sessions (duration set in cookie). At the end of this period, the session cookie expires and is no longer sent by the HTTP client.\n\nDefault = 480 minutes",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.inactiveSessionTimeout** : Integer"
+  }
+}

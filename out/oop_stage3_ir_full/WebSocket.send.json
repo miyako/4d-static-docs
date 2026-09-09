@@ -1,0 +1,67 @@
+{
+  "id": "WebSocket.send",
+  "displayName": "WebSocket.send",
+  "kind": "oop_function",
+  "memberName": ".send",
+  "receiver": {
+    "classId": "WebSocket",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocket"
+    }
+  },
+  "summary": "Sends *message* to the WebSocket server in the defined data type (Text, Blob, or Object)",
+  "description": "The .send() function sends message to the WebSocket server in the defined data type (Text, Blob, or Object).\n\nThe following contents are sent depending on the message type:",
+  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Message to be sent"
+        }
+      ],
+      "rawSyntax": "**.send**( *message* : Text )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Message to be sent"
+        }
+      ],
+      "rawSyntax": "**.send**( *message* : Blob )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Message to be sent"
+        }
+      ],
+      "rawSyntax": "**.send**( *message* : Object )",
+      "returns": null
+    }
+  ]
+}

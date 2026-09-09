@@ -4,125 +4,206 @@
   "title": "4D Command IR — three-layer syntax schema",
   "description": "Layer 1: per-command signatures. Layer 2: shared substructures (enums, sub-grammars, protocols, handle types, callback contracts) referenced by pointer. Layer 3: relationships between command/overload entries.",
   "type": "object",
-  "required": ["commands"],
+  "required": [
+    "commands"
+  ],
   "properties": {
-
     "enums": {
       "description": "Layer 2 — named, reusable constant sets (e.g. Field and Variable Types). Referenced from parameters via {\"kind\":\"enum_ref\",\"enum\":\"<key>\"}.",
       "type": "object",
-      "additionalProperties": { "$ref": "#/$defs/EnumDef" }
+      "additionalProperties": {
+        "$ref": "#/$defs/EnumDef"
+      }
     },
-
     "subGrammars": {
       "description": "Layer 2 — 4D-native mini-grammars fully specifiable from 4D's own docs (e.g. dotted attribute paths with [] array markers). Referenced via {\"kind\":\"subgrammar_ref\",\"grammar\":\"<key>\"}.",
       "type": "object",
-      "additionalProperties": { "$ref": "#/$defs/SubGrammarDef" }
+      "additionalProperties": {
+        "$ref": "#/$defs/SubGrammarDef"
+      }
     },
-
     "foreignGrammars": {
       "description": "Layer 2 — external, non-4D grammars (SQL, regex, WSDL, JS, ...) that this corpus cannot itself fully specify. Referenced via {\"kind\":\"foreign_grammar\",\"grammar\":\"<key>\"}.",
       "type": "object",
-      "additionalProperties": { "$ref": "#/$defs/ForeignGrammarDef" }
+      "additionalProperties": {
+        "$ref": "#/$defs/ForeignGrammarDef"
+      }
     },
-
     "protocols": {
       "description": "Layer 2 — multi-statement or multi-command usage protocols that no single call's signature can express alone.",
       "type": "object",
       "properties": {
         "multiCallChains": {
           "type": "object",
-          "additionalProperties": { "$ref": "#/$defs/MultiCallChainProtocol" }
+          "additionalProperties": {
+            "$ref": "#/$defs/MultiCallChainProtocol"
+          }
         },
         "stateMachines": {
           "type": "object",
-          "additionalProperties": { "$ref": "#/$defs/StateMachineProtocol" }
+          "additionalProperties": {
+            "$ref": "#/$defs/StateMachineProtocol"
+          }
         }
       },
       "additionalProperties": false
     },
-
     "handleTypes": {
       "description": "Layer 2 — opaque reference/handle types produced by some commands and consumed by others (DOM refs, SAX contexts, list refs, ...).",
       "type": "object",
-      "additionalProperties": { "$ref": "#/$defs/HandleTypeDef" }
+      "additionalProperties": {
+        "$ref": "#/$defs/HandleTypeDef"
+      }
     },
-
     "callbackContracts": {
       "description": "Layer 2 — expected calling conventions for methods registered as callbacks (e.g. ON ERR CALL targets).",
       "type": "object",
-      "additionalProperties": { "$ref": "#/$defs/CallbackContractDef" }
+      "additionalProperties": {
+        "$ref": "#/$defs/CallbackContractDef"
+      }
     },
-
     "commands": {
       "description": "Layer 1 — one entry per command, each with one or more overloads.",
       "type": "array",
-      "items": { "$ref": "#/$defs/CommandEntry" }
+      "items": {
+        "$ref": "#/$defs/CommandEntry"
+      }
     },
-
+    "classes": {
+      "description": "Layer 2 — per-class metadata for the OOP corpus, keyed by ClassDef.id. Authored once and referenced from OOP member entries via CommandEntry.receiver.classId. Absent from the classic corpus.",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/ClassDef"
+      }
+    },
     "relationships": {
       "description": "Layer 3 — edges between command/overload entries: supersession, mutual exclusion, near-duplicate deltas, structural equivalence, mechanism families, platform variants.",
       "type": "array",
-      "items": { "$ref": "#/$defs/Relationship" }
+      "items": {
+        "$ref": "#/$defs/Relationship"
+      }
+    }
+  },
+  "patternProperties": {
+    "^_": {
+      "description": "Underscore-prefixed root keys carry non-schema bookkeeping (e.g. '_source' provenance notes on hand-authored registry files) and are stripped by the assembler. Allowed so those files validate standalone."
     }
   },
   "additionalProperties": false,
-
   "$defs": {
-
     "CommandRef": {
-      "description": "Pointer to a command, optionally scoped to a specific overload index (0-based).",
+      "description": "Pointer to a command entry (optionally scoped to a specific overload index, 0-based) or, for OOP Layer-3 edges, to a class in root.classes. Exactly one of `command` / `classId` is used.",
       "type": "object",
-      "required": ["command"],
+      "anyOf": [
+        {
+          "required": [
+            "command"
+          ]
+        },
+        {
+          "required": [
+            "classId"
+          ]
+        }
+      ],
       "properties": {
-        "command": { "type": "string", "description": "CommandEntry.id" },
-        "overloadIndex": { "type": "integer", "minimum": 0 }
+        "command": {
+          "type": "string",
+          "description": "CommandEntry.id"
+        },
+        "classId": {
+          "type": "string",
+          "description": "Key into root.classes"
+        },
+        "overloadIndex": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "corpus": {
+          "type": "string",
+          "enum": [
+            "classic",
+            "oop"
+          ],
+          "description": "Which IR document the referenced id lives in. Omitted means the same document as the reference. Needed because the classic and OOP corpora are separate documents (out/4d-command-ir.json and out/4d-oop-ir.json) that reference each other."
+        }
       },
       "additionalProperties": false
     },
-
     "EnumDef": {
       "type": "object",
-      "required": ["values"],
+      "required": [
+        "values"
+      ],
       "properties": {
-        "description": { "type": "string" },
+        "description": {
+          "type": "string"
+        },
         "values": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["name", "value"],
+            "required": [
+              "name",
+              "value"
+            ],
             "properties": {
-              "name": { "type": "string" },
+              "name": {
+                "type": "string"
+              },
               "value": {},
-              "description": { "type": "string" }
+              "description": {
+                "type": "string"
+              }
             }
           }
         }
       }
     },
-
     "SubGrammarDef": {
       "type": "object",
-      "required": ["description"],
+      "required": [
+        "description"
+      ],
       "properties": {
-        "description": { "type": "string" },
-        "syntaxExample": { "type": "string" },
+        "description": {
+          "type": "string"
+        },
+        "syntaxExample": {
+          "type": "string"
+        },
         "rules": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "description": "Plain-language grammar rules (e.g. dot-separates path segments; trailing [] marks an array attribute; optional letter inside [] names an element reference)."
         }
       }
     },
-
     "ForeignGrammarDef": {
       "type": "object",
-      "required": ["language"],
+      "required": [
+        "language"
+      ],
       "properties": {
         "language": {
           "type": "string",
-          "enum": ["SQL", "Regex", "XPath", "JSON", "XML", "JavaScript", "WSDL", "URL", "other"]
+          "enum": [
+            "SQL",
+            "Regex",
+            "XPath",
+            "JSON",
+            "XML",
+            "JavaScript",
+            "WSDL",
+            "URL",
+            "other"
+          ]
         },
-        "note": { "type": "string" },
+        "note": {
+          "type": "string"
+        },
         "validatableByThisCorpus": {
           "type": "boolean",
           "const": false,
@@ -130,13 +211,17 @@
         }
       }
     },
-
     "MultiCallChainProtocol": {
       "description": "Category A — a command called repeatedly, each call contributing one unit, with a leading/trailing marker distinguishing 'more to come' from 'execute now'.",
       "type": "object",
-      "required": ["description", "continuationParam"],
+      "required": [
+        "description",
+        "continuationParam"
+      ],
       "properties": {
-        "description": { "type": "string" },
+        "description": {
+          "type": "string"
+        },
         "leadingDiscriminatorParam": {
           "type": "string",
           "description": "Name of the optional leading param (e.g. conjOp) used to join this call to the previous one, if any."
@@ -145,68 +230,134 @@
           "type": "string",
           "description": "Name of the trailing param (typically literal *) whose presence means 'more calls coming' and whose absence triggers execution."
         },
-        "usedByCommands": { "type": "array", "items": { "type": "string" } },
-        "example": { "type": "string" }
+        "usedByCommands": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "string"
+        }
       }
     },
-
     "StateMachineProtocol": {
       "description": "Category L — a small grammar over a *family* of distinct named commands that must be called in a valid nested/ordered sequence (e.g. SAX open/set/close).",
       "type": "object",
-      "required": ["description", "states", "transitions"],
+      "required": [
+        "description",
+        "states",
+        "transitions"
+      ],
       "properties": {
-        "description": { "type": "string" },
-        "states": { "type": "array", "items": { "type": "string" } },
-        "entryCommands": { "type": "array", "items": { "type": "string" } },
-        "exitCommands": { "type": "array", "items": { "type": "string" } },
+        "description": {
+          "type": "string"
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "entryCommands": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exitCommands": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "transitions": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["from", "to", "viaCommand"],
+            "required": [
+              "from",
+              "to",
+              "viaCommand"
+            ],
             "properties": {
-              "from": { "type": "string" },
-              "to": { "type": "string" },
-              "viaCommand": { "type": "string" }
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "viaCommand": {
+                "type": "string"
+              }
             }
           }
         }
       }
     },
-
     "HandleTypeDef": {
       "description": "Category M — produce/consume/destroy lifecycle for an opaque reference type.",
       "type": "object",
       "properties": {
-        "description": { "type": "string" },
-        "producedBy": { "type": "array", "items": { "type": "string" } },
-        "consumedBy": { "type": "array", "items": { "type": "string" } },
-        "destroyedBy": { "type": "array", "items": { "type": "string" } }
-      }
-    },
-
-    "CallbackContractDef": {
-      "description": "Category N — the implicit expected signature of a method registered as a callback, documented only in prose about the callback target, not in the registering command's own signature.",
-      "type": "object",
-      "required": ["description", "expectedParams"],
-      "properties": {
-        "description": { "type": "string" },
-        "trigger": { "type": "string", "description": "What causes 4D to invoke the registered method." },
-        "expectedParams": {
+        "description": {
+          "type": "string"
+        },
+        "producedBy": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Parameter" }
+          "items": {
+            "type": "string"
+          }
+        },
+        "consumedBy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "destroyedBy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
-
+    "CallbackContractDef": {
+      "description": "Category N — the implicit expected signature of a method registered as a callback, documented only in prose about the callback target, not in the registering command's own signature.",
+      "type": "object",
+      "required": [
+        "description",
+        "expectedParams"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "trigger": {
+          "type": "string",
+          "description": "What causes 4D to invoke the registered method."
+        },
+        "expectedParams": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Parameter"
+          }
+        }
+      }
+    },
     "TypeRef": {
       "description": "A single type reference. oneOf several kinds, covering concrete types, 4D's own catch-all pseudo-types, pointers whose target can't be resolved statically, literal-symbol sets, and pointers into the Layer 2 shared tables.",
       "oneOf": [
         {
           "type": "object",
-          "required": ["kind", "name"],
+          "required": [
+            "kind",
+            "name"
+          ],
           "properties": {
-            "kind": { "const": "concrete" },
+            "kind": {
+              "const": "concrete"
+            },
             "name": {
               "type": "string",
               "description": "e.g. Text, Integer, Real, Boolean, Date, Time, Picture, Blob, Object, Collection, Table, Field, Array, Variable, or a 4D.<Class> OOP type."
@@ -216,46 +367,77 @@
         },
         {
           "type": "object",
-          "required": ["kind", "name"],
+          "required": [
+            "kind",
+            "name"
+          ],
           "properties": {
-            "kind": { "const": "pseudo" },
+            "kind": {
+              "const": "pseudo"
+            },
             "name": {
               "type": "string",
-              "enum": ["Operator", "Expression", "any", "Variant", "UntypedArray"]
+              "enum": [
+                "Operator",
+                "Expression",
+                "any",
+                "Variant",
+                "UntypedArray"
+              ]
             },
-            "note": { "type": "string" }
+            "note": {
+              "type": "string"
+            }
           },
           "additionalProperties": false,
           "description": "Category O — fake/catch-all types 4D uses because the real type varies by context or can't be pinned down."
         },
         {
           "type": "object",
-          "required": ["kind", "possibleTargets"],
+          "required": [
+            "kind",
+            "possibleTargets"
+          ],
           "properties": {
-            "kind": { "const": "pointer_unresolved" },
+            "kind": {
+              "const": "pointer_unresolved"
+            },
             "possibleTargets": {
               "type": "array",
-              "items": { "type": "string" },
+              "items": {
+                "type": "string"
+              },
               "description": "e.g. [\"Table\", \"Field\"] — what the pointer might reference; not distinguishable from the call site."
             },
-            "note": { "type": "string" }
+            "note": {
+              "type": "string"
+            }
           },
           "additionalProperties": false,
           "description": "Category S — statically indistinguishable overload targets."
         },
         {
           "type": "object",
-          "required": ["kind", "symbols"],
+          "required": [
+            "kind",
+            "symbols"
+          ],
           "properties": {
-            "kind": { "const": "literal_symbols" },
+            "kind": {
+              "const": "literal_symbols"
+            },
             "symbols": {
               "type": "array",
-              "items": { "type": "string" },
+              "items": {
+                "type": "string"
+              },
               "description": "e.g. [\">\", \"<\"] or [\"&\", \"|\", \"#\"]"
             },
             "meanings": {
               "type": "object",
-              "additionalProperties": { "type": "string" }
+              "additionalProperties": {
+                "type": "string"
+              }
             }
           },
           "additionalProperties": false,
@@ -263,142 +445,266 @@
         },
         {
           "type": "object",
-          "required": ["kind", "enum"],
+          "required": [
+            "kind",
+            "enum"
+          ],
           "properties": {
-            "kind": { "const": "enum_ref" },
-            "enum": { "type": "string", "description": "Key into root.enums" }
+            "kind": {
+              "const": "enum_ref"
+            },
+            "enum": {
+              "type": "string",
+              "description": "Key into root.enums"
+            }
           },
           "additionalProperties": false,
           "description": "Category D — value drawn from a shared, globally-referenced enum (e.g. Field and Variable Types constants)."
         },
         {
           "type": "object",
-          "required": ["kind", "grammar"],
+          "required": [
+            "kind",
+            "grammar"
+          ],
           "properties": {
-            "kind": { "const": "subgrammar_ref" },
-            "grammar": { "type": "string", "description": "Key into root.subGrammars" }
+            "kind": {
+              "const": "subgrammar_ref"
+            },
+            "grammar": {
+              "type": "string",
+              "description": "Key into root.subGrammars"
+            }
           },
           "additionalProperties": false
         },
         {
           "type": "object",
-          "required": ["kind", "grammar"],
+          "required": [
+            "kind",
+            "grammar"
+          ],
           "properties": {
-            "kind": { "const": "foreign_grammar_ref" },
-            "grammar": { "type": "string", "description": "Key into root.foreignGrammars" }
+            "kind": {
+              "const": "foreign_grammar_ref"
+            },
+            "grammar": {
+              "type": "string",
+              "description": "Key into root.foreignGrammars"
+            }
           },
           "additionalProperties": false,
           "description": "Category J."
         }
       ]
     },
-
     "Parameter": {
       "type": "object",
-      "required": ["name", "type", "direction"],
+      "required": [
+        "name",
+        "type",
+        "direction"
+      ],
       "properties": {
-        "name": { "type": "string" },
-        "description": { "type": "string" },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
         "type": {
           "oneOf": [
-            { "$ref": "#/$defs/TypeRef" },
-            { "type": "array", "items": { "$ref": "#/$defs/TypeRef" }, "description": "Multi-type parameter, e.g. 'Text, Real, Date, Time'." }
+            {
+              "$ref": "#/$defs/TypeRef"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/TypeRef"
+              },
+              "description": "Multi-type parameter, e.g. 'Text, Real, Date, Time'."
+            }
           ]
         },
-        "direction": { "type": "string", "enum": ["in", "out", "inout"] },
-        "optional": { "type": "boolean", "default": false },
-        "default": { "description": "Documented default value/behavior if omitted." },
-
+        "direction": {
+          "type": "string",
+          "enum": [
+            "in",
+            "out",
+            "inout"
+          ]
+        },
+        "optional": {
+          "type": "boolean",
+          "default": false
+        },
+        "default": {
+          "description": "Documented default value/behavior if omitted."
+        },
         "sentinelValues": {
           "description": "Category H — reserved special values carved out of an otherwise-open type.",
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["value", "meaning"],
+            "required": [
+              "value",
+              "meaning"
+            ],
             "properties": {
               "value": {},
-              "meaning": { "type": "string" }
+              "meaning": {
+                "type": "string"
+              }
             }
           }
         },
-
         "placeholderRequired": {
           "description": "Category Q — deprecated-but-must-pass-a-literal-value parameter.",
           "type": "object",
           "properties": {
-            "required": { "type": "boolean", "const": true },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
             "value": {},
-            "note": { "type": "string" }
+            "note": {
+              "type": "string"
+            }
           }
         },
-
         "blocksOnOmission": {
           "description": "Category E — omitting this parameter triggers a blocking interactive UI dialog rather than a default.",
           "type": "boolean"
         },
-
         "silentCoercionDefault": {
           "description": "Category P — deterministic fallback conversion applied when this parameter's type can't be resolved (often across a language boundary).",
           "type": "object",
           "properties": {
-            "toType": { "type": "string" },
-            "condition": { "type": "string" }
+            "toType": {
+              "type": "string"
+            },
+            "condition": {
+              "type": "string"
+            }
           }
         },
-
         "elementTypeSelectsMode": {
           "description": "Category G — for array-typed parameters where the element type (e.g. Integer vs Boolean) changes the whole call's semantics, not just coerces.",
           "type": "object",
-          "additionalProperties": { "type": "string" }
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       }
     },
-
     "VariadicGroup": {
       "description": "Category B — a named cluster of 1+ parameters that repeats as a unit within a single call.",
       "type": "object",
-      "required": ["name", "members", "cardinality"],
+      "required": [
+        "name",
+        "members",
+        "cardinality"
+      ],
       "properties": {
-        "name": { "type": "string" },
-        "members": { "type": "array", "items": { "$ref": "#/$defs/Parameter" } },
+        "name": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Parameter"
+          }
+        },
         "cardinality": {
           "type": "object",
           "properties": {
-            "min": { "type": "integer", "minimum": 0 },
-            "max": { "type": ["integer", "null"], "description": "null = unbounded" }
+            "min": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "description": "null = unbounded"
+            }
           }
         },
-        "position": { "type": "string", "enum": ["leading", "trailing", "embedded"] }
+        "position": {
+          "type": "string",
+          "enum": [
+            "leading",
+            "trailing",
+            "embedded"
+          ]
+        }
       }
     },
-
     "ContentBindingPair": {
       "description": "A matched pair: one param holds literal content, the other a live variable/pointer binding to the same content (e.g. headerName/headerVar).",
       "type": "object",
-      "required": ["contentParam", "bindingParam"],
+      "required": [
+        "contentParam",
+        "bindingParam"
+      ],
       "properties": {
-        "contentParam": { "$ref": "#/$defs/Parameter" },
-        "bindingParam": { "$ref": "#/$defs/Parameter" },
-        "description": { "type": "string" }
+        "contentParam": {
+          "$ref": "#/$defs/Parameter"
+        },
+        "bindingParam": {
+          "$ref": "#/$defs/Parameter"
+        },
+        "description": {
+          "type": "string"
+        }
       }
     },
-
     "OverloadElement": {
       "description": "One slot in an overload's parameter list: a plain parameter, a variadic group, or a content/binding pair.",
       "oneOf": [
-        { "$ref": "#/$defs/Parameter" },
-        { "$ref": "#/$defs/VariadicGroup" },
-        { "$ref": "#/$defs/ContentBindingPair" }
+        {
+          "$ref": "#/$defs/Parameter"
+        },
+        {
+          "$ref": "#/$defs/VariadicGroup"
+        },
+        {
+          "$ref": "#/$defs/ContentBindingPair"
+        }
       ]
     },
-
     "Overload": {
       "type": "object",
-      "required": ["params"],
+      "required": [
+        "params"
+      ],
       "properties": {
-        "params": { "type": "array", "items": { "$ref": "#/$defs/OverloadElement" } },
-        "returns": { "oneOf": [ { "$ref": "#/$defs/TypeRef" }, { "type": "null" } ] },
-
+        "params": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OverloadElement"
+          }
+        },
+        "returns": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/TypeRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "returnsNullable": {
+          "type": "boolean",
+          "default": false,
+          "description": "The return value can be Null or undefined (e.g. Collection.find() with no match). Distinct from `returns: null`, which means the call returns nothing at all."
+        },
+        "rawSyntax": {
+          "type": "string",
+          "description": "OOP only — the source `Syntax` string this overload was parsed from, verbatim. Kept so a consumer can always see exactly what the documentation said, and so the parser's round-trip gate can be re-checked from the IR alone."
+        },
         "semanticRole": {
           "type": "string",
           "description": "Category C (part 2) / general — short discriminator of what THIS overload does, distinct from sibling overloads even when types look similar."
@@ -411,8 +717,12 @@
           "type": "object",
           "description": "How a caller/generator picks this overload vs siblings.",
           "properties": {
-            "param": { "type": "string" },
-            "rule": { "type": "string" }
+            "param": {
+              "type": "string"
+            },
+            "rule": {
+              "type": "string"
+            }
           }
         },
         "staticallyDistinguishable": {
@@ -425,9 +735,15 @@
           "items": {
             "type": "object",
             "properties": {
-              "platform": { "type": "string" },
-              "valid": { "type": "boolean" },
-              "note": { "type": "string" }
+              "platform": {
+                "type": "string"
+              },
+              "valid": {
+                "type": "boolean"
+              },
+              "note": {
+                "type": "string"
+              }
             }
           }
         },
@@ -436,10 +752,20 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["params", "rule"],
+            "required": [
+              "params",
+              "rule"
+            ],
             "properties": {
-              "params": { "type": "array", "items": { "type": "string" } },
-              "rule": { "type": "string" }
+              "params": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rule": {
+                "type": "string"
+              }
             }
           }
         },
@@ -449,94 +775,574 @@
           "items": {
             "type": "object",
             "properties": {
-              "params": { "type": "array", "items": { "type": "string" } },
-              "note": { "type": "string" }
+              "params": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "note": {
+                "type": "string"
+              }
             }
           }
         }
       }
     },
-
     "CommandEntry": {
       "type": "object",
-      "required": ["id", "displayName", "kind", "overloads"],
+      "required": [
+        "id",
+        "displayName",
+        "kind"
+      ],
+      "allOf": [
+        {
+          "description": "Every entry carries overloads except OOP properties (which carry an accessor instead) and class entries (which carry no signature at all).",
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "oop_property",
+                  "oop_class"
+                ]
+              }
+            }
+          },
+          "then": true,
+          "else": {
+            "required": [
+              "overloads"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "oop_property"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "accessor"
+            ]
+          }
+        }
+      ],
       "properties": {
-        "id": { "type": "string" },
-        "displayName": { "type": "string" },
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
         "kind": {
           "type": "string",
-          "enum": ["classic_command", "compiler_directive", "oop_method"]
+          "enum": [
+            "classic_command",
+            "compiler_directive",
+            "oop_method",
+            "oop_function",
+            "oop_property",
+            "oop_constructor",
+            "oop_class"
+          ],
+          "description": "'oop_method' is a deprecated alias retained so pre-existing consumers keep validating; new OOP entries use oop_function / oop_property / oop_constructor / oop_class."
         },
-        "theme": { "type": "string" },
-        "sinceVersion": { "type": "string" },
-        "deprecated": { "type": "boolean", "default": false },
-
-        "overloads": { "type": "array", "items": { "$ref": "#/$defs/Overload" } },
-
+        "memberName": {
+          "type": "string",
+          "description": "OOP only — the bare member name as written at a call site, including its leading dot (e.g. '.diff', '.length'). Distinct from `id`, which is receiver-qualified."
+        },
+        "receiver": {
+          "$ref": "#/$defs/Receiver",
+          "description": "OOP only — what this member is called on. Required in practice for every OOP member entry; omitted for classic commands, which have no receiver."
+        },
+        "accessor": {
+          "$ref": "#/$defs/Accessor",
+          "description": "OOP properties only — read/write/computed semantics and the property's type. Properties have no `overloads`."
+        },
+        "dynamicMember": {
+          "description": "OOP only — this member's name is not fixed; it stands for a user-model-derived name (e.g. Entity's .attributeName). `namePattern` describes what a real name looks like.",
+          "type": "object",
+          "required": [
+            "namePattern"
+          ],
+          "properties": {
+            "namePattern": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "errorModel": {
+          "$ref": "#/$defs/ErrorModel",
+          "description": "How failure is reported. Classic commands set the OK/error system variables; OOP members typically throw or return a status object."
+        },
+        "returnsShape": {
+          "$ref": "#/$defs/ObjectShape",
+          "description": "Structure of a returned Object, when the docs describe its members in prose (e.g. Entity.save() returning {success, status, statusText}). Optional, prose-derived, overlay-correctable."
+        },
+        "theme": {
+          "type": "string"
+        },
+        "sinceVersion": {
+          "type": "string"
+        },
+        "deprecated": {
+          "type": "boolean",
+          "default": false
+        },
+        "overloads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Overload"
+          }
+        },
         "protocolRefs": {
           "description": "Category A/L — keys into root.protocols.multiCallChains / .stateMachines that this command participates in.",
           "type": "object",
           "properties": {
-            "multiCallChain": { "type": "string" },
-            "stateMachine": { "type": "string" }
+            "multiCallChain": {
+              "type": "string"
+            },
+            "stateMachine": {
+              "type": "string"
+            }
           }
         },
-
         "handleRoles": {
           "description": "Category M — which handle type(s) this command produces/consumes/destroys.",
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["handleType", "role"],
+            "required": [
+              "handleType",
+              "role"
+            ],
             "properties": {
-              "handleType": { "type": "string" },
-              "role": { "type": "string", "enum": ["produces", "consumes", "destroys"] }
+              "handleType": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "produces",
+                  "consumes",
+                  "destroys"
+                ]
+              }
             }
           }
         },
-
         "callbackContractRef": {
           "type": "string",
           "description": "Category N — key into root.callbackContracts, if this command registers a callback."
         },
-
         "externalSchemaSource": {
           "description": "Category K — signature/valid-values are only fully knowable from an external artifact, not this doc.",
           "type": "object",
           "properties": {
-            "sourceKind": { "type": "string", "enum": ["external_service_description", "runtime_discovered", "other"] },
-            "note": { "type": "string" }
+            "sourceKind": {
+              "type": "string",
+              "enum": [
+                "external_service_description",
+                "runtime_discovered",
+                "other"
+              ]
+            },
+            "note": {
+              "type": "string"
+            }
           }
         },
-
         "constraints": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "description": "Prose-derived rules not expressible as types (e.g. 'must specify aTable, cannot use default table')."
         },
-
         "versionBehaviorChanges": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["release", "change"],
+            "required": [
+              "release",
+              "change"
+            ],
             "properties": {
-              "release": { "type": "string" },
-              "change": { "type": "string" },
-              "gatedBy": { "type": "string", "description": "e.g. a compatibility setting that must be enabled for the change to apply." }
+              "release": {
+                "type": "string"
+              },
+              "change": {
+                "type": "string"
+              },
+              "gatedBy": {
+                "type": "string",
+                "description": "e.g. a compatibility setting that must be enabled for the change to apply."
+              }
             }
           }
         },
-
-        "summary": { "type": "string" },
-        "examples": { "type": "array", "items": { "type": "string" } },
-        "seeAlso": { "type": "array", "items": { "type": "string" } }
+        "summary": {
+          "type": "string"
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "seeAlso": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
-
+    "Receiver": {
+      "description": "OOP — what an OOP member is invoked on. `instance` covers `$c.length` (a live object of the class), `class` covers `4D.File.new()` (the class object in a class store), `namespace` covers members of the class store itself (`cs.<Class>`).",
+      "type": "object",
+      "required": [
+        "classId",
+        "kind"
+      ],
+      "properties": {
+        "classId": {
+          "type": "string",
+          "description": "Key into root.classes"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "instance",
+            "class",
+            "namespace"
+          ]
+        },
+        "typeRef": {
+          "$ref": "#/$defs/TypeRef"
+        },
+        "inheritedFrom": {
+          "type": "string",
+          "description": "Set when this member is declared on an ancestor class and only re-documented on `classId`'s page. Value is the declaring class's id."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Accessor": {
+      "description": "OOP properties — the property's type plus its read/write/computed semantics. Replaces `overloads`, which a property does not have.",
+      "type": "object",
+      "required": [
+        "type",
+        "readable",
+        "writable"
+      ],
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/TypeRef"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/TypeRef"
+              },
+              "minItems": 2,
+              "description": "Two or more variants. A single-variant property uses the bare TypeRef form, so a one-element array is invalid rather than an alternative spelling."
+            }
+          ],
+          "description": "The property's declared type. A list when the property is multi-variant, i.e. its `Syntax` field declares several `<br/>`-separated variants (`.bcc : Text` / `: Object` / `: Collection`). Multi-variant properties are the property-side analogue of function overloads; collapsing them to a single type silently narrows what a caller may legally assign."
+        },
+        "readable": {
+          "type": "boolean"
+        },
+        "writable": {
+          "type": "boolean"
+        },
+        "computed": {
+          "type": "boolean",
+          "default": false,
+          "description": "Value is derived on each read rather than stored (so reading it may have a cost or may reflect live state)."
+        },
+        "nullable": {
+          "type": "boolean",
+          "default": false,
+          "description": "The property can hold Null or be undefined."
+        },
+        "note": {
+          "type": "string"
+        },
+        "rawSyntax": {
+          "type": "string",
+          "description": "The property's declaration line, verbatim from the documentation (e.g. `**.size** : Real`). The Overload-level `rawSyntax` covers functions and constructors; this covers properties, which have no overload, so every non-dynamic member carries a verbatim source line somewhere."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ErrorModel": {
+      "description": "How a call reports failure. Classic commands set the OK / error system variables; OOP members throw, populate a status object, or return Null.",
+      "type": "object",
+      "required": [
+        "style"
+      ],
+      "properties": {
+        "style": {
+          "type": "string",
+          "enum": [
+            "throws",
+            "status_object",
+            "returns_null",
+            "ok_system_variable",
+            "silent",
+            "unknown"
+          ]
+        },
+        "statusObjectRef": {
+          "type": "string",
+          "description": "When style is status_object and the shape is shared, the key of the CommandEntry whose returnsShape describes it."
+        },
+        "catchableWith": {
+          "type": "string",
+          "description": "e.g. 'try/catch', 'ON ERR CALL'."
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ObjectShape": {
+      "description": "Structure of an object value described in prose rather than by a type name — used for returnsShape (e.g. {success, status, statusText}) and for option-object parameters.",
+      "type": "object",
+      "required": [
+        "properties"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/TypeRef"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/TypeRef"
+                    }
+                  }
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "optional": {
+                "type": "boolean",
+                "default": false
+              },
+              "presentWhen": {
+                "type": "string",
+                "description": "Condition under which this member appears at all (e.g. 'only when success is False')."
+              },
+              "shape": {
+                "$ref": "#/$defs/ObjectShape"
+              }
+            }
+          }
+        },
+        "source": {
+          "type": "string",
+          "description": "Where this shape was derived from — normally the doc page section, since it is prose-derived rather than declared."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ClassDef": {
+      "description": "Layer 2 — one built-in OOP class. `instantiation` is the field with no classic analogue and the one example synthesis depends on: it answers 'how does a caller obtain one of these?'.",
+      "type": "object",
+      "required": [
+        "id",
+        "displayName",
+        "instantiation"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "docPage": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Path of the API page documenting this class, relative to the docs version root. Null for an abstract base documented only through its subclasses (e.g. Transporter)."
+        },
+        "typeName": {
+          "type": "string",
+          "description": "The name used in a type declaration, e.g. '4D.File', 'Collection'."
+        },
+        "instantiation": {
+          "description": "Ordered recipes for obtaining an instance, most idiomatic first. An empty list is only valid together with isAbstract or isStatic, and then `note` must say why.",
+          "type": "object",
+          "required": [
+            "recipes"
+          ],
+          "properties": {
+            "recipes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "expression"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "constructor",
+                      "classic_command",
+                      "class_function",
+                      "instance_function",
+                      "property_of",
+                      "literal",
+                      "system_object",
+                      "event_callback",
+                      "not_directly_instantiable"
+                    ]
+                  },
+                  "expression": {
+                    "type": "string",
+                    "description": "A 4D expression yielding an instance, using $-prefixed locals for anything it needs (e.g. '$f:=File(\"/PACKAGE/x.txt\")')."
+                  },
+                  "requires": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Preconditions the expression assumes — e.g. 'a datastore with a SynthTable dataclass', 'a running web server'."
+                  },
+                  "producedBy": {
+                    "type": "string",
+                    "description": "Id of the CommandEntry (classic or OOP) that produces the instance, when there is one."
+                  },
+                  "note": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "superclass": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isAbstract": {
+          "type": "boolean",
+          "default": false
+        },
+        "isSingleton": {
+          "type": "boolean",
+          "default": false
+        },
+        "isStatic": {
+          "type": "boolean",
+          "default": false,
+          "description": "The class is only ever used through class-level members (never instantiated), e.g. a class store."
+        },
+        "sharedSemantics": {
+          "description": "Whether instances are shared objects subject to Use/End use, and any related caveats.",
+          "type": "object",
+          "properties": {
+            "shared": {
+              "type": "boolean"
+            },
+            "requiresUseBlockForWrite": {
+              "type": "boolean"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Ids of the CommandEntry entries belonging to this class, including inherited ones."
+        },
+        "summary": {
+          "type": "string"
+        },
+        "sinceVersion": {
+          "type": "string"
+        },
+        "deprecated": {
+          "type": "boolean",
+          "default": false
+        },
+        "isTemplate": {
+          "description": "The class is a template/protocol, not a fixed corpus entry — its concrete members depend on the user's data model (the ORDA generated cs.<DataClass> family). Members are described by pattern instead of enumerated.",
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "constructor": {
+          "type": "string",
+          "description": "Id of the CommandEntry for this class's `4D.<Class>.new()` constructor, when it has one. A convenience index — the same entry is also listed in `members`."
+        },
+        "note": {
+          "type": "string",
+          "description": "Free-text note about the class: why it is abstract, how its template members are derived, or the evidence its instantiation recipes were read from."
+        }
+      },
+      "additionalProperties": false
+    },
     "Relationship": {
       "type": "object",
-      "required": ["type", "from", "to"],
+      "required": [
+        "type",
+        "from",
+        "to"
+      ],
       "properties": {
         "type": {
           "type": "string",
@@ -546,12 +1352,22 @@
             "diff_from",
             "equivalent_overloads",
             "same_mechanism_family",
-            "platform_variant"
+            "platform_variant",
+            "member_of",
+            "returns_instance_of",
+            "obtained_via",
+            "classic_equivalent"
           ]
         },
-        "from": { "$ref": "#/$defs/CommandRef" },
-        "to": { "$ref": "#/$defs/CommandRef" },
-        "note": { "type": "string" }
+        "from": {
+          "$ref": "#/$defs/CommandRef"
+        },
+        "to": {
+          "$ref": "#/$defs/CommandRef"
+        },
+        "note": {
+          "type": "string"
+        }
       }
     }
   }

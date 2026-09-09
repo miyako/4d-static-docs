@@ -1,0 +1,26 @@
+{
+  "id": "WebSocketServer.terminated",
+  "displayName": "WebSocketServer.terminated",
+  "kind": "oop_property",
+  "memberName": ".terminated",
+  "receiver": {
+    "classId": "WebSocketServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketServer"
+    }
+  },
+  "summary": "True if the WebSocket server is closed",
+  "description": "The .terminated property contains True if the WebSocket server is closed.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.terminated** : Boolean"
+  }
+}

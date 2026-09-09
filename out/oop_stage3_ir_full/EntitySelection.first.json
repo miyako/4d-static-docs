@@ -1,0 +1,28 @@
+{
+  "id": "EntitySelection.first",
+  "displayName": "EntitySelection.first",
+  "kind": "oop_function",
+  "memberName": ".first",
+  "receiver": {
+    "classId": "EntitySelection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "EntitySelection"
+    }
+  },
+  "summary": "Returns a reference to the entity in the first position of the entity selection",
+  "description": "The .first() function returns a reference to the entity in the first position of the entity selection.\n\nThe result of this function is similar to:\n\nThere is, however, a difference between both statements when the selection is empty:",
+  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.first**() : 4D.Entity",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Entity"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

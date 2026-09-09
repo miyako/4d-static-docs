@@ -1,0 +1,26 @@
+{
+  "id": "TCPConnection.noDelay",
+  "displayName": "TCPConnection.noDelay",
+  "kind": "oop_property",
+  "memberName": ".noDelay",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "Whether Nagle's algorithm is disabled (`true`) or enabled (`false`)",
+  "description": "The .noDelay property contains whether Nagle's algorithm is disabled (true) or enabled (false). This property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**noDelay** : Boolean"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "IMAPNotifier.isStarted",
+  "displayName": "IMAPNotifier.isStarted",
+  "kind": "oop_property",
+  "memberName": ".isStarted",
+  "receiver": {
+    "classId": "IMAPNotifier",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IMAPNotifier"
+    }
+  },
+  "summary": "Indicates whether the notifier is started (`true`) or stopped (`false`)",
+  "description": "The .isStarted property indicates whether the notifier is started (true) or stopped (false). This property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/IMAPNotifierClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.isStarted** : Boolean"
+  }
+}

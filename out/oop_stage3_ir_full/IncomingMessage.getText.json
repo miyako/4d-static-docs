@@ -1,0 +1,27 @@
+{
+  "id": "IncomingMessage.getText",
+  "displayName": "IncomingMessage.getText",
+  "kind": "oop_function",
+  "memberName": ".getText",
+  "receiver": {
+    "classId": "IncomingMessage",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "IncomingMessage"
+    }
+  },
+  "summary": "Returns the body of the request as a text value",
+  "description": "The .getText() function returns the body of the request as a text value.\n\nIf the body has not been given as a string value, the function tries to convert the value but it can give unexpected results.",
+  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getText**() : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ]
+}

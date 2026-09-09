@@ -1,0 +1,73 @@
+{
+  "id": "Function.call",
+  "displayName": "Function.call",
+  "kind": "oop_function",
+  "memberName": ".call",
+  "receiver": {
+    "classId": "Function",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Function"
+    }
+  },
+  "summary": "Executes the function object to which it is applied, with one or more parameter(s) passed directly, and returns the resulting value",
+  "description": "The .call() function executes the function object to which it is applied, with one or more parameter(s) passed directly, and returns the resulting value.\n\nIn the thisObj parameter, you can pass a reference to the object to be used as This within the function.\n\nYou can pass values to be used as parameters in the function using the optional params parameter:\n\nin 4D.Formula objects, parameters are passed in $1...$n in the formula. in 4D.Method objects, parameters are passed in declared method parameters.\n\nNote that .call() is similar to .apply() except that parameters are passed directly.",
+  "docPage": "mirror/docs/21-R3/API/FunctionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.call**() : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "thisObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object to be returned by the `This` command in the function"
+        },
+        {
+          "name": "params",
+          "members": [
+            {
+              "name": "params",
+              "type": {
+                "kind": "pseudo",
+                "name": "any"
+              },
+              "direction": "in",
+              "optional": true,
+              "description": "Values to be passed as parameters to the function"
+            }
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "position": "trailing"
+        }
+      ],
+      "rawSyntax": "**.call**( *thisObj* : Object { ; *...params* : any } ) : any",
+      "returns": {
+        "kind": "pseudo",
+        "name": "any"
+      }
+    }
+  ],
+  "sinceVersion": "17-R3",
+  "versionBehaviorChanges": [
+    {
+      "release": "21-R3",
+      "change": "Support of 4D.Methods objects"
+    }
+  ]
+}

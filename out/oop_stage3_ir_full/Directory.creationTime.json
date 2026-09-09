@@ -1,0 +1,27 @@
+{
+  "id": "Directory.creationTime",
+  "displayName": "Directory.creationTime",
+  "kind": "oop_property",
+  "memberName": ".creationTime",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "The creation time of the folder",
+  "description": "The .creationTime property returns the creation time of the folder (expressed as a number of seconds beginning at 00:00).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Time"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.creationTime** : Time"
+  },
+  "sinceVersion": "17-R5"
+}

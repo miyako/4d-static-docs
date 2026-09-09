@@ -1,0 +1,35 @@
+{
+  "id": "TCPConnection.send",
+  "displayName": "TCPConnection.send",
+  "kind": "oop_function",
+  "memberName": ".send",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "Sends data to the server",
+  "description": "The send() function sends data to the server. If the connection is not established yet, the data is sent once the connection is established.",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Data to be sent"
+        }
+      ],
+      "rawSyntax": "**.send**( *data* : Blob )",
+      "returns": null
+    }
+  ]
+}

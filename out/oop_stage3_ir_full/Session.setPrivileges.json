@@ -1,0 +1,116 @@
+{
+  "id": "Session.setPrivileges",
+  "displayName": "Session.setPrivileges",
+  "kind": "oop_function",
+  "memberName": ".setPrivileges",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Associates the privilege(s) and/or role(s) defined in the parameter to the session and returns **True** if the execution was successful",
+  "description": "The .setPrivileges() function associates the privilege(s) and/or role(s) defined in the parameter to the session and returns True if the execution was successful.\n\nIn the privilege parameter, pass a string containing a privilege name (or several comma-separated privilege names). In the privileges parameter, pass a collection of strings containing privilege names. In the settings parameter, pass an object containing the following properties:\n\nIf the privileges or roles property contains a name that is not declared in the roles.json file, it is ignored.\n\nBy default when no privilege or role is associated to the session, the session is a Guest session.\n\nThe userName property is available at session object level (read-only).",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "privilege",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Privilege name"
+        }
+      ],
+      "rawSyntax": "**.setPrivileges**( *privilege* : Text ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "privileges",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of privilege names"
+        }
+      ],
+      "rawSyntax": "**.setPrivileges**( *privileges* : Collection )",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "settings",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object with a \"privileges\" property (string or collection)"
+        }
+      ],
+      "rawSyntax": "**.setPrivileges**( *settings* : Object ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "privileges": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text or Collection"
+        },
+        "description": "String containing a privilege name, orCollection of strings containing privilege names"
+      },
+      "roles": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text or Collection"
+        },
+        "description": "String containing a role, orCollection of strings containing roles"
+      },
+      "userName": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "User name to associate to the session (optional, web sessions only). Not available in remote client sessions (ignored)."
+      }
+    },
+    "source": "Description"
+  },
+  "sinceVersion": "18-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "21",
+      "change": "Support of remote and standalone sessions"
+    },
+    {
+      "release": "19-R8",
+      "change": "Support of \"roles\" Settings property"
+    }
+  ],
+  "_seeAlso": [
+    {
+      "text": ".getPrivileges()",
+      "href": "SessionClass.html#getprivileges"
+    }
+  ]
+}

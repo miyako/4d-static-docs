@@ -1,0 +1,38 @@
+{
+  "id": "SystemWorker.wait",
+  "displayName": "SystemWorker.wait",
+  "kind": "oop_function",
+  "memberName": ".wait",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Waits until the end of the `SystemWorker` execution or the specified *timeout* is reached",
+  "description": "The .wait() function waits until the end of the SystemWorker execution or the specified timeout is reached.\n\nThe .wait() function waits until the end of processing of the onTerminate formula, except if the timeout is reached(If any is defined), or an error has occured. If timeout is reached, the SystemWorker is not killed.\n\nIf you pass a timeout value, .wait() waits for the external process for the amount of time defined in the timeout parameter.\n\nThis function is not necessary if you created the SystemWorker from a 4D worker process.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "timeout",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Maximum wait time in seconds"
+        }
+      ],
+      "rawSyntax": "**.wait**( {*timeout* : Real} ) : 4D.SystemWorker",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.SystemWorker"
+      }
+    }
+  ]
+}

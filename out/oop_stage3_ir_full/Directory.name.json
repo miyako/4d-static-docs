@@ -1,0 +1,27 @@
+{
+  "id": "Directory.name",
+  "displayName": "Directory.name",
+  "kind": "oop_property",
+  "memberName": ".name",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "The name of the folder, without extension (if any)",
+  "description": "The .name property returns the name of the folder, without extension (if any).\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.name** : Text"
+  },
+  "sinceVersion": "17-R5"
+}

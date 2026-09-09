@@ -1,0 +1,36 @@
+{
+  "id": "File.setContent",
+  "displayName": "File.setContent",
+  "kind": "oop_function",
+  "memberName": ".setContent",
+  "receiver": {
+    "classId": "File",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "File"
+    }
+  },
+  "summary": "Rewrites the entire content of the file using the data stored in the *content* BLOB",
+  "description": "The .setContent( ) function rewrites the entire content of the file using the data stored in the content BLOB. For information on BLOBs, please refer to the BLOB section.",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "content",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "New contents for the file"
+        }
+      ],
+      "rawSyntax": "**.setContent** ( *content* : Blob )",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

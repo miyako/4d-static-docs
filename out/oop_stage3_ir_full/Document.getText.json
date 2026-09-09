@@ -1,0 +1,78 @@
+{
+  "id": "Document.getText",
+  "displayName": "Document.getText",
+  "kind": "oop_function",
+  "memberName": ".getText",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "Returns the contents of the file as text",
+  "description": "The .getText() function returns the contents of the file as text .\n\nOptionally, you can designate the character set to be used for reading the contents. You can pass either:\n\nin charSetName, a string containing the standard set name (for example \"ISO-8859-1\" or \"UTF-8\"), or in charSetNum, the MIBEnum ID (number) of the standard set name.\n\nFor the list of character sets supported by 4D, refer to the description of the CONVERT FROM TEXT command.\n\nIf the document contains a Byte Order Mark (BOM), 4D uses the character set that it has set instead of the one specified in charSetName or charSetNum (this parameter is then ignored). If the document does not contain a BOM and if charSetName or charSetNum is omitted, by default 4D uses the \"UTF-8\" character set.\n\nIn breakMode, you can pass a number indicating the processing to apply to end-of-line characters in the document. The following constants of the \"System Documents\" theme are available:\n\nBy default, when you omit the breakMode parameter, line breaks are processed in native mode (1).\n\nReturned value\n\nText of the file.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "charSetName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of character set"
+        },
+        {
+          "name": "breakMode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Processing mode for line breaks"
+        }
+      ],
+      "rawSyntax": "**.getText**( { *charSetName* : Text { ; *breakMode* : Integer } } ) : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "charSetNum",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Number of character set"
+        },
+        {
+          "name": "breakMode",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Processing mode for line breaks"
+        }
+      ],
+      "rawSyntax": "**.getText**( { *charSetNum* : Integer { ; *breakMode* : Integer } } ) : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

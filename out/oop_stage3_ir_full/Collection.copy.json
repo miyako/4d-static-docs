@@ -1,0 +1,111 @@
+{
+  "id": "Collection.copy",
+  "displayName": "Collection.copy",
+  "kind": "oop_function",
+  "memberName": ".copy",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Returns a deep copy of the collection instance",
+  "description": "The .copy() function returns a deep copy of the collection instance.Deep copy means that objects or collections within the original collection are duplicated and do not share any reference with the returned collection.\n\nThis function does not modify the original collection.\n\nIf passed, the option parameter can contain one of the following constants (or both):\n\nThe groupWithCol or groupWithObj parameters allow you to designate a collection or an object with which the resulting collection should be associated.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.copy**() : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.copy.option"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "`ck resolve pointers`: resolve pointers before copying,<br/>`ck shared`: return a shared collection ck resolve pointers: resolve pointers before copying,ck shared: return a shared collection"
+        }
+      ],
+      "rawSyntax": "**.copy**( *option* : Integer ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.copy.option"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "`ck resolve pointers`: resolve pointers before copying,<br/>`ck shared`: return a shared collection ck resolve pointers: resolve pointers before copying,ck shared: return a shared collection"
+        },
+        {
+          "name": "groupWithCol",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Shared collection to be grouped with the resulting collection"
+        }
+      ],
+      "rawSyntax": "**.copy**( *option* : Integer ; *groupWithCol* : Collection ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "option",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.copy.option"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "`ck resolve pointers`: resolve pointers before copying,<br/>`ck shared`: return a shared collection ck resolve pointers: resolve pointers before copying,ck shared: return a shared collection"
+        },
+        {
+          "name": "groupWithObj",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Shared object to be grouped with the resulting collection"
+        }
+      ],
+      "rawSyntax": "**.copy**( *option* : Integer ; *groupWithObj* : Object ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6",
+  "versionBehaviorChanges": [
+    {
+      "release": "18-R3",
+      "change": "New ck shared option. New groupWith parameters"
+    }
+  ]
+}

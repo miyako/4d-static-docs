@@ -1,0 +1,32 @@
+{
+  "id": "WebServer.keepSession",
+  "displayName": "WebServer.keepSession",
+  "kind": "oop_property",
+  "memberName": ".keepSession",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "`True` if legacy sessions are enabled in the web server, `False` otherwise",
+  "description": "Contains True if legacy sessions are enabled in the web server, False otherwise.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.keepSession** : Boolean"
+  },
+  "_seeAlso": [
+    {
+      "text": ".scalableSession",
+      "href": "WebServerClass.html#scalablesession"
+    }
+  ]
+}

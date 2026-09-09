@@ -1,0 +1,49 @@
+{
+  "id": "Collection.insert",
+  "displayName": "Collection.insert",
+  "kind": "oop_function",
+  "memberName": ".insert",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Inserts *element* at the specified *index* position in the collection instance and returns the edited collection",
+  "description": "The .insert() function inserts element at the specified index position in the collection instance and returns the edited collection.\n\nThis function modifies the original collection.\n\nIn index, pass the position where you want the element to be inserted in the collection.\n\nWarning: Keep in mind that collection elements are numbered from 0.\n\nIf index > the length of the collection, actual starting index will be set to the length of the collection. If index <0, it is recalculated as index:=index+length (it is considered as the offset from the end of the collection). If the calculated value is negative, index is set to 0.\n\nAny type of element accepted by a collection can be inserted, even another collection.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "index",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Where to insert the element"
+        },
+        {
+          "name": "element",
+          "type": {
+            "kind": "pseudo",
+            "name": "any"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Element to insert in the collection"
+        }
+      ],
+      "rawSyntax": "**.insert**( *index* : Integer ; *element* : any ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "16-R6"
+}

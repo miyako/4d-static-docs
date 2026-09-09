@@ -1,0 +1,26 @@
+{
+  "id": "Email.references",
+  "displayName": "Email.references",
+  "kind": "oop_property",
+  "memberName": ".references",
+  "receiver": {
+    "classId": "Email",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Email"
+    }
+  },
+  "summary": "Collection of all message-ids of messages in the preceding reply chain",
+  "description": "The .references property contains the Collection of all message-ids of messages in the preceding reply chain.\n\nFor specific formatting requirements, please consult the RFC#5322.",
+  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Collection"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.references** : Collection"
+  }
+}

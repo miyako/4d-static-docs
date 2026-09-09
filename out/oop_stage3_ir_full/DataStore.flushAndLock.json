@@ -1,0 +1,35 @@
+{
+  "id": "DataStore.flushAndLock",
+  "displayName": "DataStore.flushAndLock",
+  "kind": "oop_function",
+  "memberName": ".flushAndLock",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Flushes the cache of the local datastore and prevents other processes from performing write operations on the database",
+  "description": "The .flushAndLock() function flushes the cache of the local datastore and prevents other processes from performing write operations on the database. The datastore is set to a consistent, frozen state. Calling this function is necessary before executing an application snapshot, for example.\n\nOnce this function is executed, write operations such as .save() or other .flushAndLock() calls are frozen in all other processes until the datastore is unlocked.\n\nWhen multiple calls to .flushAndLock() have been done in the same process, the same number of .unlock() calls must be executed to actually unlock the datastore.\n\nThe datastore is unlocked when:\n\nthe .unlock() function is called in the same process, or the process that called the .flushAndLock() function is killed.\n\nIf the datastore is already locked from another process, the .flushAndLock() call is frozen and will be executed when the datastore will be unlocked.\n\nAn error is triggered if the .flushAndLock() function cannot be executed (e.g. it is run on a remote 4D), .",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.flushAndLock()**",
+      "returns": null
+    }
+  ],
+  "sinceVersion": "20",
+  "_seeAlso": [
+    {
+      "text": ".locked()",
+      "href": "DataStoreClass.html#locked"
+    },
+    {
+      "text": ".unlock()",
+      "href": "DataStoreClass.html#unlock"
+    }
+  ]
+}

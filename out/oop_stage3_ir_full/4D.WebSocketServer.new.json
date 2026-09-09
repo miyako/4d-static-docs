@@ -1,0 +1,81 @@
+{
+  "id": "4D.WebSocketServer.new",
+  "displayName": "4D.WebSocketServer.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "WebSocketServer",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.WebSocketServer"
+    }
+  },
+  "summary": "Creates and starts a WebSocket server that will use the specified *WSSHandler* callbacks and (optionally) *options*, and returns a `4D.WebSocketServer` object",
+  "description": "The 4D.WebSocketServer.new() function creates and starts a WebSocket server that will use the specified WSSHandler callbacks and (optionally) options, and returns a 4D.WebSocketServer object.\n\nCalling this function requires that the 4D Web Server is started. The host and port of the WebSocket server are the same as the host and port of the 4D Web Server.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "WSSHandler",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Object of the user class declaring the WebSocket Server callbacks"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "WebSocket configuration parameters"
+        }
+      ],
+      "rawSyntax": "**4D.WebSocketServer.new**( *WSSHandler* : Object { ; *options* : Object } ) : 4D.WebSocketServer",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.WebSocketServer"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "onConnection": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "(mandatory) Callback when a new client connection is started (see below)"
+      },
+      "onOpen": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "Callback when the WebSocket server is started (see below)"
+      },
+      "onTerminate": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "Callback when the WebSocket server is terminated (see below)"
+      },
+      "onError": {
+        "type": {
+          "kind": "concrete",
+          "name": "Function"
+        },
+        "description": "Callback when an error has occurred (see below)"
+      }
+    },
+    "source": "WSSHandler parameter"
+  }
+}

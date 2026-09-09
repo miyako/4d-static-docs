@@ -1,0 +1,29 @@
+{
+  "id": "4D.classStoreName",
+  "displayName": "4D.classStoreName",
+  "kind": "oop_property",
+  "memberName": ".classStoreName",
+  "receiver": {
+    "classId": "4D",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D"
+    }
+  },
+  "summary": "Each 4D.ClassStore published by a component is available as a property of the class store.",
+  "description": "Each 4D.ClassStore published by a component is available as a property of the class store.\n\nThe name of the class store published by a component is the component namespace as declared in the component's Settings page.",
+  "docPage": "mirror/docs/21-R3/API/ClassStoreClass.html",
+  "accessor": {
+    "type": {
+      "kind": "pseudo",
+      "name": "any"
+    },
+    "readable": true,
+    "writable": true
+  },
+  "dynamicMember": {
+    "namePattern": "<classStoreName>",
+    "note": "names a class store (4D or cs), not a fixed member"
+  }
+}

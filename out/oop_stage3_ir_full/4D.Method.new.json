@@ -1,0 +1,49 @@
+{
+  "id": "4D.Method.new",
+  "displayName": "4D.Method.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "Method",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.Method"
+    }
+  },
+  "summary": "Creates and returns a new `4D.Method` object built from the *source* code",
+  "description": "The 4D.Method.new() function creates and returns a new 4D.Method object built from the source code.\n\nIn the source parameter, pass the 4D source code of the method as text. All end-of-line characters are supported (LF, CR, CRLF) using the Char command or an escape sequence.\n\nIn the optional name parameter, pass the name of the method to be displayed in the 4D debugger or Runtime explorer. If you omit this parameter, the method name will appear as \"anonymous\".\n\nThe resulting 4D.Method object can be checked using checkSyntax() and executed using (), .apply() or .call().",
+  "docPage": "mirror/docs/21-R3/API/MethodClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "source",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Textual representation of a 4D method to be encapsuled as an object"
+        },
+        {
+          "name": "name",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Name of the method to display in the debugger. If omitted, the method name will be displayed as \"anonymous\""
+        }
+      ],
+      "rawSyntax": "**4D.Method.new**( *source* : Text {; name : Text } ) : 4D.Method",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.Method"
+      }
+    }
+  ],
+  "sinceVersion": "21-R3"
+}

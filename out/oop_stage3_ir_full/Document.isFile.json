@@ -1,0 +1,27 @@
+{
+  "id": "Document.isFile",
+  "displayName": "Document.isFile",
+  "kind": "oop_property",
+  "memberName": ".isFile",
+  "receiver": {
+    "classId": "Document",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Document"
+    }
+  },
+  "summary": "Always true for a file",
+  "description": "The .isFile property returns always true for a file.\n\nThis property is read-only.",
+  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Boolean"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.isFile** : Boolean"
+  },
+  "sinceVersion": "17-R5"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "Collection.multiSort",
+  "displayName": "Collection.multiSort",
+  "kind": "oop_function",
+  "memberName": ".multiSort",
+  "receiver": {
+    "classId": "Collection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Collection"
+    }
+  },
+  "summary": "Enables you to carry out a multi-level synchronized sort on a set of collections",
+  "description": "The .multiSort() function enables you to carry out a multi-level synchronized sort on a set of collections.\n\nThis function modifies the original collection as well as all collections used in colsToSort parameter.\n\nIf .multiSort() is called with no parameters, the function has the same effect as the .sort() function: the collection is sorted (only scalar values) in ascending order by default, according to their type.\n\nIf the collection contains elements of different types, they will be sorted according to the 4D ordering principles.\n\nSingle-level synchronized sort\n\nTo sort several collections synchronously, just pass in colsToSort a collection of collections to sort. You can pass an unlimited number of collections. The original collection will be sorted in ascending order and all colsToSort collections will be sorted in a synchronized manner.\n\nIf you want to sort the collections in some other order than ascending, you must supply a formula (Formula object that defines the sort order. The return value should be a boolean that indicates the relative order of the two elements: True if $1.value is less than $1.value2, False if $1.value is greater than $1.value2. You can provide additional parameters to the formula if necessary.\n\nThe formula receives the following parameters:\n\n$1 (object), where: $1.value (any type): first element value to be compared $1.value2 (any type): second element value to be compared $2...$N (any type): extra parameters\n\nMulti-level synchronized sort\n\nDefining a multi-level synchronized sort requires that you pass an object containing {collection:colToSort;order:ck ascending or ck descending} properties instead of the colToSort itself for every collection to use as sub-level.\n\nThe sort levels are determined by the order in which the collections are passed in the colsToSort parameter: the position of a collection/order object in the syntax determines its sort level.",
+  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.multiSort**() : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "colsToSort",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.multiSort.colsToSort"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of collections and/or objects with {`collection`:*colToSort*;`order`:`ck ascending` or `ck descending`} properties"
+        }
+      ],
+      "rawSyntax": "**.multiSort**( *colsToSort* : Collection ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Function"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object"
+        },
+        {
+          "name": "colsToSort",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Collection.multiSort.colsToSort"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of collections and/or objects with {`collection`:*colToSort*;`order`:`ck ascending` or `ck descending`} properties"
+        }
+      ],
+      "rawSyntax": "**.multiSort**( *formula* : 4D.Function ; *colsToSort* : Collection ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "20-R3"
+}

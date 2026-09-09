@@ -1,0 +1,65 @@
+{
+  "id": "4D.File.new",
+  "displayName": "4D.File.new",
+  "kind": "oop_constructor",
+  "memberName": ".new",
+  "receiver": {
+    "classId": "File",
+    "kind": "class",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "4D.File"
+    }
+  },
+  "summary": "Creates and returns a new object of the `4D.File` type",
+  "description": "The 4D.File.new() function creates and returns a new object of the 4D.File type. It is identical to the File command (shortcut).\n\nIt is recommended to use the File shortcut command instead of 4D.File.new().",
+  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false
+        },
+        {
+          "name": "pathType",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true
+        }
+      ],
+      "rawSyntax": "**4D.File.new** ( *path* : Text { ; *pathType* : Integer } ) : 4D.File",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.File"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "fileConstant",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "rawSyntax": "**4D.File.new** ( *fileConstant* : Integer ) : 4D.File",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.File"
+      }
+    }
+  ],
+  "sinceVersion": "18-R6"
+}

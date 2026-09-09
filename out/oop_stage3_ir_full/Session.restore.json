@@ -1,0 +1,45 @@
+{
+  "id": "Session.restore",
+  "displayName": "Session.restore",
+  "kind": "oop_function",
+  "memberName": ".restore",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Replaces the current web user session with their original session corresponding to the *token* UUID",
+  "description": "The .restore() function replaces the current web user session with their original session corresponding to the token UUID. Session's storage and privileges are restored.\n\nIf the original user session has been correctly restored, the function returns true.\n\nThe function returns false if:\n\nthe session token has already been used, the session token has expired, the session token does not exist, the original session itself has expired.\n\nIn this case, the current web user session is left untouched (no session is restored).",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "token",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Session token UUID"
+        }
+      ],
+      "rawSyntax": "**.restore** ( *token* : Text ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
+    }
+  ],
+  "sinceVersion": "20-R9",
+  "_seeAlso": [
+    {
+      "text": ".createOTP()",
+      "href": "SessionClass.html#createotp"
+    }
+  ]
+}

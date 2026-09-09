@@ -1,0 +1,26 @@
+{
+  "id": "MailAttachment.size",
+  "displayName": "MailAttachment.size",
+  "kind": "oop_property",
+  "memberName": ".size",
+  "receiver": {
+    "classId": "MailAttachment",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "MailAttachment"
+    }
+  },
+  "summary": "The value of the `size` header of the attachment file",
+  "description": "The .size property contains the value of the size header of the attachment file. The .size property is returned when the MIME message defines a size header in the attachment part.",
+  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.size** : Integer"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "Folder.createAlias",
+  "displayName": "Folder.createAlias",
+  "kind": "oop_function",
+  "memberName": ".createAlias",
+  "receiver": {
+    "classId": "Folder",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Folder"
+    }
+  },
+  "summary": "Creates an alias (macOS) or a shortcut (Windows)",
+  "description": "The .createAlias() function creates an alias (macOS) or a shortcut (Windows) to the folder with the specified aliasName name in the folder designated by the destinationFolder object.\n\nPass the name of the alias or shortcut to create in the aliasName parameter.\n\nBy default on macOS, the function creates a standard alias. You can also create a symbolic link by using the aliasType parameter. The following constants are available:\n\nOn Windows, a shortcut (.lnk file) is always created (the aliasType parameter is ignored).\n\nReturned object\n\nA 4D.File object with the isAlias property set to true.",
+  "docPage": "mirror/docs/21-R3/API/FolderClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "destinationFolder",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Folder"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Destination folder for the alias or shortcut"
+        },
+        {
+          "name": "aliasName",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Name of the alias or shortcut"
+        },
+        {
+          "name": "aliasType",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Folder.createAlias.aliasType"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Type of the alias link"
+        }
+      ],
+      "rawSyntax": "**.createAlias**( *destinationFolder* : 4D.Folder ; *aliasName* : Text { ; *aliasType* : Integer } ) : 4D.File",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.File"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}

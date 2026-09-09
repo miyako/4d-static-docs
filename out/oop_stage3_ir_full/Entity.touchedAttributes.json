@@ -1,0 +1,28 @@
+{
+  "id": "Entity.touchedAttributes",
+  "displayName": "Entity.touchedAttributes",
+  "kind": "oop_function",
+  "memberName": ".touchedAttributes",
+  "receiver": {
+    "classId": "Entity",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Entity"
+    }
+  },
+  "summary": "Returns the names of the attributes that have been modified since the entity was loaded into memory",
+  "description": "The .touchedAttributes() function returns the names of the attributes that have been modified since the entity was loaded into memory.\n\nThis only applies to attributes of kind \"storage\" or \"relatedEntity\".\n\nIn the case of a related entity having been touched (i.e., the foreign key), the name of the related entity and its primary key's name are returned.\n\nIf no entity attribute has been touched, the method returns an empty collection.",
+  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.touchedAttributes()** : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "17"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "CryptoKey.type",
+  "displayName": "CryptoKey.type",
+  "kind": "oop_property",
+  "memberName": ".type",
+  "receiver": {
+    "classId": "CryptoKey",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "CryptoKey"
+    }
+  },
+  "summary": "Name of the key type - \"RSA\", \"ECDSA\", \"PEM\"",
+  "description": "Contains the name of the key type - \"RSA\", \"ECDSA\", \"PEM\" .\n\n\"RSA\": an RSA key pair, using settings.size as .size. \"ECDSA\": an Elliptic Curve Digital Signature Algorithm key pair, using settings.curve as .curve. Note that ECDSA keys cannot be used for encryption but only for signature. \"PEM\": a key pair definition in PEM format, using settings.pem as .pem.",
+  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Text"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.type** : Text"
+  },
+  "sinceVersion": "18-R4"
+}

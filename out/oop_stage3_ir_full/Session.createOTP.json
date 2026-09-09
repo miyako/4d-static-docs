@@ -1,0 +1,45 @@
+{
+  "id": "Session.createOTP",
+  "displayName": "Session.createOTP",
+  "kind": "oop_function",
+  "memberName": ".createOTP",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "Creates a new OTP (One Time Passcode) for the session and returns its token UUID",
+  "description": "The .createOTP() function creates a new OTP (One Time Passcode) for the session and returns its token UUID. This token is unique to the session in which it was generated.\n\nYou can set a custom timeout by passing a value in seconds in lifespan. By default, if the lifespan parameter is omitted:\n\nfor web sessions, the token is created with the same lifespan as the .idleTimeOut of the session. for remote user sessions, the token is created with a 10 seconds lifespan.\n\nIn web sessions, the returned token can be used in exchanges with third-party applications or websites to securely identify the session. For example, the session OTP token can be used with a payment application.\n\nIn remote user sessions (and standalone sessions for test purposes), the returned token can be used by 4D to identify requests coming from the web that share the session.\n\nFor more information about the OTP tokens, please refer to this section.\n\nIf an expired token is used to restore a session, it is ignored.",
+  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "lifespan",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Session token lifespan in seconds"
+        }
+      ],
+      "rawSyntax": "**.createOTP** ( { *lifespan* : Integer } ) : Text",
+      "returns": {
+        "kind": "concrete",
+        "name": "Text"
+      }
+    }
+  ],
+  "sinceVersion": "20-R9",
+  "versionBehaviorChanges": [
+    {
+      "release": "21",
+      "change": "Support of remote and standalone sessions"
+    }
+  ]
+}

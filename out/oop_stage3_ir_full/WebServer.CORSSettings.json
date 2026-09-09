@@ -1,0 +1,26 @@
+{
+  "id": "WebServer.CORSSettings",
+  "displayName": "WebServer.CORSSettings",
+  "kind": "oop_property",
+  "memberName": ".CORSSettings",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "List of allowed hosts and methods for the CORS service",
+  "description": "Contains the list of allowed hosts and methods for the CORS service (see CORSEnabled property). Each object must contain a host property and, optionally, a methods property:\n\nhost (text, mandatory): Domain name or IP address from where external pages are allowed to send data requests to the Server via CORS. Multiple domain attributes can be added to create a white list. If host is not present or empty, the object is ignored. Several syntaxes are supported: 192.168.5.17:8081 192.168.5.17 192.168.* 192.168.*:8081 http://192.168.5.17:8081 http://*.myDomain.com http://myProject.myDomain.com *.myDomain.com myProject.myDomain.com * methods (text, optional): Accepted HTTP method(s) for the corresponding CORS host. Separate each method with a \";\" (e,g,: \"post;get\"). If methods is empty, null, or undefined, all methods are enabled.",
+  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Collection"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.CORSSettings** : Collection"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WebSocketServer.connections",
+  "displayName": "WebSocketServer.connections",
+  "kind": "oop_property",
+  "memberName": ".connections",
+  "receiver": {
+    "classId": "WebSocketServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebSocketServer"
+    }
+  },
+  "summary": "All current connections handled by the WebSocket server",
+  "description": "The .connections property contains all current connections handled by the WebSocket server. Each element of the collection is a WebSocketConnection object.\n\nWhen a connection is terminated, its status changes to \"Closed\" and it is removed from this collection.",
+  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Collection"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.connections** : Collection"
+  }
+}

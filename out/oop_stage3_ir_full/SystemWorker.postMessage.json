@@ -1,0 +1,51 @@
+{
+  "id": "SystemWorker.postMessage",
+  "displayName": "SystemWorker.postMessage",
+  "kind": "oop_function",
+  "memberName": ".postMessage",
+  "receiver": {
+    "classId": "SystemWorker",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SystemWorker"
+    }
+  },
+  "summary": "Allows you to write on the input stream (stdin) of the external process",
+  "description": "The .postMessage() function allows you to write on the input stream (stdin) of the external process. In the message parameter, pass the text to write in stdin.\n\nThe .postMessage() function also accepts a Blob type value in messageBLOB to pass in stdin, so that you can post binary data.\n\nYou can use the .dataType property of the options object to make response body return Blob values.",
+  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Text to write on the input stream (stdin) of the external process"
+        }
+      ],
+      "rawSyntax": "**.postMessage**( *message* : Text)",
+      "returns": null
+    },
+    {
+      "params": [
+        {
+          "name": "messageBLOB",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Bytes write on the input stream"
+        }
+      ],
+      "rawSyntax": "**.postMessage**( *messageBLOB* : Blob)",
+      "returns": null
+    }
+  ]
+}

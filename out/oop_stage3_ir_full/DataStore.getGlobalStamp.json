@@ -1,0 +1,34 @@
+{
+  "id": "DataStore.getGlobalStamp",
+  "displayName": "DataStore.getGlobalStamp",
+  "kind": "oop_function",
+  "memberName": ".getGlobalStamp",
+  "receiver": {
+    "classId": "DataStore",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataStore"
+    }
+  },
+  "summary": "Returns the current value of the global modification stamp of the datastore",
+  "description": "The .getGlobalStamp() function returns the current value of the global modification stamp of the datastore.\n\nFor more information on global stamp and data change tracking, please refer to the Using the Global Stamp page.",
+  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getGlobalStamp**() : Real",
+      "returns": {
+        "kind": "concrete",
+        "name": "Real"
+      }
+    }
+  ],
+  "sinceVersion": "20-R3",
+  "_seeAlso": [
+    {
+      "text": ".setGlobalStamp()",
+      "href": "DataStoreClass.html#setglobalstamp"
+    }
+  ]
+}

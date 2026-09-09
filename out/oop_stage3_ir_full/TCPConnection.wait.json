@@ -1,0 +1,35 @@
+{
+  "id": "TCPConnection.wait",
+  "displayName": "TCPConnection.wait",
+  "kind": "oop_function",
+  "memberName": ".wait",
+  "receiver": {
+    "classId": "TCPConnection",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "TCPConnection"
+    }
+  },
+  "summary": "Waits until  the TCP connection is closed or the specified `timeout` is reached",
+  "description": "The wait() function waits until the TCP connection is closed or the specified timeout is reached",
+  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "timeout",
+          "type": {
+            "kind": "concrete",
+            "name": "Real"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Maximum wait time in seconds"
+        }
+      ],
+      "rawSyntax": "**.wait**( { *timeout* : Real } )",
+      "returns": null
+    }
+  ]
+}

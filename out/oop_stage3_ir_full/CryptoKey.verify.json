@@ -1,0 +1,127 @@
+{
+  "id": "CryptoKey.verify",
+  "displayName": "CryptoKey.verify",
+  "kind": "oop_function",
+  "memberName": ".verify",
+  "receiver": {
+    "classId": "CryptoKey",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "CryptoKey"
+    }
+  },
+  "summary": "Verifies the base64 signature against the utf8 representation of *message*",
+  "description": "The .verify() function verifies the base64 signature against the utf8 representation of message using the CryptoKey object keys and provided options.\n\nThe CryptoKey must contain a valid public key.",
+  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Message that was used to produce the signature"
+        },
+        {
+          "name": "signature",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Signature to verify, in Base64 or Base64URL representation, depending on `options.encoding` value"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Signing options"
+        }
+      ],
+      "rawSyntax": "**.verify**( *message* : Text ; *signature* : Text ; *options* : Object) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "message",
+          "type": {
+            "kind": "concrete",
+            "name": "Blob"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Message that was used to produce the signature"
+        },
+        {
+          "name": "signature",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Signature to verify, in Base64 or Base64URL representation, depending on `options.encoding` value"
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Signing options"
+        }
+      ],
+      "rawSyntax": "*.verify**( *message* : Blob ; *signature* : Text ; *options* : Object) : Object",
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "success": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if the signature matches the message"
+      },
+      "errors": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "If success is false, may contain a collection of errors"
+      }
+    },
+    "source": "Result"
+  },
+  "errorModel": {
+    "style": "status_object",
+    "note": "failure is reported in the returned status object, not by throwing"
+  },
+  "sinceVersion": "18-R4",
+  "versionBehaviorChanges": [
+    {
+      "release": "20-R8",
+      "change": "Support of message as Blob"
+    }
+  ]
+}

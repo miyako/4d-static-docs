@@ -1,0 +1,39 @@
+{
+  "id": "Directory.folders",
+  "displayName": "Directory.folders",
+  "kind": "oop_function",
+  "memberName": ".folders",
+  "receiver": {
+    "classId": "Directory",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Directory"
+    }
+  },
+  "summary": "Returns a collection of `Folder` objects contained in the parent folder",
+  "description": "The .folders() function returns a collection of Folder objects contained in the parent folder.\n\nBy default, if you omit the options parameter, only the folders at the first level of the folder are returned in the collection. You can modify this by passing, in the options parameter, one or more of the following constants:\n\nReturned value\n\nCollection of Folder objects.",
+  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "Directory.folders.options"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "Folder list options"
+        }
+      ],
+      "rawSyntax": "**.folders**( { *options* : Integer } ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "sinceVersion": "17-R5"
+}
