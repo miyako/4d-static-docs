@@ -52,6 +52,43 @@ def merge_registry_map(root, key, addition):
         existing[name] = entry
 
 
+DOC_BASE_URL = "https://developer.4d.com/docs/"
+MANIFEST = ROOT / "out" / "manifest.json"
+
+
+def attach_doc_pages(commands):
+    """Give every command its official documentation permalink.
+
+    Stage 0 already recorded which mirror page each command came from, so
+    nothing is re-parsed here: the manifest is joined by id and the URL is
+    derived from the same path. The join is required to be total -- a command
+    with no manifest entry is a corpus inconsistency, not a command that
+    happens to lack documentation, so it fails the build rather than silently
+    shipping without a link.
+
+    The URL omits the version segment on purpose. `/docs/21-R3/commands/...`
+    resolves today but stops resolving once that release is superseded, which
+    would rot a redistributable artifact on 4D's release schedule rather than
+    ours. The mirror path is kept as `docPageLocal` for provenance, since the
+    mirror is not shipped and the URL is not reversible to a specific version.
+    """
+    manifest = load_json(MANIFEST)
+    docs_root = manifest["docsRoot"]
+    by_id = {e["id"]: e for e in manifest["entries"]}
+
+    missing = [c["id"] for c in commands if c["id"] not in by_id]
+    if missing:
+        raise SystemExit(
+            f"{len(missing)} command(s) have no manifest entry, so no doc page "
+            f"can be derived: {sorted(missing)[:10]}"
+        )
+
+    for command in commands:
+        rel = by_id[command["id"]]["sourcePaths"][0]
+        command["docPage"] = DOC_BASE_URL + rel.removesuffix(".html")
+        command["docPageLocal"] = f"{docs_root}/{rel}"
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", default=str(DEFAULT_OUTPUT), help="Output path for the assembled root IR document")
@@ -81,6 +118,7 @@ def main():
         raise SystemExit(f"Duplicate command ids between fixtures and bulk corpus: {sorted(overlap)}")
 
     root["commands"] = fixture_commands + bulk_commands
+    attach_doc_pages(root["commands"])
 
     # Relationships: only the 14-fixture set exists (Stage 4 was explicitly skipped).
     root["relationships"] = fixtures_doc.get("relationships", [])

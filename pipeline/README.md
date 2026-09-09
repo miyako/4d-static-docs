@@ -102,3 +102,50 @@ source HTML file(s)). Stage 1 (and later Stage 3) look up
 after the docs change only reprocesses commands whose hash changed — this
 is what makes the pipeline safe to re-run against a newer docs snapshot
 without redoing unaffected work, and is the basis for Stage 5's diff report.
+
+## `docPage`: official permalinks, added at assembly
+
+Every command carries an official documentation permalink:
+
+```
+docPage       https://developer.4d.com/docs/commands/copy-array
+docPageLocal  mirror/docs/21-R3/commands/copy-array.html
+```
+
+Nothing is re-parsed to produce this. Stage 0 already recorded the source
+page of every command in `out/manifest.json`, so stage 5 joins that by id
+and derives the URL from the same path. The join is required to be
+**total**: a command with no manifest entry fails the build rather than
+silently shipping without a link, because that means the corpus and the
+manifest disagree, not that the command is undocumented.
+
+**The URL omits the version segment on purpose.** `/docs/21-R3/commands/...`
+resolves today but stops resolving once 21-R3 is superseded, so embedding it
+in a redistributable artifact would make the artifact rot on 4D's release
+schedule. `docPageLocal` keeps the mirror path, which is the provenance
+record of the file actually parsed and is not recoverable from the URL.
+
+### The derivation was verified, not assumed
+
+A version-less URL means "the current docs", and the classic corpus contains
+deprecated commands whose pages could plausibly have been dropped. All 1456
+were checked against the live site:
+
+- **1456/1456 return 200**, including deprecated commands such as
+  `SET LIST PROPERTIES` and `GRAPH SETTINGS`.
+- Each page's `<h1>` was compared to the command's `displayName`. **Status
+  codes alone are not sufficient** here: a derived slug that collided with a
+  different command's page would return 200 while being the wrong page
+  entirely. Only one heading disagreed, `VP Get table column attributes`,
+  whose live page is headed `VP Get column attributes` -- and the mirror page
+  carries that same heading, so the URL is correct and the disagreement is a
+  pre-existing docs/IR inconsistency, not a mapping error.
+- Negative controls in all three namespaces (`commands/`,
+  `ViewPro/commands/`, `WritePro/commands/`) return a genuine 404, so the
+  200s mean something. A Docusaurus site can serve a soft 404 with status
+  200, in which case a sweep of real names would look identical to a sweep
+  that verified nothing.
+
+The stage additionally asserts that the set of emitted URLs is exactly the
+set that was swept, so a future change to the derivation cannot quietly
+produce URLs that were never checked.

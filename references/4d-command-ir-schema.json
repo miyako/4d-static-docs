@@ -1014,7 +1014,7 @@
             "string",
             "null"
           ],
-          "description": "Official documentation permalink for the API page, e.g. 'https://developer.4d.com/docs/API/SMTPTransporterClass'. Deliberately version-less: a versioned URL stops resolving once that release is superseded, which would rot a redistributable artifact on 4D's release schedule. Null for an abstract base documented only through its subclasses (e.g. Transporter)."
+          "description": "Official documentation permalink for this command, e.g. 'https://developer.4d.com/docs/commands/copy-array'. Deliberately version-less: a versioned URL stops resolving once that release is superseded, which would rot a redistributable artifact on 4D's release schedule. Null only for an entry with no documentation page."
         },
         "docPageLocal": {
           "type": [
