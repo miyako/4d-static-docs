@@ -20,29 +20,71 @@ The tools are distributed as GitHub Release assets from:
 Currently the release provides platform-specific builds of:
 
 * `xmllint`
-* `xsltproc`
 * `boon` (JSON Schema validator)
 * `tool4d-lsp-stdio` (4D LSP bridge for code validation)
+* `4d-language-classic` (natural-language lookup service for 4D classic-language commands)
+* `4d-language-oop` (natural-language lookup service for the 4D object (OOP) language class reference)
 
 These tools are implementation dependencies of the 4D skills. They are not
 themselves 4D skills.
 
+`xsltproc` is also built and published as a release asset (a byproduct of
+the same `libxml2`/`libxslt` build that produces `xmllint`), but no
+current skill consumes it, so it is intentionally not provisioned or
+referenced below. Add it here once a skill actually needs it.
+
 ## Installation Location
 
-Downloaded tools must be placed in the `tools/` directory at the root of
-the repository being worked on (the repo that contains the 4D project),
-not inside the skills repository itself.
+Downloaded tools must be placed under the `tools/` directory at the root
+of the repository being worked on (the repo that contains the 4D
+project), not inside the skills repository itself.
+
+Every tool currently provisioned here is used by exactly one 4D skill,
+so each is installed into a subdirectory named after that skill, keeping
+each skill's tooling isolated -- it can be added, removed, or
+reprovisioned without touching what other skills use. If a future tool
+is genuinely needed by more than one skill, install it directly under
+`tools/` instead of duplicating it per consumer.
+
+| Tool | Destination | Used by |
+|------|-------------|---------|
+| `xmllint` | `tools/4dcatalog/` | `4dcatalog` only |
+| `boon` | `tools/4dform/` | `4dform` only |
+| `tool4d-lsp-stdio` | `tools/4dlsp/` | `4dlsp` only |
+| `4d-language-classic` | `tools/4dlang/` | `4dlang` only |
+| `4d-language-oop` | `tools/4dlang/` | `4dlang` only |
+
+`4d-language-classic` and `4d-language-oop` are natural-language lookup
+tools for the two 4D language subsets and are consumed together by the
+single `4dlang` skill (see `skills/4dlang/SKILL.md`), so they share one
+destination directory rather than each getting its own -- they are not
+each `4dlsp`-only the way `tool4d-lsp-stdio` is. (An earlier revision of
+this skillset provisioned `4d-language-classic` into `tools/4dlsp/`,
+alongside `tool4d-lsp-stdio`, back when `4dlsp` was the only skill doing
+language lookup. That mapping no longer matches the "named after the
+skill that depends on it" rule below now that `4dlang` owns lookup for
+both languages, hence the move.)
 
 ```
 <working-repo>/
   tools/
-    xmllint        (or xmllint.exe on Windows)
-    xsltproc       (or xsltproc.exe on Windows)
-    boon           (or boon.exe on Windows)
-    tool4d-lsp-stdio (or tool4d-lsp-stdio.exe on Windows)
+    4dcatalog/
+      xmllint                  (or xmllint.exe on Windows)
+    4dform/
+      boon                     (or boon.exe on Windows)
+    4dlsp/
+      tool4d-lsp-stdio         (or tool4d-lsp-stdio.exe on Windows)
+    4dlang/
+      4d-language-classic      (or 4d-language-classic.exe on Windows)
+      4d-language-oop          (or 4d-language-oop.exe on Windows)
   Project/
     ...
 ```
+
+When a new tool is added to this skillset in the future, default to
+giving it its own `tools/<skill>/` subdirectory unless it is genuinely
+shared by more than one consumer, in which case it stays directly under
+`tools/`.
 
 Do not install them globally and do not modify the user's PATH.
 
@@ -83,10 +125,13 @@ Do not assume that the operating system alone identifies the correct asset.
 
 ### macOS and Linux
 
-Complete recipe to provision a tool (e.g., `xmllint`):
+Complete recipe to provision a tool (e.g., `xmllint` for the `4dcatalog`
+skill; every other tool follows the same pattern with its own
+`DEST_DIR=tools/<skill>` -- see the destination table above):
 
 ```sh
 TOOL=xmllint
+DEST_DIR=tools/4dcatalog
 OS=$(uname -s)
 ARCH=$(uname -m)
 
@@ -118,10 +163,10 @@ if [ -z "$DOWNLOAD_URL" ]; then
 fi
 
 # Download and extract
-mkdir -p tools
+mkdir -p "$DEST_DIR"
 TMP_FILE=$(mktemp)
 curl -sL "$DOWNLOAD_URL" -o "$TMP_FILE"
-tar -xJf "$TMP_FILE" -C tools/
+tar -xJf "$TMP_FILE" -C "$DEST_DIR/"
 rm -f "$TMP_FILE"
 
 # tar.xz preserves Unix permissions including the execute bit,
@@ -132,13 +177,20 @@ rm -f "$TMP_FILE"
 # the signature.
 
 # Verify
-tools/${TOOL} --version
+"$DEST_DIR/${TOOL}" --version
 ```
+
+For example, to provision `boon` for the `4dform` skill, set
+`TOOL=boon` and `DEST_DIR=tools/4dform`; to provision
+`tool4d-lsp-stdio` for `4dlsp`, set `DEST_DIR=tools/4dlsp`; to provision
+`4d-language-classic` or `4d-language-oop` for `4dlang`, set
+`DEST_DIR=tools/4dlang`.
 
 ### Windows (PowerShell)
 
 ```powershell
 $tool = "xmllint"
+$destDir = "tools/4dcatalog"
 $arch = if ([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture -eq 'Arm64') { 'arm64' } else { 'x64' }
 $pattern = "${tool}-windows-${arch}"
 
@@ -150,15 +202,19 @@ if (-not $asset) {
     exit 1
 }
 
-New-Item -ItemType Directory -Force -Path tools | Out-Null
+New-Item -ItemType Directory -Force -Path $destDir | Out-Null
 $tmp = [System.IO.Path]::GetTempFileName()
 Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $tmp
-tar -xJf $tmp -C tools/
+tar -xJf $tmp -C "$destDir/"
 Remove-Item $tmp
 
 # Verify
-& "tools/${tool}.exe" --version
+& "$destDir/${tool}.exe" --version
 ```
+
+As above, set `$destDir = "tools/4dform"` for `boon`,
+`$destDir = "tools/4dlsp"` for `tool4d-lsp-stdio`, or
+`$destDir = "tools/4dlang"` for `4d-language-classic`/`4d-language-oop`.
 
 ## Provisioning Multiple Tools
 
@@ -167,27 +223,34 @@ tools that are not needed by the current operation.
 
 Common sets:
 
-- 4dcatalog needs: `xmllint`
-- 4dform needs: `boon`
-- 4dlsp needs: `tool4d-lsp-stdio` (macOS and Windows only -- no Linux build)
-- XSLT transforms need: `xsltproc`
+- 4dcatalog needs: `xmllint` (`tools/4dcatalog/xmllint`)
+- 4dform needs: `boon` (`tools/4dform/boon`)
+- 4dlsp needs: `tool4d-lsp-stdio` (`tools/4dlsp/tool4d-lsp-stdio`,
+  macOS and Windows only -- no Linux build)
+- 4dlang needs: `4d-language-classic` (`tools/4dlang/4d-language-classic`,
+  all platforms) and `4d-language-oop`
+  (`tools/4dlang/4d-language-oop`, all platforms)
 
 ## Verification
 
 After installation, verify each tool can run:
 
 ```sh
-tools/xmllint --version
-tools/xsltproc --version
-tools/boon --help
+tools/4dcatalog/xmllint --version
+tools/4dform/boon --help
+tools/4dlsp/tool4d-lsp-stdio --version
+tools/4dlang/4d-language-classic --help
+tools/4dlang/4d-language-oop --help
 ```
 
 On Windows, append `.exe`:
 
 ```powershell
-& tools\xmllint.exe --version
-& tools\xsltproc.exe --version
-& tools\boon.exe --help
+& tools\4dcatalog\xmllint.exe --version
+& tools\4dform\boon.exe --help
+& tools\4dlsp\tool4d-lsp-stdio.exe --version
+& tools\4dlang\4d-language-classic.exe --help
+& tools\4dlang\4d-language-oop.exe --help
 ```
 
 A successful download is not sufficient. Treat installation as successful
@@ -205,8 +268,9 @@ command -v xmllint >/dev/null 2>&1 && xmllint --version
 If the system tool is acceptable for the current operation, it may be used
 instead of downloading another copy.
 
-If the 4D skill requires the known bundled version, use the copy in
-`tools/` after provisioning it.
+If the 4D skill requires the known bundled version, use the copy at its
+destination under `tools/` (see the destination table above) after
+provisioning it.
 
 Do not overwrite a working bundled executable unnecessarily.
 
@@ -245,9 +309,11 @@ this skill when a tool is unavailable.
 The dependency relationships are:
 
 ```
-4dcatalog       --> xmllint      --> 4dtools provisions xmllint
-4dform          --> boon         --> 4dtools provisions boon
-XSLT transforms --> xsltproc    --> 4dtools provisions xsltproc
+4dcatalog --> xmllint             --> 4dtools provisions tools/4dcatalog/xmllint
+4dform    --> boon                --> 4dtools provisions tools/4dform/boon
+4dlsp     --> tool4d-lsp-stdio    --> 4dtools provisions tools/4dlsp/tool4d-lsp-stdio
+4dlang    --> 4d-language-classic --> 4dtools provisions tools/4dlang/4d-language-classic
+4dlang    --> 4d-language-oop     --> 4dtools provisions tools/4dlang/4d-language-oop
 ```
 
 The individual 4D skills should concentrate on 4D-specific behavior,

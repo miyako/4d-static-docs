@@ -36,6 +36,13 @@ Tools provisioned by `4dtools` are installed under:
 
 	tools/
 
+Every tool currently provisioned is used by exactly one 4D skill, so
+each is installed into a subdirectory named after that skill (e.g.
+`tools/4dcatalog/`, `tools/4dform/`, `tools/4dlsp/`, `tools/4dlang/`),
+keeping each skill's tooling isolated. A future tool genuinely needed by
+more than one skill would instead stay directly under `tools/`. See
+`skills/4dtools/SKILL.md` for the exact destination of each tool.
+
 Do not install these tools globally or modify the user's PATH.
 
 Prefer an existing compatible system installation of a tool when the
@@ -48,9 +55,12 @@ skills.
 The `4dtools` skill currently provisions tools such as:
 
 - `xmllint`
-- `xsltproc`
 - `boon` (JSON Schema validator)
 - `tool4d-lsp-stdio` (4D LSP bridge for validation and code intelligence)
+- `4d-language-classic` (natural-language lookup service for 4D
+  classic-language commands)
+- `4d-language-oop` (natural-language lookup service for the 4D object
+  (OOP) language class reference)
 
 Individual skills specify which tools they require.
 
@@ -66,6 +76,7 @@ in the `skills/` directory relative to this file:
 | `.4DProject` (project definition) | 4dproject | `skills/4dproject/SKILL.md` |
 | `.4DSettings` (settings) | 4dsettings | `skills/4dsettings/SKILL.md` |
 | `.4dm` code validation / LSP / MCP | 4dlsp | `skills/4dlsp/SKILL.md` |
+| 4D command / OOP class member lookup | 4dlang | `skills/4dlang/SKILL.md` |
 | Tool provisioning | 4dtools | `skills/4dtools/SKILL.md` |
 
 Read the applicable `SKILL.md` before making structural changes to a
@@ -151,7 +162,7 @@ arguments, environment variables, timeout):
   check `tool4d-lsp-stdio --help`. If those are present, use them
   directly instead of suggesting host configuration.
 * The workspace contains a resolvable `.4DProject` file.
-* `tool4d-lsp-stdio` is available (in `tools/` or on the system) and
+* `tool4d-lsp-stdio` is available (in `tools/4dlsp/` or on the system) and
   runnable.
 * The session is not running unattended/autonomously (e.g. an autopilot
   or background-agent mode with no user expected to read suggestions or
