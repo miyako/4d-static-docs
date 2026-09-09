@@ -1,0 +1,62 @@
+{
+  "id": "Collection.multiSort",
+  "_reason": "stage O3 typed `colsToSort` as an enum_ref to the 'ck ascending'/'ck descending' constants, but both syntax lines in CollectionClass.html declare it as `colsToSort : Collection`: the ck constants appear in the page's prose because they are used by .sort()/.order by, not as the value of this parameter. tool4d rejects `$c.multiSort(ck ascending)` with 'At least one parameter type does not match the prototype(s) of the function \"multiSort\".' An audit of all 45 enum_ref slots against their rawSyntax declared type found this as the only mismatch. Retyped to concrete Collection; rawSyntax untouched.",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.multiSort**() : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "colsToSort",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of objects describing the sort. Each object may carry a `propertyPath` (Text) and a `descending` (Boolean) attribute."
+        }
+      ],
+      "rawSyntax": "**.multiSort**( *colsToSort* : Collection ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "formula",
+          "type": {
+            "kind": "concrete",
+            "name": "4D.Function"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Formula object"
+        },
+        {
+          "name": "colsToSort",
+          "type": {
+            "kind": "concrete",
+            "name": "Collection"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Collection of objects describing the sort. Each object may carry a `propertyPath` (Text) and a `descending` (Boolean) attribute."
+        }
+      ],
+      "rawSyntax": "**.multiSort**( *formula* : 4D.Function ; *colsToSort* : Collection ) : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ]
+}

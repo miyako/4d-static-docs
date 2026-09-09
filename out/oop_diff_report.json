@@ -1,12 +1,15 @@
 {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+    "4D.Folder.new",
+    "Collection.multiSort"
+  ],
   "fingerprints": {
     "4D.Blob.new": "1a50f8bc4b96344a",
     "4D.CryptoKey.new": "86ddc22f6663261d",
     "4D.File.new": "21f5de493744b4d0",
-    "4D.Folder.new": "e0f775d7175046ea",
+    "4D.Folder.new": "e6de217202363d51",
     "4D.HTTPAgent.new": "ee3359e3c7080df3",
     "4D.HTTPRequest.new": "92371eea65ec0116",
     "4D.IMAPNotifier.new": "e3e9e19ab56629f7",
@@ -63,7 +66,7 @@
     "Collection.map": "117e36b1324d56b1",
     "Collection.max": "e9db5c4f07c6c960",
     "Collection.min": "2535a8c60c4a757d",
-    "Collection.multiSort": "f5e924d5538d2aa4",
+    "Collection.multiSort": "e1214237eba92409",
     "Collection.orderBy": "21a1d7f0843c994b",
     "Collection.orderByMethod": "35fbebbbdb990dc6",
     "Collection.pop": "a67f6c8b4d9ed592",

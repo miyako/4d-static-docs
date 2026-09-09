@@ -1378,10 +1378,10 @@
         "recipes": [
           {
             "kind": "constructor",
-            "expression": "$notifier:=4D.IMAPNotifier.new($imap; Formula(OnNotification))",
+            "expression": "$notifier:=4D.IMAPNotifier.new()",
             "producedBy": "4D.IMAPNotifier.new",
             "requires": [
-              "a connected IMAPTransporter"
+              "a connected IMAPTransporter to attach the notifier to"
             ]
           }
         ]
@@ -1393,7 +1393,7 @@
         "IMAPNotifier.start",
         "IMAPNotifier.stop"
       ],
-      "note": "IMAPNotifierClass.html: created from an IMAP transporter via 4D.IMAPNotifier.new()."
+      "note": "IMAPNotifierClass.html and syntaxEN both document `4D.IMAPNotifier.new() : 4D.IMAPNotifier` with NO parameters; the notifier is then attached to a transporter. A previous recipe here passed ($imap; Formula(...)), which tool4d rejects with 'The function new received too many parameters.' (verified against oopcheck/Project via tool4d-lsp-stdio check-syntax)."
     },
     "IMAPTransporter": {
       "id": "IMAPTransporter",
@@ -2156,7 +2156,7 @@
         "recipes": [
           {
             "kind": "property_of",
-            "expression": "$zipFile:=$archive.root.file(\"README.md\")",
+            "expression": "$zipFile:=$archive.root.files()[0]",
             "requires": [
               "an archive opened with ZIP Read archive"
             ],
@@ -2165,7 +2165,7 @@
         ]
       },
       "superclass": "Document",
-      "note": "ZipFileClass.html: zip files are reached through an opened archive's root folder; syntaxEN records _inheritedFrom_ Document."
+      "note": "ZipFileClass.html: zip files are reached through an opened archive's root folder; syntaxEN records _inheritedFrom_ Document. The recipe must use .files(), not .file(name): .file() is inherited from Directory and its documented return type is 4D.File, so tool4d rejects `$zipFile:=$archive.root.file(\"README.md\")` with 'Impossible to cast 4D.File to 4D.ZipFile.' (verified against oopcheck/Project via tool4d-lsp-stdio check-syntax)."
     },
     "ZipFolder": {
       "id": "ZipFolder",
@@ -2502,20 +2502,6 @@
               "direction": "in",
               "optional": true,
               "description": "How `path` is spelled. Defaults to `fk platform path`."
-            },
-            {
-              "name": "*",
-              "type": {
-                "kind": "literal_symbols",
-                "symbols": [
-                  "*"
-                ],
-                "meanings": {
-                  "*": "positional marker literal, passed as written"
-                }
-              },
-              "direction": "in",
-              "optional": true
             }
           ],
           "rawSyntax": "**4D.Folder.new** ( *path* : Text { ; *pathType* : Integer }{ ; * } ) : 4D.Folder",
@@ -2535,20 +2521,6 @@
               "direction": "in",
               "optional": false,
               "description": "A folder-shortcut constant naming a well-known 4D location, instead of a path."
-            },
-            {
-              "name": "*",
-              "type": {
-                "kind": "literal_symbols",
-                "symbols": [
-                  "*"
-                ],
-                "meanings": {
-                  "*": "positional marker literal, passed as written"
-                }
-              },
-              "direction": "in",
-              "optional": true
             }
           ],
           "rawSyntax": "**4D.Folder.new** ( *folderConstant* : Integer { ; * } ) : 4D.Folder",
@@ -6200,12 +6172,12 @@
             {
               "name": "colsToSort",
               "type": {
-                "kind": "enum_ref",
-                "enum": "Collection.multiSort.colsToSort"
+                "kind": "concrete",
+                "name": "Collection"
               },
               "direction": "in",
               "optional": false,
-              "description": "Collection of collections and/or objects with {`collection`:*colToSort*;`order`:`ck ascending` or `ck descending`} properties"
+              "description": "Collection of objects describing the sort. Each object may carry a `propertyPath` (Text) and a `descending` (Boolean) attribute."
             }
           ],
           "rawSyntax": "**.multiSort**( *colsToSort* : Collection ) : Collection",
@@ -6229,12 +6201,12 @@
             {
               "name": "colsToSort",
               "type": {
-                "kind": "enum_ref",
-                "enum": "Collection.multiSort.colsToSort"
+                "kind": "concrete",
+                "name": "Collection"
               },
               "direction": "in",
               "optional": false,
-              "description": "Collection of collections and/or objects with {`collection`:*colToSort*;`order`:`ck ascending` or `ck descending`} properties"
+              "description": "Collection of objects describing the sort. Each object may carry a `propertyPath` (Text) and a `descending` (Boolean) attribute."
             }
           ],
           "rawSyntax": "**.multiSort**( *formula* : 4D.Function ; *colsToSort* : Collection ) : Collection",
@@ -29268,7 +29240,7 @@
       "to": {
         "command": "4D.IMAPNotifier.new"
       },
-      "note": "$notifier:=4D.IMAPNotifier.new($imap; Formula(OnNotification))"
+      "note": "$notifier:=4D.IMAPNotifier.new()"
     },
     {
       "type": "obtained_via",
