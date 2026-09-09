@@ -1,6 +1,6 @@
 {
   "id": "4D.Folder.new",
-  "_reason": "mirror/docs/21-R3/FolderClass.html has no Parameter table for 4D.Folder.new (logged by stage O2b as param_table_missing), so stage O3 could not resolve `pathType` or `folderConstant` beyond bare Integer. Both are documented in the page prose and in the 'File and Folder' constants theme of references/4d-constants-registry.json; typed here by hand.",
+  "_reason": "mirror/docs/21-R3/FolderClass.html has no Parameter table for 4D.Folder.new (logged by stage O2b as param_table_missing), so stage O3 could not resolve `pathType` or `folderConstant` beyond bare Integer. Both are documented in the page prose and in the 'File and Folder' constants theme of references/4d-constants-registry.json; typed here by hand. Additionally, the `{ ; * }` that FolderClass.html shows in both syntax lines is a documentation error carried over from the classic `Folder` command (the page itself says 4D.Folder.new() \"is identical to the Folder command (shortcut)\" and supplies no parameter table). tool4d accepts `Folder(\"/tmp\"; fk posix path; *)` but rejects `4D.Folder.new(\"/tmp\"; fk posix path; *)` with a bare \"Syntax error\", and the sibling 4D.File.new documents no `*` at all. The `*` parameter is therefore dropped from params[] here; rawSyntax is left byte-identical to syntaxEN, as the gate requires.",
   "_enums": {
     "4D.Folder.new.pathType": {
       "description": "Path-type constants of the 'File and Folder' theme, selecting how `path` is interpreted.",
@@ -103,20 +103,6 @@
           "direction": "in",
           "optional": true,
           "description": "How `path` is spelled. Defaults to `fk platform path`."
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ],
-            "meanings": {
-              "*": "positional marker literal, passed as written"
-            }
-          },
-          "direction": "in",
-          "optional": true
         }
       ],
       "rawSyntax": "**4D.Folder.new** ( *path* : Text { ; *pathType* : Integer }{ ; * } ) : 4D.Folder",
@@ -136,20 +122,6 @@
           "direction": "in",
           "optional": false,
           "description": "A folder-shortcut constant naming a well-known 4D location, instead of a path."
-        },
-        {
-          "name": "*",
-          "type": {
-            "kind": "literal_symbols",
-            "symbols": [
-              "*"
-            ],
-            "meanings": {
-              "*": "positional marker literal, passed as written"
-            }
-          },
-          "direction": "in",
-          "optional": true
         }
       ],
       "rawSyntax": "**4D.Folder.new** ( *folderConstant* : Integer { ; * } ) : 4D.Folder",
