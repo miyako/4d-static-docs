@@ -1,0 +1,134 @@
+{
+  "id": "4D.File.new",
+  "_reason": "mirror/docs/21-R3/FileClass.html has no Parameter table for 4D.File.new (logged by stage O2b as param_table_missing), so stage O3 could not resolve `pathType` or `fileConstant` beyond bare Integer. Both are documented in the page prose and in the 'File and Folder' constants theme of references/4d-constants-registry.json; typed here by hand.",
+  "_enums": {
+    "4D.File.new.pathType": {
+      "description": "Path-type constants of the 'File and Folder' theme, selecting how `path` is interpreted.",
+      "values": [
+        {
+          "name": "fk platform path",
+          "value": 1
+        },
+        {
+          "name": "fk posix path",
+          "value": 0
+        }
+      ]
+    },
+    "4D.File.new.fileConstant": {
+      "description": "Folder-shortcut constants of the 'File and Folder' theme that designate a well-known 4D file/folder location instead of a path string.",
+      "values": [
+        {
+          "name": "fk applications folder",
+          "value": 116
+        },
+        {
+          "name": "fk data folder",
+          "value": 9
+        },
+        {
+          "name": "fk database folder",
+          "value": 4
+        },
+        {
+          "name": "fk desktop folder",
+          "value": 115
+        },
+        {
+          "name": "fk documents folder",
+          "value": 117
+        },
+        {
+          "name": "fk editor theme folder",
+          "value": 12
+        },
+        {
+          "name": "fk home folder",
+          "value": 118
+        },
+        {
+          "name": "fk licenses folder",
+          "value": 1
+        },
+        {
+          "name": "fk logs folder",
+          "value": 7
+        },
+        {
+          "name": "fk mobileApps folder",
+          "value": 10
+        },
+        {
+          "name": "fk remote database folder",
+          "value": 3
+        },
+        {
+          "name": "fk resources folder",
+          "value": 6
+        },
+        {
+          "name": "fk system folder",
+          "value": 100
+        },
+        {
+          "name": "fk user preferences folder",
+          "value": 0
+        },
+        {
+          "name": "fk web root folder",
+          "value": 8
+        }
+      ]
+    }
+  },
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Path of the file or folder, or a filesystem pathname (\"/DATA\", \"/RESOURCES\", ...). Relative paths are resolved against the project folder."
+        },
+        {
+          "name": "pathType",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "4D.File.new.pathType"
+          },
+          "direction": "in",
+          "optional": true,
+          "description": "How `path` is spelled. Defaults to `fk platform path`."
+        }
+      ],
+      "rawSyntax": "**4D.File.new** ( *path* : Text { ; *pathType* : Integer } ) : 4D.File",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.File"
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "fileConstant",
+          "type": {
+            "kind": "enum_ref",
+            "enum": "4D.File.new.fileConstant"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "A folder-shortcut constant naming a well-known 4D location, instead of a path."
+        }
+      ],
+      "rawSyntax": "**4D.File.new** ( *fileConstant* : Integer ) : 4D.File",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.File"
+      }
+    }
+  ]
+}

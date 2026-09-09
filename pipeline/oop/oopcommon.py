@@ -7,6 +7,7 @@ here is only what is specific to the OOP corpus: the two-source join between
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -252,3 +253,7 @@ def join_key(member_key: str) -> str:
     name is itself dotted.
     """
     return member_key[1:] if member_key.startswith(".") else member_key
+
+
+def sha1_of(text: str) -> str:
+    return hashlib.sha1(text.encode("utf-8")).hexdigest()[:16]

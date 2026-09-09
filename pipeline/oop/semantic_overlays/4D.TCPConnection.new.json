@@ -1,0 +1,46 @@
+{
+  "id": "4D.TCPConnection.new",
+  "_reason": "stage O2b logged a type_mismatch: the Syntax line spells serverPort as Real while the page's Parameter table says Integer. A TCP port is integral, the table is the more specific of the two, and Integer is a subtype of Real for call synthesis, so the table wins here.",
+  "_enums": {},
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "serverAddress",
+          "type": {
+            "kind": "concrete",
+            "name": "Text"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Domain name or IP address of the server"
+        },
+        {
+          "name": "serverPort",
+          "type": {
+            "kind": "concrete",
+            "name": "Integer"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "TCP port number of the server to connect to."
+        },
+        {
+          "name": "options",
+          "type": {
+            "kind": "concrete",
+            "name": "Object"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Configuration options for the connection"
+        }
+      ],
+      "rawSyntax": "**4D.TCPConnection.new**( *serverAddress* : Text ; *serverPort* : Number ; *options* : Object  ) : 4D.TCPConnection",
+      "returns": {
+        "kind": "concrete",
+        "name": "4D.TCPConnection"
+      }
+    }
+  ]
+}

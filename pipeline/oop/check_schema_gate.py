@@ -27,7 +27,12 @@ MUST_VALIDATE = [
     "out/4d-command-ir.json",
     "references/4d-command-ir-examples.json",
     "references/4d-oop-ir-examples.json",
+    # Present once stage O5 has run; skipped with a note if the pipeline has
+    # not been executed in this clone yet.
+    "out/4d-oop-ir.json",
 ]
+
+OPTIONAL = {"out/4d-oop-ir.json"}
 
 # (label, document, expected_valid) — the negative cases prove the conditional
 # requirements introduced for OOP are live, not decorative.
@@ -119,6 +124,9 @@ def main() -> int:
     for rel in MUST_VALIDATE:
         path = repo_root / rel
         if not path.exists():
+            if rel in OPTIONAL:
+                print(f"  {rel:<45} not built yet (run pipeline/oop/stage5_assemble.py)")
+                continue
             print(f"  {rel:<45} MISSING")
             failures += 1
             continue

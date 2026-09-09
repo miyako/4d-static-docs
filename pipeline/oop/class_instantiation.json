@@ -1,0 +1,971 @@
+{
+  "_source": "Hand-authored Layer-2 instantiation recipes for the 45 built-in 4D OOP classes, plus the ORDA generated-class templates. Merged into out/4d-oop-ir.json by pipeline/oop/stage4_classes.py. Every entry cites the evidence it was derived from in `_reason`.",
+  "_why_hand_authored": "How a caller obtains an instance is stated in prose (or only implied by a classic command's return type) and is never machine-readable in either source. Session B synthesizes call examples from these recipes, so they are authored deliberately and reviewed, not guessed by a heuristic.",
+  "_recipe_expression_convention": "Each `expression` is a runnable 4D statement assigning to a $-prefixed local, so a synthesized example can prepend recipes in order to obtain a receiver. `requires` names preconditions the expression assumes but does not create.",
+  "Blob": {
+    "typeName": "4D.Blob",
+    "sharedSemantics": {
+      "shared": false,
+      "requiresUseBlockForWrite": false,
+      "note": "Instances are immutable; there is nothing to protect with Use...End use."
+    },
+    "_reason": "BlobClass.html: 'a 4D.Blob object is immutable' — a new Blob must be built via 4D.Blob.new().",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$blob:=4D.Blob.new()",
+          "producedBy": "4D.Blob.new"
+        },
+        {
+          "kind": "constructor",
+          "expression": "$blob:=4D.Blob.new($scalarBlob)",
+          "producedBy": "4D.Blob.new",
+          "requires": [
+            "a scalar Blob value"
+          ],
+          "note": "Converts a classic scalar BLOB into an immutable 4D.Blob object."
+        }
+      ]
+    }
+  },
+  "Class": {
+    "typeName": "4D.Class",
+    "_reason": "ClassClass.html: class objects are reached through a class store (cs or 4D) or via OB Class.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "property_of",
+          "expression": "$class:=cs.MyClass",
+          "requires": [
+            "a user class named MyClass in the project"
+          ],
+          "note": "The class store exposes each user class as a property."
+        },
+        {
+          "kind": "property_of",
+          "expression": "$class:=4D.File",
+          "note": "Built-in classes are properties of the 4D class store."
+        },
+        {
+          "kind": "classic_command",
+          "expression": "$class:=OB Class($object)",
+          "producedBy": "OB Class",
+          "requires": [
+            "an object created from a class"
+          ]
+        }
+      ]
+    }
+  },
+  "Collection": {
+    "typeName": "Collection",
+    "sharedSemantics": {
+      "shared": false,
+      "requiresUseBlockForWrite": false,
+      "note": "Ordinary instances are not shared. New shared collection() produces a shared one, which then does require Use...End use for writes."
+    },
+    "_reason": "CollectionClass.html: collections are created with the [] literal or the New collection / New shared collection commands. Not a 4D.<X> type — the type name is bare 'Collection'.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "literal",
+          "expression": "$c:=[1; 2; 3]",
+          "note": "Collection literal — the most idiomatic form."
+        },
+        {
+          "kind": "classic_command",
+          "expression": "$c:=New collection(1; 2; 3)",
+          "producedBy": "New collection"
+        },
+        {
+          "kind": "classic_command",
+          "expression": "$c:=New shared collection()",
+          "producedBy": "New shared collection",
+          "note": "Shareable; writes must be inside Use...End use."
+        }
+      ]
+    }
+  },
+  "CryptoKey": {
+    "typeName": "4D.CryptoKey",
+    "_reason": "CryptoKeyClass.html: instances come only from 4D.CryptoKey.new(settings).",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$key:=4D.CryptoKey.new(New object(\"type\"; \"RSA\"; \"size\"; 2048))",
+          "producedBy": "4D.CryptoKey.new",
+          "note": "Generates a new key pair. Pass {type; pem} or {type; curve} to load an existing key instead."
+        }
+      ]
+    }
+  },
+  "DataClass": {
+    "typeName": "4D.DataClass",
+    "isTemplate": true,
+    "_reason": "DataClassClass.html: a dataclass is a property of a datastore; the concrete per-table classes are the ORDA generated cs.<TableName> classes, so this entry is the template they all conform to.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "property_of",
+          "expression": "$dataClass:=ds.Employee",
+          "requires": [
+            "a datastore with an Employee table exposed to ORDA"
+          ],
+          "note": "The dataclass name is the table name."
+        },
+        {
+          "kind": "property_of",
+          "expression": "$dataClass:=ds[$tableName]",
+          "requires": [
+            "a datastore",
+            "$tableName holding an exposed table name"
+          ],
+          "note": "Dynamic form, when the table is not known at compile time."
+        }
+      ]
+    }
+  },
+  "DataStore": {
+    "typeName": "4D.DataStore",
+    "isSingleton": true,
+    "_reason": "DataStoreClass.html: `ds` is the main datastore of the open project; remote datastores come from Open datastore.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "system_object",
+          "expression": "$ds:=ds",
+          "note": "`ds` is a language command returning the main datastore — always available in an open project."
+        },
+        {
+          "kind": "classic_command",
+          "expression": "$ds:=Open datastore(New object(\"hostname\"; \"192.168.1.1:8044\"); \"myRemote\")",
+          "producedBy": "Open datastore",
+          "requires": [
+            "a reachable remote 4D server exposing its datastore"
+          ]
+        }
+      ]
+    }
+  },
+  "Directory": {
+    "typeName": "4D.Folder",
+    "isAbstract": true,
+    "_reason": "syntaxEN records Folder and ZipFolder as _inheritedFrom_ Directory. Directory is a documentation-level base class; callers never name it, they obtain a Folder or a ZipFolder.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "not_directly_instantiable",
+          "expression": "$folder:=Folder(fk database folder)",
+          "producedBy": "Folder",
+          "note": "Directory is the shared base of Folder and ZipFolder. Obtain one of those instead."
+        }
+      ]
+    }
+  },
+  "Document": {
+    "typeName": "4D.File",
+    "isAbstract": true,
+    "_reason": "syntaxEN records File and ZipFile as _inheritedFrom_ Document. Same situation as Directory.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "not_directly_instantiable",
+          "expression": "$file:=File(\"/PACKAGE/README.md\")",
+          "producedBy": "File",
+          "note": "Document is the shared base of File and ZipFile. Obtain one of those instead."
+        }
+      ]
+    }
+  },
+  "Email": {
+    "typeName": "4D.Email",
+    "_reason": "EmailObjectClass.html: an email object is a plain object conforming to the email schema, produced by a transporter's .getMail()/.getMails() or built literally and passed to .send().",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "instance_function",
+          "expression": "$email:=$imap.getMail($msgNumber)",
+          "producedBy": "IMAPTransporter.getMail",
+          "requires": [
+            "a connected IMAPTransporter",
+            "a selected mailbox"
+          ]
+        },
+        {
+          "kind": "literal",
+          "expression": "$email:=New object(\"from\"; \"a@b.com\"; \"to\"; \"c@d.com\"; \"subject\"; \"Hi\"; \"textBody\"; \"Hello\")",
+          "note": "For sending, an email is an ordinary object matching the documented schema — there is no 4D.Email.new()."
+        }
+      ]
+    }
+  },
+  "Entity": {
+    "typeName": "4D.Entity",
+    "isTemplate": true,
+    "_reason": "EntityClass.html: entities come from a dataclass (.new(), .get()) or from an entity selection. The concrete per-table classes are the ORDA generated cs.<TableName>Entity classes.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "class_function",
+          "expression": "$entity:=ds.Employee.new()",
+          "producedBy": "DataClass.new",
+          "requires": [
+            "a datastore with an Employee dataclass"
+          ],
+          "note": "A new, unsaved entity."
+        },
+        {
+          "kind": "class_function",
+          "expression": "$entity:=ds.Employee.get(1)",
+          "producedBy": "DataClass.get",
+          "requires": [
+            "a datastore with an Employee dataclass",
+            "an existing primary key"
+          ],
+          "note": "Returns Null when the key does not exist."
+        },
+        {
+          "kind": "instance_function",
+          "expression": "$entity:=$entitySelection.first()",
+          "producedBy": "EntitySelection.first",
+          "requires": [
+            "a non-empty entity selection"
+          ]
+        }
+      ]
+    }
+  },
+  "EntitySelection": {
+    "typeName": "4D.EntitySelection",
+    "isTemplate": true,
+    "_reason": "EntitySelectionClass.html: entity selections come from a dataclass query/all or from another selection. The concrete per-table classes are the ORDA generated cs.<TableName>Selection classes.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "class_function",
+          "expression": "$sel:=ds.Employee.all()",
+          "producedBy": "DataClass.all",
+          "requires": [
+            "a datastore with an Employee dataclass"
+          ]
+        },
+        {
+          "kind": "class_function",
+          "expression": "$sel:=ds.Employee.query(\"lastName = :1\"; \"Smith\")",
+          "producedBy": "DataClass.query",
+          "requires": [
+            "a datastore with an Employee dataclass"
+          ]
+        },
+        {
+          "kind": "class_function",
+          "expression": "$sel:=ds.Employee.newSelection()",
+          "producedBy": "DataClass.newSelection",
+          "note": "An empty, alterable selection."
+        }
+      ]
+    }
+  },
+  "File": {
+    "typeName": "4D.File",
+    "superclass": "Document",
+    "_reason": "FileClass.html recommends the File shortcut command over 4D.File.new(); both are listed so a generator can prefer the idiomatic one.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$file:=File(\"/PACKAGE/README.md\")",
+          "producedBy": "File",
+          "note": "Idiomatic. The doc page explicitly recommends this over the constructor. The file need not exist."
+        },
+        {
+          "kind": "constructor",
+          "expression": "$file:=4D.File.new(\"/PACKAGE/README.md\")",
+          "producedBy": "4D.File.new"
+        },
+        {
+          "kind": "instance_function",
+          "expression": "$file:=$folder.file(\"README.md\")",
+          "producedBy": "Directory.file",
+          "requires": [
+            "a Folder instance"
+          ]
+        }
+      ]
+    }
+  },
+  "FileHandle": {
+    "typeName": "4D.FileHandle",
+    "_reason": "FileHandleClass.html: a file handle is only ever produced by File.open().",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "instance_function",
+          "expression": "$handle:=File(\"/PACKAGE/data.txt\").open(\"write\")",
+          "producedBy": "File.open",
+          "requires": [
+            "an existing file on disk"
+          ],
+          "note": "The handle is released when the last reference to it is dropped."
+        }
+      ]
+    }
+  },
+  "Folder": {
+    "typeName": "4D.Folder",
+    "superclass": "Directory",
+    "_reason": "FolderClass.html recommends the Folder shortcut command over 4D.Folder.new().",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$folder:=Folder(fk database folder)",
+          "producedBy": "Folder",
+          "note": "Idiomatic. Accepts a path or a folder constant."
+        },
+        {
+          "kind": "constructor",
+          "expression": "$folder:=4D.Folder.new(\"/PACKAGE/Resources\")",
+          "producedBy": "4D.Folder.new"
+        },
+        {
+          "kind": "instance_function",
+          "expression": "$folder:=$parent.folder(\"Resources\")",
+          "producedBy": "Directory.folder",
+          "requires": [
+            "a Folder instance"
+          ]
+        }
+      ]
+    }
+  },
+  "Formula": {
+    "typeName": "4D.Formula",
+    "superclass": "Function",
+    "_reason": "FunctionClass.html: Formula and Formula from string build a 4D.Formula; syntaxEN records Formula as _inheritedFrom_ Function.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$formula:=Formula($1+$2)",
+          "producedBy": "Formula",
+          "note": "The expression is not evaluated until .call() runs."
+        },
+        {
+          "kind": "classic_command",
+          "expression": "$formula:=Formula from string(\"Current date\")",
+          "producedBy": "Formula from string",
+          "note": "Use when the formula text is data rather than source."
+        }
+      ]
+    }
+  },
+  "Function": {
+    "typeName": "4D.Function",
+    "isAbstract": true,
+    "_reason": "FunctionClass.html documents the shared .call()/.apply() protocol; syntaxEN records Formula and Method as _inheritedFrom_ Function. A bare 4D.Function is never constructed directly.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "not_directly_instantiable",
+          "expression": "$fn:=Formula($1+$2)",
+          "producedBy": "Formula",
+          "note": "Function is the shared base of Formula and Method. Obtain one of those, or a class member function via cs.MyClass.myFunc."
+        },
+        {
+          "kind": "property_of",
+          "expression": "$fn:=$object.myFunction",
+          "requires": [
+            "an object built from a user class declaring myFunction"
+          ],
+          "note": "Referencing a class function without calling it yields a 4D.Function."
+        }
+      ]
+    }
+  },
+  "HTTPAgent": {
+    "typeName": "4D.HTTPAgent",
+    "_reason": "HTTPAgentClass.html: agents exist only via 4D.HTTPAgent.new() and are then passed in an HTTPRequest's options.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$agent:=4D.HTTPAgent.new(New object(\"keepAlive\"; True))",
+          "producedBy": "4D.HTTPAgent.new"
+        }
+      ]
+    }
+  },
+  "HTTPRequest": {
+    "typeName": "4D.HTTPRequest",
+    "_reason": "HTTPRequestClass.html: 4D.HTTPRequest.new() both creates and sends the request.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$request:=4D.HTTPRequest.new(\"https://example.com\").wait()",
+          "producedBy": "4D.HTTPRequest.new",
+          "note": "The constructor sends the request asynchronously; .wait() blocks until it completes."
+        }
+      ]
+    }
+  },
+  "IMAPNotifier": {
+    "typeName": "4D.IMAPNotifier",
+    "_reason": "IMAPNotifierClass.html: created from an IMAP transporter via 4D.IMAPNotifier.new().",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$notifier:=4D.IMAPNotifier.new($imap; Formula(OnNotification))",
+          "producedBy": "4D.IMAPNotifier.new",
+          "requires": [
+            "a connected IMAPTransporter"
+          ]
+        }
+      ]
+    }
+  },
+  "IMAPTransporter": {
+    "typeName": "4D.IMAPTransporter",
+    "superclass": "Transporter",
+    "_reason": "IMAPTransporterClass.html; syntaxEN records _inheritedFrom_ Transporter.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$imap:=4D.IMAPTransporter.new(New object(\"host\"; \"imap.example.com\"; \"user\"; \"u\"; \"password\"; \"p\"))",
+          "producedBy": "4D.IMAPTransporter.new",
+          "requires": [
+            "a reachable IMAP server"
+          ],
+          "note": "The connection is opened by the constructor; check .checkConnection() before use."
+        }
+      ]
+    }
+  },
+  "IncomingMessage": {
+    "typeName": "4D.IncomingMessage",
+    "_reason": "IncomingMessageClass.html: instances are supplied by 4D to an HTTP handler function; user code never constructs one.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "event_callback",
+          "expression": "Function handle($request : 4D.IncomingMessage) : 4D.OutgoingMessage",
+          "requires": [
+            "an HTTP handler declared in HTTPHandlers.json"
+          ],
+          "note": "4D passes the request object into the handler; it cannot be created by user code."
+        }
+      ]
+    }
+  },
+  "MailAttachment": {
+    "typeName": "4D.MailAttachment",
+    "_reason": "MailAttachmentClass.html: MAIL New attachment is the documented shortcut; 4D.MailAttachment.new() is the underlying constructor.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$attachment:=MAIL New attachment(File(\"/PACKAGE/report.pdf\"))",
+          "producedBy": "MAIL New attachment",
+          "note": "Idiomatic shortcut."
+        },
+        {
+          "kind": "constructor",
+          "expression": "$attachment:=4D.MailAttachment.new(File(\"/PACKAGE/report.pdf\"))",
+          "producedBy": "4D.MailAttachment.new"
+        }
+      ]
+    }
+  },
+  "Method": {
+    "typeName": "4D.Method",
+    "superclass": "Function",
+    "_reason": "MethodClass.html; syntaxEN records Method as _inheritedFrom_ Function.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$method:=4D.Method.new(\"MyProjectMethod\")",
+          "producedBy": "4D.Method.new",
+          "requires": [
+            "a project method named MyProjectMethod"
+          ]
+        }
+      ]
+    }
+  },
+  "OutgoingMessage": {
+    "typeName": "4D.OutgoingMessage",
+    "_reason": "OutgoingMessageClass.html: built by instantiating the class store's OutgoingMessage, then returned from an HTTP handler.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$response:=4D.OutgoingMessage.new()",
+          "note": "Populate .body, .headers and .status, then return it from an HTTP handler."
+        }
+      ]
+    }
+  },
+  "POP3Transporter": {
+    "typeName": "4D.POP3Transporter",
+    "superclass": "Transporter",
+    "_reason": "POP3TransporterClass.html; syntaxEN records _inheritedFrom_ Transporter.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$pop3:=4D.POP3Transporter.new(New object(\"host\"; \"pop.example.com\"; \"user\"; \"u\"; \"password\"; \"p\"))",
+          "producedBy": "4D.POP3Transporter.new",
+          "requires": [
+            "a reachable POP3 server"
+          ]
+        }
+      ]
+    }
+  },
+  "SMTPTransporter": {
+    "typeName": "4D.SMTPTransporter",
+    "superclass": "Transporter",
+    "_reason": "SMTPTransporterClass.html; syntaxEN records _inheritedFrom_ Transporter.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$smtp:=4D.SMTPTransporter.new(New object(\"host\"; \"smtp.example.com\"; \"user\"; \"u\"; \"password\"; \"p\"))",
+          "producedBy": "4D.SMTPTransporter.new",
+          "requires": [
+            "a reachable SMTP server"
+          ]
+        }
+      ]
+    }
+  },
+  "Session": {
+    "typeName": "4D.Session",
+    "isSingleton": true,
+    "sharedSemantics": {
+      "shared": true,
+      "requiresUseBlockForWrite": true,
+      "note": "Writes must be enclosed in Use...End use."
+    },
+    "_reason": "SessionClass.html: `Session` is a command returning the session of the current process. Its .storage is a shared object, so writes need Use...End use.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$session:=Session",
+          "producedBy": "Session",
+          "requires": [
+            "scalable sessions enabled, in a web/REST or remote client process"
+          ],
+          "note": "Returns Null in a process that has no session."
+        },
+        {
+          "kind": "classic_command",
+          "expression": "$session:=Session storage",
+          "producedBy": "Session storage",
+          "note": "Shortcut to the session's shared .storage object."
+        }
+      ]
+    }
+  },
+  "Signal": {
+    "typeName": "4D.Signal",
+    "sharedSemantics": {
+      "shared": true,
+      "requiresUseBlockForWrite": true,
+      "note": "Writes must be enclosed in Use...End use."
+    },
+    "_reason": "SignalClass.html: New signal creates one; signals are shared objects passed between processes.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$signal:=New signal(\"my signal\")",
+          "producedBy": "New signal",
+          "note": "Pass it to a worker/process, then .wait() on it in the caller."
+        }
+      ]
+    }
+  },
+  "SystemWorker": {
+    "typeName": "4D.SystemWorker",
+    "_reason": "SystemWorkerClass.html: 4D.SystemWorker.new() launches asynchronously; the SystemWorker command runs synchronously and returns a status object instead.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$worker:=4D.SystemWorker.new(\"ls -l\")",
+          "producedBy": "4D.SystemWorker.new",
+          "note": "Asynchronous. Call .wait() to block until the process exits."
+        }
+      ]
+    }
+  },
+  "TCPConnection": {
+    "typeName": "4D.TCPConnection",
+    "_reason": "TCPConnectionClass.html: 4D.TCPConnection.new(address; port; options) opens the connection.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$connection:=4D.TCPConnection.new(\"127.0.0.1\"; 10000; New object(\"onData\"; Formula(OnData)))",
+          "producedBy": "4D.TCPConnection.new",
+          "requires": [
+            "a listening TCP server"
+          ]
+        }
+      ]
+    }
+  },
+  "TCPEvent": {
+    "typeName": "4D.TCPEvent",
+    "_reason": "TCPEventClass.html: event objects are passed by 4D into the callbacks declared in a TCPConnection's or TCPListener's options.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "event_callback",
+          "expression": "Function onData($event : 4D.TCPEvent)",
+          "requires": [
+            "a TCPConnection or TCPListener with callbacks configured"
+          ],
+          "note": "Supplied by 4D to the callback; cannot be created by user code."
+        }
+      ]
+    }
+  },
+  "TCPListener": {
+    "typeName": "4D.TCPListener",
+    "_reason": "TCPListenerClass.html: 4D.TCPListener.new(port; options) starts listening.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$listener:=4D.TCPListener.new(10000; New object(\"onConnection\"; Formula(OnConnection)))",
+          "producedBy": "4D.TCPListener.new",
+          "requires": [
+            "a free TCP port"
+          ]
+        }
+      ]
+    }
+  },
+  "Transporter": {
+    "typeName": "4D.Transporter",
+    "isAbstract": true,
+    "_reason": "Transporter has NO API page — its 11 members are documented only on the IMAP/POP3/SMTP transporter pages. It is a documentation-level base class, in scope so its members are declared once rather than three times.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "not_directly_instantiable",
+          "expression": "$transporter:=4D.SMTPTransporter.new($settings)",
+          "producedBy": "4D.SMTPTransporter.new",
+          "note": "Transporter is the shared base of IMAPTransporter, POP3Transporter and SMTPTransporter. Obtain one of those."
+        }
+      ]
+    }
+  },
+  "UDPEvent": {
+    "typeName": "4D.UDPEvent",
+    "_reason": "UDPEventClass.html: same callback-supplied pattern as TCPEvent.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "event_callback",
+          "expression": "Function onData($event : 4D.UDPEvent)",
+          "requires": [
+            "a UDPSocket with callbacks configured"
+          ],
+          "note": "Supplied by 4D to the callback; cannot be created by user code."
+        }
+      ]
+    }
+  },
+  "UDPSocket": {
+    "typeName": "4D.UDPSocket",
+    "_reason": "UDPSocketClass.html: 4D.UDPSocket.new(options) binds the socket.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$socket:=4D.UDPSocket.new(New object(\"port\"; 10000; \"onData\"; Formula(OnData)))",
+          "producedBy": "4D.UDPSocket.new"
+        }
+      ]
+    }
+  },
+  "Vector": {
+    "typeName": "4D.Vector",
+    "_reason": "VectorClass.html: 4D.Vector.new() builds a vector from a collection of numbers, for similarity search.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$vector:=4D.Vector.new([0.1; 0.2; 0.3])",
+          "producedBy": "4D.Vector.new"
+        }
+      ]
+    }
+  },
+  "WebForm": {
+    "typeName": "4D.WebForm",
+    "isSingleton": true,
+    "_reason": "WebFormClass.html: the Web Form command returns the current Qodly page's form object.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$form:=Web Form",
+          "producedBy": "Web Form",
+          "requires": [
+            "a Qodly page being rendered"
+          ],
+          "note": "Returns Null outside a Qodly page context."
+        }
+      ]
+    }
+  },
+  "WebFormItem": {
+    "typeName": "4D.WebFormItem",
+    "_reason": "WebFormItemClass.html: items are reached as named properties of the Web Form object.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "property_of",
+          "expression": "$item:=Web Form.myButton",
+          "requires": [
+            "a Qodly page containing a component named myButton"
+          ],
+          "_reason": "WebFormItemClass.html: items are reached as properties of the Web Form object. No `Web Form Item` command exists in the 21-R3 corpus, so there is no classic-command recipe."
+        }
+      ]
+    }
+  },
+  "WebServer": {
+    "typeName": "4D.WebServer",
+    "_reason": "WebServerClass.html: WEB Server returns the requested web server object; there is no constructor.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$server:=WEB Server",
+          "producedBy": "WEB Server",
+          "note": "Defaults to the web server of the current context (host database, component, or remote)."
+        },
+        {
+          "kind": "classic_command",
+          "expression": "$server:=WEB Server(Web server database)",
+          "producedBy": "WEB Server",
+          "note": "Selects a specific web server explicitly."
+        }
+      ]
+    }
+  },
+  "WebSocket": {
+    "typeName": "4D.WebSocket",
+    "_reason": "WebSocketClass.html: 4D.WebSocket.new(url; options) opens a client connection.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$ws:=4D.WebSocket.new(\"wss://example.com/socket\"; New object(\"onMessage\"; Formula(OnMessage)))",
+          "producedBy": "4D.WebSocket.new",
+          "requires": [
+            "a reachable WebSocket server"
+          ],
+          "note": "This is the WebSocket *client*."
+        }
+      ]
+    }
+  },
+  "WebSocketConnection": {
+    "typeName": "4D.WebSocketConnection",
+    "_reason": "WebSocketConnectionClass.html: supplied by 4D to a WebSocketServer's connection handler.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "event_callback",
+          "expression": "Function onConnection($connection : 4D.WebSocketConnection)",
+          "requires": [
+            "a running WebSocketServer"
+          ],
+          "note": "Server-side view of one client connection; cannot be created by user code."
+        }
+      ]
+    }
+  },
+  "WebSocketServer": {
+    "typeName": "4D.WebSocketServer",
+    "_reason": "WebSocketServerClass.html: 4D.WebSocketServer.new(handler; options) starts the server.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "constructor",
+          "expression": "$server:=4D.WebSocketServer.new(cs.MyHandler.new())",
+          "producedBy": "4D.WebSocketServer.new",
+          "requires": [
+            "the 4D web server running",
+            "a user class implementing the connection handler"
+          ]
+        }
+      ]
+    }
+  },
+  "ZipArchive": {
+    "typeName": "4D.ZipArchive",
+    "_reason": "ZipArchiveClass.html: archives are opened with ZIP Read archive; ZIP Create archive writes one.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "classic_command",
+          "expression": "$archive:=ZIP Read archive(File(\"/PACKAGE/data.zip\"))",
+          "producedBy": "ZIP Read archive",
+          "requires": [
+            "an existing .zip file"
+          ],
+          "note": "Read-only view; the archive's contents are exposed through .root."
+        }
+      ]
+    }
+  },
+  "ZipFile": {
+    "typeName": "4D.ZipFile",
+    "superclass": "Document",
+    "_reason": "ZipFileClass.html: zip files are reached through an opened archive's root folder; syntaxEN records _inheritedFrom_ Document.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "property_of",
+          "expression": "$zipFile:=$archive.root.file(\"README.md\")",
+          "requires": [
+            "an archive opened with ZIP Read archive"
+          ],
+          "note": "Read-only. Use .copyTo() to extract before reading with normal File APIs."
+        }
+      ]
+    }
+  },
+  "ZipFolder": {
+    "typeName": "4D.ZipFolder",
+    "superclass": "Directory",
+    "_reason": "ZipFolderClass.html: the archive's .root is a ZipFolder; syntaxEN records _inheritedFrom_ Directory.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "property_of",
+          "expression": "$zipFolder:=$archive.root",
+          "requires": [
+            "an archive opened with ZIP Read archive"
+          ]
+        }
+      ]
+    }
+  },
+  "4D": {
+    "typeName": "4D",
+    "isStatic": true,
+    "isSingleton": true,
+    "_reason": "ClassStoreClass.html: `4D` is the built-in class store. It is a language-level namespace, not an instantiable object.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "system_object",
+          "expression": "$store:=4D",
+          "note": "The built-in class store. Its properties are the built-in classes (4D.File, 4D.Blob, ...)."
+        }
+      ],
+      "note": "The class store is a namespace, not an instance. Members are reached as 4D.<Class>."
+    }
+  },
+  "_orda_templates": "Decision 3 of the plan: the ORDA generated classes are modelled as templates, not as per-class command entries. A project with N exposed tables produces 3N generated classes whose members are exactly those of the corresponding built-in base class plus the project's own attributes, so enumerating them per project would be unbounded and project-specific.",
+  "cs": {
+    "typeName": "cs",
+    "isStatic": true,
+    "isSingleton": true,
+    "isTemplate": true,
+    "_reason": "ClassStoreClass.html: `cs` is the user class store of the open project. Its properties are the project's own classes plus the ORDA generated classes.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "system_object",
+          "expression": "$store:=cs",
+          "note": "The user class store. Members are project-specific, so this class is a template."
+        }
+      ],
+      "note": "A namespace, not an instance."
+    }
+  },
+  "cs.<DataClass>": {
+    "typeName": "cs.<DataClass>",
+    "superclass": "DataClass",
+    "isTemplate": true,
+    "_reason": "ORDA generates one dataclass class per exposed table. Its members are exactly 4D.DataClass's, plus nothing table-specific; the table-specific surface is on the entity.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "property_of",
+          "expression": "$dataClass:=ds.Employee",
+          "requires": [
+            "a datastore with an exposed Employee table"
+          ],
+          "note": "Substitute the real table name for <DataClass>."
+        }
+      ]
+    },
+    "templateNote": "Members: inherit every member of DataClass. No additional generated members."
+  },
+  "cs.<DataClass>Entity": {
+    "typeName": "cs.<DataClass>Entity",
+    "superclass": "Entity",
+    "isTemplate": true,
+    "_reason": "ORDA generates one entity class per exposed table. Its members are 4D.Entity's plus one property per exposed attribute of that table — which is why it is a template rather than an enumerable class.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "class_function",
+          "expression": "$entity:=ds.Employee.new()",
+          "producedBy": "DataClass.new",
+          "requires": [
+            "a datastore with an exposed Employee table"
+          ],
+          "note": "Substitute the real table name for <DataClass>."
+        },
+        {
+          "kind": "class_function",
+          "expression": "$entity:=ds.Employee.get($primaryKey)",
+          "producedBy": "DataClass.get",
+          "requires": [
+            "a datastore with an exposed Employee table",
+            "an existing primary key"
+          ]
+        }
+      ]
+    },
+    "templateNote": "Members: every member of Entity, plus one dynamic property per exposed attribute (modelled by Entity.attributeName)."
+  },
+  "cs.<DataClass>Selection": {
+    "typeName": "cs.<DataClass>Selection",
+    "superclass": "EntitySelection",
+    "isTemplate": true,
+    "_reason": "ORDA generates one entity-selection class per exposed table. Members are 4D.EntitySelection's plus one projected property per exposed attribute.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "class_function",
+          "expression": "$sel:=ds.Employee.all()",
+          "producedBy": "DataClass.all",
+          "requires": [
+            "a datastore with an exposed Employee table"
+          ],
+          "note": "Substitute the real table name for <DataClass>."
+        }
+      ]
+    },
+    "templateNote": "Members: every member of EntitySelection, plus one dynamic projected property per exposed attribute (modelled by EntitySelection.attributeName)."
+  }
+}
