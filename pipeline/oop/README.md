@@ -230,3 +230,46 @@ nobody has seen fail is not yet evidence.
 
 JSON Schema validation uses `boon` (provision via the `4dtools` skill), with
 Python `jsonschema` as a cross-check.
+
+## `classes[].typeName` is compiler-verified, not inferred
+
+`typeName` is the name a caller writes in a declaration (`var $x : 4D.File`).
+For 44 of the 50 classes it is a `4D.*` name; the other six are `Collection`,
+the `4D`/`cs` namespaces and the three `cs.<DataClass>*` ORDA templates, which
+have no fixed `4D.*` spelling.
+
+All 44 are verified against tool4d rather than assumed, because the compiler
+answers this question exactly and a hand-authored table does not. The probe
+declares one variable per class plus a deliberately fabricated control:
+
+```4d
+var $v1 : 4D.Blob
+// ... one line per class ...
+var $ctrl1 : 4D.NotARealClassAbc
+```
+
+then runs `tool4d-lsp-stdio check-syntax` over the check project. An unknown
+class is reported as `The class <name> is unknown.`, so a clean run for the 44
+real names *with the control flagged* is positive evidence. Without the
+control the run proves nothing — a check-syntax pass over an unopened path
+looks identical to a check that was never performed.
+
+This caught two wrong entries that no other gate could see. `Document` and
+`Directory` were recorded as `4D.File` and `4D.Folder`: the type names of one
+of their two concrete subclasses. That was arbitrary (`File` vs `ZipFile`,
+`Folder` vs `ZipFolder`) and, more importantly, false. tool4d accepts
+`var $x : 4D.Document`, accepts assigning a `File` to it, and rejects
+`4D.DocumentX` — so these are real class-store types, and `4D.Document` is the
+correct declaration type for a value that may be either subclass. The original
+note claimed "callers never name it", which the compiler disproves; recording a
+subclass's type there actively denied consumers a legal declaration.
+
+`isAbstract` stays `true` for both. The docs present them as base classes
+reached through their subclasses, and that is what the flag records —
+instantiation guidance, not whether the type may be named. Note that
+`check-syntax` cannot settle the instantiation half: `4D.Document.new()`
+compiles clean, but so does every class-store `.new`, whereas
+`4D.File.totallyBogusStatic()` is rejected — so the class-store path *is*
+checked for arbitrary members and `.new` simply resolves everywhere. Compile
+success there is therefore not evidence of runtime instantiability, and the
+flag continues to follow the documentation.
