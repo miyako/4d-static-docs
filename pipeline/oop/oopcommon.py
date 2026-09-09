@@ -241,3 +241,14 @@ def iter_syntax_members(syntax: dict):
         for member_key, record in members.items():
             key = f"{CLASS_STORE_KEY}.{target_class}.{member_key}"
             yield member_id(CLASS_STORE_KEY, key), CLASS_STORE_KEY, key, record
+
+
+def join_key(member_key: str) -> str:
+    """Normalize a member key for joining the two sources.
+
+    API-page headings carry a leading dot (".at()"); syntaxEN keys do not
+    ("at()"). Class-store constructor keys ("4D.Blob.new()") keep their
+    qualification. Stripping only a *leading* dot is safe because no member
+    name is itself dotted.
+    """
+    return member_key[1:] if member_key.startswith(".") else member_key

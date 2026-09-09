@@ -1,0 +1,127 @@
+{
+  "membersChecked": 495,
+  "membersWithDocSection": 495,
+  "conflicts": 10,
+  "byKind": {
+    "param_case_mismatch": 1,
+    "param_missing_in_table": 1,
+    "param_table_missing": 2,
+    "param_variadic_spelling": 3,
+    "return_nullable_only_in_table": 1,
+    "type_mismatch": 2
+  },
+  "typeAliasesApplied": {
+    "integer": "integer",
+    "longint": "integer",
+    "long integer": "integer",
+    "real": "real",
+    "number": "real",
+    "boolean": "boolean",
+    "bool": "boolean",
+    "text": "text",
+    "string": "text",
+    "object": "object",
+    "collection": "collection",
+    "variant": "any",
+    "any": "any",
+    "any type": "any",
+    "pointer": "pointer",
+    "picture": "picture",
+    "blob": "blob",
+    "date": "date",
+    "time": "time",
+    "null": "null",
+    "undefined": "undefined"
+  },
+  "note": "Conflicts are review items, not errors. Neither source is treated as authoritative; each entry names both readings so a human can decide, and any resolution lands as a semantic overlay.",
+  "items": [
+    {
+      "id": "Collection.average",
+      "kind": "return_nullable_only_in_table",
+      "syntaxType": [
+        "real"
+      ],
+      "tableType": [
+        "real",
+        "undefined"
+      ],
+      "detail": "consumed by O3 as Overload.returnsNullable"
+    },
+    {
+      "id": "Collection.concat",
+      "kind": "param_variadic_spelling",
+      "param": "valueN",
+      "tableSpelling": "value",
+      "detail": "the Syntax spelling is used in the IR"
+    },
+    {
+      "id": "Collection.extract",
+      "kind": "param_case_mismatch",
+      "param": "targetPath",
+      "tableSpelling": "targetpath",
+      "detail": "the Syntax spelling is used in the IR"
+    },
+    {
+      "id": "Collection.extract",
+      "kind": "param_missing_in_table",
+      "param": "propertyPathOrTargetPathN",
+      "detail": "declared in Syntax, absent from the Parameter table"
+    },
+    {
+      "id": "Collection.orderByMethod",
+      "kind": "type_mismatch",
+      "param": "extraParam",
+      "syntaxType": [
+        "expression"
+      ],
+      "tableType": [
+        "any"
+      ]
+    },
+    {
+      "id": "Collection.push",
+      "kind": "param_variadic_spelling",
+      "param": "elementN",
+      "tableSpelling": "element",
+      "detail": "the Syntax spelling is used in the IR"
+    },
+    {
+      "id": "Collection.unshift",
+      "kind": "param_variadic_spelling",
+      "param": "valueN",
+      "tableSpelling": "value",
+      "detail": "the Syntax spelling is used in the IR"
+    },
+    {
+      "id": "4D.File.new",
+      "kind": "param_table_missing",
+      "detail": "the signature declares 3 parameter(s) but the API page has no Parameter table",
+      "syntaxParams": [
+        "path",
+        "pathType",
+        "fileConstant"
+      ]
+    },
+    {
+      "id": "4D.Folder.new",
+      "kind": "param_table_missing",
+      "detail": "the signature declares 3 parameter(s) but the API page has no Parameter table",
+      "syntaxParams": [
+        "path",
+        "pathType",
+        "folderConstant"
+      ]
+    },
+    {
+      "id": "4D.TCPConnection.new",
+      "kind": "type_mismatch",
+      "param": "serverPort",
+      "syntaxType": [
+        "real"
+      ],
+      "tableType": [
+        "integer"
+      ]
+    }
+  ]
+}
