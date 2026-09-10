@@ -700,6 +700,23 @@ CONCRETE_REQUIRES_REFERENCE = {
     # literal" family as WEB-SET-HTTP-HEADER's header above (its own doc
     # calls this param "the 4D destination variable").
     ("WP-EXPORT-VARIABLE", "destination"),
+    # SAX-OPEN-XML-ELEMENT-ARRAYS' scalar attribute-pair overload (the
+    # page's second signature line, attribNamesArray/attribValuesArray
+    # typed plain Text rather than Text array/Array): the documented type
+    # really is Text, but the real 4D compiler rejects a bare Text literal
+    # there ("Invalid constant type: Alphanumeric") while the same call
+    # with declared Text variables compiles fine (user-confirmed,
+    # 2026-09-10). Unlike most entries in this table, tool4d's static
+    # analyzer flags NEITHER form, so this can't be re-derived from a
+    # cross-check run -- keep it (and the command's own matching
+    # `constraints` entry) as the record of that compiler rule. Only these
+    # names are affected: the sibling SAX-OPEN-XML-ELEMENT's scalar
+    # attribName/attribValue params DO accept literals, so this entry is
+    # deliberately per-command. Harmless for this command's overload 0,
+    # whose same-named members are Text array/Array and already
+    # synthesize as declared array variables.
+    ("SAX-OPEN-XML-ELEMENT-ARRAYS", "attribNamesArray"),
+    ("SAX-OPEN-XML-ELEMENT-ARRAYS", "attribValuesArray"),
 }
 
 # Curated (command_id, param_name) -> literal overrides for params whose
