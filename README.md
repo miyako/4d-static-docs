@@ -39,6 +39,29 @@ for semantic review. It does not regenerate pages, rewrite links, approve
 fixtures, or publish CLIs. See [pipeline/README.md](pipeline/README.md#hosted-deterministic-extraction)
 for inputs, artifact contents, and local usage.
 
+### Shared skillset maintenance
+
+Root `AGENTS.md` and the complete `skills/` tree mirror
+`miyako/skills`'s `4d-skills/AGENTS.md` and `4d-skills/skills/`.
+The mirror includes skill references, scripts, and source assets, not just
+`SKILL.md` definitions. Repository-specific skills stay in `.github/skills/`
+outside this shared tree.
+
+The shared files were reconciled against
+[`miyako/skills` commit `c2ab112`](https://github.com/miyako/skills/commit/c2ab112a2547a6e9222e2ce61a1a672f668e9888).
+Existing catalog-diagram and language-documentation fixes were retained.
+`MIGRATION.json` accompanies the instructions to explain migrated rules;
+the referenced schemas were already identical.
+
+For later updates, review changes and history on both sides before
+reconciling, preserve newer edits from either repository, and include any
+supporting files required by the skills. Compare the full shared trees
+afterward; the workflow reports differences against the current
+`miyako/skills` default branch, not the historical reconciliation commit.
+Do not narrow or disable the check to hide divergence.
+The `technote-*` skills are distributed here but apply only to consumer
+repositories meeting their explicit template and `technote.json` gates.
+
 ## Repository contents
 
 | File | Purpose |
