@@ -13,9 +13,20 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "pipeline"))
 
 import extract_review_bundle as bundle
+sys.path.insert(0, str(REPO / "pipeline/oop"))
+import oopcommon
+from common.htmlutil import parse_article
 
 
 class ReviewBundleTests(unittest.TestCase):
+    def test_r4_page_titles_join_actual_syntax_capture_keys(self):
+        for title, expected in (
+            ("QuotaManager", "QuotaManagerClass"),
+            ("Transporter Class", "Transporter"),
+        ):
+            article = parse_article(f"<article><h1>{title}</h1></article>")
+            self.assertEqual(oopcommon.page_class_name(article), expected)
+
     def test_changes_include_removals_and_unchanged(self):
         self.assertEqual(
             bundle.changes({"A": "old", "B": "same", "C": "removed"},

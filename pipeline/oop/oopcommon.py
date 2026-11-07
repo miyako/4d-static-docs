@@ -38,6 +38,8 @@ INHERITED_FROM_KEY = "_inheritedFrom_"
 PAGE_TITLE_TO_CLASS = {
     "Directory Class": "Directory",
     "Document Class": "Document",
+    "Transporter Class": "Transporter",
+    "QuotaManager": "QuotaManagerClass",
     "ZIPArchive": "ZipArchive",
     "ZIPFile": "ZipFile",
     "ZIPFolder": "ZipFolder",
