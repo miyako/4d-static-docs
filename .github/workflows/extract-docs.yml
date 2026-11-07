@@ -1,9 +1,6 @@
 name: Extract documentation
 
 on:
-  push:
-    branches: [miyako-4d-docs-workflow]
-    paths: [.github/workflows/extract-docs.yml]
   workflow_dispatch:
     inputs:
       snapshot_ref:
@@ -48,7 +45,7 @@ jobs:
       - name: Checkout generated static pages (read-only input)
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.snapshot_ref || '0c480c590553d1eaa542055ba6a44376ed75ebaa' }}
+          ref: ${{ inputs.snapshot_ref }}
           path: static-snapshot
           persist-credentials: false
           sparse-checkout: |
@@ -66,10 +63,10 @@ jobs:
 
       - name: Extract review bundle
         env:
-          DOCS_VERSION: ${{ inputs.version || '21-R4' }}
-          SYNTAX_JSON: ${{ inputs.syntax_json || 'references/syntaxEN-21-R4.json' }}
-          SYNTAX_VERSION: ${{ inputs.syntax_version || '21-R4' }}
-          SYNTAX_BUILD: ${{ inputs.syntax_build || '21R4.100208' }}
+          DOCS_VERSION: ${{ inputs.version }}
+          SYNTAX_JSON: ${{ inputs.syntax_json }}
+          SYNTAX_VERSION: ${{ inputs.syntax_version }}
+          SYNTAX_BUILD: ${{ inputs.syntax_build }}
         run: |
           python pipeline/extract_review_bundle.py \
             --docs-tree static-snapshot/mirror/docs \
