@@ -124,10 +124,26 @@ python3 scripts/static_docs/publish.py \
 The target commit belongs to the destination repository; it is not the
 upstream documentation SHA. The publisher verifies checksums first.
 
+To retry publication without regenerating pages, supply `artifact_run_id`
+with a prior generator Actions run ID. The workflow downloads that run's
+`static-docs-RUN_ID` artifact from this repository, verifies all asset hashes,
+ZIP integrity, embedded/sibling manifest equality, and HTML counts, then
+publishes it. Site and syntax inputs are ignored in this mode: original
+source/generator commits and capture metadata remain unchanged. The new
+Release tag targets the publication workflow's commit, which is distinct
+from the original generator commit in the snapshot manifest. Expired or
+missing artifacts stop the job explicitly.
+
 A newly added manual workflow must exist on the default branch before GitHub
 allows dispatch. Do not merge automatically to bypass this. With user approval,
 validate a new workflow through a narrowly restricted temporary feature-branch
 push trigger, then remove it; otherwise report the registration prerequisite.
+
+GitHub's built-in token can also reject Release creation at a feature or older
+commit whose workflows differ from the default branch. Prefer an approved
+merge followed by dispatch from current `main`, rather than silently changing
+the tag target or introducing privileged credentials. Reuse the already-built
+artifact for this publication retry.
 
 ## Install or commit a generated mirror
 

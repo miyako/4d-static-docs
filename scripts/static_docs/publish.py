@@ -8,6 +8,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -33,6 +34,28 @@ def validate_assets(assets):
     if not required <= expected.keys():
         raise ValueError(f"Required assets absent from checksums: {required - expected.keys()}")
     snapshot = json.loads((assets / "snapshot.json").read_text(encoding="utf-8"))
+    if snapshot.get("schemaVersion") != 1:
+        raise ValueError("Unsupported snapshot manifest schema")
+    for field in ("sourceCommit", "generatorCommit"):
+        if not re.fullmatch(r"[0-9a-f]{40}", snapshot.get(field, "")):
+            raise ValueError(f"Invalid snapshot {field}")
+    with zipfile.ZipFile(assets / "docs.zip") as archive:
+        names = archive.namelist()
+        if len(names) != len(set(names)):
+            raise ValueError("Archive contains duplicate paths")
+        for name in names:
+            if name != "snapshot.json" and (
+                not name.startswith("docs/") or ".." in Path(name).parts or "\\" in name
+            ):
+                raise ValueError(f"Unexpected archive path: {name}")
+        if archive.read("snapshot.json") != (assets / "snapshot.json").read_bytes():
+            raise ValueError("Embedded and sibling snapshot manifests differ")
+        count = sum(name.startswith("docs/") and name.endswith(".html") for name in names)
+        if not count or count != snapshot["htmlPages"]:
+            raise ValueError("Archive HTML count differs from snapshot manifest")
+        bad_file = archive.testzip()
+        if bad_file:
+            raise ValueError(f"Archive integrity failure: {bad_file}")
     if snapshot["syntaxCapture"] and snapshot["syntaxCapture"]["asset"] not in expected:
         raise ValueError("Syntax capture is absent from checksums")
     return snapshot, sorted([*expected, "SHA256SUMS"])
@@ -89,7 +112,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--assets", required=True, type=Path)
     parser.add_argument("--repository", required=True)
-    parser.add_argument("--target", required=True, help="Generator commit in the destination repository")
+    parser.add_argument("--target", required=True, help="Destination commit to tag; original generator is recorded in the manifest")
     parser.add_argument("--tag")
     parser.add_argument("--title")
     parser.add_argument("--prerelease", action="store_true")

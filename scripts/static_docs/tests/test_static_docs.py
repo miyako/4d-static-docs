@@ -114,7 +114,10 @@ class AssetTests(unittest.TestCase):
             assets.mkdir()
             (docs / "index.html").write_text("<p>Offline</p>")
             manifest = assets / "snapshot.json"
-            manifest.write_text(json.dumps({"syntaxCapture": None, "sourceCommit": "a" * 40}))
+            manifest.write_text(json.dumps({
+                "schemaVersion": 1, "htmlPages": 1,
+                "syntaxCapture": None, "sourceCommit": "a" * 40, "generatorCommit": "b" * 40,
+            }))
             (assets / "link-report.json").write_text("{}")
             pack(docs, manifest, assets)
             snapshot, names = validate_assets(assets)

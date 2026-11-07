@@ -110,6 +110,9 @@ can verify the checksums and consume those files without regenerating pages.
 Generated HTML need not be committed for this release/artifact route.
 A new manual workflow requires default-branch registration before dispatch;
 publishing the feature branch alone does not register it.
+If generation succeeds but publication fails, rerun with `artifact_run_id`
+to verify and publish the existing Actions assets without repeating the crawl.
+The original source, generator, and optional capture provenance are preserved.
 
 ### Current committed snapshot
 
