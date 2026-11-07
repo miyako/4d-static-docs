@@ -82,6 +82,27 @@ No Linux-specific instructions are provided — use macOS or Windows as above.
 
 This is a two-stage process: first serve the already-built `gh-pages` HTML locally with a throwaway dev server, then use `wget` to mirror that local server to disk with all links rewritten to relative paths.
 
+### Current committed snapshot
+
+`mirror/docs` was refreshed on 2026-11-07 from `4d/docs`'s `gh-pages`
+commit `78952faa7ceba81909b6b757a76108afa76f8993`. It contains 34,401 HTML
+pages across five languages, with **21 R5 BETA** at the default URLs and
+**21 R4** under `21-R4/`. Portuguese retains the upstream "Próximo"
+default label. Published archives also include `21`, `20`, `19`, and `18`;
+`21-R3` is no longer published. See `mirror/snapshot.json` for provenance.
+
+All relative page and asset links resolve with exact filename casing.
+Links to missing upstream targets remain public `developer.4d.com` URLs,
+so those targets are not available offline.
+
+For R4 extraction, use `references/syntaxEN-21-R4.json` with
+`syntax_version=21-R4` and `syntax_build=21R4.100208`. This is an
+unmodified resource from the installed 4D R4 app; its build and SHA256
+are recorded in `references/syntaxEN-21-R4.provenance.json`.
+`references/syntaxEN.json` remains the R3 capture associated with the
+existing assembled language data. The new snapshot and capture do not
+automatically update or approve that data.
+
 ### 1.1 Clone and check out the built site
 
 ```sh
