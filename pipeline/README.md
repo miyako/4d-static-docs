@@ -9,6 +9,96 @@ For the initial build, the final assembled output is `out/4d-command-ir.json`
 changes** (commands added/updated/removed), see `MAINTENANCE.md` instead of
 re-running these stages blindly.
 
+## Hosted deterministic extraction
+
+### Release assets (no committed HTML required)
+
+Supply an explicit `release_tag` and `release_repository` to consume the
+versioned output of the separate page-regeneration workflow. This overrides
+`snapshot_ref`. The consumer downloads `docs.zip`, `snapshot.json`,
+`link-report.json`, `SHA256SUMS`, and optional `syntaxEN.json` with `gh`.
+Every checksum is verified before use, and the ZIP's embedded manifest must
+match the separately published manifest. Archive traversal, links, duplicate
+entries, encrypted entries, and excessive expansion are rejected.
+
+When a capture is bundled, leave `syntax_json`, `syntax_version`, and
+`syntax_build` empty: the capture hash, version, and build come atomically
+from the producer manifest and cannot be overridden. If the release has no
+capture, provide an explicit repository-relative `syntax_json` path and
+`syntax_version` from the workflow checkout (not `snapshot_ref`). The
+consumer never silently falls back to an older capture in release mode.
+
+The bundle records the release URL/tag/assets/checksums, upstream source
+commit, generator commit, and archive hash separately from the pipeline
+commit. Release metadata and checksum verification establish provenance and
+integrity; they do not constitute semantic approval or compiler verification.
+Use explicit versioned tags, not a moving `latest` alias.
+
+```sh
+python3 pipeline/extract_review_bundle.py \
+  --release-repo miyako/4d-static-docs \
+  --release-tag <versioned-static-docs-tag> \
+  --version 21-R4
+```
+
+Downloads are installed into a fresh `static-release/` directory only after
+verification and safe extraction. Review output is still `extraction/`;
+downloaded HTML/ZIPs are not re-uploaded in the review artifact. Both
+directories must be fresh (or choose `--release-source` and `--output`).
+The producer manifest requires full source/generator commit IDs.
+
+### Committed static snapshots
+
+The **Extract documentation** Actions workflow can be started with **Run
+workflow** (`workflow_dispatch`). It reads **already-generated static pages**
+from `mirror/docs/` at a branch or commit of this repository (`snapshot_ref`,
+default `main`), selects the highest non-beta version folder unless an
+explicit version is supplied, and uploads a 30-day review artifact.
+Page regeneration is a separate, upstream operation: this workflow does not
+fetch `4d/docs`, crawl the site, build HTML, or rewrite links. No web server,
+LLM, 4D installation, signing credentials, or write token is needed.
+
+The artifact contains classic stages 0/1/2 and OOP reconciliation, manifest,
+raw extraction, signature parsing, and parameter cross-checking. Outputs live
+in a fresh `extraction/` directory, never in tracked `out/`. It includes
+source commit IDs, syntax-capture hash/version, dependency versions, stage
+logs, and added/changed/removed reports against the checked-in baselines.
+Classic extraction failures or a failed OOP signature round-trip fail the
+job; partial artifacts and diagnostics are still uploaded.
+
+These are **review inputs, not a release-ready corpus**. No Stage 3 semantic
+merging, fixture generation, compiler verification, CLI build, commits, PRs,
+or publication occurs. Existing overlays, ledgers, and verification claims
+are not carried into the bundle. Follow `MAINTENANCE.md` for semantic review.
+HTML hashes include site-navigation/build changes; OOP section deltas also
+compare extracted member content to reduce that noise.
+
+The default syntax capture remains `references/syntaxEN.json`, declared as
+21-R3. The workflow's `syntax_json` and `syntax_version` inputs allow a newer
+capture **already committed in the selected snapshot**, under `references/`.
+The capture and HTML are read from the same snapshot commit; the pipeline
+and comparison baselines come from the workflow branch. `syntax_build`
+records the 4D build that supplied the capture when provided. Do not merely relabel an
+old capture to match newer HTML. Version mismatches are highlighted; members
+present only in HTML remain visible in `oop_stage1_raw.json`,
+`oop_section_changes.json`, and `oop_source_diff.json`, even though they
+cannot yet receive parsed signatures from the old capture.
+
+The same entry point runs locally with the existing dependencies:
+
+```sh
+python3 pipeline/extract_review_bundle.py --docs-tree mirror/docs --version auto
+```
+
+For a pinned version, use `--version 21-R3`.
+The output directory must not already exist; use `--output extraction/run-2`
+for a subsequent run. The bundle records the local checkout's HEAD; use a
+clean checkout when generating reproducible review artifacts. The hosted
+workflow records the separate static-snapshot commit as well as the pipeline
+and baseline commit. Point `snapshot_ref` at the committed output of the
+page-regeneration work; uncommitted pages in another local session are not
+available to a hosted runner.
+
 ## Stages (implemented: 0, 1, 2, 3, 5; skipped: 4; separate follow-on: 4.5/6)
 
 | Stage | Script | Input | Output |
