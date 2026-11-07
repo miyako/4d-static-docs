@@ -1,9 +1,6 @@
 name: Regenerate static documentation
 
 on:
-  push:
-    branches: [miyako-regenerate-static-docs]
-    paths: [.github/workflows/regenerate-docs.yml]
   workflow_dispatch:
     inputs:
       source_repo:
@@ -66,13 +63,13 @@ jobs:
         run: python -m unittest discover -s scripts/static_docs/tests -v
       - name: Generate and audit snapshot
         env:
-          SOURCE_REPO: ${{ inputs.source_repo || '4d/docs' }}
-          SOURCE_REF: ${{ inputs.source_ref || '78952faa7ceba81909b6b757a76108afa76f8993' }}
-          PUBLIC_ORIGIN: ${{ inputs.public_origin || 'https://developer.4d.com' }}
-          BASE_PATH: ${{ inputs.base_path || '/docs/' }}
-          SYNTAX_JSON: ${{ inputs.syntax_json || 'references/syntaxEN-21-R4.json' }}
-          SYNTAX_VERSION: ${{ inputs.syntax_version || '21-R4' }}
-          SYNTAX_BUILD: ${{ inputs.syntax_build || '21R4.100208' }}
+          SOURCE_REPO: ${{ inputs.source_repo }}
+          SOURCE_REF: ${{ inputs.source_ref }}
+          PUBLIC_ORIGIN: ${{ inputs.public_origin }}
+          BASE_PATH: ${{ inputs.base_path }}
+          SYNTAX_JSON: ${{ inputs.syntax_json }}
+          SYNTAX_VERSION: ${{ inputs.syntax_version }}
+          SYNTAX_BUILD: ${{ inputs.syntax_build }}
         run: |
           args=(
             --source-repo "$SOURCE_REPO"
