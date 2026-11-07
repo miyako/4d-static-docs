@@ -5,6 +5,10 @@ description: >
   language and the 4D object (OOP) language, via 4d-language-classic and
   4d-language-oop. The two corpora overlap (classic `File` vs OOP `4D.File`),
   so query both and compare rather than picking one language up front.
+  Also covers language pitfalls that compile but misbehave: left-to-right
+  operator evaluation, case-insensitive text comparison and the @ wildcard,
+  object literal keys, Formula and This capture, .call() arguments,
+  4D.HTTPRequest body types and callbacks, commonly mis-guessed signatures.
 ---
 
 # 4D Language Lookup
@@ -23,6 +27,22 @@ Both are deterministic, offline lookup tools over a compiler-verified IR --
 not language models. The same query always returns the same result on any
 machine. Neither substitutes for `validate`/`check-syntax` (see the `4dlsp`
 skill) -- always still compile-check the code you write.
+
+### Not in this skill
+
+| Topic | Skill |
+|---|---|
+| Compile check, diagnostics, hover / definition | `4dlsp` |
+| ORDA queries, entities, locking, `fromCollection` | `4dorda` |
+| Rewriting `C_*` / deprecated `_o_` commands | `4dmodernise` |
+| Form JSON and form object properties | `4dform` |
+
+## Route Table
+
+| Task involves | Open |
+|---|---|
+| Looking up a command or class member | this file |
+| Operator precedence, text comparison, literals, Object guards for instance checks, inheritance boundaries, `Formula` / `This`, `.call()`, `4D.HTTPRequest`, `4D.SystemWorker`, mis-guessed command signatures | `references/pitfalls.md` |
 
 ## Why one skill, not two
 
@@ -421,6 +441,22 @@ one of the concrete subclasses (`File`/`ZipFile` for `Document`).
    real code (see "The placeholder substitution rule").
 5. Write the code, then validate it with the `4dlsp` skill -- a lookup
    result alone is not proof the code compiles.
+
+## When the lookup tools have no answer
+
+The two tools cover the language. For everything else -- form objects and
+their properties (see `skills/4dform/references/docs-index.md` for page
+slugs), settings, concepts, release notes -- or when a tool returns nothing:
+
+* **Documentation search:** `https://developer.4d.com/docs/search?q=<terms>`
+  and fetch the page; prefer the `docPage` permalink when a tool gave one.
+* **Forum search** (troubleshooting, past experience):
+  `https://discuss.4d.com/search?q=<terms>`. Results look like
+  `https://discuss.4d.com/t/<topic-slug>/<topic_id>`; the topic id is what
+  matters -- `https://discuss.4d.com/t/<topic_id>` is equivalent.
+
+Treat forum answers as hints to verify (with `4dlsp` or the docs), not as
+reference.
 
 ## Windows
 
