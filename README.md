@@ -4,6 +4,9 @@ Tools for turning [developer.4d.com](https://developer.4d.com) into a fully offl
 
 Repo: https://github.com/miyako/4d-static-docs
 
+**Workflow guide:** [Hosted pipeline diagram, triggers, validation, and review approvals](pipeline/HOSTED_WORKFLOW.md).
+Includes the current workflow boundaries and the proposed single-entry hosted orchestration.
+
 ## Objectives
 
 1. **Static mirror** — generate a static HTML copy of the [4D docs GitHub Pages site](https://github.com/4d/docs) that can be browsed with no web server, i.e. by opening files directly from disk.
@@ -19,6 +22,11 @@ Repo: https://github.com/miyako/4d-static-docs
 ## Deterministic corpus extraction on GitHub Actions
 
 ### Workflow overview
+
+See the [workflow diagram and approval guide](pipeline/HOSTED_WORKFLOW.md)
+for how runs start, what is validated automatically, and where semantic
+review is required. The orchestrator and automated review handoff described
+there are proposals, not currently implemented workflows.
 
 | Workflow | Purpose | Input and output | Trigger |
 |---|---|---|---|
