@@ -4,6 +4,8 @@ Extract Text/Project/DerivedData/*
 Extract Text/Data/*
 mcp_console_render.html
 cache/
+extraction/
+static-snapshot/
 __pycache__/
 *.pyc
 /tools/

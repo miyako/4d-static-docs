@@ -16,6 +16,16 @@ Repo: https://github.com/miyako/4d-static-docs
 - Doc source repo: https://github.com/4d/docs
 - Generated HTML lives on the `gh-pages` branch: https://github.com/4d/docs/tree/gh-pages
 
+## Deterministic corpus extraction on GitHub Actions
+
+After regenerating the static pages, make `mirror/docs/` available on a
+branch or commit of this repository. The manually dispatched **Extract
+documentation** workflow consumes that snapshot (`snapshot_ref`) and uploads
+raw classic/OOP extraction records, source provenance, and change reports
+for semantic review. It does not regenerate pages, rewrite links, approve
+fixtures, or publish CLIs. See [pipeline/README.md](pipeline/README.md#hosted-deterministic-extraction)
+for inputs, artifact contents, and local usage.
+
 ## Repository contents
 
 | File | Purpose |
