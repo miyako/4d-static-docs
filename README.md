@@ -93,6 +93,59 @@ No Linux-specific instructions are provided — use macOS or Windows as above.
 
 This is a two-stage process: first serve the already-built `gh-pages` HTML locally with a throwaway dev server, then use `wget` to mirror that local server to disk with all links rewritten to relative paths.
 
+### Repeatable generation and hosted assets
+
+For future refreshes, use the repository skill
+[regenerate-static-docs](.github/skills/regenerate-static-docs/SKILL.md) and
+the parameterized scripts in `scripts/static_docs/` rather than repeating
+an ad hoc crawl:
+
+```sh
+python3 scripts/static_docs/regenerate.py \
+  --source-repo 4d/docs --source-ref gh-pages \
+  --output /path/to/new-staging-directory \
+  --generator-commit "$(git rev-parse HEAD)"
+```
+
+The script pins the source ref to an exact SHA, includes unlinked published
+pages, checks source coverage and every local page/media/CSS reference,
+preserves version badges, and creates `assets/docs.zip`, `snapshot.json`,
+`link-report.json`, and `SHA256SUMS`. The output directory must not exist:
+generation never overwrites a dirty mirror.
+
+The **Regenerate static documentation** Actions workflow exposes the site
+repository/ref/origin/path and optional syntax capture/version/build as inputs.
+It publishes both Actions artifacts and immutable versioned Release assets.
+`docs.zip` extracts to `docs/` plus `snapshot.json`; downstream extraction
+can verify the checksums and consume those files without regenerating pages.
+Generated HTML need not be committed for this release/artifact route.
+A new manual workflow requires default-branch registration before dispatch;
+publishing the feature branch alone does not register it.
+If generation succeeds but publication fails, rerun with `artifact_run_id`
+to verify and publish the existing Actions assets without repeating the crawl.
+The original source, generator, and optional capture provenance are preserved.
+
+### Current committed snapshot
+
+`mirror/docs` was refreshed on 2026-11-07 from `4d/docs`'s `gh-pages`
+commit `78952faa7ceba81909b6b757a76108afa76f8993`. It contains 34,401 HTML
+pages across five languages, with **21 R5 BETA** at the default URLs and
+**21 R4** under `21-R4/`. Portuguese retains the upstream "Próximo"
+default label. Published archives also include `21`, `20`, `19`, and `18`;
+`21-R3` is no longer published. See `mirror/snapshot.json` for provenance.
+
+All relative page and asset links resolve with exact filename casing.
+Links to missing upstream targets remain public `developer.4d.com` URLs,
+so those targets are not available offline.
+
+For R4 extraction, use `references/syntaxEN-21-R4.json` with
+`syntax_version=21-R4` and `syntax_build=21R4.100208`. This is an
+unmodified resource from the installed 4D R4 app; its build and SHA256
+are recorded in `references/syntaxEN-21-R4.provenance.json`.
+`references/syntaxEN.json` remains the R3 capture associated with the
+existing assembled language data. The new snapshot and capture do not
+automatically update or approve that data.
+
 ### 1.1 Clone and check out the built site
 
 ```sh
