@@ -18,6 +18,18 @@ Repo: https://github.com/miyako/4d-static-docs
 
 ## Deterministic corpus extraction on GitHub Actions
 
+### Workflow overview
+
+| Workflow | Purpose | Input and output | Trigger |
+|---|---|---|---|
+| [Regenerate static documentation](.github/workflows/regenerate-docs.yml) | Create standalone HTML, rewrite links, and audit local page/asset references. | Published `4d/docs` HTML to `docs.zip`, snapshot provenance, link report, checksums, and optional syntax capture; publishes Actions artifacts and versioned Release assets. | Manual dispatch. Set `artifact_run_id` to retry publication from an existing artifact without recrawling. |
+| [Extract documentation](.github/workflows/extract-docs.yml) | Generate deterministic review inputs from an existing static snapshot. Does not regenerate HTML. | An explicit versioned Release or committed `mirror/docs` snapshot to raw classic/OOP records, parsed signatures, change/conflict reports, and provenance; uploads a review artifact. | Manual dispatch after a snapshot is available. |
+| [Mirror drift](.github/workflows/mirror-drift.yml) | Check shared agent instructions and skills against their copies in `miyako/skills`; never repair them automatically. | Both copies of `AGENTS.md` and `skills/` to a pass/fail drift report. | Pushes to `main`, relevant pull requests, or manual dispatch. |
+
+The content pipeline is **regeneration → extraction → semantic review**.
+Mirror drift is independent maintenance. None of these workflows performs
+semantic approval, compiler verification, or CLI rebuilding.
+
 After regenerating the static pages, make `mirror/docs/` available on a
 branch or commit of this repository, or select an explicit versioned
 regeneration release with `release_tag`/`release_repository`. The manually dispatched **Extract
