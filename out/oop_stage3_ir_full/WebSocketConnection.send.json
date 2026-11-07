@@ -13,7 +13,7 @@
   },
   "summary": "Sends a *message* to the client",
   "description": "The .send() function sends a message to the client.\n\nThe following contents are sent depending on the message type:",
-  "docPage": "mirror/docs/21-R3/API/WebSocketConnectionClass.html",
+  "docPage": "mirror/docs/API/WebSocketConnectionClass.html",
   "overloads": [
     {
       "params": [

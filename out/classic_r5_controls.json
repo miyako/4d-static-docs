@@ -1,0 +1,48 @@
+{
+  "compilerVersion": "21 R5 build 21R5.100156",
+  "compilerSha256": "31ffbbf4331b3d0982b2a603839e9d4422a96c06234c89638d7fbdfb3b0ec149",
+  "controls": [
+    {
+      "method": "R5VectorIndexProbe",
+      "source": "// Compile only: these call sites do not establish runtime field/index applicability.\nARRAY POINTER($fieldPointers;1)\n$fieldPointers{1}:=->[SynthTable]label\nCREATE INDEX([SynthTable];$fieldPointers;Vector cosine index;\"cosine\")\nCREATE INDEX([SynthTable];$fieldPointers;Vector dot index;\"dot\")\nCREATE INDEX([SynthTable];$fieldPointers;Vector euclidean index;\"euclidean\")\nSET INDEX([SynthTable]label;Vector cosine index)\nSET INDEX([SynthTable]label;Vector dot index)\nSET INDEX([SynthTable]label;Vector euclidean index)\n",
+      "expectsError": false,
+      "diagnostics": [],
+      "passed": true
+    },
+    {
+      "method": "R5QRHistorical",
+      "source": "QR REPORT\n",
+      "diagnostics": [],
+      "status": "historical_rejection_not_reproduced"
+    },
+    {
+      "method": "R5RegisterHistorical",
+      "source": "REGISTER CLIENT\n",
+      "diagnostics": [],
+      "status": "historical_rejection_not_reproduced"
+    },
+    {
+      "method": "R5UnknownNegative",
+      "source": "R5FabricatedCommandXyz()\n",
+      "expectsError": true,
+      "diagnostics": [
+        {
+          "message": "Syntax error",
+          "range": {
+            "end": {
+              "character": 2147483647,
+              "line": 0
+            },
+            "start": {
+              "character": 0,
+              "line": 0
+            }
+          },
+          "severity": 1
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "limitation": "Compile-time checks only; vector field/index applicability and runtime units are not tested. QR REPORT/REGISTER CLIENT are observations of historical full-compiler constraints, not required negative controls: checkSyntax does not establish their empty-call validity."
+}

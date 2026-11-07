@@ -13,7 +13,7 @@
   },
   "summary": "Creates and returns a new object of the `4D.POP3Transporter` type",
   "description": "The 4D.POP3Transporter.new() function creates and returns a new object of the 4D.POP3Transporter type. It is identical to the POP3 New transporter command (shortcut).",
-  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "docPage": "mirror/docs/API/POP3TransporterClass.html",
   "overloads": [
     {
       "params": [

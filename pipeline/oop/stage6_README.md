@@ -1,307 +1,187 @@
-# OOP examples: harvesting, synthesis and compiler cross-check (Phases 4–5)
+# OOP examples: harvesting, synthesis and compiler cross-check
 
-This is the OOP sibling of [`pipeline/stage6_README.md`](../stage6_README.md).
-Read that first: the sweep architecture, the overlay feedback loop, positional
-diagnostic attribution, and above all the rule that **no diagnostic is ever
-silenced without written, evidenced justification** are ported from it
-unchanged. This document covers only what is different, and why.
+This is the OOP sibling of [the classic example pipeline](../stage6_README.md).
+The rule is unchanged: **no diagnostic is silenced without written,
+compiler/documentation evidence**. The current full refresh is against
+**21 R5 BETA**, not the stable R4 auto-selection.
 
-## Stages
+## Exact source and compiler provenance
 
-| Stage | File | Needs tool4d | Output |
-|---|---|---|---|
-| O7 | `stage7_doc_examples.py` | no | `out/oop_doc_examples.json` |
-| O8 | `stage8_verify_examples.py` | **yes** | annotates `out/oop_doc_examples.json` |
-| O6 | `stage6_synth_examples.py` | only `validate` | `oopcheck/Project/…`, `out/oop_synth_manifest.json`, `out/oop_lsp_crosscheck_report.json` |
-| O9 | `stage9_hover_crosscheck.py` | **yes** | `out/oop_hover_crosscheck.json` |
-| O10 | `stage10_corpus_stats.py` | no | `out/oop_corpus_stats.json` |
+* Docs: explicit `--docs-root mirror/docs`, actual badge **21 R5 BETA**.
+* Capture: `references/syntaxEN-21-R5.json`, explicit `--syntax-version 21-R5`,
+  SHA256 `ee27d9689e834bd1990d60d289d8c4e86e39beb723fe88c55b719e9d1e8bc411`.
+* Compiler: `/Applications/4D 21 R5/tool4d.app/Contents/MacOS/tool4d`;
+  Info.plist reports **21 R5 build 21R5.100156**. The installed syntax resource
+  matches that SHA256.
+* Bridge: `tools/4dlsp/tool4d-lsp-stdio`, **0.3.0**, provisioned from mirrored
+  skills **v0.0.32**. Do not use the obsolete `tools/tool4d-lsp-stdio` path.
 
-Stages O0–O5 remain pure Python: a clean clone with no 4D install still
-reproduces `out/4d-oop-ir.json`. Only the cross-check stages need a licensed
-4D, which is why they are separated.
+Compiler stages require explicit `TOOL4D_PATH`. Their outputs record compiler,
+bridge and capture provenance, and reject a mismatching readable compiler
+capture. The default stable docs selector is unchanged and must not be used
+for this beta update.
+Fresh invocation provenance additionally records UTC capture time, the actual
+`TOOL4D_PATH`, IR/source-manifest hashes, and the input synth-manifest or
+documentation-example hash. Every generated method has a source SHA256 in
+the synth manifest; compilation and hover refuse mismatched method bytes.
 
-Full run:
+## Full run
+
+Assemble O0–O5 using the explicit inputs in [README.md](README.md) first.
 
 ```sh
-python3 pipeline/oop/stage7_doc_examples.py
-python3 pipeline/oop/stage6_synth_examples.py generate     # pure Python
-python3 pipeline/oop/stage6_synth_examples.py validate     # GATE G4
+export TOOL4D_PATH='/Applications/4D 21 R5/tool4d.app/Contents/MacOS/tool4d'
+python3 pipeline/oop/stage7_doc_examples.py --docs-root mirror/docs
+python3 pipeline/oop/stage6_synth_examples.py generate
+python3 pipeline/oop/stage6_synth_examples.py validate       # G4
 python3 pipeline/oop/stage8_verify_examples.py
+python3 pipeline/oop/check_type_names.py
 
-tools/tool4d-lsp-stdio mcp --workspace "$PWD/oopcheck/Project"   # prints pid/port
-python3 pipeline/oop/stage9_hover_crosscheck.py                  # GATE G5
-tools/tool4d-lsp-stdio mcp --stop
+tools/4dlsp/tool4d-lsp-stdio mcp --workspace "$PWD/oopcheck/Project"
+python3 pipeline/oop/stage9_hover_crosscheck.py              # G5
+tools/4dlsp/tool4d-lsp-stdio mcp --workspace "$PWD/oopcheck/Project" --stop
 
 python3 pipeline/oop/stage10_corpus_stats.py
+python3 -m unittest discover -s pipeline/oop/tests -v
 ```
 
-`check-syntax` is one project-wide request: 919 blocks across 502 files in
-~11 s. `hover` needs one request per member, so the persistent server matters:
-~0.2 s each with it, a full tool4d startup each without.
+The bridge's current `mcp --stop` also needs the workspace. Hover subprocesses
+run from `oopcheck/Project`, so omitted project flags attach to the OOP server
+even while a classic server is running. They use absolute method paths. The first
+successful request verifies responsiveness; stop it after the sweep.
+
+| Stage | Input/output |
+|---|---|
+| O7 `stage7_doc_examples.py` | API HTML → `out/oop_doc_examples.json`; old verdicts deliberately invalidated |
+| O6 `stage6_synth_examples.py` | IR → generated `oopcheck` methods, `out/oop_synth_manifest.json`, `out/oop_lsp_crosscheck_report.json` |
+| O8 `stage8_verify_examples.py` | Fresh compiler buckets on every harvested 4D snippet |
+| Controls `check_type_names.py` | Generated probes → `out/oop_type_name_crosscheck.json`; probes cleaned up |
+| O9 `stage9_hover_crosscheck.py` | Full member hover report → `out/oop_hover_crosscheck.json` |
+| O10 `stage10_corpus_stats.py` | Frequency/class/example measurements → `out/oop_corpus_stats.json` |
 
 ## The check project
 
-`oopcheck/Project/` — **not** `oopcheck/` and not any other folder name.
+Use **`oopcheck/Project/`**, not `oopcheck/` or a differently named source
+directory. tool4d expects the enclosing directory to be named `Project`.
+Its catalog supplies `SynthTable`, `SynthRelated` and their relation, allowing
+real ORDA receivers rather than undefined illustrative tables.
+`SynthOOPCallback.4dm` and `SynthOOPHandler.4dm` supply callable stand-ins.
 
-tool4d only opens a project whose enclosing directory is literally named
-`Project`. An identical tree under `ProjectOOP/` made tool4d exit before
-answering `experimental/checkSyntax`, reproducibly, ~10 s every time:
+`RECEIVER_RECIPES` provides every one of the IR's 51 class records. Typed
+locals and captured returns expose unknown classes/members and cast
+mismatches instead of hiding them behind `Variant`. The four abstract classes
+use concrete receivers; all 46 fixed class declaration names, including the
+abstract names, were separately rechecked.
 
-```
-LSP checkSyntax session failed: waiting for experimental/checkSyntax response:
-failed to read LSP header: failed to fill whole buffer
-```
+Four event-callback-only classes (`IncomingMessage`, `TCPEvent`, `UDPEvent`,
+`WebSocketConnection`) use typed declarations, not invented constructors.
+Seven dynamic pseudo-members use concrete check-project stand-ins, annotated
+in their blocks; they are compiler checked, not excluded.
 
-This was bisected: swapping in the classic corpus's known-good catalog, and
-then reducing to a single one-line method, reproduced it identically. Moving
-the same tree to `oopcheck/Project/` worked immediately. Hence the extra
-directory level.
+## Sweeps and G4
 
-`Sources/catalog.4DCatalog` defines `SynthTable` (one field per 4D field type)
-and `SynthRelated`, joined N→1. That is what unblocks `DataStore`,
-`DataClass`, `Entity` and `EntitySelection` — about 88 members, ~18 % of the
-corpus, none of which can be instantiated without a real structure. See
-`oopcheck/README.md`.
+Every callable overload gets a full-parameter block. Additional sweeps cover
+each enum constant, legal trailing optional-group omissions, property reads,
+writable-property assignments and every alternative property type.
 
-Support artifacts: `Sources/Methods/SynthOOPCallback.4dm` (a `Formula()`
-target) and `Sources/Classes/SynthOOPHandler.4dm` (the stub that doc recipes
-naming `cs.MyClass` / `cs.MyHandler` map onto).
+Optional omission points come from brace-group nesting, not a denylist. An
+all-or-nothing optional pair must not be truncated midway; a leading optional
+group must not cause a required trailing argument to disappear.
 
-## What differs from the classic synthesizer
+There are **445 parameters, zero list-valued parameter unions, and 44 enum
+parameter slots**. Alternatives appear as callable overloads. Ten properties
+are multi-typed: six Email recipient properties, `Document.original`,
+`SystemWorker.response`, `WebServer.characterSet`, and the new
+`SMTPTransporter.certificate` (`4D.File | Blob`). Every property alternative
+gets its own read and, when writable, write.
 
-### Receivers
+**G4: 528 members → 528 method files → 968 blocks → zero errors, zero
+warnings.** All 528 target files were present in the compiler's 530-file
+project response. No members, reference params, writes or parameter names are
+denylisted. `validate` now returns failure for either errors or warnings.
 
-A classic call is self-contained; `ALERT("x")` needs no prior state. An OOP
-instance member cannot be called at all without a live, correctly-typed
-receiver, so `RECEIVER_RECIPES` in `stage6_synth_examples.py` holds one
-compiling expression per class, derived from the IR's own
-`classes{}.instantiation` recipes with the docs' illustrative names rewritten
-onto the check project (`Employee` → `SynthTable`, `cs.MyClass` →
-`cs.SynthOOPHandler`).
+The emission-equality gate rereads every generated block and checks its
+claimed member and argument count. A missing compiler-response file is
+unverified, never counted as clean. Documentation-example scaffolding and
+control methods are removed after checking so they cannot poison later runs.
 
-Every entry was verified by compiling one probe method per class before the
-synthesizer was written: 43 of 45 passed first time, and both failures turned
-out to be bugs in the hand-authored recipes rather than in the harness (see
-"IR bugs found" below).
+## G5: hover and controlled source conflicts
 
-A gate asserts the table and the IR's `classes{}` describe the same class set,
-so a class added upstream cannot silently go unsynthesized.
+**528 members: 508 agree, zero unexplained disagreements, three explained
+disagreements, zero unknown, zero missing call sites, ten multivariant
+properties without hover entries, seven dynamic stand-ins.**
 
-Four classes are **abstract** (`Directory`, `Document`, `Function`,
-`Transporter`) and are synthesized against a concrete subclass, with a comment
-saying so.
+The ten index gaps are retained explicitly, not interpreted as successful
+hover matches. G4 separately compiles every property variant. Hover reads
+documentation strings and can repeat documentation errors; the real parser
+and controlled type checks are stronger evidence in these three cases:
 
-Four classes are **event-callback-only** (`IncomingMessage`, `TCPEvent`,
-`UDPEvent`, `WebSocketConnection`): 4D passes instances into a callback and no
-expression constructs one. They are *not* excluded. A bare typed declaration
-(`var $event : 4D.TCPEvent`) resolves the type for the compiler exactly as a
-callback parameter does — verified by compiling the same member access both
-ways, as a local and as a `Function onTCPData($event : 4D.TCPEvent)`
-parameter, and getting identical diagnostics. The generated block carries a
-comment naming the real callback signature so no reader concludes the type is
-constructible.
+1. `4D.Folder.new`: documentation/hover include `*`, but matched R5 tool4d
+   rejects the constructor with `*` and accepts the corresponding classic
+   `Folder(...; *)`. The overlay removes the invalid semantic argument,
+   preserving raw source.
+2. `Session.quotas` and `WebServer.quotas`: docs/hover name
+   `4D.QuotaManager`, which R5 tool4d reports as unknown.
+   `4D.QuotaManagerClass` works for those same assignments. New evidenced
+   overlays and the quota recipe use the compiler spelling; raw syntax is
+   untouched. The quota object itself is not directly assignable.
 
-### Typed declarations
+`check_type_names.py` records **66 expected outcomes, all passing**: all 46
+fixed class declarations and 20 semantic/acceptance probes. These
+reverify the Folder `*` correction, Collection-vs-integer `multiSort`
+parameter, no-argument IMAPNotifier recipe and correct ZipFile producer.
+Vector `length` and `precision` are read-only according to the documented
+immutable class contract; two overlays correct the property-level default.
+The wrong ZipFile producer yields `Impossible to cast 4D.File to 4D.ZipFile`;
+the correct `.files()[0]` producer passes.
 
-Classic leans on `Variant` placeholders. Here every local and every captured
-return value is declared at its real IR type (`var $e : cs.SynthTableEntity`,
-`var $r : 4D.Blob`). That is the point of the exercise: a wrong declared
-return type in the IR becomes a hard `Impossible to cast X to Y` rather than a
-silent pass. A negative control confirmed the oracle is strong — the compiler
-reports unknown ORDA attributes, unknown members on typed receivers, and cast
-mismatches.
+No R3 verdict or old overlay explanation was accepted without R5 review.
+TCP port probes accept Integer, Real, and even unsuitable Text/Collection
+inputs; this compiler limitation cannot settle the port domain. Its retained
+overlay follows the documented Integer parameter table. `orderByMethod`
+extra-argument probes accept Integer, Text and Formula, confirming that the
+source's Expression pseudo-type is not a concrete Function restriction.
+Compilation is not runtime-instantiation or network verification.
 
-`var $x : any` is not valid 4D. Pseudo types map through
-`PSEUDO_DECLARE_TYPES`: `any`/`Variant` → `Variant`, `Expression` →
-`4D.Function`.
+## O7/O8: fresh documentation examples
 
-### Sweeps
+**523 code blocks: 483 attributed, 40 recovered/unattributed; 229 distinct
+members, 22 inherited attributions.** The O1 containment gate passes:
+every O1 code block is present, plus 40 blocks outside member sections.
 
-| Sweep | Varies | Classic counterpart |
-|---|---|---|
-| default | one block per overload, all params present | same |
-| enum-value | every value of each `enum_ref` param | same |
-| optional-param | each legal omission point | replaces the `*`-flag sweep |
-| property read/write | read, and write when `accessor.writable` | none |
-| property multi-variant | one read/write pair per alternative type | none |
+R5 changed Prism line containers from `span.token-line` to `div.token-line`.
+O7 supports both and preserves newlines/indentation. Falling back to plain
+`get_text()` had collapsed R5 examples, causing artificial syntax failures;
+the parser was corrected and all examples were reharvested and rechecked.
+Tests cover both markup forms, plain code and a missing source member.
 
-Two classic sweeps have no OOP analogue:
+**499 4D snippets checked: 269 compile as published, zero rescued by
+mechanical wrapping, 230 retained verbatim and unverified.** The other 24
+blocks are not 4D source. Bucket 1 requires character-identical compiler
+input and zero errors/warnings. Wrapping was applicable to 55 failures and
+rescued none; inventing absent tables, user-class APIs or elided source is
+not a mechanical wrapper.
 
-* The **flag sweep** has none — there are no flag params to omit.
-* The **union-discriminator sweep** has none *as a parameter sweep*. The OOP
-  IR expresses alternatives as separate overloads: empirically 0 of 446
-  parameters carry a list-valued type. Enumerating overloads, which the
-  default block already does, *is* the union sweep. What does need explicit
-  handling is the nine **multi-variant properties** (`Email.bcc/.cc/.from/
-  .replyTo/.sender/.to` as `Text|Object|Collection`, `Document.original` as
-  `4D.File|4D.Folder`, `SystemWorker.response` as `Text|Blob`,
-  `WebServer.characterSet` as `Number|Text`). Sweeping only the first
-  alternative leaves the rest unexercised — an assignment of the Text variant
-  compiles fine while a wrong Object variant goes undetected — so every
-  alternative gets its own read and write block.
+Unverified snippets keep their diagnostics and original text. Typical
+limitations are unspecified project models/classes, literal elisions,
+non-4D content fenced as `4d`, and genuine published typos. None is used to
+justify suppressing synthetic diagnostics. No unchanged previously verified
+snippet regressed after correcting R5 line extraction.
 
-### Legal omission points are derived, not denylisted
-
-Classic maintains `MUTUALLY_EXCLUSIVE_TRAILING_PARAMS` by hand. Here the same
-information is read off the syntax line's brace nesting
-(`brace_group_openers`), because 4D syntax encodes it positionally:
-
-```
-.terminate( { code : Integer ; message : Text } )
-4D.MailAttachment.new( file : 4D.File { ; name : Text {; cid : Text { … } } } )
-```
-
-In the first, `code` and `message` share one group and are all-or-nothing, so
-`terminate(1)` is invalid even though both params are (correctly) optional. In
-the second, each optional param opens its own nested group, so every trailing
-truncation is legal. A `{` binds to the slot the group starts with: appearing
-before the current slot has content it opens *this* slot, appearing after it
-sits on the separator and opens the *next* one.
-
-An omission point additionally requires every param from there on to be
-optional. Without that, a *leading* optional param silently drops a required
-trailing one — `.every( { startFrom : Integer ; } formula : 4D.Function )`
-truncates to `.every()` — and the resulting error looks like an IR bug when it
-is a synthesizer bug.
-
-### Dynamic members
-
-Seven members are name *patterns* (`4D.<classClassName>`,
-`ds.<dataclassName>`, `$entity.<attributeName>`, …). Rather than skip them,
-`DYNAMIC_MEMBER_STANDIN` maps each to a concrete member of the check
-project's own model (`cs.SynthOOPHandler`, `ds.SynthTable`,
-`$receiver.textValue`, `Web Form.myButton`), so the *mechanism* is still
-compiler-verified; only the doc's literal placeholder name is not. Every such
-block carries an explanatory comment, and the emission gate enforces that it
-does.
-
-## Gates
-
-### GATE G4 — 0 errors, 0 warnings
-
-**502 members → 919 blocks → 0 errors, 0 warnings.** No excluded members, no
-denylist entries: `EXCLUDED_MEMBERS`, `REQUIRES_REFERENCE`,
-`PROPERTY_WRITE_SKIP` and `PARAM_NAME_DENYLIST` are all empty, deliberately.
-They exist so that a future exclusion has an obvious place to live *with its
-evidence*, not so that diagnostics can be waved away. Every diagnostic seen
-during development was triaged to an IR bug, an emitter bug, or a data bug,
-and fixed.
-
-### The emission-equality gate
-
-`generate` re-reads every file it wrote and checks each block's call line
-against the IR entry it claims to exercise: the member's name appears, and the
-argument count matches what the block's variant intended to pass.
-
-This exists because of a review finding on the previous phase. A check that
-asks only "did the emitter produce a file, and did the compiler run over it?"
-is satisfied by output that has silently lost data. `validate` applies the
-same principle at the next hand-off: if a targeted file is absent from the
-`check-syntax` response it is **unverified, not clean**, and the run fails
-rather than counting it as passing.
-
-### GATE G5 — hover vs. IR
-
-`check-syntax` proves the corpus compiles; it cannot detect an obsolete or
-renamed member (`skills/4dlsp/SKILL.md` names this explicitly). `hover`
-returns the signature set the compiler itself holds — a third source, derived
-from neither the HTML docs nor `syntaxEN.json`.
-
-**502 members: 485 agree, 0 unknown to the compiler, 1 explained
-disagreement, 9 with no hover entry, 7 dynamic members skipped.**
-
-The 9 without a hover entry are *exactly* the 9 multi-variant properties.
-tool4d's hover index holds one type per property and has no entry for a
-multi-typed one; single-typed siblings on the same classes (`Email.subject`,
-`WebServer.debugLog`) answer normally. This is a gap in hover's index, not a
-missing member — G4 compiles a read and a write for every variant of all nine
-with 0 diagnostics.
-
-Disagreements are recorded, never auto-applied: hover renders the member's
-*documentation* string, so where the docs are wrong hover repeats the error
-and `check-syntax`, which exercises the real parser, is the stronger oracle.
-`EXPLAINED_DISAGREEMENTS` records those cases with the evidence.
-
-## IR bugs found by the compiler
-
-All fixed through the sanctioned channel — a `semantic_overlays/<id>.json`
-carrying a `_reason`, or `class_instantiation.json` — never by hand-editing
-generated output. `rawSyntax` is left byte-identical to `syntaxEN.json` in
-every case, as its gate requires; where the parsed `params[]` now diverges
-from `rawSyntax`, that divergence *is* the finding.
-
-1. **`4D.Folder.new`** — the `{ ; * }` in both documented syntax lines is a
-   doc error copied from the classic `Folder` command. tool4d accepts
-   `Folder("/tmp"; fk posix path; *)` and rejects
-   `4D.Folder.new("/tmp"; fk posix path; *)` with a bare `Syntax error`; the
-   sibling `4D.File.new` documents no `*` at all, and the page itself says
-   `4D.Folder.new()` "is identical to the Folder command (shortcut)" while
-   supplying no parameter table. The `*` param is dropped.
-2. **`Collection.multiSort`** — `colsToSort` was typed as an `enum_ref` to the
-   `ck ascending`/`ck descending` constants, but both syntax lines declare
-   `colsToSort : Collection`; the constants appear in the page's prose because
-   `.sort()` uses them. tool4d: *"At least one parameter type does not match
-   the prototype(s) of the function multiSort."* An audit of **all 45
-   `enum_ref` slots** against their `rawSyntax` declared type found this as the
-   only mismatch in the corpus.
-3. **`IMAPNotifier` recipe** — was `4D.IMAPNotifier.new($imap; Formula(…))`,
-   but the constructor takes no parameters. tool4d: *"The function new
-   received too many parameters."*
-4. **`ZipFile` recipe** — was `$archive.root.file("README.md")`, but `.file()`
-   is inherited from `Directory` and returns `4D.File`. tool4d: *"Impossible
-   to cast 4D.File to 4D.ZipFile."* `.files()[0]` is the shape that
-   type-checks.
-
-## Doc examples (Phase 4)
-
-Stage O7 re-parses the API pages directly rather than reusing stage O1's
-`get_text()` output, which drops the `<br/>` between Docusaurus
-`<span class="token-line">` elements and collapses every snippet onto one
-line. Its parity gate is **containment** — every block O1 recorded must be
-present here — because O1 discards code outside member `<h2>` sections; those
-recovered blocks land in `unattributed`.
-
-Attribution follows the superclass chain, so a `File` page's example for the
-inherited `.exists` is attributed to `File` even though the member is modelled
-once on `Document`.
-
-Stage O8 verifies each snippet at the same bar as G4 (0 errors **and** 0
-warnings) and triages into three buckets. Counting errors alone would let
-snippets with undeclared locals — a *warning* in 4D — into bucket 1 unwrapped,
-and would make the wrapping bucket dead code.
-
-**490 snippets: 261 compile as published, 0 rescued by mechanical wrapping,
-229 kept verbatim and unverified.**
-
-Bucket 2 being empty is an empirical result, not an unimplemented path.
-Wrapping (declare locals the fragment uses but does not declare; host a
-class-body fragment in a class file) was *applicable to 55* of the failures
-and rescued none, because the failures are semantic: unknown project tables
-and ORDA dataclasses (`cs.EmployeeSelection`, `[Employee]`, …), user classes
-whose members the page never shows, literal `...` elisions, blocks fenced as
-`4d` that are actually JSON or query grammar, and some genuine typos in the
-published docs. Making those compile would require inventing a data model or a
-class API — which is what bucket 3 exists to refuse. They are kept
-byte-for-byte and paired with the synthetic example every member has.
-
-The harness asserts the file the compiler saw is character-identical to the
-published snippet before claiming bucket 1. Choosing a method file versus a
-class file is a container choice, recorded as `hostedAsClass`, not an edit.
-
-Bucket-3 files are deleted after the run; leaving hundreds of non-compiling
-snippets in the project would poison every later G4 run.
+O10 reports **147 members with verified documentation examples**, 78 with
+unverified-only documentation examples, **303 synthetic-only**, **528 with
+synthetic examples**, and **zero without either**.
 
 ## Maintenance
 
-* A new diagnostic is **always** triaged to exactly one of: IR bug (fix via an
-  overlay, re-run O5), enum data bug (fix the registry), synthesizer bug (fix
-  the emitter), or a genuine environment limitation (add a denylist entry
-  **with the compiler's message quoted**). Never a silent skip.
-* Prefer deriving a rule from the data — as `brace_group_openers` does — over
-  adding a hand-maintained denylist entry.
-* After changing `class_instantiation.json` or an overlay, re-run
-  `stage4_classes.py` and `stage5_assemble.py`, then `generate` and
-  `validate`.
-* `generate` and `validate` both accept `--ids` and `--class` for a fast loop
-  on one member or one class; both merge into the existing manifest and report
-  rather than truncating them.
+* Preserve the old baseline before overwriting; use `review_refresh.py` to
+  distinguish member/section changes from navigation/hash noise.
+* An IR bug is fixed via an evidenced semantic overlay or authored recipe;
+  a constant bug belongs to the shared registry; an emitter bug belongs here.
+* After changing recipes/overlays, rerun O4/O5 and full generate/validate.
+  `--ids` and `--class` support narrow diagnostic loops, but a complete refresh
+  must finish with the full gates.
+* O7 discards verification; always rerun O8. Reusing R3 verdicts after a
+  source/compiler update is not verification.
+* Crosslinks read classic too; rerun after both assemblies. Transient classic
+  changes are not an OOP extraction/compiler blocker.

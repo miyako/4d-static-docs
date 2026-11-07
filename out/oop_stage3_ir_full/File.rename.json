@@ -13,7 +13,7 @@
   },
   "summary": "Renames the file with the name you passed in *newName* and returns the renamed `File` object",
   "description": "The .rename() function renames the file with the name you passed in newName and returns the renamed File object.\n\nThe newName parameter must comply with naming rules (e.g., it must not contain characters such as \":\", \"/\", etc.), otherwise an error is returned. If a file with the same name already exists, an error is returned.\n\nNote that the function modifies the full name of the file, i.e. if you do not pass an extension in newName, the file will have a name without an extension.\n\nReturned object\n\nThe renamed File object.",
-  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "docPage": "mirror/docs/API/FileClass.html",
   "overloads": [
     {
       "params": [

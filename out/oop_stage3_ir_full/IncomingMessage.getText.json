@@ -13,7 +13,7 @@
   },
   "summary": "Returns the body of the request as a text value",
   "description": "The .getText() function returns the body of the request as a text value.\n\nIf the body has not been given as a string value, the function tries to convert the value but it can give unexpected results.",
-  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "docPage": "mirror/docs/API/IncomingMessageClass.html",
   "overloads": [
     {
       "params": [],

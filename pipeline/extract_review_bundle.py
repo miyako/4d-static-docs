@@ -11,7 +11,7 @@ import sys
 import zipfile
 from pathlib import Path
 
-from common.docsroot import resolve_docs_root
+from common.docsroot import docs_version_info, resolve_docs_root
 import release_snapshot
 
 
@@ -83,7 +83,12 @@ def extract(args: argparse.Namespace, provenance: dict, output: Path) -> None:
     args.syntax_json = args.syntax_json or "references/syntaxEN.json"
     args.syntax_version = args.syntax_version or "21-R3"
     syntax = inside_repo(repo, args.syntax_json)
-    docs = resolve_docs_root(tree, None if args.version == "auto" else args.version).resolve()
+    if args.docs_root:
+        if args.version != "auto":
+            raise ValueError("--docs-root cannot be combined with an explicit --version")
+        docs = inside_repo(repo, args.docs_root)
+    else:
+        docs = resolve_docs_root(tree, None if args.version == "auto" else args.version).resolve()
     if not docs.is_relative_to(tree):
         raise ValueError("version must select a directory inside the static docs tree")
     if not list((docs / "commands").glob("*.html")):
@@ -97,17 +102,20 @@ def extract(args: argparse.Namespace, provenance: dict, output: Path) -> None:
     ):
         raise ValueError("syntax capture has no OOP classes")
 
+    version_info = docs_version_info(docs)
     provenance.update({
         "repositoryCommit": git_commit(repo),
         "staticSnapshotCommit": None if args.release_tag else git_commit(tree),
         "docsRoot": str(docs.relative_to(repo)),
-        "docsVersion": docs.name,
+        "docsVersion": version_info["version"],
+        "docsStatus": version_info["status"],
+        "docsVersionBadge": version_info["badge"],
         "syntaxSource": {
             "path": str(syntax.relative_to(repo)),
             "sha256": hashlib.sha256(syntax.read_bytes()).hexdigest(),
             "declaredDocsVersion": args.syntax_version,
             "build": args.syntax_build or None,
-            "matchesDocsVersion": args.syntax_version == docs.name,
+            "matchesDocsVersion": args.syntax_version == version_info["version"],
         },
         "pythonVersion": sys.version,
         "dependencies": {
@@ -273,6 +281,7 @@ def main() -> int:
     parser.add_argument("--release-repo", default="miyako/4d-static-docs")
     parser.add_argument("--release-source", default="static-release", help="Fresh verified download directory inside repository")
     parser.add_argument("--version", default="auto")
+    parser.add_argument("--docs-root", help="Explicit root inside the docs tree, including its default/beta pages; does not change auto's stable policy")
     parser.add_argument("--syntax-json")
     parser.add_argument("--syntax-version")
     parser.add_argument("--syntax-build", default="", help="4D build that supplied the capture")

@@ -13,7 +13,7 @@
   },
   "summary": "Collection of `EmailHeader` objects, in the order they appear in the message",
   "description": "The .headers property contains a collection of EmailHeader objects, in the order they appear in the message. This property allows users to add extended (registered) headers or user-defined (not registered, starting with \"X\") headers.\n\nIf an EmailHeader object property defines a header such as \"from\" or \"cc\" which is already set as a property at the mail level, the EmailHeader property is ignored.\n\nEvery object of the headers collection can contain the following properties:",
-  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "docPage": "mirror/docs/API/EmailObjectClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

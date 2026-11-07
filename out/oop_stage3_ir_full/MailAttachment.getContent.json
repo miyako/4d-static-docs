@@ -13,7 +13,7 @@
   },
   "summary": "Returns the contents of the attachment object in a `4D.Blob` object",
   "description": "The .getContent() function returns the contents of the attachment object in a 4D.Blob object. You can use this method with attachment objects received by the MAIL Convert from MIME command.",
-  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "docPage": "mirror/docs/API/MailAttachmentClass.html",
   "overloads": [
     {
       "params": [],

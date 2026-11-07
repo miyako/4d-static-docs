@@ -9,6 +9,11 @@ removed/deprecated. It assumes you already have a working checkout with
 Read this together with `pipeline/README.md` (pipeline architecture/scope
 decisions) and `references/4d-command-ir-README.md` (schema/file layout).
 This document is about the **update loop**, not the initial build.
+The current reviewed beta snapshot is documented in `R5_CORPUS.md`.
+Its explicit docs root is `mirror/docs`; automatic selection still picks
+stable R4. `review_classic_refresh.py` compares normalized source records
+against a pinned baseline and requires authored decisions for every added,
+removed or content-changed command.
 
 ## Why this isn't just "re-run everything"
 
@@ -222,10 +227,11 @@ These are hand-maintained flat files, not derived from Stage 1/3 at all:
   authoritative selector-value list.
 - `references/4d-constants-registry.json` is generated, not hand-maintained
   — regenerate it if 4D ships updated XLIFF constants exports
-  (`4D_ConstantsEN.xlf` / `4D_ConstantsThemesEN.xlf`, dropped in
-  `pipeline/data/`):
+  (`4D_ConstantsEN.xlf` / `4D_ConstantsThemesEN.xlf`). Select the matching
+  unchanged capture explicitly; `pipeline/data/` remains the historical
+  default, while this beta snapshot uses `references/21-R5/`:
   ```sh
-  python3 pipeline/tools/parse_xliff_constants.py
+  python3 pipeline/tools/parse_xliff_constants.py --data-dir references/21-R5
   ```
 - `protocols.multiCallChains`/`protocols.stateMachines` (only defined today
   in `4d-command-ir-examples.json`) — if a changed/added command's overlay
@@ -277,6 +283,12 @@ considering this update done:
 python3 pipeline/stage6_synth_examples.py generate --ids ID1,ID2,...
 python3 pipeline/stage6_synth_examples.py validate --ids ID1,ID2,...
 ```
+
+For a compiler-build change, invalidate prior verdicts and rerun the full
+corpus, not just changed ids. Set `TOOL4D_PATH` to the matching executable.
+The classic hover gate uses `stage6_hover_crosscheck.py` after starting a
+project-scoped persistent bridge (see `R5_CORPUS.md`). Keep build/source
+hash provenance separate from the import-compatible manifest shapes.
 
 This is the only step that actually compiles the modeled signatures rather
 than just schema-validating their shape, and it has already caught real IR

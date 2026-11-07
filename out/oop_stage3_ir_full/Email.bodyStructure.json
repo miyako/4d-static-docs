@@ -13,7 +13,7 @@
   },
   "summary": "*EmailBodyPart* object, i.e. the full MIME structure of the message body (optional)",
   "description": "The .bodyStructure property contains the EmailBodyPart object, i.e. the full MIME structure of the message body (optional). See Handling body part section.\n\nThe .bodyStructure object contains the following properties:",
-  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "docPage": "mirror/docs/API/EmailObjectClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

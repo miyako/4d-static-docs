@@ -13,7 +13,7 @@
   },
   "summary": "Returns a `4D.Blob` object containing the entire content of a file",
   "description": "The .getContent() function returns a 4D.Blob object containing the entire content of a file. For information on BLOBs, please refer to the BLOB section.\n\nReturned value\n\nA 4D.Blob object.",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "overloads": [
     {
       "params": [],

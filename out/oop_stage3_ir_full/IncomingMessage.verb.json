@@ -13,7 +13,7 @@
   },
   "summary": "The verb used by the request",
   "description": "The .verb property contains the verb used by the request.\n\nHTTP and HTTPS request verbs include for example \"get\", \"post\", \"put\", etc.\n\nThe .verb property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "docPage": "mirror/docs/API/IncomingMessageClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

@@ -58,6 +58,7 @@ def reconcile(docs_root: Path, syntax: dict) -> dict:
     annotations = {"heading_level_artifact": 0, "name_normalization": 0}
     non_member_headings_all = []
     pages_seen = set()
+    matched_members = set()
 
     for page in oop.api_pages(docs_root):
         article = oop.load_api_page(page)
@@ -104,6 +105,9 @@ def reconcile(docs_root: Path, syntax: dict) -> dict:
 
             if key in syn_keys:
                 matched_keys.add(key)
+                matched_members.add(
+                    key if key.startswith("4D.") else f"{class_name}.{key[1:]}"
+                )
                 counts["matched"] += 1
                 if h["level"] != "h2":
                     annotations["heading_level_artifact"] += 1
@@ -214,10 +218,11 @@ def reconcile(docs_root: Path, syntax: dict) -> dict:
         "annotations": annotations,
         "accounting": {
             "syntaxEnMembers": syntax_member_total,
-            "matchedToADocHeading": counts["matched"],
+            "matchedToADocHeading": len(matched_members),
+            "duplicateMatchedHeadings": counts["matched"] - len(matched_members),
             "declaredOnAnOrphanBaseClass": orphan_members,
             "unaccountedSyntaxEnMembers": (
-                syntax_member_total - counts["matched"] - orphan_members
+                syntax_member_total - len(matched_members) - orphan_members
             ),
             "docHeadings": (
                 counts["matched"]

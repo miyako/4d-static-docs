@@ -35,7 +35,7 @@
         "kind": "concrete",
         "name": "Real"
       },
-      "semanticRole": "Computes the arithmetic mean of series (an indexed field, an object-field attribute selected via attributePath, or a numeric array)."
+      "semanticRole": "Computes the arithmetic mean of series (a field over its table's current selection, using an index if available, an object-field attribute selected via attributePath, or a numeric array)."
     }
   ],
   "constraints": [

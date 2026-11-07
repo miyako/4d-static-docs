@@ -13,7 +13,7 @@
   },
   "summary": "Calculates the dot product of the current 4D vector and the one you passed in the *vector* parameter",
   "description": "The .dotSimilarity() function calculates the dot product of the current 4D vector and the one you passed in the vector parameter. Both vectors must have the same size.\n\nThis metric reflects both similarity and magnitude, and is generally used in models where vector norms (magnitudes) vary. It is recommended for scenarios where embeddings have been fine-tuned with magnitude in mind (e.g., recommendation engines, scoring relevance).\n\nReturned value\n\nDepends on vector magnitudes and directions The higher the returned value is, more similar vectors are.",
-  "docPage": "mirror/docs/21-R3/API/VectorClass.html",
+  "docPage": "mirror/docs/API/VectorClass.html",
   "overloads": [
     {
       "params": [

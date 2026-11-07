@@ -13,7 +13,7 @@
   },
   "summary": "Returns True if the *privilege* is associated to the session, and False otherwise",
   "description": "The .hasPrivilege() function returns True if the privilege is associated to the session, and False otherwise.",
-  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "docPage": "mirror/docs/API/SessionClass.html",
   "overloads": [
     {
       "params": [

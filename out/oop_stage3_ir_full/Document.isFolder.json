@@ -13,7 +13,7 @@
   },
   "summary": "Always false for a file",
   "description": "The .isFolder property returns always false for a file.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "accessor": {
     "type": {
       "kind": "concrete",

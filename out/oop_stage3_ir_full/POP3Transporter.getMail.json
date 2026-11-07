@@ -13,7 +13,7 @@
   },
   "summary": "Returns the `Email` object corresponding to the *msgNumber* in the mailbox designated by the `POP3 transporter`",
   "description": "The .getMail() function returns the Email object corresponding to the msgNumber in the mailbox designated by the POP3 transporter. This function allows you to locally handle the email contents.\n\nPass in msgNumber the number of the message to retrieve. This number is returned in the number property by the .getMailInfoList() function.\n\nOptionally, you can pass true in the headerOnly parameter to exclude the body parts from the returned Email object. Only headers properties (headers, to, from...) are then returned. This option allows you to optimize the downloading step when a lot of emails are on the server.\n\nThe method returns Null if:\n\nmsgNumber designates a non-existing message, the message was marked for deletion using .delete().\n\nReturned object\n\n.getMail() returns an Email object.",
-  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "docPage": "mirror/docs/API/POP3TransporterClass.html",
   "overloads": [
     {
       "params": [

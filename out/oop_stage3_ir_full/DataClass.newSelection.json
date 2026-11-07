@@ -13,7 +13,7 @@
   },
   "summary": "Creates a new, blank, non-shareable entity selection, related to the dataclass, in memory",
   "description": "The .newSelection() function creates a new, blank, non-shareable entity selection, related to the dataclass, in memory.\n\nFor information on non-shareable entity selections, please refer to this section.\n\nIf you want to create an ordered entity selection, pass the dk keep ordered selector in the keepOrder parameter. By default if you omit this parameter, or if you pass the dk non ordered selector, the method creates an unordered entity selection. Unordered entity selections are faster but you cannot rely on entity positions. For more information, please see Ordered vs Unordered entity selections.\n\nWhen created, the entity selection does not contain any entities (mySelection.length returns 0). This method lets you build entity selections gradually by making subsequent calls to the add() function.",
-  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "docPage": "mirror/docs/API/DataClassClass.html",
   "overloads": [
     {
       "params": [

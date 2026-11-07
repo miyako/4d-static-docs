@@ -16,9 +16,21 @@ import extract_review_bundle as bundle
 sys.path.insert(0, str(REPO / "pipeline/oop"))
 import oopcommon
 from common.htmlutil import parse_article
+from common.docsroot import docs_version_info, resolve_docs_root
 
 
 class ReviewBundleTests(unittest.TestCase):
+    def test_explicit_default_beta_does_not_change_stable_auto_selection(self):
+        with tempfile.TemporaryDirectory() as directory:
+            tree = Path(directory)
+            for root, badge in ((tree, "21 R5 BETA"), (tree / "21-R4", "21 R4")):
+                (root / "commands").mkdir(parents=True)
+                (root / "commands/abs.html").write_text(f"<div>Version: {badge}</div>")
+            self.assertEqual(resolve_docs_root(tree), tree / "21-R4")
+            self.assertEqual(docs_version_info(tree),
+                             {"version": "21-R5", "status": "BETA", "badge": "21 R5 BETA"})
+            self.assertEqual(docs_version_info(resolve_docs_root(tree))["status"], "stable")
+
     def test_r4_page_titles_join_actual_syntax_capture_keys(self):
         for title, expected in (
             ("QuotaManager", "QuotaManagerClass"),
@@ -42,14 +54,15 @@ class ReviewBundleTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "inside the repository"):
             bundle.inside_repo(REPO, "../outside")
 
-    def run_fixture(self, parent: Path, output_name: str, syntax: str = ".length : Integer"):
-        docs = parent / "docs" / "22"
+    def run_fixture(self, parent: Path, output_name: str, syntax: str = ".length : Integer", *, default_beta=False):
+        docs = parent / "docs" if default_beta else parent / "docs" / "22"
+        badge = "21 R5 BETA" if default_beta else "22"
         (docs / "commands").mkdir(parents=True, exist_ok=True)
         (docs / "API").mkdir(exist_ok=True)
         (docs / "commands" / "abs.html").write_text(
             '<article><div class="markdown"><header><h1>Abs</h1></header>'
             '<p><strong>Abs</strong> ( number ) -&gt; Real</p>'
-            '<h2>Description</h2><p>Version: 22</p><p>Absolute value.</p></div></article>',
+            f'<h2>Description</h2><p>Version: {badge}</p><p>Absolute value.</p></div></article>',
             encoding="utf-8",
         )
         (docs / "API" / "CollectionClass.html").write_text(
@@ -67,10 +80,23 @@ class ReviewBundleTests(unittest.TestCase):
             "--docs-tree", str(parent / "docs"), "--syntax-json", str(syntax_path),
             "--output", str(output),
         ]
+        if default_beta:
+            argv += ["--docs-root", str(docs), "--syntax-version", "21-R5"]
         with patch.object(sys, "argv", argv), contextlib.redirect_stdout(io.StringIO()), \
                 contextlib.redirect_stderr(io.StringIO()):
             result = bundle.main()
         return result, output
+
+    def test_explicit_default_beta_bundle_records_actual_version(self):
+        (REPO / "extraction").mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=REPO / "extraction") as directory:
+            result, output = self.run_fixture(Path(directory), "beta", default_beta=True)
+            self.assertEqual(result, 0)
+            provenance = bundle.read_json(output / "provenance.json")
+            self.assertEqual(provenance["docsVersion"], "21-R5")
+            self.assertEqual(provenance["docsStatus"], "BETA")
+            self.assertTrue(provenance["syntaxSource"]["matchesDocsVersion"])
+            self.assertTrue(provenance["docsRoot"].endswith("/docs"))
 
     def test_end_to_end_isolated_repeatable_and_preserves_html_only_members(self):
         # Keep source fixtures under the worktree, as required by the entry point.

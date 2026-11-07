@@ -13,7 +13,7 @@
   },
   "summary": "Returns a BLOB containing the MIME contents for the message corresponding to the *msgNumber* or *msgID* in the mailbox designated by the `IMAP_transporter`",
   "description": "The .getMIMEAsBlob() function returns a BLOB containing the MIME contents for the message corresponding to the msgNumber or msgID in the mailbox designated by the IMAP_transporter.\n\nIn the first parameter, you can pass either:\n\nmsgNumber, an integer value indicating the sequence number of the message to retrieve or msgID, a text value indicating the unique ID of the message to retrieve.\n\nThe optional updateSeen parameter allows you to specify if the message is marked as \"seen\" in the mailbox. You can pass:\n\nTrue - to mark the message as \"seen\" (indicating the message has been read) False - to leave the message's \"seen\" status untouched\n\nThe function returns an empty BLOB if msgNumber or msgID* designates a non-existing message, If no mailbox is selected with the .selectBox() command, an error is generated, If there is no open connection, .getMIMEAsBlob() will open a connection the last mailbox specified with .selectBox().",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [

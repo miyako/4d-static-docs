@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.inBytesPerHour",
+  "displayName": "QuotaManagerClass.inBytesPerHour",
+  "kind": "oop_property",
+  "memberName": ".inBytesPerHour",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum total number of bytes that the Web server can receive in one hour",
+  "description": "The .inBytesPerHour property contains the maximum total number of bytes that the Web server can receive in one hour.\n\nScope: server global level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**inBytesPerHour** : Integer"
+  }
+}

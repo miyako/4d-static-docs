@@ -13,7 +13,7 @@
   },
   "summary": "The attributes of dataclasses are objects that are available directly as properties of these classes.",
   "description": "The attributes of dataclasses are objects that are available directly as properties of these classes.\n\nThe returned objects have properties that you can read to get information about your dataclass attributes.\n\nDataclass attribute objects can be modified, but the underlying database structure will not be altered.",
-  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "docPage": "mirror/docs/API/DataClassClass.html",
   "accessor": {
     "type": {
       "kind": "pseudo",

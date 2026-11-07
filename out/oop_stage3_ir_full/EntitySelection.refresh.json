@@ -13,7 +13,7 @@
   },
   "summary": "Immediately \"invalidates\" the entity selection data in the local ORDA cache",
   "description": "This function only works with a remote datastore (client / server or Open datastore connection).\n\nThe .refresh() function immediately \"invalidates\" the entity selection data in the local ORDA cache so that the next time 4D requires the entity selection, it will be reloaded from the database.\n\nBy default, the local ORDA cache is invalidated after 30 seconds. In the context of client / server applications using both ORDA and the classic language, this method allows you to make sure a remote application will always work with the latest data.",
-  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "docPage": "mirror/docs/API/EntitySelectionClass.html",
   "overloads": [
     {
       "params": [],

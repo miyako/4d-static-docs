@@ -13,7 +13,7 @@
   },
   "summary": "Cancels the transaction",
   "description": "The .cancelTransaction() function cancels the transaction opened by the .startTransaction() function at the corresponding level in the current process for the specified datastore.\n\nThe .cancelTransaction() function cancels any changes made to the data during the transaction.\n\nYou can nest several transactions (sub-transactions). If the main transaction is cancelled, all of its sub-transactions are also cancelled, even if they were validated individually using the .validateTransaction() function.",
-  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "docPage": "mirror/docs/API/DataStoreClass.html",
   "overloads": [
     {
       "params": [],

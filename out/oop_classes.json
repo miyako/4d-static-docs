@@ -2,7 +2,7 @@
   "4D": {
     "id": "4D",
     "displayName": "4D",
-    "docPage": "mirror/docs/21-R3/API/ClassStoreClass.html",
+    "docPage": "mirror/docs/API/ClassStoreClass.html",
     "typeName": "4D",
     "instantiation": {
       "recipes": [
@@ -25,7 +25,7 @@
   "Blob": {
     "id": "Blob",
     "displayName": "Blob",
-    "docPage": "mirror/docs/21-R3/API/BlobClass.html",
+    "docPage": "mirror/docs/API/BlobClass.html",
     "typeName": "4D.Blob",
     "instantiation": {
       "recipes": [
@@ -61,7 +61,7 @@
   "Class": {
     "id": "Class",
     "displayName": "Class",
-    "docPage": "mirror/docs/21-R3/API/ClassClass.html",
+    "docPage": "mirror/docs/API/ClassClass.html",
     "typeName": "4D.Class",
     "instantiation": {
       "recipes": [
@@ -102,7 +102,7 @@
   "Collection": {
     "id": "Collection",
     "displayName": "Collection",
-    "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+    "docPage": "mirror/docs/API/CollectionClass.html",
     "typeName": "Collection",
     "instantiation": {
       "recipes": [
@@ -183,7 +183,7 @@
   "CryptoKey": {
     "id": "CryptoKey",
     "displayName": "CryptoKey",
-    "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+    "docPage": "mirror/docs/API/CryptoKeyClass.html",
     "typeName": "4D.CryptoKey",
     "instantiation": {
       "recipes": [
@@ -214,7 +214,7 @@
   "DataClass": {
     "id": "DataClass",
     "displayName": "DataClass",
-    "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+    "docPage": "mirror/docs/API/DataClassClass.html",
     "typeName": "4D.DataClass",
     "instantiation": {
       "recipes": [
@@ -246,6 +246,7 @@
       "DataClass.get",
       "DataClass.getCount",
       "DataClass.getDataStore",
+      "DataClass.getIndexes",
       "DataClass.getInfo",
       "DataClass.getRemoteCache",
       "DataClass.new",
@@ -258,7 +259,7 @@
   "DataStore": {
     "id": "DataStore",
     "displayName": "DataStore",
-    "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+    "docPage": "mirror/docs/API/DataStoreClass.html",
     "typeName": "4D.DataStore",
     "instantiation": {
       "recipes": [
@@ -307,7 +308,7 @@
   "Directory": {
     "id": "Directory",
     "displayName": "Directory",
-    "docPage": "mirror/docs/21-R3/API/Directory.html",
+    "docPage": "mirror/docs/API/Directory.html",
     "typeName": "4D.Directory",
     "instantiation": {
       "recipes": [
@@ -350,7 +351,7 @@
   "Document": {
     "id": "Document",
     "displayName": "Document",
-    "docPage": "mirror/docs/21-R3/API/Document.html",
+    "docPage": "mirror/docs/API/Document.html",
     "typeName": "4D.Document",
     "instantiation": {
       "recipes": [
@@ -392,7 +393,7 @@
   "Email": {
     "id": "Email",
     "displayName": "Email",
-    "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+    "docPage": "mirror/docs/API/EmailObjectClass.html",
     "typeName": "4D.Email",
     "instantiation": {
       "recipes": [
@@ -441,7 +442,7 @@
   "Entity": {
     "id": "Entity",
     "displayName": "Entity",
-    "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+    "docPage": "mirror/docs/API/EntityClass.html",
     "typeName": "4D.Entity",
     "instantiation": {
       "recipes": [
@@ -505,7 +506,7 @@
   "EntitySelection": {
     "id": "EntitySelection",
     "displayName": "EntitySelection",
-    "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+    "docPage": "mirror/docs/API/EntitySelectionClass.html",
     "typeName": "4D.EntitySelection",
     "instantiation": {
       "recipes": [
@@ -575,7 +576,7 @@
   "File": {
     "id": "File",
     "displayName": "File",
-    "docPage": "mirror/docs/21-R3/API/FileClass.html",
+    "docPage": "mirror/docs/API/FileClass.html",
     "typeName": "4D.File",
     "instantiation": {
       "recipes": [
@@ -620,7 +621,7 @@
   "FileHandle": {
     "id": "FileHandle",
     "displayName": "FileHandle",
-    "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+    "docPage": "mirror/docs/API/FileHandleClass.html",
     "typeName": "4D.FileHandle",
     "instantiation": {
       "recipes": [
@@ -657,7 +658,7 @@
   "Folder": {
     "id": "Folder",
     "displayName": "Folder",
-    "docPage": "mirror/docs/21-R3/API/FolderClass.html",
+    "docPage": "mirror/docs/API/FolderClass.html",
     "typeName": "4D.Folder",
     "instantiation": {
       "recipes": [
@@ -697,7 +698,7 @@
   "Formula": {
     "id": "Formula",
     "displayName": "Formula",
-    "docPage": "mirror/docs/21-R3/API/FormulaClass.html",
+    "docPage": "mirror/docs/API/FormulaClass.html",
     "typeName": "4D.Formula",
     "instantiation": {
       "recipes": [
@@ -721,7 +722,7 @@
   "Function": {
     "id": "Function",
     "displayName": "Function",
-    "docPage": "mirror/docs/21-R3/API/FunctionClass.html",
+    "docPage": "mirror/docs/API/FunctionClass.html",
     "typeName": "4D.Function",
     "instantiation": {
       "recipes": [
@@ -752,7 +753,7 @@
   "HTTPAgent": {
     "id": "HTTPAgent",
     "displayName": "HTTPAgent",
-    "docPage": "mirror/docs/21-R3/API/HTTPAgentClass.html",
+    "docPage": "mirror/docs/API/HTTPAgentClass.html",
     "typeName": "4D.HTTPAgent",
     "instantiation": {
       "recipes": [
@@ -775,7 +776,7 @@
   "HTTPRequest": {
     "id": "HTTPRequest",
     "displayName": "HTTPRequest",
-    "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+    "docPage": "mirror/docs/API/HTTPRequestClass.html",
     "typeName": "4D.HTTPRequest",
     "instantiation": {
       "recipes": [
@@ -810,7 +811,7 @@
   "IMAPNotifier": {
     "id": "IMAPNotifier",
     "displayName": "IMAPNotifier",
-    "docPage": "mirror/docs/21-R3/API/IMAPNotifierClass.html",
+    "docPage": "mirror/docs/API/IMAPNotifierClass.html",
     "typeName": "4D.IMAPNotifier",
     "instantiation": {
       "recipes": [
@@ -836,7 +837,7 @@
   "IMAPTransporter": {
     "id": "IMAPTransporter",
     "displayName": "IMAPTransporter",
-    "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+    "docPage": "mirror/docs/API/IMAPTransporterClass.html",
     "typeName": "4D.IMAPTransporter",
     "instantiation": {
       "recipes": [
@@ -884,7 +885,7 @@
   "IncomingMessage": {
     "id": "IncomingMessage",
     "displayName": "IncomingMessage",
-    "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+    "docPage": "mirror/docs/API/IncomingMessageClass.html",
     "typeName": "4D.IncomingMessage",
     "instantiation": {
       "recipes": [
@@ -915,7 +916,7 @@
   "MailAttachment": {
     "id": "MailAttachment",
     "displayName": "MailAttachment",
-    "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+    "docPage": "mirror/docs/API/MailAttachmentClass.html",
     "typeName": "4D.MailAttachment",
     "instantiation": {
       "recipes": [
@@ -949,7 +950,7 @@
   "Method": {
     "id": "Method",
     "displayName": "Method",
-    "docPage": "mirror/docs/21-R3/API/MethodClass.html",
+    "docPage": "mirror/docs/API/MethodClass.html",
     "typeName": "4D.Method",
     "instantiation": {
       "recipes": [
@@ -975,7 +976,7 @@
   "OutgoingMessage": {
     "id": "OutgoingMessage",
     "displayName": "OutgoingMessage",
-    "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
+    "docPage": "mirror/docs/API/OutgoingMessageClass.html",
     "typeName": "4D.OutgoingMessage",
     "instantiation": {
       "recipes": [
@@ -999,7 +1000,7 @@
   "POP3Transporter": {
     "id": "POP3Transporter",
     "displayName": "POP3Transporter",
-    "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+    "docPage": "mirror/docs/API/POP3TransporterClass.html",
     "typeName": "4D.POP3Transporter",
     "instantiation": {
       "recipes": [
@@ -1027,10 +1028,55 @@
     ],
     "note": "POP3TransporterClass.html; syntaxEN records _inheritedFrom_ Transporter."
   },
+  "QuotaManagerClass": {
+    "id": "QuotaManagerClass",
+    "displayName": "QuotaManagerClass",
+    "docPage": "mirror/docs/API/QuotaManagerClass.html",
+    "typeName": "4D.QuotaManagerClass",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "property_of",
+          "expression": "$quotas:=Session.quotas",
+          "producedBy": "Session.quotas",
+          "requires": [
+            "a REST session for meaningful session quotas"
+          ]
+        },
+        {
+          "kind": "property_of",
+          "expression": "$quotas:=WEB Server.quotas",
+          "producedBy": "WebServer.quotas"
+        }
+      ]
+    },
+    "members": [
+      "QuotaManagerClass.currentValues",
+      "QuotaManagerClass.defaultEntitySetTimeout",
+      "QuotaManagerClass.inBytesPerHour",
+      "QuotaManagerClass.inBytesPerHourPerSession",
+      "QuotaManagerClass.inBytesPerMin",
+      "QuotaManagerClass.inBytesPerMinPerSession",
+      "QuotaManagerClass.maxEntitySetTimeout",
+      "QuotaManagerClass.nbEntitySets",
+      "QuotaManagerClass.nbEntitySetsPerSession",
+      "QuotaManagerClass.nbGuestSessions",
+      "QuotaManagerClass.nbRequestsPerHour",
+      "QuotaManagerClass.nbRequestsPerHourPerSession",
+      "QuotaManagerClass.nbRequestsPerMin",
+      "QuotaManagerClass.nbRequestsPerMinPerSession",
+      "QuotaManagerClass.nbSessions",
+      "QuotaManagerClass.outBytesPerHour",
+      "QuotaManagerClass.outBytesPerHourPerSession",
+      "QuotaManagerClass.outBytesPerMin",
+      "QuotaManagerClass.outBytesPerMinPerSession"
+    ],
+    "note": "21 R5 BETA API/QuotaManagerClass.html names the type 4D.QuotaManager, but tool4d 21R5.100156 rejects that declaration ('The class 4D.QuotaManager is unknown.') and accepts 4D.QuotaManagerClass. Positive File/QuotaManagerClass and negative QuotaManager/unknown-class controls are recorded in out/oop_type_name_crosscheck.json. Existing quota objects are obtained through Session.quotas or WEB Server.quotas; the object itself cannot be assigned and has no public constructor."
+  },
   "SMTPTransporter": {
     "id": "SMTPTransporter",
     "displayName": "SMTPTransporter",
-    "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+    "docPage": "mirror/docs/API/SMTPTransporterClass.html",
     "typeName": "4D.SMTPTransporter",
     "instantiation": {
       "recipes": [
@@ -1048,6 +1094,9 @@
     "constructor": "4D.SMTPTransporter.new",
     "members": [
       "4D.SMTPTransporter.new",
+      "SMTPTransporter.certificate",
+      "SMTPTransporter.certificateName",
+      "SMTPTransporter.certificatePassword",
       "SMTPTransporter.keepAlive",
       "SMTPTransporter.send"
     ],
@@ -1056,7 +1105,7 @@
   "Session": {
     "id": "Session",
     "displayName": "Session",
-    "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+    "docPage": "mirror/docs/API/SessionClass.html",
     "typeName": "4D.Session",
     "instantiation": {
       "recipes": [
@@ -1095,6 +1144,7 @@
       "Session.info",
       "Session.isGuest",
       "Session.promote",
+      "Session.quotas",
       "Session.restore",
       "Session.setPrivileges",
       "Session.storage",
@@ -1105,7 +1155,7 @@
   "Signal": {
     "id": "Signal",
     "displayName": "Signal",
-    "docPage": "mirror/docs/21-R3/API/SignalClass.html",
+    "docPage": "mirror/docs/API/SignalClass.html",
     "typeName": "4D.Signal",
     "instantiation": {
       "recipes": [
@@ -1133,7 +1183,7 @@
   "SystemWorker": {
     "id": "SystemWorker",
     "displayName": "SystemWorker",
-    "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+    "docPage": "mirror/docs/API/SystemWorkerClass.html",
     "typeName": "4D.SystemWorker",
     "instantiation": {
       "recipes": [
@@ -1170,7 +1220,7 @@
   "TCPConnection": {
     "id": "TCPConnection",
     "displayName": "TCPConnection",
-    "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+    "docPage": "mirror/docs/API/TCPConnectionClass.html",
     "typeName": "4D.TCPConnection",
     "instantiation": {
       "recipes": [
@@ -1202,7 +1252,7 @@
   "TCPEvent": {
     "id": "TCPEvent",
     "displayName": "TCPEvent",
-    "docPage": "mirror/docs/21-R3/API/TCPEventClass.html",
+    "docPage": "mirror/docs/API/TCPEventClass.html",
     "typeName": "4D.TCPEvent",
     "instantiation": {
       "recipes": [
@@ -1227,7 +1277,7 @@
   "TCPListener": {
     "id": "TCPListener",
     "displayName": "TCPListener",
-    "docPage": "mirror/docs/21-R3/API/TCPListenerClass.html",
+    "docPage": "mirror/docs/API/TCPListenerClass.html",
     "typeName": "4D.TCPListener",
     "instantiation": {
       "recipes": [
@@ -1253,7 +1303,7 @@
   "Transporter": {
     "id": "Transporter",
     "displayName": "Transporter",
-    "docPage": null,
+    "docPage": "mirror/docs/API/Transporter.html",
     "typeName": "4D.Transporter",
     "instantiation": {
       "recipes": [
@@ -1279,12 +1329,12 @@
       "Transporter.sendTimeOut",
       "Transporter.user"
     ],
-    "note": "Transporter has NO API page — its 11 members are documented only on the IMAP/POP3/SMTP transporter pages. It is a documentation-level base class, in scope so its members are declared once rather than three times."
+    "note": "21 R5 BETA has API/Transporter.html documenting the shared base of IMAPTransporter, POP3Transporter and SMTPTransporter. The R3 snapshot had no page of its own; it remains abstract and is obtained through a concrete transporter. Its 11 members are modelled once, not duplicated per subclass."
   },
   "UDPEvent": {
     "id": "UDPEvent",
     "displayName": "UDPEvent",
-    "docPage": "mirror/docs/21-R3/API/UDPEventClass.html",
+    "docPage": "mirror/docs/API/UDPEventClass.html",
     "typeName": "4D.UDPEvent",
     "instantiation": {
       "recipes": [
@@ -1309,7 +1359,7 @@
   "UDPSocket": {
     "id": "UDPSocket",
     "displayName": "UDPSocket",
-    "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
+    "docPage": "mirror/docs/API/UDPSocketClass.html",
     "typeName": "4D.UDPSocket",
     "instantiation": {
       "recipes": [
@@ -1332,7 +1382,7 @@
   "Vector": {
     "id": "Vector",
     "displayName": "Vector",
-    "docPage": "mirror/docs/21-R3/API/VectorClass.html",
+    "docPage": "mirror/docs/API/VectorClass.html",
     "typeName": "4D.Vector",
     "instantiation": {
       "recipes": [
@@ -1350,6 +1400,7 @@
       "Vector.dotSimilarity",
       "Vector.euclideanDistance",
       "Vector.length",
+      "Vector.precision",
       "Vector.toCollection"
     ],
     "note": "VectorClass.html: 4D.Vector.new() builds a vector from a collection of numbers, for similarity search."
@@ -1357,7 +1408,7 @@
   "WebForm": {
     "id": "WebForm",
     "displayName": "WebForm",
-    "docPage": "mirror/docs/21-R3/API/WebFormClass.html",
+    "docPage": "mirror/docs/API/WebFormClass.html",
     "typeName": "4D.WebForm",
     "instantiation": {
       "recipes": [
@@ -1386,7 +1437,7 @@
   "WebFormItem": {
     "id": "WebFormItem",
     "displayName": "WebFormItem",
-    "docPage": "mirror/docs/21-R3/API/WebFormItemClass.html",
+    "docPage": "mirror/docs/API/WebFormItemClass.html",
     "typeName": "4D.WebFormItem",
     "instantiation": {
       "recipes": [
@@ -1411,7 +1462,7 @@
   "WebServer": {
     "id": "WebServer",
     "displayName": "WebServer",
-    "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+    "docPage": "mirror/docs/API/WebServerClass.html",
     "typeName": "4D.WebServer",
     "instantiation": {
       "recipes": [
@@ -1461,6 +1512,7 @@
       "WebServer.name",
       "WebServer.openSSLVersion",
       "WebServer.perfectForwardSecrecy",
+      "WebServer.quotas",
       "WebServer.rootFolder",
       "WebServer.rules",
       "WebServer.scalableSession",
@@ -1477,7 +1529,7 @@
   "WebSocket": {
     "id": "WebSocket",
     "displayName": "WebSocket",
-    "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+    "docPage": "mirror/docs/API/WebSocketClass.html",
     "typeName": "4D.WebSocket",
     "instantiation": {
       "recipes": [
@@ -1508,7 +1560,7 @@
   "WebSocketConnection": {
     "id": "WebSocketConnection",
     "displayName": "WebSocketConnection",
-    "docPage": "mirror/docs/21-R3/API/WebSocketConnectionClass.html",
+    "docPage": "mirror/docs/API/WebSocketConnectionClass.html",
     "typeName": "4D.WebSocketConnection",
     "instantiation": {
       "recipes": [
@@ -1535,7 +1587,7 @@
   "WebSocketServer": {
     "id": "WebSocketServer",
     "displayName": "WebSocketServer",
-    "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+    "docPage": "mirror/docs/API/WebSocketServerClass.html",
     "typeName": "4D.WebSocketServer",
     "instantiation": {
       "recipes": [
@@ -1565,7 +1617,7 @@
   "ZipArchive": {
     "id": "ZipArchive",
     "displayName": "ZipArchive",
-    "docPage": "mirror/docs/21-R3/API/ZipArchiveClass.html",
+    "docPage": "mirror/docs/API/ZipArchiveClass.html",
     "typeName": "4D.ZipArchive",
     "instantiation": {
       "recipes": [
@@ -1588,7 +1640,7 @@
   "ZipFile": {
     "id": "ZipFile",
     "displayName": "ZipFile",
-    "docPage": "mirror/docs/21-R3/API/ZipFileClass.html",
+    "docPage": "mirror/docs/API/ZipFileClass.html",
     "typeName": "4D.ZipFile",
     "instantiation": {
       "recipes": [
@@ -1608,7 +1660,7 @@
   "ZipFolder": {
     "id": "ZipFolder",
     "displayName": "ZipFolder",
-    "docPage": "mirror/docs/21-R3/API/ZipFolderClass.html",
+    "docPage": "mirror/docs/API/ZipFolderClass.html",
     "typeName": "4D.ZipFolder",
     "instantiation": {
       "recipes": [

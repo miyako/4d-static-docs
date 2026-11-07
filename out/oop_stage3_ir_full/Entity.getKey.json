@@ -13,7 +13,7 @@
   },
   "summary": "Returns the primary key value of the entity",
   "description": "The .getKey() function returns the primary key value of the entity.\n\nPrimary keys can be numbers (Integer) or strings. You can \"force\" the returned primary key value to be a string, no matter the actual primary key type, by passing the dk key as string option in the mode parameter.",
-  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "docPage": "mirror/docs/API/EntityClass.html",
   "overloads": [
     {
       "params": [

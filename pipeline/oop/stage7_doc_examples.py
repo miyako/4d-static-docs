@@ -88,8 +88,8 @@ def _markdown_div(article):
 def _code_lines(block_div) -> list[str]:
     """Return the source lines of one Prism-rendered code block, verbatim.
 
-    Docusaurus renders each line as `<span class="token-line">...</span><br/>`
-    inside `<code>`. `get_text()` on the `<code>` concatenates those without
+    Docusaurus renders each line as a `span` (older snapshots) or `div`
+    (R5) with class `token-line`. `get_text()` on the `<code>` concatenates those without
     separators (that is the newline loss this stage exists to avoid), so the
     token-line spans are read individually. Pages that predate that markup, or
     that use a plain `<pre><code>`, fall back to splitting the raw text.
@@ -97,8 +97,8 @@ def _code_lines(block_div) -> list[str]:
     code = block_div.find("code")
     host = code if code is not None else block_div
     lines = [
-        span.get_text()
-        for span in host.find_all("span", class_="token-line", recursive=False)
+        line.get_text()
+        for line in host.find_all(["span", "div"], class_="token-line", recursive=False)
     ]
     if not lines:
         lines = host.get_text().split("\n")
@@ -315,11 +315,13 @@ def main() -> int:
     )
     parser.add_argument("--repo-root", default=str(REPO_ROOT))
     parser.add_argument("--version")
+    parser.add_argument("--docs-root", help="Explicit snapshot root, including the beta root")
     parser.add_argument("--out", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
-    docs_root = resolve_docs_root(repo_root / "mirror" / "docs", args.version)
+    docs_root = (Path(args.docs_root).resolve() if args.docs_root else
+                 resolve_docs_root(repo_root / "mirror" / "docs", args.version))
     ir = load_json(IR_PATH)
     manifest = load_json(MANIFEST_PATH)
     stage1 = load_json(STAGE1_PATH)

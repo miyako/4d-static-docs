@@ -13,7 +13,7 @@
   },
   "summary": "Whether Nagle's algorithm is disabled (`true`) or enabled (`false`)",
   "description": "The .noDelay property contains whether Nagle's algorithm is disabled (true) or enabled (false). This property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "docPage": "mirror/docs/API/TCPConnectionClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

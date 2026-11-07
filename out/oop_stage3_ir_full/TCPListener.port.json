@@ -13,7 +13,7 @@
   },
   "summary": "The port number of the machine",
   "description": "The .port property contains the port number of the machine. This property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/TCPListenerClass.html",
+  "docPage": "mirror/docs/API/TCPListenerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

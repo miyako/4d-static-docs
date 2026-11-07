@@ -711,6 +711,24 @@
     "status": "clean"
   },
   {
+    "id": "4D.Vector.new",
+    "kind": "oop_constructor",
+    "variant": "enum:4D.Vector.new.precision=mk double precision",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_4D_Vector_new.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "4D.Vector.new",
+    "kind": "oop_constructor",
+    "variant": "optional:omit-precision",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_4D_Vector_new.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "4D.WebSocketServer.new",
     "kind": "oop_constructor",
     "variant": "default",
@@ -2021,6 +2039,15 @@
     "variant": "default",
     "overload_index": 0,
     "file": "Sources/Methods/SynthOOP_DataClass_getDataStore.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "DataClass.getIndexes",
+    "kind": "oop_function",
+    "variant": "default",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_DataClass_getIndexes.4dm",
     "diagnostics": [],
     "status": "clean"
   },
@@ -6165,6 +6192,411 @@
     "status": "clean"
   },
   {
+    "id": "QuotaManagerClass.nbRequestsPerMinPerSession",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_008d.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbRequestsPerMinPerSession",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_008d.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbRequestsPerHourPerSession",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_1323.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbRequestsPerHourPerSession",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_1323.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbSessions",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_19fe.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbSessions",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_19fe.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbGuestSessions",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_35cf.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbGuestSessions",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_35cf.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.inBytesPerMin",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_4439.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.inBytesPerMin",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_4439.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.outBytesPerMin",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_4e08.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.outBytesPerMin",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_4e08.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.outBytesPerMinPerSession",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_63c6.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.outBytesPerMinPerSession",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_63c6.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbRequestsPerHour",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_7302.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbRequestsPerHour",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_7302.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.outBytesPerHourPerSession",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_8383.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.outBytesPerHourPerSession",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_8383.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.inBytesPerMinPerSession",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_90f9.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.inBytesPerMinPerSession",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_90f9.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.maxEntitySetTimeout",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_93c4.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.maxEntitySetTimeout",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_93c4.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbEntitySets",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_9abf.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbEntitySets",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_9abf.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.currentValues",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_c66a.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.inBytesPerHour",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_c8a7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.inBytesPerHour",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_c8a7.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.defaultEntitySetTimeout",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_ca92.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.defaultEntitySetTimeout",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_ca92.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.inBytesPerHourPerSession",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_d28e.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.inBytesPerHourPerSession",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_d28e.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbEntitySetsPerSession",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_db67.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbEntitySetsPerSession",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_db67.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.outBytesPerHour",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_e527.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.outBytesPerHour",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_e527.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbRequestsPerMin",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_faf0.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "QuotaManagerClass.nbRequestsPerMin",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_QuotaManagerClass_faf0.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SMTPTransporter.certificatePassword",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_SMTPTransporter_c_301c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SMTPTransporter.certificatePassword",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_SMTPTransporter_c_301c.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SMTPTransporter.certificateName",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_SMTPTransporter_c_5734.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SMTPTransporter.certificateName",
+    "kind": "oop_property",
+    "variant": "write",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_SMTPTransporter_c_5734.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SMTPTransporter.certificate",
+    "kind": "oop_property",
+    "variant": "read:4D.File",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_SMTPTransporter_c_f913.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SMTPTransporter.certificate",
+    "kind": "oop_property",
+    "variant": "write:4D.File",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_SMTPTransporter_c_f913.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SMTPTransporter.certificate",
+    "kind": "oop_property",
+    "variant": "read:Blob",
+    "overload_index": 1,
+    "file": "Sources/Methods/SynthOOP_SMTPTransporter_c_f913.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "SMTPTransporter.certificate",
+    "kind": "oop_property",
+    "variant": "write:Blob",
+    "overload_index": 1,
+    "file": "Sources/Methods/SynthOOP_SMTPTransporter_c_f913.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "SMTPTransporter.keepAlive",
     "kind": "oop_property",
     "variant": "read",
@@ -6300,15 +6732,6 @@
     "status": "clean"
   },
   {
-    "id": "Session.info",
-    "kind": "oop_property",
-    "variant": "write",
-    "overload_index": 0,
-    "file": "Sources/Methods/SynthOOP_Session_info.4dm",
-    "diagnostics": [],
-    "status": "clean"
-  },
-  {
     "id": "Session.isGuest",
     "kind": "oop_function",
     "variant": "default",
@@ -6323,6 +6746,15 @@
     "variant": "default",
     "overload_index": 0,
     "file": "Sources/Methods/SynthOOP_Session_promote.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "Session.quotas",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_Session_quotas.4dm",
     "diagnostics": [],
     "status": "clean"
   },
@@ -7200,11 +7632,11 @@
     "status": "clean"
   },
   {
-    "id": "Vector.length",
+    "id": "Vector.precision",
     "kind": "oop_property",
-    "variant": "write",
+    "variant": "read",
     "overload_index": 0,
-    "file": "Sources/Methods/SynthOOP_Vector_length.4dm",
+    "file": "Sources/Methods/SynthOOP_Vector_precision.4dm",
     "diagnostics": [],
     "status": "clean"
   },
@@ -7835,6 +8267,15 @@
     "variant": "read",
     "overload_index": 0,
     "file": "Sources/Methods/SynthOOP_WebServer_perfect_9946.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "WebServer.quotas",
+    "kind": "oop_property",
+    "variant": "read",
+    "overload_index": 0,
+    "file": "Sources/Methods/SynthOOP_WebServer_quotas.4dm",
     "diagnostics": [],
     "status": "clean"
   },

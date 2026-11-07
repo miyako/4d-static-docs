@@ -13,7 +13,7 @@
   },
   "summary": "All current connections handled by the WebSocket server",
   "description": "The .connections property contains all current connections handled by the WebSocket server. Each element of the collection is a WebSocketConnection object.\n\nWhen a connection is terminated, its status changes to \"Closed\" and it is removed from this collection.",
-  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "docPage": "mirror/docs/API/WebSocketServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

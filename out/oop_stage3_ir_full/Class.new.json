@@ -13,7 +13,7 @@
   },
   "summary": "Creates and returns a `cs.className` object which is a new instance of the class on which it is called",
   "description": "The .new() function creates and returns a cs.className object which is a new instance of the class on which it is called. This function is automatically available on all classes from the cs class store.\n\nYou can pass one or more optional param parameters, which will be passed to the class constructor function (if any) in the className class definition. Within the constructor function, the This is bound to the new object being constructed.",
-  "docPage": "mirror/docs/21-R3/API/ClassClass.html",
+  "docPage": "mirror/docs/API/ClassClass.html",
   "overloads": [
     {
       "params": [

@@ -13,7 +13,7 @@
   },
   "summary": "Returns the number of entities in a dataclass",
   "description": "The .getCount() function returns the number of entities in a dataclass.\n\nIf this function is used within a transaction, entities created during the transaction will be taken into account.",
-  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "docPage": "mirror/docs/API/DataClassClass.html",
   "overloads": [
     {
       "params": [],

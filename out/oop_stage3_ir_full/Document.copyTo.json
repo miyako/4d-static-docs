@@ -13,7 +13,7 @@
   },
   "summary": "Copies the `File` object into the specified *destinationFolder*",
   "description": "The .copyTo() function copies the File object into the specified destinationFolder .\n\nThe destinationFolder must exist on disk, otherwise an error is generated.\n\nBy default, the file is copied with the name of the original file. If you want to rename the copy, pass the new name in the newName parameter. The new name must comply with naming rules (e.g., it must not contain characters such as \":\", \"/\", etc.), otherwise an error is returned.\n\nIf a file with the same name already exists in the destinationFolder, by default 4D generates an error. You can pass the fk overwrite constant in the overwrite parameter to ignore and overwrite the existing file\n\nReturned value\n\nThe copied File object.",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "overloads": [
     {
       "params": [

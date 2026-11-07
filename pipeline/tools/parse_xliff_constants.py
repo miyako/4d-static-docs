@@ -30,6 +30,7 @@ Notes:
     maps to a list for that reason. In practice, doc-quoted constant names for
     a given command's selector table are unique enough for exact-match lookup.
 """
+import argparse
 import json
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -71,9 +72,9 @@ def parse_constants(path):
     return by_theme
 
 
-def build_registry():
-    themes = parse_themes(DATA_DIR / "4D_ConstantsThemesEN.xlf")
-    by_theme = parse_constants(DATA_DIR / "4D_ConstantsEN.xlf")
+def build_registry(data_dir=DATA_DIR, out_path=OUT_PATH):
+    themes = parse_themes(data_dir / "4D_ConstantsThemesEN.xlf")
+    by_theme = parse_constants(data_dir / "4D_ConstantsEN.xlf")
 
     by_name = {}
     for gid, entries in by_theme.items():
@@ -84,13 +85,17 @@ def build_registry():
             )
 
     registry = {"themes": themes, "byTheme": by_theme, "byName": by_name}
-    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUT_PATH.write_text(json.dumps(registry, indent=2, ensure_ascii=False) + "\n")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(registry, indent=2, ensure_ascii=False) + "\n")
     return registry
 
 
 if __name__ == "__main__":
-    reg = build_registry()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    parser.add_argument("--out", type=Path, default=OUT_PATH)
+    args = parser.parse_args()
+    reg = build_registry(args.data_dir, args.out)
     n_themes = len(reg["themes"])
     n_constants = sum(len(v) for v in reg["byTheme"].values())
-    print(f"Wrote {OUT_PATH} -- {n_themes} themes, {n_constants} constant entries")
+    print(f"Wrote {args.out} -- {n_themes} themes, {n_constants} constant entries")

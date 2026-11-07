@@ -13,7 +13,7 @@
   },
   "summary": "Returns an object providing information about the dataclass",
   "description": "The .getInfo() function returns an object providing information about the dataclass. This function is useful for setting up generic code.\n\nReturned object",
-  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "docPage": "mirror/docs/API/DataClassClass.html",
   "overloads": [
     {
       "params": [],

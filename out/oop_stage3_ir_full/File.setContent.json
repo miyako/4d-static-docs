@@ -13,7 +13,7 @@
   },
   "summary": "Rewrites the entire content of the file using the data stored in the *content* BLOB",
   "description": "The .setContent( ) function rewrites the entire content of the file using the data stored in the content BLOB. For information on BLOBs, please refer to the BLOB section.",
-  "docPage": "mirror/docs/21-R3/API/FileClass.html",
+  "docPage": "mirror/docs/API/FileClass.html",
   "overloads": [
     {
       "params": [

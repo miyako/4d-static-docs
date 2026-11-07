@@ -1,0 +1,43 @@
+{
+  "id": "SMTPTransporter.certificate",
+  "displayName": "SMTPTransporter.certificate",
+  "kind": "oop_property",
+  "memberName": ".certificate",
+  "receiver": {
+    "classId": "SMTPTransporter",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "SMTPTransporter"
+    }
+  },
+  "summary": "The certificate used to sign emails using S/MIME (Secure/MIME), provided as a `4D.File` object or a Blob",
+  "description": "The .certificate property contains the certificate used to sign emails using S/MIME (Secure/MIME), provided as a 4D.File object or a Blob. This certificate contains the private key.\n\nIf your certificate is already registered in your Certificate store (keychain), you can use .certificateName instead of this property. Note that you cannot use both properties simultaneously, otherwise an error is returned.",
+  "docPage": "mirror/docs/API/SMTPTransporterClass.html",
+  "accessor": {
+    "type": [
+      {
+        "kind": "concrete",
+        "name": "4D.File"
+      },
+      {
+        "kind": "concrete",
+        "name": "Blob"
+      }
+    ],
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.certificate** : 4D.File<br/>**.certificate** : Blob"
+  },
+  "sinceVersion": "21-R5",
+  "_seeAlso": [
+    {
+      "text": ".certificateName",
+      "href": "SMTPTransporterClass.html#certificatename"
+    },
+    {
+      "text": ".certificatePassword",
+      "href": "SMTPTransporterClass.html#certificatepassword"
+    }
+  ]
+}

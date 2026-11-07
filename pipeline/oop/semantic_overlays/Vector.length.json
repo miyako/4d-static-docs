@@ -1,0 +1,5 @@
+{
+  "id": "Vector.length",
+  "_reason": "Official 21 R5 BETA API/VectorClass.html states at class level 'Vector objects are shared, immutable, and streamable.' The per-property paragraph does not repeat the read-only restriction, so the mechanical default writable=true is false. The number of vector components is fixed at construction; rawSyntax remains unchanged.",
+  "accessor": {"writable": false}
+}

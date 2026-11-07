@@ -1,0 +1,25 @@
+{
+  "path": "references/syntaxEN-21-R5.json",
+  "version": "21-R5",
+  "status": "BETA",
+  "build": "21R5.100156",
+  "bundleVersion": "21 R5 build 21R5.100156",
+  "bundleNumericVersion": "21.5.0",
+  "source": "/Applications/4D 21 R5/4D.app/Contents/Resources/en.lproj/syntaxEN.json",
+  "sha256": "ee27d9689e834bd1990d60d289d8c4e86e39beb723fe88c55b719e9d1e8bc411",
+  "transformation": "none",
+  "constants": [
+    {
+      "path": "references/21-R5/4D_ConstantsEN.xlf",
+      "source": "/Applications/4D 21 R5/4D.app/Contents/Resources/en.lproj/4D_ConstantsEN.xlf",
+      "sha256": "ebfb12efbb634ba23967e3746c1cd70b3c2f8c5f097816d1863404d6661cd39b",
+      "transformation": "none"
+    },
+    {
+      "path": "references/21-R5/4D_ConstantsThemesEN.xlf",
+      "source": "/Applications/4D 21 R5/4D.app/Contents/Resources/en.lproj/4D_ConstantsThemesEN.xlf",
+      "sha256": "ad1fbc19b38852833e4cdb456cc505979d9eafa120e76a68cec3f74630c2aea0",
+      "transformation": "none"
+    }
+  ]
+}

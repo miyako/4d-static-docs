@@ -13,7 +13,7 @@
   },
   "summary": "True if the file is set as \"hidden\" at the system level",
   "description": "The .hidden property returns true if the file is set as \"hidden\" at the system level, and false otherwise.\n\nThis property is read/write.",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "accessor": {
     "type": {
       "kind": "concrete",

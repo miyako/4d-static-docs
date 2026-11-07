@@ -13,7 +13,7 @@
   },
   "summary": "Starts the logging of ORDA requests on the client side or on the server side",
   "description": "The .startRequestLog() function starts the logging of ORDA requests on the client side or on the server side. It is designed for debugging purposes in client/server configurations.",
-  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "docPage": "mirror/docs/API/DataStoreClass.html",
   "overloads": [
     {
       "params": [],

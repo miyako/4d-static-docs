@@ -13,7 +13,7 @@
   },
   "summary": "Contains a detailed description of the query as it was actually performed by 4D",
   "description": "The .queryPath property contains a detailed description of the query as it was actually performed by 4D. This property is available for EntitySelection objects generated through queries if the \"queryPath\":true property was passed in the querySettings parameter of the .query() function.\n\nFor more information, refer to the querySettings parameter paragraph in the Dataclass.query() page.",
-  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "docPage": "mirror/docs/API/EntitySelectionClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

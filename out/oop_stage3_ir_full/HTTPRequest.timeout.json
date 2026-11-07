@@ -13,7 +13,7 @@
   },
   "summary": "The `timeout` passed in the `options` object when calling new()",
   "description": "The .timeout property contains the timeout passed in the options object when calling new(). If it was omitted, contains Undefined.",
-  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "docPage": "mirror/docs/API/HTTPRequestClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

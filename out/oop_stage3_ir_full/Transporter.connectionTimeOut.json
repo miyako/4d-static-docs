@@ -13,7 +13,7 @@
   },
   "summary": "The maximum wait time (in seconds) allowed to establish a connection to the server",
   "description": "The .connectionTimeOut property contains the maximum wait time (in seconds) allowed to establish a connection to the server. By default, if the property has not been set in the server object (used to create the transporter object with SMTP New transporter, POP3 New transporter, or IMAP New transporter), the value is 30.",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

@@ -1,0 +1,644 @@
+{
+  "tool4dPath": "/Applications/4D 21 R5/tool4d.app/Contents/MacOS/tool4d",
+  "compilerProvenance": {
+    "tool4dPath": "/Applications/4D 21 R5/tool4d.app/Contents/MacOS/tool4d",
+    "TOOL4D_PATH": "/Applications/4D 21 R5/tool4d.app/Contents/MacOS/tool4d",
+    "capturedAt": "2026-11-07T10:00:23.807974+00:00",
+    "assembledIRSha256": "57ef9d0319eed3d553b121774323a19210dc88c6e4158f4330453d881be90060",
+    "sourceManifestSha256": "6b48c802e509ad6704f785eeb922b8debc6e897752d930c25acc8958374e9d2e",
+    "docsVersionBadge": "21 R5 BETA",
+    "syntaxSource": {
+      "path": "references/syntaxEN-21-R5.json",
+      "sha1": "228abc950640678ab057896e0e5e28551ce6d761",
+      "sha256": "ee27d9689e834bd1990d60d289d8c4e86e39beb723fe88c55b719e9d1e8bc411",
+      "declaredDocsVersion": "21-R5",
+      "note": "syntaxEN.json carries no version marker. This explicit capture declaration is compared with the actual documentation version badge."
+    },
+    "lspVersion": "tool4d-lsp-stdio 0.3.0",
+    "tool4dBuild": "21 R5 build 21R5.100156",
+    "compilerSyntaxSha256": "ee27d9689e834bd1990d60d289d8c4e86e39beb723fe88c55b719e9d1e8bc411"
+  },
+  "cases": [
+    {
+      "case": "File",
+      "typeName": "4D.File",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "QuotaCompilerName",
+      "typeName": "4D.QuotaManagerClass",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "QuotaDocName",
+      "typeName": "4D.QuotaManager",
+      "expectedClean": false,
+      "clean": false,
+      "passed": true,
+      "diagnostics": [
+        {
+          "message": "The class 4D.QuotaManager is unknown.",
+          "range": {
+            "end": {
+              "character": 2147483647,
+              "line": 0
+            },
+            "start": {
+              "character": 4,
+              "line": 0
+            }
+          },
+          "severity": 1
+        }
+      ]
+    },
+    {
+      "case": "UnknownControl",
+      "typeName": "4D.NoSuchQuotaControl",
+      "expectedClean": false,
+      "clean": false,
+      "passed": true,
+      "diagnostics": [
+        {
+          "message": "The class 4D.NoSuchQuotaControl is unknown.",
+          "range": {
+            "end": {
+              "character": 2147483647,
+              "line": 0
+            },
+            "start": {
+              "character": 4,
+              "line": 0
+            }
+          },
+          "severity": 1
+        }
+      ]
+    },
+    {
+      "case": "FolderConstructor",
+      "typeName": "4D.Folder",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "FolderStar",
+      "typeName": "4D.Folder",
+      "expectedClean": false,
+      "clean": false,
+      "passed": true,
+      "diagnostics": [
+        {
+          "message": "Syntax error",
+          "range": {
+            "end": {
+              "character": 2147483647,
+              "line": 1
+            },
+            "start": {
+              "character": 0,
+              "line": 1
+            }
+          },
+          "severity": 1
+        }
+      ]
+    },
+    {
+      "case": "FolderShortcut",
+      "typeName": "4D.Folder",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "IMAPNoArgs",
+      "typeName": "4D.IMAPNotifier",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "IMAPExtraArgs",
+      "typeName": "4D.IMAPNotifier",
+      "expectedClean": false,
+      "clean": false,
+      "passed": true,
+      "diagnostics": [
+        {
+          "message": "The function new received too many parameters.",
+          "range": {
+            "end": {
+              "character": 2147483647,
+              "line": 1
+            },
+            "start": {
+              "character": 4,
+              "line": 1
+            }
+          },
+          "severity": 1
+        }
+      ]
+    },
+    {
+      "case": "MultiSortCollection",
+      "typeName": "Collection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "MultiSortInteger",
+      "typeName": "Collection",
+      "expectedClean": false,
+      "clean": false,
+      "passed": true,
+      "diagnostics": [
+        {
+          "message": "At least one parameter type does not match the prototype(s) of the function \"multiSort\".",
+          "range": {
+            "end": {
+              "character": 2147483647,
+              "line": 1
+            },
+            "start": {
+              "character": 3,
+              "line": 1
+            }
+          },
+          "severity": 1
+        }
+      ]
+    },
+    {
+      "case": "ZipFileCorrect",
+      "typeName": "4D.ZipFile",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "ZipFileWrong",
+      "typeName": "4D.ZipFile",
+      "expectedClean": false,
+      "clean": false,
+      "passed": true,
+      "diagnostics": [
+        {
+          "message": "Impossible to cast 4D.File to 4D.ZipFile.",
+          "range": {
+            "end": {
+              "character": 2147483647,
+              "line": 1
+            },
+            "start": {
+              "character": 1,
+              "line": 1
+            }
+          },
+          "severity": 1
+        }
+      ]
+    },
+    {
+      "case": "OrderByScalar",
+      "typeName": "Collection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "OrderByText",
+      "typeName": "Collection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "OrderByFormula",
+      "typeName": "Collection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "TCPPortInteger",
+      "typeName": "4D.TCPConnection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "TCPPortReal",
+      "typeName": "4D.TCPConnection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "TCPPortText",
+      "typeName": "4D.TCPConnection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": [],
+      "compilerLimitation": "R5 check-syntax accepts this unsuitable port input. Compile acceptance does not validate serverPort semantics."
+    },
+    {
+      "case": "TCPPortCollection",
+      "typeName": "4D.TCPConnection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": [],
+      "compilerLimitation": "R5 check-syntax accepts this unsuitable port input. Compile acceptance does not validate serverPort semantics."
+    },
+    {
+      "case": "Class_Blob",
+      "typeName": "4D.Blob",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Class",
+      "typeName": "4D.Class",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Collection",
+      "typeName": "Collection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_CryptoKey",
+      "typeName": "4D.CryptoKey",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_DataClass",
+      "typeName": "4D.DataClass",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_DataStore",
+      "typeName": "4D.DataStore",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Directory",
+      "typeName": "4D.Directory",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Document",
+      "typeName": "4D.Document",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Email",
+      "typeName": "4D.Email",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Entity",
+      "typeName": "4D.Entity",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_EntitySelection",
+      "typeName": "4D.EntitySelection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_File",
+      "typeName": "4D.File",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_FileHandle",
+      "typeName": "4D.FileHandle",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Folder",
+      "typeName": "4D.Folder",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Formula",
+      "typeName": "4D.Formula",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Function",
+      "typeName": "4D.Function",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_HTTPAgent",
+      "typeName": "4D.HTTPAgent",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_HTTPRequest",
+      "typeName": "4D.HTTPRequest",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_IMAPNotifier",
+      "typeName": "4D.IMAPNotifier",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_IMAPTransporter",
+      "typeName": "4D.IMAPTransporter",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_IncomingMessage",
+      "typeName": "4D.IncomingMessage",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_MailAttachment",
+      "typeName": "4D.MailAttachment",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Method",
+      "typeName": "4D.Method",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_OutgoingMessage",
+      "typeName": "4D.OutgoingMessage",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_POP3Transporter",
+      "typeName": "4D.POP3Transporter",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_QuotaManagerClass",
+      "typeName": "4D.QuotaManagerClass",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_SMTPTransporter",
+      "typeName": "4D.SMTPTransporter",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Session",
+      "typeName": "4D.Session",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Signal",
+      "typeName": "4D.Signal",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_SystemWorker",
+      "typeName": "4D.SystemWorker",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_TCPConnection",
+      "typeName": "4D.TCPConnection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_TCPEvent",
+      "typeName": "4D.TCPEvent",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_TCPListener",
+      "typeName": "4D.TCPListener",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Transporter",
+      "typeName": "4D.Transporter",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_UDPEvent",
+      "typeName": "4D.UDPEvent",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_UDPSocket",
+      "typeName": "4D.UDPSocket",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_Vector",
+      "typeName": "4D.Vector",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_WebForm",
+      "typeName": "4D.WebForm",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_WebFormItem",
+      "typeName": "4D.WebFormItem",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_WebServer",
+      "typeName": "4D.WebServer",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_WebSocket",
+      "typeName": "4D.WebSocket",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_WebSocketConnection",
+      "typeName": "4D.WebSocketConnection",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_WebSocketServer",
+      "typeName": "4D.WebSocketServer",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_ZipArchive",
+      "typeName": "4D.ZipArchive",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_ZipFile",
+      "typeName": "4D.ZipFile",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    },
+    {
+      "case": "Class_ZipFolder",
+      "typeName": "4D.ZipFolder",
+      "expectedClean": true,
+      "clean": true,
+      "passed": true,
+      "diagnostics": []
+    }
+  ],
+  "passed": true
+}

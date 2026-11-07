@@ -13,7 +13,7 @@
   },
   "summary": "Maximum length of time (in seconds) that HSTS is active for each new client connection",
   "description": "The maximum length of time (in seconds) that HSTS is active for each new client connection. This information is stored on the client side for the specified duration.\n\nDefault value: 63072000 (2 years).",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

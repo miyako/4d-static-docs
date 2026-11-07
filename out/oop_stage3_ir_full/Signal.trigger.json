@@ -13,7 +13,7 @@
   },
   "summary": "Sets the `signaled` property of the signal object to **true**",
   "description": "The .trigger( ) function sets the signaled property of the signal object to true and awakens all workers or processes waiting for this signal.\n\nIf the signal is already in the signaled state (i.e., the signaled property is already true), the function does nothing.",
-  "docPage": "mirror/docs/21-R3/API/SignalClass.html",
+  "docPage": "mirror/docs/API/SignalClass.html",
   "overloads": [
     {
       "params": [],

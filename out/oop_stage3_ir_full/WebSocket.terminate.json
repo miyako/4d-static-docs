@@ -13,7 +13,7 @@
   },
   "summary": "Closes the WebSocket connection, along with optional *code* and *reason* parameters",
   "description": "The .terminate() function closes the WebSocket connection, along with optional code and reason parameters.\n\nIn code, you can pass a status code explaining why the connection is being closed (see also WebSocket Connection Close Code in the RFC6455):\n\nIf unspecified, a close code for the connection is automatically set to 1000 for a normal closure, or otherwise to another standard value in the range 1001-1015 that indicates the actual reason the connection was closed. If specified, the value of this code parameter overrides the automatic setting. The value must be an integer. Either 1000, or a custom code in the range 3000-4999. If you specify a code value, you should also specify a reason value.\n\nIn reason, you can pass a string describing why the connection is being closed.",
-  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "docPage": "mirror/docs/API/WebSocketClass.html",
   "overloads": [
     {
       "params": [

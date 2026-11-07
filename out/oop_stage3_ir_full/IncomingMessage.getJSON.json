@@ -13,7 +13,7 @@
   },
   "summary": "Returns the body of the request as a JSON resolution",
   "description": "The .getJSON() function returns the body of the request as a JSON resolution.\n\nIf the body has not been given as JSON valid content, an error is raised.",
-  "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
+  "docPage": "mirror/docs/API/IncomingMessageClass.html",
   "overloads": [
     {
       "params": [],

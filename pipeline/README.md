@@ -91,6 +91,22 @@ python3 pipeline/extract_review_bundle.py --docs-tree mirror/docs --version auto
 ```
 
 For a pinned version, use `--version 21-R3`.
+That historical version is no longer published in the current mirror; use
+`--version 21-R4` for the retained stable pages. For default **21 R5 BETA**
+pages and their matching capture, select the root explicitly:
+
+```sh
+python3 pipeline/extract_review_bundle.py \
+  --docs-tree mirror/docs --docs-root mirror/docs \
+  --syntax-json references/syntaxEN-21-R5.json \
+  --syntax-version 21-R5 --syntax-build 21R5.100156 \
+  --output extraction/r5-review
+```
+
+The hosted equivalent is `docs_root=.` with `version=auto`; blank
+`docs_root` retains stable auto-selection. Actual version/status are read
+from the page badge, not inferred from the root directory's name.
+See [R5_CORPUS.md](R5_CORPUS.md) for the reviewed assembled snapshot.
 The output directory must not already exist; use `--output extraction/run-2`
 for a subsequent run. The bundle records the local checkout's HEAD; use a
 clean checkout when generating reproducible review artifacts. The hosted
@@ -106,7 +122,7 @@ available to a hosted runner.
 | 0 | `stage0_manifest.py` | `mirror/docs/<version>/{commands,WritePro/commands,ViewPro/commands}` | `out/manifest.json` |
 | 1 | `stage1_extract.py` | `out/manifest.json` + source HTML | `out/stage1_raw.json`, cached per-command in `cache/raw/` |
 | 2 | `stage2_candidates.py` | `out/stage1_raw.json` | `out/candidates.json` (category A–S heuristic hits, for human review) |
-| 3 | `stage3_bulk.py` (1443 bulk commands) + `stage3_semantic.py` (13 hand-authored fixtures) | `out/stage1_raw.json` + `pipeline/semantic_overlays/*.json` | `out/stage3_ir_full/*.json`, schema-validated per command |
+| 3 | `stage3_bulk.py` (1447 bulk commands) + `stage3_semantic.py` (13 hand-authored fixtures) | `out/stage1_raw.json` + `pipeline/semantic_overlays/*.json` | `out/stage3_ir_full/*.json`, schema-validated per command |
 | 4 | relationships enrichment | — | explicitly skipped (schema-optional, no consumer need identified yet) |
 | 4.5 / 6 | `stage6_synth_examples.py` (separate follow-on effort, see `stage6_README.md`) | `out/4d-command-ir.json` | `out/lsp_crosscheck_report.json` (`tool4d-lsp-stdio` compiler cross-check) |
 | 5 | `stage5_assemble.py` | fixtures + Stage 3 output + Layer-2 registries | `out/4d-command-ir.json` (final root IR document) |
@@ -154,7 +170,7 @@ Both scripts accept `--repo-root` (default: cwd) and print a summary
 ## Version selection
 
 Stage 0 auto-picks the highest-numbered version folder under `mirror/docs/`
-whose badge does **not** contain "BETA" (currently resolves to `21-R3`; the
+whose badge does **not** contain "BETA" (currently resolves to `21-R4`; the
 top-level `mirror/docs/commands/` is the in-development next release and is
 deliberately never auto-selected). Override with `--version 21` or an
 explicit `--docs-root path/to/folder`.
@@ -168,8 +184,8 @@ full, logged list — nothing is dropped silently)
   included because they are still classic procedural pages, not OOP class
   docs; exclude with `--exclude-dir ViewPro/commands` if this pass should be
   narrower).
-- **Out of scope**: `API/*.html` (OOP class reference — different HTML
-  shape, excluded per the task brief), `commands/command-index.html` /
+- **Out of scope for this classic pipeline**: `API/*.html` (OOP class
+  reference — handled separately by `oop/`), `commands/command-index.html` /
   `WritePro/commands/command-index.html` (listing pages, not commands),
   `commands/constant-list.html` (constants index), `On ... database method`
   pages (framework callback hooks — no command number, not user-callable,
@@ -199,7 +215,7 @@ Every command carries an official documentation permalink:
 
 ```
 docPage       https://developer.4d.com/docs/commands/copy-array
-docPageLocal  mirror/docs/21-R3/commands/copy-array.html
+docPageLocal  mirror/docs/commands/copy-array.html
 ```
 
 Nothing is re-parsed to produce this. Stage 0 already recorded the source
@@ -209,17 +225,18 @@ and derives the URL from the same path. The join is required to be
 silently shipping without a link, because that means the corpus and the
 manifest disagree, not that the command is undocumented.
 
-**The URL omits the version segment on purpose.** `/docs/21-R3/commands/...`
-resolves today but stops resolving once 21-R3 is superseded, so embedding it
-in a redistributable artifact would make the artifact rot on 4D's release
-schedule. `docPageLocal` keeps the mirror path, which is the provenance
+**The URL omits the version segment on purpose.** Historical version paths
+can disappear (21-R3 is no longer published), so embedding one in a
+redistributable artifact would make it rot on 4D's release schedule.
+`docPageLocal` keeps the mirror path, which is the provenance
 record of the file actually parsed and is not recoverable from the URL.
 
-### The derivation was verified, not assumed
+### Historical live-site derivation check
 
 A version-less URL means "the current docs", and the classic corpus contains
-deprecated commands whose pages could plausibly have been dropped. All 1456
-were checked against the live site:
+deprecated commands whose pages could plausibly have been dropped. The
+original R3 corpus's 1456 commands were checked against the live site;
+the results below are historical evidence, not a fresh R5 HTTP sweep:
 
 - **1456/1456 return 200**, including deprecated commands such as
   `SET LIST PROPERTIES` and `GRAPH SETTINGS`.
@@ -236,6 +253,6 @@ were checked against the live site:
   200, in which case a sweep of real names would look identical to a sweep
   that verified nothing.
 
-The stage additionally asserts that the set of emitted URLs is exactly the
-set that was swept, so a future change to the derivation cannot quietly
-produce URLs that were never checked.
+That historical sweep also compared emitted and checked URL sets. Current
+assembly enforces exact manifest/IR id parity and traceable local pages;
+it does not claim to rerun the historical HTTP sweep.

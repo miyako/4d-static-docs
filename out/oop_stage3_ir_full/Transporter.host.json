@@ -13,7 +13,7 @@
   },
   "summary": "The name or the IP address of the host server",
   "description": "The .host property contains the name or the IP address of the host server. Used for mail transactions (SMTP, POP3, IMAP).",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

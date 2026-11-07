@@ -13,7 +13,7 @@
   },
   "summary": "Removes the promoted privilege whose id you passed in *promoteId* from the web process, if it was previously added by the `.promote()` function",
   "description": "The .demote() function removes the promoted privilege whose id you passed in promoteId from the web process, if it was previously added by the .promote() function.\n\nIf no privilege with promoteId was promoted using .promote() in the web process, the function does nothing.\n\nIf several privileges have been added to the web process, the demote() function must be called for each one with the appropriate promoteId. Privileges are stacked in the order they have been added to the process, it is recommended to unstack privileges in a LIFO (Last In, First Out) order.",
-  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "docPage": "mirror/docs/API/SessionClass.html",
   "overloads": [
     {
       "params": [

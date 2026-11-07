@@ -9,13 +9,14 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import sys
 from pathlib import Path
 from typing import Iterator
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-sys.path.insert(0, str(REPO_ROOT / "pipeline"))
+sys.path.append(str(REPO_ROOT / "pipeline"))
 
 from common.htmlutil import norm_text, parse_article, read_html  # noqa: E402
 
@@ -25,7 +26,7 @@ API_DIR = "API"
 ZERO_WIDTH_SPACE = "\u200b"
 
 # syntaxEN.json top-level keys that are not OOP classes.
-#   _command_ : the 1353 classic commands, already covered by out/4d-command-ir.json
+#   _command_ : classic commands, already covered by out/4d-command-ir.json
 #   4D        : the class-store constructor namespace (4D.<X>.new()), handled separately
 NON_CLASS_KEYS = {"_command_"}
 CLASS_STORE_KEY = "4D"
@@ -84,8 +85,48 @@ def load_syntax_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def compiler_provenance() -> dict:
+    """Record explicit compiler selection and compare its capture when available."""
+    import plistlib
+    import subprocess
+    from datetime import datetime, timezone
+
+    selected = os.environ.get("TOOL4D_PATH")
+    if not selected:
+        raise SystemExit("Set TOOL4D_PATH explicitly to the compiler matching the capture.")
+    tool = Path(selected).resolve()
+    if not tool.is_file():
+        raise SystemExit(f"TOOL4D_PATH does not name an executable: {tool}")
+    manifest = json.loads((REPO_ROOT / "out/oop_manifest.json").read_text())
+    provenance = {
+        "tool4dPath": str(tool),
+        "TOOL4D_PATH": selected,
+        "capturedAt": datetime.now(timezone.utc).isoformat(),
+        "assembledIRSha256": hashlib.sha256((REPO_ROOT / "out/4d-oop-ir.json").read_bytes()).hexdigest(),
+        "sourceManifestSha256": hashlib.sha256((REPO_ROOT / "out/oop_manifest.json").read_bytes()).hexdigest(),
+        "docsVersionBadge": manifest.get("docsVersionBadge"),
+        "syntaxSource": manifest["syntaxSource"],
+        "lspVersion": subprocess.check_output(
+            [str(REPO_ROOT / "tools/4dlsp/tool4d-lsp-stdio"), "--version"], text=True
+        ).strip(),
+    }
+    contents = tool.parents[1]
+    if (contents / "Info.plist").is_file():
+        plist = plistlib.loads((contents / "Info.plist").read_bytes())
+        provenance["tool4dBuild"] = plist.get("CFBundleShortVersionString")
+    capture = contents / "Resources/en.lproj/syntaxEN.json"
+    if capture.is_file():
+        provenance["compilerSyntaxSha256"] = hashlib.sha256(capture.read_bytes()).hexdigest()
+        expected = hashlib.sha256(
+            (REPO_ROOT / manifest["syntaxSource"]["path"]).read_bytes()
+        ).hexdigest()
+        if provenance["compilerSyntaxSha256"] != expected:
+            raise SystemExit("Selected compiler syntax resource differs from the manifest capture.")
+    return provenance
+
+
 def oop_class_names(syntax: dict) -> list[str]:
-    """The 45 built-in class keys, excluding the classic corpus and 4D store."""
+    """Built-in class keys, excluding the classic corpus and 4D store."""
     return sorted(
         k for k in syntax if k not in NON_CLASS_KEYS and k != CLASS_STORE_KEY
     )
@@ -231,7 +272,7 @@ def member_id(class_name: str, member_key: str) -> str:
 def iter_syntax_members(syntax: dict):
     """Yield (id, class, memberKey, record) for every syntaxEN OOP member.
 
-    Covers the 45 built-in classes plus the 19 class-store constructors, and
+    Covers all built-in classes plus the class-store constructors, and
     excludes the classic `_command_` corpus and the `_inheritedFrom_`
     sentinels.
     """

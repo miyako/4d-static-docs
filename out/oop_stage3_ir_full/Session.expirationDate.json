@@ -13,7 +13,7 @@
   },
   "summary": "The expiration date and time of the session cookie",
   "description": "The .expirationDate property contains the expiration date and time of the session cookie. The value is expressed as text in the ISO 8601 format: YYYY-MM-DDTHH:MM:SS.mmmZ.\n\nThis property is read-only. It is automatically recomputed if the .idleTimeout property value is modified.",
-  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "docPage": "mirror/docs/API/SessionClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

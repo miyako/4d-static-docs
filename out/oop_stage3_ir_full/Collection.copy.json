@@ -13,7 +13,7 @@
   },
   "summary": "Returns a deep copy of the collection instance",
   "description": "The .copy() function returns a deep copy of the collection instance.Deep copy means that objects or collections within the original collection are duplicated and do not share any reference with the returned collection.\n\nThis function does not modify the original collection.\n\nIf passed, the option parameter can contain one of the following constants (or both):\n\nThe groupWithCol or groupWithObj parameters allow you to designate a collection or an object with which the resulting collection should be associated.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [],

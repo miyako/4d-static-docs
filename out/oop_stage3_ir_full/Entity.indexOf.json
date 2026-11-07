@@ -13,7 +13,7 @@
   },
   "summary": "Returns the position of the entity in an entity selection",
   "description": "The .indexOf() function returns the position of the entity in an entity selection.\n\nBy default if the entitySelection parameter is omitted, the function returns the entity's position within its own entity selection. Otherwise, it returns the position of the entity within the specified entitySelection.\n\nThe resulting value is included between 0 and the length of the entity selection -1.\n\nIf the entity does not have an entity selection or does not belong to entitySelection, the function returns -1. If entitySelection is Null or does not belong to the same dataclass as the entity, an error is raised.",
-  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "docPage": "mirror/docs/API/EntityClass.html",
   "overloads": [
     {
       "params": [

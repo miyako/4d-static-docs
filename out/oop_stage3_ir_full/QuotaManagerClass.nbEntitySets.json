@@ -1,0 +1,30 @@
+{
+  "id": "QuotaManagerClass.nbEntitySets",
+  "displayName": "QuotaManagerClass.nbEntitySets",
+  "kind": "oop_property",
+  "memberName": ".nbEntitySets",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum number of REST entity sets allowed in memory for the current session",
+  "description": "The .nbEntitySets property contains the maximum number of REST entity sets allowed in memory for the current session.\n\nScope: current session level\n\nBy default, there is no limit for entity sets stored in memory by REST requests (the value is 0). You can set a limit to control the server payload for a specific session.\n\nWhen the maximum number of allowed entity sets is reached, a REST request that need to create an entity set will get a 429 HTTP status code and an error response, until at least one entity set is released. You can release an entity set from the cache using the $release REST command.\n\nYou cannot pass a value <=0 (an error is generated in this case). To reset the property value for the session, pass undefined.",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**nbEntitySets** : Integer"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  }
+}

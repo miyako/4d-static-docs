@@ -1,4 +1,18 @@
 {
+  "FormObjectBorderStyle": {
+    "description": "Border style constants documented for OBJECT Get/SET BORDER STYLE, with R5 additions from the official Form Objects (Properties) constants.",
+    "values": [
+      {"name": "Border None", "value": 0},
+      {"name": "Border Plain", "value": 1},
+      {"name": "Border Dotted", "value": 2},
+      {"name": "Border Raised", "value": 3},
+      {"name": "Border Sunken", "value": 4},
+      {"name": "Border Double", "value": 5},
+      {"name": "Border System", "value": 6},
+      {"name": "Border System Rounded", "value": 8},
+      {"name": "Border Custom", "value": 9}
+    ]
+  },
   "_source": "Curated from 4D's own localized-constants XLIFF corpus (4D_ConstantsEN.xlf / 4D_ConstantsThemesEN.xlf, user-provided, parsed into references/4d-constants-registry.json). Each entry here is a hand-picked subset of one XLIFF theme group, scoped to exactly the constants a given command's docs actually document, not the group's full raw contents (a raw XLIFF theme group commonly bundles several logically-distinct constant lists together -- see 4d-constants-registry.json's module docstring). Referenced from command overlays via {\"kind\":\"enum_ref\",\"enum\":\"<key>\"}; a final corpus-assembly step is expected to merge these into the root IR document's top-level \"enums\" map alongside references/4d-command-ir-examples.json's own enums.",
   "WebServerOptionSelector": {
     "description": "WEB SET OPTION / WEB GET OPTION selector constants (XLIFF theme group 73, 'Web Server'). Selects which Web server setting is read/modified; the value parameter's expected type/range depends on which of these is passed.",

@@ -13,7 +13,7 @@
   },
   "summary": "Removes the first element of the collection and returns it as the function result",
   "description": "The .shift() function removes the first element of the collection and returns it as the function result.\n\nThis function modifies the original collection.\n\nIf the collection is empty, this method does nothing.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [],

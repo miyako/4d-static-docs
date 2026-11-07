@@ -13,7 +13,7 @@
   },
   "summary": "A collection of error objects associated with the connection",
   "description": "The .errors property contains a collection of error objects associated with the connection. Each error object includes the error code, a description, and the signature of the component that caused the error.",
-  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "docPage": "mirror/docs/API/TCPConnectionClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

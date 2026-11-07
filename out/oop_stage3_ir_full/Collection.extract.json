@@ -13,7 +13,7 @@
   },
   "summary": "Creates and returns a new collection containing *propertyPath* values extracted from the original collection of objects",
   "description": "The .extract() function creates and returns a new collection containing propertyPath values extracted from the original collection of objects.\n\nThis function does not modify the original collection.\n\nThe contents of the returned collection depends on the targetPath parameter:\n\nIf the targetPath parameter is omitted, .extract() populates the new collection with the propertyPath values of the original collection. By default, elements for which propertyPath is null or undefined are ignored in the resulting collection. You can pass the ck keep null constant in the option parameter to include these values as null elements in the returned collection. If one or more targetPath parameter(s) are passed (corresponding to one or more propertyPath parameter(s)), .extract() populates the new collection with the propertyPath properties and each element of the new collection is an object with targetPath properties filled with the matching propertyPath properties. Null values are kept (option parameter is ignored with this syntax).",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

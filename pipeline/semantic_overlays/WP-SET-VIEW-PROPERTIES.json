@@ -36,6 +36,7 @@
   ],
   "constraints": [
     "The command can only be used if wpArea is associated with a form object currently displayed in the form; if the document is displayed in several form objects, the '*' syntax is required to identify which view to set.",
-    "Property modifications made by this command are not saved with the document or the form and persist only while the form area is in use and not overridden by a later call."
+    "Property modifications made by this command are not saved with the document or the form and persist only while the form area is in use and not overridden by a later call.",
+    "visibleTableBorders (wk visible table borders) accepts a Boolean and shows partially or wholly invisible table borders as dotted lines."
   ]
 }

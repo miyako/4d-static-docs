@@ -13,7 +13,7 @@
   },
   "summary": "Returns all elements of a collection of objects that match the search conditions",
   "description": "The .query() function returns all elements of a collection of objects that match the search conditions defined by queryString and (optionally) value or querySettings. If the original collection is a shared collection, the returned collection is also a shared collection.\n\nAn empty collection is returned if the collection in which the query is executed does not contain the searched value.\n\nThis function does not modify the original collection.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

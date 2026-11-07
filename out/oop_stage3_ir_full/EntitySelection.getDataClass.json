@@ -13,7 +13,7 @@
   },
   "summary": "Returns the dataclass of the entity selection",
   "description": "The .getDataClass() function returns the dataclass of the entity selection.\n\nThis function is mainly useful in the context of generic code.",
-  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "docPage": "mirror/docs/API/EntitySelectionClass.html",
   "overloads": [
     {
       "params": [],

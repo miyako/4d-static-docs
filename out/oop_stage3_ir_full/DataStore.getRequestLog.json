@@ -13,7 +13,7 @@
   },
   "summary": "Returns the ORDA requests logged in memory on the client side",
   "description": "The .getRequestLog() function returns the ORDA requests logged in memory on the client side. The ORDA request logging must have previously been enabled using the .startRequestLog() function.\n\nThis function must be called on a remote 4D, otherwise it returns an empty collection. It is designed for debugging purposes in client/server configurations.\n\nReturned value\n\nCollection of stacked request objects. The most recent request has index 0.\n\nFor a description of the ORDA request log format, please refer to the ORDA requests section.",
-  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "docPage": "mirror/docs/API/DataStoreClass.html",
   "overloads": [
     {
       "params": [],

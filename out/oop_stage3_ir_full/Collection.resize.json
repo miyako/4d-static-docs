@@ -13,7 +13,7 @@
   },
   "summary": "Sets the collection length to the specified new size and returns the resized collection",
   "description": "The .resize() function sets the collection length to the specified new size and returns the resized collection.\n\nThis function modifies the original collection.\n\nIf size < collection length, exceeding elements are removed from the collection. If size > collection length, the collection length is increased to size.\n\nBy default, new elements are filled will null values. You can specify the value to fill in added elements using the defaultValue parameter.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

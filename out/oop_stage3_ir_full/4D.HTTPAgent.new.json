@@ -13,7 +13,7 @@
   },
   "summary": "Creates a shareable HTTPAgent object with the defined *options*, and returns a `4D.HTTPAgent` object",
   "description": "The 4D.HTTPAgent.new() function creates a shareable HTTPAgent object with the defined options, and returns a 4D.HTTPAgent object.\n\nThe returned HTTPAgent object is used to customize connections to HTTP servers.",
-  "docPage": "mirror/docs/21-R3/API/HTTPAgentClass.html",
+  "docPage": "mirror/docs/API/HTTPAgentClass.html",
   "overloads": [
     {
       "params": [

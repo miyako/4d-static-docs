@@ -13,7 +13,7 @@
   },
   "summary": "Selects the *name* mailbox as the current mailbox",
   "description": "The .selectBox() function selects the name mailbox as the current mailbox. This function allows you to retrieve information about the mailbox.\n\nTo get the information from a mailbox without changing the current mailbox, use .getBoxInfo().\n\nIn the name parameter, pass the name of the mailbox to access. The name represents an unambiguous left-to-right hierarchy with levels separated by a specific delimiter character. The delimiter can be found with the .getDelimiter() function.\n\nThe optional state parameter defines the type of access to the mailbox. The possible values are:\n\nThe function generates an error and returns Null if name designates a non-existing mailbox. If there is no open connection, .selectBox() will open a connection. If the connection has not been used since the designated connection delay (see IMAP New transporter), the .checkConnection() function is automatically called.\n\nReturned object\n\nThe boxInfo object returned contains the following properties:",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [

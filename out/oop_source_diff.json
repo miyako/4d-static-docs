@@ -813,8 +813,8 @@
       "class": "DataClass",
       "page": "API/DataClassClass.html",
       "superclass": null,
-      "headings": 13,
-      "syntaxEnMembers": 12,
+      "headings": 14,
+      "syntaxEnMembers": 13,
       "entries": [
         {
           "member": ".attributeName",
@@ -882,6 +882,17 @@
         {
           "member": ".getDataStore()",
           "heading": ".getDataStore()​",
+          "headingLevel": "h2",
+          "page": "API/DataClassClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".getIndexes()",
+          "heading": ".getIndexes()​",
           "headingLevel": "h2",
           "page": "API/DataClassClass.html",
           "category": "matched",
@@ -4637,11 +4648,229 @@
       ]
     },
     {
+      "class": "QuotaManagerClass",
+      "page": "API/QuotaManagerClass.html",
+      "superclass": null,
+      "headings": 19,
+      "syntaxEnMembers": 19,
+      "entries": [
+        {
+          "member": ".currentValues",
+          "heading": ".currentValues​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".defaultEntitySetTimeout",
+          "heading": ".defaultEntitySetTimeout​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".inBytesPerHour",
+          "heading": ".inBytesPerHour​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".inBytesPerHourPerSession",
+          "heading": ".inBytesPerHourPerSession​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".inBytesPerMin",
+          "heading": ".inBytesPerMin​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".inBytesPerMinPerSession",
+          "heading": ".inBytesPerMinPerSession​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".maxEntitySetTimeout",
+          "heading": ".maxEntitySetTimeout​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".nbEntitySets",
+          "heading": ".nbEntitySets​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".nbEntitySetsPerSession",
+          "heading": ".nbEntitySetsPerSession​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".nbGuestSessions",
+          "heading": ".nbGuestSessions​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".nbRequestsPerHour",
+          "heading": ".nbRequestsPerHour​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".nbRequestsPerHourPerSession",
+          "heading": ".nbRequestsPerHourPerSession​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".nbRequestsPerMin",
+          "heading": ".nbRequestsPerMin​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".nbRequestsPerMinPerSession",
+          "heading": ".nbRequestsPerMinPerSession​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".nbSessions",
+          "heading": ".nbSessions​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".outBytesPerHour",
+          "heading": ".outBytesPerHour​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".outBytesPerHourPerSession",
+          "heading": ".outBytesPerHourPerSession​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".outBytesPerMin",
+          "heading": ".outBytesPerMin​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".outBytesPerMinPerSession",
+          "heading": ".outBytesPerMinPerSession​",
+          "headingLevel": "h2",
+          "page": "API/QuotaManagerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        }
+      ]
+    },
+    {
       "class": "SMTPTransporter",
       "page": "API/SMTPTransporterClass.html",
       "superclass": "Transporter",
-      "headings": 14,
-      "syntaxEnMembers": 3,
+      "headings": 17,
+      "syntaxEnMembers": 6,
       "entries": [
         {
           "member": "4D.SMTPTransporter.new()",
@@ -4680,6 +4909,39 @@
           "category": "inherited_from_superclass",
           "declaredOn": "Transporter",
           "evidence": "syntaxEN.json['SMTPTransporter']['_inheritedFrom_'] resolves to 'Transporter', which declares 'bodyCharset'"
+        },
+        {
+          "member": ".certificate",
+          "heading": ".certificate​",
+          "headingLevel": "h2",
+          "page": "API/SMTPTransporterClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".certificateName",
+          "heading": ".certificateName​",
+          "headingLevel": "h2",
+          "page": "API/SMTPTransporterClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".certificatePassword",
+          "heading": ".certificatePassword​",
+          "headingLevel": "h2",
+          "page": "API/SMTPTransporterClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
         },
         {
           "member": ".checkConnection()",
@@ -4781,8 +5043,8 @@
       "class": "Session",
       "page": "API/SessionClass.html",
       "superclass": null,
-      "headings": 15,
-      "syntaxEnMembers": 15,
+      "headings": 16,
+      "syntaxEnMembers": 16,
       "entries": [
         {
           "member": ".clearPrivileges()",
@@ -4897,6 +5159,17 @@
         {
           "member": ".promote()",
           "heading": ".promote()​",
+          "headingLevel": "h2",
+          "page": "API/SessionClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".quotas",
+          "heading": ".quotas​",
           "headingLevel": "h2",
           "page": "API/SessionClass.html",
           "category": "matched",
@@ -5426,6 +5699,158 @@
       ]
     },
     {
+      "class": "Transporter",
+      "page": "API/Transporter.html",
+      "superclass": null,
+      "headings": 13,
+      "syntaxEnMembers": 11,
+      "entries": [
+        {
+          "member": ".acceptUnsecureConnection",
+          "heading": ".acceptUnsecureConnection​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".authenticationMode",
+          "heading": ".authenticationMode​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".authenticationMode",
+          "heading": ".authenticationMode​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".authenticationMode",
+          "heading": ".authenticationMode​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".bodyCharset",
+          "heading": ".bodyCharset​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".connectionTimeOut",
+          "heading": ".connectionTimeOut​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".headerCharset",
+          "heading": ".headerCharset​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".host",
+          "heading": ".host​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".logFile",
+          "heading": ".logFile​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".port",
+          "heading": ".port​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".sendTimeOut",
+          "heading": ".sendTimeOut​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".user",
+          "heading": ".user​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".checkConnection()",
+          "heading": ".checkConnection()​",
+          "headingLevel": "h2",
+          "page": "API/Transporter.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        }
+      ]
+    },
+    {
       "class": "UDPEvent",
       "page": "API/UDPEventClass.html",
       "superclass": null,
@@ -5535,8 +5960,8 @@
       "class": "Vector",
       "page": "API/VectorClass.html",
       "superclass": null,
-      "headings": 6,
-      "syntaxEnMembers": 6,
+      "headings": 7,
+      "syntaxEnMembers": 7,
       "entries": [
         {
           "member": "4D.Vector.new()",
@@ -5585,6 +6010,17 @@
         {
           "member": ".length",
           "heading": ".length​",
+          "headingLevel": "h2",
+          "page": "API/VectorClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".precision",
+          "heading": ".precision​",
           "headingLevel": "h2",
           "page": "API/VectorClass.html",
           "category": "matched",
@@ -5744,8 +6180,8 @@
       "class": "WebServer",
       "page": "API/WebServerClass.html",
       "superclass": null,
-      "headings": 41,
-      "syntaxEnMembers": 41,
+      "headings": 42,
+      "syntaxEnMembers": 42,
       "entries": [
         {
           "member": ".accessKeyDefined",
@@ -6080,6 +6516,17 @@
         {
           "member": ".perfectForwardSecrecy",
           "heading": ".perfectForwardSecrecy​",
+          "headingLevel": "h2",
+          "page": "API/WebServerClass.html",
+          "category": "matched",
+          "normalizations": [
+            "stripped U+200B zero-width space",
+            "truncated parameter list to '()'"
+          ]
+        },
+        {
+          "member": ".quotas",
+          "heading": ".quotas​",
           "headingLevel": "h2",
           "page": "API/WebServerClass.html",
           "category": "matched",
@@ -6845,6 +7292,12 @@
       "klass": "POP3Transporter"
     },
     {
+      "raw": "QuotaManager Object​",
+      "level": "h3",
+      "page": "API/QuotaManagerClass.html",
+      "klass": "QuotaManagerClass"
+    },
+    {
       "raw": "SMTP Transporter object​",
       "level": "h3",
       "page": "API/SMTPTransporterClass.html",
@@ -6945,6 +7398,12 @@
       "level": "h3",
       "page": "API/TCPListenerClass.html",
       "klass": "TCPListener"
+    },
+    {
+      "raw": "Description​",
+      "level": "h2",
+      "page": "API/Transporter.html",
+      "klass": "Transporter"
     },
     {
       "raw": "UDPEvent Object​",
@@ -7115,20 +7574,9 @@
       "klass": "ZipArchive"
     }
   ],
-  "orphanClasses": [
-    {
-      "class": "Transporter",
-      "members": 11,
-      "documentedVia": [
-        "IMAPTransporter",
-        "POP3Transporter",
-        "SMTPTransporter"
-      ],
-      "evidence": "no API/Transporter*.html page; every member appears on the pages of ['IMAPTransporter', 'POP3Transporter', 'SMTPTransporter'] as an inherited member"
-    }
-  ],
+  "orphanClasses": [],
   "counts": {
-    "matched": 484,
+    "matched": 523,
     "inherited_from_superclass": 78,
     "dynamic_member": 7,
     "syntaxen_missing": 0,
@@ -7136,16 +7584,17 @@
   },
   "annotations": {
     "heading_level_artifact": 9,
-    "name_normalization": 484
+    "name_normalization": 523
   },
   "accounting": {
-    "syntaxEnMembers": 495,
-    "matchedToADocHeading": 484,
-    "declaredOnAnOrphanBaseClass": 11,
+    "syntaxEnMembers": 521,
+    "matchedToADocHeading": 521,
+    "duplicateMatchedHeadings": 2,
+    "declaredOnAnOrphanBaseClass": 0,
     "unaccountedSyntaxEnMembers": 0,
-    "docHeadings": 569
+    "docHeadings": 608
   },
-  "docsRoot": "mirror/docs/21-R3",
-  "syntaxJson": "references/syntaxEN.json",
-  "classes": 45
+  "docsRoot": "mirror/docs",
+  "syntaxJson": "references/syntaxEN-21-R5.json",
+  "classes": 47
 }

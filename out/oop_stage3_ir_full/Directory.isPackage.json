@@ -13,7 +13,7 @@
   },
   "summary": "True if the folder is a package on macOS  (and exists on disk)",
   "description": "The .isPackage property returns true if the folder is a package on macOS (and exists on disk). Otherwise, it returns false.\n\nOn Windows, .isPackage always returns false.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "docPage": "mirror/docs/API/Directory.html",
   "accessor": {
     "type": {
       "kind": "concrete",

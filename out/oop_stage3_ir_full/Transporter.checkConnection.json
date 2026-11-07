@@ -13,7 +13,7 @@
   },
   "summary": "Checks the connection using information stored in the transporter object",
   "description": "The .checkConnection() function checks the connection using information stored in the transporter object, recreates the connection if necessary, and returns the status. This function allows you to verify that the values provided by the user are valid and consistent.",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [],

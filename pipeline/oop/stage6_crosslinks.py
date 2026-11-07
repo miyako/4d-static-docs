@@ -35,7 +35,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 # equivalence, not a name match.
 CURATED_EQUIVALENTS = [
     ("Collection.length", "Size-of-array",
-     "Both give the element count; Size of array also resizes, .length is read-only."),
+     "Both give the element count: Size of array for an array, .length for a collection."),
     ("Collection.sort", "SORT-ARRAY",
      "Collection.sort returns a new collection; SORT ARRAY sorts an array in place."),
     ("Collection.push", "APPEND-TO-ARRAY", "Append one element to the end."),

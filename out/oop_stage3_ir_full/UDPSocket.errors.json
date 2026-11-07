@@ -13,7 +13,7 @@
   },
   "summary": "A collection of error objects associated with the socket",
   "description": "The .errors property contains a collection of error objects associated with the socket. Each error object includes the error code, a description, and the signature of the component that caused the error.",
-  "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
+  "docPage": "mirror/docs/API/UDPSocketClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

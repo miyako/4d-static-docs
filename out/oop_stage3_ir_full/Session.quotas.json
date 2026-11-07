@@ -1,0 +1,37 @@
+{
+  "id": "Session.quotas",
+  "displayName": "Session.quotas",
+  "kind": "oop_property",
+  "memberName": ".quotas",
+  "receiver": {
+    "classId": "Session",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Session"
+    }
+  },
+  "summary": "A `4D.QuotaManager` object with current values and set values for server thresholds regarding REST requests in the current session",
+  "description": "The .quotas property contains a 4D.QuotaManager object with current values and set values for server thresholds regarding REST requests in the current session. Server thresholds are used to control the requests to the server and help preventing excessive use of resources (see 4D.QuotaManager class).\n\nThis property is read only.\n\nThe following properties of the 4D.QuotaManager object are available for the session:\n\nWhen you modify a value, it is immediately taken into account by the server (no need to restart) and will be applied to further REST requests.",
+  "docPage": "mirror/docs/API/SessionClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.QuotaManager"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**.quotas** : 4D.QuotaManager"
+  },
+  "sinceVersion": "21-R4",
+  "_seeAlso": [
+    {
+      "text": "QuotaManager class",
+      "href": "QuotaManagerClass.html"
+    },
+    {
+      "text": "Web server quotas",
+      "href": "../WebServer/quotas.html"
+    }
+  ]
+}

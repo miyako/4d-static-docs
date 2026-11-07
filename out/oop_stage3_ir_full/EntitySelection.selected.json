@@ -13,7 +13,7 @@
   },
   "summary": "Returns an object describing the position(s) of *selectedEntities* in the original entity selection",
   "description": "The .selected() function returns an object describing the position(s) of selectedEntities in the original entity selection.\n\nThis function does not modify the original entity selection.\n\nPass in the selectedEntities parameter an entity selection containing entities for which you want to know the position in the original entity selection. selectedEntities must be an entity selection belonging to the same dataclass as the original entity selection, otherwise an error 1587 - \"The entity selection comes from an incompatible dataclass\" is raised.",
-  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "docPage": "mirror/docs/API/EntitySelectionClass.html",
   "overloads": [
     {
       "params": [

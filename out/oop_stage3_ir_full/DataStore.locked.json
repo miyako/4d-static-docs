@@ -13,7 +13,7 @@
   },
   "summary": "Returns True if the local datastore is currently locked",
   "description": "The .locked() function returns True if the local datastore is currently locked.\n\nYou can lock the datastore using the .flushAndLock() function before executing a snapshot of the data file, for example.",
-  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "docPage": "mirror/docs/API/DataStoreClass.html",
   "overloads": [
     {
       "params": [],

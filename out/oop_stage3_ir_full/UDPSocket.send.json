@@ -13,7 +13,7 @@
   },
   "summary": "Sends *data* to the remote *hostName* server on the specified *remotePort*",
   "description": "The send() function sends data to the remote hostName server on the specified remotePort.\n\nhostName is the name or IP address of the server where the data will be sent.\n\nremotePort is the number of the port to be connected to. If you pass 0, any available port will be used.",
-  "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
+  "docPage": "mirror/docs/API/UDPSocketClass.html",
   "overloads": [
     {
       "params": [

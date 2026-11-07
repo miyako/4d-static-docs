@@ -13,7 +13,7 @@
   },
   "summary": "The `content-type` of the attachment file",
   "description": "The .type property contains the content-type of the attachment file. If this type is not explicitly passed to the MAIL New attachment command, the content-type is based on its file extension.",
-  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "docPage": "mirror/docs/API/MailAttachmentClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

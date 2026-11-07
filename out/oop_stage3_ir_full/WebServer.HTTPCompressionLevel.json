@@ -13,7 +13,7 @@
   },
   "summary": "Compression level for all compressed HTTP exchanges for the 4D HTTP server (client requests or server replies)",
   "description": "The compression level for all compressed HTTP exchanges for the 4D HTTP server (client requests or server replies). This selector lets you optimize exchanges by either prioritizing speed of execution (less compression) or the amount of compression (less speed).\n\nPossible values:\n\n1 to 9 (where 1 is the fastest compression and 9 the highest). -1 = set a compromise between speed and rate of compression.\n\nDefault = 1 (faster compression).",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

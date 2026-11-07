@@ -21,30 +21,30 @@
     "S": "statically_indistinguishable_overloads"
   },
   "counts": {
-    "totalCommandsScanned": 1456,
-    "commandsWithAnyHit": 696,
+    "totalCommandsScanned": 1460,
+    "commandsWithAnyHit": 700,
     "byCategory": {
       "A": 122,
       "B": 35,
-      "C": 235,
+      "C": 237,
       "E": 76,
       "F": 15,
-      "H": 442,
+      "H": 444,
       "I": 2,
       "J": 72,
       "N": 4,
-      "O": 446,
+      "O": 449,
       "P": 26,
-      "Q": 7,
+      "Q": 8,
       "R": 2,
       "S": 1
     },
-    "multiLabelOverlap": 418
+    "multiLabelOverlap": 420
   },
   "categoryCoOccurrence": {
-    "H+O": 278,
-    "C+O": 235,
-    "C+H": 225,
+    "H+O": 280,
+    "C+O": 237,
+    "C+H": 227,
     "A+O": 122,
     "A+H": 47,
     "E+O": 42,
@@ -5136,6 +5136,17 @@
         ]
       },
       {
+        "id": "OBJECT-Get-padding",
+        "displayName": "OBJECT Get padding",
+        "theme": "Objects (Forms)",
+        "evidence": [
+          {
+            "evidence": "pseudo-type token(s): ['operator']",
+            "source": "param '*'"
+          }
+        ]
+      },
+      {
         "id": "OBJECT-Get-placeholder",
         "displayName": "OBJECT Get placeholder",
         "theme": "Objects (Forms)",
@@ -5560,6 +5571,17 @@
       {
         "id": "OBJECT-SET-MULTILINE",
         "displayName": "OBJECT SET MULTILINE",
+        "theme": "Objects (Forms)",
+        "evidence": [
+          {
+            "evidence": "pseudo-type token(s): ['operator']",
+            "source": "param '*'"
+          }
+        ]
+      },
+      {
+        "id": "OBJECT-SET-PADDING",
+        "displayName": "OBJECT SET PADDING",
         "theme": "Objects (Forms)",
         "evidence": [
           {
@@ -7400,6 +7422,17 @@
           {
             "evidence": "pseudo-type token(s): ['any']",
             "source": "param 'value'"
+          }
+        ]
+      },
+      {
+        "id": "defer",
+        "displayName": "defer",
+        "theme": "Interruptions",
+        "evidence": [
+          {
+            "evidence": "pseudo-type token(s): ['expression']",
+            "source": "param 'exitFormula'"
           }
         ]
       }
@@ -9797,6 +9830,17 @@
         ]
       },
       {
+        "id": "OBJECT-Get-padding",
+        "displayName": "OBJECT Get padding",
+        "theme": "Objects (Forms)",
+        "evidence": [
+          {
+            "evidence": "object name (string)If omitted, object is a variab",
+            "source": "param '*'"
+          }
+        ]
+      },
+      {
         "id": "OBJECT-Get-placeholder",
         "displayName": "OBJECT Get placeholder",
         "theme": "Objects (Forms)",
@@ -10215,6 +10259,17 @@
         "evidence": [
           {
             "evidence": "ect name (string) ; if omitted, object is a variab",
+            "source": "param '*'"
+          }
+        ]
+      },
+      {
+        "id": "OBJECT-SET-PADDING",
+        "displayName": "OBJECT SET PADDING",
+        "theme": "Objects (Forms)",
+        "evidence": [
+          {
+            "evidence": "object name (string)If omitted, object is a variab",
             "source": "param '*'"
           }
         ]
@@ -11015,7 +11070,7 @@
         "theme": "Structure Access",
         "evidence": [
           {
-            "evidence": "type: -1=Keywords, 0=by default, 1=B-Tree",
+            "evidence": "ype: -1 = Keywords, 0 = default, 1 = B-Tree s",
             "source": "param 'index'"
           }
         ]
@@ -14193,6 +14248,17 @@
         ]
       },
       {
+        "id": "OBJECT-Get-padding",
+        "displayName": "OBJECT Get padding",
+        "theme": "Objects (Forms)",
+        "evidence": [
+          {
+            "evidence": "leading literal '*' parameter",
+            "source": "parameterTable"
+          }
+        ]
+      },
+      {
         "id": "OBJECT-Get-placeholder",
         "displayName": "OBJECT Get placeholder",
         "theme": "Objects (Forms)",
@@ -14591,6 +14657,17 @@
       {
         "id": "OBJECT-SET-MULTILINE",
         "displayName": "OBJECT SET MULTILINE",
+        "theme": "Objects (Forms)",
+        "evidence": [
+          {
+            "evidence": "leading literal '*' parameter",
+            "source": "parameterTable"
+          }
+        ]
+      },
+      {
+        "id": "OBJECT-SET-PADDING",
+        "displayName": "OBJECT SET PADDING",
         "theme": "Objects (Forms)",
         "evidence": [
           {
@@ -16894,6 +16971,17 @@
         ]
       },
       {
+        "id": "Open-datastore",
+        "displayName": "Open datastore",
+        "theme": "4D Environment",
+        "evidence": [
+          {
+            "evidence": "st be \"4D Server\" user Text ( deprecated )(2) User name password Text | ed, in which case credentials must passed as parameters to the authen",
+            "source": "description"
+          }
+        ]
+      },
+      {
         "id": "SET-LIST-ITEM-PROPERTIES",
         "displayName": "SET LIST ITEM PROPERTIES",
         "theme": "Hierarchical Lists",
@@ -18278,15 +18366,6 @@
       "textHash": "1d7540440601"
     },
     {
-      "paramName": "altbackgrndcolor",
-      "descriptionText": "RGB color value for alternating background",
-      "commands": [
-        "OBJECT-GET-RGB-COLORS",
-        "OBJECT-SET-RGB-COLORS"
-      ],
-      "textHash": "f3da8fcad6bb"
-    },
-    {
       "paramName": "modifiers",
       "descriptionText": "Modifier key mask or combination of masks",
       "commands": [
@@ -18312,6 +18391,24 @@
         "OBJECT-SET-HORIZONTAL-ALIGNMENT"
       ],
       "textHash": "e97165953a48"
+    },
+    {
+      "paramName": "*",
+      "descriptionText": "If specified, object is an object name (string)If omitted, object is a variable or field",
+      "commands": [
+        "OBJECT-Get-padding",
+        "OBJECT-SET-PADDING"
+      ],
+      "textHash": "feb31582146a"
+    },
+    {
+      "paramName": "object",
+      "descriptionText": "Object name (if * is specified) orVariable or field (if * is omitted)",
+      "commands": [
+        "OBJECT-Get-padding",
+        "OBJECT-SET-PADDING"
+      ],
+      "textHash": "eae2eb19d1e9"
     },
     {
       "paramName": "*",

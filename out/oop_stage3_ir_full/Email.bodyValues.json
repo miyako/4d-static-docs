@@ -13,7 +13,7 @@
   },
   "summary": "*EmailBodyValue* object, containing an object for each \\<partID\\> of `bodyStructure` (optional)",
   "description": "The .bodyValues property contains the EmailBodyValue object, containing an object for each <partID> of bodyStructure (optional). See Handling body part section.\n\nThe .bodyValues object contains the following properties:",
-  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "docPage": "mirror/docs/API/EmailObjectClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

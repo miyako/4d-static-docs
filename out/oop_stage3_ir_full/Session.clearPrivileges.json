@@ -13,7 +13,7 @@
   },
   "summary": "Removes all the privileges associated to the session (excluding promoted privileges) and returns **True** if the execution was successful",
   "description": "The .clearPrivileges() function removes all the privileges associated to the session (excluding promoted privileges) and returns True if the execution was successful.",
-  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "docPage": "mirror/docs/API/SessionClass.html",
   "overloads": [
     {
       "params": [],

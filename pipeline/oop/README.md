@@ -1,343 +1,180 @@
 # `pipeline/oop/` — the 4D OOP intermediate representation
 
-This pipeline builds `out/4d-oop-ir.json`: a machine-readable description of
-the 45 built-in 4D OOP classes and their 502 in-scope members, in the same
-three-layer shape as the classic-language IR (`out/4d-command-ir.json`) and
-validating against the same schema (`references/4d-command-ir-schema.json`).
+This pipeline builds `out/4d-oop-ir.json`: **528 in-scope members** of **46
+built-in classes**, plus class-store access, in the same three-layer shape as
+the separate classic IR. Both validate against
+`references/4d-command-ir-schema.json`. The OOP document contains **51 class
+records**: 46 built-ins, `4D` and `cs` namespaces, and three ORDA templates.
+See [SCOPE.md](SCOPE.md) and [stage6_README.md](stage6_README.md).
 
-The two IRs are **separate documents** by design. Edges that span them live in
-`out/4d-ir-crosslinks.json`. See `PLAN.md` for the full multi-session brief and
-`SCOPE.md` for what is in and out of scope, with reasons.
+## Current sources: explicit 21 R5 beta
 
-Everything here is pure Python with no 4D dependency. From a clean clone:
+| Source | Content |
+|---|---|
+| `references/syntaxEN-21-R5.json` | Unmodified authoritative signatures: 521 fixed members, 618 overload/type lines |
+| `mirror/docs/API/*.html` | 47 API pages; actual badge **21 R5 BETA** |
+| `references/4d-constants-registry.json` | Shared constant values, generated separately before O3 |
+
+The capture SHA256 is
+`ee27d9689e834bd1990d60d289d8c4e86e39beb723fe88c55b719e9d1e8bc411`.
+`out/oop_manifest.json` records the badge, path, declared syntax version
+**21-R5**, SHA1 and SHA256. This is not a stable-release claim.
+`out/oop_refresh_review.json` additionally embeds the official capture
+provenance, refreshed shared-constants hashes/counts, compiler provenance,
+gate/example summaries, and substantive semantic review.
+It binds final OOP artifacts/examples/manifests and source pages/captures by
+SHA256, and verifies every method against the compiled manifest. The review's
+own hash belongs in the parent snapshot to avoid circular hashing.
+
+The matched compiler is
+`/Applications/4D 21 R5/tool4d.app/Contents/MacOS/tool4d`; its Info.plist reports
+**21 R5 build 21R5.100156**. Its installed syntax resource has the same SHA256.
+The LSP bridge is `tools/4dlsp/tool4d-lsp-stdio`, **0.3.0**, provisioned through
+the mirrored skills **v0.0.32**. Compiler stages require explicit `TOOL4D_PATH`
+and record provenance; a readable installed capture must match the manifest.
+
+**Never run this refresh through the stable auto-selector.** It intentionally
+still selects the highest non-beta version (currently R4). The beta lives at
+the unversioned `mirror/docs` root. Existing stable defaults are unchanged.
+
+## Reproduce the corpus
+
+O0–O5 are pure Python; only compiler checks need tool4d.
 
 ```sh
 pip install -r pipeline/requirements.txt
-python3 pipeline/oop/stage0_reconcile.py
-python3 pipeline/oop/stage0_manifest.py
-python3 pipeline/oop/stage1_extract.py
-python3 pipeline/oop/stage2_signatures.py     # GATE G1
-python3 pipeline/oop/stage2b_crosscheck.py
-python3 pipeline/oop/stage3_merge.py
-python3 pipeline/oop/stage4_classes.py
-python3 pipeline/oop/stage5_assemble.py       # GATE G3 + schema validation
+SYNTAX=references/syntaxEN-21-R5.json
+python3 pipeline/oop/stage0_reconcile.py --docs-root mirror/docs --syntax-json "$SYNTAX"
+python3 pipeline/oop/stage0_manifest.py --docs-root mirror/docs --syntax-json "$SYNTAX" --syntax-version 21-R5
+python3 pipeline/oop/stage1_extract.py --docs-root mirror/docs --no-cache
+python3 pipeline/oop/stage2_signatures.py --syntax-json "$SYNTAX"
+python3 pipeline/oop/stage2b_crosscheck.py --syntax-json "$SYNTAX"
+python3 pipeline/oop/stage3_merge.py --syntax-json "$SYNTAX" --no-cache
+python3 pipeline/oop/stage4_classes.py --syntax-json "$SYNTAX"
+python3 pipeline/oop/stage5_assemble.py
+python3 pipeline/oop/check_schema_gate.py --syntax-json "$SYNTAX"
+
+# Crosslinks read both corpora: run after classic assembly, not during it.
 python3 pipeline/oop/stage6_crosslinks.py
-python3 pipeline/oop/check_schema_gate.py     # GATE G2
 ```
 
-Every stage is idempotent: re-running with unchanged inputs rewrites identical
-output and reports a zero diff.
-
-## Sources
-
-Two independent sources are joined, and their disagreement is the accuracy
-floor for the whole corpus:
-
-| Source | What it gives | Notes |
-|---|---|---|
-| `references/syntaxEN.json` | authoritative member list and `Syntax` strings | 45 class keys + `4D` (19 constructors) + `_command_` (classic, ignored) |
-| `mirror/docs/21-R3/API/*.html` | prose, Parameter tables, History tables, See also, constants | 45 pages |
-
-Both are pinned to **21-R3**. The pinning is recorded in `out/oop_manifest.json`,
-and `--syntax-json` lets a future capture be swapped in.
-
-`syntaxEN.json` member keys carry no leading dot (`at()`); API headings do
-(`.at()`), and every heading carries a trailing `U+200B`. `oop.join_key()` and
-`oop.strip_zws()` normalise this. Nine class maps carry a **string-valued**
-`_inheritedFrom_` key that encodes the superclass and must be filtered out when
-iterating members.
-
-## Stages
-
-### O0 — reconcile (`stage0_reconcile.py`) → `out/oop_source_diff.json`
-
-Joins the API-page member headings against the `syntaxEN.json` keys, class by
-class, and forces every mismatch into a category with evidence. Nothing is
-dropped silently.
-
-### O0b — manifest (`stage0_manifest.py`) → `out/oop_manifest.json`
-
-The in-scope member list plus `skipped[]`, each skip carrying a reason. This is
-the list GATE G3 checks the final IR against.
-
-Flags: `--docs-root`, `--version`, `--syntax-json`.
-
-### O1 — extract (`stage1_extract.py`) → `out/oop_stage1_raw.json`
-
-Parses each API page into per-member sections: description prose, Parameter
-table, syntax paragraphs, History table, See also, constant tables, code spans.
-Cached under `cache/oop/raw/` keyed by page content hash.
-
-`WebForm` and `WebFormItem` use `<h3>` for members; the other 43 pages use
-`<h2>`. `Transporter` has no page at all — it is an abstract base whose 11
-members are documented on the three concrete transporter pages.
-
-### O2 — signatures (`stage2_signatures.py`, `syntaxparse.py`) → `out/oop_signatures.json`
-
-A real tokenizer and recursive-descent parser for the `Syntax` grammar — not
-regexes. The tokenizer is **trivia-preserving**: every token records its exact
-text plus the whitespace before it, and the scanner asserts it consumed 100% of
-the line. `render()` then walks the *AST*, collecting the token indices each
-node claims, and asserts they equal the full token range in order — so a parser
-that silently dropped a token fails loudly instead of round-tripping by
-accident.
-
-**GATE G1**: every parsed AST re-renders byte-identically to its source line.
-Current result: **591/591 overload lines, 495/495 full `Syntax` fields**. Zero
-normalisations were needed. Report in `out/oop_roundtrip_report.json`.
-
-Grammar features handled: `<br/>`-separated overloads, `{}` optionality nesting
-to depth 4 (including braces wrapping a leading `;`), `name : Type` pairs, a
-trailing `: ReturnType`, variadic ellipsis in both positions, bare literal `*`
-parameters, and three markdown-emphasis typos in the source docs.
-
-### O2b — cross-check (`stage2b_crosscheck.py`) → `out/oop_param_conflicts.json`
-
-Validates the O2 AST against each member's Parameter table: names, types,
-direction, and the `Result` row against the parsed return type. Four
-source-convention normalisations are applied and **named in the report** rather
-than hidden: union types spelled `"Text, Blob"`, variadic `elementN` vs
-`element`, parameter-name capitalisation drift, and `"undefined"`/`"null"` in
-the Result row (consumed downstream as `Overload.returnsNullable`).
-
-### O3 — merge (`stage3_merge.py`) → `out/oop_stage3_ir_full/`, `out/oop_enums.json`
-
-Builds one `CommandEntry` per member by merging the parsed signature with the
-HTML enrichment: `summary`/`description`, `constraints`, `errorModel`,
-`returnsShape`, `sinceVersion`/`deprecated`/`versionBehaviorChanges` from
-History tables, and See also edges.
-
-The highest-value enrichment is resolving constant mentions against
-`references/4d-constants-registry.json` so numeric parameters become
-`enum_ref` instead of bare `Integer`. Three resolution paths in decreasing
-confidence:
-
-1. constants backticked in the parameter's own description;
-2. a `Constant/Value/Comment` table whose sub-heading names the parameter;
-3. a positional fallback, which fires only when the member has exactly one
-   generically-titled constant table **and** exactly one numerically-typed
-   parameter **and** that parameter's own description named no constants.
-
-Prose association additionally requires the paragraph to refer to the name *as
-a parameter*; a bare name match wrongly attributed `dk status stamp has
-changed` to `Entity.save.mode`. Generated enums are **member-scoped**
-(`Entity.save.mode`) rather than pointing at a whole registry theme, which
-would overstate the accepted set.
-
-Only an exact `"Added"` History marker marks introduction — `"Added status 7
-and 8"` had back-dated `Entity.save` from 17 to 21.
-
-### Multi-variant properties
-
-Nine properties declare several `<br/>`-separated type variants — `Email.bcc`
-is `Text` **or** `Object` **or** `Collection`, `Document.original` is
-`4D.File` **or** `4D.Folder`. They are the property-side analogue of function
-overloads, and the merge step originally kept only the first, which both
-truncated `accessor.rawSyntax` and, more seriously, **narrowed
-`accessor.type`**: the IR said assigning a collection of recipients to
-`.bcc` was invalid when it is ordinary 4D.
-
-`Accessor.type` therefore takes either a bare `TypeRef` or an array of them
-(`minItems: 2` — a one-element array is rejected rather than accepted as an
-alternative spelling of the single case). The same single-signature assumption
-had to be fixed in four places: the accessor type, the accessor `rawSyntax`,
-the property constant-table enum upgrade (guarded now, since a
-`Number | Text` property is not a constant selector), and O4's
-`returns_instance_of` edges, which must emit one edge per variant.
-
-This class of defect is worth calling out because **no compiler check can
-catch it**. A narrowed type still produces code that compiles; downstream
-`check-syntax` passes go green while the IR quietly misinforms. Only comparison
-against the documented source finds it, which is why the gate asserts equality.
-
-### O4 — classes (`stage4_classes.py`) → `out/oop_classes.json`, `out/oop_relationships.json`
-
-Builds the root-level `classes{}` Layer-2 table and the Layer-3 `member_of` /
-`returns_instance_of` / `obtained_via` edges.
-
-`instantiation` — how a caller actually obtains an instance — is hand-authored
-in `class_instantiation.json`, one entry per class, each recipe carrying a
-runnable `$`-prefixed 4D expression, `producedBy`, `requires` and a `_reason`
-citing its evidence. This is the artifact downstream example synthesis depends
-on, so the stage **exits non-zero if any class lacks an authored recipe**.
-
-ORDA generated classes (`cs`, `cs.<DataClass>`, `cs.<DataClass>Entity`,
-`cs.<DataClass>Selection`) are modelled as four `isTemplate` entries, not as
-per-table entries.
-
-### O5 — assemble (`stage5_assemble.py`) → `out/4d-oop-ir.json`
-
-Concatenates the entries, applies semantic overlays, strips internal `_`-keys,
-asserts no id collides with the classic corpus, runs **GATE G3**, validates
-against the schema, and writes a fingerprint diff against the previous run.
-
-### O6 — crosslinks (`stage6_crosslinks.py`) → `out/4d-ir-crosslinks.json`
-
-Cross-corpus edges. `classic_equivalent` pairs are **curated**, never inferred
-from name similarity — `Collection.copy` and `COPY ARRAY` are not equivalents.
-`obtained_via` edges are mined from the `producedBy` of instantiation recipes
-that name a classic command. Endpoints carry an explicit `corpus`.
-
-## Semantic overlays
-
-Machine-extracted output is never hand-edited in place. Hand judgement goes in
-`semantic_overlays/<id>.json`, merged at O5, and **every overlay must carry a
-`_reason`** — O5 refuses to run otherwise. An overlay may also supply `_enums`
-when it introduces an `enum_ref` that O3 could not derive.
-
-The three current overlays all resolve O2b conflicts: `4D.File.new` and
-`4D.Folder.new` (no Parameter table on the page, so their constant parameters
-stayed bare `Integer`) and `4D.TCPConnection.new` (`serverPort` spelled Real in
-the Syntax line, Integer in the table).
-
-## Caching and idempotency
-
-Per-member sha1 over **both** sources under `cache/oop/`, so a member whose
-sources are unchanged is not re-derived. O5 reports `+added -removed ~changed`
-against the previous run's fingerprints, which is what makes a docs refresh
-reviewable rather than a wall of diff. See `pipeline/MAINTENANCE.md`.
-
-## Gates
-
-| Gate | Meaning | Checked by | Result |
-|---|---|---|---|
-| **G1** | 100% byte-exact syntax round-trip | `stage2_signatures.py` | 591/591 lines, 495/495 fields |
-| **G2** | the bumped schema still validates the classic corpus byte-unchanged | `check_schema_gate.py` | PASSED |
-| **G3** | every in-scope member is in the IR or explicitly skipped | `stage5_assemble.py` | 502/502, 5 logged skips |
-| — | every non-dynamic member reconstructs to its syntaxEN source byte-for-byte | `check_schema_gate.py` | 495/495 (277 + 218) |
-
-`check_schema_gate.py` also validates both example documents and the OOP IR
-itself, and exercises the new conditional requirements with deliberate negative
-cases so they cannot silently rot into decoration.
-
-It additionally asserts the **verbatim-source invariant**: every non-dynamic
-member, reconstructed from the IR alone, must be **byte-identical to its
-`Syntax` field in `syntaxEN.json`** — callables by `<br/>`-joining every
-`overloads[].rawSyntax`, properties by reading `accessor.rawSyntax`, since a
-property has no overload to hang it off.
-
-Equality, not presence, is the assertion, and the difference mattered. The
-first version of this check only asked whether *a* line was present. It passed
-while nine multi-variant properties were silently truncated to their first
-`<br/>` variant, because the merge step assumed a property has exactly one
-signature. Only a byte comparison against the source of truth catches that.
-
-The check carries four negative probes, covering every path the bug could hide
-in: a property with no line, a callable with no line, a multi-variant property
-truncated to its first variant, and a multi-overload function truncated to its
-first overload. It fails the gate if any probe goes undetected — an assertion
-nobody has seen fail is not yet evidence.
-
-JSON Schema validation uses `boon` (provision via the `4dtools` skill), with
-Python `jsonschema` as a cross-check.
-
-## `classes[].typeName` is compiler-verified, not inferred
-
-`typeName` is the name a caller writes in a declaration (`var $x : 4D.File`).
-For 44 of the 50 classes it is a `4D.*` name; the other six are `Collection`,
-the `4D`/`cs` namespaces and the three `cs.<DataClass>*` ORDA templates, which
-have no fixed `4D.*` spelling.
-
-All 44 are verified against tool4d rather than assumed, because the compiler
-answers this question exactly and a hand-authored table does not. The probe
-declares one variable per class plus a deliberately fabricated control:
-
-```4d
-var $v1 : 4D.Blob
-// ... one line per class ...
-var $ctrl1 : 4D.NotARealClassAbc
-```
-
-then runs `tool4d-lsp-stdio check-syntax` over the check project. An unknown
-class is reported as `The class <name> is unknown.`, so a clean run for the 44
-real names *with the control flagged* is positive evidence. Without the
-control the run proves nothing — a check-syntax pass over an unopened path
-looks identical to a check that was never performed.
-
-This caught two wrong entries that no other gate could see. `Document` and
-`Directory` were recorded as `4D.File` and `4D.Folder`: the type names of one
-of their two concrete subclasses. That was arbitrary (`File` vs `ZipFile`,
-`Folder` vs `ZipFolder`) and, more importantly, false. tool4d accepts
-`var $x : 4D.Document`, accepts assigning a `File` to it, and rejects
-`4D.DocumentX` — so these are real class-store types, and `4D.Document` is the
-correct declaration type for a value that may be either subclass. The original
-note claimed "callers never name it", which the compiler disproves; recording a
-subclass's type there actively denied consumers a legal declaration.
-
-`isAbstract` stays `true` for both. The docs present them as base classes
-reached through their subclasses, and that is what the flag records —
-instantiation guidance, not whether the type may be named. Note that
-`check-syntax` cannot settle the instantiation half: `4D.Document.new()`
-compiles clean, but so does every class-store `.new`, whereas
-`4D.File.totallyBogusStatic()` is rejected — so the class-store path *is*
-checked for arbitrary members and `.new` simply resolves everywhere. Compile
-success there is therefore not evidence of runtime instantiability, and the
-flag continues to follow the documentation.
-
-## `docPage` is an official permalink, not a mirror path
-
-The pipeline parses the local docs mirror, so every stage up to assembly
-carries paths like `mirror/docs/21-R3/API/SMTPTransporterClass.html`. That
-path is meaningless to a consumer of the redistributable IR, which ships
-without the mirror, so stage 5 rewrites it to the official page:
-
-```
-docPage       https://developer.4d.com/docs/API/SMTPTransporterClass
-docPageLocal  mirror/docs/21-R3/API/SMTPTransporterClass.html
-```
-
-The mirror path is preserved as `docPageLocal` rather than discarded,
-because it is the provenance record of the file actually parsed and is
-what makes a re-derivation reproducible.
-
-**The URL deliberately omits the version segment.** `/docs/21-R3/API/...`
-resolves today but stops resolving once 21-R3 is superseded, so embedding
-it in a redistributable artifact would make the artifact rot on 4D's
-release schedule rather than on ours. The version-less form always points
-at the current documentation for the class.
-
-All 45 class pages were checked against the live site rather than assumed
-to follow the naming convention: every one returns 200 at
-`https://developer.4d.com/docs/API/<PageName>`, and a fabricated control
-(`.../API/NotARealClassXyz`) returns a genuine 404 with a "Page Not Found"
-body. The control matters because a Docusaurus site can serve a soft 404
-with a 200 status, in which case a sweep of real names would look
-identical to a sweep that verified nothing.
-
-`Transporter` has no API page, so both fields stay `null`.
-
-### Members deep-link to their own section
-
-A member's `docPage` carries the anchor of its section on the class page, so
-`Document.exists` links to `.../API/Document#exists` rather than the top of a
-page listing dozens of members. Class cards stay page-level, which is already
-the right target for them.
-
-Two anchor forms exist and both are needed. A regular member anchors on its
-bare name (`#exists`), but a **constructor anchors on its fully-qualified
-name** (`4D.IMAPNotifier.new` -> `#4dimapnotifiernew`), because otherwise
-every constructor in the corpus would collapse to `#new`.
-
-`verify_doc_anchors.py` checks the emitted URLs against the live site: all
-502 resolve to an anchor whose heading names that member. It cannot run
-offline -- the mirror's HTML has no `id` attributes at all, so a mirror-based
-check reports a confident 0% while measuring nothing.
-
-The check requires the anchor's **heading to name the member**, not merely
-that the anchor exists. Existence alone would accept an anchor that shares a
-name with an unrelated section and quietly send readers to the wrong place;
-the script's own negative control confirms it rejects both a fabricated
-anchor and a real anchor belonging to a different member.
-
-The same rewrite applies to `oop_doc_examples.json`, where each harvested
-example records the page it came from. There the mirror path is also the
-internal join key used to attribute a snippet to a member, so it is rewritten
-only at the point the record is emitted, not where it is matched.
-
-Note that this artifact is enriched in place by stages O8 and O10, so it is
-the one file where re-running stage O7 alone is *not* how the change was
-applied -- doing so would have discarded the compiler-verification verdicts
-and required a full tool4d pass to rebuild them. The committed artifact was
-migrated directly, then cross-checked against a fresh stage O7 run: the two
-agree on every key stage O7 emits, and every other key is byte-equal to the
-pre-change file.
+## Stages and invariants
+
+* **O0 reconciliation / manifest:** every member-shaped heading is accounted
+  for, including inherited and dynamic members. The 608 headings include 523
+  matched headings representing 521 unique fixed members, 78 inherited
+  headings, and seven dynamic members. Two duplicate matches are recorded
+  separately; missing and unaccounted fixed members are both zero.
+* **O1 extraction:** descriptions, parameter/history/constant/shape tables,
+  syntax, examples and See also. R5 has a dedicated `Transporter.html` page;
+  its 11 abstract-base members remain modelled once. `WebForm` and
+  `WebFormItem` use `h3` members.
+* **O2 syntax parser:** trivia-preserving tokenizer and recursive-descent AST.
+  AST rendering must consume every token and reconstruct its original bytes.
+  Optional brace groups, variadics, overloads and malformed source markdown
+  are preserved, not silently normalized.
+* **O2b parameter cross-check:** ten recorded source-convention/conflict
+  items, not ten missing members. Named normalizations handle variadics,
+  capitalization and nullable result conventions; constructor conflicts are
+  reviewed via overlays.
+* **O3 merge:** joins signatures and enrichment, including member-scoped
+  constant enums. Numeric type alone is not proof that a prose constant is
+  that parameter's accepted value. Quota contracts additionally retain
+  narrative under Scope levels / At startup / At runtime rather than only the
+  short Description section. Only exact History `Added` marks introduction.
+* **O4 classes:** authored recipes in `class_instantiation.json` are required
+  for every class. ORDA templates use the check project's concrete model.
+  `member_of`, `returns_instance_of` and `obtained_via` edges are generated.
+* **O5 assembly:** applies evidenced overlays, removes internal bookkeeping,
+  checks id collisions, enforces manifest parity and validates the full IR.
+  Generated artifacts are never manually patched.
+* **Crosslinks:** `out/4d-ir-crosslinks.json` contains explicit-corpus edges;
+  classic equivalents are curated, not inferred from name similarity.
+
+Ten properties have multiple type variants. `Accessor.type` carries every
+variant (a single type or a list with at least two entries), and
+`accessor.rawSyntax` preserves the whole `<br/>`-joined field. This includes
+the new `SMTPTransporter.certificate : 4D.File | Blob`. A narrow but legal type
+can compile, so compiler success alone cannot detect a lost variant.
+
+## Semantic review of the R3 → R5 refresh
+
+The old artifacts were preserved in ignored `extraction/oop-baseline/` before
+overwriting. `review_refresh.py` generates `out/oop_refresh_review.json`,
+separating section/signature changes from page hashes/navigation:
+
+* **26 added members, none removed; one added built-in class.**
+  Additions are 19 `QuotaManagerClass` properties, `Session.quotas`,
+  `WebServer.quotas`, `DataClass.getIndexes`, three SMTP certificate properties,
+  and `Vector.precision`. Quota support spans R4/R5: these are additions
+  versus R3, not all first introduced in R5.
+* **Two changed fixed signatures:** optional Vector constructor precision
+  (32/64, `mk single precision` / `mk double precision`) and the explicitly
+  Boolean Collection overload of `Session.setPrivileges` (a correction, not
+  a newly added API).
+* **11 changed extracted sections.** Substantive existing contracts include
+  `Session.info.unreachableSince` and read-only status, and quotas in
+  `WebServer.start` settings. Other changes include refreshed examples,
+  punctuation, a leading article, and a duplicate See also heading.
+* **Eight overlays reviewed, none orphaned.** The four prior File/Folder/TCP
+  constructor and `Collection.multiSort` overlays remain applicable.
+  Folder's invalid constructor `*`, multiSort's Collection parameter, the
+  no-argument IMAPNotifier recipe and ZipFile's producer were re-probed with
+  positive/negative R5 controls, not accepted from old verdicts.
+* **Two new quota overlays:** docs and hover spell `4D.QuotaManager`, but
+  tool4d 21R5.100156 rejects that declaration and accepts
+  `4D.QuotaManagerClass`. Semantic types follow the compiler while raw source
+  remains verbatim. `WebServer.quotas` itself is not assignable; modify its
+  existing properties instead.
+* Two Vector overlays apply the documented immutable class contract to both
+  `length` and the new `precision` property; neither is writable.
+
+## Gates and provenance
+
+The review artifact includes every mechanical/manual conflict and its
+disposition. Fresh R4 comparison has the same **ten flags across nine
+members**, with zero added/removed/changed flags in R5. Eight manual
+compiler/documentation issues are also recorded; one overlaps the TCP
+mechanical flag, giving **17 distinct reviewed items**, not 17 compiler
+failures. The compiler corpus still has zero diagnostics.
+
+To reproduce the isolated R4 comparison before `review_refresh.py`, use
+`stage1_extract.py --docs-root mirror/docs/21-R4` and
+`stage2_signatures.py --syntax-json references/syntaxEN-21-R4.json`, sending
+their outputs to `extraction/oop-r4-conflict-comparison/raw.json`,
+`signatures.json` and `roundtrip.json`. Then run `stage2b_crosscheck.py` with
+that capture, `--raw`/`--signatures` pointing at those outputs and
+`--out extraction/oop-r4-conflict-comparison/conflicts.json`. This reads only
+OOP sources and does not claim R4 compiler verification.
+
+| Gate | Fresh result |
+|---|---|
+| G1 byte-exact syntax rendering | **618/618 lines; 521/521 fields** |
+| G2 schema compatibility | Both corpora and both example documents valid; seven conditional cases pass |
+| Verbatim source invariant | **521/521**: 278 callables + 243 properties; four negative probes detected |
+| G3 manifest coverage | **528/528**; four logged scope exclusions, no member excluded |
+| G4 synthetic compiler check | **528 methods / 968 blocks; zero errors and warnings** |
+| G5 hover cross-check | **508 agree; three evidenced disagreements; zero unknown; ten multivariant index gaps; seven dynamic stand-ins** |
+| Class/semantic controls and acceptance probes | **66 expected outcomes pass**, including all 46 fixed class declarations and deliberate invalid controls |
+| Member-link audit | **528/528** anchors name their member; 43 pages fetched, zero fetch failures |
+
+Schema gates used installed Python `jsonschema`; the OOP IR and example
+document were additionally revalidated with the subsequently provisioned
+`tools/4dform/boon`. The review artifact records both engines.
+`check_type_names.py` generates and then cleans up
+its control methods, recording `out/oop_type_name_crosscheck.json`. TCP port
+probes even accept unsuitable Text/Collection arguments, so compilation alone
+does not validate the port domain; the IR follows the documented Integer
+parameter table. Abstract
+class declaration names are checked directly even though synthesis uses
+concrete receivers. Compile success does not establish runtime
+instantiability, network behavior, REST enforcement or permission semantics.
+
+`docPage` is an official version-less permalink with the member's section
+anchor; `docPageLocal` preserves the exact beta mirror path. Constructors
+anchor on their fully-qualified names, not a shared `#new`.
+
+O7 deliberately invalidates old example verdicts. The R5 refresh reran O7/O8
+completely, supporting both old `span.token-line` and new `div.token-line`
+markup without collapsing newlines. Remaining examples and hover limitations
+are reported in [stage6_README.md](stage6_README.md), not silently skipped.

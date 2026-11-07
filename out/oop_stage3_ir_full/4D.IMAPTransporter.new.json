@@ -13,7 +13,7 @@
   },
   "summary": "Creates and returns a new object of the `4D.IMAPTransporter` type",
   "description": "The 4D.IMAPTransporter.new() function creates and returns a new object of the 4D.IMAPTransporter type. It is identical to the IMAP New transporter command (shortcut).",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [

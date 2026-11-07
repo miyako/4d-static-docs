@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.inBytesPerMinPerSession",
+  "displayName": "QuotaManagerClass.inBytesPerMinPerSession",
+  "kind": "oop_property",
+  "memberName": ".inBytesPerMinPerSession",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum total number of bytes that the Web server can receive for a session in one minute",
+  "description": "The .inBytesPerMinPerSession property contains the maximum total number of bytes that the Web server can receive for a session in one minute.\n\nScope: session default level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**inBytesPerMinPerSession** : Integer"
+  }
+}

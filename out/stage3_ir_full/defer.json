@@ -1,0 +1,30 @@
+{
+  "id": "defer",
+  "displayName": "defer",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "exitFormula",
+          "type": {
+            "kind": "pseudo",
+            "name": "Expression"
+          },
+          "direction": "in",
+          "optional": false,
+          "description": "Expression converted into a formula and pushed onto the current method or function's exit stack."
+        }
+      ],
+      "semanticRole": "Registers an expression to execute when the current method or function exits, including return, error and user-abort exits."
+    }
+  ],
+  "sinceVersion": "21 R4",
+  "constraints": [
+    "Introduced in 21 R4; deferred expressions execute in LIFO order.",
+    "Local variable values are captured when defer is encountered; objects and collections retain reference semantics.",
+    "A defer inside a deferred expression raises an error.",
+    "Errors raised by deferred expressions are intercepted and ignored by 4D while the remaining exit stack continues."
+  ]
+}

@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Boolean"
       },
-      "semanticRole": "The OB Is empty command returns True if object is undefined or empty, and False if object is defined (initialized) and contains at least one property.can be an object varialble or a 4D object field."
+      "semanticRole": "The OB Is empty command returns True if object is undefined or empty, and False if object is defined (initialized) and contains at least one property."
     }
   ]
 }

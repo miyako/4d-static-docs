@@ -13,7 +13,7 @@
   },
   "summary": "Creates a new TCP server listening to the specified *port* using the defined *options*, and returns a `4D.TCPListener` object",
   "description": "The 4D.TCPListener.new() function creates a new TCP server listening to the specified port using the defined options, and returns a 4D.TCPListener object.",
-  "docPage": "mirror/docs/21-R3/API/TCPListenerClass.html",
+  "docPage": "mirror/docs/API/TCPListenerClass.html",
   "overloads": [
     {
       "params": [

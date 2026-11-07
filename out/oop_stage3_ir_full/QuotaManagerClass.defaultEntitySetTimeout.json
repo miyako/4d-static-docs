@@ -1,0 +1,30 @@
+{
+  "id": "QuotaManagerClass.defaultEntitySetTimeout",
+  "displayName": "QuotaManagerClass.defaultEntitySetTimeout",
+  "kind": "oop_property",
+  "memberName": ".defaultEntitySetTimeout",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The default inactivity timeout for REST entity sets stored in memory during the current session (in seconds)",
+  "description": "The .defaultEntitySetTimeout property contains the default inactivity timeout for REST entity sets stored in memory during the current session (in seconds).\n\nScope: current session level\n\nBy default, this value is 2 hours (7200 seconds). It can also be defined at the entity set creation using the $timeout REST API.\n\nYou can change this value dynamically using the quotas.defaultEntitySetTimeout property of the Session, so that it will be used for any entity set created afterwards in the session (existing entity set default timeout values are not modified).\n\nYou cannot pass a value <=0 (an error is generated in this case). To reset the property value for the session, pass undefined.",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**defaultEntitySetTimeout** : Integer"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  }
+}

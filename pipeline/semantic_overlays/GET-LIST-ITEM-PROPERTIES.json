@@ -2,7 +2,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0, 1],
-      "note": "The two doc syntax lines differ only in whether a leading '*' is passed (list as object-name string vs. list reference number); the second line's trailing '*' after the command name is a doc footnote marker, not a parameter. Merged into one semantic overload with that param optional. Also corrected direction: enterable, styles, icon, and color are all filled in by the command ('\u2190' in the docs), not passed in; added the 0/'*' sentinel values documented for itemRef.",
+      "note": "The two doc syntax lines differ only in whether a leading '*' is passed (list as object-name string vs. list reference number). R5 removes the old second-line command-name footnote marker without changing the merged optional-star signature. enterable, styles, icon and color are outputs ('\u2190' in the docs); itemRef supports the documented 0/'*' sentinels.",
       "params": [
         {
           "name": "*",

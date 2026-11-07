@@ -1,0 +1,22 @@
+{
+  "sinceVersion": "21 R5",
+  "theme": "Objects-Forms",
+  "overloadMerges": [
+    {
+      "sourceIndices": [0, 1],
+      "note": "R5's two syntax lines use the established optional-leading-star object-name/reference discriminator.",
+      "params": [
+        {"name": "asObjectName", "type": {"kind": "literal_symbols", "symbols": ["*"]}, "direction": "in", "optional": true},
+        {"name": "object", "type": [{"kind": "concrete", "name": "Text"}, {"kind": "concrete", "name": "Variable"}, {"kind": "concrete", "name": "Field"}], "direction": "in", "optional": false},
+        {"name": "padding", "type": {"kind": "concrete", "name": "Object"}, "direction": "in", "optional": false, "description": "Object with optional Integer top, bottom, left and right padding values in pixels."}
+      ],
+      "discriminatedBy": {"param": "asObjectName", "rule": "With *, object is a name string; without *, pass a variable or field reference."},
+      "semanticRole": "Sets padding for the designated form object(s), leaving omitted padding properties unchanged."
+    }
+  ],
+  "constraints": [
+    "Introduced in 21 R5 BETA; supports text areas, inputs, list boxes, columns, headers and footers.",
+    "Negative padding values have an effective value of zero.",
+    "For list boxes, columns, headers and footers, only top and left affect rendering: top supplies both vertical sides and left supplies both horizontal sides."
+  ]
+}

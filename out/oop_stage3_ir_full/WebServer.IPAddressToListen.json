@@ -13,7 +13,7 @@
   },
   "summary": "IP address on which the 4D Web Server will receive HTTP requests",
   "description": "The IP address on which the 4D Web Server will receive HTTP requests. By default, no specific address is defined. Both IPv6 string formats and IPv4 string formats are supported.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

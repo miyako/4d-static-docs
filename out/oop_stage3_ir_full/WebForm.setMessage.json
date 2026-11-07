@@ -13,7 +13,7 @@
   },
   "summary": "Sends *msg* as an information message to the web page",
   "description": "The .setMessage() function sends msg as an information message to the web page.\n\nThe function returns a response with a 200 OK status and a __WEBFORM object in the body with a __NOTIFICATION.message property set to msg and a __NOTIFICATION.type set to \"message\".",
-  "docPage": "mirror/docs/21-R3/API/WebFormClass.html",
+  "docPage": "mirror/docs/API/WebFormClass.html",
   "overloads": [
     {
       "params": [

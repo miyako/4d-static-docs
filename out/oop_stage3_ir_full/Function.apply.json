@@ -13,7 +13,7 @@
   },
   "summary": "Executes the function object to which it is applied, passing parameters as a collection, and returns the resulting value",
   "description": "The .apply() function executes the function object to which it is applied, passing parameters as a collection, and returns the resulting value.\n\nIn the thisObj parameter, you can pass a reference to the object to be used as This within the function. Pass Null if you do not want to use This but you want to send parameters.\n\nYou can pass a collection to be used as parameters in the function using the optional params parameter:\n\nin 4D.Formula objects, parameters are passed in $1...$n in the formula. in other 4D.Function objects such as 4D.Method objects, parameters are passed in declared method parameters.\n\nNote that .apply() is similar to .call() except that parameters are passed as a collection. This can be useful for passing calculated results.",
-  "docPage": "mirror/docs/21-R3/API/FunctionClass.html",
+  "docPage": "mirror/docs/API/FunctionClass.html",
   "overloads": [
     {
       "params": [],

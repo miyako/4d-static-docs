@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.currentValues",
+  "displayName": "QuotaManagerClass.currentValues",
+  "kind": "oop_property",
+  "memberName": ".currentValues",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "Current usage values for the quota manager",
+  "description": "The .currentValues property contains current usage values for the quota manager. It is automatically updated by 4D and is read-only.\n\nThe object has the same properties as the 4D.QuotaManager object, but only the following properties report current usage:\n\nnbEntitySets nbSessions nbGuestSessions",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Object"
+    },
+    "readable": true,
+    "writable": false,
+    "rawSyntax": "**currentValues** : Object"
+  }
+}

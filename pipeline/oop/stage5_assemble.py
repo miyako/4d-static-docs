@@ -129,7 +129,7 @@ def see_also_edges(entries: list[dict], ids: set[str]) -> list[dict]:
 
 
 def validate(repo_root: Path, schema: Path, document: Path) -> tuple[bool, str]:
-    boon = repo_root / "tools" / "boon"
+    boon = repo_root / "tools" / "4dform" / "boon"
     if boon.exists():
         result = subprocess.run(
             [str(boon), str(schema), str(document)],
@@ -140,7 +140,7 @@ def validate(repo_root: Path, schema: Path, document: Path) -> tuple[bool, str]:
         import jsonschema
     except ImportError:
         return False, (
-            "no validator available: tools/boon is not provisioned (see "
+            "no validator available: tools/4dform/boon is not provisioned (see "
             "skills/4dtools/SKILL.md) and the jsonschema package is not installed"
         )
     schema_doc = json.loads(schema.read_text(encoding="utf-8"))

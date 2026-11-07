@@ -13,7 +13,7 @@
   },
   "summary": "Writes *lineOfText* content at the current position and inserts an end-of-line delimiter",
   "description": "The .writeLine() function writes lineOfText content at the current position and inserts an end-of-line delimiter (unlike the .writeText() function). By default, a native end-of-line delimiter is used, but you can define another delimiter when opening the file handle by setting the .breakModeWrite property.\n\nWhen this function is executed, the current position (.offset) is updated after the end-of-line delimiter.",
-  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "docPage": "mirror/docs/API/FileHandleClass.html",
   "overloads": [
     {
       "params": [

@@ -38,7 +38,7 @@
         "kind": "concrete",
         "name": "Object"
       },
-      "semanticRole": "The WP Get style sheet command returns the style sheet object designated by the styleSheetName or by the style sheet name and the listLevelIndex in the case of a hierarchical list style sheet ."
+      "semanticRole": "The WP Get style sheet command returns the style sheet object designated by the styleSheetName or by the style sheet name and the listLevelIndex in the case of a multi-level list style sheet ."
     }
   ]
 }

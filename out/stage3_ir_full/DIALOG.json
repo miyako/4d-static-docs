@@ -61,6 +61,7 @@
   "constraints": [
     "A dialog is closed by an 'accept' action (ak accept, Enter, or ACCEPT) which sets OK to 1, or a 'cancel' action (ak cancel, Escape, or CANCEL) which sets OK to 0.",
     "Validation is not saving: if the form includes fields, SAVE RECORD must be called explicitly to persist modified data.",
+    "The form is displayed in the last-opened window; call Open form window beforehand.",
     "When the trailing '*' is used, a window must already exist (created beforehand) -- the current dialog window or the default per-process window cannot be reused, otherwise error -9909 is generated. The window is closed automatically by 4D once the form is dismissed."
   ]
 }

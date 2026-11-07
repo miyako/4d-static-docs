@@ -29,7 +29,7 @@
         "kind": "concrete",
         "name": "Integer"
       },
-      "semanticRole": "The OB Get type command returns the type of value associated with the property of the language object .can be an object varialble or a 4D object field.."
+      "semanticRole": "The OB Get type command returns the type of value associated with the property of the language object .."
     }
   ],
   "constraints": [

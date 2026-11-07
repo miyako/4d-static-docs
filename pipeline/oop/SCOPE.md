@@ -1,141 +1,91 @@
 # OOP IR — scope decisions
 
-Companion to `PLAN.md`. This file records what the OOP IR covers, what it
-deliberately does not, and why. It follows the same discipline as the classic
-pipeline's `out/manifest.json.skipped[]`: **nothing is dropped silently**.
+Nothing is dropped silently. Machine-readable scope and reconciliation live
+in `out/oop_manifest.json` and `out/oop_source_diff.json`.
 
-Machine-readable counterpart: `out/oop_source_diff.json` (Phase 1.2), produced
-by `pipeline/oop/stage0_reconcile.py`.
+## Current sources and size
 
-## Sources and version pinning
-
-| Source | Path | Role |
-|---|---|---|
-| Typed spine | `references/syntaxEN.json` | signatures, param types/directions, summaries |
-| Prose enrichment | `mirror/docs/21-R3/API/*.html` | descriptions, constraints, history, see-also, examples |
-
-Both are pinned to **21-R3**. `mirror/docs/21-R3/` is auto-selected by the
-shared `pipeline/common/docsroot.py` (highest non-BETA version folder), and can
-be overridden with `--version` / `--docs-root`.
-
-`syntaxEN.json` carries no version marker of its own. The repository owner has
-confirmed it was captured from 21-R3, matching the mirror. Every stage takes a
-`--syntax-json` flag so a future capture is swappable, and O0 records the
-pinning (path, sha1, declared version) in `out/oop_manifest.json`.
-
-## Corpus size (verified, not assumed)
+The current corpus uses explicit `--docs-root mirror/docs` (**21 R5 BETA**)
+and `references/syntaxEN-21-R5.json` with `--syntax-version 21-R5`.
+The shared stable auto-selector remains unchanged; it does not choose this
+unversioned beta root. [README.md](README.md) records exact hashes and compiler
+provenance.
 
 | Surface | Count |
 |---|---|
-| Built-in classes in `syntaxEN.json` | 45 |
-| API pages in `mirror/docs/21-R3/API/` | 45 |
-| Functions (keys ending in `)`) | 258 |
-| Properties | **218** |
-| `4D.<X>.new()` constructors | 19 |
-| **Total syntaxEN members** | **495** |
-| Overload lines (`<br/>`-separated) across all members | 591 |
+| Built-in syntax-resource classes, excluding `4D` / `_command_` | 46 |
+| API pages | 47 |
+| Fixed callable members, including 19 constructors | 278 |
+| Fixed properties | 243 |
+| Fixed syntax-resource members | 521 |
+| Overload/type-variant lines | 618 |
+| Dynamic pseudo-members | 7 |
+| **Total IR members** | **528** |
+| Class records (46 built-ins + two namespaces + three ORDA templates) | 51 |
 
-> The brief's figure of 227 properties (and hence 504 members) counted the nine
-> `_inheritedFrom_` sentinel keys as properties. They are superclass
-> declarations, not members. The corrected total is **495**.
+The `_inheritedFrom_` sentinels are superclass declarations, not properties.
+The seven dynamic entries are counted as property-kind members, bringing the
+IR's kind totals to 259 functions, 250 properties and 19 constructors.
 
 ## In scope
 
-- The 45 built-in classes and all 495 of their members: functions, properties
-  and the 19 class-store constructors.
-- `Transporter`, an abstract base class with **no API page of its own**. Its 11
-  members are documented only on the `IMAPTransporter`, `POP3Transporter` and
-  `SMTPTransporter` pages. It is modelled as a real class
-  (`isAbstract: true`, `docPage: null`) so its members are declared exactly
-  once and the three subclasses inherit them.
-- Inherited members. Nine classes declare a superclass via `_inheritedFrom_`
-  (`File→Document`, `Folder→Directory`, `ZipFile→Document`,
-  `ZipFolder→Directory`, `IMAPTransporter`/`POP3Transporter`/`SMTPTransporter`
-  `→Transporter`, `Method→Function`, `Formula→Function`). Each such member is
-  **declared once on the declaring class** and linked to every inheriting class
-  with a Layer-3 `member_of` edge — not duplicated as a second entry.
-- Documented dynamic pseudo-members (7 of them, see below), carried as
-  `dynamicMember: true` entries with a name pattern instead of a fixed name.
-- `cs.` / `4D.` class-store *access* semantics, as a Layer-2 protocol rather
-  than per-class entries.
+* Every fixed member in the 46 built-in class maps and all 19 class-store
+  constructors.
+* Abstract `Transporter`, with its own R5 `API/Transporter.html` page. R3 had
+  no page, but its 11 members were already in scope through subclasses.
+* Inherited members, modelled once on the declaring class, not duplicated
+  per subclass. Nine class maps encode inheritance.
+* `4D` and `cs` class-store access semantics.
+* ORDA generated classes as three Layer-2 templates, not per-model APIs.
+* All documented dynamic pseudo-members:
 
-## Out of scope (logged, not silently dropped)
-
-| Excluded | Reason |
-|---|---|
-| `mirror/docs/21-R3/aikit/` | 4D AIKit is a **component**, not the base language. Same reasoning that kept 4D View Pro's OOP surface out of the classic corpus. It also cannot be provisioned in the throwaway check project that Phase 5 needs, so its entries could never be compiler-verified. Revisit only if that changes. |
-| ORDA *generated* classes (`cs.<DataClass>`, `cs.<DataClass>Entity`, `cs.<DataClass>Selection`) | Their members are derived from the user's data model, so they have no fixed signatures. Modelled as a Layer-2 template/protocol, not as command entries. |
-| `mirror/docs/21-R3/Concepts/` | Language *grammar* (class declaration syntax, `Function`/`property` keywords, `#DECLARE`, shared objects), not member signatures. Only the subset needed to synthesize valid calls is captured, as a Layer-2 sub-grammar. |
-| `_command_` key in `syntaxEN.json` (1353 entries) | The classic corpus, already covered by `out/4d-command-ir.json`. |
-| `mirror/docs/21-R3/ORDA/`, `WebServer/`, `REST/` narrative pages | Conceptual guides; the class reference for these lives in `API/`, which is in scope. |
-
-## Phase 1.2 reconciliation result
-
-`out/oop_source_diff.json` joins every member-shaped heading on the 45 API
-pages against the `syntaxEN.json` keys for the corresponding class. The join
-balances exactly — 0 unaccounted members on either side.
-
-| Category | Count | Meaning |
+| Class | Heading | Meaning |
 |---|---|---|
-| `matched` | 484 | present in both sources |
-| `inherited_from_superclass` | 78 | documented on a subclass page, declared on an ancestor in `syntaxEN` |
-| `dynamic_member` | 7 | placeholder heading, no fixed name |
-| `syntaxen_missing` | **0** | — |
-| `doc_missing` | **0** | — |
-| **Total doc headings** | **569** | |
+| DataClass | `.attributeName` | user-model attribute |
+| Entity | `.attributeName` | user-model attribute |
+| EntitySelection | `.attributeName` | user-model attribute projection |
+| DataStore | `.dataclassName` | user-model dataclass |
+| 4D | `.classStoreName` | class-store name |
+| 4D | `.classClassName` | class inside a store |
+| WebForm | `.componentName` | web-form component |
 
-Accounting on the `syntaxEN` side: 484 matched + 11 declared on the orphan base
-class `Transporter` = **495**, i.e. **0 unaccounted**.
+Dynamic entries are synthesized using concrete check-project stand-ins; they
+are not omitted from the compiler check. Hover cannot match the literal
+placeholder and records them separately.
 
-**The 559-vs-495 delta is essentially all inheritance.** 78 of the 85 deltas
-are members that a subclass page re-documents but `syntaxEN` files once on the
-ancestor. Every one carries an `evidence` string naming the `_inheritedFrom_`
-hop that classified it.
+## Out of scope
 
-The 7 dynamic members:
+The manifest logs four scope exclusions, none excluding an in-scope member:
 
-| Class | Member | Why it has no fixed name |
-|---|---|---|
-| `DataClass` | `.attributeName` | attribute name comes from the user's data model |
-| `Entity` | `.attributeName` | ditto |
-| `EntitySelection` | `.attributeName` | ditto |
-| `DataStore` | `.dataclassName` | dataclass name comes from the user's data model |
-| `4D` (ClassStore) | `.classStoreName` | names a class store (`4D` or `cs`) |
-| `4D` (ClassStore) | `.classClassName` | names a class inside a class store |
-| `WebForm` | `.componentName` | names a component in the web form |
+* `aikit/`: component API, not the built-in base language.
+* `Concepts/`: grammar/narrative, not fixed member signatures.
+* `ORDA/`: conceptual guide; its class reference in `API/` is included.
+* `_command_`: classic commands are maintained in the separate classic IR.
 
-### Normalizations applied to make the join (recorded, not hidden)
+Other WebServer/REST narrative pages are not standalone command entries;
+relevant API-page narrative is retained as member enrichment.
 
-These are transformations this pipeline performs, not disagreements between the
-sources. They are annotated on the matched pairs in `out/oop_source_diff.json`.
+## Reconciliation and source artifacts
 
-1. **Zero-width space.** Every member heading in the mirror ends with `U+200B`
-   (a Docusaurus anchor artifact). Stripped on all 484 matches.
-2. **Parameter-list truncation.** Headings render the full parameter list
-   (`.copyTo( destinationFolder ; ... )`); `syntaxEN` keys carry only
-   `copyTo()`. The heading is truncated to `()` for joining only — the real
-   parameters come from the parsed `Syntax` string, never from the heading.
-3. **Heading level.** 43 pages use `<h2>` for members; `WebForm` and
-   `WebFormItem` use `<h3>` (9 members). Both levels are accepted.
-4. **Page title vs class key.** Six pages title themselves differently from
-   their `syntaxEN` key: `Directory Class`→`Directory`,
-   `Document Class`→`Document`, `ZIPArchive`/`ZIPFile`/`ZIPFolder`→
-   `ZipArchive`/`ZipFile`/`ZipFolder`, `ClassStore`→`4D`.
-5. **Constructor placement.** `4D.<X>.new()` is documented on `<X>`'s own class
-   page (e.g. `4D.Blob.new()` on `BlobClass.html`), *not* on
-   `ClassStoreClass.html`. The joiner attributes it to the target class.
+608 member headings are accounted for: **523 matched headings** representing
+**521 unique fixed members**, 78 inherited headings and seven dynamic
+headings. Two duplicate matches are recorded separately. Missing syntax,
+missing documentation and unaccounted fixed members are all **zero**.
 
-103 non-member headings (`Description`, `Example`, `See also`, `History`,
-`[index]`, `IMAPNotifier object`, `Commands and functions`, …) are recorded in
-`nonMemberHeadings` rather than discarded.
+105 non-member headings are recorded separately. The join normalizes heading
+zero-width spaces, removes rendered argument lists for key matching, accepts
+`h2`/`h3` members and maps page-title aliases, including
+`QuotaManager` → `QuotaManagerClass`. Constructors join to their target-class
+page, not the class-store page.
 
-## Known source defects carried forward
+Three malformed markdown signature lines (`CryptoKey.sign` twice,
+`CryptoKey.verify` once) are preserved byte-exactly while semantic member
+names are normalized. Ten multi-variant properties retain all their source
+lines and types, including the new SMTP certificate property.
 
-Found while parsing the 591 overload lines; each is preserved verbatim in the
-IR's raw syntax and normalized only for the semantic member name.
-
-| Member | Defect |
-|---|---|
-| `CryptoKey.sign` (2 overloads) | markdown emphasis misplaced: `.**sign** (…)` instead of `**.sign**(…)` |
-| `CryptoKey.verify` (1 overload) | markdown emphasis misplaced: `*.verify**(…)` |
-| `4D.Folder.new` (2 overloads) | trailing bare `*` flag param, modelled with the existing `literal_symbols` `TypeRef` |
+The R3→R5 review has **26 genuine member additions, zero removals, two changed
+signatures and 11 changed extracted sections**. Quota introduction spans R4/R5;
+do not invent individual property introduction dates from the class History
+table. [stage6_README.md](stage6_README.md) records compiler controls,
+documented/compiled quota-type disagreement and remaining example/hover
+limitations.

@@ -13,7 +13,7 @@
   },
   "summary": "Stops the notification subscription",
   "description": "The .stop() function stops the notification subscription. Calling .stop() is required before using other transporter functions (such as getMail() or send()).",
-  "docPage": "mirror/docs/21-R3/API/IMAPNotifierClass.html",
+  "docPage": "mirror/docs/API/IMAPNotifierClass.html",
   "overloads": [
     {
       "params": [],

@@ -1,0 +1,27 @@
+{
+  "id": "Vector.precision",
+  "displayName": "Vector.precision",
+  "kind": "oop_property",
+  "memberName": ".precision",
+  "receiver": {
+    "classId": "Vector",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "Vector"
+    }
+  },
+  "summary": "The precision value used to build the vector",
+  "description": "The .precision property contains the precision value used to build the vector: 32 (mk single precision, default) or 64 (mk double precision).",
+  "docPage": "mirror/docs/API/VectorClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**precision** : Integer"
+  },
+  "sinceVersion": "21-R5"
+}

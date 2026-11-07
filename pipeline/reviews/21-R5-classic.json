@@ -1,0 +1,68 @@
+{
+  "decisions": [
+    {
+      "ids": ["Deferred-formulas", "defer"],
+      "decision": "New to R3 baseline, introduced in R4 (History: Created). Authored explicit signatures/returns and LIFO exit/capture/error semantics; sinceVersion is 21 R4, not R5."
+    },
+    {
+      "ids": ["OBJECT-Get-padding", "OBJECT-SET-PADDING"],
+      "decision": "R5 additions (History: Created). Merge optional-leading-star variants using existing object-name/reference convention; model Object result/padding properties, supported objects and list-box symmetry/clamping."
+    },
+    {
+      "ids": ["CREATE-INDEX", "SET-INDEX"],
+      "decision": "R5 adds vector cosine/dot/Euclidean constants 4/5/6. Extend existing sentinel sets; independently compiler-check all six CREATE/SET constant call sites. Compilation does not verify runtime index applicability to a field."
+    },
+    {
+      "ids": ["OBJECT-GET-RGB-COLORS", "OBJECT-SET-RGB-COLORS"],
+      "decision": "R5 adds optional borderColor to both source variants. Extend merged overload, retaining star discrimination and out/in directions respectively. Include binary-project restriction, supported border styles and empty-string unchanged semantics. Sweep Text and Integer variants with R5 compiler."
+    },
+    {
+      "ids": ["OBJECT-Get-border-style", "OBJECT-SET-BORDER-STYLE"],
+      "decision": "Add R5 Border System Rounded=8 and Border Custom=9 from official constants; setter now references a scoped enum for full compiler sweep. Getter remains Integer; existing star merge is unchanged."
+    },
+    {
+      "ids": ["OBJECT-Get-corner-radius", "OBJECT-SET-CORNER-RADIUS", "OBJECT-Get-vertical-alignment", "OBJECT-SET-VERTICAL-ALIGNMENT"],
+      "decision": "R5 expands supported form-object kinds; signatures remain unchanged. Remove stale setter restrictions: custom buttons/radio/check boxes for radius, text areas/inputs for vertical alignment. Retain process-local and reference/name semantics."
+    },
+    {
+      "ids": ["Session", "Session-info"],
+      "decision": "R5 clarifies REST sessions exist even with scalable sessions disabled; correct Null constraint to non-REST web contexts. Session-info adds rest/web types and remote unreachableSince seconds. Object shape constraints updated, signatures retained."
+    },
+    {
+      "ids": ["Get-database-parameter", "SET-DATABASE-PARAMETER"],
+      "decision": "Document selector 135 discrepancy without a guessed runtime contract: official symbol QUIC Connection Timeout; docs QUIC session timeout. GET describes seconds/default900/min60, SET minutes/default15/min1. Preserve both claims independently as an explicit caveat. Other changes are wording (Kept after restart) or links. Undocumented MCP selectors in the official XLIFF are preserved in the constants registry, not assumed supported by the documented selector enum."
+    },
+    {
+      "ids": ["Open-datastore"],
+      "decision": "No signature change. Add deprecated/ignored user/password in Force login mode and repeated-localID object retention; use exposed authentify() credentials rather than old examples. Preserve reviewed connection/TLS/null behavior."
+    },
+    {
+      "ids": ["DIALOG", "PRINT-SELECTION"],
+      "decision": "DIALOG clarifies last-opened window/Open form window requirement; PRINT SELECTION clarifies statistical commands only reliable at B0 with break processing. Add constraints without changing reviewed modal/nonmodal or mutually exclusive print flags."
+    },
+    {
+      "ids": ["WP-Get-view-properties", "WP-SET-VIEW-PROPERTIES"],
+      "decision": "Add Boolean visibleTableBorders view-property documentation. Official wk visible table borders constant already existed. Retain area/object-name discrimination and process-local/nonpersistent constraints."
+    },
+    {
+      "ids": ["Action-info", "BLOB-to-list", "OB-Copy", "OB-Get", "OB-Is-defined", "OB-Is-empty", "OB-REMOVE", "OB-SET", "OB-SET-ARRAY", "OB-SET-NULL", "GET-LIST-ITEM-PROPERTIES", "SAX-OPEN-XML-ELEMENT-ARRAYS"],
+      "decision": "Upstream fixes old table duplication/type wording and command-name footnote markup. Existing reviewed parameter directions, Action info shape, BLOB offset reference and SAX scalar/array overload distinction remain correct. OB SET fixture already types object as Object, inout; no fixture edit required. Remove obsolete Action info table-error claim."
+    },
+    {
+      "ids": ["Average", "Max", "Min", "Std-deviation", "Sum", "Sum-squares", "Variance"],
+      "decision": "Prose now explicitly states field series uses current table selection, and index when available. Correct Average's overly narrow indexed-field summary. Existing field/array/attributePath signatures and numeric constraints remain valid; no overload reordering or narrowing. Compiler-check fresh generated methods."
+    },
+    {
+      "ids": ["HTTP-Parse-message", "OB-Entries", "OB-Keys", "OB-Values", "Process-activity", "Process-info"],
+      "decision": "Thread-safety property corrections/additions only. Raw source properties refreshed; no schema field for this metadata is invented. Existing overload merges/constraints unaffected."
+    },
+    {
+      "ids": ["HIGHLIGHT-TEXT", "LISTBOX-Get-property", "LISTBOX-SET-PROPERTY", "REGISTER-CLIENT"],
+      "decision": "History additions describe already-supported behavior. LISTBOX selected-items-expression table entry is a documentation completion; property remains Integer selector with dynamic value, per existing reviewed modeling. Preserve HIGHLIGHT star variants and REGISTER CLIENT compiler-required nonempty call."
+    },
+    {
+      "ids": ["Choose", "Current-client-authentication", "Document-to-text", "GET-DOCUMENT-ICON", "Get-4D-file", "Get-4D-folder", "Get-document-position", "Is-field-number-valid", "LDAP-LOGIN", "New-shared-collection", "OB-GET-PROPERTY-NAMES", "OB-Get-type", "OBJECT-Get-subform-container-value", "OBJECT-Is-styled-text", "OBJECT-SET-SUBFORM-CONTAINER-VALUE", "ON-ERR-CALL", "OPEN-COLOR-PICKER", "OPEN-SETTINGS-WINDOW", "Open-form-window", "SET-CHANNEL", "SET-USER-ALIAS", "Select-RGB-color", "Split-string", "TEXT-TO-DOCUMENT", "Test-path-name", "WEB-GET-BODY-PART", "WP-Add-picture", "WP-COMPUTE-FORMULAS", "WP-DELETE-STYLE-SHEET", "WP-FREEZE-FORMULAS", "WP-Get-formulas", "WP-Get-style-sheet", "WP-Get-style-sheets", "WP-IMPORT-STYLE-SHEETS", "WP-New-style-sheet", "WP-New-text-box", "WP-SET-DATA-CONTEXT", "throw"],
+      "decision": "Reviewed word-level deltas and existing overlays: editorial, worked-example, cross-link or terminology updates only. Source raw records refreshed. No signature reorder/new overload or constraint invalidation; preserve authored semantics, including WEB GET BODY PART's still-present name/fileName prose conflict and SAX reference restrictions."
+    }
+  ]
+}

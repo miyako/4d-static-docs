@@ -13,7 +13,7 @@
   },
   "summary": "The charset and encoding used for the body part of the email",
   "description": "The .bodyCharset property contains the charset and encoding used for the body part of the email.\n\nPossible values:",
-  "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+  "docPage": "mirror/docs/API/SMTPTransporterClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

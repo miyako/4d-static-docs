@@ -1,0 +1,30 @@
+{
+  "id": "QuotaManagerClass.maxEntitySetTimeout",
+  "displayName": "QuotaManagerClass.maxEntitySetTimeout",
+  "kind": "oop_property",
+  "memberName": ".maxEntitySetTimeout",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum inactivity timeout value for REST entity sets stored in memory during the current session (in seconds)",
+  "description": "The .maxEntitySetTimeout property contains the maximum inactivity timeout value for REST entity sets stored in memory during the current session (in seconds).\n\nScope: current session level\n\nYou can set this value using the quotas.maxEntitySetTimeout property of the Session, so that it will be used for any entity set created afterward in the session (existing entity set maximum timeout values are not modified).\n\nOnce the .maxEntitySetTimeout property is set, any entity set created afterward in the session could not have a timeout value longer than the .maxEntitySetTimeout value.\n\nFor example, assuming the maximum inactivity timeout is set to 40 minutes (2400 seconds), if an entity set is created with a required timeout which exceeds the maximum value:\n\n... then the timeout defined in the request is ignored and the entity set will be released after 40 minutes if not used during this period of time.\n\nYou cannot pass a value <=0 (an error is generated in this case). To reset the property value for the session, pass undefined.",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**maxEntitySetTimeout** : Integer"
+  },
+  "errorModel": {
+    "style": "throws",
+    "catchableWith": "try/catch"
+  }
+}

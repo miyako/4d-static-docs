@@ -13,7 +13,7 @@
   },
   "summary": "Stops any logging of ORDA requests on the machine it is called (client or server)",
   "description": "The .stopRequestLog() function stops any logging of ORDA requests on the machine it is called (client or server).\n\nIt actually closes the opened document on disk. On the client side, if the log was started in memory, it is stopped.\n\nThis function does nothing if logging of ORDA requests was not started on the machine.",
-  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "docPage": "mirror/docs/API/DataStoreClass.html",
   "overloads": [
     {
       "params": [],

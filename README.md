@@ -7,6 +7,12 @@ Repo: https://github.com/miyako/4d-static-docs
 **Workflow guide:** [Hosted pipeline diagram, triggers, validation, and review approvals](pipeline/HOSTED_WORKFLOW.md).
 Includes the current workflow boundaries and the proposed single-entry hosted orchestration.
 
+**Language corpora:** `out/4d-command-ir.json` and `out/4d-oop-ir.json`
+are now an explicitly **21 R5 BETA** snapshot, refreshed from the previous
+R3 corpora. Stable R4 documentation/syntax captures remain separate.
+See [the R5 corpus runbook](pipeline/R5_CORPUS.md) for source/compiler
+provenance, semantic review, fresh verification gates and pinned vendoring.
+
 ## Objectives
 
 1. **Static mirror** — generate a static HTML copy of the [4D docs GitHub Pages site](https://github.com/4d/docs) that can be browsed with no web server, i.e. by opening files directly from disk.
@@ -185,9 +191,15 @@ For R4 extraction, use `references/syntaxEN-21-R4.json` with
 `syntax_version=21-R4` and `syntax_build=21R4.100208`. This is an
 unmodified resource from the installed 4D R4 app; its build and SHA256
 are recorded in `references/syntaxEN-21-R4.provenance.json`.
-`references/syntaxEN.json` remains the R3 capture associated with the
-existing assembled language data. The new snapshot and capture do not
-automatically update or approve that data.
+`references/syntaxEN.json` remains the historical R3 capture; neither it nor
+the R4 capture was relabeled or overwritten. The assembled corpora use the
+unmodified `references/syntaxEN-21-R5.json` resource and R5 constants under
+`references/21-R5/`, captured from **21 R5 build 21R5.100156**. Build and
+SHA256 provenance are in `references/syntaxEN-21-R5.provenance.json`.
+R5 extraction explicitly selects `mirror/docs`, never the stable auto
+selector. Hosted extraction can select these pages with `docs_root=.`,
+`version=auto`, `syntax_version=21-R5`, `syntax_build=21R5.100156` and
+`syntax_json=references/syntaxEN-21-R5.json`.
 
 ### 1.1 Clone and check out the built site
 

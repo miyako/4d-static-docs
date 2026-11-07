@@ -13,7 +13,7 @@
   },
   "summary": "The accessor that gets the `connectionHandler` object used to initiate the connection",
   "description": "The .handler property contains the accessor that gets the connectionHandler object used to initiate the connection.",
-  "docPage": "mirror/docs/21-R3/API/WebSocketConnectionClass.html",
+  "docPage": "mirror/docs/API/WebSocketConnectionClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

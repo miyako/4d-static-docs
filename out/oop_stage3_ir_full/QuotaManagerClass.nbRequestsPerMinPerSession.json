@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.nbRequestsPerMinPerSession",
+  "displayName": "QuotaManagerClass.nbRequestsPerMinPerSession",
+  "kind": "oop_property",
+  "memberName": ".nbRequestsPerMinPerSession",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum total number of requests that a session can receive in one minute",
+  "description": "The .nbRequestsPerMinPerSession property contains the maximum total number of requests that a session can receive in one minute.\n\nScope: session default level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**nbRequestsPerMinPerSession** : Integer"
+  }
+}

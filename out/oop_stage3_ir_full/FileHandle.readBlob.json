@@ -13,7 +13,7 @@
   },
   "summary": "Returns a blob a *bytes* size from the file, starting from the current position",
   "description": "The .readBlob() function returns a blob a bytes size from the file, starting from the current position .\n\nWhen this function is executed, the current position (.offset) is updated after the last byte read.",
-  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "docPage": "mirror/docs/API/FileHandleClass.html",
   "overloads": [
     {
       "params": [

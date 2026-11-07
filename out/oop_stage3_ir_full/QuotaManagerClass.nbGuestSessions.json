@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.nbGuestSessions",
+  "displayName": "QuotaManagerClass.nbGuestSessions",
+  "kind": "oop_property",
+  "memberName": ".nbGuestSessions",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum total number of active Guest sessions on the Web server",
+  "description": "The .nbGuestSessions property contains the maximum total number of active Guest sessions on the Web server.\n\nScope: server global level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**nbGuestSessions** : Integer"
+  }
+}

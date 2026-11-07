@@ -13,7 +13,7 @@
   },
   "summary": "Name of the default home page",
   "description": "The name of the default home page or \"\" to not send the custom home page.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

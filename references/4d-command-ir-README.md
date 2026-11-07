@@ -1,5 +1,11 @@
 # 4D Command IR — three-layer schema
 
+The current assembled documents are **21 R5 BETA**, captured and checked
+with **21 R5 build 21R5.100156**. Classic coverage is 1460 commands:
+13 fixtures plus 1447 bulk entries. See `pipeline/R5_CORPUS.md` and
+`out/r5_snapshot.json` for reproducible inputs and separate compiler/hover
+coverage; the schema itself is unchanged for this refresh.
+
 Files:
 - `4d-command-ir-schema.json` — the JSON Schema (Draft 2020-12) itself.
 - `4d-command-ir-examples.json` — worked examples covering every worst-case

@@ -13,7 +13,7 @@
   },
   "summary": "Each exposed 4D.Class class in the class store is available as a property of the class store.",
   "description": "Each exposed 4D.Class class in the class store is available as a property of the class store.",
-  "docPage": "mirror/docs/21-R3/API/ClassStoreClass.html",
+  "docPage": "mirror/docs/API/ClassStoreClass.html",
   "accessor": {
     "type": {
       "kind": "pseudo",

@@ -13,7 +13,7 @@
   },
   "summary": "The parent folder object of the file",
   "description": "The .parent property returns the parent folder object of the file. If the path represents a system path (e.g., \"/DATA/\"), the system path is returned.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "accessor": {
     "type": {
       "kind": "concrete",

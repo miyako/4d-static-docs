@@ -12,7 +12,7 @@
         "command": "Size-of-array",
         "corpus": "classic"
       },
-      "note": "Both give the element count; Size of array also resizes, .length is read-only."
+      "note": "Both give the element count: Size of array for an array, .length for a collection."
     },
     {
       "type": "classic_equivalent",

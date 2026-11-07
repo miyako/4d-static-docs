@@ -26,15 +26,9 @@
     }
   },
   {
-    "id": "C-LONGINT",
-    "status": "no_source_page",
-    "overload_merges": [],
-    "note": "not present in Stage 1 raw extraction (e.g. C_LONGINT has no standalone page in this docs snapshot) -- cannot run Stage 3 for this command."
-  },
-  {
     "id": "TABLE",
     "status": "validated",
-    "overlay_applied": true,
+    "overlay_applied": false,
     "overload_merges": [],
     "schema_errors": [],
     "review_notes": [
@@ -42,8 +36,11 @@
     ],
     "diff_vs_example": {
       "status": "diffed",
-      "differences": [],
-      "difference_count": 0
+      "differences": [
+        "theme: draft='Structure Access' example='Structure-Access'",
+        "missing top-level 'constraints' present in example"
+      ],
+      "difference_count": 2
     }
   },
   {

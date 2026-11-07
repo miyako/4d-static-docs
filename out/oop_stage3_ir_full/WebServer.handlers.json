@@ -13,7 +13,7 @@
   },
   "summary": "Collection of custom HTTP handler objects",
   "description": "Read-only property\n\nA collection of custom HTTP handler objects. An HTTP handler object contains a listened URL pattern, a handled verb, and the code to be called. HTTP handlers can be defined through a HTTPHandlers.json file or the settings parameter of the .start() function. For more information, please refer to the HTTP Request handler page.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

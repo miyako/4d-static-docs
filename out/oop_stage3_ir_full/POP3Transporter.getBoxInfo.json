@@ -13,7 +13,7 @@
   },
   "summary": "Returns a `boxInfo` object corresponding to the mailbox designated by the `POP3 transporter`",
   "description": "The .getBoxInfo() function returns a boxInfo object corresponding to the mailbox designated by the POP3 transporter. This function allows you to retrieve information about the mailbox.\n\nThe boxInfo object returned contains the following properties:",
-  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "docPage": "mirror/docs/API/POP3TransporterClass.html",
   "overloads": [
     {
       "params": [],

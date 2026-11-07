@@ -13,7 +13,7 @@
   },
   "summary": "Stops the web server on which it is applied",
   "description": "The .stop() function stops the web server on which it is applied.\n\nIf the web server was started, all web connections and web processes are closed, once the currently handled requests are finished. If the web server was not started, the method does nothing.\n\nThis function resets the customized web settings defined for the session using the settings parameter of the .start() function, if any.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "overloads": [
     {
       "params": [],

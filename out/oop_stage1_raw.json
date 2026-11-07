@@ -1,8 +1,8 @@
 {
   "Blob": {
     "class": "Blob",
-    "docPage": "mirror/docs/21-R3/API/BlobClass.html",
-    "contentHash": "eec45ea8d585a010",
+    "docPage": "mirror/docs/API/BlobClass.html",
+    "contentHash": "cfa2cd6789608021",
     "sections": [
       {
         "headingRaw": "4D.Blob.new()​",
@@ -254,8 +254,8 @@
   },
   "Class": {
     "class": "Class",
-    "docPage": "mirror/docs/21-R3/API/ClassClass.html",
-    "contentHash": "f2fc9712c2f121f3",
+    "docPage": "mirror/docs/API/ClassClass.html",
+    "contentHash": "ce165e3552e67e72",
     "sections": [
       {
         "headingRaw": ".isSessionSingleton​",
@@ -729,8 +729,8 @@
   },
   "4D": {
     "class": "4D",
-    "docPage": "mirror/docs/21-R3/API/ClassStoreClass.html",
-    "contentHash": "bfdb840c12b8a46e",
+    "docPage": "mirror/docs/API/ClassStoreClass.html",
+    "contentHash": "9d1a597fef223430",
     "sections": [
       {
         "headingRaw": ".classClassName​",
@@ -797,7 +797,7 @@
           },
           {
             "tag": "p",
-            "text": "The name of the class store published by a component is the component namespace as declared in the component's Settings page.",
+            "text": "The name of the class store exposed by a component is the component namespace as declared in the component's Settings page.",
             "underHeading": "Description",
             "codeSpans": []
           }
@@ -836,8 +836,8 @@
   },
   "Collection": {
     "class": "Collection",
-    "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
-    "contentHash": "07d1cb113bd48adc",
+    "docPage": "mirror/docs/API/CollectionClass.html",
+    "contentHash": "dabe13348ea16ae3",
     "sections": [
       {
         "headingRaw": ".at()​",
@@ -2695,6 +2695,14 @@
             "text": "You want to filter elements according to their value type:",
             "underHeading": "Example 2",
             "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "The .filter() function can be used to compare two collections and extract the differences between them:",
+            "underHeading": "Example 3",
+            "codeSpans": [
+              ".filter()"
+            ]
           }
         ],
         "returnsShapeTables": [],
@@ -2716,6 +2724,15 @@
                 "code": " var $c;$c2;$c3 : Collection var $f : 4D.Function $f:=Formula(OB Get type($1;\"value\")=$2) $c:=New collection(5;3;1;4;6;2) $c.push(New object(\"name\";\"Cleveland\";\"zc\";35049)) $c.push(New object(\"name\";\"Blountsville\";\"zc\";35031)) $c2:=$c.filter($f;Is real) // $c2=[5,3,1,4,6,2] $c3:=$c.filter($f;Is object)  // $c3=[{name:Cleveland,zc:35049},{name:Blountsville,zc:35031}]"
               }
             ]
+          },
+          {
+            "title": "Example 3",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "var $c1:=New collection(12; 45; 78; 99; 156)var $c2:=New collection(12; 78; 99) //two elements are missingvar $diff:=$c1.filter(Formula(Not($c2.includes($1.value))))  // $diff=[45, 156]"
+              }
+            ]
           }
         ],
         "seeAlso": [],
@@ -2731,6 +2748,10 @@
           {
             "level": "h4",
             "title": "Example 2"
+          },
+          {
+            "level": "h4",
+            "title": "Example 3"
           }
         ]
       },
@@ -6508,7 +6529,7 @@
             "blocks": [
               {
                 "language": "4d",
-                "code": "var $c : Collection$c:=New collection(5;3;5;1;3;4;4;6;2;2)$r:=$c.reduce(Formula($1.accumulator*=$1.value); 1)  //returns 86400"
+                "code": "var $c : Collection$c:=New collection(5;3;5;1;3;4;4;6;2;2)$r:=$c.reduce(Formula($1.accumulator=$1.value); 1)  //returns 86400"
               }
             ]
           },
@@ -6699,7 +6720,7 @@
             "blocks": [
               {
                 "language": "4d",
-                "code": "var $c : Collection$c:=New collection(5;3;5;1;3;4;4;6;2;2)$r:=$c.reduceRight(Formula($1.accumulator*=$1.value); 1)  //returns 86400"
+                "code": "var $c : Collection$c:=New collection(5;3;5;1;3;4;4;6;2;2)$r:=$c.reduceRight(Formula($1.accumulator=$1.value); 1)  //returns 86400"
               }
             ]
           },
@@ -7909,8 +7930,8 @@
   },
   "CryptoKey": {
     "class": "CryptoKey",
-    "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
-    "contentHash": "0d2c51f6d5d8880d",
+    "docPage": "mirror/docs/API/CryptoKeyClass.html",
+    "contentHash": "b334d335714cf641",
     "sections": [
       {
         "headingRaw": "4D.CryptoKey.new()​",
@@ -8617,11 +8638,11 @@
           ".pem : Text"
         ],
         "paramTable": null,
-        "summary": "PEM definition of an encryption key to load. If the key is a private key, the RSA or ECDSA public key will be deduced from it.",
+        "summary": "The PEM definition of an encryption key to load. If the key is a private key, the RSA or ECDSA public key will be deduced from it.",
         "descriptionBlocks": [
           {
             "tag": "p",
-            "text": "PEM definition of an encryption key to load. If the key is a private key, the RSA or ECDSA public key will be deduced from it.",
+            "text": "The PEM definition of an encryption key to load. If the key is a private key, the RSA or ECDSA public key will be deduced from it.",
             "underHeading": null,
             "codeSpans": []
           }
@@ -9071,8 +9092,8 @@
   },
   "DataClass": {
     "class": "DataClass",
-    "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
-    "contentHash": "db45f0363ed7ae10",
+    "docPage": "mirror/docs/API/DataClassClass.html",
+    "contentHash": "4b892de39328f6af",
     "sections": [
       {
         "headingRaw": ".attributeName​",
@@ -10278,6 +10299,169 @@
         ]
       },
       {
+        "headingRaw": ".getIndexes()​",
+        "headingKey": ".getIndexes()",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "21 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".getIndexes() : Collection"
+        ],
+        "paramTable": {
+          "headers": [
+            "Parameter",
+            "Type",
+            "col2",
+            "Description"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Parameter": "Result",
+                "Type": "Collection",
+                "col2": "<-",
+                "Description": "Collection of index objects"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "summary": "The .getIndexes() function returns a collection of all indexes related to the dataclass.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .getIndexes() function returns a collection of all indexes related to the dataclass.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".getIndexes()"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Each index is an object of the collection. Indexes are returned in the creation/modification order. An empty collection is returned if there is no index in the dataclass.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "Returned collection",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "Each object of the returned collection has the following properties:",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "Considering the following table:",
+            "underHeading": "Example",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [
+          {
+            "underHeading": "Description",
+            "table": {
+              "headers": [
+                "Property",
+                "Type",
+                "Description"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Property": "type",
+                    "Type": "Integer",
+                    "Description": "Index type: -1 = Keywords, 0 = default, 1 = Standard B-Tree, 3 = Cluster B-Tree, 4 = Cosine, 5 = Dot, 6 = Euclidean. If the index is set to Automatic, the type property represents the type of the indexing algorithm used"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "automatic",
+                    "Type": "Boolean",
+                    "Description": "True if \"automatic\" index is selected"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "name",
+                    "Type": "Text",
+                    "Description": "Index name if defined"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "kind",
+                    "Type": "Text",
+                    "Description": "\"keywords\" if keyword index checked, otherwise \"regular\""
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "attributes",
+                    "Type": "Collection",
+                    "Description": "Index attribute or list of attributes (for composite index)"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "UUID",
+                    "Type": "Text",
+                    "Description": "Index UUID"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "uniqueKey",
+                    "Type": "Boolean",
+                    "Description": "True if index has the Unique key property"
+                  }
+                }
+              ],
+              "warnings": []
+            }
+          }
+        ],
+        "examples": [
+          {
+            "title": "Example",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "var $colIndex:=ds.Products.getIndexes()//$colIndex[0]={\"automatic\":true,\"kind\":\"regular\",\"type\":1,\"uniqueKey\":true,\"UUID\":\"ADE...\",\"attributes\":[\"ID\"]}//$colIndex[1]={\"automatic\":true,\"kind\":\"regular\",\"type\":1,\"uniqueKey\":false,\"UUID\":\"00D...\",\"attributes\":[\"name\"]}//$colIndex[2]={\"name\":\"Description\",\"automatic\":false,\"kind\":\"keywords\",\"type\":-1,\"uniqueKey\":false,\"UUID\":\"37B...\",\"attributes\":[\"description\"]}//$colIndex[3]={\"automatic\":false,\"kind\":\"regular\",\"type\":5,\"uniqueKey\":false,\"UUID\":\"618...\",\"attributes\":[\"embedding\"]}//$colIndex[4]={\"automatic\":true,\"kind\":\"regular\",\"type\":3,\"uniqueKey\":false,\"UUID\":\"297...\",\"attributes\":[\"embedding\"]}//$colIndex[5]={\"automatic\":false,\"kind\":\"regular\",\"type\":4,\"uniqueKey\":false,\"UUID\":\"EA8...\",\"attributes\":[\"embedding\"]}"
+              }
+            ]
+          }
+        ],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h4",
+            "title": "Example"
+          }
+        ]
+      },
+      {
         "headingRaw": ".getInfo()​",
         "headingKey": ".getInfo()",
         "headingLevel": "h2",
@@ -11248,7 +11432,7 @@
           },
           {
             "tag": "p",
-            "text": "When searching within dataclass object attributes containing collections, the \"not equal to value\" comparator (# or !=) will find elements where ALL properties are different from value (and not those where AT LEAST one property is different from value, which is how work other comparators). Basically, it is equivalent to search for \"Not(find collection elements where property equals value\"). For example, with the following entities:",
+            "text": "When searching within dataclass object attributes containing collections, the \"not equal to value\" comparator (# or !=) will find elements where ALL properties are different from value (and not those where AT LEAST one property is different from value, which is how work other comparators). Basically, it is equivalent to search for \"Not(find collection elements where property equals value)\". For example, with the following entities:",
             "underHeading": "Not equal to in collections",
             "codeSpans": [
               "#",
@@ -11970,7 +12154,7 @@
             "blocks": [
               {
                 "language": "4d",
-                "code": "ds.Class.query(\"info.coll[].val = :1\";0)// returns B and C// finds \"entities with 0 in at least one val property\"ds.Class.query(\"info.coll[].val != :1\";0)// returns A only// finds \"entities where all val properties are different from 0\"// which is the equivalent tods.Class.query(not(\"info.coll[].val = :1\";0))"
+                "code": "ds.Class.query(\"info.coll[].val = :1\";0)// returns B and C// finds \"entities with 0 in at least one val property\"ds.Class.query(\"info.coll[].val != :1\";0)// returns A only// finds \"entities where all val properties are different from 0\"// which is the equivalent tods.Class.query(\"Not(info.coll[].val = :1)\";0)"
               }
             ]
           },
@@ -12815,8 +12999,8 @@
   },
   "DataStore": {
     "class": "DataStore",
-    "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
-    "contentHash": "2f655393a873b7d7",
+    "docPage": "mirror/docs/API/DataStoreClass.html",
+    "contentHash": "95e09e9662eb4929",
     "sections": [
       {
         "headingRaw": ".dataclassName​",
@@ -15677,8 +15861,8 @@
   },
   "Directory": {
     "class": "Directory",
-    "docPage": "mirror/docs/21-R3/API/Directory.html",
-    "contentHash": "c335dac4ff62dc34",
+    "docPage": "mirror/docs/API/Directory.html",
+    "contentHash": "f3b6bea97390871a",
     "sections": [
       {
         "headingRaw": ".creationDate​",
@@ -17348,8 +17532,8 @@
   },
   "Document": {
     "class": "Document",
-    "docPage": "mirror/docs/21-R3/API/Document.html",
-    "contentHash": "7bcdd2b9fa081e03",
+    "docPage": "mirror/docs/API/Document.html",
+    "contentHash": "723de7d636f5bb43",
     "sections": [
       {
         "headingRaw": ".creationDate​",
@@ -18947,8 +19131,8 @@
   },
   "Email": {
     "class": "Email",
-    "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
-    "contentHash": "66b5f818e325570f",
+    "docPage": "mirror/docs/API/EmailObjectClass.html",
+    "contentHash": "9fe0cbeb48622d12",
     "sections": [
       {
         "headingRaw": ".attachments​",
@@ -19943,8 +20127,8 @@
   },
   "Entity": {
     "class": "Entity",
-    "docPage": "mirror/docs/21-R3/API/EntityClass.html",
-    "contentHash": "8777e15ea632fd73",
+    "docPage": "mirror/docs/API/EntityClass.html",
+    "contentHash": "685f4ec0b00237f1",
     "sections": [
       {
         "headingRaw": ".attributeName​",
@@ -23758,8 +23942,8 @@
   },
   "EntitySelection": {
     "class": "EntitySelection",
-    "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
-    "contentHash": "2931cd845209d1b4",
+    "docPage": "mirror/docs/API/EntitySelectionClass.html",
+    "contentHash": "004de05488f41058",
     "sections": [
       {
         "headingRaw": ".attributeName​",
@@ -28459,8 +28643,8 @@
   },
   "File": {
     "class": "File",
-    "docPage": "mirror/docs/21-R3/API/FileClass.html",
-    "contentHash": "18cc95572edad195",
+    "docPage": "mirror/docs/API/FileClass.html",
+    "contentHash": "23c4d24224d416b8",
     "sections": [
       {
         "headingRaw": "4D.File.new()​",
@@ -31907,8 +32091,8 @@
   },
   "FileHandle": {
     "class": "FileHandle",
-    "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
-    "contentHash": "8777cd33b56a0bb7",
+    "docPage": "mirror/docs/API/FileHandleClass.html",
+    "contentHash": "0eca16d2252528c5",
     "sections": [
       {
         "headingRaw": ".breakModeRead​",
@@ -33028,8 +33212,8 @@
   },
   "Folder": {
     "class": "Folder",
-    "docPage": "mirror/docs/21-R3/API/FolderClass.html",
-    "contentHash": "5346892a998fa581",
+    "docPage": "mirror/docs/API/FolderClass.html",
+    "contentHash": "e95ea1a5b13142d9",
     "sections": [
       {
         "headingRaw": "4D.Folder.new()​",
@@ -35424,8 +35608,8 @@
   },
   "Formula": {
     "class": "Formula",
-    "docPage": "mirror/docs/21-R3/API/FormulaClass.html",
-    "contentHash": "ef04836ed33d757d",
+    "docPage": "mirror/docs/API/FormulaClass.html",
+    "contentHash": "ab0d5b97d9e20c05",
     "sections": [
       {
         "headingRaw": ".apply()​",
@@ -35811,8 +35995,8 @@
   },
   "Function": {
     "class": "Function",
-    "docPage": "mirror/docs/21-R3/API/FunctionClass.html",
-    "contentHash": "05f670da05684ef6",
+    "docPage": "mirror/docs/API/FunctionClass.html",
+    "contentHash": "12e18e573a32dc37",
     "sections": [
       {
         "headingRaw": ".apply()​",
@@ -36175,8 +36359,8 @@
   },
   "HTTPAgent": {
     "class": "HTTPAgent",
-    "docPage": "mirror/docs/21-R3/API/HTTPAgentClass.html",
-    "contentHash": "c5b6f6a221427d13",
+    "docPage": "mirror/docs/API/HTTPAgentClass.html",
+    "contentHash": "f746c6771de384ed",
     "sections": [
       {
         "headingRaw": "4D.HTTPAgent.new()​",
@@ -36495,8 +36679,8 @@
   },
   "HTTPRequest": {
     "class": "HTTPRequest",
-    "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
-    "contentHash": "204b80133dfe0330",
+    "docPage": "mirror/docs/API/HTTPRequestClass.html",
+    "contentHash": "6e43d809e2d9ff22",
     "sections": [
       {
         "headingRaw": "4D.HTTPRequest.new()​",
@@ -37686,8 +37870,8 @@
   },
   "IMAPNotifier": {
     "class": "IMAPNotifier",
-    "docPage": "mirror/docs/21-R3/API/IMAPNotifierClass.html",
-    "contentHash": "77641a2ff0868266",
+    "docPage": "mirror/docs/API/IMAPNotifierClass.html",
+    "contentHash": "8742c8c255035524",
     "sections": [
       {
         "headingRaw": "4D.IMAPNotifier.new()​",
@@ -38033,8 +38217,8 @@
   },
   "IMAPTransporter": {
     "class": "IMAPTransporter",
-    "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
-    "contentHash": "e5e327d15ebcb40d",
+    "docPage": "mirror/docs/API/IMAPTransporterClass.html",
+    "contentHash": "fb9de96325038b42",
     "sections": [
       {
         "headingRaw": "4D.IMAPTransporter.new()​",
@@ -38297,6 +38481,10 @@
           {
             "text": ".removeFlags()",
             "href": "IMAPTransporterClass.html#removeflags"
+          },
+          {
+            "text": ".removeFlags()",
+            "href": "IMAPTransporterClass.html#removeflags"
           }
         ],
         "subsections": [
@@ -38450,6 +38638,10 @@
           {
             "level": "h4",
             "title": "Example"
+          },
+          {
+            "level": "h4",
+            "title": "See also"
           },
           {
             "level": "h4",
@@ -43083,8 +43275,8 @@
   },
   "IncomingMessage": {
     "class": "IncomingMessage",
-    "docPage": "mirror/docs/21-R3/API/IncomingMessageClass.html",
-    "contentHash": "cd955b079e2e600e",
+    "docPage": "mirror/docs/API/IncomingMessageClass.html",
+    "contentHash": "745b6433ca4405fe",
     "sections": [
       {
         "headingRaw": ".getBlob()​",
@@ -43697,8 +43889,8 @@
   },
   "MailAttachment": {
     "class": "MailAttachment",
-    "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
-    "contentHash": "9b4130d69fa850a1",
+    "docPage": "mirror/docs/API/MailAttachmentClass.html",
+    "contentHash": "2ebb44abac5e9408",
     "sections": [
       {
         "headingRaw": "4D.MailAttachment.new()​",
@@ -44125,8 +44317,8 @@
   },
   "Method": {
     "class": "Method",
-    "docPage": "mirror/docs/21-R3/API/MethodClass.html",
-    "contentHash": "2eeb4bddfeba8543",
+    "docPage": "mirror/docs/API/MethodClass.html",
+    "contentHash": "ec641b45018351a1",
     "sections": [
       {
         "headingRaw": "4D.Method.new()​",
@@ -44794,8 +44986,8 @@
   },
   "OutgoingMessage": {
     "class": "OutgoingMessage",
-    "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
-    "contentHash": "e53cf2062efd9fdc",
+    "docPage": "mirror/docs/API/OutgoingMessageClass.html",
+    "contentHash": "74ec46bed95149db",
     "sections": [
       {
         "headingRaw": ".body​",
@@ -45140,8 +45332,8 @@
   },
   "POP3Transporter": {
     "class": "POP3Transporter",
-    "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
-    "contentHash": "8c1542ebb6356ab7",
+    "docPage": "mirror/docs/API/POP3TransporterClass.html",
+    "contentHash": "24fe1d692af5c052",
     "sections": [
       {
         "headingRaw": "4D.POP3Transporter.new()​",
@@ -46657,10 +46849,865 @@
       }
     ]
   },
+  "QuotaManagerClass": {
+    "class": "QuotaManagerClass",
+    "docPage": "mirror/docs/API/QuotaManagerClass.html",
+    "contentHash": "a76f24d292e01196",
+    "sections": [
+      {
+        "headingRaw": ".currentValues​",
+        "headingKey": ".currentValues",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "currentValues : Object"
+        ],
+        "paramTable": null,
+        "summary": "The .currentValues property contains current usage values for the quota manager. It is automatically updated by 4D and is read-only.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .currentValues property contains current usage values for the quota manager. It is automatically updated by 4D and is read-only.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".currentValues"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "The object has the same properties as the 4D.QuotaManager object, but only the following properties report current usage:",
+            "underHeading": "Description",
+            "codeSpans": [
+              "4D.QuotaManager"
+            ]
+          },
+          {
+            "tag": "ul",
+            "text": "nbEntitySets nbSessions nbGuestSessions",
+            "underHeading": "Description",
+            "codeSpans": [
+              "nbEntitySets",
+              "nbSessions",
+              "nbGuestSessions"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".defaultEntitySetTimeout​",
+        "headingKey": ".defaultEntitySetTimeout",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "defaultEntitySetTimeout : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .defaultEntitySetTimeout property contains the default inactivity timeout for REST entity sets stored in memory during the current session (in seconds).",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .defaultEntitySetTimeout property contains the default inactivity timeout for REST entity sets stored in memory during the current session (in seconds).",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".defaultEntitySetTimeout"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: current session level",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "By default, this value is 2 hours (7200 seconds). It can also be defined at the entity set creation using the $timeout REST API.",
+            "underHeading": "Description",
+            "codeSpans": [
+              "$timeout"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "You can change this value dynamically using the quotas.defaultEntitySetTimeout property of the Session, so that it will be used for any entity set created afterwards in the session (existing entity set default timeout values are not modified).",
+            "underHeading": "Description",
+            "codeSpans": [
+              "quotas.defaultEntitySetTimeout"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "You cannot pass a value <=0 (an error is generated in this case). To reset the property value for the session, pass undefined.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "In some 4D code in a REST process:",
+            "underHeading": "Example",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [
+          {
+            "title": "Example",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "Session.quotas.defaultEntitySetTimeout:=1200"
+              }
+            ]
+          }
+        ],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h4",
+            "title": "Example"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".inBytesPerHour​",
+        "headingKey": ".inBytesPerHour",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "inBytesPerHour : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .inBytesPerHour property contains the maximum total number of bytes that the Web server can receive in one hour.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .inBytesPerHour property contains the maximum total number of bytes that the Web server can receive in one hour.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".inBytesPerHour"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: server global level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".inBytesPerHourPerSession​",
+        "headingKey": ".inBytesPerHourPerSession",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "inBytesPerHourPerSession : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .inBytesPerHourPerSession property contains the maximum total number of bytes that the Web server can receive for a session in one hour.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .inBytesPerHourPerSession property contains the maximum total number of bytes that the Web server can receive for a session in one hour.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".inBytesPerHourPerSession"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: session default level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".inBytesPerMin​",
+        "headingKey": ".inBytesPerMin",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "inBytesPerMin : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .inBytesPerMin property contains the maximum total number of bytes that the Web server can receive in one minute.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .inBytesPerMin property contains the maximum total number of bytes that the Web server can receive in one minute.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".inBytesPerMin"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: server global level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".inBytesPerMinPerSession​",
+        "headingKey": ".inBytesPerMinPerSession",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "inBytesPerMinPerSession : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .inBytesPerMinPerSession property contains the maximum total number of bytes that the Web server can receive for a session in one minute.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .inBytesPerMinPerSession property contains the maximum total number of bytes that the Web server can receive for a session in one minute.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".inBytesPerMinPerSession"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: session default level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".maxEntitySetTimeout​",
+        "headingKey": ".maxEntitySetTimeout",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "maxEntitySetTimeout : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .maxEntitySetTimeout property contains the maximum inactivity timeout value for REST entity sets stored in memory during the current session (in seconds).",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .maxEntitySetTimeout property contains the maximum inactivity timeout value for REST entity sets stored in memory during the current session (in seconds).",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".maxEntitySetTimeout"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: current session level",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "You can set this value using the quotas.maxEntitySetTimeout property of the Session, so that it will be used for any entity set created afterward in the session (existing entity set maximum timeout values are not modified).",
+            "underHeading": "Description",
+            "codeSpans": [
+              "quotas.maxEntitySetTimeout"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Once the .maxEntitySetTimeout property is set, any entity set created afterward in the session could not have a timeout value longer than the .maxEntitySetTimeout value.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".maxEntitySetTimeout",
+              ".maxEntitySetTimeout"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "For example, assuming the maximum inactivity timeout is set to 40 minutes (2400 seconds), if an entity set is created with a required timeout which exceeds the maximum value:",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "... then the timeout defined in the request is ignored and the entity set will be released after 40 minutes if not used during this period of time.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "You cannot pass a value <=0 (an error is generated in this case). To reset the property value for the session, pass undefined.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "In some 4D code in a REST process:",
+            "underHeading": "Example",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [
+          {
+            "title": "Description",
+            "blocks": [
+              {
+                "language": "text",
+                "code": "http://127.0.0.1/rest/People?$filter=ID>=4&$method=entityset&$timeout=3000"
+              }
+            ]
+          },
+          {
+            "title": "Example",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "Session.quotas.maxEntitySetTimeout:=2400"
+              }
+            ]
+          }
+        ],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h4",
+            "title": "Example"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".nbEntitySets​",
+        "headingKey": ".nbEntitySets",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "nbEntitySets : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .nbEntitySets property contains the maximum number of REST entity sets allowed in memory for the current session.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .nbEntitySets property contains the maximum number of REST entity sets allowed in memory for the current session.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".nbEntitySets"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: current session level",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "By default, there is no limit for entity sets stored in memory by REST requests (the value is 0). You can set a limit to control the server payload for a specific session.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "When the maximum number of allowed entity sets is reached, a REST request that need to create an entity set will get a 429 HTTP status code and an error response, until at least one entity set is released. You can release an entity set from the cache using the $release REST command.",
+            "underHeading": "Description",
+            "codeSpans": [
+              "$release"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "You cannot pass a value <=0 (an error is generated in this case). To reset the property value for the session, pass undefined.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "In some 4D code in a REST process:",
+            "underHeading": "Example",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [
+          {
+            "title": "Example",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "\t//max 50 entity setsSession.quotas.nbEntitySets:=50"
+              }
+            ]
+          }
+        ],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h4",
+            "title": "Example"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".nbEntitySetsPerSession​",
+        "headingKey": ".nbEntitySetsPerSession",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "nbEntitySetsPerSession : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .nbEntitySetsPerSession property contains the maximum number of entity sets allowed in memory for each REST session.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .nbEntitySetsPerSession property contains the maximum number of entity sets allowed in memory for each REST session.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".nbEntitySetsPerSession"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: session default level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".nbGuestSessions​",
+        "headingKey": ".nbGuestSessions",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "nbGuestSessions : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .nbGuestSessions property contains the maximum total number of active Guest sessions on the Web server.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .nbGuestSessions property contains the maximum total number of active Guest sessions on the Web server.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".nbGuestSessions"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: server global level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".nbRequestsPerHour​",
+        "headingKey": ".nbRequestsPerHour",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "nbRequestsPerHour : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .nbRequestsPerHour property contains the maximum total number of requests that the Web server can receive in one hour.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .nbRequestsPerHour property contains the maximum total number of requests that the Web server can receive in one hour.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".nbRequestsPerHour"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: server global level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".nbRequestsPerHourPerSession​",
+        "headingKey": ".nbRequestsPerHourPerSession",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "nbRequestsPerHourPerSession : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .nbRequestsPerHourPerSession property contains the maximum total number of requests that a session can receive in one hour.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .nbRequestsPerHourPerSession property contains the maximum total number of requests that a session can receive in one hour.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".nbRequestsPerHourPerSession"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: session default level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".nbRequestsPerMin​",
+        "headingKey": ".nbRequestsPerMin",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "nbRequestsPerMin : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .nbRequestsPerMin property contains the maximum total number of requests that the Web server can receive in one minute.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .nbRequestsPerMin property contains the maximum total number of requests that the Web server can receive in one minute.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".nbRequestsPerMin"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: server global level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".nbRequestsPerMinPerSession​",
+        "headingKey": ".nbRequestsPerMinPerSession",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "nbRequestsPerMinPerSession : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .nbRequestsPerMinPerSession property contains the maximum total number of requests that a session can receive in one minute.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .nbRequestsPerMinPerSession property contains the maximum total number of requests that a session can receive in one minute.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".nbRequestsPerMinPerSession"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: session default level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".nbSessions​",
+        "headingKey": ".nbSessions",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "nbSessions : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .nbSessions property contains the maximum total number of active sessions on the Web server.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .nbSessions property contains the maximum total number of active sessions on the Web server.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".nbSessions"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: server global level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".outBytesPerHour​",
+        "headingKey": ".outBytesPerHour",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "outBytesPerHour : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .outBytesPerHour property contains the maximum total number of bytes that the Web server can send in one hour. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .outBytesPerHour property contains the maximum total number of bytes that the Web server can send in one hour. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".outBytesPerHour"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: server global level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".outBytesPerHourPerSession​",
+        "headingKey": ".outBytesPerHourPerSession",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "outBytesPerHourPerSession : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .outBytesPerHourPerSession property contains the maximum total number of bytes that the Web server can send for a session in one hour. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .outBytesPerHourPerSession property contains the maximum total number of bytes that the Web server can send for a session in one hour. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".outBytesPerHourPerSession"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: session default level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".outBytesPerMin​",
+        "headingKey": ".outBytesPerMin",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "outBytesPerMin : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .outBytesPerMin property contains the maximum total number of bytes that the Web server can send in one minute. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .outBytesPerMin property contains the maximum total number of bytes that the Web server can send in one minute. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".outBytesPerMin"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: server global level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".outBytesPerMinPerSession​",
+        "headingKey": ".outBytesPerMinPerSession",
+        "headingLevel": "h2",
+        "history": null,
+        "syntaxLines": [
+          "outBytesPerMinPerSession : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .outBytesPerMinPerSession property contains the maximum total number of bytes that the Web server can send for a session in one minute. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .outBytesPerMinPerSession property contains the maximum total number of bytes that the Web server can send for a session in one minute. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".outBytesPerMinPerSession"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Scope: session default level",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      }
+    ],
+    "nonMemberHeadings": [
+      {
+        "raw": "QuotaManager Object​",
+        "level": "h3"
+      }
+    ]
+  },
   "SMTPTransporter": {
     "class": "SMTPTransporter",
-    "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
-    "contentHash": "ba9d1e0514bdc7b2",
+    "docPage": "mirror/docs/API/SMTPTransporterClass.html",
+    "contentHash": "6892f733e8907832",
     "sections": [
       {
         "headingRaw": "4D.SMTPTransporter.new()​",
@@ -46987,6 +48034,208 @@
               ],
               "warnings": []
             }
+          }
+        ]
+      },
+      {
+        "headingRaw": ".certificate​",
+        "headingKey": ".certificate",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "21 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".certificate : 4D.File.certificate : Blob"
+        ],
+        "paramTable": null,
+        "summary": "The .certificate property contains the certificate used to sign emails using S/MIME (Secure/MIME), provided as a 4D.File object or a Blob. This certificate contains the private key.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .certificate property contains the certificate used to sign emails using S/MIME (Secure/MIME), provided as a 4D.File object or a Blob. This certificate contains the private key.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".certificate",
+              "4D.File"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "If your certificate is already registered in your Certificate store (keychain), you can use .certificateName instead of this property. Note that you cannot use both properties simultaneously, otherwise an error is returned.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".certificateName"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [
+          {
+            "title": "Example",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "var $transporter : 4D.SMTPTransportervar $options ; $result : Object$options:=New object//Enter the information for the SMTP server//Enable S/MIME signing//Provide certificate file$options.certificate:=File(\"myCertificateFile.p12\")$options.certificatePassword:=\"myGreatPW123\"$transporter:=4D.SMTPTransporter.new($options)$email:=New object//Fill the email content$result:=$transporter.send($email)"
+              }
+            ]
+          }
+        ],
+        "seeAlso": [
+          {
+            "text": ".certificateName",
+            "href": "SMTPTransporterClass.html#certificatename"
+          },
+          {
+            "text": ".certificatePassword",
+            "href": "SMTPTransporterClass.html#certificatepassword"
+          }
+        ],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h4",
+            "title": "Example"
+          },
+          {
+            "level": "h4",
+            "title": "See also"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".certificateName​",
+        "headingKey": ".certificateName",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "21 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".certificateName : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .certificateName property contains the name of the certificate used to sign emails using S/MIME (Secure/MIME) as it is registered in the system Certificate store (keychain). This certificate contains the private key.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .certificateName property contains the name of the certificate used to sign emails using S/MIME (Secure/MIME) as it is registered in the system Certificate store (keychain). This certificate contains the private key.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".certificateName"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "The certificate can also be provided directly as a file or blob using the .certificate property. Note that you cannot use both properties simultaneously, otherwise an error is returned.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".certificate"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [
+          {
+            "text": ".certificate",
+            "href": "SMTPTransporterClass.html#certificate"
+          },
+          {
+            "text": ".certificatePassword",
+            "href": "SMTPTransporterClass.html#certificatepassword"
+          }
+        ],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h4",
+            "title": "See also"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".certificatePassword​",
+        "headingKey": ".certificatePassword",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "21 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".certificatePassword : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .certificatePassword property contains the password of the certificate used to sign emails, if required. An empty string is used if no password is required.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .certificatePassword property contains the password of the certificate used to sign emails, if required. An empty string is used if no password is required.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".certificatePassword"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [
+          {
+            "text": ".certificate",
+            "href": "SMTPTransporterClass.html#certificate"
+          },
+          {
+            "text": ".certificateName",
+            "href": "SMTPTransporterClass.html#certificatename"
+          }
+        ],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h4",
+            "title": "See also"
           }
         ]
       },
@@ -47816,8 +49065,8 @@
   },
   "Session": {
     "class": "Session",
-    "docPage": "mirror/docs/21-R3/API/SessionClass.html",
-    "contentHash": "31c68ec1f231a0f5",
+    "docPage": "mirror/docs/API/SessionClass.html",
+    "contentHash": "e72be45af5457045",
     "sections": [
       {
         "headingRaw": ".clearPrivileges()​",
@@ -48581,6 +49830,12 @@
           "rows": [
             {
               "cells": {
+                "Release": "21 R4",
+                "Changes": "New unreachableSince property"
+              }
+            },
+            {
+              "cells": {
                 "Release": "20 R5",
                 "Changes": "Added"
               }
@@ -48621,6 +49876,12 @@
             "codeSpans": [
               ".info"
             ]
+          },
+          {
+            "tag": "p",
+            "text": "This property is read only.",
+            "underHeading": "Description",
+            "codeSpans": []
           }
         ],
         "returnsShapeTables": [
@@ -48708,6 +49969,16 @@
                     "Type": "Text",
                     "Description": "Remote/client sessions: Session's persistent ID"
                   }
+                },
+                {
+                  "cells": {
+                    "Property": "unreachableSince",
+                    "Type": "Integer",
+                    "Description": "Remote sessions: Number of seconds since the peer is unreachable. On 4D Server, this attribute is readable in the Process activity.sessions property."
+                  },
+                  "codeSpans": [
+                    "Process activity.sessions"
+                  ]
                 }
               ],
               "warnings": []
@@ -48967,6 +50238,160 @@
         ]
       },
       {
+        "headingRaw": ".quotas​",
+        "headingKey": ".quotas",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "21 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".quotas : 4D.QuotaManager"
+        ],
+        "paramTable": null,
+        "summary": "The .quotas property contains a 4D.QuotaManager object with current values and set values for server thresholds regarding REST requests in the current session. Server thresholds are used to control the requests to the server and help preventing excessive use of resources (see 4D.QuotaManager class).",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .quotas property contains a 4D.QuotaManager object with current values and set values for server thresholds regarding REST requests in the current session. Server thresholds are used to control the requests to the server and help preventing excessive use of resources (see 4D.QuotaManager class).",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".quotas",
+              "4D.QuotaManager",
+              "4D.QuotaManager"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "This property is read only.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "The following properties of the 4D.QuotaManager object are available for the session:",
+            "underHeading": "Description",
+            "codeSpans": [
+              "4D.QuotaManager"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "When you modify a value, it is immediately taken into account by the server (no need to restart) and will be applied to further REST requests.",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [
+          {
+            "title": "Example",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "   //set the maximum number of entity sets in memory   //for the session to 50Session.quotas.nbEntitySets:=50"
+              }
+            ]
+          }
+        ],
+        "seeAlso": [
+          {
+            "text": "QuotaManager class",
+            "href": "QuotaManagerClass.html"
+          },
+          {
+            "text": "Web server quotas",
+            "href": "../WebServer/quotas.html"
+          }
+        ],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "table",
+            "title": "Description",
+            "table": {
+              "headers": [
+                "Property",
+                "col1",
+                "Type",
+                "Writable",
+                "Description"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Property": "nbEntitySets",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum allowed number of entity sets in server memory. Undefined = no quotas applied"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "defaultEntitySetTimeout",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Default inactivity timeout for entity sets in memory (seconds)"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "maxEntitySetTimeout",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum inactivity timeout for entity sets in memory (seconds)"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "currentValues",
+                    "col1": "",
+                    "Type": "Object",
+                    "Writable": "no",
+                    "Description": "Current usage values reported for the session."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "",
+                    "col1": "nbEntitySets",
+                    "Type": "Integer",
+                    "Writable": "no",
+                    "Description": "Number of entity sets currently in memory. Undefined = no entity set in memory"
+                  }
+                }
+              ],
+              "warnings": []
+            }
+          },
+          {
+            "level": "h4",
+            "title": "Example"
+          },
+          {
+            "level": "h4",
+            "title": "See also"
+          }
+        ]
+      },
+      {
         "headingRaw": ".restore()​",
         "headingKey": ".restore()",
         "headingLevel": "h2",
@@ -49125,7 +50550,7 @@
           "warnings": []
         },
         "syntaxLines": [
-          ".setPrivileges( privilege : Text ) : Boolean.setPrivileges( privileges : Collection ).setPrivileges( settings : Object ) : Boolean"
+          ".setPrivileges( privilege : Text ) : Boolean.setPrivileges( privileges : Collection ) : Boolean.setPrivileges( settings : Object ) : Boolean"
         ],
         "paramTable": {
           "headers": [
@@ -49506,8 +50931,8 @@
   },
   "Signal": {
     "class": "Signal",
-    "docPage": "mirror/docs/21-R3/API/SignalClass.html",
-    "contentHash": "0bd82016a1887a33",
+    "docPage": "mirror/docs/API/SignalClass.html",
+    "contentHash": "9d3ecffc679ca41f",
     "sections": [
       {
         "headingRaw": ".description​",
@@ -49828,8 +51253,8 @@
   },
   "SystemWorker": {
     "class": "SystemWorker",
-    "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
-    "contentHash": "b244154efb2e537d",
+    "docPage": "mirror/docs/API/SystemWorkerClass.html",
+    "contentHash": "adaf9e954cf8534c",
     "sections": [
       {
         "headingRaw": "4D.SystemWorker.new()​",
@@ -51052,8 +52477,8 @@
   },
   "TCPConnection": {
     "class": "TCPConnection",
-    "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
-    "contentHash": "3f1097eb9a3f4d81",
+    "docPage": "mirror/docs/API/TCPConnectionClass.html",
+    "contentHash": "a849c6f9f88508d1",
     "sections": [
       {
         "headingRaw": "4D.TCPConnection.new()​",
@@ -51692,8 +53117,8 @@
   },
   "TCPEvent": {
     "class": "TCPEvent",
-    "docPage": "mirror/docs/21-R3/API/TCPEventClass.html",
-    "contentHash": "e83a951e9646f0e6",
+    "docPage": "mirror/docs/API/TCPEventClass.html",
+    "contentHash": "cd71f2f6d70dd2e7",
     "sections": [
       {
         "headingRaw": ".address​",
@@ -51838,8 +53263,8 @@
   },
   "TCPListener": {
     "class": "TCPListener",
-    "docPage": "mirror/docs/21-R3/API/TCPListenerClass.html",
-    "contentHash": "5a652b1d4dbbdb29",
+    "docPage": "mirror/docs/API/TCPListenerClass.html",
+    "contentHash": "511e171c3911f6f4",
     "sections": [
       {
         "headingRaw": "4D.TCPListener.new()​",
@@ -52209,10 +53634,1057 @@
       }
     ]
   },
+  "Transporter": {
+    "class": "Transporter",
+    "docPage": "mirror/docs/API/Transporter.html",
+    "contentHash": "60e8c0ff0cc238f0",
+    "sections": [
+      {
+        "headingRaw": ".acceptUnsecureConnection​",
+        "headingKey": ".acceptUnsecureConnection",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".acceptUnsecureConnection : Boolean"
+        ],
+        "paramTable": null,
+        "summary": "The .acceptUnsecureConnection property contains True if 4D is allowed to establish an unencrypted connection when encrypted connection is not possible.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .acceptUnsecureConnection property contains True if 4D is allowed to establish an unencrypted connection when encrypted connection is not possible.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".acceptUnsecureConnection"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "It contains False if unencrypted connections are unallowed, in which case an error in returned when encrypted connection is not possible.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "Available secured ports are:",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "ul",
+            "text": "SMTP 465: SMTPS 587 or 25: SMTP with STARTTLS upgrade if supported by the server. IMAP 143: IMAP non-encrypted port 993: IMAP with STARTTLS upgrade if supported by the server POP3 110: POP3 non-encrypted port 995: POP3 with STARTTLS upgrade if supported by the server.",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".authenticationMode​",
+        "headingKey": ".authenticationMode",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".authenticationMode : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .authenticationMode property contains the authentication mode used to open the session on the mail server.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .authenticationMode property contains the authentication mode used to open the session on the mail server.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".authenticationMode"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "By default, the most secured mode supported by the server is used.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "Possible values are:",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "table",
+            "title": "Description",
+            "table": {
+              "headers": [
+                "Value",
+                "Constants",
+                "Comment"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Value": "CRAM-MD5",
+                    "Constants": "IMAP authentication CRAM MD5",
+                    "Comment": "Authentication using CRAM-MD5 protocol"
+                  },
+                  "codeSpans": [
+                    "IMAP authentication CRAM MD5"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "LOGIN",
+                    "Constants": "IMAP authentication login",
+                    "Comment": "Authentication using LOGIN protocol"
+                  },
+                  "codeSpans": [
+                    "IMAP authentication login"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "OAUTH2",
+                    "Constants": "IMAP authentication OAUTH2",
+                    "Comment": "Authentication using OAuth2 protocol"
+                  },
+                  "codeSpans": [
+                    "IMAP authentication OAUTH2"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "PLAIN",
+                    "Constants": "IMAP authentication plain",
+                    "Comment": "Authentication using PLAIN protocol"
+                  },
+                  "codeSpans": [
+                    "IMAP authentication plain"
+                  ]
+                }
+              ],
+              "warnings": []
+            }
+          }
+        ]
+      },
+      {
+        "headingRaw": ".authenticationMode​",
+        "headingKey": ".authenticationMode",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".authenticationMode : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .authenticationMode property contains the authentication mode used to open the session on the mail server.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .authenticationMode property contains the authentication mode used to open the session on the mail server.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".authenticationMode"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "By default, the most secured mode supported by the server is used.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "Possible values are:",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "table",
+            "title": "Description",
+            "table": {
+              "headers": [
+                "Value",
+                "Constants",
+                "Comment"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Value": "APOP",
+                    "Constants": "POP3 authentication APOP",
+                    "Comment": "Authentication using APOP protocol (POP3 only)"
+                  },
+                  "codeSpans": [
+                    "POP3 authentication APOP"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "CRAM-MD5",
+                    "Constants": "POP3 authentication CRAM MD5",
+                    "Comment": "Authentication using CRAM-MD5 protocol"
+                  },
+                  "codeSpans": [
+                    "POP3 authentication CRAM MD5"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "LOGIN",
+                    "Constants": "POP3 authentication login",
+                    "Comment": "Authentication using LOGIN protocol"
+                  },
+                  "codeSpans": [
+                    "POP3 authentication login"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "OAUTH2",
+                    "Constants": "POP3 authentication OAUTH2",
+                    "Comment": "Authentication using OAuth2 protocol"
+                  },
+                  "codeSpans": [
+                    "POP3 authentication OAUTH2"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "PLAIN",
+                    "Constants": "POP3 authentication plain",
+                    "Comment": "Authentication using PLAIN protocol"
+                  },
+                  "codeSpans": [
+                    "POP3 authentication plain"
+                  ]
+                }
+              ],
+              "warnings": []
+            }
+          }
+        ]
+      },
+      {
+        "headingRaw": ".authenticationMode​",
+        "headingKey": ".authenticationMode",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".authenticationMode : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .authenticationMode property contains the authentication mode used to open the session on the mail server.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .authenticationMode property contains the authentication mode used to open the session on the mail server.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".authenticationMode"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "By default, the most secured mode supported by the server is used.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "Possible values are:",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "table",
+            "title": "Description",
+            "table": {
+              "headers": [
+                "Value",
+                "Constants",
+                "Comment"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Value": "CRAM-MD5",
+                    "Constants": "SMTP authentication CRAM MD5",
+                    "Comment": "Authentication using CRAM-MD5 protocol"
+                  },
+                  "codeSpans": [
+                    "SMTP authentication CRAM MD5"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "LOGIN",
+                    "Constants": "SMTP authentication login",
+                    "Comment": "Authentication using LOGIN protocol"
+                  },
+                  "codeSpans": [
+                    "SMTP authentication login"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "OAUTH2",
+                    "Constants": "SMTP authentication OAUTH2",
+                    "Comment": "Authentication using OAuth2 protocol"
+                  },
+                  "codeSpans": [
+                    "SMTP authentication OAUTH2"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Value": "PLAIN",
+                    "Constants": "SMTP authentication plain",
+                    "Comment": "Authentication using PLAIN protocol"
+                  },
+                  "codeSpans": [
+                    "SMTP authentication plain"
+                  ]
+                }
+              ],
+              "warnings": []
+            }
+          }
+        ]
+      },
+      {
+        "headingRaw": ".bodyCharset​",
+        "headingKey": ".bodyCharset",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "18",
+                "Changes": "Support for UTF8 base64"
+              }
+            },
+            {
+              "cells": {
+                "Release": "17 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".bodyCharset : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .bodyCharset property contains the charset and encoding used for the body part of the email.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .bodyCharset property contains the charset and encoding used for the body part of the email.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".bodyCharset"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Possible values:",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "table",
+            "title": "Description",
+            "table": {
+              "headers": [
+                "Constant",
+                "Value",
+                "Comment"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Constant": "mail mode ISO2022JP",
+                    "Value": "US-ASCII_ISO-2022-JP_UTF8_QP",
+                    "Comment": "headerCharset: US-ASCII if possible, Japanese (ISO-2022-JP) & Quoted-printable if possible, otherwise UTF-8 & Quoted-printablebodyCharset: US-ASCII if possible, Japanese (ISO-2022-JP) & 7-bit if possible, otherwise UTF-8 & Quoted-printable"
+                  }
+                },
+                {
+                  "cells": {
+                    "Constant": "mail mode ISO88591",
+                    "Value": "ISO-8859-1",
+                    "Comment": "headerCharset: ISO-8859-1 & Quoted-printablebodyCharset: ISO-8859-1 & 8-bit"
+                  }
+                },
+                {
+                  "cells": {
+                    "Constant": "mail mode UTF8",
+                    "Value": "US-ASCII_UTF8_QP",
+                    "Comment": "headerCharset & bodyCharset: US-ASCII if possible, otherwise UTF-8 & Quoted-printable (default value)"
+                  }
+                },
+                {
+                  "cells": {
+                    "Constant": "mail mode UTF8 in base64",
+                    "Value": "US-ASCII_UTF8_B64",
+                    "Comment": "headerCharset & bodyCharset: US-ASCII if possible, otherwise UTF-8 & base64"
+                  }
+                }
+              ],
+              "warnings": []
+            }
+          }
+        ]
+      },
+      {
+        "headingRaw": ".connectionTimeOut​",
+        "headingKey": ".connectionTimeOut",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".connectionTimeOut : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .connectionTimeOut property contains the maximum wait time (in seconds) allowed to establish a connection to the server. By default, if the property has not been set in the server object (used to create the transporter object with SMTP New transporter, POP3 New transporter, or IMAP New transporter), the value is 30.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .connectionTimeOut property contains the maximum wait time (in seconds) allowed to establish a connection to the server. By default, if the property has not been set in the server object (used to create the transporter object with SMTP New transporter, POP3 New transporter, or IMAP New transporter), the value is 30.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".connectionTimeOut",
+              "SMTP New transporter",
+              "POP3 New transporter",
+              "IMAP New transporter"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".headerCharset​",
+        "headingKey": ".headerCharset",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".headerCharset : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .headerCharset property contains the charset and encoding used for the email header. The header includes the following parts of the email:",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .headerCharset property contains the charset and encoding used for the email header. The header includes the following parts of the email:",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".headerCharset"
+            ]
+          },
+          {
+            "tag": "ul",
+            "text": "subject, attachment filename(s), email name.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "Possible values:",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "table",
+            "title": "Description",
+            "table": {
+              "headers": [
+                "Constant",
+                "Value",
+                "Comment"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Constant": "mail mode ISO2022JP",
+                    "Value": "US-ASCII_ISO-2022-JP_UTF8_QP",
+                    "Comment": "headerCharset: US-ASCII if possible, Japanese (ISO-2022-JP) & Quoted-printable if possible, otherwise UTF-8 & Quoted-printablebodyCharset: US-ASCII if possible, Japanese (ISO-2022-JP) & 7-bit if possible, otherwise UTF-8 & Quoted-printable"
+                  }
+                },
+                {
+                  "cells": {
+                    "Constant": "mail mode ISO88591",
+                    "Value": "ISO-8859-1",
+                    "Comment": "headerCharset: ISO-8859-1 & Quoted-printablebodyCharset: ISO-8859-1 & 8-bit"
+                  }
+                },
+                {
+                  "cells": {
+                    "Constant": "mail mode UTF8",
+                    "Value": "US-ASCII_UTF8_QP",
+                    "Comment": "headerCharset & bodyCharset: US-ASCII if possible, otherwise UTF-8 & Quoted-printable (default value)"
+                  }
+                },
+                {
+                  "cells": {
+                    "Constant": "mail mode UTF8 in base64",
+                    "Value": "US-ASCII_UTF8_B64",
+                    "Comment": "headerCharset & bodyCharset: US-ASCII if possible, otherwise UTF-8 & base64"
+                  }
+                }
+              ],
+              "warnings": []
+            }
+          }
+        ]
+      },
+      {
+        "headingRaw": ".host​",
+        "headingKey": ".host",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".host : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .host property contains the name or the IP address of the host server. Used for mail transactions (SMTP, POP3, IMAP).",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .host property contains the name or the IP address of the host server. Used for mail transactions (SMTP, POP3, IMAP).",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".host"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".logFile​",
+        "headingKey": ".logFile",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".logFile : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .logFile property contains the path of the extended log file defined (if any) for the mail connection. It can be relative (to the current Logs folder) or absolute.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .logFile property contains the path of the extended log file defined (if any) for the mail connection. It can be relative (to the current Logs folder) or absolute.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".logFile"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Unlike regular log files (enabled via the SET DATABASE PARAMETER command), extended log files store MIME contents of all sent mails and do not have any size limit. For more information about extended log files, refer to:",
+            "underHeading": "Description",
+            "codeSpans": [
+              "SET DATABASE PARAMETER"
+            ]
+          },
+          {
+            "tag": "ul",
+            "text": "SMTP connections - 4DSMTPLog.txt POP3 connections - 4DPOP3Log.txt IMAP connections - 4DIMAPLog.txt",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".port​",
+        "headingKey": ".port",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".port : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .port property contains the port number used for mail transactions. By default, if the port property has not been set in the server object (used to create the transporter object with SMTP New transporter, POP3 New transporter, IMAP New transporter), the port used is:",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .port property contains the port number used for mail transactions. By default, if the port property has not been set in the server object (used to create the transporter object with SMTP New transporter, POP3 New transporter, IMAP New transporter), the port used is:",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".port",
+              "SMTP New transporter",
+              "POP3 New transporter",
+              "IMAP New transporter"
+            ]
+          },
+          {
+            "tag": "ul",
+            "text": "SMTP - 587 POP3 - 995 IMAP - 993",
+            "underHeading": "Description",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".sendTimeOut​",
+        "headingKey": ".sendTimeOut",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".sendTimeOut : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .sendTimeOut property contains the maximum wait time (in seconds) of a call to .send( ) before a timeout occurs. By default, if the .sendTimeOut property has not been set in the server object, the value 100 is used.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .sendTimeOut property contains the maximum wait time (in seconds) of a call to .send( ) before a timeout occurs. By default, if the .sendTimeOut property has not been set in the server object, the value 100 is used.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".sendTimeOut",
+              ".send( )",
+              ".sendTimeOut",
+              "server"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".user​",
+        "headingKey": ".user",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".user : Text"
+        ],
+        "paramTable": null,
+        "summary": "The .user property contains the user name used for authentication on the mail server.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .user property contains the user name used for authentication on the mail server.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".user"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
+        "headingRaw": ".checkConnection()​",
+        "headingKey": ".checkConnection()",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "17 R4",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".checkConnection() : Object"
+        ],
+        "paramTable": {
+          "headers": [
+            "Parameter",
+            "Type",
+            "col2",
+            "Description"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Parameter": "Result",
+                "Type": "Object",
+                "col2": "<-",
+                "Description": "Status of the transporter object connection"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "summary": "The .checkConnection() function checks the connection using information stored in the transporter object, recreates the connection if necessary, and returns the status. This function allows you to verify that the values provided by the user are valid and consistent.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .checkConnection() function checks the connection using information stored in the transporter object, recreates the connection if necessary, and returns the status. This function allows you to verify that the values provided by the user are valid and consistent.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".checkConnection()"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "The function sends a request to the mail server and returns an object describing the mail status. This object can contain the following properties:",
+            "underHeading": "Returned object",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [
+          {
+            "underHeading": "Returned object",
+            "table": {
+              "headers": [
+                "Property",
+                "col1",
+                "Type",
+                "Description"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Property": "success",
+                    "col1": "",
+                    "Type": "boolean",
+                    "Description": "True if the check is successful, False otherwise"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "status",
+                    "col1": "",
+                    "Type": "number",
+                    "Description": "(SMTP only) Status code returned by the mail server (0 in case of an issue unrelated to the mail processing)"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "statusText",
+                    "col1": "",
+                    "Type": "text",
+                    "Description": "Status message returned by the mail server, or last error returned in the 4D error stack"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "errors",
+                    "col1": "",
+                    "Type": "collection",
+                    "Description": "4D error stack (not returned if a mail server response is received)"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "",
+                    "col1": "[ ].errCode",
+                    "Type": "number",
+                    "Description": "4D error code"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "",
+                    "col1": "[ ].message",
+                    "Type": "text",
+                    "Description": "Description of the 4D error"
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "",
+                    "col1": "[ ].componentSignature",
+                    "Type": "text",
+                    "Description": "Signature of the internal component which returned the error"
+                  }
+                }
+              ],
+              "warnings": []
+            }
+          }
+        ],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h4",
+            "title": "Returned object"
+          }
+        ]
+      }
+    ],
+    "nonMemberHeadings": [
+      {
+        "raw": "Description​",
+        "level": "h2"
+      }
+    ]
+  },
   "UDPEvent": {
     "class": "UDPEvent",
-    "docPage": "mirror/docs/21-R3/API/UDPEventClass.html",
-    "contentHash": "53574e2a007c448a",
+    "docPage": "mirror/docs/API/UDPEventClass.html",
+    "contentHash": "dfa768a79da0d8fb",
     "sections": [
       {
         "headingRaw": ".address​",
@@ -52363,8 +54835,8 @@
   },
   "UDPSocket": {
     "class": "UDPSocket",
-    "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
-    "contentHash": "f7100c9daf0f39f6",
+    "docPage": "mirror/docs/API/UDPSocketClass.html",
+    "contentHash": "45597b5809ee7829",
     "sections": [
       {
         "headingRaw": "4D.UDPSocket.new()​",
@@ -52758,8 +55230,8 @@
   },
   "Vector": {
     "class": "Vector",
-    "docPage": "mirror/docs/21-R3/API/VectorClass.html",
-    "contentHash": "8776978ce206eaab",
+    "docPage": "mirror/docs/API/VectorClass.html",
+    "contentHash": "eb892da853f57b9f",
     "sections": [
       {
         "headingRaw": "4D.Vector.new()​",
@@ -52773,6 +55245,12 @@
           "rows": [
             {
               "cells": {
+                "Release": "21 R5",
+                "Changes": "New precision parameter"
+              }
+            },
+            {
+              "cells": {
                 "Release": "20 R10",
                 "Changes": "Added"
               }
@@ -52781,7 +55259,7 @@
           "warnings": []
         },
         "syntaxLines": [
-          "4D.Vector.new ( parameter : Collection ) : 4D.Vector"
+          "4D.Vector.new ( parameter : Collection {; precision : Integer} ) : 4D.Vector"
         ],
         "paramTable": {
           "headers": [
@@ -52798,6 +55276,18 @@
                 "col2": "->",
                 "Description": "Collection of real numbers representing a vector"
               }
+            },
+            {
+              "cells": {
+                "Parameter": "precision",
+                "Type": "Integer",
+                "col2": "->",
+                "Description": "Vector precision: mk single precision (default) or mk double precision"
+              },
+              "codeSpans": [
+                "mk single precision",
+                "mk double precision"
+              ]
             },
             {
               "cells": {
@@ -52829,21 +55319,39 @@
           },
           {
             "tag": "p",
+            "text": "In the precision optional parameter, you can pass the numeric precision you want to apply to the vector creation. You can use the following constants:",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "By default, if you omit the precision parameter, the vector is created with a 32-bit floating-point precision. A 32-bit floating-point precision reduces the storage footprint by half compared to 64-bit vectors while retaining enough precision for similarity and distance calculations, which is why it is the recommended default for most use cases.",
+            "underHeading": "Description",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
             "text": "To create a vector:",
-            "underHeading": "Example",
+            "underHeading": "Example 1",
             "codeSpans": []
           },
           {
             "tag": "p",
             "text": "You can access individual components or convert the entire vector back to a collection:",
-            "underHeading": "Example",
+            "underHeading": "Example 1",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "To create a vector with a double floating-point precision:",
+            "underHeading": "Example 2",
             "codeSpans": []
           }
         ],
         "returnsShapeTables": [],
         "examples": [
           {
-            "title": "Example",
+            "title": "Example 1",
             "blocks": [
               {
                 "language": "4d",
@@ -52852,6 +55360,15 @@
               {
                 "language": "4d",
                 "code": "var $firstComponent := $vector[0]var $collection := $vector.toCollection()"
+              }
+            ]
+          },
+          {
+            "title": "Example 2",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "var $col: Collection  //$col is filled by AI providervar $vector := 4D.Vector.new($col; mk double precision) "
               }
             ]
           }
@@ -52863,8 +55380,46 @@
             "title": "Description"
           },
           {
+            "level": "table",
+            "title": "Description",
+            "table": {
+              "headers": [
+                "Constant",
+                "Value",
+                "Comment"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Constant": "mk single precision",
+                    "Value": "32",
+                    "Comment": "Single (32-bit) floating-point precision (default)"
+                  },
+                  "codeSpans": [
+                    "mk single precision"
+                  ]
+                },
+                {
+                  "cells": {
+                    "Constant": "mk double precision",
+                    "Value": "64",
+                    "Comment": "Double (64-bit) floating-point precision"
+                  },
+                  "codeSpans": [
+                    "mk double precision"
+                  ]
+                }
+              ],
+              "warnings": []
+            }
+          },
+          {
             "level": "h4",
-            "title": "Example"
+            "title": "Example 1"
+          },
+          {
+            "level": "h4",
+            "title": "Example 2"
           }
         ]
       },
@@ -53202,6 +55757,52 @@
         ]
       },
       {
+        "headingRaw": ".precision​",
+        "headingKey": ".precision",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "21 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          "precision : Integer"
+        ],
+        "paramTable": null,
+        "summary": "The .precision property contains the precision value used to build the vector: 32 (mk single precision, default) or 64 (mk double precision).",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .precision property contains the precision value used to build the vector: 32 (mk single precision, default) or 64 (mk double precision).",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".precision",
+              "mk single precision",
+              "mk double precision"
+            ]
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [],
+        "seeAlso": [],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          }
+        ]
+      },
+      {
         "headingRaw": ".toCollection()​",
         "headingKey": ".toCollection()",
         "headingLevel": "h2",
@@ -53258,8 +55859,8 @@
   },
   "WebForm": {
     "class": "WebForm",
-    "docPage": "mirror/docs/21-R3/API/WebFormClass.html",
-    "contentHash": "3699f34c133cdc8c",
+    "docPage": "mirror/docs/API/WebFormClass.html",
+    "contentHash": "304f4c4532ff1a5e",
     "sections": [
       {
         "headingRaw": ".componentName​",
@@ -53732,8 +56333,8 @@
   },
   "WebFormItem": {
     "class": "WebFormItem",
-    "docPage": "mirror/docs/21-R3/API/WebFormItemClass.html",
-    "contentHash": "49c61ee087506d55",
+    "docPage": "mirror/docs/API/WebFormItemClass.html",
+    "contentHash": "c7e41f07ab0ae7f7",
     "sections": [
       {
         "headingRaw": ".addCSSClass()​",
@@ -53984,8 +56585,8 @@
   },
   "WebServer": {
     "class": "WebServer",
-    "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
-    "contentHash": "cb44ba539d1248d7",
+    "docPage": "mirror/docs/API/WebServerClass.html",
+    "contentHash": "ee63094996c55340",
     "sections": [
       {
         "headingRaw": ".accessKeyDefined​",
@@ -54923,6 +57524,319 @@
         "subsections": []
       },
       {
+        "headingRaw": ".quotas​",
+        "headingKey": ".quotas",
+        "headingLevel": "h2",
+        "history": {
+          "headers": [
+            "Release",
+            "Changes"
+          ],
+          "rows": [
+            {
+              "cells": {
+                "Release": "21 R5",
+                "Changes": "Added"
+              }
+            }
+          ],
+          "warnings": []
+        },
+        "syntaxLines": [
+          ".quotas : 4D.QuotaManager"
+        ],
+        "paramTable": null,
+        "summary": "The .quotas property contains a 4D.QuotaManager object that allows you to configure and monitor quotas for the web server.",
+        "descriptionBlocks": [
+          {
+            "tag": "p",
+            "text": "The .quotas property contains a 4D.QuotaManager object that allows you to configure and monitor quotas for the web server.",
+            "underHeading": "Description",
+            "codeSpans": [
+              ".quotas",
+              "4D.QuotaManager"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Accessing this property returns a 4D.QuotaManager object that can be updated at runtime. Quotas can be configured at two different scope levels:",
+            "underHeading": "Scope levels",
+            "codeSpans": [
+              "4D.QuotaManager"
+            ]
+          },
+          {
+            "tag": "ul",
+            "text": "Server global: quotas are applied to the aggregate activity of all sessions on the web server. See At startup and At runtime. Session default: quotas are applied by default to each new session when it is created. See At startup and At runtime.",
+            "underHeading": "Scope levels",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "When both server global and session default quotas are configured, the session quota is checked first. If the request is accepted, the server global quota is then checked.",
+            "underHeading": "Scope levels",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "For the complete list of quota properties, see the 4D.QuotaManager class. For configuration and enforcement details, see Web server quotas.",
+            "underHeading": "Scope levels",
+            "codeSpans": [
+              "4D.QuotaManager"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "By default, quota properties are Undefined and no quotas are applied.",
+            "underHeading": "Scope levels",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "You can modify quota values while the web server is running. Changes to server global quotas are applied to subsequent web server activity. Changes to session default quotas are applied to new sessions created after the quota value is updated. The web server does not need to be restarted.",
+            "underHeading": "Scope levels",
+            "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "The following properties of the 4D.QuotaManager object are available for the Web server:",
+            "underHeading": "Scope levels",
+            "codeSpans": [
+              "4D.QuotaManager"
+            ]
+          },
+          {
+            "tag": "p",
+            "text": "Configure quotas at the server global and session default levels:",
+            "underHeading": "Example",
+            "codeSpans": []
+          }
+        ],
+        "returnsShapeTables": [],
+        "examples": [
+          {
+            "title": "Example",
+            "blocks": [
+              {
+                "language": "4d",
+                "code": "var $quotas : Objectvar $webServer : Object:=WEB Server$quotas:={}$quotas.inBytesPerMin:=20000000$quotas.outBytesPerMinPerSession:=10000000$quotas.nbSessions:=50$quotas.nbGuestSessions:=10$quotas.nbRequestsPerMin:=500$quotas.nbRequestsPerHour:=20000// Server global quotas$webServer.quotas.inBytesPerMin:=$quotas.inBytesPerMin$webServer.quotas.nbSessions:=$quotas.nbSessions$webServer.quotas.nbGuestSessions:=$quotas.nbGuestSessions$webServer.quotas.nbRequestsPerMin:=$quotas.nbRequestsPerMin$webServer.quotas.nbRequestsPerHour:=$quotas.nbRequestsPerHour// Session default quota$webServer.quotas.outBytesPerMinPerSession:=$quotas.outBytesPerMinPerSession"
+              }
+            ]
+          }
+        ],
+        "seeAlso": [
+          {
+            "text": "QuotaManager class",
+            "href": "QuotaManagerClass.html"
+          }
+        ],
+        "subsections": [
+          {
+            "level": "h4",
+            "title": "Description"
+          },
+          {
+            "level": "h5",
+            "title": "Scope levels"
+          },
+          {
+            "level": "table",
+            "title": "Scope levels",
+            "table": {
+              "headers": [
+                "Property",
+                "col1",
+                "Type",
+                "Writable",
+                "Description"
+              ],
+              "rows": [
+                {
+                  "cells": {
+                    "Property": "currentValues",
+                    "col1": "",
+                    "Type": "Object",
+                    "Writable": "no",
+                    "Description": "Current usage values reported by the Web server."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "",
+                    "col1": "nbEntitySets",
+                    "Type": "Integer",
+                    "Writable": "no",
+                    "Description": "Number of entity sets currently in memory."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "",
+                    "col1": "nbGuestSessions",
+                    "Type": "Integer",
+                    "Writable": "no",
+                    "Description": "Number of active Guest sessions on the Web server."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "",
+                    "col1": "nbSessions",
+                    "Type": "Integer",
+                    "Writable": "no",
+                    "Description": "Number of active sessions on the Web server."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "inBytesPerHour",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of bytes the Web server can receive in one hour."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "inBytesPerHourPerSession",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of bytes the Web server can receive for a session in one hour."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "inBytesPerMin",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of bytes the Web server can receive in one minute."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "inBytesPerMinPerSession",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of bytes the Web server can receive for a session in one minute."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "nbEntitySetsPerSession",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum number of entity sets allowed in memory for each REST session."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "nbGuestSessions",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of active Guest sessions on the Web server."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "nbRequestsPerHour",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of requests the Web server can receive in one hour."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "nbRequestsPerHourPerSession",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of requests a session can receive in one hour."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "nbRequestsPerMin",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of requests the Web server can receive in one minute."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "nbRequestsPerMinPerSession",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of requests a session can receive in one minute."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "nbSessions",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of active sessions on the Web server."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "outBytesPerHour",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of bytes the Web server can send in one hour."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "outBytesPerHourPerSession",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of bytes the Web server can send for a session in one hour."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "outBytesPerMin",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of bytes the Web server can send in one minute."
+                  }
+                },
+                {
+                  "cells": {
+                    "Property": "outBytesPerMinPerSession",
+                    "col1": "",
+                    "Type": "Integer",
+                    "Writable": "yes",
+                    "Description": "Maximum total number of bytes the Web server can send for a session in one minute."
+                  }
+                }
+              ],
+              "warnings": []
+            }
+          },
+          {
+            "level": "h4",
+            "title": "Example"
+          },
+          {
+            "level": "h4",
+            "title": "See also"
+          }
+        ]
+      },
+      {
         "headingRaw": ".rootFolder​",
         "headingKey": ".rootFolder",
         "headingLevel": "h2",
@@ -55224,6 +58138,15 @@
           "rows": [
             {
               "cells": {
+                "Release": "21 R5",
+                "Changes": "Support quotas in the settings parameter"
+              },
+              "codeSpans": [
+                "settings"
+              ]
+            },
+            {
+              "cells": {
                 "Release": "18 R3",
                 "Changes": "Added"
               }
@@ -55304,6 +58227,12 @@
             "text": "If the Web server was already launched, an error is returned.",
             "underHeading": "Returned object",
             "codeSpans": []
+          },
+          {
+            "tag": "p",
+            "text": "The following example starts the web server with customized settings:",
+            "underHeading": "Example 1",
+            "codeSpans": []
           }
         ],
         "returnsShapeTables": [
@@ -55364,11 +58293,11 @@
         ],
         "examples": [
           {
-            "title": "Example",
+            "title": "Example 1",
             "blocks": [
               {
                 "language": "4d",
-                "code": " var $settings;$result : Object var $webServer : 4D.WebServer $settings:=New object(\"HTTPPort\";8080;\"defaultHomepage\";\"myAdminHomepage.html\") $webServer:=WEB Server $result:=$webServer.start($settings) If($result.success)  //... End if"
+                "code": " var $result : Object var $quotas:={} $quotas.inBytesPerMin:=20000000 $quotas.outBytesPerMinPerSession:=10000000 var $settings:={HTTPPort:8080;defaultHomepage:\"myAdminHomepage.html\"; quotas: $quotas } var $webServer:=WEB Server $result:=$webServer.start($settings) If($result.success)  //... End if"
               }
             ]
           }
@@ -55381,7 +58310,7 @@
           },
           {
             "level": "h4",
-            "title": "Example"
+            "title": "Example 1"
           }
         ]
       },
@@ -55491,8 +58420,8 @@
   },
   "WebSocket": {
     "class": "WebSocket",
-    "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
-    "contentHash": "83dda9a89c3368fd",
+    "docPage": "mirror/docs/API/WebSocketClass.html",
+    "contentHash": "4cace68e240e73ee",
     "sections": [
       {
         "headingRaw": "4D.WebSocket.new()​",
@@ -56105,8 +59034,8 @@
   },
   "WebSocketConnection": {
     "class": "WebSocketConnection",
-    "docPage": "mirror/docs/21-R3/API/WebSocketConnectionClass.html",
-    "contentHash": "ae21418f030979c7",
+    "docPage": "mirror/docs/API/WebSocketConnectionClass.html",
+    "contentHash": "c05b19f1c15a02d2",
     "sections": [
       {
         "headingRaw": ".handler​",
@@ -56408,8 +59337,8 @@
   },
   "WebSocketServer": {
     "class": "WebSocketServer",
-    "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
-    "contentHash": "ba46c41e75538574",
+    "docPage": "mirror/docs/API/WebSocketServerClass.html",
+    "contentHash": "be1bd94c9283ab98",
     "sections": [
       {
         "headingRaw": "4D.WebSocketServer.new()​",
@@ -57571,8 +60500,8 @@
   },
   "ZipArchive": {
     "class": "ZipArchive",
-    "docPage": "mirror/docs/21-R3/API/ZipArchiveClass.html",
-    "contentHash": "9bc7019637cbfe32",
+    "docPage": "mirror/docs/API/ZipArchiveClass.html",
+    "contentHash": "455bfcb8a3772a38",
     "sections": [
       {
         "headingRaw": ".root​",
@@ -57632,15 +60561,15 @@
   },
   "ZipFile": {
     "class": "ZipFile",
-    "docPage": "mirror/docs/21-R3/API/ZipFileClass.html",
-    "contentHash": "600780a7eecb5728",
+    "docPage": "mirror/docs/API/ZipFileClass.html",
+    "contentHash": "2c1b73ceb44b4aa6",
     "sections": [],
     "nonMemberHeadings": []
   },
   "ZipFolder": {
     "class": "ZipFolder",
-    "docPage": "mirror/docs/21-R3/API/ZipFolderClass.html",
-    "contentHash": "2aeca94d8fa25e93",
+    "docPage": "mirror/docs/API/ZipFolderClass.html",
+    "contentHash": "fd08fdfdf997f49e",
     "sections": [],
     "nonMemberHeadings": []
   }

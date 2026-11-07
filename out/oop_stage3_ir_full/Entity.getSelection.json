@@ -13,7 +13,7 @@
   },
   "summary": "Returns the entity selection which the entity belongs to",
   "description": "The .getSelection() function returns the entity selection which the entity belongs to.\n\nIf the entity does not belong to an entity selection, the function returns Null.",
-  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "docPage": "mirror/docs/API/EntityClass.html",
   "overloads": [
     {
       "params": [],

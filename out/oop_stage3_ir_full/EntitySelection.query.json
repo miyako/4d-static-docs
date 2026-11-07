@@ -13,7 +13,7 @@
   },
   "summary": "Searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s) among all the entities in the entity selection",
   "description": "The .query() function searches for entities that meet the search criteria specified in queryString or formula and (optionally) value(s) among all the entities in the entity selection, and returns a new object of type EntitySelection containing all the entities that are found. Lazy loading is applied.\n\nThis function does not modify the original entity selection.\n\nIf no matching entities are found, an empty EntitySelection is returned.\n\nFor detailed information on how to build a query using queryString, value, and querySettings parameters, please refer to the DataClass .query() function description.\n\nBy default if you omit the order by statement in the queryString, the returned entity selection is not ordered. Note however that, in Client/Server mode, it behaves like an ordered entity selection (entities are added at the end of the selection).",
-  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "docPage": "mirror/docs/API/EntitySelectionClass.html",
   "overloads": [
     {
       "params": [

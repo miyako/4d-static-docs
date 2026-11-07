@@ -13,7 +13,7 @@
   },
   "summary": "Returns the dataclass of the entity",
   "description": "The .getDataClass() function returns the dataclass of the entity. This function is useful when writing generic code.",
-  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "docPage": "mirror/docs/API/EntityClass.html",
   "overloads": [
     {
       "params": [],

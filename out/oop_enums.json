@@ -1,4 +1,17 @@
 {
+  "4D.Vector.new.precision": {
+    "description": "Constants accepted by the `precision` parameter of 4D.Vector.new, from the 'Vector' theme.",
+    "values": [
+      {
+        "name": "mk single precision",
+        "value": 32
+      },
+      {
+        "name": "mk double precision",
+        "value": 64
+      }
+    ]
+  },
   "Collection.copy.option": {
     "description": "Constants accepted by the `option` parameter of Collection.copy, from the 'Objects and collections' theme.",
     "values": [

@@ -13,7 +13,7 @@
   },
   "summary": "Contains the exit code returned by the external process",
   "description": "The .exitCode property contains the exit code returned by the external process. If the process did not terminate normaly, exitCode is undefined.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/SystemWorkerClass.html",
+  "docPage": "mirror/docs/API/SystemWorkerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

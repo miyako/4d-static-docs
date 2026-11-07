@@ -13,7 +13,7 @@
   },
   "summary": "Sets the \"deleted\" flag for the messages defined in `msgsIDs` or `allMsgs`",
   "description": "The .delete() function sets the \"deleted\" flag for the messages defined in msgsIDs or allMsgs.\n\nYou can pass:\n\nin the msgsIDs parameter, a collection containing the unique IDs of the specific messages to delete, or in the allMsgs parameter, the IMAP all constant (integer) to delete all messages in the selected mailbox.\n\nExecuting this function does not actually remove messages. Messages with the \"delete\" flag can still be found by the .searchMails() function. Flagged messages are deleted from the IMAP server with the .expunge() function or by selecting another mailbox or when the transporter object (created with IMAP New transporter) is destroyed.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [

@@ -13,7 +13,7 @@
   },
   "summary": "Returns an object that holds the contents of the ORDA cache for a dataclass.",
   "description": "Advanced mode: This function is intended for developers who need to customize ORDA default features for specific configurations. In most cases, you will not need to use it.\n\nThe .getRemoteCache() function returns an object that holds the contents of the ORDA cache for a dataclass..\n\nCalling this function from a 4D single-user application returns Null.\n\nThe returned object has the following properties:\n\nEach entry object in the entries collection has the following properties:\n\nThe data object in each entry contains the following properties:\n\nData concerning related entities is stored in the cache of the data object.",
-  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "docPage": "mirror/docs/API/DataClassClass.html",
   "overloads": [
     {
       "params": [],

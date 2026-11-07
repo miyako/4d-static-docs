@@ -61,7 +61,7 @@ EXCLUDED_DOC_TREES = [
 EXCLUDED_SYNTAX_KEYS = [
     (
         "_command_",
-        "The 1353 classic commands — already covered by out/4d-command-ir.json.",
+        "Classic commands — already covered by out/4d-command-ir.json.",
     ),
 ]
 
@@ -225,23 +225,31 @@ def main() -> int:
 
     syntax_path = repo_root / args.syntax_json
     syntax = oop.load_syntax_json(syntax_path)
+    probe = next(oop.api_pages(docs_root), None)
+    badge = None
+    if probe:
+        import re
+
+        match = re.search(r"Version:\s*([^<]*)", probe.read_text(encoding="utf-8"))
+        badge = match.group(1).strip() if match else None
+    docs_version = (badge or docs_root.name).replace(" BETA", "").replace(" ", "-")
 
     manifest = build_manifest(docs_root, syntax, syntax_path, args.syntax_version)
     manifest["docsRoot"] = str(docs_root.relative_to(repo_root))
     manifest["syntaxSource"] = {
         "path": args.syntax_json,
         "sha1": hashlib.sha1(syntax_path.read_bytes()).hexdigest(),
+        "sha256": hashlib.sha256(syntax_path.read_bytes()).hexdigest(),
         "declaredDocsVersion": args.syntax_version,
         "note": (
-            "syntaxEN.json carries no version marker. The repository owner "
-            "confirmed this capture is from 21-R3, matching mirror/docs/21-R3/. "
-            "Swap a future capture in with --syntax-json and update "
-            "--syntax-version."
+            "syntaxEN.json carries no version marker. This explicit capture "
+            "declaration is compared with the actual documentation version badge."
         ),
     }
-    if docs_root.name != args.syntax_version:
+    manifest["docsVersionBadge"] = badge
+    if docs_version != args.syntax_version:
         manifest["syntaxSource"]["_review"] = (
-            f"docs root is {docs_root.name} but the syntax capture is declared "
+            f"docs version is {docs_version} but the syntax capture is declared "
             f"as {args.syntax_version} — the two sources are not pinned to the "
             f"same version"
         )

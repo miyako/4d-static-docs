@@ -13,7 +13,7 @@
   },
   "summary": "Adds the class specified in *className* to the component",
   "description": "The .addCSSClass function adds the class specified in className to the component.",
-  "docPage": "mirror/docs/21-R3/API/WebFormItemClass.html",
+  "docPage": "mirror/docs/API/WebFormItemClass.html",
   "overloads": [
     {
       "params": [

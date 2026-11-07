@@ -13,7 +13,7 @@
   },
   "summary": "Contains the current state of the `Signal` object",
   "description": "The .signaled property contains the current state of the Signal object. When the signal is created, .signaled is False. It becomes True when the .trigger( ) is called on the object.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/SignalClass.html",
+  "docPage": "mirror/docs/API/SignalClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

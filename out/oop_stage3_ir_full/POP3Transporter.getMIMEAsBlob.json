@@ -13,7 +13,7 @@
   },
   "summary": "Returns a BLOB containing the MIME contents for the message corresponding to the *msgNumber* in the mailbox designated by the `POP3_transporter`",
   "description": "The .getMIMEAsBlob() function returns a BLOB containing the MIME contents for the message corresponding to the msgNumber in the mailbox designated by the POP3_transporter.\n\nIn msgNumber, pass the number of the message to retrieve. This number is returned in the number property by the .getMailInfoList() method.\n\nThe method returns an empty BLOB if:\n\nmsgNumber designates a non-existing message, the message was marked for deletion using .delete().\n\nReturned BLOB\n\n.getMIMEAsBlob() returns a BLOB which can be archived in a database or converted to an Email object with the MAIL Convert from MIME command.",
-  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "docPage": "mirror/docs/API/POP3TransporterClass.html",
   "overloads": [
     {
       "params": [

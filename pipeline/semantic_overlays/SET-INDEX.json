@@ -29,7 +29,10 @@
             { "value": -1, "meaning": "create a Keywords index (Text/Alpha fields only)" },
             { "value": 0, "meaning": "create an index using the 4D-chosen default index type" },
             { "value": 1, "meaning": "create a Standard B-Tree index" },
-            { "value": 3, "meaning": "create a Cluster B-Tree index" }
+            { "value": 3, "meaning": "create a Cluster B-Tree index" },
+            { "value": 4, "meaning": "create a Vector cosine index (21 R5)" },
+            { "value": 5, "meaning": "create a Vector dot index (21 R5)" },
+            { "value": 6, "meaning": "create a Vector euclidean index (21 R5)" }
           ]
         },
         {

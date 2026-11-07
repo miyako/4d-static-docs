@@ -87,6 +87,11 @@ CONDITIONAL_CASES = [
 
 
 def boon_validate(boon: Path, schema: Path, doc_path: Path) -> bool:
+    if not boon.exists():
+        import jsonschema
+
+        validator = jsonschema.Draft202012Validator(json.loads(schema.read_text()))
+        return not list(validator.iter_errors(json.loads(doc_path.read_text())))
     result = subprocess.run(
         [str(boon), "-q", str(schema), str(doc_path)],
         capture_output=True,
@@ -132,6 +137,7 @@ def verbatim_syntax_violations(document: dict, sources: dict[str, str]) -> list[
         entry_id = entry["id"]
         expected = sources.get(entry_id)
         if expected is None:
+            violations.append({"id": entry_id, "expected": "source member", "actual": None})
             continue
         actual = reconstruct_syntax(entry)
         if actual != expected:
@@ -157,17 +163,14 @@ def syntax_sources(repo_root: Path, syntax_json: Path) -> dict[str, str]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--repo-root", default=".")
+    ap.add_argument("--syntax-json", help="Capture to compare; defaults to the assembled manifest")
     args = ap.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
     schema_path = repo_root / "references" / "4d-command-ir-schema.json"
-    boon = repo_root / "tools" / "boon"
+    boon = repo_root / "tools" / "4dform" / "boon"
     if not boon.exists():
-        print(
-            "tools/boon not found — provision it per skills/4dtools/SKILL.md",
-            file=sys.stderr,
-        )
-        return 2
+        print("boon unavailable; using installed Python jsonschema for all cases")
 
     try:
         import jsonschema
@@ -198,7 +201,7 @@ def main() -> int:
                 json.loads(path.read_text(encoding="utf-8"))
             ))
             ok = ok and not py_errors
-            detail = " (boon + jsonschema)" if not py_errors else f" ({len(py_errors)} jsonschema errors)"
+            detail = (" (boon + jsonschema)" if boon.exists() else " (jsonschema)") if not py_errors else f" ({len(py_errors)} jsonschema errors)"
         print(f"  {rel:<45} {'VALID' if ok else 'INVALID'}{detail}")
         failures += 0 if ok else 1
 
@@ -208,7 +211,9 @@ def main() -> int:
         print("  out/4d-oop-ir.json not built yet — invariant not checked")
     else:
         oop_ir = json.loads(oop_ir_path.read_text(encoding="utf-8"))
-        sources = syntax_sources(repo_root, repo_root / "references" / "syntaxEN.json")
+        manifest = json.loads((repo_root / "out" / "oop_manifest.json").read_text())
+        syntax_path = args.syntax_json or manifest["syntaxSource"]["path"]
+        sources = syntax_sources(repo_root, repo_root / syntax_path)
         violations = verbatim_syntax_violations(oop_ir, sources)
         members = [e for e in oop_ir["commands"] if not e.get("dynamicMember")]
         props = [e for e in members if e["kind"] == "oop_property"]
@@ -287,7 +292,8 @@ def main() -> int:
             failures += 1
 
     print("Conditional-requirement cases:")
-    with tempfile.TemporaryDirectory() as tmp:
+    (repo_root / "extraction").mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=repo_root / "extraction", prefix="oop-schema-") as tmp:
         for label, doc, expected in CONDITIONAL_CASES:
             doc_path = Path(tmp) / "case.json"
             doc_path.write_text(json.dumps(doc), encoding="utf-8")

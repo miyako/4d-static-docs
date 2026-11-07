@@ -13,7 +13,7 @@
   },
   "summary": "Closes the *write* channel of the connection (client to server stream)",
   "description": "The shutdown() function closes the write channel of the connection (client to server stream) while keeping the read channel (server to client stream) open, allowing you to continue receiving data until the connection is fully closed by the server or an error occurs.",
-  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "docPage": "mirror/docs/API/TCPConnectionClass.html",
   "overloads": [
     {
       "params": [],

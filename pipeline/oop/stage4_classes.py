@@ -78,6 +78,13 @@ def main() -> int:
     known = set(class_names) | {
         k for k in authored if not k.startswith("_")
     }
+    type_to_class = {
+        hand.get("typeName", name): name
+        for name, hand in authored.items() if not name.startswith("_")
+    }
+    # R5 documentation uses this spelling; the compiler type is corrected by
+    # the quota overlays at assembly. Both refer to the same class.
+    type_to_class["4D.QuotaManager"] = "QuotaManagerClass"
 
     members_by_class: dict[str, list[str]] = {name: [] for name in class_names}
     constructor_of: dict[str, str] = {}
@@ -161,7 +168,7 @@ def main() -> int:
                 if returns:
                     return_types.append(returns.get("name"))
         for type_name in {t for t in return_types if t}:
-            target = class_of_type(type_name, known)
+            target = type_to_class.get(type_name) or class_of_type(type_name, known)
             if target and target != class_id:
                 relationships.append(
                     {
