@@ -1,0 +1,127 @@
+name: Regenerate static documentation
+
+on:
+  push:
+    branches: [miyako-regenerate-static-docs]
+    paths: [.github/workflows/regenerate-docs.yml]
+  workflow_dispatch:
+    inputs:
+      source_repo:
+        description: Public repository containing the built site
+        default: 4d/docs
+        type: string
+      source_ref:
+        description: Published branch, tag, or exact source commit
+        default: gh-pages
+        type: string
+      public_origin:
+        description: Public site origin, without a path
+        default: https://developer.4d.com
+        type: string
+      base_path:
+        description: Published site path, including leading and trailing slashes
+        default: /docs/
+        type: string
+      release_tag:
+        description: Optional unique release tag; otherwise derived from source SHA and run ID
+        type: string
+      syntax_json:
+        description: Optional repository-relative syntax capture to include
+        type: string
+      syntax_version:
+        description: Version of the optional syntax capture
+        type: string
+      syntax_build:
+        description: Build of the optional syntax capture
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: static-docs-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check prerequisites
+        run: |
+          command -v curl
+          command -v wget
+          command -v npx
+          command -v gh
+      - name: Test generator
+        run: python -m unittest discover -s scripts/static_docs/tests -v
+      - name: Generate and audit snapshot
+        env:
+          SOURCE_REPO: ${{ inputs.source_repo || '4d/docs' }}
+          SOURCE_REF: ${{ inputs.source_ref || '78952faa7ceba81909b6b757a76108afa76f8993' }}
+          PUBLIC_ORIGIN: ${{ inputs.public_origin || 'https://developer.4d.com' }}
+          BASE_PATH: ${{ inputs.base_path || '/docs/' }}
+          SYNTAX_JSON: ${{ inputs.syntax_json || 'references/syntaxEN-21-R4.json' }}
+          SYNTAX_VERSION: ${{ inputs.syntax_version || '21-R4' }}
+          SYNTAX_BUILD: ${{ inputs.syntax_build || '21R4.100208' }}
+        run: |
+          args=(
+            --source-repo "$SOURCE_REPO"
+            --source-ref "$SOURCE_REF"
+            --public-origin "$PUBLIC_ORIGIN"
+            --base-path "$BASE_PATH"
+            --output "$RUNNER_TEMP/static-docs-output"
+            --work-directory "$RUNNER_TEMP"
+            --generator-commit "$GITHUB_SHA"
+          )
+          if [[ -n "$SYNTAX_JSON" || -n "$SYNTAX_VERSION" || -n "$SYNTAX_BUILD" ]]; then
+            capture=$(realpath -- "$GITHUB_WORKSPACE/$SYNTAX_JSON")
+            [[ "$capture" == "$GITHUB_WORKSPACE/"* && -f "$capture" ]]
+            args+=(--syntax-json "$capture" --syntax-version "$SYNTAX_VERSION" --syntax-build "$SYNTAX_BUILD")
+          fi
+          python scripts/static_docs/regenerate.py "${args[@]}"
+      - name: Upload snapshot assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-docs-${{ github.run_id }}
+          path: ${{ runner.temp }}/static-docs-output/assets/
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Publish immutable release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          assets="$RUNNER_TEMP/static-docs-output/assets"
+          source_sha=$(jq -r .sourceCommit "$assets/snapshot.json")
+          tag="${RELEASE_TAG:-static-docs-${source_sha:0:12}-${GITHUB_RUN_ID}}"
+          python scripts/static_docs/publish.py \
+            --assets "$assets" \
+            --repository "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --tag "$tag"
+          {
+            echo "### Static documentation snapshot"
+            echo "- Source commit: \`$source_sha\`"
+            echo "- Release: https://github.com/$GITHUB_REPOSITORY/releases/tag/$tag"
+            echo "- Archive contract: \`docs.zip\` contains \`docs/\` and \`snapshot.json\`."
+            echo "- Verify assets against \`SHA256SUMS\`; inspect \`link-report.json\` for upstream gaps."
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-docs-diagnostics-${{ github.run_id }}
+          path: ${{ runner.temp }}/static-docs-output/logs/
+          if-no-files-found: warn
+          retention-days: 14

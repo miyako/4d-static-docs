@@ -82,6 +82,35 @@ No Linux-specific instructions are provided — use macOS or Windows as above.
 
 This is a two-stage process: first serve the already-built `gh-pages` HTML locally with a throwaway dev server, then use `wget` to mirror that local server to disk with all links rewritten to relative paths.
 
+### Repeatable generation and hosted assets
+
+For future refreshes, use the repository skill
+[regenerate-static-docs](.github/skills/regenerate-static-docs/SKILL.md) and
+the parameterized scripts in `scripts/static_docs/` rather than repeating
+an ad hoc crawl:
+
+```sh
+python3 scripts/static_docs/regenerate.py \
+  --source-repo 4d/docs --source-ref gh-pages \
+  --output /path/to/new-staging-directory \
+  --generator-commit "$(git rev-parse HEAD)"
+```
+
+The script pins the source ref to an exact SHA, includes unlinked published
+pages, checks source coverage and every local page/media/CSS reference,
+preserves version badges, and creates `assets/docs.zip`, `snapshot.json`,
+`link-report.json`, and `SHA256SUMS`. The output directory must not exist:
+generation never overwrites a dirty mirror.
+
+The **Regenerate static documentation** Actions workflow exposes the site
+repository/ref/origin/path and optional syntax capture/version/build as inputs.
+It publishes both Actions artifacts and immutable versioned Release assets.
+`docs.zip` extracts to `docs/` plus `snapshot.json`; downstream extraction
+can verify the checksums and consume those files without regenerating pages.
+Generated HTML need not be committed for this release/artifact route.
+A new manual workflow requires default-branch registration before dispatch;
+publishing the feature branch alone does not register it.
+
 ### Current committed snapshot
 
 `mirror/docs` was refreshed on 2026-11-07 from `4d/docs`'s `gh-pages`
