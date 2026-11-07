@@ -20,12 +20,13 @@ import release_snapshot as release
 
 
 class ReleaseSnapshotTests(unittest.TestCase):
-    def assets(self, root: Path, *, bundled=True, extra=None):
+    def assets(self, root: Path, *, bundled=True, extra=None, label_bytes=0):
         root.mkdir()
         capture = b'{"Collection":{"length":{"Syntax":".length : Integer"}}}'
         manifest = {
             "schemaVersion": 1, "archiveRoot": "docs", "sourceRepository": "4d/docs",
             "sourceCommit": "a" * 40, "generatorCommit": "b" * 40, "htmlPages": 2,
+            "versionLabels": {"page-labels": "x" * label_bytes},
             "syntaxCapture": {
                 "asset": "syntaxEN.json", "version": "21-R4", "build": "test.R4",
                 "sha256": hashlib.sha256(capture).hexdigest(),
@@ -66,6 +67,15 @@ class ReleaseSnapshotTests(unittest.TestCase):
             release.validate_manifest(manifest, hashes)
             release.unpack(root / "assets", root / "site", manifest)
             self.assertTrue((root / "site/docs/21-R4/API/CollectionClass.html").exists())
+
+    def test_full_snapshot_manifest_larger_than_one_megabyte(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            manifest = self.assets(root / "assets", label_bytes=2_200_000)
+            hashes = release.verify_assets(root / "assets")
+            release.validate_manifest(manifest, hashes)
+            release.unpack(root / "assets", root / "site", manifest)
+            self.assertGreater((root / "site/snapshot.json").stat().st_size, 1024 * 1024)
 
     def test_corrupted_asset_is_rejected(self):
         with tempfile.TemporaryDirectory() as temp:
