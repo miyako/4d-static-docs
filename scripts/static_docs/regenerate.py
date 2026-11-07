@@ -109,6 +109,14 @@ def generate(args):
     output = args.output.resolve()
     if output.exists():
         raise ValueError(f"Output already exists; choose a new staging path: {output}")
+    generator_commit = args.generator_commit
+    if not generator_commit:
+        generator_commit = subprocess.check_output(
+            ["git", "-C", str(Path(__file__).resolve().parents[2]), "rev-parse", "HEAD"],
+            text=True,
+        ).strip()
+    if not re.fullmatch(r"[0-9a-f]{40}", generator_commit):
+        raise ValueError("--generator-commit must be a full 40-character commit SHA")
     capture_bytes = None
     if args.syntax_json:
         if not args.syntax_version or not args.syntax_build:
@@ -204,7 +212,7 @@ def generate(args):
             "publicOrigin": args.public_origin,
             "basePath": args.base_path,
             "generatedAt": datetime.now(timezone.utc).isoformat(),
-            "generatorCommit": args.generator_commit,
+            "generatorCommit": generator_commit,
             "servePackage": args.serve_package,
             "archiveRoot": "docs",
             "htmlPages": audit["htmlPages"],
@@ -237,7 +245,7 @@ def main():
     parser.add_argument("--work-directory", type=Path)
     parser.add_argument("--serve-package", default="serve@14.2.7")
     parser.add_argument("--startup-timeout", type=int, default=120)
-    parser.add_argument("--generator-commit", default="")
+    parser.add_argument("--generator-commit", help="Defaults to the script repository's HEAD")
     parser.add_argument("--syntax-json", type=Path)
     parser.add_argument("--syntax-version")
     parser.add_argument("--syntax-build")
