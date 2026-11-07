@@ -61,11 +61,16 @@ The mirror includes skill references, scripts, and source assets, not just
 `SKILL.md` definitions. Repository-specific skills stay in `.github/skills/`
 outside this shared tree.
 
-The shared files were reconciled against
-[`miyako/skills` commit `c2ab112`](https://github.com/miyako/skills/commit/c2ab112a2547a6e9222e2ce61a1a672f668e9888).
+The shared files are synchronized with
+[`miyako/skills` commit `cfb4d905`](https://github.com/miyako/skills/commit/cfb4d905277f758800ec706dee60d26f7e12e027),
+including the R5 language guidance merged in `miyako/skills#61`.
 Existing catalog-diagram and language-documentation fixes were retained.
 `MIGRATION.json` accompanies the instructions to explain migrated rules;
 the referenced schemas were already identical.
+
+This shared-skill sync is separate from the finalized R5 corpus snapshot at
+`1dfd4e7eb832d19361f8ec1f4801603899087ca3`. Its snapshot records and
+provenance hashes are unchanged; they do not bind this newer skill mirror.
 
 For later updates, review changes and history on both sides before
 reconciling, preserve newer edits from either repository, and include any
