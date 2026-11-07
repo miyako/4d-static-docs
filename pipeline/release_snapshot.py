@@ -95,8 +95,8 @@ def unpack(assets: Path, destination: Path, manifest: dict) -> None:
             raise ValueError("static archive exceeds 16 GiB uncompressed")
         if "snapshot.json" not in names:
             raise ValueError("archive is missing snapshot.json")
-        if archive.getinfo("snapshot.json").file_size > 1024 * 1024:
-            raise ValueError("archive snapshot manifest exceeds 1 MiB")
+        if archive.getinfo("snapshot.json").file_size > 16 * 1024 * 1024:
+            raise ValueError("archive snapshot manifest exceeds 16 MiB")
         if archive.read("snapshot.json") != (assets / "snapshot.json").read_bytes():
             raise ValueError("archive and release snapshot manifests differ")
         html_count = sum(not e.is_dir() and e.filename.endswith(".html") for e in entries)
