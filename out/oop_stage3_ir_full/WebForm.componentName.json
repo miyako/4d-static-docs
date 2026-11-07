@@ -13,7 +13,7 @@
   },
   "summary": "The components of web pages are objects that are available directly as properties of these web pages.",
   "description": "The components of web pages are objects that are available directly as properties of these web pages.\n\nThe returned objects are of the 4D.WebFormItem class. These objects have functions that you can use to manage your components dynamically.",
-  "docPage": "mirror/docs/21-R3/API/WebFormClass.html",
+  "docPage": "mirror/docs/API/WebFormClass.html",
   "accessor": {
     "type": {
       "kind": "pseudo",

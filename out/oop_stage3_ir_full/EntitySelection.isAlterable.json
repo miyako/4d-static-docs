@@ -13,7 +13,7 @@
   },
   "summary": "Returns True if the entity selection is alterable",
   "description": "The .isAlterable() function returns True if the entity selection is alterable, and False if the entity selection is not alterable.\n\nFor more information, please refer to Shareable or alterable entity selections.",
-  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "docPage": "mirror/docs/API/EntitySelectionClass.html",
   "overloads": [
     {
       "params": [],

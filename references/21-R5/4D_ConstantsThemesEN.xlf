@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<xliff version="1.0" xmlns:d4="http://www.4d.com">
+  <file datatype="x-4DK#" original="undefined" product-version="v17" source-language="en-US" target-language="en-US">
+    <header>
+      <note>
+				The character "%" (out of a numerical context) is a meta-character that
+				will be replaced (often by a numeric value) before the string is displayed
+				Text between less than (&lt;) and greater than (&gt;) symbols is a variable's
+				name and must not be localised
+				\r, \t and \n are meta-characters.
+      </note>
+    </header>
+    <body>
+
+      <!--   Localized constant themes -->
+
+      <group resname="ConstantThemes">
+        <trans-unit id="1" resname="ConstTheme_1">
+          <source>Date Display Formats</source>
+          <target>Date Display Formats</target>
+        </trans-unit>
+        <trans-unit id="2" resname="ConstTheme_2">
+          <source>Form Events</source>
+          <target>Form Events</target>
+        </trans-unit>
+        <trans-unit id="3" resname="ConstTheme_3">
+          <source>Trigger Events</source>
+          <target>Trigger Events</target>
+        </trans-unit>
+        <trans-unit id="4" resname="ConstTheme_4">
+          <source>Standard System Signatures</source>
+          <target>Standard System Signatures</target>
+        </trans-unit>
+        <trans-unit id="5" resname="ConstTheme_5">
+          <source>4D Environment</source>
+          <target>4D Environment</target>
+        </trans-unit>
+        <trans-unit id="6" resname="ConstTheme_6">
+          <source>Picture Display Formats</source>
+          <target>Picture Display Formats</target>
+        </trans-unit>
+        <trans-unit id="7" resname="ConstTheme_7">
+          <source>Time Display Formats</source>
+          <target>Time Display Formats</target>
+        </trans-unit>
+        <trans-unit id="8" resname="ConstTheme_8">
+          <source>Field and Variable Types</source>
+          <target>Field and Variable Types</target>
+        </trans-unit>
+        <trans-unit id="9" resname="ConstTheme_9">
+          <source>Platform Interface</source>
+          <target>Platform Interface</target>
+        </trans-unit>
+        <trans-unit id="10" resname="ConstTheme_10">
+          <source>Days and Months</source>
+          <target>Days and Months</target>
+        </trans-unit>
+        <trans-unit id="11" resname="ConstTheme_11">
+          <source>Colors</source>
+          <target>Colors</target>
+        </trans-unit>
+        <trans-unit id="12" resname="ConstTheme_12">
+          <source>Function Keys</source>
+          <target>Function Keys</target>
+        </trans-unit>
+        <trans-unit id="13" resname="ConstTheme_13">
+          <source>Process State</source>
+          <target>Process State</target>
+        </trans-unit>
+        <trans-unit id="14" resname="ConstTheme_14">
+          <source>Font Styles</source>
+          <target>Font Styles</target>
+        </trans-unit>
+        <trans-unit id="15" resname="ConstTheme_15">
+          <source>ASCII Codes</source>
+          <target>ASCII Codes</target>
+        </trans-unit>
+        <trans-unit id="16" resname="ConstTheme_16">
+          <source>Events (Modifiers)</source>
+          <target>Events (Modifiers)</target>
+        </trans-unit>
+        <trans-unit id="17" resname="ConstTheme_17">
+          <source>Events (What)</source>
+          <target>Events (What)</target>
+        </trans-unit>
+        <trans-unit id="18" resname="ConstTheme_18">
+          <source>Resources Properties</source>
+          <target>Resources Properties</target>
+        </trans-unit>
+        <trans-unit id="19" resname="ConstTheme_19">
+          <source>Queries</source>
+          <target>Queries</target>
+        </trans-unit>
+        <trans-unit id="20" resname="ConstTheme_20">
+          <source>Pasteboard</source>
+          <target>Pasteboard</target>
+        </trans-unit>
+        <trans-unit id="21" resname="ConstTheme_21">
+          <source>TCP Port Numbers</source>
+          <target>TCP Port Numbers</target>
+        </trans-unit>
+        <trans-unit id="22" resname="ConstTheme_22">
+          <source>BLOB</source>
+          <target>BLOB</target>
+        </trans-unit>
+        <trans-unit id="23" resname="ConstTheme_23">
+          <source>SET RGB COLORS</source>
+          <target>SET RGB COLORS</target>
+        </trans-unit>
+        <trans-unit id="24" resname="ConstTheme_24">
+          <source>System Documents</source>
+          <target>System Documents</target>
+        </trans-unit>
+        <trans-unit id="25" resname="ConstTheme_25">
+          <source>Platform Properties</source>
+          <target>Platform Properties</target>
+        </trans-unit>
+        <trans-unit id="26" resname="ConstTheme_26">
+          <source>Find Window</source>
+          <target>Find Window</target>
+        </trans-unit>
+        <trans-unit id="27" resname="ConstTheme_27">
+          <source>Windows</source>
+          <target>Windows</target>
+        </trans-unit>
+        <trans-unit id="28" resname="ConstTheme_28">
+          <source>Hierarchical Lists</source>
+          <target>Hierarchical Lists</target>
+        </trans-unit>
+        <trans-unit id="29" resname="ConstTheme_29">
+          <source>Database Engine</source>
+          <target>Database Engine</target>
+        </trans-unit>
+        <trans-unit id="30" resname="ConstTheme_30">
+          <source>Math</source>
+          <target>Math</target>
+        </trans-unit>
+        <trans-unit id="31" resname="ConstTheme_31">
+          <source>Communications</source>
+          <target>Communications</target>
+        </trans-unit>
+        <trans-unit id="32" resname="ConstTheme_32">
+          <source>ISO Latin Character Entities</source>
+          <target>ISO Latin Character Entities</target>
+        </trans-unit>
+        <trans-unit id="33" resname="ConstTheme_33">
+          <source>SCREEN DEPTH</source>
+          <target>SCREEN DEPTH</target>
+        </trans-unit>
+        <trans-unit id="34" resname="ConstTheme_34">
+          <source>Open Window</source>
+          <target>Open Window</target>
+        </trans-unit>
+        <trans-unit id="35" resname="ConstTheme_35">
+          <source>Expressions</source>
+          <target>Expressions</target>
+        </trans-unit>
+        <trans-unit id="36" resname="ConstTheme_36">
+          <source>Process Type</source>
+          <target>Process Type</target>
+        </trans-unit>
+        <trans-unit id="37" resname="ConstTheme_37">
+          <source>Database Parameters</source>
+          <target>Database Parameters</target>
+        </trans-unit>
+        <trans-unit id="38" resname="ConstTheme_38">
+          <source>Log Events</source>
+          <target>Log Events</target>
+        </trans-unit>
+        <trans-unit id="39" resname="ConstTheme_39">
+          <source>Open Form Window</source>
+          <target>Open Form Window</target>
+        </trans-unit>
+        <trans-unit id="40" resname="ConstTheme_40">
+          <source>Euro Currencies</source>
+          <target>Euro Currencies</target>
+        </trans-unit>
+        <trans-unit id="41" resname="ConstTheme_41">
+          <source>System Folder</source>
+          <target>System Folder</target>
+        </trans-unit>
+        <trans-unit id="42" resname="ConstTheme_42">
+          <source>Form Objects (Properties)</source>
+          <target>Form Objects (Properties)</target>
+        </trans-unit>
+        <trans-unit id="43" resname="ConstTheme_43">
+          <source>Form Area</source>
+          <target>Form Area</target>
+        </trans-unit>
+        <trans-unit id="44" resname="ConstTheme_44">
+          <source>Is License Available</source>
+          <target>Is License Available</target>
+        </trans-unit>
+        <trans-unit id="45" resname="ConstTheme_45">
+          <source>XML</source>
+          <target>XML</target>
+        </trans-unit>
+        <trans-unit id="46" resname="ConstTheme_46">
+          <source>Web Services (Server)</source>
+          <target>Web Services (Server)</target>
+        </trans-unit>
+        <trans-unit id="47" resname="ConstTheme_47">
+          <source>Print Options</source>
+          <target>Print Options</target>
+        </trans-unit>
+        <trans-unit id="48" resname="ConstTheme_48">
+          <source>Web Services (Client)</source>
+          <target>Web Services (Client)</target>
+        </trans-unit>
+        <trans-unit id="49" resname="ConstTheme_49">
+          <source>SQL</source>
+          <target>SQL</target>
+        </trans-unit>
+        <trans-unit id="50" resname="ConstTheme_50">
+          <source>Form Parameters</source>
+          <target>Form Parameters</target>
+        </trans-unit>
+        <trans-unit id="51" resname="ConstTheme_51">
+          <source>Relations</source>
+          <target>Relations</target>
+        </trans-unit>
+        <trans-unit id="52" resname="ConstTheme_52">
+          <source>Dictionaries</source>
+          <target>Dictionaries</target>
+        </trans-unit>
+        <trans-unit id="53" resname="ConstTheme_53">
+          <source>List Box</source>
+          <target>List Box</target>
+        </trans-unit>
+        <trans-unit id="54" resname="ConstTheme_54">
+          <source>Backup and Restore</source>
+          <target>Backup and Restore</target>
+        </trans-unit>
+        <trans-unit id="55" resname="ConstTheme_55">
+          <source>Picture Compression</source>
+          <target>Picture Compression</target>
+        </trans-unit>
+        <trans-unit id="56" resname="ConstTheme_56">
+          <source>Menu Item Properties</source>
+          <target>Menu Item Properties</target>
+        </trans-unit>
+        <trans-unit id="57" resname="ConstTheme_57">
+          <source>Data File Maintenance</source>
+          <target>Data File Maintenance</target>
+        </trans-unit>
+        <trans-unit id="58" resname="ConstTheme_58">
+          <source>Index Type</source>
+          <target>Index Type</target>
+        </trans-unit>
+        <trans-unit id="59" resname="ConstTheme_59">
+          <source>Value for Associated Standard Action</source>
+          <target>Value for Associated Standard Action</target>
+        </trans-unit>
+        <trans-unit id="60" resname="ConstTheme_60">
+          <source>System Format</source>
+          <target>System Format</target>
+        </trans-unit>
+        <trans-unit id="61" resname="ConstTheme_61">
+          <source>Picture Transformation</source>
+          <target>Picture Transformation</target>
+        </trans-unit>
+        <trans-unit id="62" resname="ConstTheme_62">
+          <source>Web Area</source>
+          <target>Web Area</target>
+        </trans-unit>
+        <trans-unit id="64" resname="ConstTheme_64">
+          <source>PHP</source>
+          <target>PHP</target>
+        </trans-unit>
+        <trans-unit id="65" resname="ConstTheme_65">
+          <source>Multistyle Text Attributes</source>
+          <target>Multistyle Text Attributes</target>
+        </trans-unit>
+        <trans-unit id="66" resname="ConstTheme_66">
+          <source>Digest Type</source>
+          <target>Digest Type</target>
+        </trans-unit>
+        <trans-unit id="67" resname="ConstTheme_67">
+          <source>Form Objects (Access)</source>
+          <target>Form Objects (Access)</target>
+        </trans-unit>
+        <trans-unit id="68" resname="ConstTheme_68">
+          <source>Picture Metadata Names</source>
+          <target>Picture Metadata Names</target>
+        </trans-unit>
+        <trans-unit id="69" resname="ConstTheme_69">
+          <source>Picture Metadata Values</source>
+          <target>Picture Metadata Values</target>
+        </trans-unit>
+        <trans-unit id="70" resname="ConstTheme_70">
+          <source>Listbox Footer Calculation</source>
+          <target>Listbox Footer Calculation</target>
+        </trans-unit>
+        <trans-unit id="71" resname="ConstTheme_71">
+          <source>HTTP Client</source>
+          <target>HTTP Client</target>
+        </trans-unit>
+        <trans-unit id="72" resname="ConstTheme_72">
+          <source>Design Object Access</source>
+          <target>Design Object Access</target>
+        </trans-unit>
+        <trans-unit id="73" resname="ConstTheme_73">
+          <source>Serveur Web</source>
+          <target>Web Server</target>
+        </trans-unit>
+        <trans-unit id="74" resname="ConstTheme_74">
+          <source>Database Events</source>
+          <target>Database Events</target>
+        </trans-unit>
+        <trans-unit id="75" resname="ConstTheme_75">
+          <source>Shortcut and Associated Keys</source>
+          <target>Shortcut and Associated Keys</target>
+        </trans-unit>
+        <trans-unit id="76" resname="ConstTheme_76">
+          <source>Standard Action</source>
+          <target>Standard Action</target>
+        </trans-unit>
+        <trans-unit id="78" resname="ConstTheme_78">
+          <source>Multistyle Text</source>
+          <target>Multistyle Text</target>
+        </trans-unit>
+        <trans-unit id="79" resname="ConstTheme_79">
+          <source>Form Object Types</source>
+          <target>Form Object Types</target>
+        </trans-unit>
+        <trans-unit id="80" resname="ConstTheme_80">
+          <source>Font Type List</source>
+          <target>Font Type List</target>
+        </trans-unit>
+        <trans-unit id="81" resname="ConstTheme_81">
+          <source>4D Write Pro</source>
+          <target>4D Write Pro</target>
+        </trans-unit>
+        <trans-unit id="82" resname="ConstTheme_82">
+          <source>Graph Parameters</source>
+          <target>Graph Parameters</target>
+        </trans-unit>
+        <trans-unit id="83" resname="ConstTheme_83">
+          <source>LDAP</source>
+          <target>LDAP</target>
+        </trans-unit>
+        <trans-unit id="84" resname="ConstTheme_84">
+          <source>Cache Management</source>
+          <target>Cache Management</target>
+        </trans-unit>
+        <trans-unit id="85" resname="ConstTheme_85">
+          <source>Objects and collections</source>
+          <target>Objects and collections</target>
+        </trans-unit>
+        <trans-unit id="86" resname="ConstTheme_86">
+          <source>Strings</source>
+          <target>Strings</target>
+        </trans-unit>
+        <trans-unit id="87" resname="ConstTheme_87">
+          <source>File and Folder</source>
+          <target>File and Folder</target>
+        </trans-unit>
+        <trans-unit id="88" resname="ConstTheme_88">
+          <source>Parse formula</source>
+          <target>Parse formula</target>
+        </trans-unit>
+				
+        <!--	WARINING : d4:groupID="89"	RESERVED FOR VIEW PRO -->
+
+        <trans-unit id="90" resname="ConstTheme_90">
+          <source>Mail</source>
+          <target>Mail</target>
+        </trans-unit>				
+        <trans-unit id="91" resname="ConstTheme_91">
+          <source>Compression</source>
+          <target>Compression</target>
+        </trans-unit>
+        <trans-unit id="92" resname="ConstTheme_92">
+          <source>Error handler</source>
+          <target>Error handler</target>
+        </trans-unit>
+        <trans-unit id="93" resname="ConstTheme_93">
+          <source>DataStore Request Log</source>
+          <target>DataStore Request Log</target>
+        </trans-unit>
+        <trans-unit id="94" resname="ConstTheme_94">
+          <source>Export structure</source>
+          <target>Export structure</target>
+        </trans-unit>
+        <trans-unit id="95" resname="ConstTheme_95">
+          <source>Vector</source>
+          <target>Vector</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

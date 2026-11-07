@@ -13,7 +13,7 @@
   },
   "summary": "Replaces the current web user session with their original session corresponding to the *token* UUID",
   "description": "The .restore() function replaces the current web user session with their original session corresponding to the token UUID. Session's storage and privileges are restored.\n\nIf the original user session has been correctly restored, the function returns true.\n\nThe function returns false if:\n\nthe session token has already been used, the session token has expired, the session token does not exist, the original session itself has expired.\n\nIn this case, the current web user session is left untouched (no session is restored).",
-  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "docPage": "mirror/docs/API/SessionClass.html",
   "overloads": [
     {
       "params": [

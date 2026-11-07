@@ -1,13 +1,34 @@
 {
   "gate": "G5",
+  "compilerProvenance": {
+    "tool4dPath": "/Applications/4D 21 R5/tool4d.app/Contents/MacOS/tool4d",
+    "TOOL4D_PATH": "/Applications/4D 21 R5/tool4d.app/Contents/MacOS/tool4d",
+    "capturedAt": "2026-11-07T10:00:39.360707+00:00",
+    "assembledIRSha256": "57ef9d0319eed3d553b121774323a19210dc88c6e4158f4330453d881be90060",
+    "sourceManifestSha256": "6b48c802e509ad6704f785eeb922b8debc6e897752d930c25acc8958374e9d2e",
+    "docsVersionBadge": "21 R5 BETA",
+    "syntaxSource": {
+      "path": "references/syntaxEN-21-R5.json",
+      "sha1": "228abc950640678ab057896e0e5e28551ce6d761",
+      "sha256": "ee27d9689e834bd1990d60d289d8c4e86e39beb723fe88c55b719e9d1e8bc411",
+      "declaredDocsVersion": "21-R5",
+      "note": "syntaxEN.json carries no version marker. This explicit capture declaration is compared with the actual documentation version badge."
+    },
+    "lspVersion": "tool4d-lsp-stdio 0.3.0",
+    "tool4dBuild": "21 R5 build 21R5.100156",
+    "compilerSyntaxSha256": "ee27d9689e834bd1990d60d289d8c4e86e39beb723fe88c55b719e9d1e8bc411",
+    "synthManifestInputSha256": "6ef9bfb30fc1d06766a8812a3f8cca8ff882dd40c8501f789185cfca402ef463",
+    "verificationMode": "complete fresh hover sweep; no prior verdict reuse"
+  },
   "summary": {
-    "members": 502,
-    "agrees": 485,
+    "members": 528,
+    "agrees": 508,
     "disagreements": 0,
-    "explainedDisagreements": 1,
+    "explainedDisagreements": 3,
     "unknownToCompiler": 0,
     "skippedDynamic": 7,
-    "noHoverMultivariantProperty": 9
+    "noHoverMultivariantProperty": 10,
+    "noCallSite": 0
   },
   "noHoverMultivariantProperty": [
     "Document.original",
@@ -17,10 +38,12 @@
     "Email.replyTo",
     "Email.sender",
     "Email.to",
+    "SMTPTransporter.certificate",
     "SystemWorker.response",
     "WebServer.characterSet"
   ],
   "unknownToCompiler": [],
+  "noCallSite": [],
   "results": [
     {
       "id": "4D.Blob.new",
@@ -70,7 +93,7 @@
           ]
         }
       ],
-      "reason": "Hover still shows the `{ ; * }` that FolderClass.html documents, because hover renders the doc string. The parser disagrees with the doc: tool4d accepts `Folder(\"/tmp\"; fk posix path; *)` but rejects `4D.Folder.new(\"/tmp\"; fk posix path; *)` with a bare \"Syntax error\", and the sibling 4D.File.new documents no `*` at all. The IR follows the parser via pipeline/oop/semantic_overlays/4D.Folder.new.json, so this arity difference is expected and is not an IR bug."
+      "reason": "Hover still shows the `{ ; * }` that FolderClass.html documents, because hover renders the doc string. The parser disagrees with the doc: tool4d accepts `Folder(\"/PACKAGE\"; fk posix path; *)` but rejects `4D.Folder.new(\"/PACKAGE\"; fk posix path; *)` with a bare \"Syntax error\", and the sibling 4D.File.new documents no `*` at all. The IR follows the parser via pipeline/oop/semantic_overlays/4D.Folder.new.json, so this arity difference is expected and is not an IR bug."
     },
     {
       "id": "4D.HTTPAgent.new",
@@ -166,7 +189,7 @@
       "id": "4D.Vector.new",
       "status": "agrees",
       "hoverSignatures": [
-        "4D.Vector.new ( parameter : Collection ) : 4D.Vector"
+        "4D.Vector.new ( parameter : Collection {; precision : Integer} ) : 4D.Vector"
       ]
     },
     {
@@ -728,6 +751,13 @@
       "status": "agrees",
       "hoverSignatures": [
         ".getDataStore() : cs.DataStore"
+      ]
+    },
+    {
+      "id": "DataClass.getIndexes",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".getIndexes() : Collection"
       ]
     },
     {
@@ -2600,6 +2630,162 @@
       ]
     },
     {
+      "id": "QuotaManagerClass.nbRequestsPerMinPerSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        "nbRequestsPerMinPerSession : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.nbRequestsPerHourPerSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        "nbRequestsPerHourPerSession : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.nbSessions",
+      "status": "agrees",
+      "hoverSignatures": [
+        "nbSessions : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.nbGuestSessions",
+      "status": "agrees",
+      "hoverSignatures": [
+        "nbGuestSessions : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.inBytesPerMin",
+      "status": "agrees",
+      "hoverSignatures": [
+        "inBytesPerMin : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.outBytesPerMin",
+      "status": "agrees",
+      "hoverSignatures": [
+        "outBytesPerMin : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.outBytesPerMinPerSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        "outBytesPerMinPerSession : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.nbRequestsPerHour",
+      "status": "agrees",
+      "hoverSignatures": [
+        "nbRequestsPerHour : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.outBytesPerHourPerSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        "outBytesPerHourPerSession : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.inBytesPerMinPerSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        "inBytesPerMinPerSession : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.maxEntitySetTimeout",
+      "status": "agrees",
+      "hoverSignatures": [
+        "maxEntitySetTimeout : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.nbEntitySets",
+      "status": "agrees",
+      "hoverSignatures": [
+        "nbEntitySets : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.currentValues",
+      "status": "agrees",
+      "hoverSignatures": [
+        "currentValues : Object"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.inBytesPerHour",
+      "status": "agrees",
+      "hoverSignatures": [
+        "inBytesPerHour : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.defaultEntitySetTimeout",
+      "status": "agrees",
+      "hoverSignatures": [
+        "defaultEntitySetTimeout : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.inBytesPerHourPerSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        "inBytesPerHourPerSession : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.nbEntitySetsPerSession",
+      "status": "agrees",
+      "hoverSignatures": [
+        "nbEntitySetsPerSession : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.outBytesPerHour",
+      "status": "agrees",
+      "hoverSignatures": [
+        "outBytesPerHour : Integer"
+      ]
+    },
+    {
+      "id": "QuotaManagerClass.nbRequestsPerMin",
+      "status": "agrees",
+      "hoverSignatures": [
+        "nbRequestsPerMin : Integer"
+      ]
+    },
+    {
+      "id": "SMTPTransporter.certificatePassword",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".certificatePassword : Text"
+      ]
+    },
+    {
+      "id": "SMTPTransporter.certificateName",
+      "status": "agrees",
+      "hoverSignatures": [
+        ".certificateName : Text"
+      ]
+    },
+    {
+      "id": "SMTPTransporter.certificate",
+      "status": "no-hover-multivariant-property",
+      "irTypes": [
+        "4D.File",
+        "Blob"
+      ],
+      "note": "tool4d hover has no entry for multi-typed properties; covered instead by G4, which compiles every variant."
+    },
+    {
       "id": "SMTPTransporter.keepAlive",
       "status": "agrees",
       "hoverSignatures": [
@@ -2691,6 +2877,25 @@
       ]
     },
     {
+      "id": "Session.quotas",
+      "status": "explained-disagreement",
+      "hoverSignatures": [
+        ".quotas : 4D.QuotaManager"
+      ],
+      "findings": [
+        {
+          "kind": "property_type",
+          "ir": [
+            "4D.QuotaManagerClass"
+          ],
+          "hover": [
+            "4D.QuotaManager"
+          ]
+        }
+      ],
+      "reason": "R5 hover repeats the documented 4D.QuotaManager spelling. The matched 21R5.100156 compiler rejects that type and accepts 4D.QuotaManagerClass for the same Session.quotas assignment. See positive/negative controls in out/oop_type_name_crosscheck.json and the Session.quotas overlay."
+    },
+    {
       "id": "Session.restore",
       "status": "agrees",
       "hoverSignatures": [
@@ -2702,7 +2907,7 @@
       "status": "agrees",
       "hoverSignatures": [
         ".setPrivileges( privilege : Text ) : Boolean",
-        ".setPrivileges( privileges : Collection )",
+        ".setPrivileges( privileges : Collection ) : Boolean",
         ".setPrivileges( settings : Object ) : Boolean"
       ]
     },
@@ -3130,6 +3335,13 @@
       ]
     },
     {
+      "id": "Vector.precision",
+      "status": "agrees",
+      "hoverSignatures": [
+        "precision : Integer"
+      ]
+    },
+    {
       "id": "Vector.toCollection",
       "status": "agrees",
       "hoverSignatures": [
@@ -3421,6 +3633,25 @@
       "hoverSignatures": [
         ".perfectForwardSecrecy : Boolean"
       ]
+    },
+    {
+      "id": "WebServer.quotas",
+      "status": "explained-disagreement",
+      "hoverSignatures": [
+        ".quotas : 4D.QuotaManager"
+      ],
+      "findings": [
+        {
+          "kind": "property_type",
+          "ir": [
+            "4D.QuotaManagerClass"
+          ],
+          "hover": [
+            "4D.QuotaManager"
+          ]
+        }
+      ],
+      "reason": "R5 hover repeats the documented 4D.QuotaManager spelling. The matched 21R5.100156 compiler rejects that type and accepts 4D.QuotaManagerClass; G4 verifies the WEB Server.quotas assignment with the corrected type. See out/oop_type_name_crosscheck.json and the WebServer.quotas overlay."
     },
     {
       "id": "WebServer.rootFolder",

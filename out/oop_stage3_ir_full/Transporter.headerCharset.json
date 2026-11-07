@@ -13,7 +13,7 @@
   },
   "summary": "The charset and encoding used for the email header",
   "description": "The .headerCharset property contains the charset and encoding used for the email header. The header includes the following parts of the email:\n\nsubject, attachment filename(s), email name.\n\nPossible values:",
-  "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+  "docPage": "mirror/docs/API/SMTPTransporterClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

@@ -13,7 +13,7 @@
   },
   "summary": "True if the file exists on disk and is writable",
   "description": "The .isWritable property returns true if the file exists on disk and is writable.\n\nThe property checks the ability of the 4D application to write on the disk (access rights), it does not solely rely on the writable attribute of the file.\n\nThis property is read-only.\n\nExample",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "accessor": {
     "type": {
       "kind": "concrete",

@@ -13,7 +13,7 @@
   },
   "summary": "Returns the number of times value is found in the collection",
   "description": "The .countValues() function returns the number of times value is found in the collection.\n\nYou can pass in value:\n\na scalar value (text, number, boolean, date), an object or a collection reference.\n\nFor an element to be found, the type of value must be equivalent to the type of the element; the method uses the equality operator.\n\nThe optional propertyPath parameter allows you to count values inside a collection of objects: pass in propertyPath the path of the property whose values you want to count.\n\nThis function does not modify the original collection.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

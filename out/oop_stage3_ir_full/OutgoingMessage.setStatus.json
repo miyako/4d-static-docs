@@ -13,7 +13,7 @@
   },
   "summary": "Sets the `status` property with the given *status*",
   "description": "The .setStatus() function sets the status property with the given status.\n\nIf status is not an integer value, an error is raised.\n\nFor a list of HTTP status codes, please refer the HTTP status code list on Wikipedia.",
-  "docPage": "mirror/docs/21-R3/API/OutgoingMessageClass.html",
+  "docPage": "mirror/docs/API/OutgoingMessageClass.html",
   "overloads": [
     {
       "params": [

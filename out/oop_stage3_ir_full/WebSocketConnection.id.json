@@ -13,7 +13,7 @@
   },
   "summary": "The unique identifier of the connection",
   "description": "The .id property contains the unique identifier of the connection.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "docPage": "mirror/docs/API/WebSocketClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

@@ -13,7 +13,7 @@
   },
   "summary": "The current connection status (can be \"Connecting\", \"Closing\", \"Closed\", or \"Connected\")",
   "description": "The .status property contains the current connection status (can be \"Connecting\", \"Closing\", \"Closed\", or \"Connected\").\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/WebSocketClass.html",
+  "docPage": "mirror/docs/API/WebSocketClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

@@ -29,24 +29,27 @@ hand and, if it is a real IR bug, fixed through a semantic overlay.
 Prerequisite: a running server, so ~500 hovers cost ~0.2s each instead of a
 full tool4d startup each:
 
-    tools/tool4d-lsp-stdio mcp --workspace "$PWD/oopcheck/Project"
+    tools/4dlsp/tool4d-lsp-stdio mcp --workspace "$PWD/oopcheck/Project"
     python3 pipeline/oop/stage9_hover_crosscheck.py
-    tools/tool4d-lsp-stdio mcp --stop
+    tools/4dlsp/tool4d-lsp-stdio mcp --stop
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import subprocess
 import sys
 from pathlib import Path
 
+import oopcommon as oop
+
 ROOT = Path(__file__).resolve().parent.parent.parent
 IR_PATH = ROOT / "out" / "4d-oop-ir.json"
 PROJECT_DIR = ROOT / "oopcheck" / "Project"
 MANIFEST_PATH = ROOT / "out" / "oop_synth_manifest.json"
 OUT_PATH = ROOT / "out" / "oop_hover_crosscheck.json"
-TOOL4D_LSP = ROOT / "tools" / "tool4d-lsp-stdio"
+TOOL4D_LSP = ROOT / "tools" / "4dlsp" / "tool4d-lsp-stdio"
 
 NO_HOVER = "No hover information available at this position."
 
@@ -70,11 +73,23 @@ DYNAMIC_MEMBERS = {
 # DOCUMENTATION string, so where the docs are wrong hover repeats the error and
 # check-syntax -- which exercises the real parser -- is the stronger oracle.
 EXPLAINED_DISAGREEMENTS = {
+    "Session.quotas": (
+        "R5 hover repeats the documented 4D.QuotaManager spelling. The matched "
+        "21R5.100156 compiler rejects that type and accepts 4D.QuotaManagerClass "
+        "for the same Session.quotas assignment. See positive/negative controls "
+        "in out/oop_type_name_crosscheck.json and the Session.quotas overlay."
+    ),
+    "WebServer.quotas": (
+        "R5 hover repeats the documented 4D.QuotaManager spelling. The matched "
+        "21R5.100156 compiler rejects that type and accepts 4D.QuotaManagerClass; "
+        "G4 verifies the WEB Server.quotas assignment with the corrected type. "
+        "See out/oop_type_name_crosscheck.json and the WebServer.quotas overlay."
+    ),
     "4D.Folder.new": (
         "Hover still shows the `{ ; * }` that FolderClass.html documents, because hover "
         "renders the doc string. The parser disagrees with the doc: tool4d accepts "
-        "`Folder(\"/tmp\"; fk posix path; *)` but rejects "
-        "`4D.Folder.new(\"/tmp\"; fk posix path; *)` with a bare \"Syntax error\", and the "
+        "`Folder(\"/PACKAGE\"; fk posix path; *)` but rejects "
+        "`4D.Folder.new(\"/PACKAGE\"; fk posix path; *)` with a bare \"Syntax error\", and the "
         "sibling 4D.File.new documents no `*` at all. The IR follows the parser via "
         "pipeline/oop/semantic_overlays/4D.Folder.new.json, so this arity difference is "
         "expected and is not an IR bug."
@@ -97,17 +112,17 @@ def hover(path: Path, line0: int, char: int) -> str | None:
             str(char),
             str(path),
         ],
-        cwd=ROOT,
+        cwd=PROJECT_DIR,
         capture_output=True,
         text=True,
         timeout=120,
     )
     if proc.returncode != 0:
-        return None
+        raise SystemExit(f"hover failed for {path}:{line0 + 1}: {proc.stderr.strip()}")
     try:
         result = json.loads(proc.stdout)["result"]
     except (json.JSONDecodeError, KeyError):
-        return None
+        raise SystemExit(f"Malformed hover response for {path}: {proc.stdout[:500]}")
     return None if result == NO_HOVER else result
 
 
@@ -240,29 +255,36 @@ def compare(member, sigs: list[str]) -> list[dict]:
 
 
 def main() -> int:
+    provenance = oop.compiler_provenance()
+    provenance["synthManifestInputSha256"] = hashlib.sha256(MANIFEST_PATH.read_bytes()).hexdigest()
+    provenance["verificationMode"] = "complete fresh hover sweep; no prior verdict reuse"
     ir = json.load(open(IR_PATH))
     by_id = {c["id"]: c for c in ir["commands"]}
     manifest = json.load(open(MANIFEST_PATH))
 
     results = []
     unknown, agree, disagree, skipped = [], 0, 0, 0
+    no_call_site = []
     no_hover_multivariant: list[str] = []
     explained_n = 0
     items = sorted(manifest["files"].items())
     for n, (rel, info) in enumerate(items, 1):
         member_id = info["member_id"]
         member = by_id[member_id]
+        path = PROJECT_DIR / rel
+        if info.get("sourceSha256") != hashlib.sha256(path.read_bytes()).hexdigest():
+            raise SystemExit(f"{rel} differs from the generated manifest; regenerate and compile it before hover.")
         if member_id in DYNAMIC_MEMBERS:
             skipped += 1
             results.append({"id": member_id, "status": "skipped-dynamic"})
             continue
-        path = PROJECT_DIR / rel
         lines = path.read_text().splitlines()
         block = info["blocks"][0]
         start = block["comment_line"] - 1
         body = lines[start : start + block["lines"]]
         pos = find_call_position(member, body)
         if pos is None:
+            no_call_site.append(member_id)
             results.append({"id": member_id, "status": "no-call-site"})
             continue
         markdown = hover(path, start + pos[0], pos[1])
@@ -327,6 +349,7 @@ def main() -> int:
 
     report = {
         "gate": "G5",
+        "compilerProvenance": provenance,
         "summary": {
             "members": len(items),
             "agrees": agree,
@@ -335,15 +358,17 @@ def main() -> int:
             "unknownToCompiler": len(unknown),
             "skippedDynamic": skipped,
             "noHoverMultivariantProperty": len(no_hover_multivariant),
+            "noCallSite": len(no_call_site),
         },
         "noHoverMultivariantProperty": no_hover_multivariant,
         "unknownToCompiler": unknown,
+        "noCallSite": no_call_site,
         "results": results,
     }
     OUT_PATH.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report["summary"], indent=2))
     print(f"-> {OUT_PATH.relative_to(ROOT)}")
-    return 0
+    return 1 if disagree or unknown or no_call_site else 0
 
 
 if __name__ == "__main__":

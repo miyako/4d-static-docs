@@ -1,7 +1,7 @@
 {
   "gate": "G3",
-  "inScope": 502,
-  "present": 502,
+  "inScope": 528,
+  "present": 528,
   "missing": [],
   "unexpected": [],
   "skippedWithReason": [
@@ -22,19 +22,14 @@
     },
     {
       "what": "_command_",
-      "reason": "The 1353 classic commands — already covered by out/4d-command-ir.json.",
+      "reason": "Classic commands — already covered by out/4d-command-ir.json.",
       "inScope": false
-    },
-    {
-      "what": "Transporter",
-      "reason": "no API page of its own; members are documented on its subclasses' pages. Kept in scope, enriched from those pages via the inheritance edge.",
-      "inScope": true
     }
   ],
   "byKind": {
     "oop_constructor": 19,
-    "oop_function": 258,
-    "oop_property": 225
+    "oop_function": 259,
+    "oop_property": 250
   },
   "passed": true
 }

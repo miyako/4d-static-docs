@@ -47,6 +47,7 @@
   ],
   "constraints": [
     "aTable is optional; if omitted, the parameter is retrieved/set for the default table.",
+    "Selector 135 is named QUIC Connection Timeout in the official R5 constants resource and QUIC session timeout in the documentation. The R5 GET page describes seconds (default 900, minimum 60), while the SET page still describes minutes (default 15, minimum 1). Units are an unresolved upstream documentation conflict, not compiler-verified runtime behavior.",
     "When the selector's value is a character string, it is returned via stringValue instead of (or in addition to) the numeric function result.",
     "selector's accepted value(s) depend on which DatabaseParameterSelector constant is passed; several selectors (Direct2D status, Diagnostic log level, Min TLS version, Times inside objects, Dates inside objects) draw their own value from a dedicated sub-enum -- see each DatabaseParameterSelector entry's description."
   ]

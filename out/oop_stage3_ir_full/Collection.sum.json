@@ -13,7 +13,7 @@
   },
   "summary": "Returns the sum for all values in the collection instance",
   "description": "The .sum() function returns the sum for all values in the collection instance.\n\nOnly numerical elements are taken into account for the calculation (other element types are ignored).\n\nIf the collection contains objects, pass the propertyPath parameter to indicate the object property to take into account.\n\n.sum() returns 0 if:\n\nthe collection is empty, the collection does not contain numerical elements, propertyPath is not found in the collection.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

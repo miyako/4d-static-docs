@@ -13,7 +13,7 @@
   },
   "summary": "\"SameSite\" session cookie value",
   "description": "The \"SameSite\" session cookie value. Possible values (using constants):\n\nSee the Session Cookie SameSite description for detailed information.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

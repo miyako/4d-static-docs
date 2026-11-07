@@ -13,7 +13,7 @@
   },
   "summary": "Recursively compares the contents of the collection and *collection2* (deep comparison)",
   "description": "The .equal() function recursively compares the contents of the collection and collection2 (deep comparison)and returns true if they are identical.\n\nBy default, a non-diacritical evaluation is performed. If you want the evaluation to be case sensitive or to differentiate accented characters, pass the ck diacritical constant in the option parameter.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

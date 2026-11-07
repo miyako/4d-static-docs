@@ -13,7 +13,7 @@
   },
   "summary": "The charset used when reading from or writing to the file",
   "description": "The .charset property returns the charset used when reading from or writing to the file.\n\nThe charset can be defined at the handle creation with the file.open() function. Default is \"UTF-8\".\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "docPage": "mirror/docs/API/FileHandleClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

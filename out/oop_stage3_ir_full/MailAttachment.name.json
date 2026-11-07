@@ -13,7 +13,7 @@
   },
   "summary": "The name and extension of the attachment",
   "description": "The .name property contains the name and extension of the attachment. By default, it is the name of the file, unless another name was specified in the MAIL New attachment command.",
-  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "docPage": "mirror/docs/API/MailAttachmentClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

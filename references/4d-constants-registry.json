@@ -3474,6 +3474,14 @@
       {
         "name": "Use legacy print rendering",
         "value": "136"
+      },
+      {
+        "name": "MCP server enabled",
+        "value": "137"
+      },
+      {
+        "name": "MCP 2 server enabled",
+        "value": "138"
       }
     ],
     "38": [
@@ -3896,6 +3904,14 @@
       {
         "name": "obk not enterable not focusable",
         "value": "2"
+      },
+      {
+        "name": "Border Custom",
+        "value": "9"
+      },
+      {
+        "name": "Border System Rounded",
+        "value": "8"
       }
     ],
     "43": [
@@ -5128,6 +5144,18 @@
       {
         "name": "Cluster BTree index",
         "value": "3"
+      },
+      {
+        "name": "Vector cosine index",
+        "value": "4"
+      },
+      {
+        "name": "Vector dot index",
+        "value": "5"
+      },
+      {
+        "name": "Vector euclidean index",
+        "value": "6"
       }
     ],
     "59": [
@@ -16033,6 +16061,20 @@
         "value": "136"
       }
     ],
+    "MCP server enabled": [
+      {
+        "groupId": "37",
+        "theme": "Database Parameters",
+        "value": "137"
+      }
+    ],
+    "MCP 2 server enabled": [
+      {
+        "groupId": "37",
+        "theme": "Database Parameters",
+        "value": "138"
+      }
+    ],
     "Information message": [
       {
         "groupId": "38",
@@ -16752,6 +16794,20 @@
         "groupId": "42",
         "theme": "Form Objects (Properties)",
         "value": "2"
+      }
+    ],
+    "Border Custom": [
+      {
+        "groupId": "42",
+        "theme": "Form Objects (Properties)",
+        "value": "9"
+      }
+    ],
+    "Border System Rounded": [
+      {
+        "groupId": "42",
+        "theme": "Form Objects (Properties)",
+        "value": "8"
       }
     ],
     "Form detail": [
@@ -18852,6 +18908,27 @@
         "groupId": "58",
         "theme": "Index Type",
         "value": "3"
+      }
+    ],
+    "Vector cosine index": [
+      {
+        "groupId": "58",
+        "theme": "Index Type",
+        "value": "4"
+      }
+    ],
+    "Vector dot index": [
+      {
+        "groupId": "58",
+        "theme": "Index Type",
+        "value": "5"
+      }
+    ],
+    "Vector euclidean index": [
+      {
+        "groupId": "58",
+        "theme": "Index Type",
+        "value": "6"
       }
     ],
     "_o_No action": [

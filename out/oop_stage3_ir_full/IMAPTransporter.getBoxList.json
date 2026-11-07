@@ -13,7 +13,7 @@
   },
   "summary": "Returns a collection of mailboxes describing all of the available mailboxes",
   "description": "The .getBoxList() function returns a collection of mailboxes describing all of the available mailboxes. This function allows you to locally manage the list of messages located on the IMAP mail server.\n\nIn the optional parameters parameter, pass an object containing values to filter the returned mailboxes. You can pass:",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [

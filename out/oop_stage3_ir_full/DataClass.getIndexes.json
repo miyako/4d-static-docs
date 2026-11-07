@@ -1,0 +1,82 @@
+{
+  "id": "DataClass.getIndexes",
+  "displayName": "DataClass.getIndexes",
+  "kind": "oop_function",
+  "memberName": ".getIndexes",
+  "receiver": {
+    "classId": "DataClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "DataClass"
+    }
+  },
+  "summary": "Returns a collection of all indexes related to the dataclass",
+  "description": "The .getIndexes() function returns a collection of all indexes related to the dataclass.\n\nEach index is an object of the collection. Indexes are returned in the creation/modification order. An empty collection is returned if there is no index in the dataclass.\n\nReturned collection\n\nEach object of the returned collection has the following properties:",
+  "docPage": "mirror/docs/API/DataClassClass.html",
+  "overloads": [
+    {
+      "params": [],
+      "rawSyntax": "**.getIndexes()** : Collection",
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      }
+    }
+  ],
+  "returnsShape": {
+    "properties": {
+      "type": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "Index type: -1 = Keywords, 0 = default, 1 = Standard B-Tree, 3 = Cluster B-Tree, 4 = Cosine, 5 = Dot, 6 = Euclidean. If the index is set to Automatic, the type property represents the type of the indexing algorithm used"
+      },
+      "automatic": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if \"automatic\" index is selected"
+      },
+      "name": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Index name if defined"
+      },
+      "kind": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "\"keywords\" if keyword index checked, otherwise \"regular\""
+      },
+      "attributes": {
+        "type": {
+          "kind": "concrete",
+          "name": "Collection"
+        },
+        "description": "Index attribute or list of attributes (for composite index)"
+      },
+      "UUID": {
+        "type": {
+          "kind": "concrete",
+          "name": "Text"
+        },
+        "description": "Index UUID"
+      },
+      "uniqueKey": {
+        "type": {
+          "kind": "concrete",
+          "name": "Boolean"
+        },
+        "description": "True if index has the Unique key property"
+      }
+    },
+    "source": "Description"
+  },
+  "sinceVersion": "21-R5"
+}

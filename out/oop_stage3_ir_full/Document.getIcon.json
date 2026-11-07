@@ -13,7 +13,7 @@
   },
   "summary": "The icon of the file",
   "description": "The .getIcon() function returns the icon of the file.\n\nThe optional size parameter specifies the dimensions in pixels of the returned icon. This value actually represents the length of the side of the square containing the icon. Icons are usually defined in 32x32 pixels (“large icons”) or 16x16 pixels (“small icons”). If you pass 0 or omit this parameter, the \"large icon\" version is returned.\n\nIf the file does not exist on disk, a default blank icon is returned.\n\nReturned value\n\nFile icon picture.",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "overloads": [
     {
       "params": [

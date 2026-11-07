@@ -13,7 +13,7 @@
   },
   "summary": "Applies the *formula* or *methodName* callback against an accumulator and each element in the collection (from right to left) to reduce it to a single value",
   "description": "The .reduceRight() function applies the formula or methodName callback against an accumulator and each element in the collection (from right to left) to reduce it to a single value.\n\nThis function does not modify the original collection.\n\nYou designate the callback to be executed to evaluate collection elements using either:\n\nformula (recommended syntax), a Formula object that can encapsulate any executable expressions, including functions and project methods; or methodName, the name of a project method (text).\n\nThe callback takes each collection element and performs any desired operation to accumulate the result into $1.accumulator, which is returned in $1.value.\n\nYou can pass the value to initialize the accumulator in initValue. If omitted, $1.accumulator starts with Undefined.\n\nThe callback receives the following parameters:\n\nin $1.value: element value to be processed in $2: param in $N...: paramN...\n\nThe callback sets the following parameter(s):\n\n$1.accumulator: value to be modified by the function and which is initialized by initValue. $1.stop (boolean, optional): true to stop the method callback. The returned value is the last calculated.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

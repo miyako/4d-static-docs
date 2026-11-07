@@ -132,7 +132,7 @@
       "id": "Table",
       "displayName": "Table",
       "kind": "classic_command",
-      "theme": "Structure-Access",
+      "theme": "Structure Access",
       "overloads": [
         {
           "params": [
@@ -188,9 +188,6 @@
           },
           "semanticRole": "The Table command has three forms: If you pass a table number in tableNum , Table returns a pointer to the table."
         }
-      ],
-      "constraints": [
-        "Overloads 2 and 3 declare the identical parameter type (Pointer). Which one applies depends on what the pointer actually references at runtime -- not checkable from the call site alone."
       ]
     },
     {

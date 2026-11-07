@@ -13,7 +13,7 @@
   },
   "summary": "Removes all delete flags set on the emails in the `POP3_transporter`",
   "description": "The .undeleteAll() function removes all delete flags set on the emails in the POP3_transporter.",
-  "docPage": "mirror/docs/21-R3/API/POP3TransporterClass.html",
+  "docPage": "mirror/docs/API/POP3TransporterClass.html",
   "overloads": [
     {
       "params": [],

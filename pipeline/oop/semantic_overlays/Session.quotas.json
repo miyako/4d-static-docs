@@ -1,0 +1,7 @@
+{
+  "id": "Session.quotas",
+  "_reason": "Official 21 R5 BETA docs and syntaxEN-21-R5.json spell the returned type 4D.QuotaManager, but tool4d 21R5.100156 rejects it ('The class 4D.QuotaManager is unknown.'). The same Session.quotas assignment to 4D.QuotaManagerClass compiles cleanly; positive File/QuotaManagerClass and negative QuotaManager/unknown controls are in out/oop_type_name_crosscheck.json. Preserve rawSyntax verbatim and correct the semantic type, not the diagnostic.",
+  "accessor": {
+    "type": {"kind": "concrete", "name": "4D.QuotaManagerClass"}
+  }
+}

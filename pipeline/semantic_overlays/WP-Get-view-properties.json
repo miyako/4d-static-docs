@@ -28,6 +28,7 @@
     }
   ],
   "constraints": [
-    "The command requires wpArea to be associated with a form object currently displayed in the form; if the document is displayed in several form objects, the '*' syntax is required to disambiguate which view to address."
+    "The command requires wpArea to be associated with a form object currently displayed in the form; if the document is displayed in several form objects, the '*' syntax is required to disambiguate which view to address.",
+    "visibleTableBorders (wk visible table borders) is a Boolean view property showing partially or wholly invisible table borders as dotted lines."
   ]
 }

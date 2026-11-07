@@ -41,7 +41,8 @@ class ReleaseSnapshotTests(unittest.TestCase):
             archive.writestr(
                 "docs/21-R4/commands/abs.html",
                 '<article><div class="markdown"><header><h1>Abs</h1></header>'
-                '<p><strong>Abs</strong> ( value ) -&gt; Real</p></div></article>',
+                '<p><strong>Abs</strong> ( value ) -&gt; Real</p>'
+                '<div>Version: 21 R4</div></div></article>',
             )
             archive.writestr(
                 "docs/21-R4/API/CollectionClass.html",

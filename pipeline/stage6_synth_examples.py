@@ -27,7 +27,9 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -39,7 +41,7 @@ EXAMPLES_PATH = ROOT / "references" / "4d-command-ir-examples.json"
 METHODS_DIR = ROOT / "Project" / "Sources" / "Methods"
 MANIFEST_PATH = ROOT / "out" / "synth_manifest.json"
 REPORT_PATH = ROOT / "out" / "lsp_crosscheck_report.json"
-TOOL4D_LSP = ROOT / "tools" / "tool4d-lsp-stdio"
+TOOL4D_LSP = ROOT / "tools" / "4dlsp" / "tool4d-lsp-stdio"
 
 # Extra pilot picks beyond the 13 regression fixtures, chosen to exercise
 # every Layer-2 construct at least once (see pipeline/README.md / plan.md
@@ -1546,7 +1548,7 @@ def cmd_validate(args):
     if not MANIFEST_PATH.exists():
         raise SystemExit("out/synth_manifest.json not found -- run 'generate' first")
     if not TOOL4D_LSP.exists():
-        raise SystemExit("tools/tool4d-lsp-stdio not found -- provision it per skills/4dtools/SKILL.md")
+        raise SystemExit("tools/4dlsp/tool4d-lsp-stdio not found -- provision it per skills/4dtools/SKILL.md")
 
     ir = load_json(IR_PATH)
     commands_by_id = {c["id"]: c for c in ir["commands"]}
@@ -1563,6 +1565,11 @@ def cmd_validate(args):
     if not rel_paths:
         raise SystemExit("no generated files match the requested ids/theme -- run 'generate' for them first")
 
+    compiler_path = os.environ.get("TOOL4D_PATH")
+    compiler_version = subprocess.check_output([compiler_path, "--version"], text=True).strip() if compiler_path else None
+    if compiler_path is None:
+        print("Compiler provenance is unpinned: set TOOL4D_PATH to record its build and hash.", file=sys.stderr)
+    command = [str(TOOL4D_LSP), "check-syntax", "--json", "--workspace", "Project/", rel_paths[0]]
     # `check-syntax` wraps the same `experimental/checkSyntax` request the
     # 4D Analyzer VS Code extension's "Check workspace syntax" command uses
     # (a real project-wide compile-check pass), and unlike `validate`'s
@@ -1572,7 +1579,7 @@ def cmd_validate(args):
     # call, not a chunked loop. Passing just one anchor file (rather than
     # every rel_path) avoids any argv-length concern on large batches.
     proc = subprocess.run(
-        [str(TOOL4D_LSP), "check-syntax", "--json", "--workspace", "Project/", rel_paths[0]],
+        command,
         cwd=ROOT,
         capture_output=True,
         text=True,
@@ -1605,12 +1612,15 @@ def cmd_validate(args):
         rel = uri.split("/Project/", 1)[-1]
         diagnostics_by_relpath[rel] = entry["diagnostics"]
     print(f"check-syntax: {len(per_file)} file(s) in project, {len(rel_paths)} targeted this run", file=sys.stderr)
+    missing = sorted(set(rel_paths) - diagnostics_by_relpath.keys())
+    if missing:
+        raise SystemExit(f"Compiler omitted targeted files; they are unverified, not clean: {missing}")
 
     report_this_run = []
     for rel_path in rel_paths:
         file_info = manifest["files"][rel_path]
         cid = file_info["command_id"]
-        diags = diagnostics_by_relpath.get(rel_path, [])
+        diags = diagnostics_by_relpath[rel_path]
         # Attribute each diagnostic to the overload whose comment_line is
         # the closest preceding line (convert 0-based LSP lines to the
         # manifest's 1-based comment_line convention).
@@ -1618,7 +1628,7 @@ def cmd_validate(args):
         for pos, oi_info in enumerate(starts):
             oi = oi_info["overload_index"]
             variant = oi_info.get("variant", "default")
-            start = oi_info["comment_line"]
+            start = 1 if pos == 0 else oi_info["comment_line"]
             # Positional (not overload_index-based) lookahead: a given
             # overload_index may now appear more than once in `starts`
             # (its "default" block plus enum-sweep variant blocks, see
@@ -1663,6 +1673,18 @@ def cmd_validate(args):
         report = report_this_run
 
     REPORT_PATH.write_text(json.dumps(report, indent=2) + "\n")
+    def sha256(path):
+        return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    provenance = {
+        "compilerPath": compiler_path, "compilerVersion": compiler_version,
+        "compilerSha256": sha256(compiler_path) if compiler_path else None,
+        "bridgeSha256": sha256(TOOL4D_LSP), "command": command,
+        "fullRun": not subset_mode, "irSha256": sha256(IR_PATH),
+        "manifestSha256": sha256(MANIFEST_PATH), "reportSha256": sha256(REPORT_PATH),
+        "targetedFiles": len(rel_paths), "returnedFiles": len(per_file),
+        "sourceSha256": {rel: sha256(ROOT / "Project" / rel) for rel in rel_paths},
+    }
+    (ROOT / "out/classic_compiler_provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
     n_error = sum(1 for r in report_this_run if r["status"] == "error")
     n_warning = sum(1 for r in report_this_run if r["status"] == "warning")
     n_clean = sum(1 for r in report_this_run if r["status"] == "clean")
@@ -1673,6 +1695,8 @@ def cmd_validate(args):
         t_clean = sum(1 for r in report if r["status"] == "clean")
         print(f"report totals (all commands): {len(report)} overload(s), {t_clean} clean, {t_warning} warning-only, {t_error} error")
     print(f"-> {REPORT_PATH.relative_to(ROOT)}")
+    if n_error:
+        raise SystemExit(1)
 
 
 def cmd_report(args):

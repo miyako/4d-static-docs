@@ -13,7 +13,7 @@
   },
   "summary": "The IP address of the remote machine",
   "description": "The .address property contains the IP address of the remote machine.",
-  "docPage": "mirror/docs/21-R3/API/TCPEventClass.html",
+  "docPage": "mirror/docs/API/TCPEventClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

@@ -13,7 +13,7 @@
   },
   "summary": "Creates an alias (macOS) or a shortcut (Windows)",
   "description": "The .createAlias() function creates an alias (macOS) or a shortcut (Windows) to the folder with the specified aliasName name in the folder designated by the destinationFolder object.\n\nPass the name of the alias or shortcut to create in the aliasName parameter.\n\nBy default on macOS, the function creates a standard alias. You can also create a symbolic link by using the aliasType parameter. The following constants are available:\n\nOn Windows, a shortcut (.lnk file) is always created (the aliasType parameter is ignored).\n\nReturned object\n\nA 4D.File object with the isAlias property set to true.",
-  "docPage": "mirror/docs/21-R3/API/FolderClass.html",
+  "docPage": "mirror/docs/API/FolderClass.html",
   "overloads": [
     {
       "params": [

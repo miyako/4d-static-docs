@@ -13,7 +13,7 @@
   },
   "summary": "Creates a new TCP connection to the specified *serverAddress* and *serverPort*, using the defined *options*, and returns a `4D.TCPConnection` object",
   "description": "The 4D.TCPConnection.new() function creates a new TCP connection to the specified serverAddress and serverPort, using the defined options, and returns a 4D.TCPConnection object.",
-  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "docPage": "mirror/docs/API/TCPConnectionClass.html",
   "overloads": [
     {
       "params": [

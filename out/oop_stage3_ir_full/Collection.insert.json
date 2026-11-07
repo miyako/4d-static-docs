@@ -13,7 +13,7 @@
   },
   "summary": "Inserts *element* at the specified *index* position in the collection instance and returns the edited collection",
   "description": "The .insert() function inserts element at the specified index position in the collection instance and returns the edited collection.\n\nThis function modifies the original collection.\n\nIn index, pass the position where you want the element to be inserted in the collection.\n\nWarning: Keep in mind that collection elements are numbered from 0.\n\nIf index > the length of the collection, actual starting index will be set to the length of the collection. If index <0, it is recalculated as index:=index+length (it is considered as the offset from the end of the collection). If the calculated value is negative, index is set to 0.\n\nAny type of element accepted by a collection can be inserted, even another collection.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

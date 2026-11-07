@@ -63,6 +63,7 @@
   ],
   "constraints": [
     "Does nothing if the current selection of aTable is empty.",
+    "Statistical commands in a report give reliable values only at break level 0 with break processing enabled, after all records have been processed.",
     "Performs the same action as the Print menu command in the Design environment.",
     "If the user cancels the Print job dialog box (when not suppressed), the command is canceled and the report is not printed."
   ]

@@ -81,6 +81,20 @@ def resolve_docs_root(mirror_docs_dir: Path, requested_version: str | None = Non
     return candidates[-1][1]
 
 
+def docs_version_info(docs_root: Path) -> dict:
+    """Read the release label from pages, not the selected directory's name."""
+    badge = _badge_text(docs_root / "commands" / "abs.html")
+    match = re.fullmatch(r"(\d+)(?:\s+R(\d+))?(?:\s+(BETA))?", badge or "", re.IGNORECASE)
+    if match is None:
+        raise ValueError(f"Unrecognized documentation version badge at {docs_root}: {badge!r}")
+    major, revision, beta = match.groups()
+    return {
+        "version": major + (f"-R{revision}" if revision else ""),
+        "status": "BETA" if beta else "stable",
+        "badge": badge,
+    }
+
+
 def command_dirs(docs_root: Path):
     for rel in COMMAND_DIRS:
         d = docs_root / rel

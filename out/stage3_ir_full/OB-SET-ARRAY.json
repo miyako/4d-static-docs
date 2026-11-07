@@ -40,7 +40,7 @@
           "optional": false
         }
       ],
-      "semanticRole": "The OB SET ARRAY command defines the array to be associated with the property in the language object designated by the object parameter.can be an object varialble or a 4D object field."
+      "semanticRole": "The OB SET ARRAY command defines the array to be associated with the property in the language object designated by the object parameter."
     }
   ],
   "constraints": [

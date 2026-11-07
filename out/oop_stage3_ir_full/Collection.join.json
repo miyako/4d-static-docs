@@ -13,7 +13,7 @@
   },
   "summary": "Converts all elements of the collection to strings and concatenates them using the specified *delimiter* string as separator",
   "description": "The .join() function converts all elements of the collection to strings and concatenates them using the specified delimiter string as separator.The function returns the resulting string.\n\nThis function does not modify the original collection.\n\nBy default, null or empty elements of the collection are returned in the resulting string. Pass the ck ignore null or empty constant in the option parameter if you want to remove them from the resulting string.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

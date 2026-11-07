@@ -13,7 +13,7 @@
   },
   "summary": "Contains the source code of the function as text",
   "description": "The .source property contains the source code of the function as text.\n\nThe returned value is the original text used to create the 4D.Formula or 4D.Method object but reformatted.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/FunctionClass.html",
+  "docPage": "mirror/docs/API/FunctionClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

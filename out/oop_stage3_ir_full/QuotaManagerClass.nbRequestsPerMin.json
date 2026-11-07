@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.nbRequestsPerMin",
+  "displayName": "QuotaManagerClass.nbRequestsPerMin",
+  "kind": "oop_property",
+  "memberName": ".nbRequestsPerMin",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum total number of requests that the Web server can receive in one minute",
+  "description": "The .nbRequestsPerMin property contains the maximum total number of requests that the Web server can receive in one minute.\n\nScope: server global level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**nbRequestsPerMin** : Integer"
+  }
+}

@@ -84,7 +84,7 @@ def main() -> int:
             "total": sum(kinds.values()),
             **{k: kinds.get(k, 0) for k in ("oop_function", "oop_property", "oop_constructor")},
             "superclass": info.get("superclass"),
-            "abstract": bool(info.get("abstract")),
+            "abstract": bool(info.get("isAbstract")),
         }
 
     # --- example coverage

@@ -13,7 +13,7 @@
   },
   "summary": "The type of the event",
   "description": "The .type property contains the type of the event. Possible values are:\n\n\"data\": Indicates that data has been received. \"error\": Indicates that an error occurred during the UDPSocket. \"terminate\": Indicates that the UDPSocket is about to be released.",
-  "docPage": "mirror/docs/21-R3/API/UDPEventClass.html",
+  "docPage": "mirror/docs/API/UDPEventClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

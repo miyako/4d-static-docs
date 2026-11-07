@@ -1,9 +1,23 @@
 {
-  "entriesWritten": 502,
-  "enumsGenerated": 33,
-  "paramsUpgradedToEnumRef": 42,
+  "entriesWritten": 528,
+  "enumsGenerated": 34,
+  "paramsUpgradedToEnumRef": 43,
   "missingSignature": [],
   "upgrades": [
+    {
+      "id": "4D.Vector.new",
+      "param": "precision",
+      "wasType": "Integer",
+      "enum": "4D.Vector.new.precision",
+      "constants": [
+        "mk single precision",
+        "mk double precision"
+      ],
+      "themes": [
+        "Vector"
+      ],
+      "source": "constant names in the parameter description"
+    },
     {
       "id": "Collection.copy",
       "param": "option",

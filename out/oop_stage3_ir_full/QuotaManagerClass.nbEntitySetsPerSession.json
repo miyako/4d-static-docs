@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.nbEntitySetsPerSession",
+  "displayName": "QuotaManagerClass.nbEntitySetsPerSession",
+  "kind": "oop_property",
+  "memberName": ".nbEntitySetsPerSession",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum number of entity sets allowed in memory for each REST session",
+  "description": "The .nbEntitySetsPerSession property contains the maximum number of entity sets allowed in memory for each REST session.\n\nScope: session default level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**nbEntitySetsPerSession** : Integer"
+  }
+}

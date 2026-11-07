@@ -13,7 +13,7 @@
   },
   "summary": "Associates the privilege(s) and/or role(s) defined in the parameter to the session and returns **True** if the execution was successful",
   "description": "The .setPrivileges() function associates the privilege(s) and/or role(s) defined in the parameter to the session and returns True if the execution was successful.\n\nIn the privilege parameter, pass a string containing a privilege name (or several comma-separated privilege names). In the privileges parameter, pass a collection of strings containing privilege names. In the settings parameter, pass an object containing the following properties:\n\nIf the privileges or roles property contains a name that is not declared in the roles.json file, it is ignored.\n\nBy default when no privilege or role is associated to the session, the session is a Guest session.\n\nThe userName property is available at session object level (read-only).",
-  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "docPage": "mirror/docs/API/SessionClass.html",
   "overloads": [
     {
       "params": [
@@ -47,8 +47,11 @@
           "description": "Collection of privilege names"
         }
       ],
-      "rawSyntax": "**.setPrivileges**( *privileges* : Collection )",
-      "returns": null
+      "rawSyntax": "**.setPrivileges**( *privileges* : Collection ) : Boolean",
+      "returns": {
+        "kind": "concrete",
+        "name": "Boolean"
+      }
     },
     {
       "params": [

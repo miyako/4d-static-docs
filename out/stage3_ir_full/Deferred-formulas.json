@@ -1,0 +1,22 @@
+{
+  "id": "Deferred-formulas",
+  "displayName": "Deferred formulas",
+  "kind": "classic_command",
+  "theme": "Interruptions",
+  "overloads": [
+    {
+      "params": [],
+      "returns": {
+        "kind": "concrete",
+        "name": "Collection"
+      },
+      "semanticRole": "Returns the current function or method's deferred formula stack in execution order."
+    }
+  ],
+  "sinceVersion": "21 R4",
+  "constraints": [
+    "Introduced in 21 R4; returns formulas registered by defer in the current function or method.",
+    "Returns an empty collection when called from another context.",
+    "Formulas are executed in LIFO order when the function or method exits."
+  ]
+}

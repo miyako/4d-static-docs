@@ -13,7 +13,7 @@
   },
   "summary": "Returns the last element of the collection",
   "description": "The .last() function returns the last element of the collection.\n\nThis function does not modify the original collection.\n\nThe function returns Undefined if the collection is empty.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [],

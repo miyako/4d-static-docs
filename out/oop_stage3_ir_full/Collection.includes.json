@@ -13,7 +13,7 @@
   },
   "summary": "Returns True if the *toSearch* expression is found among collection elements, otherwise False",
   "description": "The .includes() function returns True if the toSearch expression is found among collection elements, otherwise False.\n\nThis function does not modify the original collection.\n\nIn toSearch, pass the expression to find in the collection. You can pass:\n\na scalar value (text, number, boolean, date), the null value, an object or a collection reference.\n\ntoSearch must match exactly the element to find (the same rules as for the equality operator of the data type are applied).\n\nOptionally, you can pass the index of collection from which to start the search in startFrom.\n\nIf startFrom >= collection's length, False is returned, which means the collection is not searched. If startFrom < 0, it is considered as the offset from the end of the collection (startFrom:=startFrom+length). Note that even if startFrom is negative, the collection is still searched from left to right. If startFrom = 0, the whole collection is searched (default).",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

@@ -2238,6 +2238,22 @@
       }
     ]
   },
+  "DataClass.getIndexes": {
+    "id": "DataClass.getIndexes",
+    "class": "DataClass",
+    "memberKey": "getIndexes()",
+    "rawSyntax": "**.getIndexes()** : Collection",
+    "overloads": [
+      {
+        "rawSyntax": "**.getIndexes()** : Collection",
+        "memberName": ".getIndexes",
+        "receiverPath": null,
+        "hasCallPart": true,
+        "params": [],
+        "returnType": "Collection"
+      }
+    ]
+  },
   "DataClass.getInfo": {
     "id": "DataClass.getInfo",
     "class": "DataClass",
@@ -7865,6 +7881,366 @@
       }
     ]
   },
+  "QuotaManagerClass.currentValues": {
+    "id": "QuotaManagerClass.currentValues",
+    "class": "QuotaManagerClass",
+    "memberKey": "currentValues",
+    "rawSyntax": "**currentValues** : Object",
+    "overloads": [
+      {
+        "rawSyntax": "**currentValues** : Object",
+        "memberName": "currentValues",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Object"
+      }
+    ]
+  },
+  "QuotaManagerClass.defaultEntitySetTimeout": {
+    "id": "QuotaManagerClass.defaultEntitySetTimeout",
+    "class": "QuotaManagerClass",
+    "memberKey": "defaultEntitySetTimeout",
+    "rawSyntax": "**defaultEntitySetTimeout** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**defaultEntitySetTimeout** : Integer",
+        "memberName": "defaultEntitySetTimeout",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.inBytesPerHour": {
+    "id": "QuotaManagerClass.inBytesPerHour",
+    "class": "QuotaManagerClass",
+    "memberKey": "inBytesPerHour",
+    "rawSyntax": "**inBytesPerHour** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**inBytesPerHour** : Integer",
+        "memberName": "inBytesPerHour",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.inBytesPerHourPerSession": {
+    "id": "QuotaManagerClass.inBytesPerHourPerSession",
+    "class": "QuotaManagerClass",
+    "memberKey": "inBytesPerHourPerSession",
+    "rawSyntax": "**inBytesPerHourPerSession** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**inBytesPerHourPerSession** : Integer",
+        "memberName": "inBytesPerHourPerSession",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.inBytesPerMin": {
+    "id": "QuotaManagerClass.inBytesPerMin",
+    "class": "QuotaManagerClass",
+    "memberKey": "inBytesPerMin",
+    "rawSyntax": "**inBytesPerMin** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**inBytesPerMin** : Integer",
+        "memberName": "inBytesPerMin",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.inBytesPerMinPerSession": {
+    "id": "QuotaManagerClass.inBytesPerMinPerSession",
+    "class": "QuotaManagerClass",
+    "memberKey": "inBytesPerMinPerSession",
+    "rawSyntax": "**inBytesPerMinPerSession** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**inBytesPerMinPerSession** : Integer",
+        "memberName": "inBytesPerMinPerSession",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.maxEntitySetTimeout": {
+    "id": "QuotaManagerClass.maxEntitySetTimeout",
+    "class": "QuotaManagerClass",
+    "memberKey": "maxEntitySetTimeout",
+    "rawSyntax": "**maxEntitySetTimeout** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**maxEntitySetTimeout** : Integer",
+        "memberName": "maxEntitySetTimeout",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.nbEntitySets": {
+    "id": "QuotaManagerClass.nbEntitySets",
+    "class": "QuotaManagerClass",
+    "memberKey": "nbEntitySets",
+    "rawSyntax": "**nbEntitySets** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**nbEntitySets** : Integer",
+        "memberName": "nbEntitySets",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.nbEntitySetsPerSession": {
+    "id": "QuotaManagerClass.nbEntitySetsPerSession",
+    "class": "QuotaManagerClass",
+    "memberKey": "nbEntitySetsPerSession",
+    "rawSyntax": "**nbEntitySetsPerSession** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**nbEntitySetsPerSession** : Integer",
+        "memberName": "nbEntitySetsPerSession",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.nbGuestSessions": {
+    "id": "QuotaManagerClass.nbGuestSessions",
+    "class": "QuotaManagerClass",
+    "memberKey": "nbGuestSessions",
+    "rawSyntax": "**nbGuestSessions** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**nbGuestSessions** : Integer",
+        "memberName": "nbGuestSessions",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.nbRequestsPerHour": {
+    "id": "QuotaManagerClass.nbRequestsPerHour",
+    "class": "QuotaManagerClass",
+    "memberKey": "nbRequestsPerHour",
+    "rawSyntax": "**nbRequestsPerHour** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**nbRequestsPerHour** : Integer",
+        "memberName": "nbRequestsPerHour",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.nbRequestsPerHourPerSession": {
+    "id": "QuotaManagerClass.nbRequestsPerHourPerSession",
+    "class": "QuotaManagerClass",
+    "memberKey": "nbRequestsPerHourPerSession",
+    "rawSyntax": "**nbRequestsPerHourPerSession** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**nbRequestsPerHourPerSession** : Integer",
+        "memberName": "nbRequestsPerHourPerSession",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.nbRequestsPerMin": {
+    "id": "QuotaManagerClass.nbRequestsPerMin",
+    "class": "QuotaManagerClass",
+    "memberKey": "nbRequestsPerMin",
+    "rawSyntax": "**nbRequestsPerMin** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**nbRequestsPerMin** : Integer",
+        "memberName": "nbRequestsPerMin",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.nbRequestsPerMinPerSession": {
+    "id": "QuotaManagerClass.nbRequestsPerMinPerSession",
+    "class": "QuotaManagerClass",
+    "memberKey": "nbRequestsPerMinPerSession",
+    "rawSyntax": "**nbRequestsPerMinPerSession** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**nbRequestsPerMinPerSession** : Integer",
+        "memberName": "nbRequestsPerMinPerSession",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.nbSessions": {
+    "id": "QuotaManagerClass.nbSessions",
+    "class": "QuotaManagerClass",
+    "memberKey": "nbSessions",
+    "rawSyntax": "**nbSessions** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**nbSessions** : Integer",
+        "memberName": "nbSessions",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.outBytesPerHour": {
+    "id": "QuotaManagerClass.outBytesPerHour",
+    "class": "QuotaManagerClass",
+    "memberKey": "outBytesPerHour",
+    "rawSyntax": "**outBytesPerHour** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**outBytesPerHour** : Integer",
+        "memberName": "outBytesPerHour",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.outBytesPerHourPerSession": {
+    "id": "QuotaManagerClass.outBytesPerHourPerSession",
+    "class": "QuotaManagerClass",
+    "memberKey": "outBytesPerHourPerSession",
+    "rawSyntax": "**outBytesPerHourPerSession** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**outBytesPerHourPerSession** : Integer",
+        "memberName": "outBytesPerHourPerSession",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.outBytesPerMin": {
+    "id": "QuotaManagerClass.outBytesPerMin",
+    "class": "QuotaManagerClass",
+    "memberKey": "outBytesPerMin",
+    "rawSyntax": "**outBytesPerMin** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**outBytesPerMin** : Integer",
+        "memberName": "outBytesPerMin",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "QuotaManagerClass.outBytesPerMinPerSession": {
+    "id": "QuotaManagerClass.outBytesPerMinPerSession",
+    "class": "QuotaManagerClass",
+    "memberKey": "outBytesPerMinPerSession",
+    "rawSyntax": "**outBytesPerMinPerSession** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**outBytesPerMinPerSession** : Integer",
+        "memberName": "outBytesPerMinPerSession",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
+  "SMTPTransporter.certificate": {
+    "id": "SMTPTransporter.certificate",
+    "class": "SMTPTransporter",
+    "memberKey": "certificate",
+    "rawSyntax": "**.certificate** : 4D.File<br/>**.certificate** : Blob",
+    "overloads": [
+      {
+        "rawSyntax": "**.certificate** : 4D.File",
+        "memberName": ".certificate",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "4D.File"
+      },
+      {
+        "rawSyntax": "**.certificate** : Blob",
+        "memberName": ".certificate",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Blob"
+      }
+    ]
+  },
+  "SMTPTransporter.certificateName": {
+    "id": "SMTPTransporter.certificateName",
+    "class": "SMTPTransporter",
+    "memberKey": "certificateName",
+    "rawSyntax": "**.certificateName** : Text",
+    "overloads": [
+      {
+        "rawSyntax": "**.certificateName** : Text",
+        "memberName": ".certificateName",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Text"
+      }
+    ]
+  },
+  "SMTPTransporter.certificatePassword": {
+    "id": "SMTPTransporter.certificatePassword",
+    "class": "SMTPTransporter",
+    "memberKey": "certificatePassword",
+    "rawSyntax": "**.certificatePassword** : Text",
+    "overloads": [
+      {
+        "rawSyntax": "**.certificatePassword** : Text",
+        "memberName": ".certificatePassword",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Text"
+      }
+    ]
+  },
   "SMTPTransporter.keepAlive": {
     "id": "SMTPTransporter.keepAlive",
     "class": "SMTPTransporter",
@@ -8103,6 +8479,22 @@
       }
     ]
   },
+  "Session.quotas": {
+    "id": "Session.quotas",
+    "class": "Session",
+    "memberKey": "quotas",
+    "rawSyntax": "**.quotas** : 4D.QuotaManager",
+    "overloads": [
+      {
+        "rawSyntax": "**.quotas** : 4D.QuotaManager",
+        "memberName": ".quotas",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "4D.QuotaManager"
+      }
+    ]
+  },
   "Session.restore": {
     "id": "Session.restore",
     "class": "Session",
@@ -8129,7 +8521,7 @@
     "id": "Session.setPrivileges",
     "class": "Session",
     "memberKey": "setPrivileges()",
-    "rawSyntax": "**.setPrivileges**( *privilege* : Text ) : Boolean<br/>**.setPrivileges**( *privileges* : Collection )<br/>**.setPrivileges**( *settings* : Object ) : Boolean",
+    "rawSyntax": "**.setPrivileges**( *privilege* : Text ) : Boolean<br/>**.setPrivileges**( *privileges* : Collection ) : Boolean<br/>**.setPrivileges**( *settings* : Object ) : Boolean",
     "overloads": [
       {
         "rawSyntax": "**.setPrivileges**( *privilege* : Text ) : Boolean",
@@ -8146,7 +8538,7 @@
         "returnType": "Boolean"
       },
       {
-        "rawSyntax": "**.setPrivileges**( *privileges* : Collection )",
+        "rawSyntax": "**.setPrivileges**( *privileges* : Collection ) : Boolean",
         "memberName": ".setPrivileges",
         "receiverPath": null,
         "hasCallPart": true,
@@ -8157,7 +8549,7 @@
             "optional": false
           }
         ],
-        "returnType": null
+        "returnType": "Boolean"
       },
       {
         "rawSyntax": "**.setPrivileges**( *settings* : Object ) : Boolean",
@@ -9221,6 +9613,22 @@
       }
     ]
   },
+  "Vector.precision": {
+    "id": "Vector.precision",
+    "class": "Vector",
+    "memberKey": "precision",
+    "rawSyntax": "**precision** : Integer",
+    "overloads": [
+      {
+        "rawSyntax": "**precision** : Integer",
+        "memberName": "precision",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "Integer"
+      }
+    ]
+  },
   "Vector.toCollection": {
     "id": "Vector.toCollection",
     "class": "Vector",
@@ -9924,6 +10332,22 @@
         "hasCallPart": false,
         "params": [],
         "returnType": "Boolean"
+      }
+    ]
+  },
+  "WebServer.quotas": {
+    "id": "WebServer.quotas",
+    "class": "WebServer",
+    "memberKey": "quotas",
+    "rawSyntax": "**.quotas** : 4D.QuotaManager",
+    "overloads": [
+      {
+        "rawSyntax": "**.quotas** : 4D.QuotaManager",
+        "memberName": ".quotas",
+        "receiverPath": null,
+        "hasCallPart": false,
+        "params": [],
+        "returnType": "4D.QuotaManager"
       }
     ]
   },
@@ -11142,10 +11566,10 @@
     "id": "4D.Vector.new",
     "class": "4D",
     "memberKey": "4D.Vector.new()",
-    "rawSyntax": "**4D.Vector.new** ( *parameter* : Collection ) : 4D.Vector",
+    "rawSyntax": "**4D.Vector.new** ( *parameter* : Collection {; precision : Integer} ) : 4D.Vector",
     "overloads": [
       {
-        "rawSyntax": "**4D.Vector.new** ( *parameter* : Collection ) : 4D.Vector",
+        "rawSyntax": "**4D.Vector.new** ( *parameter* : Collection {; precision : Integer} ) : 4D.Vector",
         "memberName": ".new",
         "receiverPath": "4D.Vector",
         "hasCallPart": true,
@@ -11154,6 +11578,12 @@
             "name": "parameter",
             "type": "Collection",
             "optional": false
+          },
+          {
+            "name": "precision",
+            "type": "Integer",
+            "optional": true,
+            "_review": "parameter name is not italicized in the source Syntax string (documentation formatting artifact)"
           }
         ],
         "returnType": "4D.Vector"

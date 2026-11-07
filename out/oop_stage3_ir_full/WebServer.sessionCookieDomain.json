@@ -13,7 +13,7 @@
   },
   "summary": "\"domain\" field of the session cookie",
   "description": "The \"domain\" field of the session cookie. Used to control the scope of the session cookies. If you set, for example, the value \"/*.4d.fr\" for this selector, the client will only send a cookie when the request is addressed to the domain \".4d.fr\", which excludes servers hosting external static data.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

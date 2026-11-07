@@ -13,7 +13,7 @@
   },
   "summary": "Searches for entities that meet the search criteria specified in *queryString* or *formula* and (optionally) *value*(s)",
   "description": "The .query() function searches for entities that meet the search criteria specified in queryString or formula and (optionally) value(s), for all the entities in the dataclass, and returns a new object of type EntitySelection containing all the entities that are found. Lazy loading is applied.\n\nIf no matching entities are found, an empty EntitySelection is returned.",
-  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "docPage": "mirror/docs/API/DataClassClass.html",
   "overloads": [
     {
       "params": [

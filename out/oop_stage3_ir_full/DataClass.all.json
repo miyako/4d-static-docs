@@ -13,7 +13,7 @@
   },
   "summary": "Queries the datastore to find all the entities related to the dataclass and returns them as an entity selection",
   "description": "The .all() function queries the datastore to find all the entities related to the dataclass and returns them as an entity selection.\n\nThe entities are returned in the default order, which is initially the order in which they were created. Note however that, if entities have been deleted and new ones added, the default order does not reflect the creation order anymore.\n\nIf no corresponding entity is found, an empty entity selection is returned.\n\nLazy loading is applied.\n\nsettings\n\nIn the optional settings parameter, you can pass an object containing additional options. The following property is supported:\n\nTo know the total number of entities in a dataclass, it is recommended to use the getCount() function which is more optimized than the ds.myClass.all().length expression.",
-  "docPage": "mirror/docs/21-R3/API/DataClassClass.html",
+  "docPage": "mirror/docs/API/DataClassClass.html",
   "overloads": [
     {
       "params": [

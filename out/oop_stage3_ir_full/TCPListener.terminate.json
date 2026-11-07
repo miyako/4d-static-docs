@@ -13,7 +13,7 @@
   },
   "summary": "Closes the listener and releases the port",
   "description": "The terminate() function closes the listener and releases the port.",
-  "docPage": "mirror/docs/21-R3/API/TCPListenerClass.html",
+  "docPage": "mirror/docs/API/TCPListenerClass.html",
   "overloads": [
     {
       "params": [],

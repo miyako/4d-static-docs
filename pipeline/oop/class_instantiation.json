@@ -1,7 +1,26 @@
 {
-  "_source": "Hand-authored Layer-2 instantiation recipes for the 45 built-in 4D OOP classes, plus the ORDA generated-class templates. Merged into out/4d-oop-ir.json by pipeline/oop/stage4_classes.py. Every entry cites the evidence it was derived from in `_reason`.",
+  "_source": "Hand-authored Layer-2 instantiation recipes for the 46 built-in 4D OOP classes, plus the class stores and ORDA generated-class templates. Merged into out/4d-oop-ir.json by pipeline/oop/stage4_classes.py. Every entry cites the evidence it was derived from in `_reason`.",
   "_why_hand_authored": "How a caller obtains an instance is stated in prose (or only implied by a classic command's return type) and is never machine-readable in either source. Session B synthesizes call examples from these recipes, so they are authored deliberately and reviewed, not guessed by a heuristic.",
   "_recipe_expression_convention": "Each `expression` is a runnable 4D statement assigning to a $-prefixed local, so a synthesized example can prepend recipes in order to obtain a receiver. `requires` names preconditions the expression assumes but does not create.",
+  "QuotaManagerClass": {
+    "typeName": "4D.QuotaManagerClass",
+    "_reason": "21 R5 BETA API/QuotaManagerClass.html names the type 4D.QuotaManager, but tool4d 21R5.100156 rejects that declaration ('The class 4D.QuotaManager is unknown.') and accepts 4D.QuotaManagerClass. Positive File/QuotaManagerClass and negative QuotaManager/unknown-class controls are recorded in out/oop_type_name_crosscheck.json. Existing quota objects are obtained through Session.quotas or WEB Server.quotas; the object itself cannot be assigned and has no public constructor.",
+    "instantiation": {
+      "recipes": [
+        {
+          "kind": "property_of",
+          "expression": "$quotas:=Session.quotas",
+          "producedBy": "Session.quotas",
+          "requires": ["a REST session for meaningful session quotas"]
+        },
+        {
+          "kind": "property_of",
+          "expression": "$quotas:=WEB Server.quotas",
+          "producedBy": "WebServer.quotas"
+        }
+      ]
+    }
+  },
   "Blob": {
     "typeName": "4D.Blob",
     "sharedSemantics": {
@@ -658,7 +677,7 @@
   "Transporter": {
     "typeName": "4D.Transporter",
     "isAbstract": true,
-    "_reason": "Transporter has NO API page — its 11 members are documented only on the IMAP/POP3/SMTP transporter pages. It is a documentation-level base class, in scope so its members are declared once rather than three times.",
+    "_reason": "21 R5 BETA has API/Transporter.html documenting the shared base of IMAPTransporter, POP3Transporter and SMTPTransporter. The R3 snapshot had no page of its own; it remains abstract and is obtained through a concrete transporter. Its 11 members are modelled once, not duplicated per subclass.",
     "instantiation": {
       "recipes": [
         {

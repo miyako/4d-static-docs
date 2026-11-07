@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.nbSessions",
+  "displayName": "QuotaManagerClass.nbSessions",
+  "kind": "oop_property",
+  "memberName": ".nbSessions",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum total number of active sessions on the Web server",
+  "description": "The .nbSessions property contains the maximum total number of active sessions on the Web server.\n\nScope: server global level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**nbSessions** : Integer"
+  }
+}

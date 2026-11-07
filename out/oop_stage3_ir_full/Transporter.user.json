@@ -13,7 +13,7 @@
   },
   "summary": "The user name used for authentication on the mail server",
   "description": "The .user property contains the user name used for authentication on the mail server.",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

@@ -13,7 +13,7 @@
   },
   "summary": "Always **false** for a `Folder` object",
   "description": "The .isAlias property returns always false for a Folder object.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "docPage": "mirror/docs/API/Directory.html",
   "accessor": {
     "type": {
       "kind": "concrete",

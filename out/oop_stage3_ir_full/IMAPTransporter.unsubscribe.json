@@ -13,7 +13,7 @@
   },
   "summary": "Removes a mailbox from a set of subscribed mailboxes",
   "description": "The .unsubscribe() function removes a mailbox from a set of subscribed mailboxes. This allows you reduce the number of mailboxes you usually see.\n\nIn the name parameter, pass the name of the mailbox to remove (unsubscribe) from your active mailboxes.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [

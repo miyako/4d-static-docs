@@ -13,7 +13,7 @@
   },
   "summary": "Each dataclass in a datastore is available as a property of the DataStore object data. The returned object contains a description of the dataclass.",
   "description": "Each dataclass in a datastore is available as a property of the DataStore object data. The returned object contains a description of the dataclass.",
-  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "docPage": "mirror/docs/API/DataStoreClass.html",
   "accessor": {
     "type": {
       "kind": "pseudo",

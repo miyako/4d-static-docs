@@ -13,7 +13,7 @@
   },
   "summary": "The value of the `size` header of the attachment file",
   "description": "The .size property contains the value of the size header of the attachment file. The .size property is returned when the MIME message defines a size header in the attachment part.",
-  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "docPage": "mirror/docs/API/MailAttachmentClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

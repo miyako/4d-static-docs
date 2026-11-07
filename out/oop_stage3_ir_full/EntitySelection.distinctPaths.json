@@ -13,7 +13,7 @@
   },
   "summary": "Returns a collection of distinct paths found in the indexed object *attribute* for the entity selection",
   "description": "The .distinctPaths() function returns a collection of distinct paths found in the indexed object attribute for the entity selection.\n\nIf attribute is not an indexed object attribute, an error is generated.\n\nAfter the call, the size of the returned collection is equal to the number of distinct paths found in attribute for the entity selection. Paths are returned as strings including nested attributes and collections, for example \"info.address.number\" or \"children[].birthdate\". Entities with a null value in the attribute are not taken into account.",
-  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "docPage": "mirror/docs/API/EntitySelectionClass.html",
   "overloads": [
     {
       "params": [

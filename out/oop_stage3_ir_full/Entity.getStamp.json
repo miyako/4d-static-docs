@@ -13,7 +13,7 @@
   },
   "summary": "Returns the current value of the stamp of the entity",
   "description": "The .getStamp() function returns the current value of the stamp of the entity.\n\nThe internal stamp is automatically incremented by 4D each time the entity is saved. It manages concurrent user access and modifications to the same entities (see Entity locking).\n\nFor a new entity (never saved), the function returns 0. To know if an entity has just been created, it is recommended to use .isNew().",
-  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "docPage": "mirror/docs/API/EntityClass.html",
   "overloads": [
     {
       "params": [],

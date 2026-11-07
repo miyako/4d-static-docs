@@ -13,7 +13,7 @@
   },
   "summary": "Contains the name of the `4D.Method` object, if it was declared in the *name* parameter of the `new()` constructor",
   "description": "The .name property contains the name of the 4D.Method object, if it was declared in the name parameter of the new() constructor. Otherwise, the property is not returned.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/MethodClass.html",
+  "docPage": "mirror/docs/API/MethodClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

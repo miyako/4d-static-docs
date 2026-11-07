@@ -13,7 +13,7 @@
   },
   "summary": "Path of web server root folder",
   "description": "The path of web server root folder. The path is formatted in POSIX full path using filesystems. When using this property in the settings parameter, it can be a Folder object.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

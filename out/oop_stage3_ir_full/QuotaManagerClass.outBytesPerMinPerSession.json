@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.outBytesPerMinPerSession",
+  "displayName": "QuotaManagerClass.outBytesPerMinPerSession",
+  "kind": "oop_property",
+  "memberName": ".outBytesPerMinPerSession",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum total number of bytes that the Web server can send for a session in one minute",
+  "description": "The .outBytesPerMinPerSession property contains the maximum total number of bytes that the Web server can send for a session in one minute. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.\n\nScope: session default level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**outBytesPerMinPerSession** : Integer"
+  }
+}

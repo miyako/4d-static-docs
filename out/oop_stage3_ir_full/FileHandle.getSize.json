@@ -13,7 +13,7 @@
   },
   "summary": "Returns the current size of the document, expressed in bytes",
   "description": "The .getSize() function returns the current size of the document, expressed in bytes.\n\nThis function returns the same value as the (.size) property of the File class.",
-  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "docPage": "mirror/docs/API/FileHandleClass.html",
   "overloads": [
     {
       "params": [],

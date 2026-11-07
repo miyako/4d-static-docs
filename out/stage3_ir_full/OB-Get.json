@@ -38,7 +38,7 @@
         "kind": "pseudo",
         "name": "any"
       },
-      "semanticRole": "The OB Get command returns the current value of the property of the object , optionally converted into the type specified.can be an object varialble or a 4D object field."
+      "semanticRole": "The OB Get command returns the current value of the property of the object , optionally converted into the type specified."
     }
   ],
   "constraints": [

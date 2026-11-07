@@ -13,7 +13,7 @@
   },
   "summary": "Log requests (logweb.txt) recording value",
   "description": "The log requests (logweb.txt) recording value.\n\n0 = Do not record (default) 1 = Record in CLF format 2 = Record in DLF format 3 = Record in ELF format 4 = Record in WLF format",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

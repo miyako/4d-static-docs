@@ -13,7 +13,7 @@
   },
   "summary": "Returns a reference to the previous entity in the entity selection which the entity belongs to",
   "description": "The .previous() function returns a reference to the previous entity in the entity selection which the entity belongs to.\n\nIf the entity does not belong to any existing entity selection (i.e. .getSelection() returns Null), the function returns a Null value.\n\nIf there is no valid previous entity in the entity selection (i.e. you are on the first entity of the selection), the function returns Null. If the previous entity has been dropped, the function returns the previous valid entity (and eventually Null).",
-  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "docPage": "mirror/docs/API/EntityClass.html",
   "overloads": [
     {
       "params": [],

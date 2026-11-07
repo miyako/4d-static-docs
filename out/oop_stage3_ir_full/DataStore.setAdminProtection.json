@@ -13,7 +13,7 @@
   },
   "summary": "Allows disabling any data access on the web admin port, including for the Data Explorer in `WebAdmin` sessions",
   "description": "The .setAdminProtection() function allows disabling any data access on the web admin port, including for the Data Explorer in WebAdmin sessions.\n\nBy default when the function is not called, access to data is always granted on the web administration port for a session with WebAdmin privilege using the Data Explorer. In some configurations, for example when the application server is hosted on a third-party machine, you might not want the administrator to be able to view your data, although they can edit the server configuration, including the access key settings.\n\nIn this case, you can call this function to disable the data access from Data Explorer on the web admin port of the machine, even if the user session has the WebAdmin privilege. When this function is executed, the data file is immediately protected and the status is stored on disk: the data file will be protected even if the application is restarted.",
-  "docPage": "mirror/docs/21-R3/API/DataStoreClass.html",
+  "docPage": "mirror/docs/API/DataStoreClass.html",
   "overloads": [
     {
       "params": [

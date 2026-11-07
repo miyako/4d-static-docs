@@ -13,7 +13,7 @@
   },
   "summary": "Converts the sequence numbers to IMAP unique IDs for the messages in the sequential range designated by *startMsg* and *endMsg*",
   "description": "The .numToID() function converts the sequence numbers to IMAP unique IDs for the messages in the sequential range designated by startMsg and endMsg in the currently selected mailbox.\n\nIn the startMsg parameter, pass an integer value corresponding to the number of the first message in a sequential range. If you pass a negative number (startMsg <= 0), the first message of the mailbox will be used as the beginning of the sequence.\n\nIn the endMsg parameter, pass an integer value corresponding to the number of the last message to be included in a sequential range. If you pass a negative number (endMsg <= 0), the last message of the mailbox will be used as the end of the sequence.",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [

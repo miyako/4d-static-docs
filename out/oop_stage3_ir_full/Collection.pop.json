@@ -13,7 +13,7 @@
   },
   "summary": "Removes the last element from the collection and returns it as the function result",
   "description": "The .pop() function removes the last element from the collection and returns it as the function result.\n\nThis function modifies the original collection.\n\nWhen applied to an empty collection, .pop() returns undefined.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [],

@@ -13,7 +13,7 @@
   },
   "summary": "Returns the character used to delimit levels of hierarchy in the mailbox name",
   "description": "The .getDelimiter() function returns the character used to delimit levels of hierarchy in the mailbox name.\n\nThe delimiter is a character which can be used to:\n\ncreate lower level (inferior) mailboxes search higher or lower within the mailbox hierarchy",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [],

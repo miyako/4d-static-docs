@@ -339,6 +339,13 @@ def description_text(section: dict | None) -> tuple[str | None, list[str]]:
         b for b in section["descriptionBlocks"]
         if b["underHeading"] in (None, "Description")
     ]
+    if section["headingKey"] == ".quotas":
+        # The R5 quota contract continues under Scope levels/At startup/At
+        # runtime; its short Description alone omits enforcement semantics.
+        blocks = [
+            b for b in section["descriptionBlocks"]
+            if not (b["underHeading"] or "").lower().startswith(("example", "see also"))
+        ]
     if not blocks:
         blocks = section["descriptionBlocks"]
     text = "\n\n".join(b["text"] for b in blocks)

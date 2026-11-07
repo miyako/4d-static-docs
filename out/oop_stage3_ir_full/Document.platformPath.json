@@ -13,7 +13,7 @@
   },
   "summary": "The path of the file expressed with the current platform syntax",
   "description": "The .platformPath property returns the path of the file expressed with the current platform syntax.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "accessor": {
     "type": {
       "kind": "concrete",

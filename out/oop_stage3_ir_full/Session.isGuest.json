@@ -13,7 +13,7 @@
   },
   "summary": "Returns True as long as `setPrivileges()` is not called in the session or after a Qodly logout has been executed in the session",
   "description": "The .isGuest() function returns True as long as setPrivileges() is not called in the session or after a Qodly logout has been executed in the session.",
-  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "docPage": "mirror/docs/API/SessionClass.html",
   "overloads": [
     {
       "params": [],

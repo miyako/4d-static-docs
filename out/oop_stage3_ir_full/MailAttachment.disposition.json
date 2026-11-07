@@ -13,7 +13,7 @@
   },
   "summary": "The value of the `Content-Disposition` header",
   "description": "The .disposition property contains the value of the Content-Disposition header. Two values are available:\n\n\"inline\": the attachment is rendered within the message contents, at the \"cid\" location. The rendering depends on the mail client. \"attachment\": the attachment is provided as a link in the message.",
-  "docPage": "mirror/docs/21-R3/API/MailAttachmentClass.html",
+  "docPage": "mirror/docs/API/MailAttachmentClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

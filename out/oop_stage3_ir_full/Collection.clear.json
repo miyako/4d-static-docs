@@ -13,7 +13,7 @@
   },
   "summary": "Removes all elements from the collection instance and returns an empty collection",
   "description": "The .clear() function removes all elements from the collection instance and returns an empty collection.\n\nThis function modifies the original collection.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [],

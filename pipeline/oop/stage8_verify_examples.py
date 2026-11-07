@@ -32,12 +32,14 @@ Usage:
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import oopcommon as oop
 from stage6_synth_examples import (  # noqa: E402
     PROJECT_DIR,
     diagnostics_by_relpath,
@@ -198,6 +200,9 @@ def verbatim_equal(rel: str, lines: list[str]) -> bool:
 
 
 def main() -> int:
+    provenance = oop.compiler_provenance()
+    provenance["docExamplesInputSha256"] = hashlib.sha256(EXAMPLES_PATH.read_bytes()).hexdigest()
+    provenance["verificationMode"] = "complete fresh compilation; no prior verdict reuse"
     data = json.load(open(EXAMPLES_PATH))
     blocks = data["examples"] + data["unattributed"]
 
@@ -323,6 +328,7 @@ def main() -> int:
         ),
         "buckets": {PROVENANCE[k]: v for k, v in counts.items()},
     }
+    data["compilerVerification"]["compilerProvenance"] = provenance
     EXAMPLES_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
     print(json.dumps(data["compilerVerification"], indent=2))
     return 0

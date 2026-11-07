@@ -13,7 +13,7 @@
   },
   "summary": "Creates and starts a WebSocket server that will use the specified *WSSHandler* callbacks and (optionally) *options*, and returns a `4D.WebSocketServer` object",
   "description": "The 4D.WebSocketServer.new() function creates and starts a WebSocket server that will use the specified WSSHandler callbacks and (optionally) options, and returns a 4D.WebSocketServer object.\n\nCalling this function requires that the 4D Web Server is started. The host and port of the WebSocket server are the same as the host and port of the 4D Web Server.",
-  "docPage": "mirror/docs/21-R3/API/WebSocketServerClass.html",
+  "docPage": "mirror/docs/API/WebSocketServerClass.html",
   "overloads": [
     {
       "params": [

@@ -884,6 +884,24 @@
   {
     "type": "member_of",
     "from": {
+      "command": "DataClass.getIndexes"
+    },
+    "to": {
+      "classId": "DataClass"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "DataClass.getIndexes"
+    },
+    "to": {
+      "classId": "Collection"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
       "command": "DataClass.getInfo"
     },
     "to": {
@@ -3719,6 +3737,222 @@
   {
     "type": "member_of",
     "from": {
+      "command": "QuotaManagerClass.currentValues"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.defaultEntitySetTimeout"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.inBytesPerHour"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.inBytesPerHourPerSession"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.inBytesPerMin"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.inBytesPerMinPerSession"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.maxEntitySetTimeout"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.nbEntitySets"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.nbEntitySetsPerSession"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.nbGuestSessions"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.nbRequestsPerHour"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.nbRequestsPerHourPerSession"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.nbRequestsPerMin"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.nbRequestsPerMinPerSession"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.nbSessions"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.outBytesPerHour"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.outBytesPerHourPerSession"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.outBytesPerMin"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "QuotaManagerClass.outBytesPerMinPerSession"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SMTPTransporter.certificate"
+    },
+    "to": {
+      "classId": "SMTPTransporter"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "SMTPTransporter.certificate"
+    },
+    "to": {
+      "classId": "Blob"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "SMTPTransporter.certificate"
+    },
+    "to": {
+      "classId": "File"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SMTPTransporter.certificateName"
+    },
+    "to": {
+      "classId": "SMTPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "SMTPTransporter.certificatePassword"
+    },
+    "to": {
+      "classId": "SMTPTransporter"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
       "command": "SMTPTransporter.keepAlive"
     },
     "to": {
@@ -3840,6 +4074,24 @@
     },
     "to": {
       "classId": "Session"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "Session.quotas"
+    },
+    "to": {
+      "classId": "Session"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "Session.quotas"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
     }
   },
   {
@@ -4475,6 +4727,15 @@
   {
     "type": "member_of",
     "from": {
+      "command": "Vector.precision"
+    },
+    "to": {
+      "classId": "Vector"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
       "command": "Vector.toCollection"
     },
     "to": {
@@ -4875,6 +5136,24 @@
     },
     "to": {
       "classId": "WebServer"
+    }
+  },
+  {
+    "type": "member_of",
+    "from": {
+      "command": "WebServer.quotas"
+    },
+    "to": {
+      "classId": "WebServer"
+    }
+  },
+  {
+    "type": "returns_instance_of",
+    "from": {
+      "command": "WebServer.quotas"
+    },
+    "to": {
+      "classId": "QuotaManagerClass"
     }
   },
   {
@@ -5534,6 +5813,26 @@
       "command": "4D.POP3Transporter.new"
     },
     "note": "$pop3:=4D.POP3Transporter.new(New object(\"host\"; \"pop.example.com\"; \"user\"; \"u\"; \"password\"; \"p\"))"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "QuotaManagerClass"
+    },
+    "to": {
+      "command": "Session.quotas"
+    },
+    "note": "$quotas:=Session.quotas"
+  },
+  {
+    "type": "obtained_via",
+    "from": {
+      "classId": "QuotaManagerClass"
+    },
+    "to": {
+      "command": "WebServer.quotas"
+    },
+    "note": "$quotas:=WEB Server.quotas"
   },
   {
     "type": "obtained_via",

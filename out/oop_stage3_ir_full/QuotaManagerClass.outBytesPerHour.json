@@ -1,0 +1,26 @@
+{
+  "id": "QuotaManagerClass.outBytesPerHour",
+  "displayName": "QuotaManagerClass.outBytesPerHour",
+  "kind": "oop_property",
+  "memberName": ".outBytesPerHour",
+  "receiver": {
+    "classId": "QuotaManagerClass",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "QuotaManagerClass"
+    }
+  },
+  "summary": "The maximum total number of bytes that the Web server can send in one hour",
+  "description": "The .outBytesPerHour property contains the maximum total number of bytes that the Web server can send in one hour. The quota is evaluated on the uncompressed response payload size, regardless of the Web server compression settings.\n\nScope: server global level",
+  "docPage": "mirror/docs/API/QuotaManagerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "Integer"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**outBytesPerHour** : Integer"
+  }
+}

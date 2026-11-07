@@ -13,7 +13,7 @@
   },
   "summary": "Creates a new collection based upon the result of the call of the *formula* 4D function or *methodName* method on each element of the original collection",
   "description": "The .map() function creates a new collection based upon the result of the call of the formula 4D function or methodName method on each element of the original collection. Optionally, you can pass parameters to formula or methodName using the param parameter(s). .map() always returns a collection with the same size as the original collection, except if $1.stop was used (see below).\n\nThis function does not modify the original collection.\n\nYou designate the callback to be executed to evaluate collection elements using either:\n\nformula (recommended syntax), a Formula object that can encapsulate any executable expressions, including functions and project methods; or methodName, the name of a project method (text).\n\nThe callback is called with the parameter(s) passed in param (optional). The callback can perform any operation, with or without the parameter(s) and must return new transformed value to add to the resulting collection. It receives an Object in first parameter ($1).\n\nThe callback receives the following parameters:\n\nin $1.value: element value to be evaluated in $2: param in $N...: paramN...\n\nIt can set the following parameter(s):\n\n(mandatory if you used a method) $1.result (any type): new transformed value to add to the resulting collection $1.stop (Boolean, optional): true to stop the method callback. The returned value is the last calculated.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

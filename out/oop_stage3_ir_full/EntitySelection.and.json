@@ -13,7 +13,7 @@
   },
   "summary": "Combines the entity selection with an *entity* or *entitySelection* parameter using the logical AND operator",
   "description": "The .and() function combines the entity selection with an entity or entitySelection parameter using the logical AND operator; it returns a new, unordered entity selection that contains only the entities that are referenced in both the entity selection and the parameter.\n\nIf you pass entity as parameter, you combine this entity with the entity selection. If the entity belongs to the entity selection, a new entity selection containing only the entity is returned. Otherwise, an empty entity selection is returned. If you pass entitySelection as parameter, you combine both entity selections. A new entity selection that contains only the entities that are referenced in both selections is returned. If there is no intersecting entity, an empty entity selection is returned.\n\nYou can compare ordered and/or unordered entity selections. The resulting selection is always unordered.\n\nIf the original entity selection or the entitySelection parameter is empty, or if the entity is Null, an empty entity selection is returned.\n\nIf the original entity selection and the parameter are not related to the same dataclass, an error is raised.",
-  "docPage": "mirror/docs/21-R3/API/EntitySelectionClass.html",
+  "docPage": "mirror/docs/API/EntitySelectionClass.html",
   "overloads": [
     {
       "params": [

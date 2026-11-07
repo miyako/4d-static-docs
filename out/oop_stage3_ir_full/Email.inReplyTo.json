@@ -13,7 +13,7 @@
   },
   "summary": "Message identifier(s) of the original message(s) to which the current message is a reply",
   "description": "The .inReplyTo property contains the message identifier(s) of the original message(s) to which the current message is a reply.\n\nFor specific formatting requirements, please consult the RFC#5322.",
-  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "docPage": "mirror/docs/API/EmailObjectClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

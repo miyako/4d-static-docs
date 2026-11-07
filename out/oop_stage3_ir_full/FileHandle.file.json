@@ -13,7 +13,7 @@
   },
   "summary": "The 4D.File object on which the handle has been created",
   "description": "The .file property returns the 4D.File object on which the handle has been created.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "docPage": "mirror/docs/API/FileHandleClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

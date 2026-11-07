@@ -13,7 +13,7 @@
   },
   "summary": "Starts the web server on which it is applied",
   "description": "The .start() function starts the web server on which it is applied, using properties set in the optional settings object parameter.\n\nThe web server starts with default settings defined in the settings file of the project or (host database only) using the WEB SET OPTION command. However, using the settings parameter, you can define customized properties for the web server session.\n\nAll settings of Web Server objects can be customized, except read-only properties (.isRunning, .name, .openSSLVersion, .perfectForwardSecrecy, and .sessionCookieName).\n\nCustomized session settings will be reset when the .stop() function is called.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "overloads": [
     {
       "params": [],
@@ -66,5 +66,11 @@
     "style": "status_object",
     "note": "failure is reported in the returned status object, not by throwing"
   },
-  "sinceVersion": "18-R3"
+  "sinceVersion": "18-R3",
+  "versionBehaviorChanges": [
+    {
+      "release": "21-R5",
+      "change": "Support quotas in the settings parameter"
+    }
+  ]
 }

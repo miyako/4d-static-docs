@@ -13,7 +13,7 @@
   },
   "summary": "Calculates the Euclidean distance between the current 4D vector and the one you passed in the *vector* parameter",
   "description": "The .euclideanDistance() function calculates the Euclidean distance between the current 4D vector and the one you passed in the vector parameter. Both vectors must have the same size.\n\nThis measures the straight-line distance in the vector space. It is recommended for numeric or structured data embeddings, or when using models where proximity in raw space directly correlates with similarity.\n\nReturned value\n\nreturned value >= 0 The lower the returned value is, more similar vectors are.",
-  "docPage": "mirror/docs/21-R3/API/VectorClass.html",
+  "docPage": "mirror/docs/API/VectorClass.html",
   "overloads": [
     {
       "params": [

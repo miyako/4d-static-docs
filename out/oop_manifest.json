@@ -10,7 +10,7 @@
       "docPage": "API/BlobClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "9e1c6bbf159b62b9",
+      "contentHash": "e0e7eee5ffb1d94e",
       "constructs": "Blob"
     },
     {
@@ -23,7 +23,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "6fab3af377a8571e",
+      "contentHash": "af0119cb852cb61d",
       "constructs": "CryptoKey"
     },
     {
@@ -36,7 +36,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 2,
       "hasParamsTable": false,
-      "contentHash": "3ccbcd108b24843f",
+      "contentHash": "66d12a07de4c3263",
       "constructs": "File"
     },
     {
@@ -49,7 +49,7 @@
       "docPage": "API/FolderClass.html",
       "syntaxLines": 2,
       "hasParamsTable": false,
-      "contentHash": "06e9133fbf701577",
+      "contentHash": "7b794460819fbb93",
       "constructs": "Folder"
     },
     {
@@ -62,7 +62,7 @@
       "docPage": "API/HTTPAgentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "973ba77b403b11ad",
+      "contentHash": "dc1a68b61f845a19",
       "constructs": "HTTPAgent"
     },
     {
@@ -75,7 +75,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "ae80f094e4e66ee6",
+      "contentHash": "4c77d82a47c441d3",
       "constructs": "HTTPRequest"
     },
     {
@@ -88,7 +88,7 @@
       "docPage": "API/IMAPNotifierClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7746c18b13d99e87",
+      "contentHash": "1dc6b3171153642e",
       "constructs": "IMAPNotifier"
     },
     {
@@ -101,7 +101,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950",
+      "contentHash": "a3c98129b5892b63",
       "constructs": "IMAPTransporter"
     },
     {
@@ -114,7 +114,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 4,
       "hasParamsTable": true,
-      "contentHash": "6fbd01a314001266",
+      "contentHash": "10427c6677ab15ae",
       "constructs": "MailAttachment"
     },
     {
@@ -127,7 +127,7 @@
       "docPage": "API/MethodClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "916946e9d3222287",
+      "contentHash": "1d4174864c0cabd5",
       "constructs": "Method"
     },
     {
@@ -140,7 +140,7 @@
       "docPage": "API/POP3TransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "5211e69d86ea9612",
+      "contentHash": "b6a84ae0bba0733a",
       "constructs": "POP3Transporter"
     },
     {
@@ -153,7 +153,7 @@
       "docPage": "API/SMTPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f4d77d8fb0e8bc7e",
+      "contentHash": "1903b1336ed54156",
       "constructs": "SMTPTransporter"
     },
     {
@@ -166,7 +166,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "1f4a6b7419e3c977",
+      "contentHash": "07afff1919aa62cf",
       "constructs": "SystemWorker"
     },
     {
@@ -179,7 +179,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90",
+      "contentHash": "52f6056d4355c6fb",
       "constructs": "TCPConnection"
     },
     {
@@ -192,7 +192,7 @@
       "docPage": "API/TCPListenerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "c0ec37264c5a4336",
+      "contentHash": "4e7d0d45a97d93cc",
       "constructs": "TCPListener"
     },
     {
@@ -205,7 +205,7 @@
       "docPage": "API/UDPSocketClass.html",
       "syntaxLines": 4,
       "hasParamsTable": false,
-      "contentHash": "2482968be99f1b48",
+      "contentHash": "a766bb9a110ae453",
       "constructs": "UDPSocket"
     },
     {
@@ -218,7 +218,7 @@
       "docPage": "API/VectorClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "fbf56067deb28ca8",
+      "contentHash": "aacb4df70a5b5c75",
       "constructs": "Vector"
     },
     {
@@ -231,7 +231,7 @@
       "docPage": "API/WebSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "cdfb0ae5df816bda",
+      "contentHash": "0e9471d16a2bd954",
       "constructs": "WebSocket"
     },
     {
@@ -244,7 +244,7 @@
       "docPage": "API/WebSocketServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "af52362b87d44a14",
+      "contentHash": "79297410a85b3b51",
       "constructs": "WebSocketServer"
     },
     {
@@ -258,7 +258,7 @@
       "docPage": "API/ClassStoreClass.html",
       "syntaxLines": 0,
       "hasParamsTable": false,
-      "contentHash": "bfdb840c12b8a46e",
+      "contentHash": "9d1a597fef223430",
       "note": "names a user or built-in class inside a class store"
     },
     {
@@ -272,7 +272,7 @@
       "docPage": "API/ClassStoreClass.html",
       "syntaxLines": 0,
       "hasParamsTable": false,
-      "contentHash": "bfdb840c12b8a46e",
+      "contentHash": "9d1a597fef223430",
       "note": "names a class store (4D or cs), not a fixed member"
     },
     {
@@ -285,7 +285,7 @@
       "docPage": "API/BlobClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "9e1c6bbf159b62b9"
+      "contentHash": "e0e7eee5ffb1d94e"
     },
     {
       "id": "Blob.slice",
@@ -297,7 +297,7 @@
       "docPage": "API/BlobClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "9e1c6bbf159b62b9"
+      "contentHash": "e0e7eee5ffb1d94e"
     },
     {
       "id": "Class.isSessionSingleton",
@@ -309,7 +309,7 @@
       "docPage": "API/ClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "95cfc9d051d68c41"
+      "contentHash": "36026ca200fcb56b"
     },
     {
       "id": "Class.isShared",
@@ -321,7 +321,7 @@
       "docPage": "API/ClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "95cfc9d051d68c41"
+      "contentHash": "36026ca200fcb56b"
     },
     {
       "id": "Class.isSingleton",
@@ -333,7 +333,7 @@
       "docPage": "API/ClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "95cfc9d051d68c41"
+      "contentHash": "36026ca200fcb56b"
     },
     {
       "id": "Class.me",
@@ -345,7 +345,7 @@
       "docPage": "API/ClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "95cfc9d051d68c41"
+      "contentHash": "36026ca200fcb56b"
     },
     {
       "id": "Class.name",
@@ -357,7 +357,7 @@
       "docPage": "API/ClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "95cfc9d051d68c41"
+      "contentHash": "36026ca200fcb56b"
     },
     {
       "id": "Class.new",
@@ -369,7 +369,7 @@
       "docPage": "API/ClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "95cfc9d051d68c41"
+      "contentHash": "36026ca200fcb56b"
     },
     {
       "id": "Class.superclass",
@@ -381,7 +381,7 @@
       "docPage": "API/ClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "95cfc9d051d68c41"
+      "contentHash": "36026ca200fcb56b"
     },
     {
       "id": "Collection.at",
@@ -393,7 +393,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.average",
@@ -405,7 +405,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.clear",
@@ -417,7 +417,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.combine",
@@ -429,7 +429,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.concat",
@@ -441,7 +441,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.copy",
@@ -453,7 +453,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 4,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.count",
@@ -465,7 +465,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.countValues",
@@ -477,7 +477,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.distinct",
@@ -489,7 +489,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.equal",
@@ -501,7 +501,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.every",
@@ -513,7 +513,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.extract",
@@ -525,7 +525,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.fill",
@@ -537,7 +537,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.filter",
@@ -549,7 +549,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.find",
@@ -561,7 +561,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.findIndex",
@@ -573,7 +573,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.first",
@@ -585,7 +585,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.flat",
@@ -597,7 +597,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.flatMap",
@@ -609,7 +609,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.includes",
@@ -621,7 +621,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.indexOf",
@@ -633,7 +633,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.indices",
@@ -645,7 +645,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.insert",
@@ -657,7 +657,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.join",
@@ -669,7 +669,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.last",
@@ -681,7 +681,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.lastIndexOf",
@@ -693,7 +693,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.length",
@@ -705,7 +705,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.map",
@@ -717,7 +717,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.max",
@@ -729,7 +729,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.min",
@@ -741,7 +741,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.multiSort",
@@ -753,7 +753,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.orderBy",
@@ -765,7 +765,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 4,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.orderByMethod",
@@ -777,7 +777,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.pop",
@@ -789,7 +789,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.push",
@@ -801,7 +801,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.query",
@@ -813,7 +813,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.reduce",
@@ -825,7 +825,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.reduceRight",
@@ -837,7 +837,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.remove",
@@ -849,7 +849,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.resize",
@@ -861,7 +861,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.reverse",
@@ -873,7 +873,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.shift",
@@ -885,7 +885,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.slice",
@@ -897,7 +897,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.some",
@@ -909,7 +909,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.sort",
@@ -921,7 +921,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 4,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.sum",
@@ -933,7 +933,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "Collection.unshift",
@@ -945,7 +945,7 @@
       "docPage": "API/CollectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3a5f32bd88f84a2"
+      "contentHash": "a2c5e8cddf45729e"
     },
     {
       "id": "CryptoKey.curve",
@@ -957,7 +957,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.decrypt",
@@ -969,7 +969,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.encrypt",
@@ -981,7 +981,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.getPrivateKey",
@@ -993,7 +993,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.getPublicKey",
@@ -1005,7 +1005,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.pem",
@@ -1017,7 +1017,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.sign",
@@ -1029,7 +1029,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.size",
@@ -1041,7 +1041,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.type",
@@ -1053,7 +1053,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "CryptoKey.verify",
@@ -1065,7 +1065,7 @@
       "docPage": "API/CryptoKeyClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "6fab3af377a8571e"
+      "contentHash": "af0119cb852cb61d"
     },
     {
       "id": "DataClass.all",
@@ -1077,7 +1077,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.attributeName",
@@ -1090,7 +1090,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 0,
       "hasParamsTable": false,
-      "contentHash": "db45f0363ed7ae10",
+      "contentHash": "4b892de39328f6af",
       "note": "attribute name comes from the user's data model"
     },
     {
@@ -1103,7 +1103,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.fromCollection",
@@ -1115,7 +1115,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.get",
@@ -1127,7 +1127,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.getCount",
@@ -1139,7 +1139,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.getDataStore",
@@ -1151,7 +1151,19 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
+    },
+    {
+      "id": "DataClass.getIndexes",
+      "class": "DataClass",
+      "declaringClass": "DataClass",
+      "memberKey": "getIndexes()",
+      "memberName": ".getIndexes",
+      "kind": "oop_function",
+      "docPage": "API/DataClassClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": true,
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.getInfo",
@@ -1163,7 +1175,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.getRemoteCache",
@@ -1175,7 +1187,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.new",
@@ -1187,7 +1199,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.newSelection",
@@ -1199,7 +1211,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.query",
@@ -1211,7 +1223,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataClass.setRemoteCacheSettings",
@@ -1223,7 +1235,7 @@
       "docPage": "API/DataClassClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "a5f5eacc408001ef"
+      "contentHash": "b014093b8164a6b9"
     },
     {
       "id": "DataStore.cancelTransaction",
@@ -1235,7 +1247,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.clearAllRemoteContexts",
@@ -1247,7 +1259,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.dataclassName",
@@ -1260,7 +1272,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 0,
       "hasParamsTable": false,
-      "contentHash": "2f655393a873b7d7",
+      "contentHash": "95e09e9662eb4929",
       "note": "dataclass name comes from the user's data model"
     },
     {
@@ -1273,7 +1285,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.flushAndLock",
@@ -1285,7 +1297,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.getAllRemoteContexts",
@@ -1297,7 +1309,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.getGlobalStamp",
@@ -1309,7 +1321,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.getInfo",
@@ -1321,7 +1333,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.getRemoteContextInfo",
@@ -1333,7 +1345,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.getRequestLog",
@@ -1345,7 +1357,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.isAdminProtected",
@@ -1357,7 +1369,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.locked",
@@ -1369,7 +1381,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.makeSelectionsAlterable",
@@ -1381,7 +1393,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.provideDataKey",
@@ -1393,7 +1405,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.setAdminProtection",
@@ -1405,7 +1417,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.setGlobalStamp",
@@ -1417,7 +1429,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.setRemoteContextInfo",
@@ -1429,7 +1441,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 4,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.startRequestLog",
@@ -1441,7 +1453,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 4,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.startTransaction",
@@ -1453,7 +1465,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.stopRequestLog",
@@ -1465,7 +1477,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.unlock",
@@ -1477,7 +1489,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "DataStore.validateTransaction",
@@ -1489,7 +1501,7 @@
       "docPage": "API/DataStoreClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8a387f6f556e3c34"
+      "contentHash": "c869bdd0a58e4b63"
     },
     {
       "id": "Directory.copyTo",
@@ -1501,7 +1513,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.creationDate",
@@ -1513,7 +1525,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.creationTime",
@@ -1525,7 +1537,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.exists",
@@ -1537,7 +1549,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.extension",
@@ -1549,7 +1561,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.file",
@@ -1561,7 +1573,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.files",
@@ -1573,7 +1585,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.folder",
@@ -1585,7 +1597,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.folders",
@@ -1597,7 +1609,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.fullName",
@@ -1609,7 +1621,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.getIcon",
@@ -1621,7 +1633,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.hidden",
@@ -1633,7 +1645,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.isAlias",
@@ -1645,7 +1657,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.isFile",
@@ -1657,7 +1669,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.isFolder",
@@ -1669,7 +1681,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.isPackage",
@@ -1681,7 +1693,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.modificationDate",
@@ -1693,7 +1705,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.modificationTime",
@@ -1705,7 +1717,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.name",
@@ -1717,7 +1729,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.original",
@@ -1729,7 +1741,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.parent",
@@ -1741,7 +1753,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.path",
@@ -1753,7 +1765,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Directory.platformPath",
@@ -1765,7 +1777,7 @@
       "docPage": "API/Directory.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "136d2da449ca6a20"
+      "contentHash": "e7880d0266474df7"
     },
     {
       "id": "Document.copyTo",
@@ -1777,7 +1789,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.creationDate",
@@ -1789,7 +1801,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.creationTime",
@@ -1801,7 +1813,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.exists",
@@ -1813,7 +1825,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.extension",
@@ -1825,7 +1837,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.fullName",
@@ -1837,7 +1849,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.getContent",
@@ -1849,7 +1861,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.getIcon",
@@ -1861,7 +1873,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.getText",
@@ -1873,7 +1885,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.hidden",
@@ -1885,7 +1897,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.isAlias",
@@ -1897,7 +1909,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.isFile",
@@ -1909,7 +1921,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.isFolder",
@@ -1921,7 +1933,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.isWritable",
@@ -1933,7 +1945,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.modificationDate",
@@ -1945,7 +1957,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.modificationTime",
@@ -1957,7 +1969,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.name",
@@ -1969,7 +1981,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.original",
@@ -1981,7 +1993,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 2,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.parent",
@@ -1993,7 +2005,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.path",
@@ -2005,7 +2017,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.platformPath",
@@ -2017,7 +2029,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Document.size",
@@ -2029,7 +2041,7 @@
       "docPage": "API/Document.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7c0ac60aefa2d0c4"
+      "contentHash": "6a06e5c2072b88fe"
     },
     {
       "id": "Email.attachments",
@@ -2041,7 +2053,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.bcc",
@@ -2053,7 +2065,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 3,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.bodyStructure",
@@ -2065,7 +2077,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.bodyValues",
@@ -2077,7 +2089,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.cc",
@@ -2089,7 +2101,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 3,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.comments",
@@ -2101,7 +2113,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.from",
@@ -2113,7 +2125,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 3,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.headers",
@@ -2125,7 +2137,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.htmlBody",
@@ -2137,7 +2149,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.id",
@@ -2149,7 +2161,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.inReplyTo",
@@ -2161,7 +2173,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.keywords",
@@ -2173,7 +2185,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.messageId",
@@ -2185,7 +2197,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.receivedAt",
@@ -2197,7 +2209,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.references",
@@ -2209,7 +2221,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.replyTo",
@@ -2221,7 +2233,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 3,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.sendAt",
@@ -2233,7 +2245,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.sender",
@@ -2245,7 +2257,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 3,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.size",
@@ -2257,7 +2269,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.subject",
@@ -2269,7 +2281,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.textBody",
@@ -2281,7 +2293,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Email.to",
@@ -2293,7 +2305,7 @@
       "docPage": "API/EmailObjectClass.html",
       "syntaxLines": 3,
       "hasParamsTable": false,
-      "contentHash": "ee556390385709cf"
+      "contentHash": "003defd17de852f1"
     },
     {
       "id": "Entity.attributeName",
@@ -2306,7 +2318,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 0,
       "hasParamsTable": false,
-      "contentHash": "8777e15ea632fd73",
+      "contentHash": "685f4ec0b00237f1",
       "note": "attribute name comes from the user's data model"
     },
     {
@@ -2319,7 +2331,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.diff",
@@ -2331,7 +2343,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.drop",
@@ -2343,7 +2355,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.first",
@@ -2355,7 +2367,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.fromObject",
@@ -2367,7 +2379,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.getDataClass",
@@ -2379,7 +2391,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.getKey",
@@ -2391,7 +2403,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.getRemoteContextAttributes",
@@ -2403,7 +2415,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.getSelection",
@@ -2415,7 +2427,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.getStamp",
@@ -2427,7 +2439,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.indexOf",
@@ -2439,7 +2451,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.isNew",
@@ -2451,7 +2463,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.last",
@@ -2463,7 +2475,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.lock",
@@ -2475,7 +2487,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.next",
@@ -2487,7 +2499,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.previous",
@@ -2499,7 +2511,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.reload",
@@ -2511,7 +2523,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.save",
@@ -2523,7 +2535,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.toObject",
@@ -2535,7 +2547,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.touched",
@@ -2547,7 +2559,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.touchedAttributes",
@@ -2559,7 +2571,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "Entity.unlock",
@@ -2571,7 +2583,7 @@
       "docPage": "API/EntityClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2bc69e547a072bea"
+      "contentHash": "96a19e39d294576f"
     },
     {
       "id": "EntitySelection.add",
@@ -2583,7 +2595,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.and",
@@ -2595,7 +2607,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.at",
@@ -2607,7 +2619,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.attributeName",
@@ -2620,7 +2632,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 0,
       "hasParamsTable": false,
-      "contentHash": "2931cd845209d1b4",
+      "contentHash": "004de05488f41058",
       "note": "attribute name comes from the user's data model"
     },
     {
@@ -2633,7 +2645,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.clean",
@@ -2645,7 +2657,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.contains",
@@ -2657,7 +2669,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.copy",
@@ -2669,7 +2681,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.count",
@@ -2681,7 +2693,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.distinct",
@@ -2693,7 +2705,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.distinctPaths",
@@ -2705,7 +2717,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.drop",
@@ -2717,7 +2729,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.extract",
@@ -2729,7 +2741,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.first",
@@ -2741,7 +2753,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.getDataClass",
@@ -2753,7 +2765,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.getRemoteContextAttributes",
@@ -2765,7 +2777,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.isAlterable",
@@ -2777,7 +2789,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.isOrdered",
@@ -2789,7 +2801,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.last",
@@ -2801,7 +2813,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.length",
@@ -2813,7 +2825,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.max",
@@ -2825,7 +2837,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.min",
@@ -2837,7 +2849,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.minus",
@@ -2849,7 +2861,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.or",
@@ -2861,7 +2873,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.orderBy",
@@ -2873,7 +2885,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.orderByFormula",
@@ -2885,7 +2897,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.query",
@@ -2897,7 +2909,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.queryPath",
@@ -2909,7 +2921,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.queryPlan",
@@ -2921,7 +2933,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.refresh",
@@ -2933,7 +2945,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.selected",
@@ -2945,7 +2957,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.slice",
@@ -2957,7 +2969,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.sum",
@@ -2969,7 +2981,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "EntitySelection.toCollection",
@@ -2981,7 +2993,7 @@
       "docPage": "API/EntitySelectionClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "d0962efba1f013e3"
+      "contentHash": "38f37da235b4a2ab"
     },
     {
       "id": "File.create",
@@ -2993,7 +3005,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.createAlias",
@@ -3005,7 +3017,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.delete",
@@ -3017,7 +3029,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.getAppInfo",
@@ -3029,7 +3041,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.moveTo",
@@ -3041,7 +3053,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.open",
@@ -3053,7 +3065,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.rename",
@@ -3065,7 +3077,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.setAppInfo",
@@ -3077,7 +3089,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.setContent",
@@ -3089,7 +3101,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "File.setText",
@@ -3101,7 +3113,7 @@
       "docPage": "API/FileClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "3ccbcd108b24843f"
+      "contentHash": "66d12a07de4c3263"
     },
     {
       "id": "FileHandle.breakModeRead",
@@ -3113,7 +3125,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.breakModeWrite",
@@ -3125,7 +3137,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.charset",
@@ -3137,7 +3149,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.eof",
@@ -3149,7 +3161,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.file",
@@ -3161,7 +3173,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.getSize",
@@ -3173,7 +3185,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.mode",
@@ -3185,7 +3197,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.offset",
@@ -3197,7 +3209,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.readBlob",
@@ -3209,7 +3221,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.readLine",
@@ -3221,7 +3233,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.readText",
@@ -3233,7 +3245,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.setSize",
@@ -3245,7 +3257,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.writeBlob",
@@ -3257,7 +3269,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.writeLine",
@@ -3269,7 +3281,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "FileHandle.writeText",
@@ -3281,7 +3293,7 @@
       "docPage": "API/FileHandleClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "8bb3ade7b0554223"
+      "contentHash": "87950727b3dad73b"
     },
     {
       "id": "Folder.create",
@@ -3293,7 +3305,7 @@
       "docPage": "API/FolderClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "06e9133fbf701577"
+      "contentHash": "7b794460819fbb93"
     },
     {
       "id": "Folder.createAlias",
@@ -3305,7 +3317,7 @@
       "docPage": "API/FolderClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "06e9133fbf701577"
+      "contentHash": "7b794460819fbb93"
     },
     {
       "id": "Folder.delete",
@@ -3317,7 +3329,7 @@
       "docPage": "API/FolderClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "06e9133fbf701577"
+      "contentHash": "7b794460819fbb93"
     },
     {
       "id": "Folder.moveTo",
@@ -3329,7 +3341,7 @@
       "docPage": "API/FolderClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "06e9133fbf701577"
+      "contentHash": "7b794460819fbb93"
     },
     {
       "id": "Folder.rename",
@@ -3341,7 +3353,7 @@
       "docPage": "API/FolderClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "06e9133fbf701577"
+      "contentHash": "7b794460819fbb93"
     },
     {
       "id": "Function.apply",
@@ -3353,7 +3365,7 @@
       "docPage": "API/FunctionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d997dc1c9b9d23ba"
+      "contentHash": "5ab886eb64e97fa8"
     },
     {
       "id": "Function.call",
@@ -3365,7 +3377,7 @@
       "docPage": "API/FunctionClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "d997dc1c9b9d23ba"
+      "contentHash": "5ab886eb64e97fa8"
     },
     {
       "id": "Function.source",
@@ -3377,7 +3389,7 @@
       "docPage": "API/FunctionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "d997dc1c9b9d23ba"
+      "contentHash": "5ab886eb64e97fa8"
     },
     {
       "id": "HTTPAgent.freeSocketsCount",
@@ -3389,7 +3401,7 @@
       "docPage": "API/HTTPAgentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "973ba77b403b11ad"
+      "contentHash": "dc1a68b61f845a19"
     },
     {
       "id": "HTTPAgent.params",
@@ -3401,7 +3413,7 @@
       "docPage": "API/HTTPAgentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "973ba77b403b11ad"
+      "contentHash": "dc1a68b61f845a19"
     },
     {
       "id": "HTTPAgent.requestsCount",
@@ -3413,7 +3425,7 @@
       "docPage": "API/HTTPAgentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "973ba77b403b11ad"
+      "contentHash": "dc1a68b61f845a19"
     },
     {
       "id": "HTTPRequest.agent",
@@ -3425,7 +3437,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.dataType",
@@ -3437,7 +3449,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.encoding",
@@ -3449,7 +3461,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.errors",
@@ -3461,7 +3473,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.headers",
@@ -3473,7 +3485,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.method",
@@ -3485,7 +3497,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.protocol",
@@ -3497,7 +3509,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.response",
@@ -3509,7 +3521,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.returnResponseBody",
@@ -3521,7 +3533,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.terminate",
@@ -3533,7 +3545,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.terminated",
@@ -3545,7 +3557,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.timeout",
@@ -3557,7 +3569,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.url",
@@ -3569,7 +3581,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "HTTPRequest.wait",
@@ -3581,7 +3593,7 @@
       "docPage": "API/HTTPRequestClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "ae80f094e4e66ee6"
+      "contentHash": "4c77d82a47c441d3"
     },
     {
       "id": "IMAPNotifier.isStarted",
@@ -3593,7 +3605,7 @@
       "docPage": "API/IMAPNotifierClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7746c18b13d99e87"
+      "contentHash": "1dc6b3171153642e"
     },
     {
       "id": "IMAPNotifier.start",
@@ -3605,7 +3617,7 @@
       "docPage": "API/IMAPNotifierClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7746c18b13d99e87"
+      "contentHash": "1dc6b3171153642e"
     },
     {
       "id": "IMAPNotifier.stop",
@@ -3617,7 +3629,7 @@
       "docPage": "API/IMAPNotifierClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "7746c18b13d99e87"
+      "contentHash": "1dc6b3171153642e"
     },
     {
       "id": "IMAPTransporter.addFlags",
@@ -3629,7 +3641,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.append",
@@ -3641,7 +3653,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.checkConnectionDelay",
@@ -3653,7 +3665,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.copy",
@@ -3665,7 +3677,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.createBox",
@@ -3677,7 +3689,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.delete",
@@ -3689,7 +3701,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.deleteBox",
@@ -3701,7 +3713,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.expunge",
@@ -3713,7 +3725,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.getBoxInfo",
@@ -3725,7 +3737,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.getBoxList",
@@ -3737,7 +3749,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.getDelimiter",
@@ -3749,7 +3761,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.getMIMEAsBlob",
@@ -3761,7 +3773,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.getMail",
@@ -3773,7 +3785,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.getMails",
@@ -3785,7 +3797,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.move",
@@ -3797,7 +3809,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.notifier",
@@ -3809,7 +3821,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.numToID",
@@ -3821,7 +3833,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.removeFlags",
@@ -3833,7 +3845,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.renameBox",
@@ -3845,7 +3857,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.searchMails",
@@ -3857,7 +3869,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.selectBox",
@@ -3869,7 +3881,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.subscribe",
@@ -3881,7 +3893,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IMAPTransporter.unsubscribe",
@@ -3893,7 +3905,7 @@
       "docPage": "API/IMAPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "47f42ac2a445f950"
+      "contentHash": "a3c98129b5892b63"
     },
     {
       "id": "IncomingMessage.getBlob",
@@ -3905,7 +3917,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.getHeader",
@@ -3917,7 +3929,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.getJSON",
@@ -3929,7 +3941,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.getPicture",
@@ -3941,7 +3953,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.getText",
@@ -3953,7 +3965,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.headers",
@@ -3965,7 +3977,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.url",
@@ -3977,7 +3989,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.urlPath",
@@ -3989,7 +4001,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.urlQuery",
@@ -4001,7 +4013,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "IncomingMessage.verb",
@@ -4013,7 +4025,7 @@
       "docPage": "API/IncomingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "63ee830634b80886"
+      "contentHash": "6d8d38d74f080068"
     },
     {
       "id": "MailAttachment.cid",
@@ -4025,7 +4037,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fbd01a314001266"
+      "contentHash": "10427c6677ab15ae"
     },
     {
       "id": "MailAttachment.disposition",
@@ -4037,7 +4049,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fbd01a314001266"
+      "contentHash": "10427c6677ab15ae"
     },
     {
       "id": "MailAttachment.getContent",
@@ -4049,7 +4061,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "6fbd01a314001266"
+      "contentHash": "10427c6677ab15ae"
     },
     {
       "id": "MailAttachment.name",
@@ -4061,7 +4073,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fbd01a314001266"
+      "contentHash": "10427c6677ab15ae"
     },
     {
       "id": "MailAttachment.path",
@@ -4073,7 +4085,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fbd01a314001266"
+      "contentHash": "10427c6677ab15ae"
     },
     {
       "id": "MailAttachment.platformPath",
@@ -4085,7 +4097,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fbd01a314001266"
+      "contentHash": "10427c6677ab15ae"
     },
     {
       "id": "MailAttachment.size",
@@ -4097,7 +4109,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fbd01a314001266"
+      "contentHash": "10427c6677ab15ae"
     },
     {
       "id": "MailAttachment.type",
@@ -4109,7 +4121,7 @@
       "docPage": "API/MailAttachmentClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "6fbd01a314001266"
+      "contentHash": "10427c6677ab15ae"
     },
     {
       "id": "Method.checkSyntax",
@@ -4121,7 +4133,7 @@
       "docPage": "API/MethodClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "916946e9d3222287"
+      "contentHash": "1d4174864c0cabd5"
     },
     {
       "id": "Method.name",
@@ -4133,7 +4145,7 @@
       "docPage": "API/MethodClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "916946e9d3222287"
+      "contentHash": "1d4174864c0cabd5"
     },
     {
       "id": "OutgoingMessage.body",
@@ -4145,7 +4157,7 @@
       "docPage": "API/OutgoingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "e423f543cd484a57"
+      "contentHash": "f1161d3f9deaa205"
     },
     {
       "id": "OutgoingMessage.headers",
@@ -4157,7 +4169,7 @@
       "docPage": "API/OutgoingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "e423f543cd484a57"
+      "contentHash": "f1161d3f9deaa205"
     },
     {
       "id": "OutgoingMessage.setBody",
@@ -4169,7 +4181,7 @@
       "docPage": "API/OutgoingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "e423f543cd484a57"
+      "contentHash": "f1161d3f9deaa205"
     },
     {
       "id": "OutgoingMessage.setHeader",
@@ -4181,7 +4193,7 @@
       "docPage": "API/OutgoingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "e423f543cd484a57"
+      "contentHash": "f1161d3f9deaa205"
     },
     {
       "id": "OutgoingMessage.setStatus",
@@ -4193,7 +4205,7 @@
       "docPage": "API/OutgoingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "e423f543cd484a57"
+      "contentHash": "f1161d3f9deaa205"
     },
     {
       "id": "OutgoingMessage.status",
@@ -4205,7 +4217,7 @@
       "docPage": "API/OutgoingMessageClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "e423f543cd484a57"
+      "contentHash": "f1161d3f9deaa205"
     },
     {
       "id": "POP3Transporter.delete",
@@ -4217,7 +4229,7 @@
       "docPage": "API/POP3TransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "5211e69d86ea9612"
+      "contentHash": "b6a84ae0bba0733a"
     },
     {
       "id": "POP3Transporter.getBoxInfo",
@@ -4229,7 +4241,7 @@
       "docPage": "API/POP3TransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "5211e69d86ea9612"
+      "contentHash": "b6a84ae0bba0733a"
     },
     {
       "id": "POP3Transporter.getMIMEAsBlob",
@@ -4241,7 +4253,7 @@
       "docPage": "API/POP3TransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "5211e69d86ea9612"
+      "contentHash": "b6a84ae0bba0733a"
     },
     {
       "id": "POP3Transporter.getMail",
@@ -4253,7 +4265,7 @@
       "docPage": "API/POP3TransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "5211e69d86ea9612"
+      "contentHash": "b6a84ae0bba0733a"
     },
     {
       "id": "POP3Transporter.getMailInfo",
@@ -4265,7 +4277,7 @@
       "docPage": "API/POP3TransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "5211e69d86ea9612"
+      "contentHash": "b6a84ae0bba0733a"
     },
     {
       "id": "POP3Transporter.getMailInfoList",
@@ -4277,7 +4289,7 @@
       "docPage": "API/POP3TransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "5211e69d86ea9612"
+      "contentHash": "b6a84ae0bba0733a"
     },
     {
       "id": "POP3Transporter.undeleteAll",
@@ -4289,7 +4301,271 @@
       "docPage": "API/POP3TransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "5211e69d86ea9612"
+      "contentHash": "b6a84ae0bba0733a"
+    },
+    {
+      "id": "QuotaManagerClass.currentValues",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "currentValues",
+      "memberName": ".currentValues",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.defaultEntitySetTimeout",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "defaultEntitySetTimeout",
+      "memberName": ".defaultEntitySetTimeout",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.inBytesPerHour",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "inBytesPerHour",
+      "memberName": ".inBytesPerHour",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.inBytesPerHourPerSession",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "inBytesPerHourPerSession",
+      "memberName": ".inBytesPerHourPerSession",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.inBytesPerMin",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "inBytesPerMin",
+      "memberName": ".inBytesPerMin",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.inBytesPerMinPerSession",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "inBytesPerMinPerSession",
+      "memberName": ".inBytesPerMinPerSession",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.maxEntitySetTimeout",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "maxEntitySetTimeout",
+      "memberName": ".maxEntitySetTimeout",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.nbEntitySets",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "nbEntitySets",
+      "memberName": ".nbEntitySets",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.nbEntitySetsPerSession",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "nbEntitySetsPerSession",
+      "memberName": ".nbEntitySetsPerSession",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.nbGuestSessions",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "nbGuestSessions",
+      "memberName": ".nbGuestSessions",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.nbRequestsPerHour",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "nbRequestsPerHour",
+      "memberName": ".nbRequestsPerHour",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.nbRequestsPerHourPerSession",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "nbRequestsPerHourPerSession",
+      "memberName": ".nbRequestsPerHourPerSession",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.nbRequestsPerMin",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "nbRequestsPerMin",
+      "memberName": ".nbRequestsPerMin",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.nbRequestsPerMinPerSession",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "nbRequestsPerMinPerSession",
+      "memberName": ".nbRequestsPerMinPerSession",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.nbSessions",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "nbSessions",
+      "memberName": ".nbSessions",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.outBytesPerHour",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "outBytesPerHour",
+      "memberName": ".outBytesPerHour",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.outBytesPerHourPerSession",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "outBytesPerHourPerSession",
+      "memberName": ".outBytesPerHourPerSession",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.outBytesPerMin",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "outBytesPerMin",
+      "memberName": ".outBytesPerMin",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "QuotaManagerClass.outBytesPerMinPerSession",
+      "class": "QuotaManagerClass",
+      "declaringClass": "QuotaManagerClass",
+      "memberKey": "outBytesPerMinPerSession",
+      "memberName": ".outBytesPerMinPerSession",
+      "kind": "oop_property",
+      "docPage": "API/QuotaManagerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "545014ebdd7a2116"
+    },
+    {
+      "id": "SMTPTransporter.certificate",
+      "class": "SMTPTransporter",
+      "declaringClass": "SMTPTransporter",
+      "memberKey": "certificate",
+      "memberName": ".certificate",
+      "kind": "oop_property",
+      "docPage": "API/SMTPTransporterClass.html",
+      "syntaxLines": 2,
+      "hasParamsTable": false,
+      "contentHash": "1903b1336ed54156"
+    },
+    {
+      "id": "SMTPTransporter.certificateName",
+      "class": "SMTPTransporter",
+      "declaringClass": "SMTPTransporter",
+      "memberKey": "certificateName",
+      "memberName": ".certificateName",
+      "kind": "oop_property",
+      "docPage": "API/SMTPTransporterClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "1903b1336ed54156"
+    },
+    {
+      "id": "SMTPTransporter.certificatePassword",
+      "class": "SMTPTransporter",
+      "declaringClass": "SMTPTransporter",
+      "memberKey": "certificatePassword",
+      "memberName": ".certificatePassword",
+      "kind": "oop_property",
+      "docPage": "API/SMTPTransporterClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "1903b1336ed54156"
     },
     {
       "id": "SMTPTransporter.keepAlive",
@@ -4301,7 +4577,7 @@
       "docPage": "API/SMTPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f4d77d8fb0e8bc7e"
+      "contentHash": "1903b1336ed54156"
     },
     {
       "id": "SMTPTransporter.send",
@@ -4313,7 +4589,7 @@
       "docPage": "API/SMTPTransporterClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f4d77d8fb0e8bc7e"
+      "contentHash": "1903b1336ed54156"
     },
     {
       "id": "Session.clearPrivileges",
@@ -4325,7 +4601,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.createOTP",
@@ -4337,7 +4613,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.demote",
@@ -4349,7 +4625,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.expirationDate",
@@ -4361,7 +4637,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.getPrivileges",
@@ -4373,7 +4649,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.hasPrivilege",
@@ -4385,7 +4661,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.id",
@@ -4397,7 +4673,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.idleTimeout",
@@ -4409,7 +4685,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.info",
@@ -4421,7 +4697,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.isGuest",
@@ -4433,7 +4709,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.promote",
@@ -4445,7 +4721,19 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
+    },
+    {
+      "id": "Session.quotas",
+      "class": "Session",
+      "declaringClass": "Session",
+      "memberKey": "quotas",
+      "memberName": ".quotas",
+      "kind": "oop_property",
+      "docPage": "API/SessionClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.restore",
@@ -4457,7 +4745,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.setPrivileges",
@@ -4469,7 +4757,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.storage",
@@ -4481,7 +4769,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Session.userName",
@@ -4493,7 +4781,7 @@
       "docPage": "API/SessionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "31a1bb8a8af57e30"
+      "contentHash": "7a8fab3f32864354"
     },
     {
       "id": "Signal.description",
@@ -4505,7 +4793,7 @@
       "docPage": "API/SignalClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "2d20e5bdc76ba457"
+      "contentHash": "cd0732566c623204"
     },
     {
       "id": "Signal.signaled",
@@ -4517,7 +4805,7 @@
       "docPage": "API/SignalClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "2d20e5bdc76ba457"
+      "contentHash": "cd0732566c623204"
     },
     {
       "id": "Signal.trigger",
@@ -4529,7 +4817,7 @@
       "docPage": "API/SignalClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2d20e5bdc76ba457"
+      "contentHash": "cd0732566c623204"
     },
     {
       "id": "Signal.wait",
@@ -4541,7 +4829,7 @@
       "docPage": "API/SignalClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "2d20e5bdc76ba457"
+      "contentHash": "cd0732566c623204"
     },
     {
       "id": "SystemWorker.closeInput",
@@ -4553,7 +4841,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.commandLine",
@@ -4565,7 +4853,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.currentDirectory",
@@ -4577,7 +4865,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.dataType",
@@ -4589,7 +4877,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.encoding",
@@ -4601,7 +4889,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.errors",
@@ -4613,7 +4901,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.exitCode",
@@ -4625,7 +4913,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.hideWindow",
@@ -4637,7 +4925,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.pid",
@@ -4649,7 +4937,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.postMessage",
@@ -4661,7 +4949,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.response",
@@ -4673,7 +4961,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 2,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.responseError",
@@ -4685,7 +4973,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.terminate",
@@ -4697,7 +4985,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.terminated",
@@ -4709,7 +4997,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.timeout",
@@ -4721,7 +5009,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "SystemWorker.wait",
@@ -4733,7 +5021,7 @@
       "docPage": "API/SystemWorkerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "1f4a6b7419e3c977"
+      "contentHash": "07afff1919aa62cf"
     },
     {
       "id": "TCPConnection.address",
@@ -4745,7 +5033,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPConnection.closed",
@@ -4757,7 +5045,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPConnection.errors",
@@ -4769,7 +5057,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPConnection.listener",
@@ -4781,7 +5069,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPConnection.noDelay",
@@ -4793,7 +5081,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPConnection.port",
@@ -4805,7 +5093,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPConnection.send",
@@ -4817,7 +5105,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPConnection.shutdown",
@@ -4829,7 +5117,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPConnection.wait",
@@ -4841,7 +5129,7 @@
       "docPage": "API/TCPConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f6695d72b1255d90"
+      "contentHash": "52f6056d4355c6fb"
     },
     {
       "id": "TCPEvent.address",
@@ -4853,7 +5141,7 @@
       "docPage": "API/TCPEventClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cd388a20fc90a33b"
+      "contentHash": "71fda86eaec74a45"
     },
     {
       "id": "TCPEvent.data",
@@ -4865,7 +5153,7 @@
       "docPage": "API/TCPEventClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cd388a20fc90a33b"
+      "contentHash": "71fda86eaec74a45"
     },
     {
       "id": "TCPEvent.port",
@@ -4877,7 +5165,7 @@
       "docPage": "API/TCPEventClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cd388a20fc90a33b"
+      "contentHash": "71fda86eaec74a45"
     },
     {
       "id": "TCPEvent.type",
@@ -4889,7 +5177,7 @@
       "docPage": "API/TCPEventClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cd388a20fc90a33b"
+      "contentHash": "71fda86eaec74a45"
     },
     {
       "id": "TCPListener.errors",
@@ -4901,7 +5189,7 @@
       "docPage": "API/TCPListenerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "c0ec37264c5a4336"
+      "contentHash": "4e7d0d45a97d93cc"
     },
     {
       "id": "TCPListener.port",
@@ -4913,7 +5201,7 @@
       "docPage": "API/TCPListenerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "c0ec37264c5a4336"
+      "contentHash": "4e7d0d45a97d93cc"
     },
     {
       "id": "TCPListener.terminate",
@@ -4925,7 +5213,7 @@
       "docPage": "API/TCPListenerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "c0ec37264c5a4336"
+      "contentHash": "4e7d0d45a97d93cc"
     },
     {
       "id": "Transporter.acceptUnsecureConnection",
@@ -4934,10 +5222,10 @@
       "memberKey": "acceptUnsecureConnection",
       "memberName": ".acceptUnsecureConnection",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.authenticationMode",
@@ -4946,10 +5234,10 @@
       "memberKey": "authenticationMode",
       "memberName": ".authenticationMode",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.bodyCharset",
@@ -4958,10 +5246,10 @@
       "memberKey": "bodyCharset",
       "memberName": ".bodyCharset",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.checkConnection",
@@ -4970,10 +5258,10 @@
       "memberKey": "checkConnection()",
       "memberName": ".checkConnection",
       "kind": "oop_function",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.connectionTimeOut",
@@ -4982,10 +5270,10 @@
       "memberKey": "connectionTimeOut",
       "memberName": ".connectionTimeOut",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.headerCharset",
@@ -4994,10 +5282,10 @@
       "memberKey": "headerCharset",
       "memberName": ".headerCharset",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.host",
@@ -5006,10 +5294,10 @@
       "memberKey": "host",
       "memberName": ".host",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.logFile",
@@ -5018,10 +5306,10 @@
       "memberKey": "logFile",
       "memberName": ".logFile",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.port",
@@ -5030,10 +5318,10 @@
       "memberKey": "port",
       "memberName": ".port",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.sendTimeOut",
@@ -5042,10 +5330,10 @@
       "memberKey": "sendTimeOut",
       "memberName": ".sendTimeOut",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "Transporter.user",
@@ -5054,10 +5342,10 @@
       "memberKey": "user",
       "memberName": ".user",
       "kind": "oop_property",
-      "docPage": null,
+      "docPage": "API/Transporter.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f3462705ce8a7265"
+      "contentHash": "a0784b2eabcf5b2a"
     },
     {
       "id": "UDPEvent.address",
@@ -5069,7 +5357,7 @@
       "docPage": "API/UDPEventClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f4b68268abb71817"
+      "contentHash": "95934980ed3fea1f"
     },
     {
       "id": "UDPEvent.data",
@@ -5081,7 +5369,7 @@
       "docPage": "API/UDPEventClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f4b68268abb71817"
+      "contentHash": "95934980ed3fea1f"
     },
     {
       "id": "UDPEvent.port",
@@ -5093,7 +5381,7 @@
       "docPage": "API/UDPEventClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f4b68268abb71817"
+      "contentHash": "95934980ed3fea1f"
     },
     {
       "id": "UDPEvent.type",
@@ -5105,7 +5393,7 @@
       "docPage": "API/UDPEventClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "f4b68268abb71817"
+      "contentHash": "95934980ed3fea1f"
     },
     {
       "id": "UDPSocket.errors",
@@ -5117,7 +5405,7 @@
       "docPage": "API/UDPSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "2482968be99f1b48"
+      "contentHash": "a766bb9a110ae453"
     },
     {
       "id": "UDPSocket.port",
@@ -5129,7 +5417,7 @@
       "docPage": "API/UDPSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "2482968be99f1b48"
+      "contentHash": "a766bb9a110ae453"
     },
     {
       "id": "UDPSocket.send",
@@ -5141,7 +5429,7 @@
       "docPage": "API/UDPSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "2482968be99f1b48"
+      "contentHash": "a766bb9a110ae453"
     },
     {
       "id": "Vector.cosineSimilarity",
@@ -5153,7 +5441,7 @@
       "docPage": "API/VectorClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "fbf56067deb28ca8"
+      "contentHash": "aacb4df70a5b5c75"
     },
     {
       "id": "Vector.dotSimilarity",
@@ -5165,7 +5453,7 @@
       "docPage": "API/VectorClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "fbf56067deb28ca8"
+      "contentHash": "aacb4df70a5b5c75"
     },
     {
       "id": "Vector.euclideanDistance",
@@ -5177,7 +5465,7 @@
       "docPage": "API/VectorClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "fbf56067deb28ca8"
+      "contentHash": "aacb4df70a5b5c75"
     },
     {
       "id": "Vector.length",
@@ -5189,7 +5477,19 @@
       "docPage": "API/VectorClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "fbf56067deb28ca8"
+      "contentHash": "aacb4df70a5b5c75"
+    },
+    {
+      "id": "Vector.precision",
+      "class": "Vector",
+      "declaringClass": "Vector",
+      "memberKey": "precision",
+      "memberName": ".precision",
+      "kind": "oop_property",
+      "docPage": "API/VectorClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "aacb4df70a5b5c75"
     },
     {
       "id": "Vector.toCollection",
@@ -5201,7 +5501,7 @@
       "docPage": "API/VectorClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "fbf56067deb28ca8"
+      "contentHash": "aacb4df70a5b5c75"
     },
     {
       "id": "WebForm.componentName",
@@ -5214,7 +5514,7 @@
       "docPage": "API/WebFormClass.html",
       "syntaxLines": 0,
       "hasParamsTable": false,
-      "contentHash": "3699f34c133cdc8c",
+      "contentHash": "304f4c4532ff1a5e",
       "note": "names a component in the web form, not a fixed member"
     },
     {
@@ -5227,7 +5527,7 @@
       "docPage": "API/WebFormClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "57761bab2cd09f6d"
+      "contentHash": "a492be62a652c28e"
     },
     {
       "id": "WebForm.enableState",
@@ -5239,7 +5539,7 @@
       "docPage": "API/WebFormClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "57761bab2cd09f6d"
+      "contentHash": "a492be62a652c28e"
     },
     {
       "id": "WebForm.setError",
@@ -5251,7 +5551,7 @@
       "docPage": "API/WebFormClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "57761bab2cd09f6d"
+      "contentHash": "a492be62a652c28e"
     },
     {
       "id": "WebForm.setMessage",
@@ -5263,7 +5563,7 @@
       "docPage": "API/WebFormClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "57761bab2cd09f6d"
+      "contentHash": "a492be62a652c28e"
     },
     {
       "id": "WebForm.setWarning",
@@ -5275,7 +5575,7 @@
       "docPage": "API/WebFormClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "57761bab2cd09f6d"
+      "contentHash": "a492be62a652c28e"
     },
     {
       "id": "WebFormItem.addCSSClass",
@@ -5287,7 +5587,7 @@
       "docPage": "API/WebFormItemClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "e2ad4172def6f3a9"
+      "contentHash": "6e768de6a4a83ddc"
     },
     {
       "id": "WebFormItem.hide",
@@ -5299,7 +5599,7 @@
       "docPage": "API/WebFormItemClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "e2ad4172def6f3a9"
+      "contentHash": "6e768de6a4a83ddc"
     },
     {
       "id": "WebFormItem.removeCSSClass",
@@ -5311,7 +5611,7 @@
       "docPage": "API/WebFormItemClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "e2ad4172def6f3a9"
+      "contentHash": "6e768de6a4a83ddc"
     },
     {
       "id": "WebFormItem.show",
@@ -5323,7 +5623,7 @@
       "docPage": "API/WebFormItemClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "e2ad4172def6f3a9"
+      "contentHash": "6e768de6a4a83ddc"
     },
     {
       "id": "WebServer.CORSEnabled",
@@ -5335,7 +5635,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.CORSSettings",
@@ -5347,7 +5647,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HSTSEnabled",
@@ -5359,7 +5659,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HSTSMaxAge",
@@ -5371,7 +5671,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HTTPCompressionLevel",
@@ -5383,7 +5683,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HTTPCompressionThreshold",
@@ -5395,7 +5695,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HTTPEnabled",
@@ -5407,7 +5707,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HTTPPort",
@@ -5419,7 +5719,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HTTPSEnabled",
@@ -5431,7 +5731,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HTTPSPort",
@@ -5443,7 +5743,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.HTTPTrace",
@@ -5455,7 +5755,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.IPAddressToListen",
@@ -5467,7 +5767,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.accessKeyDefined",
@@ -5479,7 +5779,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.certificateFolder",
@@ -5491,7 +5791,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.characterSet",
@@ -5503,7 +5803,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 2,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.cipherSuite",
@@ -5515,7 +5815,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.debugLog",
@@ -5527,7 +5827,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.defaultHomepage",
@@ -5539,7 +5839,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.handlers",
@@ -5551,7 +5851,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.inactiveProcessTimeout",
@@ -5563,7 +5863,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.inactiveSessionTimeout",
@@ -5575,7 +5875,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.isRunning",
@@ -5587,7 +5887,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.keepSession",
@@ -5599,7 +5899,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.logRecording",
@@ -5611,7 +5911,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.maxConcurrentProcesses",
@@ -5623,7 +5923,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.maxRequestSize",
@@ -5635,7 +5935,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.maxSessions",
@@ -5647,7 +5947,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.minTLSVersion",
@@ -5659,7 +5959,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.name",
@@ -5671,7 +5971,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.openSSLVersion",
@@ -5683,7 +5983,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.perfectForwardSecrecy",
@@ -5695,7 +5995,19 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
+    },
+    {
+      "id": "WebServer.quotas",
+      "class": "WebServer",
+      "declaringClass": "WebServer",
+      "memberKey": "quotas",
+      "memberName": ".quotas",
+      "kind": "oop_property",
+      "docPage": "API/WebServerClass.html",
+      "syntaxLines": 1,
+      "hasParamsTable": false,
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.rootFolder",
@@ -5707,7 +6019,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.rules",
@@ -5719,7 +6031,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.scalableSession",
@@ -5731,7 +6043,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.sessionCookieDomain",
@@ -5743,7 +6055,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.sessionCookieName",
@@ -5755,7 +6067,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.sessionCookiePath",
@@ -5767,7 +6079,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.sessionCookieSameSite",
@@ -5779,7 +6091,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.sessionIPAddressValidation",
@@ -5791,7 +6103,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.start",
@@ -5803,7 +6115,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebServer.stop",
@@ -5815,7 +6127,7 @@
       "docPage": "API/WebServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "110bf9ac60d05910"
+      "contentHash": "e241456b0e8e781e"
     },
     {
       "id": "WebSocket.dataType",
@@ -5827,7 +6139,7 @@
       "docPage": "API/WebSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cdfb0ae5df816bda"
+      "contentHash": "0e9471d16a2bd954"
     },
     {
       "id": "WebSocket.handler",
@@ -5839,7 +6151,7 @@
       "docPage": "API/WebSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cdfb0ae5df816bda"
+      "contentHash": "0e9471d16a2bd954"
     },
     {
       "id": "WebSocket.id",
@@ -5851,7 +6163,7 @@
       "docPage": "API/WebSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cdfb0ae5df816bda"
+      "contentHash": "0e9471d16a2bd954"
     },
     {
       "id": "WebSocket.send",
@@ -5863,7 +6175,7 @@
       "docPage": "API/WebSocketClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "cdfb0ae5df816bda"
+      "contentHash": "0e9471d16a2bd954"
     },
     {
       "id": "WebSocket.status",
@@ -5875,7 +6187,7 @@
       "docPage": "API/WebSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cdfb0ae5df816bda"
+      "contentHash": "0e9471d16a2bd954"
     },
     {
       "id": "WebSocket.terminate",
@@ -5887,7 +6199,7 @@
       "docPage": "API/WebSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "cdfb0ae5df816bda"
+      "contentHash": "0e9471d16a2bd954"
     },
     {
       "id": "WebSocket.url",
@@ -5899,7 +6211,7 @@
       "docPage": "API/WebSocketClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "cdfb0ae5df816bda"
+      "contentHash": "0e9471d16a2bd954"
     },
     {
       "id": "WebSocketConnection.handler",
@@ -5911,7 +6223,7 @@
       "docPage": "API/WebSocketConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "938c454ef25caeef"
+      "contentHash": "b23623f7a005a8b8"
     },
     {
       "id": "WebSocketConnection.id",
@@ -5923,7 +6235,7 @@
       "docPage": "API/WebSocketConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "938c454ef25caeef"
+      "contentHash": "b23623f7a005a8b8"
     },
     {
       "id": "WebSocketConnection.send",
@@ -5935,7 +6247,7 @@
       "docPage": "API/WebSocketConnectionClass.html",
       "syntaxLines": 3,
       "hasParamsTable": true,
-      "contentHash": "938c454ef25caeef"
+      "contentHash": "b23623f7a005a8b8"
     },
     {
       "id": "WebSocketConnection.status",
@@ -5947,7 +6259,7 @@
       "docPage": "API/WebSocketConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "938c454ef25caeef"
+      "contentHash": "b23623f7a005a8b8"
     },
     {
       "id": "WebSocketConnection.terminate",
@@ -5959,7 +6271,7 @@
       "docPage": "API/WebSocketConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": true,
-      "contentHash": "938c454ef25caeef"
+      "contentHash": "b23623f7a005a8b8"
     },
     {
       "id": "WebSocketConnection.wss",
@@ -5971,7 +6283,7 @@
       "docPage": "API/WebSocketConnectionClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "938c454ef25caeef"
+      "contentHash": "b23623f7a005a8b8"
     },
     {
       "id": "WebSocketServer.connections",
@@ -5983,7 +6295,7 @@
       "docPage": "API/WebSocketServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "af52362b87d44a14"
+      "contentHash": "79297410a85b3b51"
     },
     {
       "id": "WebSocketServer.dataType",
@@ -5995,7 +6307,7 @@
       "docPage": "API/WebSocketServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "af52362b87d44a14"
+      "contentHash": "79297410a85b3b51"
     },
     {
       "id": "WebSocketServer.handler",
@@ -6007,7 +6319,7 @@
       "docPage": "API/WebSocketServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "af52362b87d44a14"
+      "contentHash": "79297410a85b3b51"
     },
     {
       "id": "WebSocketServer.path",
@@ -6019,7 +6331,7 @@
       "docPage": "API/WebSocketServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "af52362b87d44a14"
+      "contentHash": "79297410a85b3b51"
     },
     {
       "id": "WebSocketServer.terminate",
@@ -6031,7 +6343,7 @@
       "docPage": "API/WebSocketServerClass.html",
       "syntaxLines": 2,
       "hasParamsTable": true,
-      "contentHash": "af52362b87d44a14"
+      "contentHash": "79297410a85b3b51"
     },
     {
       "id": "WebSocketServer.terminated",
@@ -6043,7 +6355,7 @@
       "docPage": "API/WebSocketServerClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "af52362b87d44a14"
+      "contentHash": "79297410a85b3b51"
     },
     {
       "id": "ZipArchive.root",
@@ -6055,7 +6367,7 @@
       "docPage": "API/ZipArchiveClass.html",
       "syntaxLines": 1,
       "hasParamsTable": false,
-      "contentHash": "00eb1be3b2897ba1"
+      "contentHash": "7bb0215b38fbdc88"
     }
   ],
   "skipped": [
@@ -6073,30 +6385,27 @@
     },
     {
       "syntaxKey": "_command_",
-      "reason": "The 1353 classic commands — already covered by out/4d-command-ir.json."
-    },
-    {
-      "class": "Transporter",
-      "reason": "no API page of its own; members are documented on its subclasses' pages. Kept in scope, enriched from those pages via the inheritance edge.",
-      "inScope": true
+      "reason": "Classic commands — already covered by out/4d-command-ir.json."
     }
   ],
-  "docsRoot": "mirror/docs/21-R3",
+  "docsRoot": "mirror/docs",
   "syntaxSource": {
-    "path": "references/syntaxEN.json",
-    "sha1": "f3462705ce8a7265a8a1c1d733e7dbc8ace799bb",
-    "declaredDocsVersion": "21-R3",
-    "note": "syntaxEN.json carries no version marker. The repository owner confirmed this capture is from 21-R3, matching mirror/docs/21-R3/. Swap a future capture in with --syntax-json and update --syntax-version."
+    "path": "references/syntaxEN-21-R5.json",
+    "sha1": "228abc950640678ab057896e0e5e28551ce6d761",
+    "sha256": "ee27d9689e834bd1990d60d289d8c4e86e39beb723fe88c55b719e9d1e8bc411",
+    "declaredDocsVersion": "21-R5",
+    "note": "syntaxEN.json carries no version marker. This explicit capture declaration is compared with the actual documentation version badge."
   },
+  "docsVersionBadge": "21 R5 BETA",
   "counts": {
-    "inScope": 502,
+    "inScope": 528,
     "byKind": {
       "oop_constructor": 19,
-      "oop_property": 225,
-      "oop_function": 258
+      "oop_property": 250,
+      "oop_function": 259
     },
     "dynamicMembers": 7,
-    "classes": 45,
-    "skipped": 5
+    "classes": 46,
+    "skipped": 4
   }
 }

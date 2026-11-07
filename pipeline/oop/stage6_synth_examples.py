@@ -26,7 +26,7 @@ before it can be called at all.
    optional-param present/omitted sweep. The classic union-discriminator
    sweep also has no OOP analogue as a *param* sweep -- the OOP IR expresses
    alternatives as separate overloads, not union-typed params (empirically: 0
-   of 446 params carry a list-valued `type`), so enumerating overloads, which
+   of 445 params carry a list-valued `type`), so enumerating overloads, which
    the default block already does, IS the union sweep. Two genuinely new
    sweeps take their place: property read-vs-write and multi-variant property
    type.
@@ -47,7 +47,7 @@ Usage:
     python3 pipeline/oop/stage6_synth_examples.py report [--ids|--class]
 
 `generate` is pure Python. Only `validate` needs tool4d, so stages O0-O5 stay
-reproducible on a clean clone without a licensed 4D install.
+reproducible on a clean clone without a 4D install.
 """
 from __future__ import annotations
 
@@ -59,13 +59,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+import oopcommon as oop
+
 ROOT = Path(__file__).resolve().parent.parent.parent
 IR_PATH = ROOT / "out" / "4d-oop-ir.json"
 PROJECT_DIR = ROOT / "oopcheck" / "Project"
 METHODS_DIR = PROJECT_DIR / "Sources" / "Methods"
 MANIFEST_PATH = ROOT / "out" / "oop_synth_manifest.json"
 REPORT_PATH = ROOT / "out" / "oop_lsp_crosscheck_report.json"
-TOOL4D_LSP = ROOT / "tools" / "tool4d-lsp-stdio"
+TOOL4D_LSP = ROOT / "tools" / "4dlsp" / "tool4d-lsp-stdio"
 
 FILE_PREFIX = "SynthOOP_"
 
@@ -265,6 +267,11 @@ RECEIVER_RECIPES: dict[str, dict] = {
         "kind": "constructor",
     },
     "Session": {"type": "4D.Session", "expr": "Session", "kind": "classic_command"},
+    "QuotaManagerClass": {
+        "type": "4D.QuotaManagerClass",
+        "expr": "Session.quotas",
+        "kind": "property_of",
+    },
     "Signal": {"type": "4D.Signal", "expr": 'New signal("synthSignal")', "kind": "classic_command"},
     "SystemWorker": {
         "type": "4D.SystemWorker",
@@ -1105,6 +1112,7 @@ def cmd_generate(args) -> int:
             "kind": member["kind"],
             "class_id": member["receiver"]["classId"],
             "blocks": starts,
+            "sourceSha256": hashlib.sha256((METHODS_DIR / f"{method}.4dm").read_bytes()).hexdigest(),
         }
 
     manifest["target_ids"] = (
@@ -1133,9 +1141,10 @@ LSP_SEVERITY = {1: "error", 2: "warning", 3: "info", 4: "hint"}
 
 def run_check_syntax(anchor: str | None = None) -> list[dict]:
     """One project-wide `experimental/checkSyntax` pass over the check project."""
+    oop.compiler_provenance()
     if not TOOL4D_LSP.exists():
         raise SystemExit(
-            "tools/tool4d-lsp-stdio not found -- provision it per skills/4dtools/SKILL.md"
+            "tools/4dlsp/tool4d-lsp-stdio not found -- provision it per skills/4dtools/SKILL.md"
         )
     cmd = [
         str(TOOL4D_LSP),
@@ -1170,6 +1179,8 @@ def diagnostics_by_relpath(per_file: list[dict]) -> dict[str, list[dict]]:
 def cmd_validate(args) -> int:
     if not MANIFEST_PATH.exists():
         raise SystemExit("out/oop_synth_manifest.json not found -- run 'generate' first")
+    provenance = oop.compiler_provenance()
+    provenance["synthManifestInputSha256"] = hashlib.sha256(MANIFEST_PATH.read_bytes()).hexdigest()
     ir = load_json(IR_PATH)
     by_id = {c["id"]: c for c in ir["commands"]}
     manifest = load_json(MANIFEST_PATH)
@@ -1182,6 +1193,10 @@ def cmd_validate(args) -> int:
     )
     if not rel_paths:
         raise SystemExit("no generated files match the request -- run 'generate' first")
+    for rel in rel_paths:
+        actual_hash = hashlib.sha256((PROJECT_DIR / rel).read_bytes()).hexdigest()
+        if manifest["files"][rel].get("sourceSha256") != actual_hash:
+            raise SystemExit(f"{rel} differs from its generated manifest; run generate before validation.")
 
     per_file = run_check_syntax(rel_paths[0])
     diags = diagnostics_by_relpath(per_file)
@@ -1241,6 +1256,12 @@ def cmd_validate(args) -> int:
     else:
         report = run_report
     REPORT_PATH.write_text(json.dumps(report, indent=2) + "\n")
+    manifest["compilerVerification"] = provenance
+    manifest["compilerVerification"]["allTargetFilesPresent"] = True
+    manifest["compilerVerification"]["projectResponseFiles"] = len(per_file)
+    manifest["compilerVerification"]["targetedFiles"] = len(rel_paths)
+    manifest["compilerVerification"]["reportSha256"] = hashlib.sha256(REPORT_PATH.read_bytes()).hexdigest()
+    MANIFEST_PATH.write_text(json.dumps(manifest, indent=2) + "\n")
 
     n_err = sum(1 for r in run_report if r["status"] == "error")
     n_warn = sum(1 for r in run_report if r["status"] == "warning")
@@ -1250,7 +1271,7 @@ def cmd_validate(args) -> int:
         f"{n_err} error"
     )
     print(f"-> {REPORT_PATH.relative_to(ROOT)}")
-    return 0
+    return 1 if n_err or n_warn else 0
 
 
 def cmd_report(args) -> int:

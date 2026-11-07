@@ -13,7 +13,7 @@
   },
   "summary": "A virtual folder providing access to the contents of the ZIP archive",
   "description": "The .root property contains a virtual folder providing access to the contents of the ZIP archive.\n\nThe root folder and its contents can be manipulated with the ZipFile and ZipFolder functions and properties.\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/ZipArchiveClass.html",
+  "docPage": "mirror/docs/API/ZipArchiveClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

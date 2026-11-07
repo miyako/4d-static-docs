@@ -13,7 +13,7 @@
   },
   "summary": "Size (expressed in bytes) of the Email object returned by the IMAP server",
   "description": "IMAP transporter only.\n\nThe .size property contains the size (expressed in bytes) of the Email object returned by the IMAP server.",
-  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "docPage": "mirror/docs/API/EmailObjectClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

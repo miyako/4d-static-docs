@@ -13,7 +13,7 @@
   },
   "summary": "Returns a collection containing only distinct (different) values from the original collection",
   "description": "The .distinct() function returns a collection containing only distinct (different) values from the original collection.\n\nThis function does not modify the original collection.\n\nThe returned collection is automatically sorted. Null values are not returned.\n\nIf the collection contains objects, you can pass the propertyPath parameter to indicate the object property whose distinct values you want to get.\n\nIn the options parameter, you can pass one or a combination of the following constants:",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

@@ -1,0 +1,8 @@
+{
+  "id": "WebServer.quotas",
+  "_reason": "Official 21 R5 BETA API/QuotaManagerClass.html states the quota object itself cannot be directly assigned; configure its existing properties instead. The WebServer page's short Description omits this restriction. Both docs and syntaxEN-21-R5.json spell the type 4D.QuotaManager, but tool4d 21R5.100156 rejects that declaration and accepts 4D.QuotaManagerClass. Controlled evidence is in out/oop_type_name_crosscheck.json. Preserve rawSyntax verbatim; correct semantic type and mutability without suppressing diagnostics.",
+  "accessor": {
+    "type": {"kind": "concrete", "name": "4D.QuotaManagerClass"},
+    "writable": false
+  }
+}

@@ -13,7 +13,7 @@
   },
   "summary": "Indicates whether the notifier is started (`true`) or stopped (`false`)",
   "description": "The .isStarted property indicates whether the notifier is started (true) or stopped (false). This property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/IMAPNotifierClass.html",
+  "docPage": "mirror/docs/API/IMAPNotifierClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

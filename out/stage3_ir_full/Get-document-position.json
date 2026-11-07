@@ -20,7 +20,7 @@
         "kind": "concrete",
         "name": "Real"
       },
-      "semanticRole": "This command operates only on a document that is currently open whose document reference number you pass in docRef .returns the position, starting from the beginning of the document, where the next read ( RECEIVE PACKET"
+      "semanticRole": "Get document position returns the position, starting from the beginning of the document, where the next read ( RECEIVE PACKET ) or write ( SEND PACKET ) will occur."
     }
   ],
   "constraints": [

@@ -40,12 +40,12 @@
         {
           "name": "borderStyle",
           "type": {
-            "kind": "concrete",
-            "name": "Integer"
+            "kind": "enum_ref",
+            "enum": "FormObjectBorderStyle"
           },
           "direction": "in",
           "optional": false,
-          "description": "Border line style constant (None/Plain/Dotted/Raised/Sunken/Double/System) from the \"Form Objects (Properties)\" theme."
+          "description": "Border line style constant, including R5's Border System Rounded (8) and Border Custom (9)."
         }
       ],
       "discriminatedBy": {

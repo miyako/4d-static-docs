@@ -13,7 +13,7 @@
   },
   "summary": "A collection of `File` objects contained in the folder",
   "description": "The .files() function returns a collection of File objects contained in the folder.\n\nAliases or symbolic links are not resolved.\n\nBy default, if you omit the options parameter, only the files at the first level of the folder are returned in the collection, including invisible files. You can modify this by passing, in the options parameter, one or more of the following constants:\n\nReturned value\n\nCollection of File objects.",
-  "docPage": "mirror/docs/21-R3/API/Directory.html",
+  "docPage": "mirror/docs/API/Directory.html",
   "overloads": [
     {
       "params": [

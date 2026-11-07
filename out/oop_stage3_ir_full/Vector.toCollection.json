@@ -13,7 +13,7 @@
   },
   "summary": "Returns the vector components as a collection of reals",
   "description": "The .toCollection() function returns the vector components as a collection of reals.",
-  "docPage": "mirror/docs/21-R3/API/VectorClass.html",
+  "docPage": "mirror/docs/API/VectorClass.html",
   "overloads": [
     {
       "params": [],

@@ -4,6 +4,8 @@
     "All connectionInfo properties are optional except hostname (host/IP + mandatory port number).",
     "If tls is true, HTTPS is only actually used when HTTPS is enabled on the remote datastore, the port is the configured HTTPS port, and a valid certificate/private key are installed; otherwise error 1610 is raised.",
     "If localID already names an existing local session, that session is reused; otherwise a new one is created (lazily, when the datastore object is first used). Calling ds(localID) afterwards returns a reference to the same datastore object.",
-    "Returns Null if no matching datastore is found."
+    "Returns Null if no matching datastore is found.",
+    "connectionInfo.user and connectionInfo.password are deprecated and ignored in Force login mode; pass credentials to the remote datastore's exposed authentify() function instead.",
+    "Repeated calls with the same localID retain the initially loaded datastore object and do not send a new connection request."
   ]
 }

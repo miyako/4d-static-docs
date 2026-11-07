@@ -13,7 +13,7 @@
   },
   "summary": "Creates a new `4D.CryptoKey` object encapsulating an encryption key pair",
   "description": "The 4D.CryptoKey.new() function creates a new 4D.CryptoKey object encapsulating an encryption key pair, based upon the settings object parameter. It allows to generate a new RSA or ECDSA key, or to load an existing key pair from a PEM definition.",
-  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "docPage": "mirror/docs/API/CryptoKeyClass.html",
   "overloads": [
     {
       "params": [

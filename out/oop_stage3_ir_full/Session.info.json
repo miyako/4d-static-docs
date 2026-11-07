@@ -12,15 +12,15 @@
     }
   },
   "summary": "Describes the session",
-  "description": "The .info property describes the session.\n\nRemote user sessions and Stored procedure sessions: The .info object is the same object as the one returned in the \"session\" property by the Process activity command. Standalone sessions: The .info object is the same object as the one returned by the Session info command. Web user sessions: The .info object contains properties available for web user sessions.\n\nThe .info object contains the following properties:",
-  "docPage": "mirror/docs/21-R3/API/SessionClass.html",
+  "description": "The .info property describes the session.\n\nRemote user sessions and Stored procedure sessions: The .info object is the same object as the one returned in the \"session\" property by the Process activity command. Standalone sessions: The .info object is the same object as the one returned by the Session info command. Web user sessions: The .info object contains properties available for web user sessions.\n\nThe .info object contains the following properties:\n\nThis property is read only.",
+  "docPage": "mirror/docs/API/SessionClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",
       "name": "Object"
     },
     "readable": true,
-    "writable": true,
+    "writable": false,
     "rawSyntax": "**.info** : Object"
   },
   "returnsShape": {
@@ -94,9 +94,22 @@
           "name": "Text"
         },
         "description": "Remote/client sessions: Session's persistent ID"
+      },
+      "unreachableSince": {
+        "type": {
+          "kind": "concrete",
+          "name": "Integer"
+        },
+        "description": "Remote sessions: Number of seconds since the peer is unreachable. On 4D Server, this attribute is readable in the Process activity.sessions property."
       }
     },
     "source": "Description"
   },
-  "sinceVersion": "20-R5"
+  "sinceVersion": "20-R5",
+  "versionBehaviorChanges": [
+    {
+      "release": "21-R4",
+      "change": "New unreachableSince property"
+    }
+  ]
 }

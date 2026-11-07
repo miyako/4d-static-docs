@@ -13,7 +13,7 @@
   },
   "summary": "Collection of rule objects currently handled to customize HTTP headers",
   "description": "Read-only property\n\nA collection of rule objects currently handled to customize HTTP headers. A rule object contains a \"regexPattern\" property, as well as an action name with a value. HTTP rules can be defined through a HTTPRules.json file or the settings parameter of the .start() function. For more information, please refer to the HTTP Rules page.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

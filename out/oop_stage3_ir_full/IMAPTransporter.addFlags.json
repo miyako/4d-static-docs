@@ -13,7 +13,7 @@
   },
   "summary": "Adds flags to the `msgIDs` for the specified `keywords`",
   "description": "The .addFlags() function adds flags to the msgIDs for the specified keywords.\n\nIn the msgIDs parameter, you can pass either:\n\na collection containing the unique IDs of specific messages or the unique ID (text) of a single message or the following constant (longint) for all messages in the selected mailbox:\n\nThe keywords parameter lets you define the flags to add to msgIDs. You can use the following standard flags as well as custom flags (custom flags support depends on the server implementation):\n\nThe custom flags names must respect this rule: the keyword must be a case-insensitive string excluding control chars and space and can not include any of these characters: ( ) { ] % * \" \\\n\nFor a keyword to be taken into account it has to be true. The interpretation of keyword flags may vary per mail client.\n\nReturned object\n\nThe function returns an object describing the IMAP status:",
-  "docPage": "mirror/docs/21-R3/API/IMAPTransporterClass.html",
+  "docPage": "mirror/docs/API/IMAPTransporterClass.html",
   "overloads": [
     {
       "params": [
@@ -53,6 +53,10 @@
     }
   ],
   "_seeAlso": [
+    {
+      "text": ".removeFlags()",
+      "href": "IMAPTransporterClass.html#removeflags"
+    },
     {
       "text": ".removeFlags()",
       "href": "IMAPTransporterClass.html#removeflags"

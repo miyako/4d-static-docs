@@ -13,7 +13,7 @@
   },
   "summary": "Creates a new UDP socket using the defined *options* (if any) on the specified *port* (if any) or on a random unused port, and returns a `4D.UDPSocket` object",
   "description": "The 4D.UDPSocket.new() function creates a new UDP socket using the defined options (if any) on the specified port (if any) or on a random unused port, and returns a 4D.UDPSocket object.",
-  "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
+  "docPage": "mirror/docs/API/UDPSocketClass.html",
   "overloads": [
     {
       "params": [],

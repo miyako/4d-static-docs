@@ -1,0 +1,95 @@
+{
+  "semanticConflicts": [
+    {
+      "id": "database-parameter-135-units",
+      "category": "cross_command_documentation",
+      "commands": ["Get-database-parameter", "SET-DATABASE-PARAMETER"],
+      "origin": "Present in the committed R4 and R5 pages; newly identified during this R3-to-R5 corpus refresh, not introduced by R5.",
+      "disposition": "unresolved_runtime_units",
+      "resolution": "Preserve both pages' readings independently. GET says seconds/default 900/minimum 60; SET says minutes/default 15/minimum 1. Compiler checks cannot establish runtime units.",
+      "sources": ["mirror/docs/commands/get-database-parameter.html", "mirror/docs/commands/set-database-parameter.html", "mirror/docs/21-R4/commands/get-database-parameter.html", "mirror/docs/21-R4/commands/set-database-parameter.html", "references/21-R5/4D_ConstantsEN.xlf"],
+      "symbol": "The official XLIFF symbol is QUIC Connection Timeout (135); both pages call it QUIC session timeout. Retain the official compiler symbol."
+    },
+    {
+      "id": "web-body-part-name",
+      "category": "within_page_documentation",
+      "commands": ["WEB-GET-BODY-PART"],
+      "origin": "Preexisting reviewed R3 conflict; still present in R5.",
+      "disposition": "modeled_with_runtime_caveat",
+      "resolution": "The table, lead prose and example identify name as the input-field variable name; later prose says original filename, duplicating fileName. Retain the majority/table reading and explicit uncertainty; compilation does not verify the returned value.",
+      "sources": ["mirror/docs/commands/web-get-body-part.html", "pipeline/semantic_overlays/WEB-GET-BODY-PART.json"]
+    },
+    {
+      "id": "form-current-page-getter-prose",
+      "category": "within_page_documentation",
+      "commands": ["FORM-Get-current-page"],
+      "origin": "Preexisting reviewed R3 conflict; still present in R5.",
+      "disposition": "resolved_in_ir_upstream_open",
+      "resolution": "Prose says changes the subform page; command name, Integer return and parameter table say returns its current page. Retain getter semantics and the documented contradiction.",
+      "sources": ["mirror/docs/commands/form-get-current-page.html", "pipeline/semantic_overlays/FORM-Get-current-page.json"]
+    },
+    {
+      "id": "view-pro-table-column-title",
+      "category": "title_signature_mismatch",
+      "commands": ["VP-Get-table-column-attributes"],
+      "origin": "Preexisting manifest review flag; still present in R5.",
+      "disposition": "resolved_canonical_id_not_compiler_checked",
+      "resolution": "H1 says VP Get column attributes; syntax says VP Get table column attributes. Select the syntax name to preserve the distinct table-column command. View Pro is not installed in the classic check project.",
+      "sources": ["mirror/docs/ViewPro/commands/vp-get-table-column-attributes.html", "pipeline/semantic_overlays/VP-Get-table-column-attributes.json"]
+    },
+    {
+      "id": "folder-constructor-star",
+      "category": "documentation_compiler_mismatch",
+      "commands": ["4D.Folder.new"],
+      "origin": "Preexisting R3 compiler finding; source signature still contains the classic Folder trailing *.",
+      "disposition": "resolved_in_ir_upstream_open",
+      "resolution": "OOP 4D.Folder.new does not accept the classic Folder command's trailing *. Preserve rawSyntax verbatim but omit * from modeled call parameters; verify with matching R5 compiler.",
+      "sources": ["references/syntaxEN-21-R5.json", "pipeline/oop/semantic_overlays/4D.Folder.new.json"]
+    },
+    {
+      "id": "action-info-stale-table",
+      "category": "within_page_documentation",
+      "commands": ["Action-info"],
+      "origin": "Preexisting R3 stale-table finding.",
+      "disposition": "fixed_upstream_in_r5_snapshot",
+      "resolution": "R5 removes the obsolete isEnabled/isVisible/isChecked/isMixed/isUnknownState table summary. Retain enabled/status/title/visible/value from the reviewed Description section and remove the stale error claim.",
+      "sources": ["mirror/docs/commands/action-info.html", "pipeline/semantic_overlays/Action-info.json"]
+    }
+  ],
+  "compilerGateLimitations": [
+    {
+      "id": "classic-empty-call-negative-controls",
+      "commands": ["QR-REPORT", "REGISTER-CLIENT"],
+      "disposition": "historical_rejection_not_reproduced_by_current_checkSyntax",
+      "detail": "The documented historical full-compiler empty-call restrictions are retained conservatively. Fresh 21R5.100156 checkSyntax probes report no diagnostics for both bare and parenthesized empty calls; they are not passed arity negatives, do not promote the calls to valid, and do not erase the historical evidence. The fabricated-command rejection control does fail with Syntax error.",
+      "evidence": ["out/classic_r5_controls.json", "pipeline/stage6_synth_examples.py"]
+    },
+    {
+      "id": "classic-sax-scalar-addressability",
+      "commands": ["SAX-OPEN-XML-ELEMENT-ARRAYS"],
+      "disposition": "historical_full_compiler_constraint_retained",
+      "detail": "Keep authored variable-based scalar arguments rather than literal substitutions. The current bridge checkSyntax gate is not evidence of full-application compiler/runtime addressability and this historical restriction is not presented as freshly reproduced.",
+      "evidence": ["pipeline/stage6_synth_examples.py"]
+    },
+    {
+      "id": "classic-sql-delimiter-hover",
+      "commands": ["Begin-SQL", "End-SQL"],
+      "disposition": "compiled_blocks_without_hover_index_entries",
+      "detail": "Both real paired SQL blocks compile cleanly; neither structural delimiter has a hover entry. The two gaps are accounted for separately, not signature agreement.",
+      "evidence": ["out/classic_hover_crosscheck.json", "out/lsp_crosscheck_report.json"]
+    },
+    {
+      "id": "classic-view-pro-synthesis-exclusion",
+      "commands": [],
+      "disposition": "component_not_installed",
+      "detail": "All 122 View Pro commands remain in the IR but have no synthetic methods/compiler verdicts. Do not claim compiler verification for this intentional exclusion.",
+      "evidence": ["out/synth_manifest.json"]
+    }
+  ],
+  "historicalPipelineDefects": [
+    {"id": "Collection.multiSort-enum", "disposition": "fixed_before_r5", "detail": "colsToSort was incorrectly upgraded to a sort-direction enum despite Collection syntax; not a contradictory upstream signature."},
+    {"id": "IMAPNotifier-recipe", "disposition": "fixed_before_r5", "detail": "Authored instantiation recipe passed arguments to the zero-argument constructor; pipeline recipe defect."},
+    {"id": "ZipFile-recipe", "disposition": "fixed_before_r5", "detail": "Directory.file returns File, not ZipFile; corrected concrete receiver recipe."},
+    {"id": "Document-Directory-typeNames", "disposition": "fixed_before_r5", "detail": "Base-class declaration types incorrectly recorded as one concrete subclass; type-name probes corrected them."}
+  ]
+}

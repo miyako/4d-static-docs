@@ -2704,6 +2704,14 @@
     "status": "clean"
   },
   {
+    "id": "Deferred-formulas",
+    "overload_index": 0,
+    "variant": "default",
+    "file": "Sources/Methods/Synth_Deferred_formulas.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "Delete-string",
     "overload_index": 0,
     "variant": "default",
@@ -9960,6 +9968,22 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:borderColor=Text",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-GET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:borderColor=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_GET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-GET-SCROLLBAR",
     "overload_index": 0,
     "variant": "default",
@@ -10424,6 +10448,22 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-Get-padding",
+    "overload_index": 0,
+    "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_Get_padding.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-Get-padding",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_Get_padding.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-Get-placeholder",
     "overload_index": 0,
     "variant": "default",
@@ -10651,6 +10691,78 @@
     "id": "OBJECT-SET-BORDER-STYLE",
     "overload_index": 0,
     "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border None",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border Plain",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border Dotted",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border Raised",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border Sunken",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border Double",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border System",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border System Rounded",
+    "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-BORDER-STYLE",
+    "overload_index": 0,
+    "variant": "enum:FormObjectBorderStyle=Border Custom",
     "file": "Sources/Methods/Synth_OBJECT_SET_BORDER_STYLE.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -11112,6 +11224,22 @@
     "status": "clean"
   },
   {
+    "id": "OBJECT-SET-PADDING",
+    "overload_index": 0,
+    "variant": "default",
+    "file": "Sources/Methods/Synth_OBJECT_SET_PADDING.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-PADDING",
+    "overload_index": 0,
+    "variant": "flag:omit-leading-thru:asObjectName",
+    "file": "Sources/Methods/Synth_OBJECT_SET_PADDING.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
     "id": "OBJECT-SET-PLACEHOLDER",
     "overload_index": 0,
     "variant": "default",
@@ -11219,6 +11347,22 @@
     "id": "OBJECT-SET-RGB-COLORS",
     "overload_index": 0,
     "variant": "union:altBackgrndColor=Integer",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:borderColor=Text",
+    "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "OBJECT-SET-RGB-COLORS",
+    "overload_index": 0,
+    "variant": "union:borderColor=Integer",
     "file": "Sources/Methods/Synth_OBJECT_SET_RGB_COLORS.4dm",
     "diagnostics": [],
     "status": "clean"
@@ -20324,6 +20468,14 @@
     "overload_index": 0,
     "variant": "default",
     "file": "Sources/Methods/Synth_ZIP_Read_archive.4dm",
+    "diagnostics": [],
+    "status": "clean"
+  },
+  {
+    "id": "defer",
+    "overload_index": 0,
+    "variant": "default",
+    "file": "Sources/Methods/Synth_defer.4dm",
     "diagnostics": [],
     "status": "clean"
   },

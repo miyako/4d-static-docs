@@ -13,7 +13,7 @@
   },
   "summary": "Removes the class specified in *className* from the component",
   "description": "The .removeCSSClass() function removes the class specified in className from the component.",
-  "docPage": "mirror/docs/21-R3/API/WebFormItemClass.html",
+  "docPage": "mirror/docs/API/WebFormItemClass.html",
   "overloads": [
     {
       "params": [

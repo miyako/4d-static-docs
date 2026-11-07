@@ -13,7 +13,7 @@
   },
   "summary": "The port number to listen to",
   "description": "The .port property contains the port number to listen to. This property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/UDPSocketClass.html",
+  "docPage": "mirror/docs/API/UDPSocketClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

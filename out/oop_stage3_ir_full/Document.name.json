@@ -13,7 +13,7 @@
   },
   "summary": "The name of the file without extension (if any)",
   "description": "The .name property returns the name of the file without extension (if any).\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/Document.html",
+  "docPage": "mirror/docs/API/Document.html",
   "accessor": {
     "type": {
       "kind": "concrete",

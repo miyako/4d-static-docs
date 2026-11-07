@@ -11,6 +11,9 @@ on:
         description: "Version folder; auto selects the highest non-beta version"
         required: true
         default: auto
+      docs_root:
+        description: "Optional path relative to docs tree; . explicitly selects default/beta pages. Leave version=auto."
+        required: false
       release_tag:
         description: "Optional explicit static-docs release tag; overrides snapshot_ref"
         required: false
@@ -70,6 +73,7 @@ jobs:
       - name: Extract review bundle
         env:
           DOCS_VERSION: ${{ inputs.version }}
+          DOCS_ROOT: ${{ inputs.docs_root }}
           SYNTAX_JSON: ${{ inputs.syntax_json }}
           SYNTAX_VERSION: ${{ inputs.syntax_version }}
           SYNTAX_BUILD: ${{ inputs.syntax_build }}
@@ -80,11 +84,17 @@ jobs:
           args=(--version "$DOCS_VERSION")
           if [ -n "$RELEASE_TAG" ]; then
             args+=(--release-tag "$RELEASE_TAG" --release-repo "$RELEASE_REPOSITORY")
+            if [ -n "$DOCS_ROOT" ]; then
+              args+=(--docs-root "static-release/site/docs/$DOCS_ROOT")
+            fi
             if [ -n "$SYNTAX_JSON" ]; then
               args+=(--syntax-json "$SYNTAX_JSON")
             fi
           else
             args+=(--docs-tree static-snapshot/mirror/docs)
+            if [ -n "$DOCS_ROOT" ]; then
+              args+=(--docs-root "static-snapshot/mirror/docs/$DOCS_ROOT")
+            fi
             args+=(--syntax-json "static-snapshot/${SYNTAX_JSON:-references/syntaxEN.json}")
           fi
           if [ -n "$SYNTAX_VERSION" ]; then

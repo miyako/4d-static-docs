@@ -13,7 +13,7 @@
   },
   "summary": "Deletes the folder",
   "description": "The .delete() function deletes the folder.\n\nBy default, for security reasons, if you omit the option parameter, .delete( ) only allows empty folders to be deleted. If you want the command to be able to delete folders that are not empty, you must use the option parameter with one of the following constants:\n\nWhen Delete only if empty is passed or if you omit the option parameter:\n\nThe folder is only deleted if it is empty; otherwise, the command does nothing and an error -47 is generated. If the folder does not exist, the error -120 is generated.\n\nWhen Delete with contents is passed:\n\nThe folder, along with all of its contents, is deleted. Warning: Even when this folder and/or its contents are locked or set to read-only, if the current user has suitable access rights, the folder (and contents) is still deleted. If this folder, or any of the files it contains, cannot be deleted, deletion is aborted as soon as the first inaccessible element is detected, and an error(*) is returned. In this case, the folder may be only partially deleted. When deletion is aborted, you can use the Last errors command to retrieve the name and path of the offending file. If the folder does not exist, the command does nothing and no error is returned. (*) Windows: -54 (Attempt to open locked file for writing) macOS: -45 (The file is locked or the pathname is not correct)",
-  "docPage": "mirror/docs/21-R3/API/FolderClass.html",
+  "docPage": "mirror/docs/API/FolderClass.html",
   "overloads": [
     {
       "params": [

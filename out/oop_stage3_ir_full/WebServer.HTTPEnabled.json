@@ -13,7 +13,7 @@
   },
   "summary": "HTTP protocol state",
   "description": "The HTTP protocol state.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

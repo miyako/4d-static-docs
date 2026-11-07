@@ -13,7 +13,7 @@
   },
   "summary": "Encrypts the *message* parameter using the **public** key",
   "description": "The .encrypt() function encrypts the message parameter using the public key. The algorithm used depends on the type of the key.\n\nThe key must be a RSA key, the algorithm is RSA-OAEP (see RFC 3447).",
-  "docPage": "mirror/docs/21-R3/API/CryptoKeyClass.html",
+  "docPage": "mirror/docs/API/CryptoKeyClass.html",
   "overloads": [
     {
       "params": [

@@ -1,0 +1,5 @@
+{
+  "id": "Vector.precision",
+  "_reason": "Official 21 R5 BETA API/VectorClass.html states 'Vector objects are shared, immutable, and streamable.' Precision is chosen by the constructor's new precision parameter and this property reports the value used to build the vector. The per-property paragraph omits the class-level read-only restriction; correct the default writable=true without changing rawSyntax or pretending a static compiler pass proves runtime mutability.",
+  "accessor": {"writable": false}
+}

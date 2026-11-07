@@ -12,7 +12,7 @@ these downstream artifacts need to be brought back in sync with it.
 For every command/overload in `out/4d-command-ir.json`, `stage6_synth_examples.py`
 synthesizes one or more real 4D method bodies that call the command, writes
 them to `Project/Sources/Methods/Synth_<id>.4dm`, and cross-checks them
-against a real 4D compiler (`tool4d`, driven via `tools/tool4d-lsp-stdio`'s
+against a real 4D compiler (`tool4d`, driven via `tools/4dlsp/tool4d-lsp-stdio`'s
 LSP bridge) inside the throwaway project `Project/4DCommandIRSynthCheck.4DProject`.
 Commands whose theme is in `EXCLUDED_THEMES` (currently just `4D-View-Pro`,
 see "Permanently excluded themes" below) are skipped entirely -- no file is
@@ -34,8 +34,9 @@ Re-validating the full corpus after the switch reproduced the exact same
 baseline that existed before it (see "Permanently excluded themes" for what
 that baseline was and why it's gone now), so the earlier per-file check had
 not been silently missing anything in this corpus -- but `check-syntax` is
-the correct long-term foundation and should be assumed authoritative going
-forward.
+the correct long-term foundation for this static gate. Acceptance proves
+only the checks actually performed, not runtime behavior or every
+full-application compiler rule.
 Where the compiler disagrees with what the IR claims, that's fed back as a
 correction to the relevant `pipeline/semantic_overlays/<id>.json` overlay (or,
 for enum data bugs, to `references/4d-command-ir-enums.json` /
@@ -53,8 +54,12 @@ alternative for anything ambiguous), plus these sweeps add more blocks:
 | flag on/off sweep | every optional `literal_symbols` flag (e.g. `*`, `>`), present vs. omitted | `find_flag_omission_variants` + `call_params` override |
 | union-discriminator sweep | every alternative of a union-typed param, one at a time | `find_union_params_in_params` + `ctx_state.union_override` |
 
-Total (excluding `EXCLUDED_THEMES`): 2543 overload+variant entries across
-1334 commands, **2543 clean, 0 warnings, 0 errors**. Any error is a real
+Current **21 R5 BETA**, compiler **21 R5 build 21R5.100156**:
+2563 overload+variant entries across 1338 commands (122 View Pro commands
+excluded), **2563 clean, 0 warnings, 0 errors**. All verdicts were rerun;
+none were copied from R3. Source and compiler hashes are recorded in
+`out/r5_snapshot.json`; semantic decisions are in `out/classic_r5_review.json`.
+Any error is a real
 finding that must be triaged.
 
 ### Permanently excluded themes
@@ -103,13 +108,13 @@ comment explaining the reasoning — read them before changing:
   against the sweep's arbitrary default selector is a real type mismatch,
   not an IR bug.
 - `COMPILER_REQUIRES_NONEMPTY_CALL = {"QR-REPORT", "REGISTER-CLIENT"}` —
-  same root cause as `FLAG_SWEEP_SKIP_EMPTY_CALL` above (a fully bare
-  zero-argument call real-compiler-rejects despite the doc's own bracket
-  notation implying it's legal), but this table is a genuine *compiler*
-  rule rather than a tool4d static-analyzer artifact, so it's also
-  documented as a `constraints` entry in the affected command's own
-  overlay (closing the IR-consumer-facing gap, not just working around it
-  in the synthesizer).
+  historical full-compiler evidence rejected zero-argument calls despite
+  the documentation's bracket notation. Preserve these conservative
+  constraints and that historical evidence. Fresh R5 `checkSyntax` probes
+  do **not** reproduce those rejections, with or without parentheses;
+  they are not passed arity negatives and do not establish that the calls
+  are valid. `out/classic_r5_controls.json` records the observations and a
+  genuine fabricated-command rejection separately.
 - `CONCRETE_REQUIRES_REFERENCE` / `PSEUDO_REQUIRES_REFERENCE` /
   `PSEUDO_ANY_REQUIRES_REFERENCE` — params the IR models as accepting a
   literal (concrete or pseudo:"any") but that the real compiler rejects
@@ -117,6 +122,9 @@ comment explaining the reasoning — read them before changing:
   can't be a constant.", "Invalid constant type: Real/Alphanumeric"). Grow
   this list whenever tool4d/the real compiler reports this class of error
   for a param not yet listed here.
+  In particular, the historical scalar addressability constraint on
+  `SAX OPEN XML ELEMENT ARRAYS` is retained, not claimed freshly reproduced
+  by the R5 full-application compiler.
 - `ARRAY_ELEMENT_TYPE_OVERRIDE` — commands whose `Array`-typed param's
   element type must match some other argument's actual field/list type
   (e.g. `DISTINCT-VALUES`, `ARRAY-TO-SELECTION`) rather than the generic
@@ -177,7 +185,7 @@ python3 pipeline/stage6_synth_examples.py validate --all
 ```
 
 Compare the final line's totals against the last known-good baseline
-(currently: `2543 overload(s) checked, 2543 clean, 0 warning-only, 0
+(currently: `2563 overload(s) checked, 2563 clean, 0 warning-only, 0
 error`). Any error at all is a new finding — triage it (see the loop below)
 before committing. (Errors from `EXCLUDED_THEMES` commands can no longer
 appear here since they're never generated -- see "Permanently excluded
@@ -205,7 +213,7 @@ This is the actual cross-check loop the whole stage exists for:
      fix `pipeline/stage6_synth_examples.py` directly. See "Synthesizer
      internals" below for where the relevant logic lives.
    - **Tooling limitation, not a bug** (rare — confirm via an isolated
-     manual test with `tools/tool4d-lsp-stdio check-syntax`, and, ideally,
+     manual test with `tools/4dlsp/tool4d-lsp-stdio check-syntax`, and, ideally,
      external 4D documentation before concluding this) → add a narrowly
      scoped, well-commented exclusion (see examples above), do NOT touch
      the IR.
@@ -242,7 +250,7 @@ meaningfully faster.
 
 ## Prerequisites / environment dependencies
 
-- `tools/tool4d-lsp-stdio` must be provisioned (it's gitignored, so a fresh
+- `tools/4dlsp/tool4d-lsp-stdio` must be provisioned (it's gitignored, so a fresh
   clone/session starts without it). Use the `4dtools` skill
   (`skills/4dtools/SKILL.md`) to provision it — it downloads/builds the
   binary into `tools/` per its documented recipe, without installing
@@ -349,7 +357,7 @@ generic `synthResult` name stays as-is.
   attribution in `cmd_validate` is **positional** (`enumerate(starts)`),
   not keyed by `overload_index`, since multiple blocks can share one
   `overload_index` — preserve this if you touch that function.
-- `tools/tool4d-lsp-stdio check-syntax --json --workspace Project/ <anchor>`
+- `tools/4dlsp/tool4d-lsp-stdio check-syntax --json --workspace Project/ <anchor>`
   is called exactly once per `validate` run (project-wide, not chunked --
   see "Current coverage" above for why).
 

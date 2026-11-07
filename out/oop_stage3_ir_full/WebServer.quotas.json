@@ -1,0 +1,33 @@
+{
+  "id": "WebServer.quotas",
+  "displayName": "WebServer.quotas",
+  "kind": "oop_property",
+  "memberName": ".quotas",
+  "receiver": {
+    "classId": "WebServer",
+    "kind": "instance",
+    "typeRef": {
+      "kind": "concrete",
+      "name": "WebServer"
+    }
+  },
+  "summary": "A `4D.QuotaManager` object that allows you to configure and monitor quotas for the web server",
+  "description": "The .quotas property contains a 4D.QuotaManager object that allows you to configure and monitor quotas for the web server.\n\nAccessing this property returns a 4D.QuotaManager object that can be updated at runtime. Quotas can be configured at two different scope levels:\n\nServer global: quotas are applied to the aggregate activity of all sessions on the web server. See At startup and At runtime. Session default: quotas are applied by default to each new session when it is created. See At startup and At runtime.\n\nWhen both server global and session default quotas are configured, the session quota is checked first. If the request is accepted, the server global quota is then checked.\n\nFor the complete list of quota properties, see the 4D.QuotaManager class. For configuration and enforcement details, see Web server quotas.\n\nBy default, quota properties are Undefined and no quotas are applied.\n\nYou can modify quota values while the web server is running. Changes to server global quotas are applied to subsequent web server activity. Changes to session default quotas are applied to new sessions created after the quota value is updated. The web server does not need to be restarted.\n\nThe following properties of the 4D.QuotaManager object are available for the Web server:",
+  "docPage": "mirror/docs/API/WebServerClass.html",
+  "accessor": {
+    "type": {
+      "kind": "concrete",
+      "name": "4D.QuotaManager"
+    },
+    "readable": true,
+    "writable": true,
+    "rawSyntax": "**.quotas** : 4D.QuotaManager"
+  },
+  "sinceVersion": "21-R5",
+  "_seeAlso": [
+    {
+      "text": "QuotaManager class",
+      "href": "QuotaManagerClass.html"
+    }
+  ]
+}

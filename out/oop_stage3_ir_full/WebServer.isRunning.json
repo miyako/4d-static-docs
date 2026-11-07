@@ -13,7 +13,7 @@
   },
   "summary": "Web server running state",
   "description": "Read-only property\n\nThe web server running state.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

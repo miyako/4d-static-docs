@@ -9,7 +9,8 @@ static-snapshot/
 static-release/
 __pycache__/
 *.pyc
-/tools/
+/tools/4dlsp/
+/tools/4dform/
 Project/[dD][aA][tT][aA]/
 Project/DerivedData/
 Project/Libraries/

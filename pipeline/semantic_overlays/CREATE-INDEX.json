@@ -9,7 +9,7 @@
   "overloadMerges": [
     {
       "sourceIndices": [0],
-      "note": "Added sentinelValues documenting the four legal indexType constants from the 'Index Type' theme.",
+      "note": "R5 adds cosine, dot and Euclidean vector index types to the existing Index Type constants.",
       "params": [
         {
           "name": "aTable",
@@ -34,7 +34,10 @@
             { "value": -1, "meaning": "Keywords index: word-by-word indexing (Text/Alpha/Picture fields only); cannot be composite" },
             { "value": 0, "meaning": "Default index type: 4D picks the most optimized type (excluding keywords) for the field contents" },
             { "value": 1, "meaning": "Standard B-Tree index" },
-            { "value": 3, "meaning": "Cluster B-Tree index: optimized when few distinct keywords occur frequently" }
+            { "value": 3, "meaning": "Cluster B-Tree index: optimized when few distinct keywords occur frequently" },
+            { "value": 4, "meaning": "Vector cosine index: optimized for cosine similarity queries (21 R5)" },
+            { "value": 5, "meaning": "Vector dot index: optimized for dot similarity queries (21 R5)" },
+            { "value": 6, "meaning": "Vector euclidean index: optimized for Euclidean distance queries (21 R5)" }
           ],
           "description": "Type of index to create"
         },
@@ -53,7 +56,7 @@
           "description": "If passed, indexing runs asynchronously"
         }
       ],
-      "semanticRole": "Creates a standard or keyword index on one or more fields of a table, optionally running the indexing asynchronously."
+      "semanticRole": "Creates a standard, keyword or vector index on field(s) of a table, optionally running the indexing asynchronously."
     }
   ]
 }

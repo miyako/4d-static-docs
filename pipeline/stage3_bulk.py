@@ -25,6 +25,7 @@ Usage:
   python3 stage3_bulk.py validate ID [ID ...]  # validate+ledger-update specific ids
   python3 stage3_bulk.py validate --all-pending  # validate every pending/in_progress id
   python3 stage3_bulk.py validate --all-failed   # retry every currently-failed id
+  python3 stage3_bulk.py validate --all          # rebuild all manifest ids, including done
 """
 from __future__ import annotations
 
@@ -142,7 +143,10 @@ def cmd_validate(ids: list[str]):
     schema = load_json(ROOT / "references" / "4d-command-ir-schema.json")
     validator = jsonschema.Draft202012Validator(schema)
 
-    if ids == ["--all-pending"]:
+    if ids == ["--all"]:
+        ids = [entry["id"] for entry in load_json(OUT_DIR / "manifest.json")["entries"]
+               if entry["id"] not in FIXTURE_IDS]
+    elif ids == ["--all-pending"]:
         ids = [cid for cid, v in ledger.items() if v["status"] in ("pending", "in_progress", "draft_ok")]
     elif ids == ["--all-failed"]:
         ids = [cid for cid, v in ledger.items() if v["status"] == "failed"]
@@ -174,6 +178,8 @@ def cmd_validate(ids: list[str]):
     print(f"\nBatch complete: {n_done} done (reviewed), {n_draft_ok} draft_ok (no overlay yet), "
           f"{n_failed} failed, {n_unknown} unknown-id.")
     cmd_report(ledger)
+    if n_failed or n_unknown:
+        raise SystemExit(1)
 
 
 def main():

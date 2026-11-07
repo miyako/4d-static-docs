@@ -13,7 +13,7 @@
   },
   "summary": "Sends the *mail* object to the SMTP server defined in the `transporter` object and returns a status object",
   "description": "The .send() function sends the mail object to the SMTP server defined in the transporter object and returns a status object.\n\nThe transporter object must have already been created using the SMTP New transporter command.\n\nThe method creates the SMTP connection if it is not already alive. If the .keepAlive property of the transporter object is false, the SMTP connection is automatically closed after the execution of .send(), otherwise it stays alive until the transporter object is destroyed. For more information, please refer to the SMTP New transporter command description.\n\nIn mail, pass a valid Email object to send. The origination (where the email is coming from) and destination (one or more recipients) properties must be included, the remaining properties are optional.",
-  "docPage": "mirror/docs/21-R3/API/SMTPTransporterClass.html",
+  "docPage": "mirror/docs/API/SMTPTransporterClass.html",
   "overloads": [
     {
       "params": [

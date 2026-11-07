@@ -13,7 +13,7 @@
   },
   "summary": "Reloads the content of the entity in memory",
   "description": "The .reload() function reloads the content of the entity in memory, according to information stored in the table related to the dataclass in the datastore. The reload is done only if the entity still exists with the same primary key.\n\nResult\n\nThe object returned by .reload( ) contains the following properties:\n\n(*) The following values can be returned in the status and statusText properties of Result object in case of error:",
-  "docPage": "mirror/docs/21-R3/API/EntityClass.html",
+  "docPage": "mirror/docs/API/EntityClass.html",
   "overloads": [
     {
       "params": [],

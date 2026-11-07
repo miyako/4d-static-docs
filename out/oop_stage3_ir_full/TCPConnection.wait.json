@@ -13,7 +13,7 @@
   },
   "summary": "Waits until  the TCP connection is closed or the specified `timeout` is reached",
   "description": "The wait() function waits until the TCP connection is closed or the specified timeout is reached",
-  "docPage": "mirror/docs/21-R3/API/TCPConnectionClass.html",
+  "docPage": "mirror/docs/API/TCPConnectionClass.html",
   "overloads": [
     {
       "params": [

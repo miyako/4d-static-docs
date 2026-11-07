@@ -13,7 +13,7 @@
   },
   "summary": "Name of the web server application",
   "description": "Read-only property\n\nThe name of the web server application.",
-  "docPage": "mirror/docs/21-R3/API/WebServerClass.html",
+  "docPage": "mirror/docs/API/WebServerClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

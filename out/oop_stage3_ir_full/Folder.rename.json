@@ -13,7 +13,7 @@
   },
   "summary": "Renames the folder with the name you passed in *newName* and returns the renamed `Folder` object",
   "description": "The .rename() function renames the folder with the name you passed in newName and returns the renamed Folder object.\n\nThe newName parameter must comply with naming rules (e.g., it must not contain characters such as \":\", \"/\", etc.), otherwise an error is returned. If a file with the same name already exists, an error is returned.\n\nReturned object\n\nThe renamed Folder object.",
-  "docPage": "mirror/docs/21-R3/API/FolderClass.html",
+  "docPage": "mirror/docs/API/FolderClass.html",
   "overloads": [
     {
       "params": [

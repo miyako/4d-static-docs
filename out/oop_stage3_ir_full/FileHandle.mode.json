@@ -13,7 +13,7 @@
   },
   "summary": "The mode in which the file handle was created: \"read\", \"write\", or \"append\"",
   "description": "The .mode property returns the mode in which the file handle was created: \"read\", \"write\", or \"append\".\n\nThe mode can be defined at the handle creation with the file.open() function. Default is \"read\".\n\nThis property is read-only.",
-  "docPage": "mirror/docs/21-R3/API/FileHandleClass.html",
+  "docPage": "mirror/docs/API/FileHandleClass.html",
   "accessor": {
     "type": {
       "kind": "concrete",

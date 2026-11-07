@@ -55,7 +55,7 @@
     }
   ],
   "constraints": [
-    "Only supported for rectangles, and (4D projects only) inputs and text areas.",
+    "Supported for rectangles and (4D projects only) inputs, text areas, custom-styled buttons with custom Border Line Style, custom-styled radio buttons and check boxes.",
     "For input and text-area objects, the corner radius only has a visible effect with \"none\", \"solid\", or \"dotted\" border line styles.",
     "The new radius is set only for the current process and is not saved in the form itself."
   ]

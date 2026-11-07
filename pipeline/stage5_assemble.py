@@ -2,9 +2,9 @@
 """Stage 5: assemble the final root 4D Command IR document.
 
 Merges:
-  - the 14 hand-authored fixture commands + their Layer-2 registries
+  - the 13 hand-authored fixture commands + their Layer-2 registries
     (references/4d-command-ir-examples.json)
-  - the 1443 bulk-extracted command entries (out/stage3_ir_full/*.json)
+  - the 1447 bulk-extracted command entries (out/stage3_ir_full/*.json)
   - the three standalone Layer-2 registries built during Stage 3 review
     (4d-command-ir-enums.json, 4d-command-ir-callbacks.json,
      4d-command-ir-foreign-grammars.json)
@@ -20,6 +20,8 @@ import glob
 import json
 import sys
 from pathlib import Path
+
+import jsonschema
 
 ROOT = Path(__file__).resolve().parent.parent
 REFS = ROOT / "references"
@@ -66,8 +68,8 @@ def attach_doc_pages(commands):
     happens to lack documentation, so it fails the build rather than silently
     shipping without a link.
 
-    The URL omits the version segment on purpose. `/docs/21-R3/commands/...`
-    resolves today but stops resolving once that release is superseded, which
+    The URL omits the version segment on purpose. Historical release paths
+    can disappear once that release is superseded, which
     would rot a redistributable artifact on 4D's release schedule rather than
     ours. The mirror path is kept as `docPageLocal` for provenance, since the
     mirror is not shipped and the URL is not reversible to a specific version.
@@ -76,11 +78,13 @@ def attach_doc_pages(commands):
     docs_root = manifest["docsRoot"]
     by_id = {e["id"]: e for e in manifest["entries"]}
 
-    missing = [c["id"] for c in commands if c["id"] not in by_id]
-    if missing:
+    actual = {c["id"] for c in commands}
+    missing = sorted(by_id.keys() - actual)
+    extra = sorted(actual - by_id.keys())
+    if missing or extra or len(actual) != len(commands):
         raise SystemExit(
-            f"{len(missing)} command(s) have no manifest entry, so no doc page "
-            f"can be derived: {sorted(missing)[:10]}"
+            f"Manifest/IR coverage mismatch: missing={missing}, extra={extra}, "
+            f"duplicate count={len(commands) - len(actual)}"
         )
 
     for command in commands:
@@ -106,7 +110,7 @@ def main():
         addition = strip_meta(load_json(REFS / filename))
         merge_registry_map(root, key, addition)
 
-    # Commands: 13 fixtures + 1443 bulk-extracted entries.
+    # Commands: fixtures plus reviewed bulk-extracted entries.
     fixture_commands = fixtures_doc.get("commands", [])
     bulk_files = sorted(glob.glob(str(OUT_DIR / "*.json")))
     bulk_commands = [load_json(f) for f in bulk_files]
@@ -120,25 +124,19 @@ def main():
     root["commands"] = fixture_commands + bulk_commands
     attach_doc_pages(root["commands"])
 
-    # Relationships: only the 14-fixture set exists (Stage 4 was explicitly skipped).
+    # Relationships: only the fixture set exists (Stage 4 was explicitly skipped).
     root["relationships"] = fixtures_doc.get("relationships", [])
 
     # Validate against the schema.
-    try:
-        import jsonschema
-    except ImportError:
-        print("jsonschema not installed; skipping schema validation", file=sys.stderr)
-    else:
-        schema = load_json(REFS / "4d-command-ir-schema.json")
-        validator_cls = jsonschema.Draft202012Validator if hasattr(jsonschema, "Draft202012Validator") else jsonschema.Draft7Validator
-        validator = validator_cls(schema)
-        errors = sorted(validator.iter_errors(root), key=lambda e: list(e.path))
-        if errors:
-            print(f"Schema validation FAILED with {len(errors)} error(s):", file=sys.stderr)
-            for e in errors[:20]:
-                print(f"  at {'/'.join(str(p) for p in e.path)}: {e.message}", file=sys.stderr)
-            sys.exit(1)
-        print("Schema validation: OK")
+    schema = load_json(REFS / "4d-command-ir-schema.json")
+    validator = jsonschema.Draft202012Validator(schema)
+    errors = sorted(validator.iter_errors(root), key=lambda e: list(e.path))
+    if errors:
+        print(f"Schema validation FAILED with {len(errors)} error(s):", file=sys.stderr)
+        for e in errors[:20]:
+            print(f"  at {'/'.join(str(p) for p in e.path)}: {e.message}", file=sys.stderr)
+        sys.exit(1)
+    print("Schema validation: OK")
 
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)

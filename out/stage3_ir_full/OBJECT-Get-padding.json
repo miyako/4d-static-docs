@@ -1,0 +1,57 @@
+{
+  "id": "OBJECT-Get-padding",
+  "displayName": "OBJECT Get padding",
+  "kind": "classic_command",
+  "theme": "Objects-Forms",
+  "overloads": [
+    {
+      "params": [
+        {
+          "name": "asObjectName",
+          "type": {
+            "kind": "literal_symbols",
+            "symbols": [
+              "*"
+            ]
+          },
+          "direction": "in",
+          "optional": true
+        },
+        {
+          "name": "object",
+          "type": [
+            {
+              "kind": "concrete",
+              "name": "Text"
+            },
+            {
+              "kind": "concrete",
+              "name": "Variable"
+            },
+            {
+              "kind": "concrete",
+              "name": "Field"
+            }
+          ],
+          "direction": "in",
+          "optional": false
+        }
+      ],
+      "returns": {
+        "kind": "concrete",
+        "name": "Object"
+      },
+      "semanticRole": "Returns the current padding in pixels as an object with Integer top, bottom, left and right properties.",
+      "discriminatedBy": {
+        "param": "asObjectName",
+        "rule": "With *, object is a name string; without *, pass a variable or field reference."
+      }
+    }
+  ],
+  "sinceVersion": "21 R5",
+  "constraints": [
+    "Introduced in 21 R5 BETA; supports text areas, inputs, list boxes, columns, headers and footers.",
+    "When several objects are designated, only the last object's padding is returned.",
+    "For list boxes, columns, headers and footers, top equals bottom and left equals right."
+  ]
+}

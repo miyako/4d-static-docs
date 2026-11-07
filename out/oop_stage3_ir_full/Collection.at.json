@@ -13,7 +13,7 @@
   },
   "summary": "Returns the item at position *index*, allowing for positive and negative integers",
   "description": "The .at() function returns the item at position index, allowing for positive and negative integers.\n\nThis function does not modify the original collection.\n\nNegative integers count back from the last item in the collection.\n\nThe function returns Undefined if index is beyond collection limits.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [

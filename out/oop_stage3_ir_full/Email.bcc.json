@@ -13,7 +13,7 @@
   },
   "summary": "Blind Carbon Copy (BCC) hidden email recipient addresse(s) of the email",
   "description": "The .bcc property contains the Blind Carbon Copy (BCC) hidden email recipient addresse(s) of the email.",
-  "docPage": "mirror/docs/21-R3/API/EmailObjectClass.html",
+  "docPage": "mirror/docs/API/EmailObjectClass.html",
   "accessor": {
     "type": [
       {

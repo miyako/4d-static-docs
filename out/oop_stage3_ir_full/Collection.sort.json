@@ -13,7 +13,7 @@
   },
   "summary": "Sorts the elements of the original collection and also returns the sorted collection",
   "description": "The .sort() function sorts the elements of the original collection and also returns the sorted collection .\n\nThis function modifies the original collection.\n\nIf .sort() is called with no parameters, only scalar values (number, text, date, booleans) are sorted. Elements are sorted by default in ascending order, according to their type. You can also pass one of the following constants in the ascOrDesc parameter:\n\nThis syntax orders scalar values in the collection only (other element types such as objects or collections are returned unordered).\n\nIf the collection contains elements of different types, they will be sorted according to the 4D ordering principles.\n\nIf you want to sort the collection elements in some other order or sort any type of element, you must supply in formula (Formula object) or methodName (Text) a callback that defines the sort order. The return value should be a boolean that indicates the relative order of the two elements: True if $1.value is less than $1.value2, False if $1.value is greater than $1.value2. You can provide additional parameters to the callback if necessary.\n\nThe callback receives the following parameters:\n\n$1 (object), where: $1.value (any type): first element value to be compared $1.value2 (any type): second element value to be compared $2...$N (any type): extra parameters\n\nIf you used a method, you must set the folllowing parameter:\n\n$1.result (boolean): true if $1.value < $1.value2, false otherwise.",
-  "docPage": "mirror/docs/21-R3/API/CollectionClass.html",
+  "docPage": "mirror/docs/API/CollectionClass.html",
   "overloads": [
     {
       "params": [],

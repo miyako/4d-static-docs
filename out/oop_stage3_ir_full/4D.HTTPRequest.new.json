@@ -13,7 +13,7 @@
   },
   "summary": "Creates and sends a HTTP request to the HTTP server defined in *url* with the defined *options*, and returns a `4D.HTTPRequest` object",
   "description": "The 4D.HTTPRequest.new() function creates and sends a HTTP request to the HTTP server defined in url with the defined options, and returns a 4D.HTTPRequest object.\n\nThe returned HTTPRequest object is used to process responses from the HTTP server and call methods.\n\nIn url, pass the URL where you want to send the request. The syntax to use is:\n\nIf you omit the scheme part (http:// or https://), a https request is sent.\n\nFor example, you can pass the following strings:",
-  "docPage": "mirror/docs/21-R3/API/HTTPRequestClass.html",
+  "docPage": "mirror/docs/API/HTTPRequestClass.html",
   "overloads": [
     {
       "params": [
