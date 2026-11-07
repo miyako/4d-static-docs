@@ -6,6 +6,7 @@ mcp_console_render.html
 cache/
 extraction/
 static-snapshot/
+static-release/
 __pycache__/
 *.pyc
 /tools/

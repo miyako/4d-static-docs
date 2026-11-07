@@ -19,7 +19,8 @@ Repo: https://github.com/miyako/4d-static-docs
 ## Deterministic corpus extraction on GitHub Actions
 
 After regenerating the static pages, make `mirror/docs/` available on a
-branch or commit of this repository. The manually dispatched **Extract
+branch or commit of this repository, or select an explicit versioned
+regeneration release with `release_tag`/`release_repository`. The manually dispatched **Extract
 documentation** workflow consumes that snapshot (`snapshot_ref`) and uploads
 raw classic/OOP extraction records, source provenance, and change reports
 for semantic review. It does not regenerate pages, rewrite links, approve

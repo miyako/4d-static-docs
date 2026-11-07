@@ -11,14 +11,19 @@ on:
         description: "Version folder; auto selects the highest non-beta version"
         required: true
         default: auto
+      release_tag:
+        description: "Optional explicit static-docs release tag; overrides snapshot_ref"
+        required: false
+      release_repository:
+        description: "Repository containing the static-docs release"
+        required: true
+        default: miyako/4d-static-docs
       syntax_json:
-        description: "Syntax capture path in the static snapshot"
-        required: true
-        default: references/syntaxEN.json
+        description: "Capture path; snapshot defaults to references/syntaxEN.json; release uses bundled capture"
+        required: false
       syntax_version:
-        description: "Actual version of that syntax capture (not the requested HTML version)"
-        required: true
-        default: 21-R3
+        description: "Actual capture version; snapshot defaults to 21-R3; release uses bundled metadata"
+        required: false
       syntax_build:
         description: "4D build that supplied the syntax capture (optional)"
         required: false
@@ -43,6 +48,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Checkout generated static pages (read-only input)
+        if: ${{ !inputs.release_tag }}
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.snapshot_ref }}
@@ -67,13 +73,27 @@ jobs:
           SYNTAX_JSON: ${{ inputs.syntax_json }}
           SYNTAX_VERSION: ${{ inputs.syntax_version }}
           SYNTAX_BUILD: ${{ inputs.syntax_build }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          RELEASE_REPOSITORY: ${{ inputs.release_repository }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python pipeline/extract_review_bundle.py \
-            --docs-tree static-snapshot/mirror/docs \
-            --version "$DOCS_VERSION" \
-            --syntax-json "static-snapshot/$SYNTAX_JSON" \
-            --syntax-version "$SYNTAX_VERSION" \
-            --syntax-build "$SYNTAX_BUILD"
+          args=(--version "$DOCS_VERSION")
+          if [ -n "$RELEASE_TAG" ]; then
+            args+=(--release-tag "$RELEASE_TAG" --release-repo "$RELEASE_REPOSITORY")
+            if [ -n "$SYNTAX_JSON" ]; then
+              args+=(--syntax-json "$SYNTAX_JSON")
+            fi
+          else
+            args+=(--docs-tree static-snapshot/mirror/docs)
+            args+=(--syntax-json "static-snapshot/${SYNTAX_JSON:-references/syntaxEN.json}")
+          fi
+          if [ -n "$SYNTAX_VERSION" ]; then
+            args+=(--syntax-version "$SYNTAX_VERSION")
+          fi
+          if [ -n "$SYNTAX_BUILD" ]; then
+            args+=(--syntax-build "$SYNTAX_BUILD")
+          fi
+          python pipeline/extract_review_bundle.py "${args[@]}"
 
       - name: Add extraction summary
         if: ${{ always() }}

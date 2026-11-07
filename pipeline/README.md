@@ -11,6 +11,44 @@ re-running these stages blindly.
 
 ## Hosted deterministic extraction
 
+### Release assets (no committed HTML required)
+
+Supply an explicit `release_tag` and `release_repository` to consume the
+versioned output of the separate page-regeneration workflow. This overrides
+`snapshot_ref`. The consumer downloads `docs.zip`, `snapshot.json`,
+`link-report.json`, `SHA256SUMS`, and optional `syntaxEN.json` with `gh`.
+Every checksum is verified before use, and the ZIP's embedded manifest must
+match the separately published manifest. Archive traversal, links, duplicate
+entries, encrypted entries, and excessive expansion are rejected.
+
+When a capture is bundled, leave `syntax_json`, `syntax_version`, and
+`syntax_build` empty: the capture hash, version, and build come atomically
+from the producer manifest and cannot be overridden. If the release has no
+capture, provide an explicit repository-relative `syntax_json` path and
+`syntax_version` from the workflow checkout (not `snapshot_ref`). The
+consumer never silently falls back to an older capture in release mode.
+
+The bundle records the release URL/tag/assets/checksums, upstream source
+commit, generator commit, and archive hash separately from the pipeline
+commit. Release metadata and checksum verification establish provenance and
+integrity; they do not constitute semantic approval or compiler verification.
+Use explicit versioned tags, not a moving `latest` alias.
+
+```sh
+python3 pipeline/extract_review_bundle.py \
+  --release-repo miyako/4d-static-docs \
+  --release-tag <versioned-static-docs-tag> \
+  --version 21-R4
+```
+
+Downloads are installed into a fresh `static-release/` directory only after
+verification and safe extraction. Review output is still `extraction/`;
+downloaded HTML/ZIPs are not re-uploaded in the review artifact. Both
+directories must be fresh (or choose `--release-source` and `--output`).
+The producer manifest requires full source/generator commit IDs.
+
+### Committed static snapshots
+
 The **Extract documentation** Actions workflow can be started with **Run
 workflow** (`workflow_dispatch`). It reads **already-generated static pages**
 from `mirror/docs/` at a branch or commit of this repository (`snapshot_ref`,

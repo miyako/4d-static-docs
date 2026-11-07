@@ -8,9 +8,11 @@ import importlib.metadata
 import json
 import subprocess
 import sys
+import zipfile
 from pathlib import Path
 
 from common.docsroot import resolve_docs_root
+import release_snapshot
 
 
 def read_json(path: Path):
@@ -57,7 +59,29 @@ def inside_repo(repo: Path, value: str) -> Path:
 
 def extract(args: argparse.Namespace, provenance: dict, output: Path) -> None:
     repo = Path(args.repo_root).resolve()
-    tree = inside_repo(repo, args.docs_tree)
+    if args.release_tag:
+        source = inside_repo(repo, args.release_source)
+        if source == repo or source == output or source.is_relative_to(output) or output.is_relative_to(source):
+            raise ValueError("release source must be separate from the repository root and review output")
+        manifest, release = release_snapshot.download(args.release_repo, args.release_tag, source)
+        provenance["release"] = release
+        provenance["staticSnapshot"] = manifest
+        write_json(output / "snapshot.json", manifest)
+        write_json(output / "release.json", release)
+        tree = source / "site/docs"
+        capture = manifest.get("syntaxCapture")
+        if capture:
+            if args.syntax_json or args.syntax_version or args.syntax_build:
+                raise ValueError("bundled capture metadata must not be overridden by syntax options")
+            args.syntax_json = str((source / "assets/syntaxEN.json").relative_to(repo))
+            args.syntax_version = capture["version"]
+            args.syntax_build = capture["build"]
+        elif not args.syntax_json or not args.syntax_version:
+            raise ValueError("release has no syntax capture; supply --syntax-json and --syntax-version")
+    else:
+        tree = inside_repo(repo, args.docs_tree)
+    args.syntax_json = args.syntax_json or "references/syntaxEN.json"
+    args.syntax_version = args.syntax_version or "21-R3"
     syntax = inside_repo(repo, args.syntax_json)
     docs = resolve_docs_root(tree, None if args.version == "auto" else args.version).resolve()
     if not docs.is_relative_to(tree):
@@ -75,7 +99,7 @@ def extract(args: argparse.Namespace, provenance: dict, output: Path) -> None:
 
     provenance.update({
         "repositoryCommit": git_commit(repo),
-        "staticSnapshotCommit": git_commit(tree),
+        "staticSnapshotCommit": None if args.release_tag else git_commit(tree),
         "docsRoot": str(docs.relative_to(repo)),
         "docsVersion": docs.name,
         "syntaxSource": {
@@ -185,11 +209,21 @@ def summary(output: Path, provenance: dict) -> None:
     if "docsVersion" in provenance:
         lines.extend([
             f"HTML version: `{provenance['docsVersion']}`",
-            f"Static snapshot commit: `{provenance['staticSnapshotCommit']}`",
             f"Pipeline/baseline commit: `{provenance['repositoryCommit']}`",
             f"Syntax capture version: `{provenance['syntaxSource']['declaredDocsVersion']}`",
             "",
         ])
+        if provenance.get("release"):
+            manifest = provenance["staticSnapshot"]
+            lines.extend([
+                f"Release: {provenance['release']['url']}",
+                f"Upstream source commit: `{manifest['sourceCommit']}`",
+                f"Snapshot generator commit: `{manifest['generatorCommit']}`",
+                f"Archive SHA-256: `{provenance['release']['sha256']['docs.zip']}`",
+                "",
+            ])
+        else:
+            lines.extend([f"Static snapshot commit: `{provenance['staticSnapshotCommit']}`", ""])
         if not provenance["syntaxSource"]["matchesDocsVersion"]:
             lines.extend([
                 "**Review required: HTML and syntax capture versions differ. "
@@ -233,10 +267,14 @@ def summary(output: Path, provenance: dict) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-root", default=".")
-    parser.add_argument("--docs-tree", required=True, help="Generated static docs directory inside the repository")
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--docs-tree", help="Generated static docs directory inside the repository")
+    source.add_argument("--release-tag", help="Explicit versioned static-docs release tag")
+    parser.add_argument("--release-repo", default="miyako/4d-static-docs")
+    parser.add_argument("--release-source", default="static-release", help="Fresh verified download directory inside repository")
     parser.add_argument("--version", default="auto")
-    parser.add_argument("--syntax-json", default="references/syntaxEN.json")
-    parser.add_argument("--syntax-version", default="21-R3")
+    parser.add_argument("--syntax-json")
+    parser.add_argument("--syntax-version")
     parser.add_argument("--syntax-build", default="", help="4D build that supplied the capture")
     parser.add_argument("--output", default="extraction", help="Fresh directory inside the repository")
     args = parser.parse_args()
@@ -249,7 +287,7 @@ def main() -> int:
     provenance = {"status": "running", "stages": []}
     try:
         extract(args, provenance, output)
-    except (OSError, ValueError, RuntimeError, subprocess.CalledProcessError) as exc:
+    except (OSError, ValueError, RuntimeError, subprocess.CalledProcessError, zipfile.BadZipFile) as exc:
         provenance["status"] = "failed"
         provenance["error"] = str(exc)
         print(f"Extraction failed: {exc}", file=sys.stderr)
