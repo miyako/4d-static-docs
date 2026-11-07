@@ -24,6 +24,12 @@ re-review.
 
 ## Step 0 — refresh the mirror
 
+For a hosted, read-only extraction pass against already-generated static pages, run
+the **Extract documentation** Actions workflow (see `README.md`). Its
+artifact contains fresh raw records and change reports without updating
+`mirror/`, `out/`, semantic overlays, or approval/verification state. Use it
+to scope review; do not treat the artifact as the final assembled corpus.
+
 Regenerate/update `mirror/docs/` with whatever process produced it originally
 (out of scope for this pipeline — it treats the mirror as a read-only input).
 Confirm which version folder you're targeting; Stage 0 auto-picks the
