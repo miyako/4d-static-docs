@@ -1,0 +1,30 @@
+{
+  "sourceRepository": "https://github.com/4d/docs",
+  "sourceBranch": "gh-pages",
+  "sourceCommit": "78952faa7ceba81909b6b757a76108afa76f8993",
+  "generatedDate": "2026-11-07",
+  "docsRoot": "mirror/docs",
+  "defaultVersion": "21-R5",
+  "defaultStatus": "BETA",
+  "archivedVersions": ["21-R4", "21", "20", "19", "18"],
+  "languages": ["en", "fr", "es", "ja", "pt"],
+  "htmlPages": 34401,
+  "htmlPagesByLanguage": {
+    "en": 6881,
+    "fr": 6880,
+    "es": 6880,
+    "ja": 6880,
+    "pt": 6880
+  },
+  "transformations": [
+    "Wget mirror with converted relative page and asset links",
+    "Include published HTML pages unreachable through navigation",
+    "Normalize local target filename casing for portable offline links",
+    "Keep unresolved upstream links at https://developer.4d.com, not the temporary local server"
+  ],
+  "notes": [
+    "Portuguese retains the upstream default label Próximo and archived 21 R4 BETA label",
+    "The source no longer publishes a 21-R3 folder",
+    "Existing assembled language data is not regenerated or approved by this snapshot refresh"
+  ]
+}
